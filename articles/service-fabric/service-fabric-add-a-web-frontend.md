@@ -75,7 +75,7 @@ ASP.NET Core 是轻量跨平台的 Web 开发框架，可用于创建现代 Web 
     ![为有状态服务创建接口项目][vs-add-class-library-project]
 
 3. 若要使某个接口可供 `ServiceProxy` 使用，它必须派生自 IService 接口。 此接口包含在某个 Service Fabric NuGet 包中。 若要添加该程序包，请右键单击新的类库项目，然后选择“**管理 NuGet 程序包**”。
-4. 搜索 **Microsoft.ServiceFabric.Services** 程序包并安装它。
+4. 搜索 **Microsoft.ServiceFabric.Services.Remoting** 程序包并安装它。
    
     ![添加服务 NuGet 包][vs-services-nuget-package]
 
@@ -159,13 +159,14 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 1. 在 ASP.NET 项目中，添加对包含 `ICounter` 接口的类库的引用。
 
-2. 将 Microsoft.ServiceFabric.Services 包添加到 ASP.NET 项目，就如同前面对类库项目所做的一样。 这将提供 `ServiceProxy` 类。
+2. 将 Microsoft.ServiceFabric.Services.Remoting 包添加到 ASP.NET 项目，就如同前面对类库项目所做的一样。 这将提供 `ServiceProxy` 类。
 
 4. 在 **Controllers** 文件夹中，打开 `ValuesController` 类。 请注意，`Get` 方法目前只返回“value1”和“value2”的硬编码字符串数组，这符合前面在浏览器中看到的内容。 使用以下代码替换此实现：
    
     ```c#
-    using MyStatefulService.Interface;
-    using Microsoft.ServiceFabric.Services.Remoting.Client;
+   using MyStatefulService.Interface;
+   using Microsoft.ServiceFabric.Services.Client;
+   using Microsoft.ServiceFabric.Services.Remoting.Client;
    
     ...
    
