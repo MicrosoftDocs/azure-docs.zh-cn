@@ -1,5 +1,5 @@
 ---
-title: "在云服务中配置自定义域名 | Microsoft Docs"
+title: "在云服务中配置自通过配置 | Microsoft Docs"
 description: "了解如何通过配置 DNS 设置在自定义域上向 Internet 公开你的 Azure 应用程序或数据。  这些示例使用 Azure 门户。"
 services: cloud-services
 documentationcenter: .net
@@ -22,7 +22,7 @@ ms.lasthandoff: 04/27/2017
 
 
 ---
-# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 云服务配置自定义域名
+# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>为 Azure 创建云服务时
 > [!div class="op_single_selector"]
 > * [Azure 门户](cloud-services-custom-domain-name-portal.md)
 > * [Azure 经典门户](cloud-services-custom-domain-name.md)
@@ -116,7 +116,7 @@ CNAME 记录将*特定*域（例如 **contoso.com** 或 **www.contoso.com**）�
    * 安装并配置 [Azure Powershell](/powershell/azure/overview)，然后使用以下命令：
      
        ```powershell
-       get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
+       get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Null
        ```
      
      保存该 IP 地址，因为创建 A 记录时需要它。
@@ -130,7 +130,7 @@ CNAME 记录将*特定*域（例如 **contoso.com** 或 **www.contoso.com**）�
 例如，以下 A 记录会将 **contoso.com** 的全部流量都转发至 **137.135.70.239**（已部署应用程序的 IP 地址）：
 
 | 主机名/子域 | IP 地址 |
-| --- | --- |
+| --- | --- |--- |
 | @ |137.135.70.239 |
 
 此示例展示了如何为根域创建 A 记录。 若要创建一个通配符条目来涵盖所有子域，请输入“*****”作为子域。
