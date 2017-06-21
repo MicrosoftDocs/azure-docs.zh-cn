@@ -20,7 +20,7 @@ ms.lasthandoff: 05/10/2017
 
 
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>什么是用于 MySQL 的 Azure 数据库？ 服务简介
-用于 MySQL 的 Azure 数据库是 Microsoft 云中基于 [MySQL 社区版](https://www.mysql.com/products/community/)数据库引擎的一种关系数据库服务。  用于 MySQL 的 Azure 数据库提供以下功能：
+用于 Azure Database for MySQL 是 Microsoft 云中基于 [MySQL 社区版](https://www.mysql.com/products/community/)数据库引擎的一种关系数据库服务。  用于 MySQL 的 Azure 数据库提供以下功能：
 
 - 在多个服务级别提供可预测的性能
 - 在不使应用程序停机的情况下提供动态可伸缩性
