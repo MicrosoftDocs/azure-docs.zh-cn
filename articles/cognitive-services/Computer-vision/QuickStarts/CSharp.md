@@ -82,7 +82,7 @@ namespace CSHttpClientSample
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
             // Request parameters. A third optional parameter is "details".
-            string requestParameters = "visualFeatures=Categories&language=en";
+            string requestParameters = "visualFeatures=Categories,adult,Color,ImageType,Description,Tags,Faces&language=en&details=Celebrities";
 
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
             //   For example, if you obtained your subscription keys from westus, replace "westcentralus" in the 
@@ -101,6 +101,9 @@ namespace CSHttpClientSample
                 // The other content types you can use are "application/json" and "multipart/form-data".
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
                 response = await client.PostAsync(uri, content);
+                string contentString = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Response:\n");
+                Console.WriteLine(contentString);
             }
         }
     }
