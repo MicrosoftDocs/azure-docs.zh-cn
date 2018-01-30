@@ -69,7 +69,7 @@ ms.lasthandoff: 12/07/2017
 若要将自定义代码添加为模块，或手动添加 Azure 服务模块，请执行以下步骤：
 1. 选择“添加自定义 IoT Edge 模块”。
 1. 为模块提供一个名称。
-1. 对于映像字段，输入此模块的 Docker 容器映像：`microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`。
+1. 对于映像字段，输入此模块的 Docker 容器映像。
 1. 使用“OS”和“构架”下的下拉菜单来标识代表此模块的 Docker 容器的属性。 
 1. 指定应传递到容器的任意 Create 选项。 有关详细信息，请参阅 [docker create][lnk-docker-create]。
 1. 使用下拉菜单选择“重启策略”。 从以下选项中选择： 
