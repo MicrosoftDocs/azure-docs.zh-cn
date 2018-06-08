@@ -44,7 +44,7 @@ ms.lasthandoff: 05/07/2018
    ![选择“添加”命令](./media/add-users-azure-active-directory/delete-user.png)
 
 
-### <a name="learn-more"></a>了解详细信息 
+### <a name="learn-more"></a>了解更多信息 
 * [添加另一个目录中的来宾用户](active-directory-b2b-what-is-azure-ad-b2b.md) 
 * [在 Azure AD 中为用户分配角色](active-directory-users-assign-role-azure-portal.md)
 * [管理用户个人资料](active-directory-users-profile-azure-portal.md)
