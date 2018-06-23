@@ -44,7 +44,7 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>为 IoT 中心设备预配服务创建新实例
 
-1. 单击 Azure 门户左上角的“创建资源”按钮。
+1. 单击 Azure 门户左上角的“创建资源”下面的"所有服务"按钮。
 
 2. 搜索 Marketplace 中是否有设备预配服务。 选择“IoT 中心设备预配服务”，然后单击“创建”按钮。 
 
