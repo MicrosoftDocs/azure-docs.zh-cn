@@ -29,7 +29,7 @@ ms.lasthandoff: 03/23/2018
 
 > [!div class="checklist"]
 > * 使用 Docker 生成自定义映像。
-> * 将自定义映像发布到容器注册表。 
+> * 将自定义映像发布到映象仓库。 
 > * 创建 Azure 存储帐户。 
 > * 创建 Linux 应用服务计划。 
 > * 从 Docker 中心部署函数应用。
@@ -70,7 +70,7 @@ ENV AzureWebJobsScriptRoot=/home/site/wwwroot
 COPY . /home/site/wwwroot 
 ```
 >[!NOTE]
-> 在专用容器注册表中托管映像时，应使用 Dockerfile 中的 **ENV** 变量将连接设置添加到函数应用。 由于本教程无法保证使用的是专用注册表，因此连接设置是[在部署后使用 Azure CLI 添加的](#configure-the-function-app)，这是一种最佳安全做法。   
+> 在专用映象仓库中托管映像时，应使用 Dockerfile 中的 **ENV** 变量将连接设置添加到函数应用。 由于本教程无法保证使用的是私有仓库，因此连接设置是[在部署后使用 Azure CLI 添加的](#configure-the-function-app)，这是一种最佳安全做法。   
 
 ### <a name="run-the-build-command"></a>运行 Build 命令
 要生成 Docker 映像，请运行 `docker build` 命令，并提供名称、`mydockerimage` 和标记 `v1.0.0`。 将 `<docker-id>` 替换为 Docker 中心帐户 ID。
@@ -116,7 +116,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 ## <a name="push-the-custom-image-to-docker-hub"></a>将自定义映像推送到 Docker 中心
 
-注册表是一种托管映像、提供服务映像和容器服务的应用程序。 要共享映像，必须先将其推送至注册表。 Docker 中心是一种用于 Docker 映像的注册表，使用该注册表，用户能够托管自己的存储库，无论是公共的还是专用的均可。 
+仓库是一种托管映像、提供服务映像和容器服务的应用程序。 要共享映像，必须先将其推送至仓库。 Docker 中心是一种用于 Docker 映像的仓库，使用该仓库，用户能够托管自己的存储库，无论是公共的还是专用的均可。 
 
 推送映像之前，必须先使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令登录到 Docker 中心。 请将 `<docker-id>` 替换为自己的帐户名，并在控制台中的提示符下键入密码。 有关其他 Docker 中心密码选项，请参阅 [docker login 命令的文档](https://docs.docker.com/engine/reference/commandline/login/)。
 
@@ -220,7 +220,7 @@ AzureWebJobsStorage=$storageConnectionString
 
 > [!div class="checklist"]
 > * 使用 Docker 生成自定义映像。
-> * 将自定义映像发布到容器注册表。 
+> * 将自定义映像发布到映象仓库。 
 > * 创建 Azure 存储帐户。 
 > * 创建 Linux 应用服务计划。 
 > * 从 Docker 中心部署函数应用。
