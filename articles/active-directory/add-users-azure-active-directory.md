@@ -30,7 +30,7 @@ ms.lasthandoff: 05/07/2018
 4. 输入用户的详细信息，如**名称**和**用户名**。 用户名的域名部分必须是初始默认域名“[domain name].onmicrosoft.com”，或已验证的非联合[自定义域名](add-custom-domain.md)（例如“contoso.com”）。
 5. 复制或以其他方式记下生成的用户密码，以便在此过程完成后可以提供给用户。
 6. （可选）可以打开“个人资料”、“组”或“目录角色”并在其中填写用户信息。 有关用户和管理员角色的详细信息，请参阅[在 Azure AD 中分配管理员角色](active-directory-assign-admin-roles-azure-portal.md)。
-7. 在“用户”上，选择“创建”。
+7. 在“用户”选项卡上，选择“创建”。
 8. 以安全方式将生成的密码分发给新用户，以便用户可以登录。
 
 > [!TIP]
@@ -58,4 +58,4 @@ ms.lasthandoff: 05/07/2018
 可使用以下链接在 Azure 门户中的 Azure AD 中创建新用户。
 
 > [!div class="nextstepaction"]
-> [将用户添加到 Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All users) 
+> [将用户添加到 Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/All%20users) 
