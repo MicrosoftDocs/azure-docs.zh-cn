@@ -174,6 +174,10 @@ Connection: Keep-Alive
     Hello, world!
 </voice></speak>
 ```
+> [!NOTE]
+> Custom Voice服务中 ``` <voice> ``` 中 ``` name ``` 属性应为Font Name，否则将会报错。
+  
+  ![FontName](https://raw.githubusercontent.com/SylvesterLi/NoteRepo/master/PicSource/FontName.png)
 
 ### <a name="renewing-authorization"></a>续订授权
 
