@@ -124,10 +124,10 @@ user.department -eq "Sales"
 | 开头不为 |-notStartsWith |
 | 开头为 |-startsWith |
 | 不包含 |-notContains |
-| Contains |-contains |
+| 包含 |-contains |
 | 不匹配 |-notMatch |
 | 匹配 |-match |
-| In | -in |
+| 位于 | -in |
 | 不位于 | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>使用 -In 和 -notIn 运算符
