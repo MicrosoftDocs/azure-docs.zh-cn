@@ -179,7 +179,7 @@ Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or fro
 * [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - 通过此 [Mixed Reality 课程](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303)了解与 LUIS 集成的详细信息。 
 
 可以将 LUIS 与机器人配合使用的 Microsoft 工具：
-* 启用[调度](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch)时，可以使用调度程序模型通过父应用使用多个 LUIS 和 QnA Maker 应用。
+* 启用[调度](https://aka.ms/dispatch-tool)时，可以使用调度程序模型通过父应用使用多个 LUIS 和 QnA Maker 应用。
 * 可以使用[聊天学习器](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)，通过 LUIS 更快速地生成机器人聊天内容。
 * [项目个性聊天](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)，用于处理机器人小型谈话。
 
