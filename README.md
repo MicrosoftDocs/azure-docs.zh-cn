@@ -38,7 +38,7 @@ azure-docs 存储库中的内容遵循 https://docs.microsoft.com/azure 上的�
 此存储库中的所有文章使用 GitHub 风格的标记。  资源列表如下。
 
 * [标记基础知识](https://help.github.com/articles/markdown-basics/)
-* [可打印标记速查表](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
+* [可打印标记速查表](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 
 
 ## <a name="labels"></a>标签
