@@ -19,7 +19,7 @@ ms.locfileid: "48240746"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 配置参考
 
- Azure Blockchain Workbench 应用程序是由配置元数据和智能合同代码定义的多方工作流。 配置元数据定义区块链应用程序的高级工作流和交互模型。 智能合同定义区块链应用程序的业务逻辑。 Workbench 使用配置和智能合同代码生成区块链应用程序用户体验。
+ Azure Blockchain Workbench 应用程序是由配置元数据和智能合约代码定义的多方工作流。 配置元数据定义区块链应用程序的高级工作流和交互模型。 智能合约定义区块链应用程序的业务逻辑。 Workbench 使用配置和智能合约代码生成区块链应用程序用户体验。
 
 配置元数据指定每个区块链应用程序的以下信息： 
 
@@ -33,7 +33,7 @@ ms.locfileid: "48240746"
 * 工作流的状态。  每种状态是业务逻辑控制流中的一个阶段。 
 * 用于转换到下一状态的操作
 * 有权启动每个操作的用户角色
-* 表示代码文件中业务逻辑的智能合同
+* 表示代码文件中业务逻辑的智能合约
 
 ## <a name="application"></a>Application
 
@@ -41,7 +41,7 @@ ms.locfileid: "48240746"
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| ApplicationName | 唯一的应用程序名称。 相应的智能合同必须对适用的合同类使用相同的 **ApplicationName**。  | 是 |
+| ApplicationName | 唯一的应用程序名称。 相应的智能合约必须对适用的合约类使用相同的 **ApplicationName**。  | 是 |
 | DisplayName | 应用程序的友好显示名称。 | 是 |
 | Description | 应用程序的说明。 | 否 |
 | ApplicationRoles | [ApplicationRoles](#application-roles) 的集合。 可以操作或参与应用程序的用户角色。  | 是 |
@@ -51,14 +51,14 @@ ms.locfileid: "48240746"
 
 ## <a name="workflows"></a>工作流
 
-可将应用程序的业务逻辑建模为状态机，在其中执行某些操作会导致业务逻辑流从一种状态转为另一种状态。 工作流是此类状态和操作的集合。 每个工作流包括一个或多个智能合同，这些合同表示代码文件中的业务逻辑。 可执行合同是工作流的实例。
+可将应用程序的业务逻辑建模为状态机，在其中执行某些操作会导致业务逻辑流从一种状态转为另一种状态。 工作流是此类状态和操作的集合。 每个工作流包括一个或多个智能合约，这些合约表示代码文件中的业务逻辑。 可执行合约是工作流的实例。
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| 名称 | 唯一的工作流名称。 相应的智能合同必须对适用的合同类使用相同的 **Name**。 | 是 |
+| 名称 | 唯一的工作流名称。 相应的智能合约必须对适用的合约类使用相同的 **Name**。 | 是 |
 | DisplayName | 工作流的友好显示名称。 | 是 |
 | Description | 工作流的说明。 | 否 |
-| Initiators | [ApplicationRoles](#application-roles) 的集合。 为有权在工作流中创建合同的用户分配的角色。 | 是 |
+| Initiators | [ApplicationRoles](#application-roles) 的集合。 为有权在工作流中创建合约的用户分配的角色。 | 是 |
 | StartState | 工作流初始状态的名称。 | 是 |
 | 属性 | [标识符](#identifiers)的集合。 表示可在链外读取，或者在用户体验工具中可视化的数据。 | 是 |
 | 构造函数 | 定义用于创建工作流实例的输入参数。 | 是 |
@@ -75,7 +75,7 @@ ms.locfileid: "48240746"
 |-------|-------------|
 | 地址  | 区块链地址类型，例如 *contracts* 或 *users* |
 | bool     | 布尔数据类型 |
-| contract | 类型合同的地址 |
+| contract | 类型合约的地址 |
 | 枚举     | 枚举的命名值集。 使用枚举类型时，还可以指定 EnumValues 列表。 每个值限制为 255 个字符。 有效值字符包括大写和小写字母（A-Z、a-z）和数字 (0-9)。 |
 | int      | 整数数据类型 |
 | money    | 货币数据类型 |
@@ -120,7 +120,7 @@ ms.locfileid: "48240746"
 enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
 ```
 
-字符串列表需要在配置和智能合同之间匹配才能在 Blockchain Workbench 中成为有效且一致的声明。
+字符串列表需要在配置和智能合约之间匹配才能在 Blockchain Workbench 中成为有效且一致的声明。
 
 分配示例：
 
@@ -149,7 +149,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| parameters | 启动智能合同所需的[标识符](#identifiers)集合。 | 是 |
+| parameters | 启动智能合约所需的[标识符](#identifiers)集合。 | 是 |
 
 ### <a name="constructor-example"></a>构造函数示例
 
@@ -182,7 +182,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| 名称 | 函数的唯一名称。 相应的智能合同必须对适用的函数使用相同的 **Name**。 | 是 |
+| 名称 | 函数的唯一名称。 相应的智能合约必须对适用的函数使用相同的 **Name**。 | 是 |
 | DisplayName | 函数的友好显示名称。 | 是 |
 | Description | 函数的说明 | 否 |
 | parameters | 对应于函数参数的[标识符](#identifiers)集合。 | 是 |
@@ -230,7 +230,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| 名称 | 状态的唯一名称。 相应的智能合同必须对适用的状态使用相同的 **Name**。 | 是 |
+| 名称 | 状态的唯一名称。 相应的智能合约必须对适用的状态使用相同的 **Name**。 | 是 |
 | DisplayName | 状态的友好显示名称。 | 是 |
 | Description | 状态的说明。 | 否 |
 | PercentComplete | 在 Blockchain Workbench 用户界面中显示的整数值，用于显示业务逻辑控制流中的进度。 | 是 |
@@ -300,7 +300,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
 | AllowedRoles | 有权启动转换的应用程序角色列表。 具有指定角色的所有用户可以执行操作。 | 否 |
-| AllowedInstanceRoles | 智能合同中参与或指定的、有权启动转换的用户角色列表。 实例角色在工作流中的“属性”内定义。 AllowedInstanceRoles 表示参与智能合同实例的用户。 AllowedInstanceRoles 允许你在合同实例中限制对用户角色执行操作。  例如，如果你在 AllowedRoles 中指定了角色，你可能只想允许创建合同的用户（InstanceOwner），而不是角色类型 (Owner) 中的所有用户能够终止。 | 否 |
+| AllowedInstanceRoles | 智能合约中参与或指定的、有权启动转换的用户角色列表。 实例角色在工作流中的“属性”内定义。 AllowedInstanceRoles 表示参与智能合约实例的用户。 AllowedInstanceRoles 允许你在合约实例中限制对用户角色执行操作。  例如，如果你在 AllowedRoles 中指定了角色，你可能只想允许创建合约的用户（InstanceOwner），而不是角色类型 (Owner) 中的所有用户能够终止。 | 否 |
 | DisplayName | 转换的友好显示名称。 | 是 |
 | Description | 转换的说明。 | 否 |
 | 函数 | 用于启动转换的函数的名称。 | 是 |
@@ -344,7 +344,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| 名称 | 应用程序角色的唯一名称。 相应的智能合同必须对适用的角色使用相同的 **Name**。 基类型名称被系统保留。 不能使用 [Type](#type) 的名称来命名应用程序角色| 是 |
+| 名称 | 应用程序角色的唯一名称。 相应的智能合约必须对适用的角色使用相同的 **Name**。 基类型名称被系统保留。 不能使用 [Type](#type) 的名称来命名应用程序角色| 是 |
 | Description | 应用程序角色的说明。 | 否 |
 
 ### <a name="application-roles-example"></a>应用程序角色示例
@@ -367,7 +367,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 | 字段 | Description | 必选 |
 |-------|-------------|:--------:|
-| 名称 | 属性或参数的唯一名称。 相应的智能合同必须对适用的属性或参数使用相同的 **Name**。 | 是 |
+| 名称 | 属性或参数的唯一名称。 相应的智能合约必须对适用的属性或参数使用相同的 **Name**。 | 是 |
 | DisplayName | 属性或参数的友好显示名称。 | 是 |
 | Description | 属性或参数的说明。 | 否 |
 
@@ -396,7 +396,7 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 ## <a name="configuration-file-example"></a>配置文件示例
 
-资产转移是用于买卖高价值资产的一种智能合同方案，需要检查员和评估师。 卖家可以通过实例化资产转移智能合同来列出其资产。 买家可以通过对智能合同执行操作来提出报价，其他各方可以采取行动来检查或评估该资产。 一旦资产被标记为已检查和已评估，买家和卖家将在合同设置为“完成”之前再次确认销售。 在此流程的每个阶段，所有参与者都可以在合同更新时查看合同状态。 
+资产转移是用于买卖高价值资产的一种智能合约方案，需要检查员和评估师。 卖家可以通过实例化资产转移智能合约来列出其资产。 买家可以通过对智能合约执行操作来提出报价，其他各方可以采取行动来检查或评估该资产。 一旦资产被标记为已检查和已评估，买家和卖家将在合约设置为“完成”之前再次确认销售。 在此流程的每个阶段，所有参与者都可以在合约更新时查看合约状态。 
 
 有关详细信息（包括代码文件），请参阅[适用于 Azure Blockchain Workbench 的资产转移示例](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer)
 
