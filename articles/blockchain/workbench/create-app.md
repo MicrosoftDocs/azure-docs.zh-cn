@@ -19,13 +19,13 @@ ms.locfileid: "48240740"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>在 Azure Blockchain Workbench 中创建区块链应用程序
 
-可以使用 Azure Blockchain Workbench 创建区块链应用程序，用于表示由配置和智能合同代码定义的多方工作流。
+可以使用 Azure Blockchain Workbench 创建区块链应用程序，用于表示由配置和智能合约代码定义的多方工作流。
 
 学习如何：
 
 > [!div class="checklist"]
 > * 配置区块链应用程序
-> * 创建智能合同代码文件
+> * 创建智能合约代码文件
 > * 将区块链应用程序添加到 Blockchain Workbench
 > * 将成员添加到区块链应用程序
 
@@ -213,15 +213,15 @@ ms.locfileid: "48240740"
 
 ### <a name="workflows"></a>工作流
 
-工作流定义合同的一个或多个阶段与操作。 在请求-响应方案中，工作流的第一个阶段（状态）是请求方（角色）执行某个操作（转换）以发送请求（函数）。 下一个阶段（状态）是响应方（角色）执行某个操作（转换）以发送响应（函数）。 应用程序的工作流可能涉及到描述合同流所需的属性、函数和状态。 
+工作流定义合约的一个或多个阶段与操作。 在请求-响应方案中，工作流的第一个阶段（状态）是请求方（角色）执行某个操作（转换）以发送请求（函数）。 下一个阶段（状态）是响应方（角色）执行某个操作（转换）以发送响应（函数）。 应用程序的工作流可能涉及到描述合约流所需的属性、函数和状态。 
 
 有关配置文件内容的详细信息，请参阅 [Azure 区块链工作流配置参考](configuration.md)。
 
-## <a name="smart-contract-code-file"></a>智能合同代码文件
+## <a name="smart-contract-code-file"></a>智能合约代码文件
 
-智能合同表示区块链应用程序的业务逻辑。 目前，Blockchain Workbench 支持对区块链账本使用 Ethereum。 Ethereum 使用 [Solidity](https://solidity.readthedocs.io) 作为编程语言来为智能合同编写自我实施的业务逻辑。
+智能合约表示区块链应用程序的业务逻辑。 目前，Blockchain Workbench 支持对区块链账本使用 Ethereum。 Ethereum 使用 [Solidity](https://solidity.readthedocs.io) 作为编程语言来为智能合约编写自我实施的业务逻辑。
 
-Solidity 中的智能合同类似于面向对象的语言中的类。 每个合同包含用于实现智能合同阶段和操作的状态与函数。
+Solidity 中的智能合约类似于面向对象的语言中的类。 每个合约包含用于实现智能合约阶段和操作的状态与函数。
 
 在偏好的编辑器中，创建名为 `HelloBlockchain.sol` 的文件。
 
@@ -229,7 +229,7 @@ Solidity 中的智能合同类似于面向对象的语言中的类。 每个合�
 
 最佳做法是指定 Solidity 目标版本。 指定版本有助于避免与将来的 Solidity 版本不兼容。 
 
-在 `HelloBlockchain.sol` 智能合同代码文件的顶部添加以下版本杂注。
+在 `HelloBlockchain.sol` 智能合约代码文件的顶部添加以下版本杂注。
 
 
   ``` solidity
@@ -238,9 +238,9 @@ Solidity 中的智能合同类似于面向对象的语言中的类。 每个合�
 
 ### <a name="base-class"></a>基类
 
-Blockchain Workbench 可以使用 WorkbenchBase 基类来创建和更新合同。 Blockchain Workbench 特定的智能合同代码需要该基类。 合同需继承自 **WorkbenchBase** 基类。
+Blockchain Workbench 可以使用 WorkbenchBase 基类来创建和更新合约。 Blockchain Workbench 特定的智能合约代码需要该基类。 合约需继承自 **WorkbenchBase** 基类。
 
-在 `HelloBlockchain.sol` 智能合同代码文件的开头添加 **WorkbenchBase** 类。 
+在 `HelloBlockchain.sol` 智能合约代码文件的开头添加 **WorkbenchBase** 类。 
 
 ```
 contract WorkbenchBase {
@@ -268,30 +268,30 @@ contract WorkbenchBase {
 
 |基类函数  | 目的  | 何时调用  |
 |---------|---------|---------|
-| ContractCreated() | 通知 Blockchain Workbench 已创建合同 | 退出合同构造函数之前 |
-| ContractUpdated() | 通知 Blockchain Workbench 已更新合同状态 | 退出合同函数之前 |
+| ContractCreated() | 通知 Blockchain Workbench 已创建合约 | 退出合约构造函数之前 |
+| ContractUpdated() | 通知 Blockchain Workbench 已更新合约状态 | 退出合约函数之前 |
 
-### <a name="configuration-and-smart-contract-code-relationship"></a>配置与智能合同代码之间的关系
+### <a name="configuration-and-smart-contract-code-relationship"></a>配置与智能合约代码之间的关系
 
-Blockchain Workbench 使用配置文件和智能合同代码文件创建区块链应用程序。 配置中定义的内容与智能合同中的代码之间存在某种关系。 合同详细信息、函数、参数和类型需要匹配才能创建应用程序。 Blockchain Workbench 在创建应用程序之前会验证文件。 
+Blockchain Workbench 使用配置文件和智能合约代码文件创建区块链应用程序。 配置中定义的内容与智能合约中的代码之间存在某种关系。 合约详细信息、函数、参数和类型需要匹配才能创建应用程序。 Blockchain Workbench 在创建应用程序之前会验证文件。 
 
-### <a name="contract"></a>合同
+### <a name="contract"></a>合约
 
-对于 Blockchain Workbench 而言，合同需继承自 **WorkbenchBase** 基类。 声明合同时，需将应用程序名称和工作流名称作为参数传递。
+对于 Blockchain Workbench 而言，合约需继承自 **WorkbenchBase** 基类。 声明合约时，需将应用程序名称和工作流名称作为参数传递。
 
-将 **contract** 标头添加到 `HelloBlockchain.sol` 智能合同代码文件。 
+将 **contract** 标头添加到 `HelloBlockchain.sol` 智能合约代码文件。 
 
 ```
 contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
 ```
 
-合同需继承自 **WorkbenchBase** 基类，并传入配置文件中定义的参数 **ApplicationName** 和工作流 **Name**。 在本例中，应用程序名称和工作流名称是相同的。
+合约需继承自 **WorkbenchBase** 基类，并传入配置文件中定义的参数 **ApplicationName** 和工作流 **Name**。 在本例中，应用程序名称和工作流名称是相同的。
 
 ### <a name="state-variables"></a>状态变量
 
-状态变量存储每个合同实例的状态值。 合同中的状态变量必须与配置文件中定义的工作流属性匹配。
+状态变量存储每个合约实例的状态值。 合约中的状态变量必须与配置文件中定义的工作流属性匹配。
 
-将状态变量添加到 `HelloBlockchain.sol` 智能合同代码文件中的合同。 
+将状态变量添加到 `HelloBlockchain.sol` 智能合约代码文件中的合约。 
 
 ```
     //Set of States
@@ -308,13 +308,13 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 
 ### <a name="constructor"></a>构造函数
 
-构造函数定义工作流的新智能合同实例的输入参数。 构造函数声明为与合同同名的函数。 构造函数的所需参数定义为配置文件中的构造函数参数。 两个文件中的参数数目、顺序和类型必须匹配。
+构造函数定义工作流的新智能合约实例的输入参数。 构造函数声明为与合约同名的函数。 构造函数的所需参数定义为配置文件中的构造函数参数。 两个文件中的参数数目、顺序和类型必须匹配。
 
-创建合同之前，请在构造函数中编写想要执行的任何业务逻辑。 例如，使用起始值初始化状态变量。
+创建合约之前，请在构造函数中编写想要执行的任何业务逻辑。 例如，使用起始值初始化状态变量。
 
-退出构造函数之前调用 `ContractCreated()` 函数。 此函数通知 Blockchain Workbench 已创建合同。
+退出构造函数之前调用 `ContractCreated()` 函数。 此函数通知 Blockchain Workbench 已创建合约。
 
-将构造函数添加到 `HelloBlockchain.sol` 智能合同代码文件中的合同。 
+将构造函数添加到 `HelloBlockchain.sol` 智能合约代码文件中的合约。 
 
 ```
     // constructor function
@@ -331,13 +331,13 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 
 ### <a name="functions"></a>函数
 
-函数是合同中业务逻辑的可执行单元。 函数的所需参数定义为配置文件中的函数参数。 两个文件中的参数数目、顺序和类型必须匹配。 函数关联到配置文件的 Blockchain Workbench 工作流中的转换。 转换是为了转移到合同定义的下一应用程序工作流阶段而执行的操作。
+函数是合约中业务逻辑的可执行单元。 函数的所需参数定义为配置文件中的函数参数。 两个文件中的参数数目、顺序和类型必须匹配。 函数关联到配置文件的 Blockchain Workbench 工作流中的转换。 转换是为了转移到合约定义的下一应用程序工作流阶段而执行的操作。
 
 在函数中编写想要执行的任何业务逻辑。 例如，修改状态变量的值。
 
-退出函数之前调用 `ContractUpdated()` 函数。 该函数通知 Blockchain Workbench 已更新合同状态。 如果想要撤消函数中所做的状态更改，请调用 revert()。 Revert 会丢弃自上次调用 ContractUpdated() 以来所做的状态更改。
+退出函数之前调用 `ContractUpdated()` 函数。 该函数通知 Blockchain Workbench 已更新合约状态。 如果想要撤消函数中所做的状态更改，请调用 revert()。 Revert 会丢弃自上次调用 ContractUpdated() 以来所做的状态更改。
 
-1. 将以下函数添加到 `HelloBlockchain.sol` 智能合同代码文件中的合同。 
+1. 将以下函数添加到 `HelloBlockchain.sol` 智能合约代码文件中的合约。 
 
     ```
         // call this function to send a request
@@ -368,18 +368,18 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
     }
     ```
 
-2. 保存 `HelloBlockchain.sol` 智能合同代码文件。
+2. 保存 `HelloBlockchain.sol` 智能合约代码文件。
 
 ## <a name="add-blockchain-application-to-blockchain-workbench"></a>将区块链应用程序添加到 Blockchain Workbench
 
-若要将区块链应用程序添加到 Blockchain Workbench，请上传配置和智能合同文件以定义应用程序。
+若要将区块链应用程序添加到 Blockchain Workbench，请上传配置和智能合约文件以定义应用程序。
 
 1. 在 Web 浏览器中，导航到 Blockchain Workbench 的 Web 地址。 例如 `https://{workbench URL}.azurewebsites.net/`。该 Web 应用程序是部署 Blockchain Workbench 时创建的。 有关如何查找 Blockchain Workbench Web 地址的信息，请参阅 [Blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. 以 [Blockchain Workbench 管理员](manage-users.md#manage-blockchain-workbench-administrators)身份登录。
 3. 选择“应用程序” > “新建”。 此时会显示“新建应用程序”窗格。
-4. 选择“上传合同配置” > “浏览”，找到创建的 **HelloBlockchain.json** 配置文件。 系统会自动验证该配置文件。 选择“显示”链接以显示验证错误。 请在部署应用程序之前修复验证错误。
-5. 选择“上传合同代码” > “浏览”，找到 **HelloBlockchain.sol** 智能合同代码文件。 系统会自动验证该代码文件。 选择“显示”链接以显示验证错误。 请在部署应用程序之前修复验证错误。
-6. 选择“部署”，根据配置和智能合同文件创建区块链应用程序。
+4. 选择“上传合约配置” > “浏览”，找到创建的 **HelloBlockchain.json** 配置文件。 系统会自动验证该配置文件。 选择“显示”链接以显示验证错误。 请在部署应用程序之前修复验证错误。
+5. 选择“上传合约代码” > “浏览”，找到 **HelloBlockchain.sol** 智能合约代码文件。 系统会自动验证该代码文件。 选择“显示”链接以显示验证错误。 请在部署应用程序之前修复验证错误。
+6. 选择“部署”，根据配置和智能合约文件创建区块链应用程序。
 
 部署区块链应用程序需要几分钟时间。 完成部署后，新应用程序会显示在“应用程序”中。 
 
@@ -388,7 +388,7 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 
 ## <a name="add-blockchain-application-members"></a>添加区块链应用程序成员
 
-将应用程序成员添加到应用程序，以启动合同并对其执行操作。 只有 [Blockchain Workbench 管理员](manage-users.md#manage-blockchain-workbench-administrators)才能添加应用程序成员。
+将应用程序成员添加到应用程序，以启动合约并对其执行操作。 只有 [Blockchain Workbench 管理员](manage-users.md#manage-blockchain-workbench-administrators)才能添加应用程序成员。
 
 1. 选择“应用程序” > “Hello, Blockchain!”。
 2. 页面右上角会显示与应用程序关联的成员数。 对于新应用程序，成员数为零。

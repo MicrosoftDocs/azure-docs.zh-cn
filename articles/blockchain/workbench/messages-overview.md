@@ -21,7 +21,7 @@ ms.locfileid: "48240590"
 
 除了提供 REST API 以外，Azure Blockchain Workbench 还提供基于消息的集成。 Workbench 通过 Azure 事件网格发布以账本为中心的事件，使下游使用者能够根据这些事件引入数据或执行操作。 对于需要可靠消息传递的客户端，Azure Blockchain Workbench 还会将消息传送到 Azure 服务总线终结点。
 
-很多开发人员还希望能够与外部系统通信，并发起事务来创建用户、创建合同以及更新账本中的合同。 尽管此功能目前尚未推出公共预览版，但在 [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample) 中可以找到提供此功能的示例。
+很多开发人员还希望能够与外部系统通信，并发起事务来创建用户、创建合约以及更新账本中的合约。 尽管此功能目前尚未推出公共预览版，但在 [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample) 中可以找到提供此功能的示例。
 
 ## <a name="event-notifications"></a>事件通知
 
@@ -88,20 +88,20 @@ public class NewAccountRequest : MessageModelBase
 
 ### <a name="contractinsertedorupdated"></a>ContractInsertedOrUpdated
 
-指示已发出在分布式账本中插入或更新合同的请求。
+指示已发出在分布式账本中插入或更新合约的请求。
 
 | 名称 | Description |
 |-----|--------------|
 | ChainID | 与请求关联的链的唯一标识符。|
 | BlockId | 账本中块的唯一标识符。|
-| ContractId | 合同的唯一标识符。|
-| ContractAddress |       账本中合同的地址。|
+| ContractId | 合约的唯一标识符。|
+| ContractAddress |       账本中合约的地址。|
 | TransactionHash  |     账本中事务的哈希。|
 | OriginatingAddress |   事务发起方的地址。|
 | ActionName       |     操作的名称。|
 | IsUpdate        |      标识此操作是否为更新。|
 | parameters       |     一个对象列表，用于标识发送到操作的参数的名称、值和数据类型。|
-| TopLevelInputParams |  如果已将某个合同连接到其他一个或多个合同，则这些项是来自顶级合同的参数。 |
+| TopLevelInputParams |  如果已将某个合约连接到其他一个或多个合约，则这些项是来自顶级合约的参数。 |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -122,19 +122,19 @@ public class ContractInsertOrUpdateRequest : MessageModelBase
 
 #### <a name="updatecontractaction"></a>UpdateContractAction
 
-指示已发出针对分布式账本中特定合同执行操作的请求。
+指示已发出针对分布式账本中特定合约执行操作的请求。
 
 | 名称                     | Description                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | 此合同操作的唯一标识符                                                                                                                                |
+| ContractActionId         | 此合约操作的唯一标识符                                                                                                                                |
 | ChainIdentifier          | 链的唯一标识符                                                                                                                                           |
 | ConnectionId             | 连接的唯一标识符                                                                                                                                      |
 | UserChainIdentifier      | 在区块链网络上创建的用户的地址。 在 Ethereum 中，此值为用户的“链中”地址。                                                     |
-| ContractLedgerIdentifier | 账本中合同的地址。                                                                                                                                        |
+| ContractLedgerIdentifier | 账本中合约的地址。                                                                                                                                        |
 | WorkflowFunctionName     | 工作流函数的名称。                                                                                                                                                |
 | WorkflowName             | 工作流的名称。                                                                                                                                                         |
-| WorkflowBlobStorageURL   | Blob 存储中合同的 URL。                                                                                                                                      |
-| ContractActionParameters | 合同操作的参数。                                                                                                                                           |
+| WorkflowBlobStorageURL   | Blob 存储中合约的 URL。                                                                                                                                      |
+| ContractActionParameters | 合约操作的参数。                                                                                                                                           |
 | TransactionHash          | 账本中事务的哈希。                                                                                                                                    |
 | 预配状态      | 操作的当前预配状态。</br>0 – 已创建</br>1 – 正在处理</br>2 – 完成</br> “完成”表示账本已确认成功添加此项。                                               |
 |                          |                                                                                                                                                                               |
@@ -229,12 +229,12 @@ public class InsertTransactionRequest : MessageModelBase
 
 ### <a name="assigncontractchainidentifier"></a>AssignContractChainIdentifier
 
-提供有关合同的链标识符分配的详细信息。 例如，Ethereum 区块链中的账本上某个合同的地址。
+提供有关合约的链标识符分配的详细信息。 例如，Ethereum 区块链中的账本上某个合约的地址。
 
 | 名称            | Description                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | 这是 Azure Blockchain Workbench 中的合同的唯一标识符。 |
-| ChainIdentifier | 这是链中的合同的标识符。                             |
+| ContractId      | 这是 Azure Blockchain Workbench 中的合约的唯一标识符。 |
+| ChainIdentifier | 这是链中的合约的标识符。                             |
 
 ``` csharp
 public class AssignContractChainIdentifierRequest : MessageModelBase
@@ -306,4 +306,4 @@ public class ContractProperty
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [智能合同集成模式](integration-patterns.md)
+> [智能合约集成模式](integration-patterns.md)

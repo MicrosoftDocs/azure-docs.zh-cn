@@ -49,7 +49,7 @@ ms.locfileid: "48240417"
 
     ![导航器](./media/data-powerbi/navigator.png)
 
-7.  选择要包括的视图。 对于演示用途，我们包括了 **vwContractAction**，该视图提供了已对某个合同执行的所有操作的详细信息。
+7.  选择要包括的视图。 对于演示用途，我们包括了 **vwContractAction**，该视图提供了已对某个合约执行的所有操作的详细信息。
 
     ![选择视图](./media/data-powerbi/select-views.png)
 

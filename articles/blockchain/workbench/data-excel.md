@@ -59,7 +59,7 @@ ms.locfileid: "48240745"
 
 接下来的示例展示了如何将数据从视图加载到 Excel 工作簿中。
 
-1. 在“导航器”滚动条中，选择“vwContractAction”视图。 “vwContractAction”预览显示与 Blockchain Workbench 数据库中的某个合同相关的所有操作。
+1. 在“导航器”滚动条中，选择“vwContractAction”视图。 “vwContractAction”预览显示与 Blockchain Workbench 数据库中的某个合约相关的所有操作。
 2. 选择“加载”来检索该视图中的所有数据并将其置于 Excel 工作簿中。
 
    ![从视图加载的数据](./media/data-excel/view-data.png)

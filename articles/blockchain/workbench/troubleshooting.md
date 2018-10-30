@@ -70,7 +70,7 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 
 摘要文件提供了应用程序总体状态的快照以及应用程序的运行状况。 此摘要提供建议的操作，突出显示了顶级错误以及正在运行的服务的相关元数据。
 
-**Metrics** 文件夹包含各种系统组件随时间变化的指标。 例如，输出文件 `\Details\Workbench\apiMetrics.txt` 包含不同响应代码的摘要，以及整个收集期间的响应时间。 **Details** 文件夹包含用于解决 Workbench 或底层区块链网络特定问题的详细日志。 例如，`\Details\Workbench\Exceptions.csv` 包含系统中最近发生的异常列表，这对于解决智能合同或与区块链交互的错误很有用。 
+**Metrics** 文件夹包含各种系统组件随时间变化的指标。 例如，输出文件 `\Details\Workbench\apiMetrics.txt` 包含不同响应代码的摘要，以及整个收集期间的响应时间。 **Details** 文件夹包含用于解决 Workbench 或底层区块链网络特定问题的详细日志。 例如，`\Details\Workbench\Exceptions.csv` 包含系统中最近发生的异常列表，这对于解决智能合约或与区块链交互的错误很有用。 
 
 ## <a name="next-steps"></a>后续步骤
 

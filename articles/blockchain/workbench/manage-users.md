@@ -73,7 +73,7 @@ Azure Blockchain Workbench 将 Azure Active Directory (Azure AD) 用于身份验
 
     ![Blockchain Workbench](./media/manage-users/blockchain-workbench-applications.png)
 
-    成员将添加到每个应用程序。 成员可以通过一个或多个应用程序角色来启动合同或执行操作。
+    成员将添加到每个应用程序。 成员可以通过一个或多个应用程序角色来启动合约或执行操作。
 
 2. 若要管理应用程序的成员，请在“应用程序”窗格中选择应用程序磁贴。
 

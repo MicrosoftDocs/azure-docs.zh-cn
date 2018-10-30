@@ -19,13 +19,13 @@ ms.locfileid: "48240693"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>使用 Azure Blockchain Workbench REST API 
 
-开发人员和信息工作者可以使用 Azure Blockchain Workbench REST API 生成丰富的适用于区块链应用程序的集成。 本文档详细介绍 Workbench REST API 的多种主要方法。 假设这样一种场景：开发人员需要创建一个自定义区块链客户端，以便登录用户查看已分配的区块链应用程序并与之交互。 用户可以通过客户端查看合同实例并对智能合同执行操作。 在用户已登录的情况下，客户端会使用 Workbench REST API 执行以下操作：
+开发人员和信息工作者可以使用 Azure Blockchain Workbench REST API 生成丰富的适用于区块链应用程序的集成。 本文档详细介绍 Workbench REST API 的多种主要方法。 假设这样一种场景：开发人员需要创建一个自定义区块链客户端，以便登录用户查看已分配的区块链应用程序并与之交互。 用户可以通过客户端查看合约实例并对智能合约执行操作。 在用户已登录的情况下，客户端会使用 Workbench REST API 执行以下操作：
 
 * 列出应用程序
 * 列出应用程序的工作流
-* 列出工作流的智能合同实例
-* 列出可用于合同的操作
-* 执行适用于合同的操作
+* 列出工作流的智能合约实例
+* 列出可用于合约的操作
+* 执行适用于合约的操作
 
 上述场景中使用的示例区块链应用程序可以[从 GitHub 下载](https://github.com/Azure-Samples/blockchain)。 
 
@@ -43,7 +43,7 @@ GET /api/v1/applications
 Authorization : Bearer {access token}
 ```
 
-响应会列出可供用户在 Blockchain Workbench 中访问的所有区块链应用程序。 Blockchain Workbench 管理员可以获取所有区块链应用程序，而非 Workbench 管理员则可获取有它们的至少一个相关应用程序角色或相关智能合同实例角色的所有区块链。
+响应会列出可供用户在 Blockchain Workbench 中访问的所有区块链应用程序。 Blockchain Workbench 管理员可以获取所有区块链应用程序，而非 Workbench 管理员则可获取有它们的至少一个相关应用程序角色或相关智能合约实例角色的所有区块链。
 
 ``` http
 HTTP/1.1 200 OK
@@ -77,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>列出应用程序的工作流
 
-一旦用户选择了适当的区块链应用程序（在本示例中为“资产转移”），区块链客户端就会检索该特定区块链应用程序的所有工作流。 然后，用户可以在工作流的所有智能合同实例显示之前选择适当的工作流。 每个区块链应用程序有一个或多个工作流，每个工作流有零个或多个智能合同实例。 开发区块链客户端应用程序时，建议在只有一个工作流适用于区块链应用程序的情况下跳过允许用户选择适当工作流的用户体验流。 在本示例中，资产转移只有一个工作流，也称为“资产转移”。
+一旦用户选择了适当的区块链应用程序（在本示例中为“资产转移”），区块链客户端就会检索该特定区块链应用程序的所有工作流。 然后，用户可以在工作流的所有智能合约实例显示之前选择适当的工作流。 每个区块链应用程序有一个或多个工作流，每个工作流有零个或多个智能合约实例。 开发区块链客户端应用程序时，建议在只有一个工作流适用于区块链应用程序的情况下跳过允许用户选择适当工作流的用户体验流。 在本示例中，资产转移只有一个工作流，也称为“资产转移”。
 
 使用 [Applications Workflows GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget)：
 
@@ -86,7 +86,7 @@ GET /api/v1/applications/{applicationId}/workflows
 Authorization: Bearer {access token}
 ```
 
-响应会列出可供用户在 Blockchain Workbench 中访问的指定区块链应用程序的所有工作流。 Blockchain Workbench 管理员可以获取所有区块链工作流，而非 Workbench 管理员则可获取有它们的至少一个相关应用程序角色或相关智能合同实例角色的所有工作流。
+响应会列出可供用户在 Blockchain Workbench 中访问的指定区块链应用程序的所有工作流。 Blockchain Workbench 管理员可以获取所有区块链工作流，而非 Workbench 管理员则可获取有它们的至少一个相关应用程序角色或相关智能合约实例角色的所有工作流。
 
 ``` http
 HTTP/1.1 200 OK
@@ -107,9 +107,9 @@ Content-type: application/json
 }
 ```
 
-## <a name="list-smart-contract-instances-for-a-workflow"></a>列出工作流的智能合同实例
+## <a name="list-smart-contract-instances-for-a-workflow"></a>列出工作流的智能合约实例
 
-一旦用户选择了适当的工作流（在本示例中为“资产转移”），区块链客户端就会检索指定工作流的所有智能合同实例。 可以根据此信息来显示工作流的所有智能合同实例，以便用户深入了解任何显示的智能合同实例。 在此示例中，设想用户会与某个需执行操作的智能合同实例交互。
+一旦用户选择了适当的工作流（在本示例中为“资产转移”），区块链客户端就会检索指定工作流的所有智能合约实例。 可以根据此信息来显示工作流的所有智能合约实例，以便用户深入了解任何显示的智能合约实例。 在此示例中，设想用户会与某个需执行操作的智能合约实例交互。
 
 使用 [Contracts GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget)：
 
@@ -118,7 +118,7 @@ GET api/v1/contracts?workflowId={workflowId}
 Authorization: Bearer {access token}
 ```
 
-响应会列出指定工作流的所有智能合同实例。 Workbench 管理员可以获取所有智能合同实例，而非 Workbench 管理员则可获取有它们的至少一个相关应用程序角色或相关智能合同实例角色的所有智能合同实例。
+响应会列出指定工作流的所有智能合约实例。 Workbench 管理员可以获取所有智能合约实例，而非 Workbench 管理员则可获取有它们的至少一个相关应用程序角色或相关智能合约实例角色的所有智能合约实例。
 
 ``` http
 HTTP/1.1 200 OK
@@ -206,12 +206,12 @@ Content-type: application/json
 }
 ```
 
-## <a name="list-available-actions-for-a-contract"></a>列出可用于合同的操作
+## <a name="list-available-actions-for-a-contract"></a>列出可用于合约的操作
 
-一旦用户决定深入了解某个合同，区块链客户端就会根据合同的状态向该用户显示所有可用的操作。 在此示例中，用户将查看适用于新建智能合同的所有操作：
+一旦用户决定深入了解某个合约，区块链客户端就会根据合约的状态向该用户显示所有可用的操作。 在此示例中，用户将查看适用于新建智能合约的所有操作：
 
 * 修改：允许用户修改资产的说明和价格。
-* 终止：允许用户终止资产的合同。
+* 终止：允许用户终止资产的合约。
 
 使用 [Contract Action GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget)：
 
@@ -220,7 +220,7 @@ GET /api/v1/contracts/{contractId}/actions
 Authorization: Bearer {access token}
 ```
 
-响应会列出用户可以根据指定智能合同实例的当前状态执行的所有操作。 如果用户有一个相关联的应用程序角色，或者与某个智能合同实例角色相关联，则用户可以获取所有适用于指定智能合同实例当前状态的操作。
+响应会列出用户可以根据指定智能合约实例的当前状态执行的所有操作。 如果用户有一个相关联的应用程序角色，或者与某个智能合约实例角色相关联，则用户可以获取所有适用于指定智能合约实例当前状态的操作。
 
 ``` http
 HTTP/1.1 200 OK
@@ -273,9 +273,9 @@ Content-type: application/json
 }
 ```
 
-## <a name="execute-an-action-for-a-contract"></a>执行适用于合同的操作
+## <a name="execute-an-action-for-a-contract"></a>执行适用于合约的操作
 
-然后，用户可以根据指定的智能合同实例来决定要采取的操作。 在此示例中，假设这样一种场景：用户要将资产的说明和价格修改如下：
+然后，用户可以根据指定的智能合约实例来决定要采取的操作。 在此示例中，假设这样一种场景：用户要将资产的说明和价格修改如下：
 
 * 说明：“My updated car”
 * 价格：54321
@@ -300,7 +300,7 @@ actionInformation: {
 }
 ```
 
-用户只能根据指定智能合同实例的当前状态以及用户的关联应用程序角色或智能合同实例角色来执行操作。 如果 POST 成功，则会返回没有响应正文的“HTTP 200 正常”响应。
+用户只能根据指定智能合约实例的当前状态以及用户的关联应用程序角色或智能合约实例角色来执行操作。 如果 POST 成功，则会返回没有响应正文的“HTTP 200 正常”响应。
 
 ``` http
 HTTP/1.1 200 OK

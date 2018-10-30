@@ -23,7 +23,7 @@ ms.locfileid: "48240731"
 
 ## <a name="overview"></a>概述
 
-在 Blockchain Workbench SQL DB 中，有关应用程序、工作流和智能合同执行的信息是使用数据库视图提供的。 当使用诸如 Microsoft Excel、PowerBI、Visual Studio 和 SQL Server Management Studio 之类的工具时，开发人员可以使用此信息。
+在 Blockchain Workbench SQL DB 中，有关应用程序、工作流和智能合约执行的信息是使用数据库视图提供的。 当使用诸如 Microsoft Excel、PowerBI、Visual Studio 和 SQL Server Management Studio 之类的工具时，开发人员可以使用此信息。
 
 开发人员需要执行以下操作，然后才能连接到数据库：
 
