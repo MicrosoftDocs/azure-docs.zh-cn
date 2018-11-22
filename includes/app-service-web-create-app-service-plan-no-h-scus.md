@@ -17,7 +17,7 @@ ms.locfileid: "47395990"
 ---
 在 Cloud Shell 中，使用 [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令创建一个应用服务计划。
 
-以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划：
+下面的示例命令在免费版本中创建名为 `myAppServicePlan` 的应用服务计划：
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
