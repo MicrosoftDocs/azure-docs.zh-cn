@@ -75,16 +75,16 @@ Azure Blockchain Workbench 将 Azure Active Directory (Azure AD) 用于身份验
 
     成员将添加到每个应用程序。 成员可以通过一个或多个应用程序角色来启动合同或执行操作。
 
-2. 若要管理应用程序的成员，请在“应用程序”窗格中选择应用程序磁贴。
+2. 若要管理应用程序的成员，请在“应用程序”窗格中选择应用程序窗格。
 
-    与所选应用程序关联的成员数反映在成员磁贴中。
+    与所选应用程序关联的成员数反映在成员窗格中。
 
     ![选择应用程序](./media/manage-users/blockchain-workbench-select-application.png)
 
 
 #### <a name="add-member-to-application"></a>将成员添加到应用程序
 
-1. 选择成员磁贴，以便显示当前成员的列表。
+1. 选择成员窗格，以便显示当前成员的列表。
 2. 选择“添加成员”。
 
     ![添加成员](./media/manage-users/application-add-members.png)
@@ -101,14 +101,14 @@ Azure Blockchain Workbench 将 Azure Active Directory (Azure AD) 用于身份验
 
 #### <a name="remove-member-from-application"></a>从应用程序中删除成员
 
-1. 选择成员磁贴，以便显示当前成员的列表。
+1. 选择成员窗格，以便显示当前成员的列表。
 2. 对于要删除的用户，请从角色下拉列表中选择“删除”。
 
     ![删除成员](./media/manage-users/application-remove-member.png)
 
 #### <a name="change-or-add-role"></a>更改或添加角色
 
-1. 选择成员磁贴，以便显示当前成员的列表。
+1. 选择成员窗格，以便显示当前成员的列表。
 2. 对于要更改的用户，请单击下拉列表，然后选择新角色。
 
     ![更改角色](./media/manage-users/application-change-role.png)
