@@ -1,5 +1,5 @@
 ---
-title: 快速入门 - 使用 Azure PowerShell 创建 Windows VM | Microsoft Docs
+title: 快速入门 - 使用 Azure PowerShell 创建 Windows 虚拟机| Microsoft Docs
 description: 本快速入门介绍了如何使用 Azure PowerShell 创建 Windows 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -25,7 +25,7 @@ ms.locfileid: "46978873"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Windows 虚拟机
 
-Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门展示了如何使用 Azure CLI 在 Azure 中部署运行 Windows Server 2016 的虚拟机 (VM)。 若要查看运行中的 VM，可以通过 RDP 登录到该 VM 并安装 IIS Web 服务器。
+Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 这个快速入门展示了如何使用 Azure CLI 在 Azure 中部署运行 Windows Server 2016 的虚拟机 (VM)。 若要查看虚拟机的运行情况，可以通过 RDP 登录到该虚拟机并安装 IIS Web 服务器。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -35,7 +35,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/azure/group#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在 eastus 位置创建名为 myResourceGroup 的资源组：
+使用 [az group create](/cli/azure/group#az_group_create) 命令创建资源组。 Azure 资源组是部署和管理 Azure 资源的逻辑容器。 以下示例在 eastus 位置创建名为“我的资源组”的资源组：
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](/cli/azure/vm#az_vm_create) 创建 VM。 以下示例创建一个名为 *myVM* 的 VM。 此示例使用 *azureuser* 作为管理用户名，使用 *myPassword12* 作为密码。 更新这些值，使其适用于环境。 连接到 VM 时需要这些值。
+使用 [az vm create](/cli/azure/vm#az_vm_create) 创建虚拟机。 以下示例创建一个名为 *我的虚拟机* 的虚拟机。 此示例使用 *azure用户* 作为管理用户名，使用 *myPassword12* 作为密码。 更新这些值，使其适用于环境。 连接到虚拟机时需要这些值。
 
 ```azurecli-interactive
 az vm create \
@@ -54,7 +54,7 @@ az vm create \
     --admin-password myPassword12
 ```
 
-创建 VM 和支持资源需要几分钟时间。 以下示例输出表明 VM 创建操作已成功。
+创建虚拟机和支持资源需要几分钟时间。 以下示例输出显示虚拟机创建操作已成功。
 
 ```azurecli-interactive
 {
@@ -69,11 +69,11 @@ az vm create \
 }
 ```
 
-记下 VM 输出中自己的 `publicIpAddress`。 在后续步骤中，将使用此地址访问 VM。
+记下虚拟机输出中自己的 `公共IP地址`。 在后续步骤中，将使用此地址访问虚拟机。
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
-默认情况下，在 Azure 中创建 Windows VM 时仅会打开 RDP 连接。 请使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 打开 TCP 端口 80 以供 IIS Web 服务器使用：
+默认情况下，在 Azure 中创建 Windows虚拟机时仅会打开 RDP 连接。 请使用 [az vm open-port](/cli/azure/vm#az_vm_open_port) 打开 TCP 端口 80 以供 IIS Web 服务器使用：
 
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -81,7 +81,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
-从本地计算机使用以下命令创建远程桌面会话。 将 IP 地址替换为你的 VM 的公用 IP 地址。 出现提示时，输入创建 VM 时使用的凭据：
+使用以下命令从本地计算机创建远程桌面会话。 将 IP 地址替换为您的虚拟机的公用 IP 地址。 出现提示时，输入创建 虚拟机时使用的凭据：
 
 ```powershell
 mstsc /v:publicIpAddress
@@ -89,31 +89,31 @@ mstsc /v:publicIpAddress
 
 ## <a name="install-web-server"></a>安装 Web 服务器
 
-若要查看运行中的 VM，请安装 IIS Web 服务器。 在 VM 中打开 PowerShell 提示符并运行以下命令：
+若要查看虚拟机的运行情况，请安装 IIS Web 服务器。 在虚拟机中打开 PowerShell 提示符并运行以下命令：
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-完成后，关闭到 VM 的 RDP 连接。
+完成后，关闭到虚拟机 的 RDP 连接。
 
-## <a name="view-the-web-server-in-action"></a>查看运行中的 Web 服务器
+## <a name="view-the-web-server-in-action"></a>查看Web 服务器的运行情况
 
-IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页。 使用上一步中获取的 VM 的公用 IP 地址。 以下示例展示了默认 IIS 网站：
+IIS 已安装，并且现在已从 Internet 打开虚拟机上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页面。 使用上一步中获取的虚拟机的公用 IP 地址。 以下示例展示了默认 IIS 网站：
 
 ![IIS 默认站点](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令将其删除：
+如果不再需要，可以删除资源组、虚拟机和所有相关的资源，可以使用 [az group delete](/cli/azure/group#az_group_delete) 命令将其删除：
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>下一个步骤
 
-在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Windows VM 的教程。
+在本快速入门中，您部署了简单的虚拟机，为web流量打开了一个网络端口，并安装了一个基本 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Windows虚拟机的教程。
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
