@@ -6,10 +6,10 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "47039592"
 documentType: LandingData
-title: Azure 容器注册表文档
+title: Azure 容器镜像仓库文档
 metadata:
-  title: Azure 容器注册表文档 - 教程 | Microsoft Docs
-  description: 使用 Azure 容器注册表可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器注册表。
+  title: Azure 容器镜像仓库文档 - 教程 | Microsoft Docs
+  description: 使用 Azure 容器镜像仓库可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器镜像仓库。
   services: container-registry
   author: czeumault
   manager: carolz
@@ -20,12 +20,12 @@ metadata:
   ms.date: 07/26/2017
   ms.author: carolz
 abstract:
-  description: 使用 Azure 容器注册表可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器注册表。
+  description: 使用 Azure 容器镜像仓库可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器镜像仓库。
 sections:
 - title: 5 分钟快速入门
   items:
   - type: paragraph
-    text: 了解如何部署 Azure 容器注册表。
+    text: 了解如何部署 Azure 容器镜像仓库。
   - type: list
     style: icon48
     items:
@@ -44,23 +44,23 @@ sections:
 - title: 分步教程
   items:
   - type: paragraph
-    text: 参考这些教程来了解如何使用 Azure 容器注册表。
+    text: 参考这些教程来了解如何使用 Azure 容器镜像仓库。
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">通过 ACR 任务生成容器映像</a>
-    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">容器注册表异地复制</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure 容器实例的容器注册表</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">将容器注册表与 Azure Kubernetes 服务 (AKS) 配合使用</a>
-    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">将容器注册表与 Service Fabric 配合使用</a>
+    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">容器镜像仓库异地复制</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Azure 容器实例的容器镜像仓库</a>
+    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">将容器镜像仓库与 Azure Kubernetes 服务 (AKS) 配合使用</a>
+    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">将容器镜像仓库与 Service Fabric 配合使用</a>
 - title: 利用 Microsoft Learn 掌握技能
   items:
   - type: list
     style: cards
     className: cardsFTitle
     items:
-    - title: 使用 Azure 容器注册表生成并存储容器映像
+    - title: 使用 Azure 容器镜像仓库生成并存储容器映像
       href: /learn/modules/build-and-store-container-images/
       image:
         src: /learn/achievements/build-and-store-container-images.svg
