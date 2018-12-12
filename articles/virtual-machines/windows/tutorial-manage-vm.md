@@ -56,7 +56,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-a-vm"></a>创建 VM
 
-创建 VM 时，可使用多个选项，例如操作系统映像、网络配置和管理凭据。 此示例创建名为 *myVM* 的 VM，运行默认版本的 Windows Server 2016 Datacenter。
+创建 VM 时，可添加多个选项参数，例如操作系统映像、网络配置和管理凭据。 此示例创建名为 *myVM* 的 VM，运行默认版本的 Windows Server 2016 Datacenter操作系统。
 
 使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6) 设置 VM 上管理员帐户所需的用户名和密码：
 
