@@ -74,7 +74,7 @@ Param
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
 > [!NOTE]
-> 如果没有将值传递到具有的默认值 `$null` 的可选 `[String]` 类型参数，则参数的值将为空字符串，而不是 `$null`。
+> 如果没有将值传递到具有的 _默认值_ `$null` 的可选 `[String]` 类型参数，则参数的值将为 _空字符串_ ，而不是 `$null`。
 > 
 > 
 
