@@ -89,7 +89,7 @@ ms.locfileid: "49344568"
   speech03.wav  the lazy dog was not amused
 ```
 
-听录内容应经过文本规范化，以便可由系统处理。 但是，用户在将数据上传到自定义语音服务之前，必须完成一些重要的规范化操作。 在准备听录内容时，请参阅相应语言的[听录准则](cognitive-services-custom-speech-transcription-guidelines.md)部分。
+听录内容应经过文本规范化，以便可由系统处理。 但是，用户在将数据上传到自定义语音服务 _之前_ ，必须完成一些重要的规范化操作。 在准备听录内容时，请参阅相应语言的[听录准则](cognitive-services-custom-speech-transcription-guidelines.md)部分。
 
 使用[自定义语音服务门户](https://cris.ai)完成以下步骤。 
 
