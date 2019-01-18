@@ -44,14 +44,14 @@ Azure 中的监视数据来自各种来源，这些来源可以组织为层，�
 [Azure 服务运行状况](../../azure-monitor/platform/service-notifications.md)提供订阅中应用程序和资源所依赖的 Azure 服务的运行状况信息。 可以根据当前的以及预期的可能会影响应用程序的关键问题创建警报，以便到时获得通知。 服务运行状况记录存储在 [Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)中，你可以在活动日志资源管理器中查看，并将其复制到 Azure Monitor 日志中。
 
 ### <a name="azure-activity-log"></a>Azure 活动日志
-[Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)包含服务运行状况记录，以及对 Azure 资源所做的配置更改的记录。 活动日志可供所有 Azure 资源使用，代表其外部视图。 活动日志中记录的具体类型在 [Azure 活动日志事件架构](../../azure-monitor/platform/activity-log-schema.md)中介绍。
+[Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)包含服务运行状况记录，以及对 Azure 资源所做的配置更改的记录。 活动日志可供所有 Azure 资源使用，代表其 _外部_ 视图。 活动日志中记录的具体类型在 [Azure 活动日志事件架构](../../azure-monitor/platform/activity-log-schema.md)中介绍。
 
 可以在 Azure 门户中特定资源的页面上查看其活动日志，或在[活动日志资源管理器](../../azure-monitor/platform/activity-logs-overview.md)中的多个资源处查看日志。 可以将日志项目复制到 Azure Monitor 中，与其他监视数据组合在一起，这特别有用。 也可使用[事件中心](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)将其发送到其他位置。
 
 
 
 ## <a name="azure-services"></a>Azure 服务
-指标和资源级诊断日志提供 Azure 资源的内部操作的信息。 这些适用于大多数 Azure 服务。管理解决方案提供特定服务的更多见解。
+指标和资源级诊断日志提供 Azure 资源的 _内部_ 操作的信息。 这些适用于大多数 Azure 服务。管理解决方案提供特定服务的更多见解。
 
 ![Azure 资源收集](media/data-sources/azure-resource-collection.png)
 
