@@ -25,7 +25,7 @@ ms.locfileid: "53810264"
 Log Analytics 是一种可能存有个人数据的数据存储。 Application Insights 将其数据存储在 Log Analytics 分区中。 本文讨论通常在 Log Analytics 和 Application Insights 中的哪些位置可找到此类数据，以及可用于处理此类数据的功能。
 
 > [!NOTE]
-> 在本文中，_日志数据_指的是发送到 Log Analytics 工作区的数据，而_应用程序数据_指的是 Application Insights 收集的数据。
+> 在本文中，_日志数据_指的是发送到 Log Analytics 工作区的数据，而 _应用程序数据_ 指的是 Application Insights 收集的数据。
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -79,7 +79,7 @@ Log Analytics 是十分灵活的存储，可在规定数据架构的同时允许
 
 ## <a name="how-to-export-and-delete-private-data"></a>如何导出和删除私人数据
 
-如前面的[个人数据处理策略](#strategy-for-personal-data-handling)部分所述，如果可行，__强烈__建议重新构建数据收集策略，以禁止收集、混淆或匿名处理私人数据，或禁止以其他方式对其进行修改，使其不再被视为“私人数据”。 处理数据首先需要你和你的团队定义和自动化策略，为客户构建一个界面，以便与数据交互，并且还需持续承担维护成本。 此外，Log Analytics 和 Application Insights 的计算成本很高，大量并发查询或清除 API 调用可能会对与 Log Analytics 功能的所有其他交互产生负面影响。 尽管如此，在某些情况下，确实必须收集私人数据。 对于这些情况，数据应按本部分所述进行处理。
+如前面的[个人数据处理策略](#strategy-for-personal-data-handling)部分所述，如果可行， __强烈__ 建议重新构建数据收集策略，以禁止收集、混淆或匿名处理私人数据，或禁止以其他方式对其进行修改，使其不再被视为“私人数据”。 处理数据首先需要你和你的团队定义和自动化策略，为客户构建一个界面，以便与数据交互，并且还需持续承担维护成本。 此外，Log Analytics 和 Application Insights 的计算成本很高，大量并发查询或清除 API 调用可能会对与 Log Analytics 功能的所有其他交互产生负面影响。 尽管如此，在某些情况下，确实必须收集私人数据。 对于这些情况，数据应按本部分所述进行处理。
 
 [!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 
