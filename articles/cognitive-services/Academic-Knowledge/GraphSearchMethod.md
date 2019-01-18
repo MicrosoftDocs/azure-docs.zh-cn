@@ -52,7 +52,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 **error** | HTTP 状态代码。 如果请求失败，此字段就会显示。
 **message** | 错误消息。 如果请求失败，此字段就会显示。
 
-如果无法在 800 毫秒内处理查询，就会返回超时错误。 
+如果无法在 _800 毫秒_ 内处理查询，就会返回 _超时_ 错误。 
 
 <br>
 #### <a name="example"></a>示例：
