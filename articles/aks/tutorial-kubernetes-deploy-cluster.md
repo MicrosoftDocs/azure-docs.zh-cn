@@ -1,6 +1,6 @@
 ---
 title: Azure 上的 Kubernetes 教程 - 部署群集
-description: 此 Azure Kubernetes 服务 (AKS) 教程介绍如何创建 AKS 群集并使用 kubectl 连接到 Kubernetes 主节点。
+description: 此 Azure Kubernetes Service (AKS) 教程介绍如何创建 AKS 群集并使用 kubectl 连接到 Kubernetes 主节点。
 services: container-service
 author: iainfoulds
 ms.service: container-service
@@ -15,7 +15,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55754551"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes Service (AKS) 群集
 
 Kubernetes 为容器化应用程序提供一个分布式平台。 使用 AKS 可以快速创建生产就绪的 Kubernetes 群集。 在本教程的第 3 部分（共 7 部分）中，在 AKS 中部署了 Kubernetes 群集。 学习如何：
 
