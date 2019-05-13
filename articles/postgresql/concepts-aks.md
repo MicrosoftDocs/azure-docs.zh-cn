@@ -1,19 +1,19 @@
 ---
-title: 将 Azure Kubernetes 服务 (AKS) 与 Azure Database for PostgreSQL 连接
-description: 了解如何将 Azure Kubernetes 服务与 Azure Database for PostgreSQL 连接
+title: 连接 Azure Kubernetes 服务 (AKS) 使用 Azure Database for PostgreSQL-单个服务器
+description: 了解如何连接 Azure Kubernetes 服务使用 Azure Database for PostgreSQL-单个服务器
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 11/27/2018
+ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456183"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068939"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>连接 Azure Kubernetes 服务和 Azure Database for PostgreSQL
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>连接 Azure Kubernetes 服务和 Azure Database for PostgreSQL-单个服务器
 
 Azure Kubernetes 服务 (AKS) 提供可在 Azure 中使用的托管 Kubernetes 群集。 下面是将 AKS 和 Azure Database for PostgreSQL 一起使用以创建应用程序时要考虑的一些选项。
 

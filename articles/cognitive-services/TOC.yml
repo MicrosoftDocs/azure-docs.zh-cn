@@ -27,6 +27,8 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: 服务更新
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: 提供产品反馈
+      href: 'https://cognitive.uservoice.com/'
     - name: 行为准则
       href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
     - name: 知识库

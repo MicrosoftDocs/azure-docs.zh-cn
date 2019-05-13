@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520038"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415897"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Azure Monitor 日志查询入门
 
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize：聚合行组
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>按时间列汇总
 此外，分组结果可以基于时间列或其他连续值。 不过，只是汇总 `by TimeGenerated` 会针对时间范围内的每一毫秒创建组，因为这些值是唯一的。 
 
-若要创建基于连续值的组，最好是使用 **bin** 将范围划分为可管理的单位。 以下查询分析 *Perf* 记录，这些记录度量特定计算机上的可用内存 (*Available MBytes*)。 它计算过去 7 天内每个 1 小时时段的平均值：
+若要创建基于连续值的组，最好是使用 **bin** 将范围划分为可管理的单位。 以下查询分析 *Perf* 记录，这些记录度量特定计算机上的可用内存 (*Available MBytes*)。 它过去 7 天计算的每 1 小时内的平均值：
 
 ```Kusto
 Perf 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a4f3b37b0dc4d74b03ffcfa61c97fbb571d57f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465586"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409980"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Azure VM 上的 SAP NetWeaver 高可用性
 
@@ -563,7 +563,7 @@ _**图 2：** Azure 中未使用共享磁盘的 Windows Server 故障转移群�
 2. 在两个虚拟机节点上都运行 SIOS DataKeeper Cluster Edition。
 3. 配置 SIOS DataKeeper Cluster Edition，使得源虚拟机中已附加到其他 VHD 的卷内容能够镜像到目标虚拟机中已附加到其他 VHD 的卷。 SIOS DataKeeper 将抽象化源和目标本地卷，并以单个共享磁盘的形式呈现给 Windows Server 故障转移群集。
 
-获取有关 [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/) 的详细信息。
+获取有关 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/) 的详细信息。
 
 ![图 3：Azure 中使用 SIOS DataKeeper 的 Windows Server 故障转移群集配置][sap-ha-guide-figure-1002]
 
@@ -1018,7 +1018,7 @@ _**图 15：** Azure 内部负载均衡器的默认 ASCS/SCS 负载均衡规则_
 2. 对于属于 SAP ASCS 或 SCS 实例的所有负载均衡规则，请更改以下值：
 
    * 名称
-   * 端口
+   * Port
    * 后端端口
 
    例如，如果要将默认 ASCS 实例编号从 00 更改为 31，需要为表 1 中列出的所有端口进行更改。
@@ -1229,9 +1229,10 @@ _**表 4：** 更改第二个 TCP/IP 参数_
 
    _**图 38：** 确认已重新配置群集_
 
-成功安装 Windows 故障转移群集后，需要更改某些阈值，以使故障转移检测适合于 Azure 中的情况。 要更改的参数均记录在此博客中： https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/。 假定用于生成 ASCS/SCS 的 Windows 群集配置的两个 VM 位于同一子网中，需要将以下参数更改为这些值：
-- SameSubNetDelay = 2
-- SameSubNetThreshold = 15
+成功安装 Windows 故障转移群集后，需要更改某些阈值，以使故障转移检测适合于 Azure 中的情况。 若要更改的参数记录在此博客： [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834)。 假定用于生成 ASCS/SCS 的 Windows 群集配置的两个 VM 位于同一子网中，需要将以下参数更改为这些值：  
+- SameSubNetDelay = 2000  
+- SameSubNetThreshold = 15  
+- RoutingHistoryLength = 30  
 
 一方面，这些设置已经过客户测试，并且为具有足够弹性提供了良好的折中办法。 另一方面，在发生 SAP 软件或节点/VM 故障时的实际出错情况下，这些设置提供了足够快速的故障转移。 
 
@@ -1443,7 +1444,7 @@ Windows Server 2012 R2 上不自动激活或安装 Microsoft .NET Framework 3.5�
 >
 >
 
-#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> 修改 ASCS/SCS 实例的 SAP 配置文件
+#### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>修改 ASCS/SCS 实例的 SAP 配置文件
 
 需要添加新的配置文件参数。 此配置文件参数可避免 SAP 工作进程与排队服务器之间的连接在空闲时间太长时关闭。 [在 SAP ASCS/SCS 实例的两个群集节点上添加注册表项][sap-ha-guide-8.11]部分中已提到了出现该问题的情景。 该部分还介绍了对一些基本 TCP/IP 连接参数所做的两项更改。 在第二个步骤中，需将排队服务器设置为发送 `keep_alive` 信号，以便连接不会达到 Azure 内部负载均衡器的空闲阈值。
 

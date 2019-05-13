@@ -6,26 +6,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 05/06/2019
 ms.author: ashishth
-ms.openlocfilehash: ac7984c50e6adec888c112cc260cf2e6af02fc97
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a152b815daeefa4c199af9b159eee8e5783971e2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695700"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143320"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>将 Apache HBase 群集迁移到新版本
 
-可以直接升级基于作业的群集，例如 [Apache Spark](https://spark.apache.org/) 和 [Apache Hadoop](https://hadoop.apache.org/) - 具体请参阅[将 HDInsight 群集升级到更新版本](../hdinsight-upgrade-cluster.md)：
-
-1. 备份暂时性（本地存储的）数据。
-2. 删除现有的群集。
-3. 在同一个 VNET 子网中创建新群集。
-4. 导入暂时性数据。
-5. 启动作业并在新群集上继续处理。
-
-若要升级 [Apache HBase](https://hbase.apache.org/) 群集，需要执行本文所述的一些附加步骤。
+本文介绍更新到较新版本的 Azure HDInsight 上的 Apache HBase 群集所需的步骤。
 
 > [!NOTE]  
 > 升级造成的停机时间应该很短，以分钟计。 停机是执行刷新所有内存中数据的步骤，然后在新群集上配置和重启服务造成的。 根据节点数目、数据量和其他变数，结果会有所不同。
@@ -37,7 +29,7 @@ ms.locfileid: "64695700"
 > [!NOTE]  
 > 我们强烈建议查看 [HBase 书册](https://hbase.apache.org/book.html#upgrading)中的版本兼容性矩阵。
 
-下面是一个示例版本兼容性矩阵，其中的 Y 表示兼容，N 表示潜在的不兼容：
+下面是示例版本兼容性矩阵。 Y 表示兼容性，N 表示潜在的不兼容：
 
 | 兼容性类型 | 主版本| 次版本 | 修补程序 |
 | --- | --- | --- | --- |
@@ -58,7 +50,7 @@ ms.locfileid: "64695700"
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>使用相同的 Apache HBase 主版本升级
 
-以下方案适用于使用相同的 HBase 主版本从 HDInsight 3.4 升级到 3.6（Apache HBase 1.1.2 已随附这两个版本）。 只要源和目标版本之间不存在兼容性问题，其他版本升级的过程都是类似的。
+若要在 Azure HDInsight 上的将 Apache HBase 群集升级，完成以下步骤：
 
 1. 请确保应用程序与新版本兼容，如 HBase 兼容性矩阵和发行说明中所述。 在运行 HDInsight 和 HBase 目标版本的群集中测试应用程序。
 
@@ -66,7 +58,7 @@ ms.locfileid: "64695700"
 
     ![使用相同的存储帐户，但创建不同的容器](./media/apache-hbase-migrate-new-version/same-storage-different-container.png)
 
-3. 刷新源 HBase 群集。 这是要升级的源群集。 HBase 将传入的数据写入名为 _memstore_ 的内存中存储。 memstore 达到特定的大小后，会刷新到群集存储帐户中用作长期存储的磁盘中。 删除旧群集时，将回收 memstores，这可能会丢失数据。 若要将每个表的 memstore 手动刷新到磁盘，请运行以下脚本。 Azure 的 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh) 中提供了此脚本的最新版本。
+3. 刷新源 HBase 群集，这是要升级的群集。 HBase 将传入的数据写入名为 _memstore_ 的内存中存储。 Memstore 达到特定大小后，HBase 刷新到磁盘以长期存储在群集的存储帐户。 删除旧群集时，将回收 memstores，这可能会丢失数据。 若要将每个表的 memstore 手动刷新到磁盘，请运行以下脚本。 Azure 的 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/scripts/flush_all_tables.sh) 中提供了此脚本的最新版本。
 
     ```bash
     #!/bin/bash
@@ -186,27 +178,32 @@ ms.locfileid: "64695700"
     
 4. 停止引入到旧 HBase 群集。
 5. 为确保刷新 memstore 中的所有最新数据，请再次运行前面的脚本。
-6. 在旧群集 (https://OLDCLUSTERNAME.azurehdidnsight.net) 上登录到 [Apache Ambari](https://ambari.apache.org/)，并停止 HBase 服务。 当系统提示确认想要停止服务时，请选中为 HBase 启用维护模式的框。 有关连接和使用 Ambari 的详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
+6. 登录到[Apache Ambari](https://ambari.apache.org/)旧群集上 (https://OLDCLUSTERNAME.azurehdidnsight.net)并停止 HBase 服务。 当系统提示您确认要停止服务时，选中复选框为 HBase 启用维护模式。 有关连接和使用 Ambari 的详细信息，请参阅[使用 Ambari Web UI 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
 
-    ![在 Ambari 中单击“服务”选项卡，在左侧菜单中选择“HBase”，然后在“服务操作”下选择“停止”](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
+    ![在 Ambari 中，单击服务 > HBase > 服务操作下停止](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 
     ![选中“为 HBase 启用维护模式”复选框，然后确认](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
-7. 在新 HDInsight 群集上登录到 Ambari。 将 `fs.defaultFS` HDFS 设置更改为指向原始群集所用的容器名称。 此设置位于“HDFS”>“配置”>“高级”>“高级 core-site”下。
+7. 新的 HDInsight 群集上登录到 Ambari。 将 `fs.defaultFS` HDFS 设置更改为指向原始群集所用的容器名称。 此设置位于“HDFS”>“配置”>“高级”>“高级 core-site”下。
 
-    ![在 Ambari 中单击“服务”选项卡，然后依次选择左侧菜单中的“HDFS”、“配置”选项卡及其下的“高级”选项卡](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
+    ![在 Ambari 中，单击服务 > HDFS > 配置 > 高级](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
 
     ![在 Ambari 中更改容器名称](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. **如果您使用增强的写入功能不使用 HBase 群集，跳过此步骤。它只需要具有增强的写入功能的 HBase 群集。**
+8. **如果不使用增强的写入功能使用 HBase 群集，跳过此步骤。它只需要具有增强的写入功能的 HBase 群集。**
    
-   将 hbase.rootdir 路径改为指向原始群集的容器。
+   更改`hbase.rootdir`路径以指向原始群集的容器。
 
-    ![在 Ambari 中更改 hbase rootdir 的容器名称](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
-    
-9. 保存所做更改。
-10. 根据 Ambari 中的指示重启全部所需的服务。
-11. 将应用程序指向新群集。
+    ![在 Ambari 中，更改 HBase rootdir 的容器名称](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+1. 如果您要为 4.0 升级 HDInsight 3.6，请按照以下步骤，否则请跳到步骤 10:
+    1. 重新启动所需的所有服务在 Ambari 中选择**Services** > **重新启动所有必需**。
+    1. 停止 HBase 服务。
+    1. 通过 ssh 连接到 Zookeeper 节点，并执行[zkCli](https://github.com/go-zkcli/zkcli)命令`rmr /hbase-unsecure`从 Zookeeper 中删除 HBase 根 znode。
+    1. 重启 HBase。
+1. 如果您要升级到 4.0 除了任何其他 HDInsight 版本，请按照下列步骤：
+    1. 保存所做更改。
+    1. 根据 Ambari 中的指示重启全部所需的服务。
+1. 将应用程序指向新群集。
 
     > [!NOTE]  
     > 升级时，应用程序的静态 DNS 会更改。 不要硬编码此 DNS，可以在域名的 DNS 设置中配置一个指向群集名称的 CNAME。 另一种做法是使用应用程序的、无需重新部署即可更新的配置文件。

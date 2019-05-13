@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474430"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154484"
 ---
 # <a name="public-ip-address-prefix"></a>公共 IP 地址前缀
 
@@ -29,9 +29,6 @@ ms.locfileid: "61474430"
 公共 IP 地址是从各 Azure 区域的地址池分配的。 可[下载](https://www.microsoft.com/download/details.aspx?id=56519) Azure 在每个区域使用的范围列表。 例如，40.121.0.0/16 是 Azure 在美国东部区域中使用的 100 多个范围之一。 该范围包括从 40.121.0.1 到 40.121.255.254 的可用地址。
 
 可通过指定一个名称和希望前缀包括的地址数，在 Azure 区域和订阅中创建公共 IP 地址前缀。 例如，如果创建一个公共 IP 地址前缀 /28，则 Azure 会从其范围之一为你分配 16 个地址。 除非创建范围，否则你不会知道 Azure 将分配哪个范围给你，但这些地址是连续的。 公共 IP 地址前缀会产生费用。 有关详细信息，请参阅[公共 IP 地址定价](https://azure.microsoft.com/pricing/details/ip-addresses)。
-
-> [!IMPORTANT]
-> 公共 IP 前缀在有限区域中以公共预览版提供。 可以[在预览版中了解其含义](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 公共 IP 前缀目前可用于：美国中西部、美国西部、美国西部 2、美国中部、北欧、西欧和东南亚。 有关更新的区域列表，请访问 [Azure 更新](https://azure.microsoft.com/updates/?product=virtual-network)。
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>为什么要创建公共 IP 地址前缀？
 
@@ -58,6 +55,7 @@ ms.locfileid: "61474430"
 ## <a name="constraints"></a>约束
 
 - 不能指定前缀的 IP 地址。 Azure 将根据指定的大小分配前缀的 IP 地址。
+- 前缀的默认大小为/28 或 16 公共 IP 地址。
 - 创建前缀后，无法更改该范围。
 - 该范围仅适用于 IPv4 地址。 该范围不包含 IPv6 地址。
 - 仅使用标准 SKU 创建的静态公共 IP 地址可从前缀范围进行分配。 若要详细了解公用 IP 地址 SKU，请参阅[公用 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。

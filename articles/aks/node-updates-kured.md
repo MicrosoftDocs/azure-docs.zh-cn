@@ -1,27 +1,29 @@
 ---
-title: 在 Azure Kubernetes 服务 (AKS) 中使用 kured 更新节点并重启节点
-description: 了解如何在 Azure Kubernetes 服务 (AKS) 中使用 kured 更新节点并自动重启节点
+title: 更新并重新启动 Linux 节点使用 kured 中 Azure Kubernetes 服务 (AKS)
+description: 了解如何更新 Linux 节点和自动重新引导这些与 kured 中 Azure Kubernetes 服务 (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b426399f73375618a2084eff82abba5d4934b914
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464981"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074208"
 ---
-# <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>将安全更新和内核更新应用于 Azure Kubernetes 服务 (AKS) 中的节点
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>将安全更新和内核更新应用到 Linux 节点在 Azure Kubernetes 服务 (AKS)
 
-为保护群集，安全更新会自动应用于 AKS 中的节点。 这些更新包括 OS 安全修复项或内核更新。 其中的部分更新需要重启节点才能完成更新进程。 AKS 不会自动重启节点以完成更新进程。
+若要保护你的群集，安全更新自动应用于 AKS 的 Linux 节点。 这些更新包括 OS 安全修复项或内核更新。 其中的部分更新需要重启节点才能完成更新进程。 AKS 不会自动重新启动这些 Linux 节点，以完成更新过程。
 
-本文介绍了如何使用开源 [kured (KUbernetes REboot Daemon)][kured] 来查看需要重启的节点，然后自动重新调度运行中的 pod 并处理节点重启进程。
+以保持 （目前以预览版在 AKS 中） 的 Windows 服务器节点的最新的过程是稍有不同。 Windows Server 节点不会接收每日更新。 相反，您执行 AKS 升级部署与最新的基本 Windows Server 映像和修补程序的新节点。 对于使用 Windows Server 节点的 AKS 群集，请参阅[升级在 AKS 中的节点池][nodepool-upgrade]。
+
+本文介绍如何使用开放源代码[kured （KUbernetes 重新启动守护程序）] [ kured]要监视的 Linux 节点需要重新启动，然后自动处理正在运行的 pod 和节点的重新安排重新启动进程。
 
 > [!NOTE]
-> `Kured` 是 Weaveworks 提供的一个开源项目。 我们尽可能地在 AKS 中提供对该项目的支持。 在 #weave-community Slack 通道中可找到其他支持。
+> `Kured` 是 Weaveworks 提供的一个开源项目。 我们尽可能地在 AKS 中提供对该项目的支持。 可以 #weave 社区 slack 通道中找到其他支持。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -35,9 +37,9 @@ ms.locfileid: "60464981"
 
 ![使用 kured 进行的 AKS 节点更新和重启进程](media/node-updates-kured/node-reboot-process.png)
 
-部分安全更新（如内核更新）需要重启节点才能完成更新进程。 需要重启的节点会创建名为 /var/run/reboot-required 的文件。 此重启进程不会自动进行。
+部分安全更新（如内核更新）需要重启节点才能完成更新进程。 需要重新启动在 Linux 节点创建名为的文件 */var/run/reboot-required*。 此重启进程不会自动进行。
 
-你可以使用自己的工作流和进程来重启节点，或使用 `kured` 安排该进程。 使用 `kured`，可以部署在群集每个节点上运行 pod 的 [DaemonSet][DaemonSet]。 DaemonSet 中的这些 pod 可监视是否存在 /var/run/reboot-required 文件，然后启动重启节点的进程。
+你可以使用自己的工作流和进程来重启节点，或使用 `kured` 安排该进程。 与`kured`、 一个[DaemonSet] [ DaemonSet]部署，在群集中每个 Linux 节点上运行 pod。 DaemonSet 中的这些 pod 可监视是否存在 /var/run/reboot-required 文件，然后启动重启节点的进程。
 
 ### <a name="node-upgrades"></a>节点升级
 
@@ -62,7 +64,7 @@ kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.1.0/kur
 
 ## <a name="update-cluster-nodes"></a>更新群集节点
 
-默认情况下，AKS 节点会每晚检查更新。 如果不想等待，可以手动执行更新以检查 `kured` 是否正常运行。 首先，按照步骤[与任意 AKS 节点建立 SSH 连接][aks-ssh]。 与节点建立 SSH 连接后，检查更新并按如下方式应用更新：
+默认情况下，在 AKS 中的 Linux 节点检查更新每天晚上。 如果不想等待，可以手动执行更新以检查 `kured` 是否正常运行。 首先，按照步骤[与任意 AKS 节点建立 SSH 连接][aks-ssh]。 与 Linux 节点建立 SSH 连接后，检查有更新，并将其应用，如下所示：
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
@@ -91,7 +93,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>后续步骤
 
-本文详细介绍了如何在安全更新进程中使用 `kured` 自动重启节点。 若要升级到 Kubernetes 的最新版本，可以[升级 AKS 群集][aks-upgrade]。
+本文详细介绍如何使用`kured`作为安全更新过程的一部分自动重新启动 Linux 节点。 若要升级到 Kubernetes 的最新版本，可以[升级 AKS 群集][aks-upgrade]。
+
+对于使用 Windows Server 节点的 AKS 群集，请参阅[升级在 AKS 中的节点池][nodepool-upgrade]。
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
@@ -105,3 +109,4 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

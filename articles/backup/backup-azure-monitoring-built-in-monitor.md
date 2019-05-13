@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809064"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236439"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>监视 Azure 备份工作负荷
 
@@ -49,7 +49,7 @@ Azure 备份提供内置监视和警报功能适用于由 Azure 备份保护的�
 以下方案被指由服务可报警的方案。
 
   - 备份/还原失败
-  - 备份已成功但出现警告
+  - 备份已成功但出现警告的 Azure 备份代理 (MAB)
   - 停止保护并保留数据/停止保护并删除数据
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>不会引发警报时出现的异常
@@ -92,7 +92,7 @@ Azure 备份提供内置监视和警报功能适用于由 Azure 备份保护的�
 如果频率设置为每小时摘要和警报已引发并解决一小时内，则它不会即将发布的每小时摘要的一部分。
 
 > [!NOTE]
-> 
+>
 > * 如果如破坏性操作**停止保护并删除数据**是执行，会生成一个警报，并向订阅所有者、 管理员和共同管理员发送电子邮件，即使通知未配置为恢复服务保管库。
 > * 对于成功的作业使用配置通知[Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace)。
 

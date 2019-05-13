@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572683"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235918"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>在 vCore 的服务层之间进行选择，并将 DTU 服务层从迁移
 
@@ -38,14 +38,16 @@ vCore 模型提供了三个服务层级：“常规用途”、“业务关键�
 
 下表可帮助你了解这三个层之间的差别：
 
-||**常规用途**|**业务关键**|**超大规模（预览版）**|
+||**常规用途**|**业务关键**|**Hyperscale**|
 |---|---|---|---|
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|具有很高的可缩放存储和读取缩放要求的大多数业务工作负荷|
-|CPU|**预配计算**:<br/>Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore<br/>**无服务器计算**<br/>Gen5：0.5 - 4 vCore|**预配计算**:<br/>Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|**预配计算**:<br/>Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|
-|内存|**预配计算**:<br/>Gen4：每个核心 7 GB<br/>Gen5：每个核心 5.1 GB<br/>**无服务器计算**<br/>Gen5：每个核心的 3 GB|**预配计算**:<br/>Gen4：每个核心 7 GB<br/>Gen5：每个核心 5.1 GB |**预配计算**:<br/>Gen4：每个核心 7 GB<br/>Gen5：每个核心 5.1 GB|
+|计算|**预配计算**:<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 vCore<br/>**无服务器计算**<br/>Gen5：0.5 - 4 vCore|**预配计算**:<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 vCore|**预配计算**:<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 vCore|
+|内存|**预配计算**:<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB<br/>**无服务器计算**<br/>Gen5：每个 vCore 3 GB|**预配计算**:<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB |**预配计算**:<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB|
 |存储|使用远程存储：<br/>**单个数据库预配计算**:<br/>5 GB – 4 TB<br/>**单个数据库无服务器计算**:<br/>5 GB - 1 TB<br/>**托管实例**:32 GB - 8 TB |使用本地 SSD 存储：<br/>**单个数据库预配计算**:<br/>5 GB – 4 TB<br/>**托管实例**:<br/>32 GB - 4 TB |可以根据需要灵活地自动扩展存储。 支持高达 100 TB 存储及更多存储。 使用本地 SSD 存储作为本地缓冲池缓存和本地数据存储。 使用 Azure 远程存储作为最终的长期数据存储。 |
+|内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB |Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB|
+|存储|使用远程存储：<br/>单一数据库：5 GB – 4 TB<br/>托管实例：32 GB - 8 TB |使用本地 SSD 存储：<br/>单一数据库：5 GB – 4 TB<br/>托管实例：32 GB - 4 TB |可以根据需要灵活地自动扩展存储。 支持高达 100 TB 存储及更多存储。 使用本地 SSD 存储作为本地缓冲池缓存和本地数据存储。 使用 Azure 远程存储作为最终的长期数据存储。 |
 |IO 吞吐量（近似）|单一数据库：每个 vCore 提供 500 IOPS，最大 7000 IOPS</br>托管实例：取决于[文件大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|每个 vCore 提供 5000 IOPS，最大 200,000 IOPS|TBD|
-|可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|?|
+|可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|1 的读/写副本以及 0 到 4[读取缩放副本](sql-database-read-scale-out.md)|
 |备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|Azure 远程存储中基于快照的备份和还原使用这些快照进行快速恢复。 备份瞬间完成，不会影响计算的 IO 性能。 还原速度非常快，不基于数据操作的大小（需要几分钟，而不是几小时或几天）。|
 |内存中|不支持|支持|不支持|
 |||
@@ -56,8 +58,6 @@ vCore 模型提供了三个服务层级：“常规用途”、“业务关键�
 - 有关详细信息，请参阅[单一数据库中的 vCore 资源限制](sql-database-vcore-resource-limits-single-databases.md)和[托管实例中的 vCore 资源限制](sql-database-managed-instance.md#vcore-based-purchasing-model)。
 - 若要详细了解“常规用途”服务层级和“业务关键”服务层级，请参阅[“常规用途”服务层级和“业务关键”服务层级](sql-database-service-tiers-general-purpose-business-critical.md)。
 - 若要详细了解基于 vCore 的购买模型中的超大规模服务层级，请参阅[超大规模服务层级](sql-database-service-tier-hyperscale.md)。  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Azure 混合权益
 

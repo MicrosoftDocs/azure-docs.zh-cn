@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 69cb48df4e765250247605fb5c4e1f421554fd20
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897090"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467021"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>快速入门：使用适用于 Java 的语音 SDK 转换语音
 
-在本快速入门中，你将创建一个简单的 Java 应用程序，该应用程序从计算机的麦克风中捕获用户语音，翻译语音，并将翻译后的文本实时转录到命令行。 此应用程序设计为在 64 位 Windows 或 64 位 Ubuntu Linux 16.04/18.04 上运行，它是使用语音 SDK Maven 包和 Eclipse Java IDE 生成的。
+针对[语音转文本](quickstart-java-jre.md)和[语音优先虚拟助手](quickstart-virtual-assistant-java-jre.md)也提供了快速入门。
+
+在本快速入门中，你将创建一个简单的 Java 应用程序，该应用程序从计算机的麦克风中捕获用户语音，翻译语音，并将翻译后的文本实时转录到命令行。 此应用程序需在 64 位 Windows 或 64 位 Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9）或者 macOS 10.13 或更高版本上运行。 它是使用语音 SDK Maven 包和 Eclipse Java IDE 生成的。
 
 有关可用于语音翻译的语言的完整列表，请参阅[语言支持](language-support.md)。
 
@@ -27,17 +29,26 @@ ms.locfileid: "57897090"
 
 本快速入门需要：
 
-* 操作系统：64 位 Windows 或 64 位 Ubuntu Linux 16.04/18.04
+* 操作系统：64 位 Windows、64 位 Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9）或 macOS 10.13 或更高版本
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * 语音服务的 Azure 订阅密钥。 [免费获得一个](get-started.md)。
 
-如果运行 Ubuntu 16.04/18.04，请确保在启动 Eclipse 之前安装这些依赖项。
+如果运行 Linux，请确保在启动 Eclipse 之前安装这些依赖项。
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * 在 Ubuntu 上：
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * 在 Debian 9 上：
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > 对于语音设备 SDK 和 Roobo 设备，请参阅[语音设备 SDK](speech-devices-sdk.md)。

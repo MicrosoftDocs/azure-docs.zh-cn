@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/10/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188304"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191711"
 ---
 ## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
 
@@ -21,17 +21,6 @@ Azure Cloud Shell 是免费的交互式 shell，可以使用它运行本文中�
 
 若要打开 Cloud Shell，只需要从代码块的右上角选择“试一试”。 也可以通过转到 [https://shell.azure.com/powershell](https://shell.azure.com/powershell) 在单独的浏览器标签页中启动 Cloud Shell。 选择“复制”以复制代码块，将其粘贴到 Cloud Shell 中，然后按 Enter 来运行它。
 
-
-## <a name="preview-register-the-feature"></a>预览版：注册功能
-
-共享映像库当前为预览版，但需要先注册此功能，然后才能使用它。 若要注册共享映像库功能，请使用以下命令：
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="get-the-managed-image"></a>获取托管映像
 
@@ -45,7 +34,9 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>创建映像库 
 
-映像库是用于启用映像共享的主要资源。 库名称在你的订阅中必须唯一。 使用 [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery) 创建映像库。 以下示例在“myGalleryRG”资源组中创建名为“myGallery”的库。
+映像库是用于启用映像共享的主要资源。 允许用于库名称的字符为大写或小写字母、数字、点和句点。 库名称不能包含短划线。 库名称在你的订阅中必须唯一。 
+
+使用 [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery) 创建映像库。 以下示例在“myGalleryRG”资源组中创建名为“myGallery”的库。
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -60,7 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>创建映像定义 
 
-使用 [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 创建库映像定义。 在此示例中，库映像名为 myGalleryImage。
+图像定义创建映像的逻辑分组。 它们用于管理在其中创建的映像版本有关的信息。 可以大写或小写字母、 数字、 点、 短划线和句点组成图像定义名称。 有关可以为图像定义指定的值的详细信息，请参阅[图像定义](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions)。
+
+创建图像定义使用[新建 AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)。 在此示例中，库映像名为 myGalleryImage。
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,30 +67,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### <a name="using-publisher-offer-and-sku"></a>使用发布者、 产品/服务和 SKU 
-实现共享的映像，计划的客户**即将推出的版本**，你将能够使用您个人定义 **-发布者**， **-提供**和 **-Sku**值查找和指定图像定义，然后使用最新版本从匹配的映像创建 VM 映像定义。 例如，以下是三个映像定义及其值：
 
-|映像定义|发布者|产品/服务|SKU|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|测试|standardOffer|testSku|
-
-所有这三个映像都有唯一的一组值。 可以拥有共享一个或两个但不是全部三个值的映像版本。 **即将推出的版本**，可以将这些值合并以请求特定映像的最新版本。 **在当前版本中不起作用**，但将在将来提供。 发布时，使用以下语法用于设置为源映像*myImage1*从上表。
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-它类似于如何目前指定使用发布者、 产品/服务和 SKU [Azure Marketplace 映像](../articles/virtual-machines/windows/cli-ps-findimage.md)若要获取 Marketplace 映像的最新版本。 请记住这一点，每个映像定义都需要具有一组唯一的这些值。  
 
 ## <a name="create-an-image-version"></a>创建映像版本
 
-使用 [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 根据托管映像创建映像版本。 在此示例中，映像版本为 1.0.0，该版本被复制到美国中西部和美国中南部数据中心。
+从托管的映像使用创建的映像版本[新建 AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion)。 
+
+允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*。*MinorVersion*。*修补程序*。
+
+在此示例中，映像版本为 1.0.0，该版本被复制到美国中西部和美国中南部数据中心。 在选择时复制的目标区域，请记住，您还必须包括*源*为复制的目标区域。
 
 
 ```azurepowershell-interactive
@@ -122,3 +100,8 @@ $job = $imageVersion = New-AzGalleryImageVersion `
 $job.State
 ```
 
+> [!NOTE]
+> 需要要等待的时间才能完全完成正在生成并复制，可以使用相同的托管的映像创建另一个映像版本的映像版本。 
+>
+> 您还可以存储在你映像版本[区域冗余存储](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs)通过添加`-StorageAccountType Standard_ZRS`时创建的映像版本。
+>

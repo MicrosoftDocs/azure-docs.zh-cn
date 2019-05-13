@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911538"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234085"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 安全中心数据安全性
 为了帮助客户防止、检测和应对威胁，Azure 安全中心将收集和处理安全相关的数据，包括配置信息、元数据、事件日志、故障转储文件，等等。 从编程到服务运营，Microsoft 都严格遵守相关法规与安全准则。
@@ -46,12 +46,18 @@ Azure 安全中心将分析以下源中的数据，提供安全状态视图、�
 
 **工作区**：为以下地区指定工作区，并且从 Azure 虚拟机收集的数据（包括故障转储和某些类型的警报数据）都存储在最近的工作区中。
 
-| VM 地区                        | 工作区地区 |
-|-------------------------------|---------------|
-| 美国、巴西、加拿大 | 美国 |
-| 欧洲、英国        | 欧洲        |
-| 亚太、日本、印度    | 亚太区  |
-| 澳大利亚                     | 澳大利亚     |
+| VM 地区                              | 工作区地区 |
+|-------------------------------------|---------------|
+| 美国、 巴西，南非 | 美国 |
+| 加拿大                              | 加拿大        |
+| 欧洲 （不包括英国）   | 欧洲        |
+| 英国                      | 英国 |
+| 亚太地区 （不包括印度、 日本、 韩国、 中国）   | 亚太区  |
+| 韩国                              | 亚太区  |
+| 印度                               | 印度         |
+| 日本                               | 日本         |
+| 中国                               | 中国         |
+| 澳大利亚                           | 澳大利亚     |
 
 
 VM 磁盘快照存储在 VM 磁盘所在的同一存储帐户中。

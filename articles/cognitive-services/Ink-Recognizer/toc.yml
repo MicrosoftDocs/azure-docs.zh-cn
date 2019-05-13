@@ -1,0 +1,54 @@
+- name: 墨迹识别器文档
+  href: index.yml
+- name: 概述
+  expanded: true
+  items:
+    - name: 什么是墨迹识别器 API？
+      href: overview.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: REST API
+      items:
+        - name: 'C#'
+          href: quickstarts/csharp.md
+        - name: Java
+          href: quickstarts/java.md
+        - name: Javascript
+          href: quickstarts/javascript.md
+- name: 概念
+  items:
+    - name: 将墨迹数据发送到墨迹识别器 API
+      href: concepts/send-ink-data.md
+- name: 示例
+  items:
+    - name: 'C# 和通用 Windows 平台 (UWP)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089803'
+    - name: 'C# 和 Windows Presentation Foundation(WPF)'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089804'
+    - name: Javascript Web 浏览器应用
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089908'
+    - name: Java 和 Android 移动应用
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
+    - name: Swift 和 iOS 移动应用
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
+- name: 引用
+  items:
+    - name: REST API 参考
+      href: 'https://go.microsoft.com/fwlink/?linkid=2089907'
+    - name: PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: 语言支持
+      href: language-support.md
+    - name: 区域
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+- name: 资源
+  items:
+    - name: 定价和限制
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Azure 路线图
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: 隐私和 Cookie
+      href: 'https://privacy.microsoft.com/privacystatement'

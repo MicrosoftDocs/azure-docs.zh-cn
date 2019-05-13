@@ -1,28 +1,28 @@
 ---
-title: 教程：从 Azure Data Lake Storage Gen1 加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 使用 PolyBase 外部表将数据从 Azure Data Lake Storage Gen1 加载到 Azure SQL 数据仓库中。
+title: 教程：从 Azure Data Lake 存储加载到 Azure SQL 数据仓库 |Microsoft Docs
+description: 使用 PolyBase 外部表将数据从 Azure Data Lake 存储加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b5083d6b4cf6758997e4e0551e5f3c2968a31c1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145972"
 ---
-# <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>将数据从 Azure Data Lake Storage Gen1 加载到 SQL 数据仓库
-使用 PolyBase 外部表将数据从 Azure Data Lake Storage Gen1 加载到 Azure SQL 数据仓库中。 虽然可以对存储在 Data Lake Storage Gen1 中的数据运行 即席查询，但我们建议将数据导入 SQL 数据仓库以获取最佳性能。
+# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake 存储的数据加载到 SQL 数据仓库
+使用 PolyBase 外部表将数据从 Azure Data Lake 存储加载到 Azure SQL 数据仓库。 尽管可以在 Data Lake 存储中存储的数据运行即席查询，我们建议将数据导入 SQL 数据仓库以获得最佳性能。
 
 > [!div class="checklist"]
-> * 创建需要从 Data Lake Storage Gen1 进行加载的数据库对象。
-> * 连接到 Data Lake Storage Gen1 目录。
+> * 创建从 Data Lake 存储中加载所需的数据库对象。
+> * 连接到 Data Lake 存储目录。
 > * 将数据载入 Azure SQL 数据仓库。
 
 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
@@ -32,18 +32,18 @@ ms.locfileid: "61476130"
 
 若要运行本教程，需要：
 
-* 要用于服务到服务身份验证的 Azure Active Directory 应用程序。 若要创建，请遵循 [Active directory 身份验证](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Azure Active Directory 应用程序要用于服务到服务身份验证，如果要从 Gen1 加载。 若要创建，请遵循 [Active directory 身份验证](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> 要从 SQL 数据仓库连接到 Data Lake Storage Gen1 帐户，需要 Active Directory 应用程序的客户端 ID、密钥和 OAuth2.0 令牌终结点值。 有关如何获取这些值的详细信息可在上面的链接中找到。 对于 Azure Active Directory 应用注册，请使用“应用程序 ID”作为客户端 ID。
+> 如果要从 Azure 数据湖存储 Gen1 加载，则需要客户端 ID、 密钥和 OAuth2.0 令牌终结点值的 Active Directory 应用程序从 SQL 数据仓库连接到你的存储帐户。 有关如何获取这些值的详细信息可在上面的链接中找到。 对于 Azure Active Directory 应用注册，请使用“应用程序 ID”作为客户端 ID。
 > 
 
 * Azure SQL 数据仓库。 请参阅[创建和查询 Azure SQL 数据仓库](create-data-warehouse-portal.md)。
 
-* Data Lake Storage Gen1 帐户。 请参阅 [Azure Data Lake Storage Gen1 入门](../data-lake-store/data-lake-store-get-started-portal.md)。 
+* Data Lake 存储帐户。 请参阅[开始使用 Azure Data Lake 存储](../data-lake-store/data-lake-store-get-started-portal.md)。 
 
 ##  <a name="create-a-credential"></a>创建凭据
-若要访问 Data Lake Storage Gen1 帐户，需要创建数据库主密钥，以便加密下一步中使用的凭据密码。 然后创建数据库范围的凭据，以存储 AAD 中设置的服务主体凭据。 已使用 PolyBase 连接到 Windows Azure 存储 Blob 的用户请注意，该凭据语法有所不同。
+若要访问你的 Data Lake 存储帐户，你将需要创建数据库主密钥进行加密下一步中使用的凭据密码。 然后创建数据库范围的凭据。 Gen1，对于数据库作用域凭据存储在 AAD 中设置的服务主体凭据。 对于第 2 代，必须在数据库作用域凭据中使用的存储帐户密钥。 
 
 若要连接到 Data Lake Storage Gen1，必须先创建 Azure Active Directory 应用程序，创建访问密钥，并授予应用程序访问 Data Lake Storage Gen1 资源的权限。 有关说明，请参阅[使用 Active Directory 验证 Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。
 
@@ -56,19 +56,29 @@ ms.locfileid: "61476130"
 CREATE MASTER KEY;
 
 
--- B: Create a database scoped credential
+-- B (for Gen1): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
-CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
--- It should look something like this:
-CREATE DATABASE SCOPED CREDENTIAL ADLSG1Credential
+-- B (for Gen2): Create a database scoped credential
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- SECRET: Provide your Azure storage account key.
+
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
+WITH
+    IDENTITY = 'user',
+    SECRET = '<azure_storage_account_key>'
+;
+
+-- It should look something like this for Gen1:
+CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
     SECRET = 'BjdIlmtKp4Fpyh9hIvr8HJlUida/seM5kQ3EpLAmeDI='
@@ -79,21 +89,33 @@ WITH
 使用此 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 命令存储数据的位置。 
 
 ```sql
--- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage Gen1.
+-- C (for Gen1): Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage.
 -- LOCATION: Provide Data Lake Storage Gen1 account name and URI
 -- CREDENTIAL: Provide the credential created in the previous step.
 
-CREATE EXTERNAL DATA SOURCE AzureDataLakeStorageGen1
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
     LOCATION = 'adl://<datalakestoregen1accountname>.azuredatalakestore.net',
-    CREDENTIAL = ADLSG1Credential
+    CREDENTIAL = ADLSCredential
+);
+
+-- C (for Gen2): Create an external data source
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure Data Lake Storage.
+-- LOCATION: Provide Data Lake Storage Gen2 account name and URI
+-- CREDENTIAL: Provide the credential created in the previous step.
+
+CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
+WITH (
+    TYPE = HADOOP,
+    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    CREDENTIAL = ADLSCredential
 );
 ```
 
 ## <a name="configure-data-format"></a>配置数据格式
-若要从 Data Lake Storage Gen1 导入数据，需要指定外部文件格式。 此对象定义在 Data Lake Storage Gen1 中写入文件的方式。
+若要从 Data Lake 存储导入数据，需要指定外部文件格式。 此对象用于定义如何将这些文件写入 Data Lake 存储中。
 有关完整列表，请查看我们的 T-SQL 文档 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)（创建外部文件格式）
 
 ```sql
@@ -119,7 +141,7 @@ WITH
 
 ```sql
 -- D: Create an External Table
--- LOCATION: Folder under the Data Lake Storage Gen1 root folder.
+-- LOCATION: Folder under the Data Lake Storage root folder.
 -- DATA_SOURCE: Specifies which Data Source Object to use.
 -- FILE_FORMAT: Specifies which File Format Object to use
 -- REJECT_TYPE: Specifies how you want to deal with rejected rows. Either Value or percentage of the total
@@ -134,7 +156,7 @@ CREATE EXTERNAL TABLE [dbo].[DimProduct_external] (
 WITH
 (
     LOCATION='/DimProduct/'
-,   DATA_SOURCE = AzureDataLakeStorageGen1
+,   DATA_SOURCE = AzureDataLakeStorage
 ,   FILE_FORMAT = TextFileFormat
 ,   REJECT_TYPE = VALUE
 ,   REJECT_VALUE = 0
@@ -154,7 +176,7 @@ WITH
 Data Lake Storage Gen1 使用基于角色的访问控制 (RBAC) 控制对数据的访问。 也就是说，服务主体必须拥有对位置参数中定义的目录以及最终目录和文件的子项的读取权限。 这样一来，PolyBase 就可以进行身份验证，并加载该数据。 
 
 ## <a name="load-the-data"></a>加载数据
-要从 Data Lake Storage Gen1 加载数据，请使用 [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 语句。 
+将数据从 Data Lake 存储使用加载[CREATE TABLE AS SELECT (TRANSACT-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)语句。 
 
 CTAS 将创建新表，并在该表中填充 select 语句的结果。 CTAS 将新表定义为包含与 select 语句结果相同的列和数据类型。 如果选择了外部表中的所有列，则新表将是外部表中的列和数据类型的副本。
 

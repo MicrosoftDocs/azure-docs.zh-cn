@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 069a2a5b3b26bf517b57034f05ab7080ab392319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60702514"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232608"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>使用 Azure SQL 数据库机器学习服务 （预览版） 中的 R 和 SQL 数据
 
@@ -222,7 +222,7 @@ WITH RESULT SETS((
     
 |*Col2*|*Col3*|
 |----|----|
-|第|第|
+|第|1|
 |10|2|
 |100|3|
 |1|4|
@@ -300,4 +300,4 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 - 准备输入的数据，以避免意外情况时，请执行根据需要显式强制转换。
 - 避免传递列的数据 （如 GUID 或 rowguid） 会导致错误并不是适用于建模。
 
-有关支持和不支持 R 数据类型的详细信息，请参阅[R 库和数据类型](/sql/advanced-analytics/r/r-libraries-and-data-types.md)。
+有关支持和不支持 R 数据类型的详细信息，请参阅[R 库和数据类型](/sql/advanced-analytics/r/r-libraries-and-data-types)。

@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 个性化体验创建服务文档
+metadata:
+  document_id: null
+  title: 个性化体验创建服务 - 教程、快速入门和 API 参考
+  description: 了解如何使用个性化体验创建服务来让应用程序选择要显示给用户的最佳体验，并从其实时行为中学习信息。
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: Azure 个性化体验创建服务是基于云的 API 服务，可让你选择要显示给用户的最佳体验，并从其实时行为中学习信息。
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/personalizer/what-is-personalizer
+            html: <p>了解个性化体验创建服务的功能及其用法。</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 什么是个性化体验创建服务？
+          - href: /azure/cognitive-services/personalizer/how-personalizer-works
+            html: <p>了解如何配合排名和奖励 API 使用个性化体验创建服务反馈循环。</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 个性化体验创建服务的工作原理
+          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+            html: <p>实现个性化以在公司和服务中建立信任。</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: 道德与责任
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/logo_Csharp.svg
+            href: csharp-quickstart-commandline-feedback-loop.md
+            text: 'C#'
+  - title: 引用
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST API
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092082">个性化体验创建服务 API</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>'

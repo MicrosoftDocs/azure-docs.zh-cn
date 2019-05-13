@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 4400b466927253e6eb81cf2ec29994d0606beea6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6b407f88196867a8cc969a15811a1157e7fde59a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176695"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922151"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>快速入门：使用文本翻译 API 通过 Python 来检测文本语言
 
@@ -127,7 +127,7 @@ python detect.py
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 ```json
 [

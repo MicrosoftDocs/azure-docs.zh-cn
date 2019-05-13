@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2018
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 08c7e84a27a4c8e9527083360dbd08296bd86775
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542455"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236402"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-the-azure-cli"></a>预览版：使用 Azure CLI 创建共享映像库
+# <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>使用 Azure CLI 创建共享映像库
 
 [共享映像库](shared-image-galleries.md)大大简化了整个组织中的自定义映像共享。 自定义映像类似于市场映像，不同的是自定义映像的创建者是自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 
 
@@ -58,10 +58,12 @@ az vm create\
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
-
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>后续步骤
-此外可以使用模板创建共享映像库资源。 提供多个 Azure 快速入门模板： 
+[Azure 映像生成器 （预览版）](image-builder-overview.md)可帮助自动执行映像版本创建，您甚至可以用它来更新并[从现有的映像版本创建新映像版本](image-builder-gallery-update-image-version.md)。 
+
+此外可以创建使用模板的共享映像库资源。 提供多个 Azure 快速入门模板： 
 
 - [创建共享映像库](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [在共享的映像库中创建映像定义](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

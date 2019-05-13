@@ -1,0 +1,39 @@
+- name: Azure 开放数据集文档
+  href: index.yml
+- name: 概述
+  expanded: true
+  items:
+    - name: 什么是 Azure 开放数据集？
+      displayName: open datasets overview introduction
+      href: overview-what-are-open-datasets.md
+- name: 教程
+  items:
+    - name: 使用自动化机器学习的回归
+      href: tutorial-opendatasets-automl.md
+- name: 示例
+  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
+  href: samples.md
+- name: 引用
+  items:
+    - name: Python SDK
+      displayName: api open datasets reference sdk
+      href: 'https://aka.ms/open-datasets-api'
+    - name: Jupyter 笔记本
+      displayName: python notebooks
+      href: 'https://github.com/Azure/OpenDatasetsNotebooks'
+- name: 资源
+  items:
+    - name: Azure 开放数据集目录
+      href: 'https://azure.microsoft.com/services/open-datasets/catalog/'
+    - name: Microsoft Research 开放数据
+      href: 'https://msropendata.com/'
+    - name: Azure 路线图
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 定价
+      href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
+    - name: 区域可用性
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 用户论坛
+      href: 'https://aka.ms/open-datasets-forum'
+    - name: 堆栈溢出
+      href: 'https://stackoverflow.com/questions/tagged/azure-open-datasets'

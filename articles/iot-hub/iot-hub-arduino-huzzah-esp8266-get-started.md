@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783176"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409078"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 
@@ -169,7 +169,7 @@ ms.locfileid: "60783176"
 9. 在“用户设置”窗口，在文件末尾复制并粘贴以下内容
 
    ```json
-   "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+   "arduino.additionalUrls": "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
 
    ![在 VS Code 中配置 Arduino 包 URL](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
@@ -224,7 +224,7 @@ ms.locfileid: "60783176"
 
 2. 输入`F1`，然后键入**Arduino** ，然后选择**arduino 开发：上传**生成和部署到 Feather HUZZAH ESP8266 的示例应用程序。
 
-### <a name="enter-your-credentials"></a>输入凭据
+### <a name="enter-your-credentials"></a>输入您的凭据
 
 上传成功完成后，按照以下步骤输入凭据：
 

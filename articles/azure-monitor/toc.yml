@@ -129,6 +129,10 @@
           href: platform/activity-log-alerts.md
         - name: 常见警报架构
           href: platform/alerts-common-schema.md
+        - name: 操作规则
+          href: platform/alerts-action-rules.md
+        - name: 更改分析
+          href: app/change-analysis.md
     - name: 可视化数据
       href: visualizations.md
     - name: 合作伙伴集成
@@ -309,6 +313,29 @@
                   href: app/asp-net.md
                 - name: 状态监视器
                   href: app/monitor-performance-live-website-now.md
+                - name: 状态监视器 v2
+                  href: app/status-monitor-v2-overview.md
+                  items:
+                    - name: 入门
+                      href: app/status-monitor-v2-get-started.md
+                    - name: 详细说明
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: 故障排除和已知问题
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
                 - name: Windows 服务
                   href: app/windows-services.md
                 - name: Windows 桌面
@@ -530,6 +557,8 @@
                   href: app/usage-workbooks.md
             - name: Web 应用分析解决方案
               href: insights/azure-web-apps-analytics.md
+            - name: Kubernetes 托管应用
+              href: app/kubernetes.md
         - name: 监视容器
           items:
             - name: 用于容器的 Azure Monitor
@@ -538,13 +567,19 @@
                   href: insights/container-insights-overview.md
                 - name: 常见问题解答
                   href: insights/container-insights-faq.md
-                - name: 上架
-                  href: insights/container-insights-onboard.md
+                - name: 启用监视
+                  items:
+                    - name: 启用监视概述
+                      href: insights/container-insights-onboard.md
+                    - name: 针对新群集启用
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: 针对现有群集启用
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: 分析
                   href: insights/container-insights-analyze.md
                 - name: 禁用监视
                   href: insights/container-insights-optout.md
-                - name: 查看容器实时日志
+                - name: 查看实时日志
                   href: insights/container-insights-live-logs.md
                 - name: 使用日志查询分析数据
                   href: insights/container-insights-log-search.md
@@ -684,6 +719,8 @@
               href: platform/metrics-charts.md
             - name: 指标图表示例
               href: platform/metric-chart-samples.md
+            - name: 排查指标图表问题
+              href: platform/metrics-troubleshoot.md
         - name: 日志
           items:
             - name: 日志查询

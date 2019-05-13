@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474696"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154143"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>SQL 数据仓库工作负荷重要性（预览）
+# <a name="sql-data-warehouse-workload-importance"></a>SQL 数据仓库工作负荷重要性
 
 本文介绍工作负荷重要性如何影响 SQL 数据仓库请求的执行顺序。
-
-> [!Note]
-> SQL 数据仓库第 2 代已提供工作负载分类预览。 工作负载管理分类和重要性预览适用于发布日期为 2019 年 4 月 9 日或之后的版本。  用户应避免使用早于此日期的版本来进行工作负载管理测试。  要确定你的版本是否支持工作负载管理，请在连接到 SQL 数据仓库实例时运行select @@version。
 
 ## <a name="importance"></a>Importance
 
@@ -64,4 +61,4 @@ Q6 是在上午 9:01 提交的，具有 smallrc 资源类。
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 SQL 数据仓库工作负荷分类的详细信息，请参阅 [SQL 数据仓库工作负荷分类](sql-data-warehouse-workload-classification.md)和[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)。 参阅 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。
+若要开始创建分类器，请参阅[创建工作负荷分类器 (Transact SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  有关 SQL 数据仓库工作负荷分类的详细信息，请参阅[SQL 数据仓库工作负荷分类](sql-data-warehouse-workload-classification.md)。  有关如何创建工作负荷分类器，请参阅快速入门[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)。 参阅 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。

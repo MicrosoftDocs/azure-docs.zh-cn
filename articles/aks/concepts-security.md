@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466727"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074022"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序和群集的安全性相关概念
 
@@ -34,9 +34,11 @@ ms.locfileid: "60466727"
 
 ## <a name="node-security"></a>节点安全性
 
-AKS 节点是由你管理和维护的 Azure 虚拟机。 节点通过 Moby 容器运行时运行经过优化的 Ubuntu Linux 分发。 创建或纵向扩展了 AKS 群集时，会自动使用最新的 OS 安全更新和配置来部署节点。
+AKS 节点是由你管理和维护的 Azure 虚拟机。 运行使用小鲸鱼容器运行时优化的 Ubuntu 分发版的 Linux 节点。 Windows 服务器节点 （目前以预览版在 AKS 中） 运行优化的 Windows Server 2019 发布，也使用小鲸鱼容器运行时。 创建或纵向扩展了 AKS 群集时，会自动使用最新的 OS 安全更新和配置来部署节点。
 
-Azure 平台会在夜间自动将 OS 安全修补程序应用于节点。 如果 OS 安全更新需要重启主机，系统不会自动执行重启操作。 可以手动重启节点，或使用常用的方法，即使用 [Kured][kured]，这是一个适用于 Kubernetes 的开源重启守护程序。 Kured 作为 [DaemonSet][aks-daemonsets] 运行并监视每个节点，用于确定指示需要重启的文件是否存在。 通过使用相同的 [cordon 和 drain 进程](#cordon-and-drain)作为群集升级，来跨群集管理重启。
+Azure 平台会自动适用于 Linux 节点上每晚的 OS 安全修补程序。 如果 Linux OS 安全更新要求重新启动主机，不会自动执行了重新启动。 可以手动重新启动 Linux 节点，或一种常见方法是使用[Kured][kured]，一个适用于 Kubernetes 的开放源代码重启守护程序。 Kured 作为 [DaemonSet][aks-daemonsets] 运行并监视每个节点，用于确定指示需要重启的文件是否存在。 通过使用相同的 [cordon 和 drain 进程](#cordon-and-drain)作为群集升级，来跨群集管理重启。
+
+Windows Server 中的节点 （当前在 AKS 中的预览版），Windows 更新不会不会自动运行，并应用最新的更新。 有关在 Windows 更新发布周期和验证过程按定期计划，应在 AKS 群集中执行 Windows Server 节点池上的升级。 此升级过程创建节点运行的最新的 Windows Server 映像和修补程序，然后删除旧节点。 此过程的详细信息，请参阅[升级在 AKS 中的节点池][nodepool-upgrade]。
 
 系统将节点部署到专用虚拟网络子网中，且不分配公共 IP 地址。 出于故障排除和管理的目的，会默认启用 SSH。 只能使用内部 IP 地址访问此 SSH。
 
@@ -50,12 +52,12 @@ Azure 平台会在夜间自动将 OS 安全修补程序应用于节点。 如果
 
 ### <a name="cordon-and-drain"></a>隔离和排空
 
-在升级过程中，AKS 节点会单独从群集中隔离出来，以便系统不会在其上计划新 pod。 然后将节点排空并进行升级，操作如下：
+在升级过程中，AKS 节点是单独封锁从群集，因此它们不会计划新的 pod。 然后将节点排空并进行升级，操作如下：
 
-- 妥善终止现有 pod 并在剩余节点上进行安排。
-- 重新启动节点，完成升级过程，然后返回 AKS 群集。
-- 重新在节点上安排和运行 pod。
-- 使用相同的过程隔离和排空群集中的下一个节点，直到成功升级所有节点。
+- 一个新的节点会部署到的节点池。 此节点都运行最新 OS 映像和修补程序。
+- 升级已标识一个现有节点。 此节点上 pod 是正常终止并安排在节点池中的其他节点上。
+- 从 AKS 群集中删除此现有节点。
+- 在群集中的下一个节点封锁和排除使用相同的过程，直到所有节点成功都替换作为升级过程的一部分。
 
 有关详细信息，请参阅[升级 AKS 群集][aks-upgrade-cluster]。
 
@@ -102,3 +104,4 @@ Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

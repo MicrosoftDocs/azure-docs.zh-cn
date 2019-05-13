@@ -5,15 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/18/2018
-ms.author: dacoulte
+ms.date: 11/12/2018
+origin.date: 05/17/2018
+ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 75567fd1521c48c1731c8d7756da69dfef153a61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e2412a98b9f292398b972099daa1642534f180d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865749"
 ---
 ### <a name="virtual-machine-scale-sets"></a>虚拟机规模集
 

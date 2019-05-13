@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918413"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463632"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>将 Azure 订阅关联或添加到 Azure Active Directory 租户
 
@@ -64,8 +64,8 @@ Azure 订阅已与 Azure Active Directory (Azure AD)，这意味着该订阅信�
 
     订阅目录将发生更改并会显示一条成功消息。
 
-    ![有关更改目录成功消息](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. 使用**目录切换器**以转到新目录。 正确显示所有内容可能需要长达 10 分钟的时间。
+    ![有关更改目录成功消息](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. 使用**目录切换器**以转到新目录。 可能需要几个小时内的所有内容正确显示。 如果它看起来耗时较长，请确保您选中**全局订阅筛选器**移动订阅，以确保其处于不只是隐藏状态。
 
     ![目录切换器页上，使用示例的信息](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

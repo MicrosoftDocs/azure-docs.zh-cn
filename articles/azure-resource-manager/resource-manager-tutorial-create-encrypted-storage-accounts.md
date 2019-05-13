@@ -14,12 +14,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 81c02c5e39e23b49291561821b0732227feb5c05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103610"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教程：利用 Azure 资源管理器模板参考
 

@@ -1,7 +1,6 @@
 ---
 title: '教程：使用 Apache Kafka 生成者和使用者 API - Azure HDInsight '
 description: 了解如何将 Apache Kafka 生成者和使用者 API 与 Kafka on HDInsight 配合使用。 本教程介绍如何从 Java 应用程序中将这些 API 与 Kafka on HDInsight 配合使用。
-services: hdinsight
 author: dhgoelmsft
 ms.author: dhgoel
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
-ms.openlocfilehash: 6b77cd9939e244fd031788164cdfe391c3e2b9d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916387"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724151"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 

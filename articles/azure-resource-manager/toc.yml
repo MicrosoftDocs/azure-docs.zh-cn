@@ -40,6 +40,9 @@
     - name: 使用安全部署实践
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: 在部署管理器中使用运行状况检查
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: 排查模板部署问题
       href: resource-manager-tutorial-troubleshoot.md
 - name: 示例
@@ -62,12 +65,17 @@
     - name: 部署管理器
       displayName: adm
       href: deployment-manager-overview.md
+    - name: 部署管理器运行状况检查
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: 部署模式
       href: deployment-modes.md
     - name: 资源的删除
       href: resource-group-delete.md
     - name: 资源管理器部署和经典部署
       href: resource-manager-deployment-model.md
+    - name: Azure 的常见安全属性
+      href: azure-resource-manager-security-attributes.md
 - name: 如何
   items:
     - name: 创建模板
@@ -116,6 +124,8 @@
         - name: Azure DevOps Services 中的持续集成
           href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
           maintainContext: true
+    - name: 导出模板
+      href: export-template-portal.md
     - name: 管理
       items:
         - name: 管理资源组
@@ -225,6 +235,8 @@
           href: move-support-resources.md
         - name: 标记支持
           href: tag-support.md
+    - name: 按服务分类的资源提供程序
+      href: azure-services-resource-providers.md
     - name: REST - 资源管理器
       href: /rest/api/resources/
     - name: REST - 部署管理器

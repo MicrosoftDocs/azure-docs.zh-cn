@@ -10,18 +10,22 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817374"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472005"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>编写和配置使用 Azure 机器学习的数据
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>编写并使用 Azure 机器学习数据准备 SDK 配置数据
 
 在本文中，你将了解用于写入数据使用不同的方法[Azure 机器学习数据准备 Python SDK](https://aka.ms/data-prep-sdk)以及如何配置该数据以供试验使用[Azure 机器学习 SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  可以在数据流中的任何点写入输出数据。 写入会添加到生成的数据流，步骤和步骤运行每次运行数据流。 数据写入多个分区文件以实现并行写入。
+
+> [!Important]
+> 如果要构建一个新的解决方案，请尝试[Azure 机器学习数据集](how-to-explore-prepare-data.md)（预览版） 来转换数据、 快照数据和存储版本控制的数据集定义。 数据集是数据准备 SDK，提供可用于管理 AI 解决方案中的数据集的扩展的功能的下一个版本。
+> 如果您使用`azureml-dataprep`包来创建数据流而不是使用转换与`azureml-datasets`的包装，以创建数据集，您将不能以供以后使用快照或版本控制的数据集。
 
 由于对管道中有多少写步骤没有限制，因此你可以轻松添加更多写步骤来获取中间结果以用于故障排除或用于其他管道。
 
@@ -36,7 +40,7 @@ ms.locfileid: "60817374"
 使用 Azure 机器学习数据准备 Python SDK，可以写入到的数据：
 + 本地文件系统
 + Azure Blob 存储
-+ Azure Data Lake 存储
++ Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Spark 注意事项
 
@@ -62,7 +66,7 @@ t.head(5)
 | | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 | 无 | 否 | 否 | ENRS | NaN | NaN | NaN |   
-|1| 10003.0 | 99999.0 | 无 | 否 | 否 | ENSO | NaN | NaN | NaN |   
+|第| 10003.0 | 99999.0 | 无 | 否 | 否 | ENSO | NaN | NaN | NaN |   
 |2| 10010.0 | 99999.0 | 无 | 否 | JN | ENJA | 70933.0 | -8667.0 | 90.0 |
 |3| 10013.0 | 99999.0 | 无 | 否 | 否 |      | NaN | NaN | NaN |
 |4| 10014.0 | 99999.0 | 无 | 否 | 否 | ENSO | 59783.0 | 5350.0 |  500.0|
@@ -86,11 +90,11 @@ written_files.head(5)
 
 | | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|0| 10000.0 | 99999.0 | ERROR | 否 | 否 | ENRS | NaN    | NaN | NaN |   
-|第| 10003.0 | 99999.0 | ERROR | 否 | 否 | ENSO |    NaN | NaN | NaN |   
-|2| 10010.0 | 99999.0 | ERROR | 否 | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
-|3| 10013.0 | 99999.0 | ERROR | 否 | 否 |     | NaN | NaN | NaN |
-|4| 10014.0 | 99999.0 | ERROR | 否 | 否 | ENSO |    59783.0 | 5350.0 |  500.0|
+|0| 10000.0 | 99999.0 | 错误 | 否 | 否 | ENRS | NaN    | NaN | NaN |   
+|第| 10003.0 | 99999.0 | 错误 | 否 | 否 | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | 错误 | 否 | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | 错误 | 否 | 否 |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | 错误 | 否 | 否 | ENSO |    59783.0 | 5350.0 |  500.0|
 
 在前面的输出中，由于未正确分析数字，数值列中出现了多个错误。 默认情况下，写入 CSV 时，NULL 值将替换为字符串“ERROR”。
 
@@ -110,7 +114,7 @@ written_files.head(5)
 | | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 | BadData | 否 | 否 | ENRS | NaN  | NaN | NaN |   
-|1| 10003.0 | 99999.0 | BadData | 否 | 否 | ENSO |  NaN | NaN | NaN |   
+|第| 10003.0 | 99999.0 | BadData | 否 | 否 | ENSO |  NaN | NaN | NaN |   
 |2| 10010.0 | 99999.0 | BadData | 否 | JN | ENJA |  70933.0 | -8667.0 | 90.0 |
 |3| 10013.0 | 99999.0 | BadData | 否 | 否 |   | NaN | NaN | NaN |
 |4| 10014.0 | 99999.0 | BadData | 否 | 否 | ENSO |  59783.0 | 5350.0 |  500.0|
@@ -138,7 +142,7 @@ written_parquet_files.head(5)
 |   | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |
 |0| 10000.0 | 99999.0 | MiscreantData | 否 | 否 | ENRS | MiscreantData | MiscreantData | MiscreantData |
-|1| 10003.0 | 99999.0 | MiscreantData | 否 | 否 | ENSO | MiscreantData | MiscreantData | MiscreantData |   
+|第| 10003.0 | 99999.0 | MiscreantData | 否 | 否 | ENSO | MiscreantData | MiscreantData | MiscreantData |   
 |2| 10010.0 | 99999.0 | MiscreantData | 否| JN| ENJA|   70933.0|    -8667.0 |90.0|
 |3| 10013.0 | 99999.0 | MiscreantData | 否| 否| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | 否| 否| ENSO|   59783.0|    5350.0| 500.0|

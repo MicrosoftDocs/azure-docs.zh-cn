@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/19/2019
+  ms.date: 05/06/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -55,8 +55,9 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://aka.ms/aml-sdk">主 Python SDK</a>：核心功能、自动机器学习、管道等等'
-          - html: '<a href="https://aka.ms/data-prep-sdk">数据准备</a> Python SDK：准备和转换数据'
           - html: '<a href="https://aka.ms/aml-monitoring-sdk">监视</a> Python SDK：在已部署的 Web 服务上收集数据'
+          - html: 可视界面的<a href="../algorithm-module-reference/module-reference.md">算法和模块参考</a>
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>：机器学习命令行界面扩展'
   - title: 其他 Azure 机器学习技术
     items:
       - type: list

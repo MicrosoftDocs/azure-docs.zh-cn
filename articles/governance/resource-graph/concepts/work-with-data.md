@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775891"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137863"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>处理大型 Azure 资源数据集
 
@@ -67,8 +67,18 @@ resultTruncated 是布尔值，用于指示使用者返回的响应中是否还�
 
 如果 resultTruncated 为 true，便会在响应中设置 $skipToken 属性。 此值与相同的查询值及订阅值一起使用，以获取与查询匹配的下一个记录集。
 
+下面的示例演示如何**跳过**第一个 3000 记录并返回**第一个**1000 条记录后这些跳过使用 Azure CLI 和 Azure PowerShell:
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> 查询必须投射 ID 字段，这样分页才能生效。 如果缺少该查询，不会包括 REST API 响应 **$skipToken**。
+> 查询必须投射 ID 字段，这样分页才能生效。 如果查询中缺少，响应中不会包含 **$skipToken**。
 
 有关示例，请参阅 REST API 文档中的[下一页查询](/rest/api/azureresourcegraph/resources/resources#next_page_query)。
 

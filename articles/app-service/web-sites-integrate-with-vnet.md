@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128409"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198582"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
 本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](https://go.microsoft.com/fwlink/?LinkId=529714) 中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 然后可以使用 VPN 技术将这些网络连接到本地网络。 
@@ -271,9 +271,9 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 应用服�
 * 可以通过 ExpressRoute 连接来访问资源，除了与连接 ExpressRoute 的 VNet 集成以外，不需要任何其他配置。
 * 应用和 VNet 必须位于同一区域中
 * 新功能要求在资源管理器 VNet 中有一个未使用的子网。
+* 应用必须属于能纵向扩展至高级 V2 的 Azure 应用服务部署。
 * 应用服务计划必须是“标准”、“高级”或“高级 V2”计划
 * 处于预览状态的新功能不支持生产工作负荷
-* 应用必须属于能纵向扩展至高级 V2 的 Azure 应用服务部署。
 * 新的 VNet 集成功能不适用于应用服务环境中的应用。
 * 不能删除带有集成应用的 VNet。  
 * 新的 VNet 集成功能尚不支持使用路由表和全球对等互联。  

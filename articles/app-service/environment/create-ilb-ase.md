@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546536"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199646"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>在应用服务环境中创建和使用内部负载均衡器 #
 
@@ -56,7 +56,7 @@ ms.locfileid: "59546536"
 
 若要创建 ILB ASE，请执行以下操作：
 
-1. 在 Azure 门户中选择“创建资源” > “Web” > “应用服务环境” ****。
+1. 在 Azure 门户中选择“创建资源” > “Web” > “应用服务环境”。
 
 2. 选择订阅。
 
@@ -66,7 +66,7 @@ ms.locfileid: "59546536"
 
 5. 如果选择现有 VNet，需要创建子网来存放 ASE。 请确保设置的子网大小应该足够容纳 ASE 未来任何的增长。 建议的大小为 `/24`，其地址长度为 256 位且能够容纳最大尺寸的 ASE，满足任何缩放需求。 
 
-6. 选择“虚拟网络/位置” > “虚拟网络配置” ****。 将“VIP 类型”设置为“内部”。
+6. 选择“虚拟网络/位置” > “虚拟网络配置”。 将“VIP 类型”设置为“内部”。
 
 7. 输入域名。 该域将用于在此 ASE 中创建的应用。 存在一些限制。 不能是：
 
@@ -96,14 +96,14 @@ ms.locfileid: "59546536"
 
 选择“内部”后，无法向 ASE 添加更多 IP 地址。 取而代之的是必须提供 ASE 的域。 在使用外部 VIP 的 ASE 中，ASE 的名称会用于在该 ASE 中创建的应用的域。
 
-如果将“VIP 类型”设置为“内部”，ASE 名称将不会用于 ASE 的域。 显式指定域。 如果域为 contoso.corp.net，并且在该 ASE 中创建名为 timereporting 的应用，则该应用的 URL 为 timereporting.contoso.corp.net  **。
+如果将“VIP 类型”设置为“内部”，ASE 名称将不会用于 ASE 的域。 显式指定域。 如果域为 *contoso.corp.net*，而用户在该 ASE 中创建的应用名为 *timereporting*，则该应用的 URL 为 timereporting.contoso.corp.net。
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>在 ILB ASE 中创建应用 ##
 
 在 ILB ASE 中创建应用通常与在 ASE 中创建应用相同。
 
-1. 在 Azure 门户中，选择“创建资源” > “Web + 移动” > “Web 应用” ****。
+1. 在 Azure 门户中，选择“创建资源” > “Web + 移动” > “Web 应用”。
 
 1. 输入应用的名称。
 
@@ -117,7 +117,7 @@ ms.locfileid: "59546536"
 
 1. 选择或创建应用服务计划。 若想创建新的应用服务计划，请选择 ASE 作为位置。 选择希望在其中创建应用服务计划的辅助角色池。 创建应用服务计划时，选择 ASE 作为位置并选择辅助角色池。 指定应用的名称时，应用名称下面的域会替换为 ASE 的域。
 
-1. 选择“创建”。 如果希望应用显示在仪表板上，请选中“固定到仪表板”复选框 **** 。
+1. 选择“创建”。 如果希望应用显示在仪表板上，请选中“固定到仪表板”复选框。
 
     ![应用服务计划创建][2]
 
@@ -127,14 +127,14 @@ ms.locfileid: "59546536"
 
 ILB ASE 与非 ILB ASE 稍有不同。 如先前所述，用户需要管理自己的 DNS。 还需提供自己的 HTTPS 连接证书。
 
-创建 ASE 之后，域名显示指定的域。 “设置”菜单中会出现一个名为“ILB 证书”的新项 ****  ****。 创建 ASE 的证书不指定 ILB ASE 的域。 如果 ASE 使用该证书，浏览器会告知该证书无效。 使用此证书可以更轻松地测试 HTTPS，但需要上传绑定到 ILB ASE 域的、用户自己的证书。 不管是自签名证书还是从证书颁发机构获取的证书，都需要执行此步骤。
+创建 ASE 之后，域名显示指定的域。 “设置”菜单中出现一个名为“ILB 证书”的新项。 创建 ASE 的证书不指定 ILB ASE 的域。 如果 ASE 使用该证书，浏览器会告知该证书无效。 使用此证书可以更轻松地测试 HTTPS，但需要上传绑定到 ILB ASE 域的、用户自己的证书。 不管是自签名证书还是从证书颁发机构获取的证书，都需要执行此步骤。
 
 ![ILB ASE 域名][3]
 
 ILB ASE 需要有效的 SSL 证书。 可使用内部证书颁发机构、向外部颁发者购买证书或使用自签名证书。 无论 SSL 证书的来源如何，都需要正确配置以下证书属性：
 
-* **使用者**：此属性必须设置为 *.your-root-domain-here。
-* **使用者可选名称**：此属性必须同时包含 *.your-root-domain-here 和 *.scm.your-root-domain-here。 使用 *your-app-name.scm.your-root-domain-here* 形式的地址，建立与每个应用关联的 SCM/Kudu 站点的 SSL 连接。
+* **使用者**：此属性必须设置为 *\.your-root-domain-here。
+* **使用者可选名称**：此属性必须同时包含 .your-root-domain-here 和 .scm.your-root-domain-here。 使用 *your-app-name.scm.your-root-domain-here* 形式的地址，建立与每个应用关联的 SCM/Kudu 站点的 SSL 连接。
 
 将 SSL 证书转换/保存为 .pfx 文件。 .pfx 文件必须包括所有中间证书和根证书。 使用密码进行保护。
 
@@ -154,7 +154,7 @@ ILB ASE 需要有效的 SSL 证书。 可使用内部证书颁发机构、向外
 
 上传自己的证书和测试访问：
 
-1. 创建 ASE 后，转到 ASE UI。 选择“ASE” > “设置” > “ILB 证书”。
+1. 创建 ASE 后，转到 ASE UI。 选择“ASE” > “设置” > “ILB 证书”。
 
 1. 若要设置 ILB 证书，请选择证书 .pfx 文件并输入密码。 此步骤需要一些时间来处理。 系统会显示一条消息，指示正在进行上传操作。
 

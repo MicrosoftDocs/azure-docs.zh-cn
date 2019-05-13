@@ -3,8 +3,8 @@ title: 使用虚拟网络对等互连连接虚拟网络 - 教程 - Azure 门户 
 description: 本教程介绍如何使用 Azure 门户通过虚拟网络对等互连来连接虚拟网络。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014502"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726568"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
@@ -50,7 +50,7 @@ ms.locfileid: "58014502"
 
     |设置|值|
     |---|---|
-    |Name|myVirtualNetwork1|
+    |名称|myVirtualNetwork1|
     |地址空间|10.0.0.0/16|
     |订阅| 选择订阅。|
     |资源组| 选择“新建”，并输入 myResourceGroup|
@@ -64,7 +64,7 @@ ms.locfileid: "58014502"
 
     |设置|值|
     |---|---|
-    |Name|myVirtualNetwork2|
+    |名称|myVirtualNetwork2|
     |地址空间|10.1.0.0/16|
     |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
     |子网地址范围|10.1.0.0/24|
@@ -80,7 +80,7 @@ ms.locfileid: "58014502"
 
     |设置|值|
     |---|---|
-    |Name|myVirtualNetwork1-myVirtualNetwork2|
+    |名称|myVirtualNetwork1-myVirtualNetwork2|
     |订阅| 选择订阅。|
     |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2”。 可以在相同区域或不同区域中选择虚拟网络。|
 
@@ -97,7 +97,7 @@ ms.locfileid: "58014502"
 
     |设置|值|
     |---|---|
-    |Name|myVirtualNetwork2-myVirtualNetwork1|
+    |名称|myVirtualNetwork2-myVirtualNetwork1|
     |虚拟网络|myVirtualNetwork1|
 
     “对等互连状态”为“已连接”。 Azure 还将 *myVirtualNetwork2-myVirtualNetwork1* 对等互连的对等互连状态从“已启动”更改为“已连接”。 直到两个虚拟网络的对等互连状态均为“已连接”时，虚拟网络对等互连才完全建立。 
@@ -114,7 +114,7 @@ ms.locfileid: "58014502"
 
     |设置|值|
     |---|---|
-    |Name|myVM1|
+    |名称|myVM1|
     |用户名| 输入所选用户名。|
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
@@ -137,7 +137,7 @@ ms.locfileid: "58014502"
 
 |设置|值|
 |---|---|
-|Name | myVm2|
+|名称 | myVm2|
 |虚拟网络 | myVirtualNetwork2|
 
 创建 VM 可能需要数分钟的时间。 在两个 VM 完成创建之前，不要继续执行剩余的步骤。

@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418638"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149633"
 ---
 如果在对共享映像库、映像定义和映像版本执行任何操作时遇到问题，请在调试模式下再次运行失败的命令。 若要激活调试模式，可以通过 CLI 来传递 **-debug** 开关，通过 PowerShell 来传递 **-Debug** 开关。 确定错误的位置以后，请按本文档的说明来排查错误。
 
@@ -37,7 +37,7 @@ ms.locfileid: "60418638"
 
 映像定义名称无效。
 
-允许用于映像定义的字符为大写或小写字母、数字、点、短划线和句点。 请更改映像定义名称，然后重试。
+用于映像定义允许的字符是大写或小写字母、 数字、 点、 短划线和句点。 请更改映像定义名称，然后重试。
 
 创建映像定义所需的属性未填充。
 
@@ -62,20 +62,7 @@ ms.locfileid: "60418638"
 
 请确保源托管映像的预配状态为“成功”。
 
-目前不支持源区域。
-
-请查看下表，确定所需的源区域是否受支持：
-<br>
-
-| 创建库的位置或“源区域”   | 版本所复制到的位置或“目标区域” |
-|----------------------------------------|-------------------------------------------|
-| 美国中西部                        | 所有 Azure 公有云区域            |
-| 美国中南部                       |                                           |
-| 美国东部 2                              |                                           |
-| 东南亚                         |                                           |
-| 西欧                            |                                           |
-
-<br>
+*目标区域列表不包含源区域。*
 
 目标区域列表必须包含映像版本的源区域。 请确保目标区域的列表中已包含源区域。目标区域是需要通过 Azure 将映像版本复制到其中的区域。
 
@@ -101,7 +88,7 @@ ms.locfileid: "60418638"
 
 ## <a name="unable-to-share-resources"></a>无法共享资源
 
-可以通过[基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC) 启用对共享映像库、映像定义、映像版本资源的跨订阅共享。 
+在订阅之间的共享的映像库、 映像定义和映像版本资源共享，启用[基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)(RBAC)。 
 
 ## <a name="replication-is-slow"></a>复制速度慢
 

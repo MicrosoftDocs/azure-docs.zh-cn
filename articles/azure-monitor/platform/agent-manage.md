@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure Log Analytics 代理 | Microsoft Docs
-description: 本文介绍在计算机上部署的 Microsoft Monitoring Agent (MMA) 的生命周期中通常会执行的不同管理任务。
+description: 本文介绍您通常将执行日志分析 Windows 或 Linux 代理在计算机上部署的生命周期内的不同管理任务。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730288"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139253"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理并维护 Windows 和 Linux 的 Log Analytics 代理
 
-初始部署之后的日志分析 Windows 或 Azure Monitor 中的 Linux 代理，你可能需要重新配置代理、 升级它，或从计算机到达其生命周期中的停用阶段时将其删除。 可以轻松地手动或自动管理这些日常维护任务，从而减少运行错误并降低费用。
+初始部署之后的日志分析 Windows 或 Azure Monitor 中的 Linux 代理，你可能需要重新配置代理、 升级它，或如果它已达到其生命周期中的停用阶段从计算机删除。 可以轻松地手动或自动管理这些日常维护任务，从而减少运行错误并降低费用。
 
 ## <a name="upgrading-agent"></a>升级代理
 
@@ -40,7 +40,7 @@ ms.locfileid: "64730288"
 
 通过执行以下步骤，可以从 Log Analytics 工作区中，下载 Windows 代理的最新版本。
 
-1. 登录到 Azure 门户。
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 
 2. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics 工作区”。
 
@@ -91,6 +91,7 @@ ms.locfileid: "64730288"
 ## <a name="adding-or-removing-a-workspace"></a>添加或删除工作区
 
 ### <a name="windows-agent"></a>Windows 代理
+在本部分中的步骤是必需的当你想要不只重新配置 Windows 代理的不同工作区报告或从其配置中，删除工作区但还想配置代理向多个工作区 （通常报告称为多宿主）。 代理和使用方法如下所述的初始安装后可以仅执行配置 Windows 代理向多个工作区报告。    
 
 #### <a name="update-settings-from-control-panel"></a>从控制面板更新设置
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Linux 代理
-以下步骤演示如何重新配置 Linux 代理，以便将其注册到不同的工作区，或者从其配置中删除工作区。
+以下步骤演示如何重新配置 Linux 代理，如果您决定将其注册到不同的工作区或从其配置中删除工作区。
 
 1. 若要验证该代理是否已注册到工作区，请运行以下命令：
 
@@ -160,7 +161,7 @@ $mma.ReloadConfiguration()
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. 若要验证更改是否生效，请运行以下命令：
+4. 若要验证所做的更改生效，请运行以下命令：
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
     ```
 
 ## <a name="uninstall-agent"></a>卸载代理
-使用下列方式之一通过命令行或安装向导卸载 Windows 或 Linux 代理。
+使用以下过程之一卸载 Windows 或 Linux 代理使用的命令行或安装向导。
 
 ### <a name="windows-agent"></a>Windows 代理
 

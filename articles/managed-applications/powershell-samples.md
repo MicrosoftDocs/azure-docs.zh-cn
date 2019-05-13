@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 54663282f0a7c9491c0f6501af74eca1a907c44a
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: c1a960077ed96bb395ade9a09f47b035e6ff4318
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23636977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252123"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 示例
 

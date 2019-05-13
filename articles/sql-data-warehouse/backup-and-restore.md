@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679301"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236573"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 
@@ -83,7 +83,7 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 
 如果使用的是异地冗余存储，则会单独收取异地存储费。 异地冗余存储按标准的读取访问异地冗余存储 (RA-GRS) 费率计费。
 
-有关 SQL 数据仓库定价的详细信息，请参阅 [SQL 数据仓库定价](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)和跨区域还原时的[传出费用](https://azure.microsoft.com/pricing/details/bandwidth/)。
+有关 SQL 数据仓库定价的详细信息，请参阅 [SQL 数据仓库定价]。 跨区域还原时，不会收费针对数据流出量。
 
 ## <a name="restoring-from-restore-points"></a>从还原点还原
 

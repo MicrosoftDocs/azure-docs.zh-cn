@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716720"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236391"
 ---
 # <a name="grant-data-access-to-an-environment"></a>授予对环境的数据访问权限
 
@@ -34,11 +34,11 @@ ms.locfileid: "64716720"
 
 1. 选择“数据访问策略”，然后选择“+ 添加”。
 
-    ![Data-access-one][1]
+    [![数据访问一](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. 选择“选择用户”。 搜索用户名称或电子邮件地址，查找要添加的用户。 单击“选择”确认选择。
 
-    ![Data-access-two][2]
+    [![两个访问数据-](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. 选择“选择角色”。 为用户选择相应的访问角色：
 
@@ -48,15 +48,15 @@ ms.locfileid: "64716720"
 
    选择“确定”，确认角色选择。
 
-    ![Data-access-three][3]
+    [![数据访问三](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. 在“选择用户角色”页中，选择“确定”。
 
-    ![Data-access-four][4]
+    [![数据访问四](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. 确认“数据访问策略”页列出了用户和每个用户的角色。
 
-    ![Data-access-five][5]
+    [![五个数据访问](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>提供从另一个 AAD 租户来宾访问
 
@@ -66,19 +66,19 @@ ms.locfileid: "64716720"
 
 1. 选择“数据访问策略”，然后选择“+ 邀请”。
 
-    ![Data-access-six][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. 输入要邀请的用户的电子邮件地址。 此电子邮件地址必须与 Azure AD 关联。 你可以根据情况在邀请中包括个人消息。
 
-    ![Data-access-seven][7]
+    [![数据访问七](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. 查找屏幕上显示的确认气泡。
 
-    ![Data-access-eight][8]
+    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. 选择“选择用户”。 搜索已邀请的来宾用户的电子邮件地址，找到要添加的用户。 单击“选择”确认选择。
 
-    ![Data-access-nine][9]
+    [![数据访问九](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. 选择“选择角色”。 为来宾用户选择相应的访问角色：
 
@@ -88,29 +88,29 @@ ms.locfileid: "64716720"
 
    选择“确定”，确认角色选择。
 
-    ![Data-access-ten][10]
+    [![数据访问十](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. 在“选择用户角色”页中，选择“确定”。
 
 1. 确认“数据访问策略”页列出了来宾用户和每个来宾用户的角色。
 
-    ![Data-access-eleven][11]
+    [![数据访问十一](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. 现在，来宾用户必须按步骤访问他们被邀请到的位于 Azure 租户中的环境。 首先，他们需要接受你发送给他们的邀请。 这份邀请通过电子邮件发送到你在步骤 5 中使用的电子邮件地址。 他们选择“开始”即可接受邀请。
 
-    ![Data-access-twelve][12]
+    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. 接下来，来宾用户接受与管理员组织关联的权限。
 
-    ![Data-access-thirteen][13]
+    [![十三点访问的数据-](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. 当来宾用户登录到你用来邀请他们的电子邮件地址后，他们就可以接受邀请，然后转到 insights.azure.com。 在那里，他们可以选择屏幕右上角的电子邮件地址旁的头像。
 
-    ![Data-access-fourteen][14]
+    [![十四点访问的数据-](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. 接下来，来宾用户从目录下拉菜单中选择你的 Azure 租户。 此租户是你邀请他们访问的租户。
 
-    ![Data-access-fifteen][15]
+    [![数据访问十五](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 当来宾用户选择你的租户后，他们会看到你为他们提供访问权限的时序见解环境。 他们现在还具有与提供这些与中的角色相关联的所有功能**步骤 5**。
 
@@ -121,20 +121,3 @@ ms.locfileid: "64716720"
 * 发送[事件到事件源](./time-series-insights-send-events.md)。
 
 * [在时序见解预览版资源管理器中查看环境](./time-series-insights-update-explorer.md)。
-
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png

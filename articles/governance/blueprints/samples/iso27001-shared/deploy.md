@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792395"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926297"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>部署 ISO 27001 共享服务蓝图示例
 
@@ -99,7 +99,7 @@ ms.locfileid: "59792395"
 1. 输入所有参数后，选择页面底部的“分配”。 随后将创建蓝图分配，并开始部署项目。 部署过程大约需要一小时。 若要检查部署状态，请打开蓝图分配。
 
 > [!WARNING]
-> Azure 蓝图服务和内置蓝图示例是**免费的**。 Azure 资源[按产品定价](https://azure.microsoft.com/en-us/pricing/) 。 使用[定价计算器](https://azure.microsoft.com/pricing/calculator/) 可以估算运行此蓝图示例部署的资源所需的成本。
+> Azure 蓝图服务和内置蓝图示例是**免费的**。 Azure 资源[按产品定价](https://azure.microsoft.com/pricing/) 。 使用[定价计算器](https://azure.microsoft.com/pricing/calculator/) 可以估算运行此蓝图示例部署的资源所需的成本。
 
 ## <a name="artifact-parameters-table"></a>项目参数表
 
@@ -107,10 +107,10 @@ ms.locfileid: "59792395"
 
 |项目名称|项目类型|参数名称|说明|
 |-|-|-|-|
-|[预览]:为 Linux VM 规模集(VMSS)部署 Log Analytics 代理|策略分配|可选：支持将 Linux OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
-|[预览]:为 Linux VM 部署 Log Analytics 代理|策略分配|可选：支持将 Linux OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
-|[预览]:为 Windows VM 规模集(VMSS)部署 Log Analytics 代理|策略分配|可选：支持将 Windows OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
-|[预览]:为 Windows VM 部署 Log Analytics 代理|策略分配|可选：支持将 Windows OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
+|\[预览\]：为 Linux VM 规模集(VMSS)部署 Log Analytics 代理|策略分配|可选：支持将 Linux OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
+|\[预览\]：为 Linux VM 部署 Log Analytics 代理|策略分配|可选：支持将 Linux OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
+|\[预览\]：为 Windows VM 规模集(VMSS)部署 Log Analytics 代理|策略分配|可选：支持将 Windows OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
+|\[预览\]：为 Windows VM 部署 Log Analytics 代理|策略分配|可选：支持将 Windows OS 添加到范围的 VM 映像列表|（可选）默认值为 _["none"]_。|
 |允许的资源类型|策略分配|允许的资源类型|允许部署的资源类型列表。 此列表包括共享服务中部署的所有资源类型。|
 |允许的存储帐户 SKU|策略分配|允许的存储 SKU|允许的诊断日志存储帐户 SKU 列表。 默认值为 _["Standard_LRS"]_。|
 |允许的虚拟机 SKU|策略分配|允许部署的虚拟机 SKU 列表。 默认值为 _["Standard_DS1_v2", "Standard_DS2_v2"]_。|

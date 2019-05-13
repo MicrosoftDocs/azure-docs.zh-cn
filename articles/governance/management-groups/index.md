@@ -8,11 +8,11 @@ ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
 ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874313"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722481"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 

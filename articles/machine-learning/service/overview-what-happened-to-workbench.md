@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526701"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023651"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 有何遭遇？
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 若要继续使用旧模型注册表中注册的模型，必须将它们迁移到新工作区。 若要迁移模型，请下载模型并将其在新工作区中重新注册。 
 
-若要继续使用在旧映像注册表中创建的映像，必须在新工作区中重新创建它们。 可以按照[配置和创建映像](how-to-deploy-and-where.md#configureimage)部分重新创建这些映像。 
+你在自己的旧映像注册表中创建的映像不能直接迁移到新工作区。 大多数情况下，可以部署此模型，不需创建映像。 可以根据需要在新工作区中为模型创建一个映像。 有关详细信息，请参阅[管理、注册、部署和监视机器学习模型](concept-model-management-and-deployment.md)。
 
 ## <a name="what-about-deployed-web-services"></a>已部署 Web 服务又如何？
 

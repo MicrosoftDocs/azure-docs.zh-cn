@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450291"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466473"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Azure IoT 参考体系结构简介
 
@@ -38,7 +38,7 @@ ms.locfileid: "61450291"
 
 参考体系结构标识下图所示的核心子系统：
 
-![核心子系统](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![核心子系统](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 以下部分描述远程监视解决方案加速器的组件如何映射到核心子系统。
 

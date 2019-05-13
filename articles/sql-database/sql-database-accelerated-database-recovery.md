@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388707"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073463"
 ---
-# <a name="accelerated-database-recovery-preview"></a>加速的数据库恢复（预览）
+# <a name="accelerated-database-recovery"></a>加速的数据库恢复
 
 **加速的数据库恢复 (ADR)** 是一项新的 SQL 数据库引擎功能，通过重新设计 SQL 数据库引擎恢复过程，极大地提高数据库可用性（尤其是存在长期运行的事务时）。 ADR 目前可用于 Azure SQL 数据库中的单一数据库和共用数据库，以及 Azure SQL 数据仓库中的数据库。 ADR 的主要优点是：
 
@@ -65,7 +65,7 @@ ADR 通过完全重新设计 SQL 数据库引擎恢复过程来解决上述问�
 - 避免必须从最早的活动事务开始扫描日志，从而实现固定时间恢复和即时恢复。 使用 ADR，事务日志仅处理从最后一个成功的检查点 （或最早的脏页日志序列号 (LSN)）。 因此，恢复时间不受长期运行的事务影响。
 - 最大程度地减少所需的事务日志空间，因为不再需要处理全部事务的日志。 因此，出现检查点并发生备份时，可以主动地截断事务日志。
 
-在高级别上，ADR 通过对所有物理数据库修改进行版本控制并仅撤消逻辑操作来实现快速数据库恢复（这些操作是有限的，并且几乎可以立即撤消）。 在故障时处于活动状态的任何事务都被标记为已中止，因此，并发用户查询可以忽略这些事务生成的任何版本。
+在高级别，ADR 快速数据库恢复可以通过实现版本控制的所有物理数据库修改和唯一的限制，并且可几乎立即撤消逻辑撤消操作。 在故障时处于活动状态的任何事务都被标记为已中止，因此，并发用户查询可以忽略这些事务生成的任何版本。
 
 ADR 恢复过程具有与当前恢复过程相同的三个阶段。 下图说明了这些阶段在 ADR 中的运作方式，并在该示意图后附带了详细的说明。
 
@@ -128,6 +128,3 @@ ADR 的四个关键的组成要素为：
 - 已发现活动事务导致事务日志显著增长的客户。  
 - 已发现由于 SQL Server 恢复耗时很长（例如意外的 SQL Server 重启或手动事务回滚）导致数据库长时间不可用的客户。
 
-## <a name="to-enable-adr-during-this-preview-period"></a>在此预览期间启用 ADR
-
-请在此功能的预览期间，发送一封电子邮件至 [adr@microsoft.com](mailto:adr@microsoft.com) 以了解详细信息并试用加速的数据库恢复 (ADR)。 在电子邮件中，包含 SQL 数据库服务器的名称（适用于 SQL 数据库中的单一数据库和共用数据库，以及 Azure 数据仓库中的数据库）。 由于这是一项预览功能，测试服务器应为非生产服务器。

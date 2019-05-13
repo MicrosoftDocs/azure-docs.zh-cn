@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128908"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416053"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -34,9 +34,9 @@ ms.locfileid: "62128908"
 
 * 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 免费试用版](https://azure.microsoft.com/pricing/free-trial/)。
 
-* 用于 Xamarin 的 Visual Studio Tools，包含在 Visual Studio 2017 或 Visual Studio for Mac 中。 有关说明，请参阅 [Xamarin 安装页][Install Xamarin]。
+* Visual Studio Tools for Xamarin，在 Visual Studio 2017 或更高版本或 Visual Studio for mac。 有关说明，请参阅 [Xamarin 安装页][Install Xamarin]。
 
-* （可选）若要生成 iOS 应用，必须使用装有 Xcode 9.0 或更高版本的 Mac。 可以使用 Visual Studio for Mac 来开发 iOS 应用，也可以使用 Visual Studio 2017（前提是网络上的 Mac 可用）。
+* （可选）若要生成 iOS 应用，必须使用装有 Xcode 9.0 或更高版本的 Mac。 Visual Studio for Mac 可用于开发 iOS 应用或 Visual Studio 2017 或更高版本可用 （只要 Mac 在网络上可用）。
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>创建新的移动应用后端
 
@@ -64,7 +64,7 @@ ms.locfileid: "62128908"
 
    此操作下载一个项目，其中包含连接到移动应用的客户端应用程序。 将压缩的项目文件保存到本地计算机，并记下保存位置。
 
-3. 解压缩下载的项目，然后在 Visual Studio 2017 中打开它。
+3. 解压缩你下载的项目，然后在 Visual Studio 中打开它。
 
    ![在 Visual Studio 中解压缩的项目][8]
 

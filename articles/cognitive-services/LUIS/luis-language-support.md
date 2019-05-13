@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072378"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 的语言和区域支持
 
@@ -102,7 +102,7 @@ LUIS 理解以下语言：
 |环境|Version|目的|
 |--|--|--|
 |德语<br>`de-de`|1.0.0|基于单词拆分使用机器学习基于标记化器尝试分解复合单词按其单个组件对其进行标记。<br>如果用户输入`Ich fahre einen krankenwagen`作为查询文本，它诉诸于`Ich fahre einen kranken wagen`。 允许的标记`kranken`和`wagen`独立地为不同的实体。|
-|德语<br>`de-de`|1.0.1|基于字词的拆分在空间上进行标记。<br> 如果用户输入`Ich fahre einen krankenwagen`作为查询文本，它将保持的单个标记。 因此`krankenwagen`标记作为单个实体。 |
+|德语<br>`de-de`|1.0.2|基于字词的拆分在空间上进行标记。<br> 如果用户输入`Ich fahre einen krankenwagen`作为查询文本，它将保持的单个标记。 因此`krankenwagen`标记作为单个实体。 |
 
 ### <a name="migrating-between-tokenizer-versions"></a>标记器版本之间进行迁移
 <!--

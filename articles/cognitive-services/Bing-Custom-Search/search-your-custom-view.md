@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946769"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510262"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>从门户调用必应自定义搜索实例
 
@@ -26,7 +26,7 @@ ms.locfileid: "60946769"
 
 登录到必应自定义搜索[门户](https://customsearch.ai)后，选择你的搜索实例并单击“生产”选项卡。在“终结点”下，选择一个 API 终结点（例如，Web API）。 你的订阅决定了显示哪些终结点。
 
-若要创建搜索查询，请为终结点输入参数值。 请注意，门户中显示的参数可能会根据你选择的终结点而更改。 有关详细信息，请参阅[自定义搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)。 
+若要创建搜索查询，请为终结点输入参数值。 请注意，门户中显示的参数可能会根据你选择的终结点而更改。 有关详细信息，请参阅[自定义搜索 API 参考](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)。 若要更改搜索实例使用的订阅、 添加相应的订阅密钥，并更新相应的市场和/或语言参数。
 
 一些重要参数如下所述：
 

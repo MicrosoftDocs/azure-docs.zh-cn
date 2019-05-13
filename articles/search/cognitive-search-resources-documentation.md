@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951781"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022165"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>认知搜索工作负载的文档资源
 
-认知搜索（现在在公共预览版中）是 Azure 搜索索引中的新扩充层，用于查找非文本源和无差别文本中的潜在信息，将其转换为 Azure 搜索中的可全文搜索内容。
+认知搜索现已公开发布，是新的扩充层在 Azure 搜索索引中的非文本源和无差别的文本，将其转换成 Azure 搜索中全文可搜索内容中查找导致的延迟信息。
 
 下文是认知搜索的完整文档。
 
@@ -51,9 +51,9 @@ ms.locfileid: "60951781"
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
-+ [预览 REST API](search-api-2017-11-11-preview.md)
-  + [创建技能集 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [创建索引器 (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
+  + [创建技能组合 (api 版本 = 2019年-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>另请参阅
 

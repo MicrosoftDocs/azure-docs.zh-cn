@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48ce99bd830d2c35e5cb9703d2ef754a602d534b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110268"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926148"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>为迁移到 Azure 的工作负荷计算成本和调整大小的最佳做法
 
@@ -331,7 +331,7 @@ Azure 提供了一个 REST API，它有权访问你的租户账单信息。
 
 **了解更多：**
 - [了解](https://azure.microsoft.com/services/functions/) Azure Functions
-- [详细了解](https://azure.microsoft.com/en-us/services/batch/) Azure Batch
+- [详细了解](https://azure.microsoft.com/services/batch/) Azure Batch
   
 ## <a name="next-steps"></a>后续步骤 
 

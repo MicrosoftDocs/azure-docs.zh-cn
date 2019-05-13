@@ -1,20 +1,19 @@
 ---
-title: 在 Azure Database for PostgreSQL 服务器上优化查询统计信息集合
-description: 本文介绍了如何在 Azure Database for PostgreSQL 服务器上优化查询统计信息集合。
-author: WenJason
-ms.author: v-jay
+title: 优化查询统计信息集合在 Azure Database for PostgreSQL-单个服务器
+description: 本文介绍如何优化查询统计信息集合在 Azure Database for PostgreSQL-单个服务器
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422691"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068958"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器上优化查询统计信息集合 
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>优化查询统计信息收集在 Azure Database for PostgreSQL-单个服务器
 本文介绍如何在 Azure Database for PostgreSQL 服务器上优化查询统计信息集合。
 
 ## <a name="use-pgstatsstatements"></a>使用 pg_stats_statements

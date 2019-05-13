@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: a1dba92a9e156c82f49b9f6f85faf227fc652029
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0673d97f755d7e01d42d0be7c611720ff1e4ad01
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240074"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187773"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>将大量随机数据以并行方式上传到 Azure 存储
 
@@ -67,14 +67,14 @@ dotnet run
 
 应用程序创建五个随机命名的容器，并开始将暂存目录中的文件上传到存储帐户。 应用程序将最小线程设置和 [DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) 设置为 100，以确保在运行应用程序时允许大量并发连接。
 
-除设置线程和连接限制设置外，还需将 [UploadFromStreamAsync ](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 方法的 [BlobRequestOptions](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions?view=azure-dotnet) 配置为使用并行，并禁用 MD5 哈希验证。 文件以 100 mb 的块上传，此配置提高了性能，但如果网络性能不佳，可能成本高昂，因为如果出现失败，会重试整个 100 mb 的块。
+除设置线程和连接限制设置外，还需将 [UploadFromStreamAsync ](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) 方法的 [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet) 配置为使用并行，并禁用 MD5 哈希验证。 文件以 100 mb 的块上传，此配置提高了性能，但如果网络性能不佳，可能成本高昂，因为如果出现失败，会重试整个 100 mb 的块。
 
 |属性|值|说明|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 上传时，此设置将 blob 分为多个块。 为获得最佳性能，此值应为内核数的 8 倍。 |
-|[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 该属性禁用对上传内容的 MD5 哈希检查。 禁用 MD5 验证可加快传输速度。 但是不能确认传输文件的有效性或完整性。   |
-|[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 该属性确定是否计算和存储文件的 MD5 哈希。   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2 秒回退，最多重试 10 次 |确定请求的重试策略。 重试连接失败，在此示例中，[ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) 策略配置为 2 秒回退，最多可重试 10 次。 当应用程序快要达到 [blob 存储可伸缩性目标](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)时，此设置非常重要。  |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 上传时，此设置将 blob 分为多个块。 为获得最佳性能，此值应为内核数的 8 倍。 |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| true| 该属性禁用对上传内容的 MD5 哈希检查。 禁用 MD5 验证可加快传输速度。 但是不能确认传输文件的有效性或完整性。   |
+|[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 该属性确定是否计算和存储文件的 MD5 哈希。   |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2 秒回退，最多重试 10 次 |确定请求的重试策略。 重试连接失败，在此示例中，[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry?view=azure-dotnet) 策略配置为 2 秒回退，最多可重试 10 次。 当应用程序快要达到 [blob 存储可伸缩性目标](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)时，此设置非常重要。  |
 
 下例显示了 `UploadFilesAsync` 任务：
 

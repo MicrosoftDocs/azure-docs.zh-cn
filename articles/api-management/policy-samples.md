@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: c58396379db2d9073c1f7d3a4c3aa68dfd06079e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 550161ce39aa944d0e01bb349ba48acbf719a860
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859369"
 ---
 # <a name="api-management-policy-samples"></a>API 管理策略示例
 

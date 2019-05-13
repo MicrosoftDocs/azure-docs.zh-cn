@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 26670a739bca03a2c9bbe6617cf433c730a7489e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098233"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153184"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 

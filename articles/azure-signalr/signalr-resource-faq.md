@@ -6,19 +6,19 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 09788f4ded66b43fd5ecae20301a28cd01d77320
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e9e41ffa335aa95b139a5d5658424c1c5915b569
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554833"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914959"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR 服务常见问题解答
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Azure SignalR 服务是否随时可用于生产？
 
 是的。
-有关正式版的通告，请参阅 [Azure SignalR 服务现已推出正式版](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/)。 
+有关正式版的通告，请参阅 [Azure SignalR 服务现已推出正式版](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/)。 
 
 完全支持 [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)。
 

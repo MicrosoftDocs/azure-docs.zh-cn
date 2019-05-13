@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127975"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412787"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>通过 Azure 后端创建 Windows 应用
 
@@ -37,9 +37,9 @@ ms.locfileid: "62127975"
 
 要完成本教程，需要以下各项：
 
-* 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 免费试用](https://azure.microsoft.com/pricing/free-trial/)。
+* 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅[Azure 免费试用版](https://azure.microsoft.com/pricing/free-trial/)。
 * Windows 10。
-* [Visual Studio Community 2017]。
+* [Visual Studio Community]。
 * 熟悉 UWP 应用开发。 访问 [UWP 文档](https://docs.microsoft.com/windows/uwp/)，了解如何[进行设置](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)，以便生成 UWP 应用。
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
@@ -70,7 +70,7 @@ ms.locfileid: "62127975"
     这样可向在 Azure 中托管的新移动应用后端发送 POST 请求。
 
 > [!TIP]
-> 如果使用的是 .NET 后端，可以将 UWP 应用项目添加到服务器项目所在的解决方案中。 这样更易于调试和测试同一 Visual Studio 解决方案中的应用和后端。 若要将 UWP 应用项目添加到后端解决方案，必须使用 Visual Studio 2017。
+> 如果使用的是 .NET 后端，可以将 UWP 应用项目添加到服务器项目所在的解决方案中。 这样更易于调试和测试同一 Visual Studio 解决方案中的应用和后端。 将 UWP 应用项目添加到后端解决方案，必须使用 Visual Studio 2017 或更高版本。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -86,4 +86,4 @@ ms.locfileid: "62127975"
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

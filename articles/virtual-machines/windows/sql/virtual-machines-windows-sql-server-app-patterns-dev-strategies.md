@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 988acec8d7044afe87523637e46c9a4deb92b55e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51d572ac324d0bc875e7ed81879f2456eeea4fbb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477615"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506614"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -271,7 +271,7 @@ ms.locfileid: "61477615"
 | **跨界连接** |可以使用 Azure 虚拟网络连接到本地。 |可以使用 Azure 虚拟网络连接到本地。 |支持 Azure 虚拟网络。 有关详细信息，请参阅 [Web 应用虚拟网络集成](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)。 |
 | **伸缩性** |增加虚拟机大小或添加更多磁盘即可纵向扩展。 有关虚拟机大小的详细信息，请参见[适用于 Azure 的虚拟机大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。<br/><br/>**对于数据库服务器**：通过数据库分区技术或 SQL Server AlwaysOn 可用性组即可横向扩展。<br/><br/>对于很高的读取工作负荷，可在多个辅助节点上使用 [AlwaysOn 可用性组](https://msdn.microsoft.com/library/hh510230.aspx)，还可使用 SQL Server 复制。<br/><br/>对于很高的写入工作负荷，可在多个物理服务器上实施水平分区数据，以便进行应用程序横向扩展。<br/><br/>此外，还可以使用[具有数据相关的路由的 SQL Server](https://technet.microsoft.com/library/cc966448.aspx) 实现横向扩展。 使用数据相关的路由 (DDR) 时，需要在客户端应用程序中实施分区机制（通常是在业务层中），将数据库请求路由到多个 SQL Server 节点。 业务层包含有关如何对数据进行分区和哪些节点包含数据的映射。<br/><br/>可以缩放运行虚拟机的应用程序。 有关详细信息，请参阅[如何缩放应用程序](../../../cloud-services/cloud-services-how-to-scale-portal.md)。<br/><br/>**重要说明**：Azure 中的“自动缩放”功能可以自动增加或减少应用程序使用的虚拟机。 此功能可以保证在高峰期间不会对最终用户体验产生负面影响，并且在需求较低时可以关闭 VM。 如果云服务包括 SQL Server VM，建议不要为其设置“自动缩放”选项。 原因是自动缩放功能允许 Azure 在该 VM 中的 CPU 使用率高于某个阈值时打开一个虚拟机，并且在 CPU 使用率低于该阈值时关闭一个虚拟机。 自动缩放功能对于无状态应用程序（例如 Web 服务器）非常有用，在这种应用程序中，VM 可以在不参考以前状态的情况下管理工作负荷。 不过，自动缩放功能对于有状态应用程序（例如 SQL Server）没有用处，在这种应用程序中，只有一个实例允许写入到数据库。 |可以使用多个 Web 角色和辅助角色进行纵向扩展。 有关 Web 角色和辅助角色的虚拟机大小的详细信息，请参阅[配置云服务大小](../../../cloud-services/cloud-services-sizes-specs.md)。<br/><br/>使用云服务时，可以定义多个角色，以便分配处理并实现应用程序的弹性缩放。 每个云服务包括一个或多个 Web 角色和/或辅助角色，每个角色具有自身的应用程序文件和配置。 可以通过增加为角色部署的角色实例（虚拟机）的数量，纵向扩展云服务，或者通过减少角色实例的数量，横向扩展云服务。 有关详细信息，请参阅 [Azure 执行模型](../../../cloud-services/cloud-services-choose-me.md)。<br/><br/>通过[云服务、虚拟机以及虚拟网络服务级别协议](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)和负载均衡器经内置的 Azure 高可用性支持即可横向扩展。<br/><br/>对于多层应用程序，建议通过 Azure 虚拟网络，将 Web 角色/辅助角色应用程序连接到数据库服务器 VM。 此外，Azure 为同一云服务中的 VM 提供负载均衡，将用户请求分散到这些 VM。 以这种方式连接的虚拟机可以通过 Azure 数据中心内的本地网络直接相互通信。<br/><br/>可在 Azure 门户上设置自动缩放，还可设置计划时间。 有关详细信息，请参阅[如何在门户中为云服务配置自动缩放](../../../cloud-services/cloud-services-how-to-scale-portal.md)。 |**纵向扩展和缩减**：可以增大/减少为网站保留的实例 (VM) 的大小。<br/><br/>横向扩展：可为网站添加更多预留实例 (VM)。<br/><br/>可在门户上设置自动缩放，还可设置计划时间。 有关详细信息，请参阅[如何缩放 Web 应用](../../../app-service/web-sites-scale.md)。 |
 
-有关如何在这些编辑方法之间进行选择的详细信息，请参阅 [Azure Web 应用、云服务和 VM：何时使用何种产品](../../../app-service/overview-compare.md)。
+有关如何在这些编辑方法之间进行选择的详细信息，请参阅 [Azure Web 应用、云服务和 VM：何时使用何种产品](/azure/architecture/guide/technology-choices/compute-decision-tree)。
 
 ## <a name="next-steps"></a>后续步骤
 有关在 Azure 虚拟机中运行 SQL Server 的详细信息，请参阅 [Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。

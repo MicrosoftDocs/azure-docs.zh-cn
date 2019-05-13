@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 347de9b575e3b47ee795026115fd2452c28b866b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877331"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150258"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>快速入门：使用预构建的家庭自动化应用
 
@@ -57,6 +57,8 @@ ms.locfileid: "55877331"
 ## <a name="intents-and-entities"></a>意向和实体
 
 在左侧导航窗格中选择“意向”，以便查看 HomeAutomation 域意向。 每个意向都有示例话语。
+
+![HomeAutomation 意向列表的屏幕截图](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")]
 
 > [!NOTE]
 > “无”是由所有 LUIS 应用提供的意向。 可以使用它来处理与应用提供的功能无法对应的话语。 

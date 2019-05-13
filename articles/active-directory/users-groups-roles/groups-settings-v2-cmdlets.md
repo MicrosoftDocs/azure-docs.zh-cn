@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470049"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407873"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 
@@ -233,13 +233,13 @@ ObjectId 参数是要将成员添加到的组的 ObjectID，-RefObjectId 是要�
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是要作为组所有者添加的用户的 ObjectID。
+-ObjectId 参数是我们想要将所有者添加的组的 ObjectID，-RefObjectId 是用户或服务主体我们想要添加为组的所有者的 ObjectID。
 
 若要检索组的所有者，请使用 Get-AzureADGroupOwner cmdlet：
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-该 cmdlet 将返回指定组的所有者的列表：
+该 cmdlet 返回有关指定组的所有者 （用户和服务主体） 的列表：
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------

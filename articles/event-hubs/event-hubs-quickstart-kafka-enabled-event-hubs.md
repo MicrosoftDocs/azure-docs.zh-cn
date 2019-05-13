@@ -1,5 +1,5 @@
 ---
-title: 流式传输到 Kafka 启用的事件中心 - Azure 事件中心| Microsoft Docs
+title: 使用 Kafka 协议通过 Azure 事件中心进行数据流式传输 | Microsoft Docs
 description: 本文介绍了如何使用 Kafka 协议和 API 流式传输到 Azure 事件中心。
 services: event-hubs
 author: basilhariri
@@ -7,15 +7,15 @@ ms.author: bahariri
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 4fec60cdf3fcf24378567ea97dd7922c805cde18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 05/06/2019
+ms.openlocfilehash: a4e050fdef20cdc62ee92e6383c455ffcb9abc90
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542924"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203910"
 ---
-# <a name="stream-into-event-hubs-for-the-apache-kafka"></a>流式传输到用于 Apache Kafka 的事件中心
+# <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>使用 Kafka 协议通过事件中心进行数据流式传输
 本快速入门演示如何在不更改协议客户端或运行自己的群集的情况下，流式传输到已启用 Kafka 的事件中心。 你将了解如何只需更改应用程序配置，即可使用生产者和使用者与已启用 Kafka 的事件中心通信。 Azure 事件中心支持 [Apache Kafka 版本 1.0](https://kafka.apache.org/10/documentation.html)。
 
 > [!NOTE]

@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: dcac701f3c1b6d64a7017c31679c019b91103ba2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904723"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203602"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>在 Azure Monitor 中分析日志数据
 
@@ -28,7 +28,7 @@ Azure Monitor 收集的日志数据存储在 Log Analytics 工作区中，该工
 
 ## <a name="where-log-queries-are-used"></a>在何处使用日志查询
 
-将在 Azure Monitor 中使用查询的不同方式包括：
+在 Azure Monitor 中使用查询的方式包括以下几种：
 
 - **门户。** 可以在 [Azure 门户](portals.md)中对日志数据执行交互式分析。  这样便可采用各种格式和可视化效果编辑查询并分析结果。  
 - **警报规则。** [警报规则](../platform/alerts-overview.md)主动识别工作区中数据的问题。  每个警报规则均基于定期自动运行的日志搜索。  对结果进行检查，确定是否应创建警报。
@@ -36,7 +36,7 @@ Azure Monitor 收集的日志数据存储在 Log Analytics 工作区中，该工
 - **视图。**  可以使用[视图设计器](../platform/view-designer.md)创建要包含在用户仪表板中的数据的可视化效果。  日志查询提供每个视图中[磁贴](../platform/view-designer-tiles.md)和[可视化部件](../platform/view-designer-parts.md)使用的数据。  
 
 - **导出。**  将日志数据从 Azure Monitor 导入到 Excel 或 [Power BI](../platform/powerbi.md) 中时，请创建日志查询来定义要导出的数据。
-- **PowerShell。** 可以从命令行或使用的 Azure 自动化 runbook 运行的 PowerShell 脚本[Get AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults)以检索 Azure Monitor 中的日志数据。  此 cmdlet 需要一个查询来确定要检索的数据。
+- **PowerShell。** 可从命令行运行 PowerShell 脚本或运行使用 [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) 的 Azure 自动化 runbook，从 Azure Monitor 中检索日志数据。  此 cmdlet 需要一个查询来确定要检索的数据。
 - **Azure Monitor 日志 API。**  [Azure Monitor 日志 API](../platform/alerts-overview.md) 允许任何 REST API 客户端从工作区中检索日志数据。  API 请求包括针对 Azure Monitor 运行的查询，用于确定要检索的数据。
 
 ![日志搜索](media/log-query-overview/queries-overview.png)

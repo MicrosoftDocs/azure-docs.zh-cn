@@ -4,7 +4,7 @@ description: 概述了使用 Azure DNS 和流量管理器的灾难恢复解决�
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507605"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501691"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理器进行灾难恢复
 
@@ -141,7 +141,8 @@ Azure 流量管理器自动故障转移的配置步骤如下：
 新建 Azure 流量管理器配置文件，并命名为“contoso123”，再选择“优先级”作为“路由方法”。 若有要与之关联的现有资源组，可以选择现有资源组，否则新建资源组。
 
 ![创建流量管理器配置文件](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*图：创建流量管理器配置文件*
+
+*图-创建流量管理器配置文件*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>步骤 2：在流量管理器配置文件中创建终结点
 

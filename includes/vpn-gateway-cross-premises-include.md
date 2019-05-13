@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 55ac7e055c972a9b18ef374ac8498b418c5d56af
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 14793d7f787780bfc8604e4af11eb05f1ff0d937
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60859724"
 ---
 |  | **点到站点** | **站点到站点** | **ExpressRoute** |
 | --- | --- | --- | --- |

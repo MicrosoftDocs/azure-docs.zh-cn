@@ -5,16 +5,16 @@ services: virtual-machines-linux,storage
 author: roygara
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
-ms.topic: article
-ms.date: 02/11/2019
+ms.topic: overview
+ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d8394121019338b53c87f7229d0ccf52fbdf8f21
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 18dc1bd2eea232d0c2eb73d496dd4bd9d2d5016e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327021"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707804"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
 

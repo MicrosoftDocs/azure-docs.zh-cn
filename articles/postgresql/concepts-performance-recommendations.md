@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL 中的性能建议
-description: 本文介绍用于 PostgreSQL 的 Azure 数据库中的性能建议功能。
+title: 中 Azure Database for PostgreSQL-单个服务器的性能建议
+description: 本文介绍用于 PostgreSQL 的单个服务器的 Azure 数据库中的性能建议功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564423"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068848"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的性能建议
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>中 Azure Database for PostgreSQL-单个服务器的性能建议
 
-**适用于：** Azure Database for PostgreSQL 9.6 和 10
+**适用于：** Azure Database for PostgreSQL-9.6 和 10 台服务器
 
 性能建议功能分析数据库以创建自定义的建议以提高性能。 若要生成的建议，分析探讨各种数据库特征包括架构。 启用[Query Store](concepts-query-store.md)以充分利用性能建议功能在服务器上。 实现任何性能建议之后, 您应该测试性能以评估这些更改的影响。 
 

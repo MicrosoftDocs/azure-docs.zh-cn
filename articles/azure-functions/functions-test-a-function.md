@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a078579fff355d7ddb996316af2a2136fb62335
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021095"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473333"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -221,7 +221,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -230,7 +230,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 

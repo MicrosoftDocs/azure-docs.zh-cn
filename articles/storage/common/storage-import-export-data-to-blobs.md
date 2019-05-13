@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479297"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409365"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -98,7 +98,7 @@ ms.locfileid: "61479297"
    - 输入导入作业的描述性名称。 可使用此名称来跟踪作业进度。
        - 此名称只能包含小写字母、数字和连字符。
        - 此名称必须以字母开头，并且不得包含空格。
-   - 选择一个订阅。
+   - 选择订阅。
    - 输入或选择一个资源组。  
 
      ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
@@ -114,7 +114,7 @@ ms.locfileid: "61479297"
 4. 在“回寄信息”中：
 
    - 从下拉列表中选择承运商。 如果你想要使用非 FedEx/DHL 快递商，请从下拉列表中选择一个现有的选项。 联系 Azure 数据框操作团队的`adbops@microsoft.com`与你打算使用与运营商相关的信息。
-   - 输入你已在该承运商那里创建的有效承运商帐户编号。 导入作业完成后，Microsoft 使用此帐户寄回驱动器。 如果还没有帐户编号，请创建一个 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](http://www.dhl.com/) 承运商帐户。
+   - 输入你已在该承运商那里创建的有效承运商帐户编号。 导入作业完成后，Microsoft 使用此帐户寄回驱动器。 如果还没有帐户编号，请创建一个 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](https://www.dhl.com/) 承运商帐户。
    - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。 
         
        > [!TIP] 

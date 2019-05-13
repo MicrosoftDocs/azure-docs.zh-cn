@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935762"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233922"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>通过示例了解数据工厂定价
 
 本文使用详细的示例介绍并演示 Azure 数据工厂定价模型。
+
+> [!NOTE]
+> 在下面这些示例中使用的价格是假设索引，它不用于表示实际定价。
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>将数据每隔一小时从 AWS S3 复制到 Azure Blob 存储
 
@@ -122,13 +125,13 @@ ms.locfileid: "64935762"
   - 管道活动 = $0.00003（以 1 分钟的执行时间按比例计算。 Azure Integration Runtime 上的定价为 $0.002/小时）
   - 外部管道活动 = $0.000041（以 10 分钟的执行时间按比例计算。 Azure Integration Runtime 上的定价为 $0.00025/小时）
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>使用映射数据流调试正常 workday
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>使用正常的工作日 （预览版定价） 映射数据流调试
 
 作为数据工程师，负责设计、 构建和测试映射的数据流动每一天。 你在上午登录到 ADF UI 并启用调试模式下的数据流。 调试会话的默认 TTL 为 60 分钟。 可在一天 10 小时，以便在调试会话永不过期。 因此，你一天的费用将为：
 
 **10 （小时） x 8 （核心） x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>在 blob 存储与映射数据的流中转换数据
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>在 blob 存储与映射 （预览版定价） 的数据流中转换数据
 
 在此方案中，你想要在 Blob 存储区以可视方式 ADF 映射数据流中按每小时计划中转换数据。
 

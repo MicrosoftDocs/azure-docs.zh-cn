@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689858"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073339"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -74,6 +74,7 @@ ms.locfileid: "64689858"
 | [认知服务数据读者（预览）](#cognitive-services-data-reader-preview) | 可以读取认知服务数据。 |
 | [认知服务用户](#cognitive-services-user) | 允许读取和列出认知服务密钥。 |
 | [Cosmos DB 帐户读者角色](#cosmos-db-account-reader-role) | 可以读取 Azure Cosmos DB 帐户数据。 请参阅 [Cosmos DB 帐户参与者](#documentdb-account-contributor)，了解如何管理 Azure Cosmos DB 帐户。 |
+| [Cosmos DB 运算符](#cosmos-db-operator) | 允许你管理 Azure Cosmos DB 帐户，但不是访问它们中的数据。 可防止对帐户密钥和连接字符串的访问。 |
 | [CosmosBackupOperator](#cosmosbackupoperator) | 可以为帐户提交 Cosmos DB 数据库或容器的还原请求 |
 | [成本管理参与者](#cost-management-contributor) | 可以查看成本和管理成本配置（例如预算、导出） |
 | [成本管理读者](#cost-management-reader) | 可以查看成本数据和配置（例如预算、导出） |
@@ -1080,6 +1081,30 @@ ms.locfileid: "64689858"
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | **不操作** |  |
 > | *无* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
+## <a name="cosmos-db-operator"></a>Cosmos DB 运算符
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 允许你管理 Azure Cosmos DB 帐户，但不是访问它们中的数据。 可防止对帐户密钥和连接字符串的访问。 |
+> | **Id** | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **操作** |  |
+> | Microsoft.DocumentDb/databaseAccounts/* |  |
+> | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
+> | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
 > | **DataActions** |  |
 > | *无* |  |
 > | **NotDataActions** |  |

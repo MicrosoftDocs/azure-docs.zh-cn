@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867918"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233731"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>将本地 SQL Server 迁移到使用 Azure PowerShell 为 Azure SQL 数据库托管实例
 在本文中，你迁移**Adventureworks2016**数据库还原到的 SQL Server 2005 的本地实例或上面到 Azure SQL 数据库实例通过管理 Microsoft Azure PowerShell。 您可以使用迁移数据库从本地 SQL Server 实例到 Azure SQL 数据库托管实例`Az.DataMigration`在 Microsoft Azure PowerShell 模块。
@@ -86,7 +86,7 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 > 以下代码段是为脱机迁移，不需要的基于高级 SKU 的 Azure 数据库迁移服务实例。 为联机迁移-Sku 参数的值必须包括高级 SKU。
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

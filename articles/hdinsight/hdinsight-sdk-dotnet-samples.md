@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: f589c5e23be105086d2908fb7db72e69c781e726
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 3e2cb0768701196515ace3f6ef0d475f8e3b0f79
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678252"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688108"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight：.NET 示例
 

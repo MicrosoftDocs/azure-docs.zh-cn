@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586505"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145206"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作负荷的安全性最佳实践
+本文介绍了 VM 和操作系统的安全最佳做法。
+
+最佳做法以观点的共识以及 Azure 平台功能和特性集为基础。 由于观点和技术会随时改变，本文会进行更新以反映这些变化。
 
 在大多数基础结构即服务 (IaaS) 方案中，[Azure 虚拟机 (VM)](https://docs.microsoft.com/azure/virtual-machines/) 是使用云计算的组织的主要工作负荷。 这种事实在[混合方案](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)中十分明显，组织希望在混合方案中慢慢将工作负载迁移到云。 在这种方案中，应遵循 [IaaS 常规安全注意事项](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)，并向所有 VM 应用安全最佳做法。
 
+## <a name="shared-responsibility"></a>共担责任
 对安全的责任取决于云服务的类型。 下图总结了 Microsoft 和客户的责任平衡：
 
 ![责任范围](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 安全要求取决于许多因素，包括不同类型的工作负载。 这些最佳实践没有一种可以单独保护系统。 就像安全中的其他内容，必须选择相应的选项，了解解决方案如何通过填补其他内容留下的缺口来相互补充。
 
-本文介绍了 VM 和操作系统的安全最佳做法。
-
-最佳做法以观点的共识以及 Azure 平台功能和特性集为基础。 由于观点和技术会随时改变，本文会进行更新以反映这些变化。
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>通过身份验证和访问控制保护 VM
 保护 VM 安全的第一步是确保只有授权用户才能设置新 VM 以及访问 VM。
+
+> [!NOTE]
+> 若要提高 Azure 上的 Linux Vm 的安全性，您可以通过 Azure AD 身份验证集成。 当你使用[适用于 Linux Vm 的 Azure AD 身份验证](../virtual-machines/linux/login-using-aad.md)，你可以集中控制并强制执行策略允许或拒绝对 Vm 的访问。
+>
+>
 
 **最佳做法**：控制 VM 访问。   
 **详细信息**：使用 [Azure 策略](../azure-policy/azure-policy-introduction.md)建立组织中的资源约定和创建自定义策略。 将这些策略应用于资源，如[资源组](../azure-resource-manager/resource-group-overview.md)。 属于该资源组的 VM 将继承该组的策略。
@@ -102,6 +107,9 @@ Microsoft 反恶意软件包括实时保护、计划扫描、恶意软件修正�
 **最佳做法**：定期重新部署 VM 以强制刷新操作系统版本。   
 **详细信息**：使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)定义 VM，以便轻松地重新部署。 使用模板可在需要时提供已修补且安全的 VM。
 
+**最佳做法**：快速应用于 Vm 的安全更新。   
+**详细信息**：启用 Azure 安全中心 （免费层或标准层） 到[确定缺少安全更新并将其应用](../security-center/security-center-apply-system-updates.md)。
+
 **最佳做法**：安装最新的安全更新。   
 **详细信息**：客户移到 Azure 的部分首批工作负荷为实验室和面向外部的系统。 如果 Azure VM 托管需要访问 Internet 的应用程序或服务，则需要警惕修补。 修补不仅仅包括操作系统。 合作伙伴应用程序上未修补的漏洞还可能导致一些问题，而如果实施良好的修补程序管理，就可以避免这些问题。
 
@@ -165,6 +173,18 @@ Azure 磁盘加密可解决以下业务需求：
 
 - 使用行业标准的加密技术轻松保护 IaaS VM，满足组织的安全性与合规性要求。
 - IaaS VM 会根据客户控制的密钥和策略启动，客户可以在 Key Vault 中审核密钥和策略的使用方式。
+
+## <a name="restrict-direct-internet-connectivity"></a>限制直接 internet 连接
+监视并限制 VM 直接 internet 连接。 攻击者不断扫描公有云的打开的管理端口的 IP 范围，并尝试"简单"等常见密码和未打补丁的已知的漏洞的攻击。 下表列出了帮助保护对这些攻击的最佳做法：
+
+**最佳做法**：防止无意中泄露网络路由和安全性。   
+**详细信息**：使用 RBAC 来确保只为中心的网络组具有对网络资源的权限。
+
+**最佳做法**：标识和修正允许从"任何"源 IP 地址进行访问的公开的 Vm。   
+**详细信息**：使用 Azure 安全中心。 安全中心将建议限制通过面向 internet 的终结点的访问，如果任何网络安全组具有一个或多个入站的规则，允许从"任何"源 IP 地址进行访问。 安全中心将建议编辑这些入站的规则[限制访问](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md)到实际需要访问的源 IP 地址。
+
+**最佳做法**：限制管理端口 （RDP、 SSH）。   
+**详细信息**：[实时 (JIT) VM 访问](../security-center/security-center-just-in-time.md)可以用来锁定发往 Azure Vm，降低遭受攻击，同时允许轻松访问要连接到 Vm 时所需入站流量。 启用 JIT 后，安全中心会通过创建网络安全组规则来锁定到 Azure Vm 的入站流量。 你需要选择要锁定 VM 上的哪些端口的入站流量。 这些端口控制 JIT 解决方案。
 
 ## <a name="next-steps"></a>后续步骤
 有关通过 Azure 设计、部署和管理云解决方案时可以使用的更多安全最佳做法，请参阅 [Azure 安全最佳做法和模式](security-best-practices-and-patterns.md)。

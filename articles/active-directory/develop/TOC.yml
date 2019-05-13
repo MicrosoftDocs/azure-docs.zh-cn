@@ -1,7 +1,382 @@
 - name: Microsoft 标识平台（针对开发人员的 Azure Active Directory）
   href: index.yml
-- name: 关于 Microsoft 标识平台
+- name: Microsoft 标识平台的发展
   href: about-microsoft-identity-platform.md
+- name: v2.0
+  expanded: true
+  items:
+    - name: 概述
+      href: v2-overview.md
+    - name: 快速入门
+      items:
+        - name: 设置开发环境
+          href: quickstart-create-new-tenant.md
+        - name: 配置应用程序
+          items:
+            - name: 注册应用程序
+              href: quickstart-register-app.md
+            - name: 配置用于访问 Web API 的应用
+              href: quickstart-configure-app-access-web-apis.md
+            - name: 配置用于公开 Web API 的应用
+              href: quickstart-configure-app-expose-web-apis.md
+            - name: 修改应用支持的帐户
+              href: quickstart-modify-supported-accounts.md
+            - name: 删除应用
+              href: quickstart-remove-app.md
+        - name: 单页应用
+          items:
+            - name: JavaScript
+              href: quickstart-v2-javascript.md
+        - name: Web 应用
+          items:
+            - name: ASP .NET
+              href: quickstart-v2-aspnet-webapp.md
+            - name: ASP .NET Core
+              href: quickstart-v2-aspnet-core-webapp.md
+            - name: NodeJS
+              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+        - name: Web API
+          items:
+            - name: ASP .NET
+              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+            - name: ASP .NET Core
+              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+        - name: 移动和桌面应用
+          items:
+            - name: Android
+              href: quickstart-v2-android.md
+            - name: iOS
+              href: quickstart-v2-ios.md
+            - name: 通用 Windows 平台
+              href: quickstart-v2-uwp.md
+            - name: Windows 桌面 .NET
+              href: quickstart-v2-windows-desktop.md
+        - name: 守护程序应用
+          items:
+            - name: .NET Core 控制台（守护程序）
+              href: quickstart-v2-netcore-daemon.md
+            - name: ASP.NET 守护程序 Web 应用
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
+    - name: 教程
+      items:
+        - name: 单页应用
+          items:
+            - name: JavaScript
+              href: tutorial-v2-javascript-spa.md
+        - name: Web 应用
+          items:
+            - name: ASP .NET
+              href: tutorial-v2-asp-webapp.md
+        - name: 移动和桌面应用
+          items:
+            - name: Android
+              href: tutorial-v2-android.md
+            - name: iOS
+              href: tutorial-v2-ios.md
+            - name: 通用 Windows 平台
+              href: tutorial-v2-windows-uwp.md
+            - name: Windows 桌面 .NET
+              href: tutorial-v2-windows-desktop.md
+    - name: 示例
+      href: sample-v2-code.md
+    - name: 概念
+      items:
+        - name: 应用程序类型
+          href: v2-app-types.md
+        - name: 应用程序方案
+          items:
+            - name: 登录受众
+              href: v2-supported-account-types.md
+            - name: 单页应用
+              items:
+                - name: 概述
+                  href: scenario-spa-overview.md
+                - name: 应用注册
+                  href: scenario-spa-app-registration.md
+                - name: 代码配置
+                  href: scenario-spa-app-configuration.md
+                - name: 登录和注销
+                  href: scenario-spa-sign-in.md
+                - name: 获取 API 的令牌
+                  href: scenario-spa-acquire-token.md
+                - name: 调用 Web API
+                  href: scenario-spa-call-api.md
+                - name: 移到生产环境
+                  href: scenario-spa-production.md
+            - name: 用于登录用户的 Web 应用
+              items:
+                - name: 概述
+                  href: scenario-web-app-sign-user-overview.md
+                - name: 应用注册
+                  href: scenario-web-app-sign-user-app-registration.md
+                - name: 代码配置
+                  href: scenario-web-app-sign-user-app-configuration.md
+                - name: 登录和注销
+                  href: scenario-web-app-sign-user-sign-in.md
+                - name: 移到生产环境
+                  href: scenario-web-app-sign-user-production.md
+            - name: 用于调用 Web API 的 Web 应用
+              items:
+                - name: 概述
+                  href: scenario-web-app-call-api-overview.md
+                - name: 应用注册
+                  href: scenario-web-app-call-api-app-registration.md
+                - name: 代码配置
+                  href: scenario-web-app-call-api-app-configuration.md
+                - name: 登录
+                  href: scenario-web-app-call-api-sign-in.md
+                - name: 获取应用的令牌
+                  href: scenario-web-app-call-api-acquire-token.md
+                - name: 调用 Web API
+                  href: scenario-web-app-call-api-call-api.md
+                - name: 移到生产环境
+                  href: scenario-web-app-call-api-production.md
+            - name: 受保护的 Web API
+              items:
+                - name: 概述
+                  href: scenario-protected-web-api-overview.md
+                - name: 应用注册
+                  href: scenario-protected-web-api-app-registration.md
+                - name: 代码配置
+                  href: scenario-protected-web-api-app-configuration.md
+                - name: 移到生产环境
+                  href: scenario-protected-web-api-production.md
+            - name: 用于调用 Web API 的 Web API
+              items:
+                - name: 概述
+                  href: scenario-web-api-call-api-overview.md
+                - name: 应用注册
+                  href: scenario-web-api-call-api-app-registration.md
+                - name: 代码配置
+                  href: scenario-web-api-call-api-app-configuration.md
+                - name: 获取令牌
+                  href: scenario-web-api-call-api-acquire-token.md
+                - name: 调用 Web API
+                  href: scenario-web-api-call-api-call-api.md
+                - name: 移到生产环境
+                  href: scenario-web-api-call-api-production.md
+            - name: 用于调用 Web API 的 桌面应用
+              items:
+                - name: 概述
+                  href: scenario-desktop-overview.md
+                - name: 应用注册
+                  href: scenario-desktop-app-registration.md
+                - name: 代码配置
+                  href: scenario-desktop-app-configuration.md
+                - name: 获取令牌
+                  href: scenario-desktop-acquire-token.md
+                - name: 调用 Web API
+                  href: scenario-desktop-call-api.md
+                - name: 移到生产环境
+                  href: scenario-desktop-production.md
+            - name: 守护程序应用
+              items:
+                - name: 概述
+                  href: scenario-daemon-overview.md
+                - name: 应用注册
+                  href: scenario-daemon-app-registration.md
+                - name: 代码配置
+                  href: scenario-daemon-app-configuration.md
+                - name: 获取令牌
+                  href: scenario-daemon-acquire-token.md
+                - name: 调用 Web API
+                  href: scenario-daemon-call-api.md
+                - name: 移到生产环境
+                  href: scenario-daemon-production.md
+            - name: 用于调用 Web API 的移动应用
+              items:
+                - name: 概述
+                  href: scenario-mobile-overview.md
+                - name: 应用注册
+                  href: scenario-mobile-app-registration.md
+                - name: 获取应用的令牌
+                  href: scenario-mobile-acquire-token.md
+                - name: 调用 Web API
+                  href: scenario-mobile-call-api.md
+                - name: 移到生产环境
+                  href: scenario-mobile-production.md
+            - name: 集成清单
+              href: identity-platform-integration-checklist.md
+        - name: Microsoft 身份验证库 (MSAL)
+          items:
+            - name: 概述
+              href: msal-overview.md
+            - name: 迁移
+              items:
+                - name: 迁移到 MSAL.NET
+                  href: msal-net-migration.md
+                - name: 迁移到 MSAL.js
+                  href: msal-compare-msal-js-and-adal-js.md
+            - name: 支持的身份验证流
+              href: msal-authentication-flows.md
+            - name: 获取和缓存令牌
+              items:
+                - name: 获取和缓存令牌
+                  href: msal-acquire-cache-tokens.md
+                - name: v1.0 应用的作用域
+                  href: msal-v1-app-scopes.md
+                - name: 令牌缓存序列化 (.NET)
+                  href: msal-net-token-cache-serialization.md
+            - name: 客户端应用程序
+              items:
+                - name: 客户端应用程序
+                  href: msal-client-applications.md
+                - name: 应用程序配置
+                  href: msal-client-application-configuration.md
+                - name: 初始化应用程序 (.NET)
+                  href: msal-net-initializing-client-applications.md
+                - name: 初始化应用程序 (JS)
+                  href: msal-js-initializing-client-applications.md
+            - name: 处理错误和异常
+              href: msal-handling-exceptions.md
+            - name: 日志记录
+              href: msal-logging.md
+            - name: 单一登录 (JS)
+              href: msal-js-sso.md
+            - name: 提示行为 (JS)
+              href: msal-js-prompt-behavior.md
+            - name: 提供自己的 HttpClient (.NET)
+              href: msal-net-provide-httpclient.md
+            - name: 与 Azure AD B2C 集成
+              href: msal-b2c-overview.md
+            - name: 特定于平台的注意事项 (.NET)
+              items:
+                - name: Web 浏览器
+                  href: msal-net-web-browsers.md
+                - name: Xamarin Android
+                  href: msal-net-xamarin-android-considerations.md
+                - name: Android 上的系统浏览器
+                  href: msal-net-system-browser-android-considerations.md
+                - name: Xamarin iOS
+                  href: msal-net-xamarin-ios-considerations.md
+                - name: 通用 Windows 平台
+                  href: msal-net-uwp-considerations.md
+                - name: 应用 AAD B2C 策略
+                  href: msal-net-aad-b2c-considerations.md
+        - name: Authentication
+          items:
+            - name: 身份验证基础知识
+              href: authentication-scenarios.md
+            - name: OAuth 2.0 和 OpenID Connect 协议
+              href: active-directory-v2-protocols.md
+            - name: OpenID Connect
+              href: v2-protocols-oidc.md
+            - name: OAuth 2.0 隐式授予流
+              href: v2-oauth2-implicit-grant-flow.md
+            - name: OAuth 2.0 授权代码授予
+              href: v2-oauth2-auth-code-flow.md
+            - name: OAuth 2.0 代理流
+              href: v2-oauth2-on-behalf-of-flow.md
+            - name: OAuth 2.0 客户端凭据授予
+              href: v2-oauth2-client-creds-grant-flow.md
+            - name: OAuth 2.0 设备代码流
+              href: v2-oauth2-device-code.md
+            - name: OAuth 2.0 资源所有者密码凭据授予
+              href: v2-oauth-ropc.md
+            - name: 签名密钥滚动更新
+              href: active-directory-signing-key-rollover.md
+            - name: ID 令牌
+              href: id-tokens.md
+            - name: 访问令牌
+              href: access-tokens.md
+            - name: 证书凭据
+              href: active-directory-certificate-credentials.md
+        - name: 应用程序配置
+          items:
+            - name: 应用程序和服务主体
+              href: app-objects-and-service-principals.md
+            - name: 单租户和多租户应用
+              href: single-and-multi-tenant-apps.md
+        - name: 权限和许可
+          displayName: Scopes
+          items:
+            - name: 权限和许可的类型
+              href: v2-permissions-and-consent.md
+            - name: 同意框架
+              href: consent-framework.md
+            - name: 应用程序同意体验
+              href: application-consent-experience.md
+        - name: 国家云
+          items:
+            - name: 概述
+              href: authentication-national-cloud.md
+            - name: Authentication
+              href: msal-national-cloud.md
+    - name: 操作指南
+      items:
+        - name: Authentication
+          items:
+            - name: 配置角色声明
+              href: active-directory-enterprise-app-role-management.md
+            - name: 自定义声明 - 门户
+              href: active-directory-saml-claims-customization.md
+            - name: 自定义声明 - PowerShell
+              href: active-directory-claims-mapping.md
+            - name: 配置可选声明
+              href: active-directory-optional-claims.md
+            - name: 配置令牌生存期
+              href: active-directory-configurable-token-lifetimes.md
+        - name: 应用程序配置
+          items:
+            - name: 将单租户应用转换为多租户应用
+              href: howto-convert-app-to-be-multi-tenant.md
+            - name: 创建服务主体
+              items:
+                - name: 使用 Azure PowerShell
+                  href: howto-authenticate-service-principal-powershell.md
+                - name: 使用 Azure 门户
+                  href: howto-create-service-principal-portal.md
+            - name: 将应用限制为一组用户
+              href: howto-restrict-your-app-to-a-set-of-users.md
+            - name: 在应用程序中添加应用角色
+              href: howto-add-app-roles-in-azure-ad-apps.md
+            - name: 品牌准则
+              href: howto-add-branding-in-azure-ad-apps.md
+            - name: 发布者域
+              href: howto-configure-publisher-domain.md
+            - name: 服务条款和隐私声明
+              href: howto-add-terms-of-service-privacy-statement.md
+        - name: 使用 Microsoft 身份验证库
+          items:
+            - name: MSAL.NET
+              items:
+                - name: 从缓存获取令牌
+                  href: msal-net-acquire-token-silently.md
+                - name: 清除令牌缓存
+                  href: msal-net-clear-token-cache.md
+                - name: 通过选项实例化公共客户端
+                  href: msal-net-instantiate-public-client-config-options.md
+                - name: 通过选项实例化机密客户端
+                  href: msal-net-instantiate-confidential-client-config-options.md
+                - name: 获取多个资源的许可
+                  href: msal-net-user-gets-consent-for-multiple-resources.md
+        - name: 使用 Visual Studio
+          items:
+            - name: 使用 Active Directory 连接服务
+              href: vs-active-directory-add-connected-service.md
+            - name: .NET MVC 项目入门
+              href: vs-active-directory-dotnet-getting-started.md
+            - name: 我的 .NET MVC 项目发生了什么情况？
+              href: vs-active-directory-dotnet-what-happened.md
+            - name: WebAPI 项目入门
+              href: vs-active-directory-webapi-getting-started.md
+            - name: 我的 WebAPI 项目发生了什么情况？
+              href: vs-active-directory-webapi-what-happened.md
+            - name: 身份验证检测期间的错误
+              href: vs-active-directory-error.md
+    - name: 参考
+      items:
+        - name: 身份验证库
+          displayName: MSAL
+          href: reference-v2-libraries.md
+        - name: Microsoft Graph 中的标识和访问 API
+          href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
+        - name: 应用程序清单
+          href: reference-app-manifest.md
+        - name: 身份验证和授权错误代码
+          href: reference-aadsts-error-codes.md
+        - name: 重大变化
+          href: reference-breaking-changes.md
 - name: v1.0
   expanded: true
   items:
@@ -14,20 +389,14 @@
         - name: 配置应用程序
           items:
             - name: 注册应用程序
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: 更新应用
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: 删除应用
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: 注册应用（预览版）
               href: quickstart-register-app.md
-            - name: 配置应用以访问 Web API（预览版）
+            - name: 配置用于访问 Web API 的应用
               href: quickstart-configure-app-access-web-apis.md
-            - name: 配置应用以公开 Web API（预览版）
+            - name: 配置用于公开 Web API 的应用
               href: quickstart-configure-app-expose-web-apis.md
-            - name: 修改应用支持的帐户（预览版）
+            - name: 修改应用支持的帐户
               href: quickstart-modify-supported-accounts.md
-            - name: 删除应用（预览版）
+            - name: 删除应用
               href: quickstart-remove-app.md
         - name: 单页应用
           items:
@@ -67,6 +436,8 @@
       href: sample-v1-code.md
     - name: 概念
       items:
+        - name: 为何更新到 v2.0
+          href: azure-ad-endpoint-comparison.md
         - name: 应用程序类型
           items:
             - name: 应用程序的类型
@@ -121,6 +492,8 @@
               href: reference-saml-tokens.md
         - name: 应用程序配置
           items:
+            - name: 应用注册培训指南
+              href: app-registrations-training-guide.md
             - name: 应用程序和服务主体
               href: app-objects-and-service-principals.md
             - name: 将应用添加到 Azure AD 的方式及原因
@@ -225,199 +598,6 @@
           href: active-directory-authentication-libraries.md
         - name: Azure AD 图形 API
           href: active-directory-graph-api.md
-        - name: 应用程序清单
-          href: reference-app-manifest.md
-        - name: 身份验证和授权错误代码
-          href: reference-aadsts-error-codes.md
-        - name: 重大变化
-          href: reference-breaking-changes.md
-- name: v2.0
-  expanded: true
-  items:
-    - name: 概述
-      href: v2-overview.md
-    - name: 快速入门
-      items:
-        - name: 设置开发环境
-          href: quickstart-create-new-tenant.md
-        - name: 配置应用程序
-          items:
-            - name: 注册应用程序
-              href: quickstart-v2-register-an-app.md
-            - name: 更新应用
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: 删除应用
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: 注册应用（预览版）
-              href: quickstart-register-app.md
-            - name: 配置应用以访问 Web API（预览版）
-              href: quickstart-configure-app-access-web-apis.md
-            - name: 配置应用以公开 Web API（预览版）
-              href: quickstart-configure-app-expose-web-apis.md
-            - name: 修改应用支持的帐户（预览版）
-              href: quickstart-modify-supported-accounts.md
-            - name: 删除应用（预览版）
-              href: quickstart-remove-app.md
-        - name: 单页应用
-          items:
-            - name: JavaScript
-              href: quickstart-v2-javascript.md
-        - name: Web 应用
-          items:
-            - name: ASP .NET
-              href: quickstart-v2-aspnet-webapp.md
-            - name: ASP .NET Core
-              href: quickstart-v2-aspnet-core-webapp.md
-            - name: NodeJS
-              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-        - name: Web API
-          items:
-            - name: ASP .NET
-              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-            - name: ASP .NET Core
-              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-        - name: 移动和桌面应用
-          items:
-            - name: Android
-              href: quickstart-v2-android.md
-            - name: iOS
-              href: quickstart-v2-ios.md
-            - name: 通用 Windows 平台
-              href: quickstart-v2-uwp.md
-            - name: Windows 桌面 .NET
-              href: quickstart-v2-windows-desktop.md
-        - name: 守护程序应用
-          items:
-            - name: .NET Core 控制台（守护程序）
-              href: quickstart-v2-netcore-daemon.md
-            - name: ASP.NET 守护程序 Web 应用
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
-    - name: 教程
-      items:
-        - name: 单页应用
-          items:
-            - name: JavaScript
-              href: tutorial-v2-javascript-spa.md
-        - name: Web 应用
-          items:
-            - name: ASP .NET
-              href: tutorial-v2-asp-webapp.md
-        - name: 移动和桌面应用
-          items:
-            - name: Android
-              href: tutorial-v2-android.md
-            - name: iOS
-              href: tutorial-v2-ios.md
-            - name: 通用 Windows 平台
-              href: tutorial-v2-windows-uwp.md
-            - name: Windows 桌面 .NET
-              href: tutorial-v2-windows-desktop.md
-    - name: 示例
-      href: sample-v2-code.md
-    - name: 概念
-      items:
-        - name: 在 v1.0 和 v2.0 之间进行选择
-          href: azure-ad-endpoint-comparison.md
-        - name: 应用程序类型
-          href: v2-app-types.md
-        - name: Authentication
-          items:
-            - name: 身份验证基础知识
-              href: authentication-scenarios.md
-            - name: OAuth 2.0 和 OpenID Connect 协议
-              href: active-directory-v2-protocols.md
-            - name: OpenID Connect
-              href: v2-protocols-oidc.md
-            - name: OAuth 2.0 隐式授予流
-              href: v2-oauth2-implicit-grant-flow.md
-            - name: OAuth 2.0 授权代码授予
-              href: v2-oauth2-auth-code-flow.md
-            - name: OAuth 2.0 代理流
-              href: v2-oauth2-on-behalf-of-flow.md
-            - name: OAuth 2.0 客户端凭据授予
-              href: v2-oauth2-client-creds-grant-flow.md
-            - name: OAuth 2.0 设备代码流
-              href: v2-oauth2-device-code.md
-            - name: OAuth 2.0 资源所有者密码凭据授予
-              href: v2-oauth-ropc.md
-            - name: 签名密钥滚动更新
-              href: active-directory-signing-key-rollover.md
-            - name: ID 令牌
-              href: id-tokens.md
-            - name: 访问令牌
-              href: access-tokens.md
-            - name: 证书凭据
-              href: active-directory-certificate-credentials.md
-        - name: 应用程序配置
-          items:
-            - name: 应用程序和服务主体
-              href: app-objects-and-service-principals.md
-            - name: 单租户和多租户应用
-              href: single-and-multi-tenant-apps.md
-        - name: 权限和许可
-          displayName: Scopes
-          items:
-            - name: 权限和许可的类型
-              href: v2-permissions-and-consent.md
-            - name: 同意框架
-              href: consent-framework.md
-            - name: 应用程序同意体验
-              href: application-consent-experience.md
-        - name: 国家云
-          href: authentication-national-cloud.md
-    - name: 操作指南
-      items:
-        - name: Authentication
-          items:
-            - name: 配置角色声明
-              href: active-directory-enterprise-app-role-management.md
-            - name: 自定义声明 - PowerShell
-              href: active-directory-claims-mapping.md
-            - name: 配置可选声明
-              href: active-directory-optional-claims.md
-            - name: 配置令牌生存期
-              href: active-directory-configurable-token-lifetimes.md
-        - name: 应用程序配置
-          items:
-            - name: 将单租户应用转换为多租户应用
-              href: howto-convert-app-to-be-multi-tenant.md
-            - name: 创建服务主体
-              items:
-                - name: 使用 Azure PowerShell
-                  href: howto-authenticate-service-principal-powershell.md
-                - name: 使用 Azure 门户
-                  href: howto-create-service-principal-portal.md
-            - name: 将应用限制为一组用户
-              href: howto-restrict-your-app-to-a-set-of-users.md
-            - name: 在应用程序中添加应用角色
-              href: howto-add-app-roles-in-azure-ad-apps.md
-            - name: 品牌准则
-              href: howto-add-branding-in-azure-ad-apps.md
-            - name: 发布者域
-              href: howto-configure-publisher-domain.md
-            - name: 服务条款和隐私声明
-              href: howto-add-terms-of-service-privacy-statement.md
-        - name: 使用 Visual Studio
-          items:
-            - name: 使用 Active Directory 连接服务
-              href: vs-active-directory-add-connected-service.md
-            - name: .NET MVC 项目入门
-              href: vs-active-directory-dotnet-getting-started.md
-            - name: 我的 .NET MVC 项目发生了什么情况？
-              href: vs-active-directory-dotnet-what-happened.md
-            - name: WebAPI 项目入门
-              href: vs-active-directory-webapi-getting-started.md
-            - name: 我的 WebAPI 项目发生了什么情况？
-              href: vs-active-directory-webapi-what-happened.md
-            - name: 身份验证检测期间的错误
-              href: vs-active-directory-error.md
-    - name: 参考
-      items:
-        - name: 身份验证库
-          displayName: MSAL
-          href: reference-v2-libraries.md
-        - name: Microsoft Graph 中的标识和访问 API
-          href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta'
         - name: 应用程序清单
           href: reference-app-manifest.md
         - name: 身份验证和授权错误代码

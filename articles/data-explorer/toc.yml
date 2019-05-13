@@ -60,16 +60,26 @@
     - name: 数据引入概述
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: 时序分析
-      href: time-series-analysis.md
 - name: 操作指南
   items:
     - name: 入门
       items:
-        - name: 编写查询
-          href: write-queries.md
         - name: 引入示例数据
           href: ingest-sample-data.md
+    - name: 部署
+      items:
+        - name: DevOps 任务
+          href: devops.md
+    - name: 查询数据
+      items:
+        - name: 编写查询
+          href: write-queries.md
+        - name: 时序分析
+          href: time-series-analysis.md
+        - name: 异常检测和预测
+          href: anomaly-detection.md
+        - name: 机器学习
+          href: machine-learning-clustering.md
     - name: 管理
       items:
         - name: 管理数据库权限
@@ -90,6 +100,8 @@
           href: using-metrics.md
     - name: 与其他工具配合使用
       items:
+        - name: Apache Spark 连接器
+          href: spark-connector.md
         - name: 使用 Python 从 Databricks 连接
           href: connect-from-databricks.md
         - name: 在 Jupyter Notebook 和 Kqlmagic 中分析数据

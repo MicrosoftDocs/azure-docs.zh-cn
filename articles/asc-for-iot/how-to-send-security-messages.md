@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a9974fd15ae9c8c420992c3ae1084feebae0f57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a91a3538a9c176e3c76e351eb53eb84decc85938
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61352037"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200537"
 ---
 # <a name="send-security-messages-sdk"></a>发送安全消息 SDK
 

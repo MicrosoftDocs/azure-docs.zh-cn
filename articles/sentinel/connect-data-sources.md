@@ -4,7 +4,7 @@ description: 了解如何将数据源连接到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492356"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204293"
 ---
 # <a name="connect-data-sources"></a>连接数据源
 
@@ -56,10 +56,10 @@ Azure Sentinel 支持以下数据连接方法：
 - **通过代理连接外部解决方案**：可以通过代理使用 Syslog 协议将 Azure Sentinel 连接到可执行实时日志流式处理的其他所有数据源。 <br>大部分设备使用 Syslog 协议发送包含日志本身以及日志相关数据的事件消息。 日志格式各不相同，但大部分设备支持通用事件格式 (CEF) 标准。 <br>基于 OMS 代理的 Azure Sentinel 代理会将 CEF 格式的日志转换为可供 Log Analytics 引入的格式。 根据设备类型，可以直接在设备上安装代理，或者在专用的 Linux 服务器上安装代理。 适用于 Linux 的代理通过 UDP 从 Syslog 守护程序接收事件，但如果预期 Linux 计算机需要收集大量的 Syslog 事件，则会通过 TCP 将这些事件从 Syslog 守护程序发送到代理，然后从代理发送到 Log Analytics。
     - 防火墙、代理和终结点：
         - [F5](connect-f5.md)
-        - [检查点](connect-checkpoint.md)
+        - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
-        - [帕洛阿尔托](connect-paloalto.md)
+        - [Palo Alto](connect-paloalto.md)
         - [其他 CEF 设备](connect-common-event-format.md)
         - [其他 Syslog 设备](connect-syslog.md)
     - DLP 解决方案

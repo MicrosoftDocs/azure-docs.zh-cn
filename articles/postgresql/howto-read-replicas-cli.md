@@ -1,21 +1,24 @@
 ---
-title: 管理适用于 Azure CLI 从 PostgreSQL 的 Azure 数据库的只读的副本
-description: 了解如何管理 Azure Database for PostgreSQL 读取副本从 Azure CLI。
+title: 管理适用于 PostgreSQL 的 Azure CLI 从单个服务器的 Azure 数据库的只读的副本
+description: 了解如何管理用于 PostgreSQL 的 Azure CLI 从单个服务器的 Azure 数据库中的只读的副本。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420234"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510234"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>创建和管理从 Azure CLI 的只读的副本
 
 在本文中，您将学习如何创建和管理用于从 Azure CLI 的 PostgreSQL 的 Azure 数据库中的只读的副本。 若要详细了解只读副本，请参阅[概述](concepts-read-replicas.md)。
+
+> [!NOTE]
+> Azure CLI 尚不支持创建副本从主服务器不同的区域中。 若要创建跨区域副本，请使用[Azure 门户](howto-read-replicas-portal.md)。
 
 ## <a name="prerequisites"></a>必备组件
 - 用作主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md)。

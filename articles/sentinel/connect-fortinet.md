@@ -4,7 +4,7 @@ description: 了解如何连接到 Azure Sentinel Fortinet 数据。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 8e00fd312dd335551f5ba8e7dcec2baa4f7e2643
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204329"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Fortinet 设备连接 
 

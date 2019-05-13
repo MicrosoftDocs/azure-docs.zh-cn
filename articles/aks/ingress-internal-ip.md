@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: iainfou
 ms.openlocfilehash: 4a648bd2704e93abedeefae14aee66ae8bfeecef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466471"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073900"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建内部虚拟网络的入口控制器
 

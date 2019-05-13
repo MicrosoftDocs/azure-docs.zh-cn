@@ -2,10 +2,8 @@
   href: index.yml
 - name: 概述
   items:
-    - name: 什么是 Azure 搜索
+    - name: 什么是 Azure 搜索？
       href: search-what-is-azure-search.md
-    - name: 什么是认知搜索
-      href: cognitive-search-concept-intro.md
 - name: 快速入门
   expanded: true
   items:
@@ -35,8 +33,12 @@
       href: search-indexer-tutorial.md
     - name: 为 Azure JSON blob 编制索引
       href: search-semi-structured-data.md
-    - name: 使用 AI（认知服务）编制索引
-      href: cognitive-search-tutorial-blob.md
+    - name: 使用 AI（认知搜索）扩充
+      items:
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: 'C#'
+          href: cognitive-search-tutorial-blob-dotnet.md
 - name: 示例
   items:
     - name: Azure 代码示例
@@ -53,11 +55,15 @@
   items:
     - name: 全文搜索
       href: search-lucene-query-architecture.md
-    - name: 多租户的设计模式
-      href: search-modeling-multitenant-saas-applications.md
+    - name: 认知搜索
+      href: cognitive-search-concept-intro.md
+    - name: 知识存储
+      href: knowledge-store-concept-intro.md
+    - name: 投影
+      href: knowledge-store-projection-overview.md
 - name: 操作指南
   items:
-    - name: 容量计划
+    - name: 规划
       items:
         - name: 选择层
           href: search-sku-tier.md
@@ -67,6 +73,8 @@
           href: search-capacity-planning.md
         - name: 部署策略和最佳做法
           href: search-performance-optimization.md
+        - name: 多租户体系结构
+          href: search-modeling-multitenant-saas-applications.md
     - name: 安全
       items:
         - name: 安全概述
@@ -79,6 +87,8 @@
           href: search-security-trimming-for-azure-search.md
         - name: AAD 标识筛选器
           href: search-security-trimming-for-azure-search-with-aad.md
+        - name: 管理加密密钥（预览版）
+          href: search-security-manage-encryption-keys.md
     - name: 开发
       items:
         - name: API 版本
@@ -91,6 +101,8 @@
           href: search-get-started-java.md
         - name: 升级 SDK
           items:
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
             - name: .NET SDK 5.0
               href: search-dotnet-sdk-migration-version-5.md
             - name: .NET SDK 3.0
@@ -119,7 +131,7 @@
           items:
             - name: 创建建议器
               href: index-add-suggesters.md
-            - name: 示例（建议、自动完成）
+            - name: 添加建议或自动完成
               href: search-autocomplete-tutorial.md
         - name: 同义词
           items:
@@ -169,26 +181,36 @@
           href: search-indexer-field-mappings.md
         - name: 排查常见问题
           href: search-indexer-troubleshooting.md
-    - name: AI 索引（认知搜索）
+    - name: 使用 AI 扩充
       items:
         - name: 附加认知服务资源
           href: cognitive-search-attach-cognitive-services.md
-        - name: 定义技能组合
-          href: cognitive-search-defining-skillset.md
-        - name: 引用注释
-          href: cognitive-search-concept-annotations-syntax.md
-        - name: 映射到索引字段
-          href: cognitive-search-output-field-mapping.md
-        - name: 处理和提取图像中的信息
-          href: cognitive-search-concept-image-scenarios.md
-        - name: 集成自定义技能
-          href: cognitive-search-custom-skill-interface.md
-        - name: 示例 - 自定义技能
-          href: cognitive-search-create-custom-skill-example.md
+        - name: 技能集
+          items:
+            - name: 定义技能组合
+              href: cognitive-search-defining-skillset.md
+            - name: 引用注释
+              href: cognitive-search-concept-annotations-syntax.md
+            - name: 映射到索引字段
+              href: cognitive-search-output-field-mapping.md
+            - name: 处理和提取图像中的信息
+              href: cognitive-search-concept-image-scenarios.md
+        - name: 自定义技能
+          items:
+            - name: 集成自定义技能
+              href: cognitive-search-custom-skill-interface.md
+            - name: 示例 - Azure Functions
+              href: cognitive-search-create-custom-skill-example.md
+            - name: 示例 - 容器
+              href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: 故障排除提示
           href: cognitive-search-concept-troubleshooting.md
         - name: 文档链接
           href: cognitive-search-resources-documentation.md
+    - name: 知识存储（预览版）
+      items:
+        - name: 如何入门
+          href: knowledge-store-howto.md
     - name: 查询数据
       items:
         - name: 创建基本查询
@@ -203,6 +225,8 @@
           href: search-query-simple-examples.md
         - name: 示例（完整 Lucene）
           href: search-query-lucene-examples.md
+        - name: moreLikeThis（预览版）
+          href: search-more-like-this.md
     - name: 对数据进行筛选和排序
       items:
         - name: 筛选器概述
@@ -272,13 +296,15 @@
           href: cognitive-search-skill-sentiment.md
         - name: 图像分析
           href: cognitive-search-skill-image-analysis.md
-        - name: Ocr
+        - name: OCR
           href: cognitive-search-skill-ocr.md
         - name: 整形程序
           href: cognitive-search-skill-shaper.md
+        - name: 条件逻辑
+          href: cognitive-search-skill-conditional.md
         - name: 不推荐使用的技能
           href: cognitive-search-skill-deprecated.md
-    - name: 自定义技能（预览版）
+    - name: 自定义技能
       items:
         - name: 自定义 Web API
           href: cognitive-search-custom-skill-web-api.md

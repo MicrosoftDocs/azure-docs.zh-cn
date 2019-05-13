@@ -6,13 +6,13 @@ metadata:
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: asc-for-iot
   author: mlottner
-  manager: barbkess
+  manager: rkarlin
   ms.service: ascforiot
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/26/19
-  ms.author: barbkess
+  ms.author: rkarlin
 abstract:
   description: "使用适用于 IoT 的 Azure 安全中心 (ASC) 预览版将现有的网络安全视图扩展到整个 IoT 解决方案。 以真正的全景视图的方式了解与 Azure 相关的所有资源的安全性。 快速部署选项以及与 IoT 中心模块孪生的完全集成，为你提供一系列范围广泛的自定义选项，让你轻松集成当前的设备管理工具。\_"
 sections:

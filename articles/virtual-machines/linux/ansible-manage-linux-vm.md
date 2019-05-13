@@ -1,73 +1,68 @@
 ---
-title: 使用 Ansible 在 Azure 中管理 Linux 虚拟机
-description: 了解如何使用 Ansible 在 Azure 中管理 Linux 虚拟机
-ms.service: virtual-machines-linux
+title: 快速入门 - 使用 Ansible 管理 Azure 中的 Linux 虚拟机 | Microsoft Docs
+description: 在本快速入门中，你将了解如何使用 Ansible 管理 Azure 中的 Linux 虚拟机
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 09/27/2018
-ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: a7862e95966d7b0e0ab31f242dff0244735fe7a1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789871"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409229"
 ---
-# <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中管理 Linux 虚拟机
-使用 Ansible 可以在环境中自动部署和配置资源。 可以使用 Ansible 管理 Azure 虚拟机，就像管理任何其他资源一样。 本文介绍如何使用 Ansible playbook 启动和停止 Linux 虚拟机。 
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>快速入门：使用 Ansible 管理 Azure 中的 Linux 虚拟机
+
+使用 Ansible 可以在环境中自动部署和配置资源。 在本文中，你将使用 Ansible playbook 来启动和停止 Linux 虚拟机。 
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅** - 如果没有 Azure 订阅，请创建一个[免费帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+## <a name="stop-a-virtual-machine"></a>停止虚拟机
 
-## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>使用 Ansible 解除分配（停止）Azure 虚拟机
-本部分演示如何使用 Ansible 解除分配（停止）Azure 虚拟机
+在本部分中，你将使用 Ansible 解除分配（停止）Azure 虚拟机。
 
-1.  登录到 [Azure 门户](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登录到 [Azure 门户](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-1.  打开 [Cloud Shell](/azure/cloud-shell/overview)。
+1. 打开 [Cloud Shell](/azure/cloud-shell/overview)。
 
-1.  创建名为 `azure-vm-stop.yml` 的文件（用于包含 playbook）并在 VI 编辑器中将其打开，如下所示：
+1. 创建一个名为 `azure-vm-stop.yml` 的文件，并在编辑器中将其打开：
 
     ```azurecli-interactive
-    vi azure-vm-stop.yml
+    code azure-vm-stop.yml
     ```
 
-1.  按 **I** 键进入插入模式。
-
-1.  将以下示例代码粘贴到编辑器中：
+1. 将以下示例代码粘贴到编辑器中：
 
     ```yaml
     - name: Stop Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Deallocate the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
-          allocated: no
+        - name: Stop virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
+            allocated: no
     ```
 
-1.  按 **Esc** 键退出插入模式。
+1. 将占位符 `{{ resource_group_name }}` 和 `{{ vm_name }}` 替换成自己的值。
 
-1.  保存文件，然后输入以下命令退出 vi 编辑器：
+1. 保存文件并退出编辑器。
 
-    ```bash
-    :wq
-    ```
-
-1.  运行示例 Ansible playbook。
+1. 使用 `ansible-playbook` 命令运行 playbook：
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1.  输出如以下示例所示，其中显示虚拟机已成功地解除分配（停止）：
+1. 运行 playbook 后，将看到类似于以下结果的输出：
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -82,49 +77,44 @@ ms.locfileid: "57789871"
     localhost                  : ok=2    changed=1    unreachable=0    failed=0
     ```
 
-## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>使用 Ansible 启动已解除分配（停止）的 Azure 虚拟机
-本部分演示如何使用 Ansible 启动已解除分配（停止）的 Azure 虚拟机
+## <a name="start-a-virtual-machine"></a>启动虚拟机
 
-1.  登录到 [Azure 门户](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
+在本部分中，你将使用 Ansible 启动已解除分配（停止）的 Azure 虚拟机。
 
-1.  打开 [Cloud Shell](/azure/cloud-shell/overview)。
+1. 登录到 [Azure 门户](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-1.  创建名为 `azure-vm-start.yml` 的文件（用于包含 playbook）并在 VI 编辑器中将其打开，如下所示：
+1. 打开 [Cloud Shell](/azure/cloud-shell/overview)。
+
+1. 创建一个名为 `azure-vm-start.yml` 的文件，并在编辑器中将其打开：
 
     ```azurecli-interactive
-    vi azure-vm-start.yml
+    code azure-vm-start.yml
     ```
 
-1.  按 **I** 键进入插入模式。
-
-1.  将以下示例代码粘贴到编辑器中：
+1. 将以下示例代码粘贴到编辑器中：
 
     ```yaml
     - name: Start Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Start the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
+        - name: Start virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
     ```
 
-1.  按 **Esc** 键退出插入模式。
+1. 将占位符 `{{ resource_group_name }}` 和 `{{ vm_name }}` 替换成自己的值。
 
-1.  保存文件，然后输入以下命令退出 vi 编辑器：
+1. 保存文件并退出编辑器。
 
-    ```bash
-    :wq
-    ```
-
-1.  运行示例 Ansible playbook。
+1. 使用 `ansible-playbook` 命令运行 playbook：
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1.  输出如以下示例所示，其中显示虚拟机已成功启动：
+1. 运行 playbook 后，将看到类似于以下结果的输出：
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -140,5 +130,6 @@ ms.locfileid: "57789871"
     ```
 
 ## <a name="next-steps"></a>后续步骤
+
 > [!div class="nextstepaction"] 
-> [使用 Ansible 管理 Azure 动态库存](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [教程：使用 Ansible 管理 Azure 动态库存](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

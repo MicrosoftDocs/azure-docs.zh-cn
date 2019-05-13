@@ -1,6 +1,6 @@
 ---
-title: 保护 PaaS 部署 | Microsoft 文档
-description: " 了解 PaaS 相比其他云服务模型的安全优势，了解保护 Azure PaaS 部署的建议做法。 "
+title: 安全 PaaS 部署的 Microsoft Azure 的最佳实践
+description: 了解最佳实践设计、 构建和管理安全云在 Azure 上的应用程序和了解其他云服务模型与 PaaS 的安全优势。
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107428"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231117"
 ---
 # <a name="securing-paas-deployments"></a>保护 PaaS 部署
 
@@ -29,6 +29,8 @@ ms.locfileid: "62107428"
 - 评估平台即服务 (PaaS) 相比其他云服务模型的安全优势
 - 将安全重心从以网络为中心的方案转换为以标识为中心的外围安全方案
 - 实施一般的 PaaS 安全最佳实践建议
+
+[开发安全应用程序在 Azure 上的](abstract-develop-secure-apps.md)是安全问题和控件时，应考虑在软件开发生命周期的每个阶段开发的云应用程序的常规指南。
 
 ## <a name="cloud-security-advantages"></a>云的安全优势
 转移到云中可带来一定的安全优势。 在本地环境中，组织的可用资源可能有限，无法尽责在安全措施上投资，使得攻击者能够利用所有层中的漏洞。
@@ -116,7 +118,7 @@ Microsoft [安全开发生命周期](https://www.microsoft.com/en-us/sdl)指定�
 | 否认性 | 不可否认性 | 启用 Azure [监视和诊断](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。 |
 | 信息泄露 | 机密性 | 使用[服务证书](https://docs.microsoft.com/rest/api/appservice/certificates)加密静态敏感数据。 |
 | 拒绝服务 | 可用性 | 监视潜在拒绝服务条件的性能指标。 实现连接筛选器。 |
-| 特权提升 | 授权 | 使用[特权标识管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
+| 权限提升 | 授权 | 使用[特权标识管理](../active-directory/privileged-identity-management/subscription-requirements.md)。 |
 
 ## <a name="develop-on-azure-app-service"></a>在 Azure 应用服务上开发
 [Azure App Service](../app-service/overview.md) 是一个 PaaS 产品，可创建适用于任何平台或设备的 Web 和移动应用，并可连接到云中或本地任何位置的数据。 应用服务所包括的 Web 功能和移动功能是以前作为 Azure 网站和 Azure 移动服务单独交付的。 它还包括各种新功能，可以实现业务流程的自动化，并可托管云 API。 应用服务以单个集成服务的形式为 Web、移动和集成方案提供一组丰富的功能。
@@ -155,6 +157,10 @@ Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标�
 
 Application Insights 提供各种可以与所收集的数据交互的工具。 Application Insights 在公用存储库中存储其数据。 它可以充分利用各种共享功能，如警报、 仪表板，并使用 Kusto 查询语言进行深度分析。
 
+## <a name="perform-security-penetration-testing"></a>执行安全渗透测试
+验证安全防御措施是与测试其他功能一样重要。 请[渗透测试](azure-security-pen-testing.md)生成和部署过程的标准组成部分。 计划定期安全测试和漏洞扫描已部署应用程序，并监视打开的端口、 终结点和攻击。
+
+模糊测试是一种方法用于通过提供程序接口 （入口点） 的分析和使用此数据的格式不正确输入的数据中查找程序故障 （错误代码）。 [Microsoft 安全风险检测](https://www.microsoft.com/en-us/security-risk-detection/)是一个基于云的工具，可用于部署到 Azure 之前查找 bug 和您的软件中的其他安全漏洞。 该工具用于在部署软件，因此无需修补 bug、 处理崩溃，或后发布该软件的攻击做出响应之前捕获的漏洞。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -166,6 +172,8 @@ Application Insights 提供各种可以与所收集的数据交互的工具。 A
 - 用于 Redis 的 Azure 缓存
 - Azure 服务总线
 - Web 应用程序防火墙
+
+请参阅[开发安全应用程序在 Azure 上的](abstract-develop-secure-apps.md)安全问题和控件时，应考虑在软件开发生命周期的每个阶段开发的云应用程序。
 
 有关通过 Azure 设计、部署和管理云解决方案时可以使用的更多安全最佳做法，请参阅 [Azure 安全最佳做法和模式](security-best-practices-and-patterns.md)。
 

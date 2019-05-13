@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283551"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024550"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>部署策略和有关优化 Azure 搜索的性能最佳实践
 
@@ -81,7 +81,7 @@ ms.locfileid: "61283551"
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>使用索引器更新多个服务上的内容
 
-如果已在一个服务上使用索引器，您可以配置第二个索引器上要使用相同的数据源对象的第二个服务将数据提取从相同的位置。 每个区域中的每个服务都有其自己的索引器和目标索引 （搜索语料库未共享，这意味着重复数据），但每个索引器引用的是相同的数据源。
+如果已在一个服务上使用索引器，您可以配置第二个索引器上要使用相同的数据源对象的第二个服务将数据提取从相同的位置。 每个区域中的每个服务都有其自己的索引器和目标索引 （搜索索引未共享，这意味着重复数据），但每个索引器引用的是相同的数据源。
 
 下面是该体系结构将如下所示的高级视觉对象。
 

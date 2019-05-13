@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151078"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>创建按计划运行管道的触发器
 本文提供有关计划触发器和创建、启动和监视计划触发器的步骤的信息。 有关其他类型的触发器，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md)。
@@ -274,7 +274,7 @@ Azure 数据工厂版本 1 支持使用以下系统变量读取或写入分区�
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [
@@ -328,10 +328,10 @@ Azure 数据工厂版本 1 支持使用以下系统变量读取或写入分区�
 | JSON 属性 | Type | 需要 | 默认值 | 有效值 | 示例 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | String | 是 | 无 | ISO-8601 日期时间 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | 对象 | 是 | 无 | Recurrence 对象 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **recurrence** | Object | 是 | 无 | Recurrence 对象 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | 否 | 第 | 1 到 1,000 | `"interval":10` |
 | **endTime** | String | 是 | 无 | 代表将来某个时间的日期/时间值。 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | 对象 | 否 | 无 | Schedule 对象 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | Object | 否 | 无 | Schedule 对象 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 属性
 下表说明了 **startTime** 属性如何控制触发器运行：

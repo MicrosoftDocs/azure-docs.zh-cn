@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bf07e6a2daac7889e11df2cb5d689daef44266f9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499812"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465657"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>快速入门：使用适用于 C++ 的语音 SDK 翻译语音
+
+针对[语音识别](quickstart-cpp-windows.md)和[文本转语音](quickstart-text-to-speech-cpp-windows.md)也提供了快速入门。
 
 在本快速入门中，你将创建一个简单的 C++ 应用程序，该应用程序从计算机的麦克风中捕获用户语音，翻译语音，并将翻译后的文本实时转录到命令行。 此应用程序设计为在 64 位 Windows 上运行，并使用[语音 SDK NuGet 包](https://aka.ms/csspeech/nuget)和 Microsoft Visual Studio 2017 构建。
 
@@ -32,7 +34,7 @@ ms.locfileid: "59499812"
 
 ## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
 
-[!INCLUDE[](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## <a name="add-sample-code"></a>添加示例代码
 

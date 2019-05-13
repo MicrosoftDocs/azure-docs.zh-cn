@@ -3,19 +3,19 @@ title: 教程 - 在单页应用程序中启用身份验证 - Azure Active Direct
 description: 有关如何使用 Azure Active Directory B2C 为单页应用程序 (JavaScript) 提供用户登录功能的教程。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 813c7131ff0a56e843e728cd78fff969b1d90fcc
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 3773efdbe47c045dccf74ace3e1b53936c9400fe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756319"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190307"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在单页应用程序中启用身份验证
 
@@ -26,14 +26,14 @@ ms.locfileid: "55756319"
 > [!div class="checklist"]
 > * 在 Azure AD B2C 中更新此应用程序
 > * 将示例配置为使用此应用程序
-> * 通过用户流登录
+> * 使用用户流进行登录
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
 * [创建用户流](tutorial-create-user-flows.md)，以便在应用程序中启用用户体验。 
-* 安装带有 ASP.NET 和 Web 开发工作负荷的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+* 安装带有 ASP.NET 和 Web 开发工作负荷的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 * 安装 [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) 或更高版本
 * 安装 [Node.js](https://nodejs.org/en/download/)
 
@@ -122,7 +122,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 > [!div class="checklist"]
 > * 在 Azure AD B2C 中更新此应用程序
 > * 将示例配置为使用此应用程序
-> * 通过用户流登录
+> * 使用用户流进行登录
 
 > [!div class="nextstepaction"]
 > [教程：从单页应用使用 Azure Active Directory B2C 授予对 ASP.NET Core Web API 的访问权限](active-directory-b2c-tutorials-spa-webapi.md)

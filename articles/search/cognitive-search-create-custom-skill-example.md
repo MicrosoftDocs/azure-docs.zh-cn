@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82d49a6a82251f440c06db03edc92851fce87741
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344136"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023611"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>示例：使用文本翻译 API 创建自定义技能
 
@@ -243,7 +243,7 @@ POST https://localhost:7071/api/Translate
 
 1. 请按照屏幕上的提示操作。 系统会要求你指定要使用的 Azure 帐户、资源组、托管计划和存储帐户。 如果尚不拥有这些资源，可创建新资源组、新托管计划和存储帐户。 完成后，选择“创建”
 
-1. 部署完成后，请记下站点 URL。 这是 Azure 中你的函数应用的地址。 
+1. 部署完成后，请注意，该网站的 URL。 这是 Azure 中你的函数应用的地址。 
 
 1. 在 [Azure 门户](https://portal.azure.com)中，导航到资源组，然后查找发布的翻译函数。 在“管理”部分下，应可看到主机密钥。 对默认主机密钥选择“复制”图标。  
 
@@ -282,7 +282,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
         "description": "Our new translator custom skill",
-        "uri": "http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
+        "uri": "https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]",
         "batchSize":1,
         "context": "/document",
         "inputs": [

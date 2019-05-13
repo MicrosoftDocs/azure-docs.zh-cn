@@ -15,11 +15,11 @@ ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: 594b4090fcdfa18432563269743b88cb9d2d723b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300551"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947364"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>向应用添加应用程序的注册信息
 

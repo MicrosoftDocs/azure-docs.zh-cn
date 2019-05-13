@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816385"
 ---
 # <a name="custom-vision-service-release-notes"></a>自定义影像服务发行说明
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317040"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228397"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>结合使用 Azure 资源的托管标识与 Azure 服务总线 
 
@@ -29,7 +29,7 @@ ms.locfileid: "61317040"
 
 ## <a name="service-bus-roles-and-permissions"></a>服务总线角色和权限
 
-只能向服务总线命名空间的“所有者”或“参与者”角色添加托管标识。 这会向标识授予对命名空间中所有实体的完全控制权限。 不过，最初只能通过 Azure 资源管理器来支持对命名空间拓扑进行更改的管理操作； 无法通过本机服务总线 REST 管理接口提供支持。 此支持还意味着，无法在托管标识内使用 .NET Framework 客户端 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 对象。
+只能向服务总线命名空间的“所有者”或“参与者”角色添加托管标识。 这会向标识授予对命名空间中所有实体的完全控制权限。 不过，最初只能通过 Azure 资源管理器来支持对命名空间拓扑进行更改的管理操作； 无法通过本机服务总线 REST 管理接口提供支持。 此支持还意味着，不能使用.NET Framework 客户端[NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager)或.NET Standard 客户端[ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient)内托管标识的对象。
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>结合使用服务总线与 Azure 资源的托管标识
 

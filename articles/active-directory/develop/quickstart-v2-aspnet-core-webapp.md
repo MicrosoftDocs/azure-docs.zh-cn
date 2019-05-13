@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190871"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入门：向 ASP.NET Core Web 应用添加 Microsoft 登录功能
 
@@ -73,13 +73,13 @@ ms.locfileid: "59579455"
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>步骤 2：下载 ASP.NET Core 项目
 
-- [下载 Visual Studio 2017 解决方案](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [下载 Visual Studio 2019 解决方案](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
 
 1. 将 zip 文件提取到根文件夹中的本地文件夹（例如，**C:\Azure-Samples**）
-1. 如果使用 Visual Studio 2017，请在 Visual Studio 中打开解决方案（可选）。
-1. 编辑 **appsettings.json** 文件。 找到 `ClientId` 并将 `ClientId` 的值更新为刚注册的应用程序的**应用程序(客户端) ID** 值。 
+1. 如果使用 Visual Studio 2019，请在 Visual Studio 中打开该解决方案（可选）。
+1. 编辑 **appsettings.json** 文件。 查找 `ClientId` 并使用你注册的应用程序的“应用程序 (客户端) ID”值更新 `ClientId` 的值。 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -99,7 +99,7 @@ ms.locfileid: "59579455"
 
 ## <a name="more-information"></a>详细信息
 
-本部分概述了登录用户所需的代码。 这有助于了解代码的工作原理、主要参数，并且可用于向现有 ASP.NET Core 应用程序添加登录。
+本部分概述了使用户登录所需的代码。 阅读本概述对于了解代码的工作原理、主要参数非常有用，如果你想要将登录功能添加到现有 ASP.NET Core 应用程序，阅读本概述也非常有用。
 
 ### <a name="startup-class"></a>Startup 类
 
@@ -136,9 +136,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-`AddAuthentication` 方法可配置服务，以添加基于 Cookie 的身份验证，用于浏览器方案，以及对 OpenID Connect 设置质询。 
+方法 `AddAuthentication` 配置该服务以添加基于 Cookie 的身份验证，此身份验证在浏览器方案中使用，并用于设置 OpenID Connect 质询。 
 
-包含 `.AddAzureAd` 的行可向应用程序添加 Microsoft 标识平台身份验证。 然后会将它配置为使用 Microsoft 标识平台终结点登录。
+包含 `.AddAzureAd` 的行可向应用程序添加 Microsoft 标识平台身份验证。 然后，它会被配置为使用 Microsoft 标识平台终结点登录。
 
 > |其中  |  |
 > |---------|---------|
@@ -153,13 +153,13 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>保护控制器或控制器的方法
 
-可以使用 `[Authorize]` 属性保护控制器或控制器方法。 此属性通过仅允许经身份验证的用户，限制对控制器或方法的访问 - 这意味着如果用户未经身份验证，可启动身份验证质询，以访问控制器。
+可以使用 `[Authorize]` 属性保护控制器或控制器方法。 此属性通过仅允许经过身份验证的用户，来限制对控制器或方法的访问，这意味着如果用户未经身份验证，则可以启动身份验证质询来访问控制器。
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
-请参阅此 ASP.NET Core 教程的 GitHub 存储库，了解有关详细信息，包括各种说明，即，如何添加对全新 ASP.NET Core Web 应用程序的身份验证、如何调用 Microsoft Graph 和其他 Microsoft API、如何调用你自己的 API、如何添加授权、如何通过国家/地区云或社交标识等方式登录用户：
+请参阅此 ASP.NET Core 教程的 GitHub 存储库，了解有关详细信息，包括各种说明，即，如何向全新 ASP.NET Core Web 应用程序添加身份验证、如何调用 Microsoft Graph 和其他 Microsoft API、如何调用你自己的 API、如何添加授权、如何通过国家/地区云或社交标识等方式使用户登录：
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core Web 应用教程](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

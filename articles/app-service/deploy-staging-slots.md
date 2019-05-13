@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266199"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137882"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ ms.locfileid: "59266199"
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+默认情况下，新的槽提供的路由规则`0%`，它们以灰色显示。 通过显式将此值设置为`0%`（以黑色文本显示），用户可通过使用手动访问过渡槽`x-ms-routing-name`查询参数，但它们不会路由到的槽自动由于路由百分比设置为 0。 这是一种高级的方案，其中您可以"隐藏"来自公共过渡槽，同时允许内部团队要测试的槽的更改。
 
 <a name="Delete"></a>
 

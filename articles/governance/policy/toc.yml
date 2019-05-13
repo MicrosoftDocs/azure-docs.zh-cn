@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: 来宾配置
       items:
-        - name: 审核在 Linux 上安装的应用程序
+        - name: 审核应用程序未安装在 Linux 上
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: 密钥保管库
@@ -292,6 +292,12 @@
           href: '/powershell/module/az.policyinsights#policy_insights'
         - name: 来宾配置
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
+    - name: 用于 .NET 的 Azure SDK
+      items:
+        - name: 分配
+          href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+        - name: 策略定义
+          href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
     - name: REST
       items:
         - name: 活动

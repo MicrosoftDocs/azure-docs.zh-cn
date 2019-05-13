@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307958"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024344"
 ---
 # <a name="data-import-overview---azure-search"></a>数据导入概述-Azure 搜索
 
@@ -63,9 +63,9 @@ ms.locfileid: "60307958"
 ### <a name="formulate-your-query"></a>表述查询
 有两种方法可以 [使用 REST API 搜索索引](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。 一种方法是发出 HTTP POST 请求，这种请求的查询参数在请求主题的 JSON 对象中定义。 另一种方法是发出 HTTP GET 请求，这种请求的查询参数在请求 URL 中定义。 POST 的查询参数大小限制比 GET [宽松](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。 因此建议使用 POST，使用 GET 更方便的特殊情况除外。
 
-POST 和 GET 都需要在请求 URL 中提供*服务名称*、*索引名称*和正确的 *API 版本*（发布本文档时的 API 版本为 `2017-11-11`）。 GET 的 URL 末尾为*查询字符串*，用于提供查询参数。 有关 URL 格式，请参见以下内容：
+POST 和 GET 都需要在请求 URL 中提供*服务名称*、*索引名称*和正确的 *API 版本*（发布本文档时的 API 版本为 `2019-05-06`）。 GET 的 URL 末尾为*查询字符串*，用于提供查询参数。 有关 URL 格式，请参见以下内容：
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
 
 POST 的 URL 格式相同，只是查询字符串参数仅包含 API 版本。
 

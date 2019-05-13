@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344200"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023878"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何在认知搜索技能集中引用注释
 
@@ -36,13 +36,13 @@ ms.locfileid: "60344200"
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>示例 1：简单注释引用
 
-在 Azure Blob 存储中，假设你有各种文件，其中包含你想要使用命名实体识别提取的人名的引用。 在下面的技能定义中，`"/document/content"` 是整个文档的文本表示，“people”是对标识为 persons 的实体的全名提取。
+在 Azure Blob 存储中，假设您有很多其他的文件，其中包含对你要从中提取使用实体识别的人的名称的引用。 在下面的技能定义中，`"/document/content"` 是整个文档的文本表示，“people”是对标识为 persons 的实体的全名提取。
 
 因为默认上下文是 `"/document"`，所以现在可以将人员列表引用为 `"/document/people"`。 在此特定示例中 `"/document/people"` 是一个注释，它现在可以映射到索引中的一个字段，或者用在同一技能集的另一个技能中。
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -98,7 +98,7 @@ ms.locfileid: "60344200"
 
 有时，需要对特定类型的所有注释进行分组，以将它们传递给特定技能。 考虑一种假设的自定义技能，它标识在示例 2 中提取的所有姓氏中最常见的姓氏。 若要只将姓氏提供自定义技能，请将上下文指定为 `"/document"`，将输入为指定为 `"/document/people/*/lastname"`。
 
-请注意，`"/document/people/*/lastname"` 的基数大于文档的基数。 就此文档而言，可能有 10 个 lastname 节点，而只有一个 document 节点。 在这种情况下，系统将自动创建包含文档中的所有元素的 `"/document/people/*/lastname"` 数组。
+请注意的基数`"/document/people/*/lastname"`大于的文档。 就此文档而言，可能有 10 个 lastname 节点，而只有一个 document 节点。 在这种情况下，系统将自动创建包含文档中的所有元素的 `"/document/people/*/lastname"` 数组。
 
 ```json
   {

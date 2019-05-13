@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374355"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541655"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>在 QnA Maker 中编辑知识库
 
@@ -72,8 +72,7 @@ QnA Maker 允许你通过提供易于使用的编辑体验来管理知识库的�
 
 ## <a name="add-metadata"></a>添加元数据
 
-
-选择元数据图标添加元数据对。 元数据对组成一个键和一个值。
+第一个选择添加元数据对**查看选项**，然后选择**显示元数据**。 此时将显示的元数据列。 接下来，选择**+** 号来添加的元数据对。 此对组成一个键和一个值。
 
 ![添加元数据](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d1de50e6b1b673a2613a893c19633bbd4bd43fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835356"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409269"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>适用于 SAP 工作负荷的 IBM Db2 Azure 虚拟机 DBMS 部署
 
@@ -158,7 +158,7 @@ ms.locfileid: "60835356"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "60835356"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -360,7 +360,7 @@ LUW 可查找在 SAP 社区网络 (SCN) 在 IBM Db2 上运行 SAP Business Suite
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-如果磁盘包含 sapdata 和 saptmp 目录的 Db2 存储路径，必须指定的物理磁盘扇区大小为 512 KB。 使用 Windows 存储池时，必须通过命令行界面使用参数 `-LogicalSectorSizeDefault`，以手动方式创建存储池。 有关详细信息，请参阅 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
+如果磁盘包含 sapdata 和 saptmp 目录的 Db2 存储路径，必须指定的物理磁盘扇区大小为 512 KB。 使用 Windows 存储池时，必须通过命令行界面使用参数 `-LogicalSectorSizeDefault`，以手动方式创建存储池。 有关详细信息，请参阅 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool> 。
 
 对于 Azure M 系列 VM，使用 Azure 写入加速器时，与 Azure 高级存储性能相比，可通过多种因素减少写入事务日志的延迟。 因此，您应该对窗体为 Db2 事务日志卷的 vhd 部署 Azure 写入加速器。 有关详细信息，请阅读文档[写入加速器](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)。
 

@@ -2,18 +2,19 @@
 title: 将 VM 迁移到 Azure 高级存储 | Microsoft Docs
 description: 将现有的 VM 迁移到 Azure 高级存储。 高级存储为 Azure 虚拟机上运行的 I/O 密集型工作负载提供高性能、低延迟的磁盘支持。
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372312"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153766"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -72,9 +73,9 @@ Azure VM 支持附加多个高级存储磁盘，这样应用程序的存储上�
 有关高级存储规范的详细信息，请查看 [Azure 存储的可伸缩性和性能目标](storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。
 
 #### <a name="disk-caching-policy"></a>磁盘缓存策略
-默认情况下，所有高级数据磁盘的磁盘缓存策略都是“只读”，所有附加到 VM 的高级操作系统都是“读写”。 为使应用程序的 IO 达到最佳性能，建议使用此配置设置。 对于频繁写入或只写的磁盘（例如 SQL Server 日志文件），禁用磁盘缓存可获得更佳的应用程序性能。 可以通过更新现有数据磁盘的缓存设置[Azure 门户](https://portal.azure.com)或 *-HostCaching*参数*Set-azuredatadisk* cmdlet。
+默认情况下，所有高级数据磁盘的磁盘缓存策略都是“只读”，所有附加到 VM 的高级操作系统都是“读写”。 为使应用程序的 IO 达到最佳性能，建议使用此配置设置。 对于频繁写入或只写的磁盘（例如 SQL Server 日志文件），禁用磁盘缓存可获得更佳的应用程序性能。 可以使用 [Azure 门户](https://portal.azure.com)或 *Set-AzureDataDisk* cmdlet 的 *-HostCaching* 参数更新现有数据磁盘的缓存设置。
 
-#### <a name="location"></a>位置
+#### <a name="location"></a>Location
 选择 Azure 高级存储可用的位置。 有关可用位置的最新信息，请参阅 [Azure 服务（按区域）](https://azure.microsoft.com/regions/#services)。 与存储 VM 的磁盘的存储帐户位于同一区域的 VM 与它们在单独的区域中时相比，将提供更优异的性能。
 
 #### <a name="other-azure-vm-configuration-settings"></a>其他 Azure VM 配置设置
@@ -255,7 +256,7 @@ C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-一个 <Uri> 的例子是 ***“https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd”***。 示例 <FileInfo> 可能是“C:\path\to\upload.vhd”。
+举例\<Uri > 可能 ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***。 举例\<FileInfo > 可能 ***"C:\path\to\upload.vhd"***。
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>选项 2：使用 AzCopy 上传 .vhd 文件
 使用 AzCopy 可通过 Internet 轻松上传 VHD。 根据 VHD 的大小，这可能需要时间。 请记住，在使用此选项时，检查存储帐户传入/传出限制。 有关详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。

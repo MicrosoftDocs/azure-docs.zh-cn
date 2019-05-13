@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a559191bb4e84b3b60529bf20a25e381c72f42a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840930"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教程：Azure Active Directory 与 TOPdesk - Secure 集成
 
@@ -180,11 +180,11 @@ ms.locfileid: "57840930"
 
     b. 若要上载证书文件，请在“证书(RSA)”下，单击“浏览”。
 
-    c. 对于“私钥(RSA, PKCS8, DER)”，可以上传自己的私钥，也可以联系 [TOPdesk - Secure 客户端支持团队](http://www.topdesk.com/us/support)获取私钥。
+    c. 对于“私钥(RSA, PKCS8, DER)”，可以上传自己的私钥，也可以联系 [TOPdesk - Secure 客户端支持团队](https://www.topdesk.com/us/support)获取私钥。
 
     d. 若要上载从 TOPdesk 支持团队获得的徽标文件，请在“徽标图标”下，单击“浏览”。
 
-    e. 在“用户名属性”文本框中，键入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    e. 在“用户名属性”文本框中，键入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
     f. 在“显示名称”文本框中，键入配置名称。
 

@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: jonbeck
-ms.openlocfilehash: 6bf073356137588075da3d9dcc220eee36ac59cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c27b338dc5eb7856c076433a2d0ad0f6c55c54e4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778216"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509852"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>存储优化虚拟机大小
 
-[!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-storage.md)]
+[!INCLUDE [virtual-machines-common-sizes-storage](../../../includes/virtual-machines-common-sizes-storage.md)]
 
 ## <a name="other-sizes"></a>其他大小
 

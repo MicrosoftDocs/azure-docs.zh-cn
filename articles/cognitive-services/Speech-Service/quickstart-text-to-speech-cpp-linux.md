@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/03/2019
+ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: c0981ec993f3717f3ec3d3da987a5977b212fb9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b5db21d40f1e270fb6771ba47af28a9e90228ea4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012362"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465588"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入门：在 Linux 上使用语音 SDK 通过 C++ 合成语音
 
-在本文中，将创建一个适用于 Ubuntu Linux 16.04 或 18.04 的 C++ 控制台应用程序。 使用认知服务[语音 SDK](speech-sdk.md) 实时从文本合成语音，并在电脑的扬声器上播放语音。 该应用程序是通过[适用于 Linux 的语音 SDK](https://aka.ms/csspeech/linuxbinary) 和你的 Linux 发行版的 C++ 编译器（例如 `g++`）构建的。
+针对[语音识别](quickstart-cpp-linux.md)也提供了快速入门。
+
+在本文中，你将创建一个适用于 Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9）的 C++ 控制台应用程序。 使用认知服务[语音 SDK](speech-sdk.md) 实时从文本合成语音，并在电脑的扬声器上播放语音。 该应用程序是通过[适用于 Linux 的语音 SDK](https://aka.ms/csspeech/linuxbinary) 和你的 Linux 发行版的 C++ 编译器（例如 `g++`）构建的。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -29,7 +31,7 @@ ms.locfileid: "59012362"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-认知服务语音 SDK 的当前版本是 `1.4.0`。
+认知服务语音 SDK 的当前版本是 `1.5.0`。
 
 适用于 Linux 的语音 SDK 可用于构建 64 位和 32 位应用程序。 可以从 https://aka.ms/csspeech/linuxbinary 以 tar 文件格式下载必需的库和头文件。
 
@@ -37,10 +39,19 @@ ms.locfileid: "59012362"
 
 1. 确保安装了 SDK 的依赖项。
 
-   ```sh
-   sudo apt-get update
-   sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-   ```
+   * 在 Ubuntu 上：
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+     ```
+
+   * 在 Debian 9 上：
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+     ```
 
 1. 选择应将语音 SDK 文件提取到的目录，然后将 `SPEECHSDK_ROOT` 环境变量设置为指向该目录。 使用此变量，在将来的命令中可以轻松引用目录。 例如，如果要使用主目录中的 `speechsdk` 目录，请使用如下所示的命令：
 
@@ -89,13 +100,13 @@ ms.locfileid: "59012362"
 * 在 **x64**（64 位）系统上，运行以下命令来生成应用程序。
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libasound.so.2
   ```
 
 * 在 **x86**（32 位）系统上，运行以下命令来生成应用程序。
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
 ## <a name="run-the-app"></a>运行应用

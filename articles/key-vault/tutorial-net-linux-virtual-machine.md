@@ -2,22 +2,19 @@
 title: 教程 - 如何将 Azure Key Vault 与通过 .NET 编写的 Azure Linux 虚拟机配合使用 - Azure Key Vault | Microsoft Docs
 description: 教程：将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 354ffb14eb95e7f09256f337ffea069cff14b226
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306555"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234015"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>教程：如何将 Azure Key Vault 与通过 .NET 编写的 Azure Linux 虚拟机配合使用
 

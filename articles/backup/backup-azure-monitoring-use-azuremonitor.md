@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60700105"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190508"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>大规模使用 Azure Monitor 监视
 
@@ -109,7 +109,7 @@ Azure 监视器允许用户从 LA 工作区，可以创建自己的警报*利用
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-编辑 Kusto 查询，如有必要，请选择正确的阈值 （这将决定时，将触发警报）、 右段 （时间窗口对其运行查询），以及的频率。 有关为例：如果阈值为大于 0，是 5 分钟且频率为 5 分钟，然后该规则将被转换为"过去 5 分钟内每隔 5 分钟运行查询和结果数是否大于 0，通知我通过选定的操作组"
+编辑 Kusto 查询，如有必要，请选择正确的阈值 （这将决定时，将触发警报）、 右段 （时间窗口对其运行查询），以及的频率。 例如：如果阈值为大于 0，是 5 分钟且频率为 5 分钟，然后该规则将被转换为"过去 5 分钟内每隔 5 分钟运行查询和结果数是否大于 0，通知我通过选定的操作组"
 
 #### <a name="action-group-integration"></a>操作组集成
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: rimman
-ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678439"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925335"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>监视概率有限过期 (PBS) 指标
 
-最终一致性的最终程度如何？ 对于普通情况，我们是否可以提供版本历史和时间方面的过期限度。 [**概率有限过期 (PBS)**](http://pbs.cs.berkeley.edu/) 指标尝试量化过期的概率并将其显示为指标。 若要查看 PBS 指标，请在 Azure 门户中转到你的 Cosmos 帐户。 打开“指标”窗格，然后选择“一致性”选项卡。查看名为“基于工作负载的强一致性读取的概率(请参阅 PBS)”的图。
+最终一致性的最终程度如何？ 对于普通情况，我们是否可以提供版本历史和时间方面的过期限度。 [**概率有限过期 (PBS)**](https://pbs.cs.berkeley.edu/) 指标尝试量化过期的概率并将其显示为指标。 若要查看 PBS 指标，请在 Azure 门户中转到你的 Cosmos 帐户。 打开“指标”窗格，然后选择“一致性”选项卡。查看名为“基于工作负载的强一致性读取的概率(请参阅 PBS)”的图。
 
 ![Azure 门户中的 PBS 图](./media/how-to-manage-consistency/pbs-metric.png)
 

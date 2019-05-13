@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281771"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025173"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>示例：使用 C# 为 Azure 搜索添加同义词
 
@@ -23,13 +23,15 @@ ms.locfileid: "61281771"
 在 Azure 搜索中，同义词在“同义词映射”中通过可将等效字词关联在一起的“映射规则”进行定义。 此示例介绍了用于添加和使用现有索引中使用同义词的基本步骤。 学习如何：
 
 > [!div class="checklist"]
-> * 通过创建并发布映射规则启用同义词 
-> * 在查询字符串中引用同义词映射
+> * 创建同义词映射使用[SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet)类。 
+> * 设置[SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet)上应支持同义词通过查询扩展字段属性。
+
+像往常一样，您可以查询启用了同义词的字段。 没有访问同义词所需的其他查询语法。
 
 可以创建多个同义词映射，将其发布为在服务范围内可供任何索引使用的资源，然后引用要在字段级别使用的资源。 在查询时，除了搜索索引，Azure 搜索还会查看同义词映射（如果在查询所用的字段上指定了该映射）。
 
 > [!NOTE]
-> 最新的 API 和 SDK 版本（api-version=2017-11-11，SDK 版本为 5.0.0）支持同义词。 此次没有 Azure 门户支持。 如果 Azure 门户支持同义词将对你很有用，请在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供反馈
+> 可以以编程方式创建同义词，但不是在门户。 如果 Azure 门户支持同义词将对你很有用，请在 [UserVoice](https://feedback.azure.com/forums/263029-azure-search) 上提供反馈
 
 ## <a name="prerequisites"></a>必备组件
 
@@ -172,7 +174,7 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 
 ## <a name="next-steps"></a>后续步骤
 
-此示例中所示[同义词 REST API](https://aka.ms/rgm6rq)中C#代码来创建和发布映射规则，然后对查询中调用同义词映射。 可以在 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 和 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 参考文档中找到更多信息。
+此示例演示了中的同义词功能C#代码来创建和发布映射规则，然后对查询中调用同义词映射。 可以在 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 和 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 参考文档中找到更多信息。
 
 > [!div class="nextstepaction"]
 > [如何在 Azure 搜索中使用同义词](search-synonyms.md)

@@ -258,8 +258,8 @@ JavaScript 代码如下所示：
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|type || 必须设置为 `cosmosDBTrigger`。 |
-|direction || 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置该参数。 |
+|**type** || 必须设置为 `cosmosDBTrigger`。 |
+|**direction** || 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置该参数。 |
 |name || 函数代码中使用的变量名称，表示发生更改的文档列表。 |
 |**connectionStringSetting**|**ConnectionStringSetting** | 应用设置的名称，该应用设置包含用于连接到受监视的 Azure Cosmos DB 帐户的连接字符串。 |
 |**databaseName**|**DatabaseName**  | 带有受监视的集合的 Azure Cosmos DB 数据库的名称。 |
@@ -1711,8 +1711,8 @@ public class DocsFromRouteSqlQuery {
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|type     || 必须设置为 `cosmosDB`。        |
-|direction     || 必须设置为 `in`。         |
+|**type**     || 必须设置为 `cosmosDB`。        |
+|**direction**     || 必须设置为 `in`。         |
 |name     || 表示函数中的文档的绑定参数的名称。  |
 |**databaseName** |**DatabaseName** |包含文档的数据库。        |
 |**collectionName** |**CollectionName** | 包含文档的集合的名称。 |
@@ -2296,8 +2296,8 @@ public String cosmosDbQueryById(
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|type     || 必须设置为 `cosmosDB`。        |
-|direction     || 必须设置为 `out`。         |
+|**type**     || 必须设置为 `cosmosDB`。        |
+|**direction**     || 必须设置为 `out`。         |
 |name     || 表示函数中的文档的绑定参数的名称。  |
 |**databaseName** | **DatabaseName**|包含在其中创建文档的集合的数据库。     |
 |**collectionName** |**CollectionName**  | 包含在其中创建文档的集合的名称。 |

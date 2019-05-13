@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920431"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407591"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>为 Azure 应用服务中配置 Linux PHP 应用
 
@@ -151,7 +151,7 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 若要自定义 PHP_INI_USER、 PHP_INI_PERDIR 和 PHP_INI_ALL 指令 (请参阅[php.ini 指令](https://www.php.net/manual/ini.list.php))，添加 *.htaccess*到您的应用程序的根目录的文件。
 
-在中 *.htaccess*文件中，将使用的指令添加`php_value <directive-name> <value>`语法。 例如：
+在中 *.htaccess*文件中，将使用的指令添加`php_value <directive-name> <value>`语法。 例如:
 
 ```
 php_value upload_max_filesize 1000M
@@ -187,7 +187,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 > 在应用服务中内置的 Linux 容器中 */home*用作永久性的共享存储空间。 
 >
 
-例如，若要更改的值[expose_php](http://php.net/manual/ini.core.php#ini.expose-php)运行以下命令：
+例如，若要更改的值[expose_php](https://php.net/manual/ini.core.php#ini.expose-php)运行以下命令：
 
 ```bash
 cd /home/site
@@ -233,7 +233,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 正在运行的 PHP 应用的行为是不同的应用服务中或出现错误时，请尝试以下方法：
 
 - [访问日志流](#access-diagnostic-logs)。
-- 在生产模式下，本地测试应用程序。 应用服务在生产模式下运行 Node.js 应用程序，因此您需要确保你的项目按预期方式在本地生产模式下能够正常工作。 例如：
+- 在生产模式下，本地测试应用程序。 应用服务在生产模式下运行 Node.js 应用程序，因此您需要确保你的项目按预期方式在本地生产模式下能够正常工作。 例如:
     - 具体取决于你*composer.json*，可能会为生产模式下安装不同的包 (`require`与`require-dev`)。
     - 某些 web 框架可以部署在生产模式下以不同的方式的静态文件。
     - 在生产模式下运行时，某些 web 框架可能会使用自定义启动脚本。

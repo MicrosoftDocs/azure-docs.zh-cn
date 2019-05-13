@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716771"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506694"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -24,7 +24,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 使用 JSON 创建策略定义。 策略定义包含以下项的元素：
 
-- mode
+- 模式
 - parameters
 - 显示名称
 - description
@@ -46,7 +46,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -70,7 +70,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>模式
 
 **模式**确定将对策略评估哪些资源类型。 支持的模式包括：
 
@@ -114,7 +114,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 使用 like 和 notLike 条件时，请在值中指定通配符 `*`。
@@ -416,15 +420,25 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 
 ### <a name="policy-functions"></a>策略函数
 
-除以下函数外，所有[资源管理器模板函数](../../../azure-resource-manager/resource-group-template-functions.md)均可在策略规则中使用：
+所有[资源管理器模板函数](../../../azure-resource-manager/resource-group-template-functions.md)均可用于在策略规则，除以下函数和用户定义的函数中：
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+以下函数是可用于在策略规则中，使用但不同于在 Azure 资源管理器模板中使用：
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [必需] 字符串-通用 ISO 8601 日期时间格式字符串 yyyy-MM-ddTHH:mm:ss.fffffffZ
+  - **numberOfDaysToAdd**: [必需] 整数-要添加的天数
+- utcnow （)-与 Resource Manager 模板，这可以使用外部 defaultValue。
+  - 返回设置为当前日期和时间以通用的 ISO 8601 日期时间格式的字符串 yyyy-MM-ddTHH:mm:ss.fffffffZ
 
 此外，`field` 函数可用于策略规则。 `field` 主要用于 **AuditIfNotExists** 和 **DeployIfNotExists**，以引用所评估资源上的字段。 可以在 [DeployIfNotExists 示例](effects.md#deployifnotexists-example)中看到这种用法的示例。
 
@@ -484,7 +498,7 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 
 ### <a name="understanding-the--alias"></a>了解 [*] 别名
 
-可用的几个别名的版本显示为“普通”名称，另一个版本的名称则附加了 **[\*]**。 例如：
+可用的几个别名的版本显示为“普通”名称，另一个版本的名称则附加了 **[\*]**。 例如:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

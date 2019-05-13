@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363180"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472736"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -71,13 +71,14 @@ ms.locfileid: "61363180"
 
 ## <a name="message-feedback"></a>消息反馈
 
-发送云到设备的消息时，服务可以请求传送每条消息的反馈（关于该消息的最终状态）。
+发送云到设备的消息时，服务可以请求传送每条消息的反馈（关于该消息的最终状态）。 这是通过设置`iothub-ack`C2D 消息发送到以下值之一中的应用程序属性：
 
-| Ack 属性 | 行为 |
+| Ack 属性值 | 行为 |
 | ------------ | -------- |
+| **无**     | IoT 中心不会生成反馈消息 （默认行为）。 |
 | positive | 如果云到设备的消息达到“已完成”状态，IoT 中心将生成反馈消息。 |
 | negative | 云到设备的消息达到“死信”状态时，IoT 中心生成反馈消息。 |
-| full     | IoT 中心遇到以上任一情况都会生成反馈消息。 |
+| **full**     | IoT 中心遇到以上任一情况都会生成反馈消息。 |
 
 如果 **Ack** 为 **full**，且未收到反馈消息，则意味着反馈消息已过期。 该服务无法了解原始消息的经历。 实际上，服务应该确保它可以在反馈过期之前对其进行处理。 最长过期时间是两天，因此当发生故障时，有时间让服务再次运行。
 

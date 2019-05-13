@@ -4,7 +4,7 @@ description: 了解如何连接 Azure Sentinel 中的 DNS 数据。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445560"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204407"
 ---
 # <a name="connect-your-domain-name-server"></a>连接连接到域的名称服务器
 

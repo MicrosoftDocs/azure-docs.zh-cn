@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522786"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138254"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>从通用 Windows 平台应用程序 (XAML) 调用 Microsoft 图形 API
 
@@ -333,8 +333,10 @@ ms.locfileid: "59522786"
    - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户和个人 Microsoft 帐户(例如 Skype、Xbox、Outlook.com)”。
    - 选择“注册”以创建应用程序。
 1. 在应用的“概述”页上，找到“应用程序(客户端) ID”值，并记下该值以供后续使用。 返回 Visual Studio，打开 MainPage.xaml.cs，并将 ClientId 的值替换为刚刚记下的应用程序 ID：
-1. 在应用的页面列表中，选择“身份验证”：
-   - 在“重定向 URI” | “建议用于公共客户端(移动、桌面)的重定向 URI”部分中，勾选“urn:ietf:wg:oauth:2.0:oob”
+1. 在应用的页面列表中，选择“身份验证”。
+   1. 在“重定向 URI”部分的重定向 URI 列表中：
+   1. 在“类型”列中选择“公共客户端(移动和桌面)”。
+   1. 在“重定向 URI”列中输入 `urn:ietf:wg:oauth:2.0:oob`。
 1. 选择“保存”。
 1. 在应用的页面列表中，选择“API 权限”
    - 单击“添加权限”按钮，然后

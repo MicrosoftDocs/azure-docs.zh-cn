@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: ac07373bcdf4bbf0f7bfc5b131ffe4eb26bc3ac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f987b236cbec9bd4dd332213c2ec7eadcb0752e7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478681"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211929"
 ---
 > [!NOTE] 
-> 映射数据流是 Azure 数据工厂的一项新功能。 它目前处于受限的公开预览状态，不受 Azure 客户 SLA 规定的约束。 [为注册预览版，请请求访问此处](https://aka.ms/dataflowpreview)。
+> Azure 数据工厂映射数据流是当前的公共预览版功能，无需遵守 Azure 客户的 SLA 条款。

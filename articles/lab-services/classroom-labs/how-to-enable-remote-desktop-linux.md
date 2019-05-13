@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695359"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410954"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>启用和使用 Azure 实验室服务中的实验室中的 Linux 虚拟机的远程桌面
 本文介绍如何执行以下任务：
@@ -64,7 +64,7 @@ ms.locfileid: "60695359"
 ## <a name="students-connecting-to-the-student-vm"></a>连接到 VM 的学生的学生
 实验室所有者 （教师/教授） 后，学生可以中它们对 Linux Vm 的 RDP**发布**模板在计算机上安装的 VM 通过 RDP 和 GUI 包。 下面是相关步骤： 
 
-1. 当一名学生在登录到 Labs 门户网站直接 (`http://labs.azure.com`) 或通过使用注册链接 (`http://labs.azure.com/register/<registrationCode>`)，显示一个磁贴的每个实验室学生有权访问。 
+1. 当一名学生在登录到 Labs 门户网站直接 (`https://labs.azure.com`) 或通过使用注册链接 (`https://labs.azure.com/register/<registrationCode>`)，显示一个磁贴的每个实验室学生有权访问。 
 2. 在磁贴中，选择**启动**如果 VM 已停止。 
 3. 选择“连接”。 此操作下载 RDP 文件到你的计算机。 将其保存并打开以连接到 Linux 计算机通过 RDP。 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.author: rayne
-ms.openlocfilehash: 926e5b685369f8660daf6221f818734f6f12d2b5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0383226853ed86943b73d2b8740825967f3124c9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928402"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411533"
 ---
 # <a name="troubleshoot-the-process-server"></a>进程服务器故障排除
 
@@ -51,14 +51,14 @@ IP 地址 | 请确保进程服务器有一个静态 IPv4 地址，并且没有 N
 
 **警报类型** | **错误** | **故障排除**
 --- | --- | --- 
-![Healthy][green] | 无  | 进程服务器已连接并且正常运行。
+![状态良好][green] | 无  | 进程服务器已连接并且正常运行。
 ![警告][yellow] | 指定的服务不会运行。 | 1.检查服务正在运行。<br/> 2.如果服务正在按预期方式运行，按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。
 ![警告][yellow]  | 在过去 15 分钟的 CPU 利用率 > 80%。 | 1.不要将添加新计算机。<br/>2.使用进程服务器的 Vm 数量对应的复选[定义限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。
-![严重][red] |  在过去 15 分钟的 CPU 利用率 > 95%。 | 1.不要将添加新计算机。<br/>2.使用进程服务器的 Vm 数量对应的复选[定义限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。<br/> 4.如果问题仍然存在，请运行[部署规划器](http://aka.ms/asr-v2a-deployment-planner)的 VMware/物理服务器复制。
+![严重][red] |  在过去 15 分钟的 CPU 利用率 > 95%。 | 1.不要将添加新计算机。<br/>2.使用进程服务器的 Vm 数量对应的复选[定义限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。<br/> 4.如果问题仍然存在，请运行[部署规划器](https://aka.ms/asr-v2a-deployment-planner)的 VMware/物理服务器复制。
 ![警告][yellow] | 过去 15 分钟内的内存使用率 > 80%。 |  1.不要将添加新计算机。<br/>2.使用进程服务器的 Vm 数量对应的复选[定义限制](site-recovery-plan-capacity-vmware.md#capacity-considerations)，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>3.按照与该警告关联的任何说明进行操作。<br/> 4.如果问题仍然存在，请按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。
-![严重][red] | 过去 15 分钟内的内存使用率 > 95%。 | 1.不添加新计算机，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/> 2.按照与该警告关联的任何说明进行操作。<br/> 3. 4. 如果问题仍然存在，按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。<br/> 4.如果问题仍然存在，请运行[部署规划器](http://aka.ms/asr-v2a-deployment-planner)VMware/物理服务器复制问题的。
+![严重][red] | 过去 15 分钟内的内存使用率 > 95%。 | 1.不添加新计算机，并考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/> 2.按照与该警告关联的任何说明进行操作。<br/> 3. 4. 如果问题仍然存在，按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。<br/> 4.如果问题仍然存在，请运行[部署规划器](https://aka.ms/asr-v2a-deployment-planner)VMware/物理服务器复制问题的。
 ![警告][yellow] | 在过去 15 分钟的缓存文件夹的可用空间 < 30%。 | 1.不添加新计算机，并请考虑设置[额外的进程服务器](vmware-azure-set-up-process-server-scale.md)。<br/>2.使用进程服务器的 Vm 数量对应的复选[指导原则](site-recovery-plan-capacity-vmware.md#capacity-considerations)。<br/> 3.按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。
-![严重][red] |  过去 15 分钟内的可用空间 < 25% | 1.按照与该警告针对此问题关联的说明。<br/> 2. 3. 按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。<br/> 3.如果问题仍然存在，请运行[部署规划器](http://aka.ms/asr-v2a-deployment-planner)的 VMware/物理服务器复制。
+![严重][red] |  过去 15 分钟内的可用空间 < 25% | 1.按照与该警告针对此问题关联的说明。<br/> 2. 3. 按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。<br/> 3.如果问题仍然存在，请运行[部署规划器](https://aka.ms/asr-v2a-deployment-planner)的 VMware/物理服务器复制。
 ![严重][red] | 从为 15 分钟或多个进程服务器无检测信号。 Tmansvs 服务不与配置服务器通信。 | 1） 检查进程服务器已启动并运行。<br/> 2.检查进程服务器上正在运行 tmassvc。<br/> 3.按照以下说明[对连接和复制问题进行故障排除](#check-connectivity-and-replication)。
 
 

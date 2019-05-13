@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00f34fa9a1932aebd467163e0ed7441c993387df
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483761"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154012"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>使用 Azure 门户来访问 blob 或队列数据
 

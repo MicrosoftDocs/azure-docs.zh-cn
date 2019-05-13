@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573493"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541004"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>向知识库添加聊天内容
 
@@ -24,17 +24,19 @@ ms.locfileid: "64573493"
 
 此数据集具有大约 100 个方案的 chit 聊天中的多个角色，如专业版、 友好和 Witty 声音。 选择与机器人的语音最接近的角色。 对于给定的用户查询，QnA Maker 会尝试将其与最接近的已知聊天内容 QnA 匹配。  
 
-下面是一些示例不同的个性。 您可以看到所有个人设置数据集以及详细信息的个性[此处](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)。
+下面是一些示例不同的个性。 您可以看到所有个性[数据集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)明个性的详细信息。
+
+为用户查询的`When is your birthday?`，每个个性具有带样式的响应：
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|用户查询|专业版|友好|与红|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|个性|示例|
+|--|--|
+|专业的|年龄不会真正适用于我。|
+|友好|我真的没有年龄。|
+|与红|我是年龄免费。|
+|关注|我没有年龄。|
+|热情|我智能机器人应用程序，因此我没有年龄。|
+||
 
 > [!NOTE]
 > 聊天内容支持目前仅提供英文形式。 
@@ -54,10 +56,12 @@ ms.locfileid: "64573493"
 
 ![编辑聊天内容 QnA](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
+若要查看元数据，请选择**视图选项**在工具栏中，然后选择**显示元数据**。
+
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>添加其他的聊天内容问题和解答
 可以添加新的不在预定义集中的聊天内容 QnA。 确保不复制聊天内容集中已涵盖的 QnA 对。 添加任何新的聊天内容 QnA 时，它会添加到“编辑”源。 若要确保排名程序理解这是聊天内容，请添加元数据键/值对“编辑: 聊天内容”，如下图所示：
    
-![添加聊天内容 QnA](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)
+![![添加 chit 聊天变](../ media/qnamaker-how-to-chit-chat/add-new-chit-chat.png）](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>从现有 KB 中删除聊天内容
 选择 KB，导航到“设置”页。 特定的聊天内容源作为文件列出，使用所选的个性名称。 可以将其作为源文件删除。

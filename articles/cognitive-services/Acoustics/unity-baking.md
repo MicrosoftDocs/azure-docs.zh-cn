@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790223"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917002"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>项目音响效果 Unity 烘焙教程
 本教程介绍了在 Unity 中使用项目音响效果进行音效烘焙。
 
 所需软件：
-* 用于 Windows 的 [Unity 2018.2 及更高版本](http://unity3d.com)
+* 用于 Windows 的 [Unity 2018.2 及更高版本](https://unity3d.com)
 * [Unity 项目中集成的项目音响效果插件](unity-integration.md)或[项目音响效果 Unity 示例内容](unity-quickstart.md)
 * 可选：[Azure Batch 帐户](create-azure-account.md)，它用于通过云计算加快烘焙速度
 

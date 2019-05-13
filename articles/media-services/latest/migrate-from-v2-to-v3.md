@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 6ae094ddf1bfc55ce793995f60f1694be6eb19c1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686798"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205487"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>有关从媒体服务 v2 迁移到 v3 的指导
 
@@ -71,7 +71,7 @@ ms.locfileid: "64686798"
     * 流式处理定位符取代了定位符。
     * 实时事件取代了频道。<br/>实时事件计费基于实时频道计量器。 有关详细信息，请参阅[计费](live-event-states-billing.md)和[定价](https://azure.microsoft.com/pricing/details/media-services/)。
     * 实时输出取代了节目。
-* 实时输出无需显式启动，它们在创建时启动，在删除时停止。 v2 API 中的节目以不同的方式工作，它们必须在创建后启动。
+* 实时输出在创建时启动，在删除后停止。 v2 API 中的节目以不同的方式工作，它们必须在创建后启动。
 *  若要获取有关作业的信息，您需要知道在其下创建作业的转换名称。 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>与 v2 API 之间的功能差距
@@ -115,7 +115,7 @@ ms.locfileid: "64686798"
 > [!NOTE]
 > 在媒体服务团队不断改进 v3 API 并解决版本差距的过程中，本页面会得到维护。
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

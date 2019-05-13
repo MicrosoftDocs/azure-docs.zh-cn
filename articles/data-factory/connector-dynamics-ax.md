@@ -101,7 +101,7 @@ Dynamics AX 链接的服务支持以下属性：
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 数据集的 **type** 属性必须设置为 **DynamicsAXResource**。 | 是 |
-| 路径 | Dynamics AX OData 实体的路径。 | 是 |
+| path | Dynamics AX OData 实体的路径。 | 是 |
 
 **示例**
 

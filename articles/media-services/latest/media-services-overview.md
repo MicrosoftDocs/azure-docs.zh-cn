@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999818"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414025"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure 媒体服务 v3 概述
 
@@ -48,7 +48,8 @@ Azure 媒体服务是一个基于云的平台，用于生成解决方案，以�
 
 了解如何使用媒体服务 v3 来编码和打包内容、进行视频点播流式处理、实时广播和视频分析。 教程、API 参考和其他文档介绍了如何安全地向数百万用户传送可缩放的点播和直播视频或音频流。
 
-在开始开发之前，请查看[基本概念](concepts-overview.md)<br/>
+> [!TIP]
+> 在开始开发之前，请查看：<br/>* [基本概念](concepts-overview.md)（包括重要概念：打包、编码、保护，等等）<br/>* [使用媒体服务 v3 API 进行开发](media-services-apis-overview.md)（包括有关访问 API、命名约定等的信息）
 
 ### <a name="quickstarts"></a>快速入门  
 
@@ -80,15 +81,11 @@ Azure 媒体服务是一个基于云的平台，用于生成解决方案，以�
 * [通过多重 DRM 进行动态加密 - .NET](protect-with-drm.md) 
 * [如何对自定义转换进行编码 - CLI](custom-preset-cli-howto.md)
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、提供反馈、获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 
 ## <a name="next-steps"></a>后续步骤
 
-如何开始使用 v3？ 
-
-> [!div class="nextstepaction"]
-> [了解基本概念](concepts-overview.md)<br/>
-> [通过 SDK 使用媒体服务 v3 API 进行开发](developers-guide.md) 
+[了解基本概念](concepts-overview.md)
 

@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 了解如何使用语音服务和语音 SDK 向应用添加支持语音的功能。 可以使用语音 SDK 向应用添加<i>语音转文本</i>（语音识别/SR）、<i>意向</i>、<i>翻译</i>和<i>文本转语音</i> (TTS) 功能。 语音服务还具有 REST API，这些 API 可与任何能够发出 HTTP 请求的编程语言配合使用。
+  description: |
+    了解如何将语音服务与 REST API 或语音 SDK 配合使用，以便向应用添加支持语音的功能。 可以使用语音 SDK 将以下功能（以及更多功能）添加到应用&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">语音转文本</a></b> (speech-recognition/SR)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">自定义唤醒词</a></b> (keyword-spotter/KWS)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">意向</a></b></li>
+    <li><b><a href="speech-translation.md">翻译</a></b></li>
+    <li><b><a href="speech-container-howto.md">本地容器</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">文本转语音</a></b> (TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">对话听录</a></b> (CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">短语列表个性化</a>/<a href="how-to-custom-speech.md">自定义语音适应</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">语音优先虚拟助手</a></b></li>
+    <li><b><a href="call-center-transcription.md">呼叫中心听录</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: 5 分钟快速入门
     items:
       - type: paragraph
-        text: 通过选择箭头链接，了解如何下载、安装和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>.
+        text: 通过选择箭头链接，了解如何下载、安装和使用 SDK <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>所有箭头链接 <img src="media/index/link.jpg" height="15" width="15"></img> 默认为指向“语音转文本”快速入门。 在这里，可以选择其他快速入门（<a href="scenario-availability.md">如果有</a>），如文本转语音或语音优先虚拟助手。
       - type: table
         style: dataMatrix
         columns:
@@ -94,6 +106,18 @@ sections:
               - href: quickstart-python
               - href: null
               - href: quickstart-js-node
+              - href: null
+          - title: Windows UWP (ARM32/64)
+            values:
+              - href: quickstart-csharp-uwp
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-csharp-unity
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: null
           - title: Linux (x64)
             values:
@@ -222,7 +246,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">服务 SDK 示例</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">语音 SDK 示例</a><br/>'
           - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">设备 SDK 示例</a><br/>'
   - title: 引用
     items:

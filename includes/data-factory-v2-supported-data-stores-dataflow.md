@@ -2,16 +2,16 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f9dc0bac4347a64feb4c50fd8f123c1debe3981
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7b54b6b369e15ca0a712efefec5c7817e88d9065
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198848"
 ---
-| 类别 | 数据存储 | 支持用作源 | 支持用作接收器 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支持 | 受[自我托管 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支持 | 支持的[数据流](../articles/data-factory/concepts-data-flow-overview.md)
+| Category | 数据存储 | 支持用作源 | 支持用作接收器 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支持 | 受[自我托管 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支持 | 支持的[数据流](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob 存储](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>支持的格式：带分隔符的文本 Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
@@ -77,7 +77,7 @@ ms.locfileid: "64866465"
 | &nbsp; |[Jira（预览）](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Magento（预览）](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Marketo（预览）](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Office 365（预览）](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  ||
+| &nbsp; |[Office 365](../articles/data-factory/connector-office-365.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Eloqua（预览）](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle Responsys（预览）](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle 服务云（预览）](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  ||

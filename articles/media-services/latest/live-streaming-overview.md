@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153379"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒体服务 v3 实时传送视频流
 
@@ -93,7 +93,7 @@ ms.locfileid: "64866337"
 - [状态和计费](live-event-states-billing.md)
 - [延迟](live-event-latency.md)
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

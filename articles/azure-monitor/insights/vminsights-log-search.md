@@ -52,13 +52,13 @@ ms.locfileid: "64702522"
 
 | 属性 | 描述 |
 |:--|:--|
-|方向 |连接方向，值为 *inbound* 或 *outbound* |
-|计算机 |计算机 FQDN |
-|进程 |进程或进程组的标识，状态为正在启动/接受连接 |
+|Direction |连接方向，值为 *inbound* 或 *outbound* |
+|Machine |计算机 FQDN |
+|Process |进程或进程组的标识，状态为正在启动/接受连接 |
 |SourceIp |源的 IP 地址 |
 |DestinationIp |目标的 IP 地址 |
 |DestinationPort |目标的端口号 |
-|协议 |用于连接的协议。  值为 *tcp*。 |
+|Protocol |用于连接的协议。  值为 *tcp*。 |
 
 为了帮助你权衡分组造成的影响，以下记录属性中提供了有关分组的物理连接数的信息：
 
@@ -77,7 +77,7 @@ ms.locfileid: "64702522"
 |:--|:--|
 |BytesSent |在报告时间范围内发送的字节总数 |
 |BytesReceived |在报告时间范围内接收的字节总数 |
-|响应 |在报告时间范围内观测到的响应数。 
+|Responses |在报告时间范围内观测到的响应数。 
 |ResponseTimeMax |在报告时间范围内观测到的最大响应时间（毫秒）。 如果无值，则该属性为空。|
 |ResponseTimeMin |在报告时间范围内观测到的最小响应时间（毫秒）。 如果无值，则该属性为空。|
 |ResponseTimeSum |在报告时间范围内观测到的所有响应时间的和（毫秒）。 如果无值，则该属性为空。|
@@ -112,10 +112,10 @@ ms.locfileid: "64702522"
 |:--|:--|
 |MaliciousIp |RemoteIp 地址 |
 |IndicatorThreadType |检测到的威胁标志是以下值之一：Botnet、C2、CryptoMining、Darknet、DDos、MaliciousUrl、Malware、Phishing、Proxy、PUA 和 Watchlist。   |
-|描述 |观察到的威胁说明。 |
+|Description |观察到的威胁说明。 |
 |TLPLevel |交通信号灯协议 (TLP) 级别是以下定义值之一：White、Green、Amber 和 Red。 |
-|置信度 |值介于 0 和 100 之间。 |
-|严重性 |值介于 0 和 5 之间，其中 5 表示最严重，0 表示毫不严重。 默认值为 3。  |
+|Confidence |值介于 0 和 100 之间。 |
+|Severity |值介于 0 和 5 之间，其中 5 表示最严重，0 表示毫不严重。 默认值为 3。  |
 |FirstReportedDateTime |提供程序第一次报告指标。 |
 |LastReportedDateTime |Interflow 最后一次看到指标。 |
 |IsActive |使用值 True 或 False 指明是否停用标志。 |
@@ -136,10 +136,10 @@ ms.locfileid: "64702522"
 
 | 属性 | 描述 |
 |:--|:--|
-|进程 | 进程 （或组的进程） 端口与之关联的标识。|
-|IP | 端口的 IP 地址 (可以是通配符 IP *0.0.0.0*) |
-|端口 |端口号 |
-|协议 | 协议。  示例中， *tcp*或*udp* (仅*tcp*目前支持)。|
+|Process | 进程 （或组的进程） 端口与之关联的标识。|
+|Ip | 端口的 IP 地址 (可以是通配符 IP *0.0.0.0*) |
+|Port |端口号 |
+|Protocol | 协议。  示例中， *tcp*或*udp* (仅*tcp*目前支持)。|
  
 标识一个端口派生自上述五个字段，存储在 PortId 属性。 此属性可用于快速查找记录特定端口的各时间。 
 

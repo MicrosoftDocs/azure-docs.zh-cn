@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/11/2019
+ms.date: 05/03/2019
 ms.author: juliako
-ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2167a74dc81bdbb2562211cf5c0195a755941d9d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733668"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148338"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>如何使用自定义转换的.NET 进行编码
 
@@ -32,7 +32,7 @@ ms.locfileid: "60733668"
 
 ## <a name="prerequisites"></a>必备组件 
 
-[创建媒体服务帐户](create-account-cli-how-to.md)。 <br/>请务必记住资源组名称和媒体服务帐户名称。 
+[创建媒体服务帐户](create-account-cli-how-to.md)
 
 ## <a name="download-the-sample"></a>下载示例
 
@@ -46,7 +46,7 @@ ms.locfileid: "60733668"
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>使用自定义预设创建转换 
 
-创建新的[转换](https://docs.microsoft.com/rest/api/media/transforms)时，需要指定希望生成的输出内容。 所需参数是 [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) 对象，如以下代码所示。 每个 TransformOutput 包含一个预设。 预设介绍了视频和/或音频处理操作的分步说明，这些操作将用于生成所需的 TransformOutput。 以下 **TransformOutput** 将创建自定义编解码器和层输出设置。
+创建新的[转换](https://docs.microsoft.com/rest/api/media/transforms)时，需要指定希望生成的输出内容。 所需参数是 [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) 对象，如以下代码所示。 每个 TransformOutput 包含一个预设。 **预设**描述了要用来生成所需的视频和/或音频处理操作的分步说明**TransformOutput**。 以下 **TransformOutput** 将创建自定义编解码器和层输出设置。
 
 在创建时[转换](https://docs.microsoft.com/rest/api/media/transforms)，首先应检查是否其中一个已存在使用**获取**方法，如下面的代码中所示。 在媒体服务 v3 中，如果实体不存在（不区分大小写的名称检查），实体上的 **Get** 方法会返回 **null**。
 

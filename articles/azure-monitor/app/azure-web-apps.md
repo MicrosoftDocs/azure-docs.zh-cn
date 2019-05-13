@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922463"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408225"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -274,7 +274,7 @@ ms.locfileid: "64922463"
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -348,7 +348,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 下表提供了这些值的含义的更详细的说明，其基础导致，以及建议的修补程序：
 
-|问题值|说明|解决方法
+|问题值|说明|解决
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 此值指示，该扩展检测到 SDK 的某些方面已经存在于应用程序，并将回退。 它可能是由于对的引用`System.Diagnostics.DiagnosticSource`， `Microsoft.AspNet.TelemetryCorrelation`，或 `Microsoft.ApplicationInsights`  | 删除的引用。 从特定 Visual Studio 模板，添加默认情况下某些这些引用和较旧版本的 Visual Studio 可能会将引用添加到`Microsoft.ApplicationInsights`。
 |`AppAlreadyInstrumented:true` | 如果应用程序面向.NET Core 2.1 或 2.2，并且是指[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All)元包，然后它将在 Application Insights 中和扩展将回退。 | 客户在.NET Core 2.1,2.2[建议](https://github.com/aspnet/Announcements/issues/287)以改为使用 Microsoft.AspNetCore.App 元包。|

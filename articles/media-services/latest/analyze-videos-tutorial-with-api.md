@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351773"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415653"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>教程：通过 .NET 使用媒体服务 v3 来分析视频
 
@@ -100,7 +100,7 @@ CreateInputAsset 函数创建新的输入[资产](https://docs.microsoft.com/res
 
 #### <a name="transform"></a>转换
 
-创建新[转换](https://docs.microsoft.com/rest/api/media/transforms)实例时，需要指定希望生成的输出内容。 所需参数是 TransformOutput 对象，如上述代码所示。 每个 TransformOutput 包含一个预设。 预设介绍视频和/或音频处理操作的各个步骤，这些操作可生成所需 TransformOutput。 在此示例中，使用了 VideoAnalyzerPreset 预设，且将语言 (“en-US”) 传递给了其构造函数。 凭借此预设，可以从视频提取多个音频和视频见解。 如需从视频提取多个音频见解，可以使用**AudioAnalyzerPreset** 预设。 
+创建新的[转换](https://docs.microsoft.com/rest/api/media/transforms)实例时，你需要指定希望生成的输出内容，**TransformOutput** 是一个必需参数。 每个 TransformOutput 包含一个预设。 预设介绍视频和/或音频处理操作的各个步骤，这些操作可生成所需 TransformOutput。 在此示例中，使用了 **VideoAnalyzerPreset** 预设，并且将语言 (“en-US”) 传递给了其构造函数 (`new VideoAnalyzerPreset("en-US")`)。 凭借此预设，可以从视频提取多个音频和视频见解。 如需从视频提取多个音频见解，可以使用**AudioAnalyzerPreset** 预设。 
 
 在创建时**转换**，首先应检查是否其中一个已存在使用**获取**方法，如下面的代码中所示。  在 Media Services v3**获取**实体上的方法返回**null**如果实体不存在 （不区分大小写的名称检查）。
 
@@ -166,6 +166,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>多线程处理
 
 Azure 媒体服务 v3 SDK 不是线程安全的。 使用多线程应用程序时，应在每个线程上生成一个新的 AzureMediaServicesClient 对象。
+
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、提供反馈、获取更新
+
+查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 
 ## <a name="next-steps"></a>后续步骤
 

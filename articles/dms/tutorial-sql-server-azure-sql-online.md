@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/08/2019
+ms.openlocfilehash: 266e4a16a69d7200fbe8b58bc20339b6979db877
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799026"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415905"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 数据库中的单一数据库或共用数据库
 
@@ -54,22 +54,22 @@ ms.locfileid: "59799026"
     > 如果你使用 SQL Server Integration Services (SSIS) 并且希望将 SSIS 项目/包的目录数据库 (SSISDB) 从 SQL Server 迁移到 Azure SQL 数据库，则当你在 Azure 数据工厂 (ADF) 中预配 SSIS 时，系统会代表你自动创建和管理目标 SSISDB。 有关如何迁移 SSIS 包的详细信息，请参阅[将 SQL Server Integration Services 包迁移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)。
 
 - 下载并安装[数据迁移助手](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 或更高版本。
-- 使用 Azure 资源管理器部署模型创建 Azure 数据库迁移服务的 Azure 虚拟网络 (VNET)，它将使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 为本地源服务器提供站点到站点连接。
+- 使用 Azure 资源管理器部署模型创建 Azure 数据库迁移服务的 Azure 虚拟网络 (VNet)，它将使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 为本地源服务器提供站点到站点连接。 有关创建 VNet 的详细信息，请参阅[虚拟网络文档](https://docs.microsoft.com/azure/virtual-network/)，尤其是提供了分步详细信息的快速入门文章。
 
     > [!NOTE]
-    > 在 VNET 设置期间，如果将 ExpressRoute 与 Microsoft 的网络对等互连一起使用，请将以下服务[终结点](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)添加到将在其中预配服务的子网：
+    > 在 VNet 设置期间，如果将 ExpressRoute 与 Microsoft 的网络对等互连一起使用，请将以下服务[终结点](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)添加到将在其中预配服务的子网：
     > - 目标数据库终结点（例如，SQL 终结点、Cosmos DB 终结点等）
     > - 存储终结点
     > - 服务总线终结点
     >
     > Azure 数据库迁移服务缺少 Internet 连接，因此必须提供此配置。
 
-- 请确保 VNET 网络安全组规则未阻止到 Azure 数据库迁移服务以下入站通信端口：443、53、9354、445、12000。 有关 Azure VNET NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
+- 请确保 VNet 网络安全组规则未阻止到 Azure 数据库迁移服务以下入站通信端口：443、53、9354、445、12000。 有关 Azure VNet NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
 - 配置[针对数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 - 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
 - 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
 - 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
-- 为 Azure SQL 数据库服务器创建服务器级[防火墙规则](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的 VNET 子网范围。
+- 为 Azure SQL 数据库服务器创建服务器级[防火墙规则](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的 VNet 子网范围。
 - 确保用于连接到源 SQL Server 实例的凭据具有 [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) 权限。
 - 确保用于连接到目标 Azure SQL 数据库实例的凭据具有目标 Azure SQL 数据库的 CONTROL DATABASE 权限。
 - 源 SQL Server 版本必须至少为 SQL Server 2005。 若要确定 SQL Server 实例正在运行的版本，请参阅[如何确定 SQL Server 及其组件的版本、版本类别和更新级别](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an)一文。
@@ -86,6 +86,7 @@ ms.locfileid: "59799026"
     FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
      ```
+
     >如果结果显示一个或多个表的“is_tracked_by_cdc”为“0”，请按照[启用和禁用变更数据捕获 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-2017) 一文中描述的流程操作，为数据库和特定表启用变更数据捕获。
 
 - 配置源 SQL Server 的分发服务器角色。
@@ -99,6 +100,7 @@ ms.locfileid: "59799026"
     EXEC @installed = sys.sp_MS_replication_installed;
     SELECT @installed as installed;
     ```
+
     如果结果返回建议安装复制组件的错误消息，请按照[安装 SQL Server 复制](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server-replication?view=sql-server-2017)一文中的流程操作，以便安装 SQL Server 复制组件。
 
     如果已安装复制组件，请运行下面的 T-SQL 命令，检查是否对源 SQL Server 配置了分发角色。
@@ -118,6 +120,7 @@ ms.locfileid: "59799026"
     select * from sys.triggers
     DISABLE TRIGGER (Transact-SQL)
     ```
+
     有关详细信息，请参阅 [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 一文。 
 
 ## <a name="assess-your-on-premises-database"></a>访问本地数据库
@@ -160,6 +163,7 @@ ms.locfileid: "59799026"
 
 > [!NOTE]
 > 在 DMA 中创建迁移项目之前，请确保已按照先决条件中的说明预配了 Azure SQL 数据库。 出于本教程的目的，假设 Azure SQL 数据库的名称是“AdventureWorksAzure”，但是你可按照自己意愿使用任意名称命名。
+
 > [!IMPORTANT]
 > 如果你使用 SSIS，则 DMA 目前不支持迁移源 SSISDB，但你可以将 SSIS 项目/包重新部署到由 Azure SQL 数据库托管的目标 SSISDB。 有关如何迁移 SSIS 包的详细信息，请参阅[将 SQL Server Integration Services 包迁移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)。
 
@@ -208,7 +212,7 @@ ms.locfileid: "59799026"
 
 3. 搜索迁移服务，再选择“Microsoft.DataMigration”右侧的“注册”。
 
-    ![注册资源提供程序](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)    
+    ![注册资源提供程序](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)
 
 ## <a name="create-an-instance"></a>创建实例
 
@@ -224,19 +228,17 @@ ms.locfileid: "59799026"
 
 4. 选择要在其中创建 Azure 数据库迁移服务实例的位置。 
 
-5. 选择现有虚拟网络 (VNET) 或创建一个新的。
+5. 选择现有的 VNet，或新建一个 VNet。
 
-    VNET 为 Azure 数据库迁移服务提供源 SQL Server 和目标 Azure SQL 数据库实例的访问权限。
+    VNet 为 Azure 数据库迁移服务提供了对源 SQL Server 和目标 Azure SQL 数据库实例的访问权限。
 
-    若要深入了解如何在 Azure 门户中创建 VNET，请参阅[使用 Azure 门户创建虚拟网络](https://aka.ms/DMSVnet)一文。
+    若要详细了解如何在 Azure 门户中创建 VNet，请参阅[使用 Azure 门户创建虚拟网络](https://aka.ms/DMSVnet)一文。
 
 6. 选择定价层。
 
     有关成本和定价层的详细信息，请参阅[价格页](https://aka.ms/dms-pricing)。
 
-    如果选择合适的 Azure 数据库迁移服务层时需要帮助，请参阅[此处](https://go.microsoft.com/fwlink/?linkid=861067)帖子中的建议。  
-
-     ![配置 Azure 数据库迁移服务实例设置](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![配置 Azure 数据库迁移服务实例设置](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. 选择“创建”以创建服务。
 
@@ -259,7 +261,7 @@ ms.locfileid: "59799026"
     ![创建数据库迁移服务项目](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
     > [!NOTE]
-    > 也可现在就选择“仅创建项目”来创建迁移项目，在以后再执行迁移。
+    > 也可以现在就选择“仅创建项目”来创建迁移项目，在以后再执行迁移。
 
 6. 选择“保存”。
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687146"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209729"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>通过 SMB 为 Azure 文件进行 Azure Active Directory 身份验证概述（预览）
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -51,7 +51,7 @@ ms.locfileid: "64687146"
     可使用 Azure 文件备份现有的本地文件共享。 将文件共享通过 SMB 备份到 Azure 文件时，Azure 文件会保留 ACL 和你的数据。
 
 ## <a name="how-it-works"></a>工作原理
-Azure 文件使用 Azure AD 域服务，支持通过已加入域的 VM 中的 Azure AD 凭据进行 Kerberos 身份验证。 在将 Azure AD 用于 Azure 文件之前，必须先启用 Azure AD 域服务，再从计划访问文件数据的 VM 加入域。 已加入域的 VM 必须与 Azure AD 域服务位于同一虚拟网络 (VNET) 中。 
+Azure 文件使用 Azure AD 域服务，支持通过已加入域的 VM 中的 Azure AD 凭据进行 Kerberos 身份验证。 在将 Azure AD 用于 Azure 文件之前，必须先启用 Azure AD 域服务，再从计划访问文件数据的 VM 加入域。 已加入域的 VM 必须驻留在与 Azure AD 域服务位于同一虚拟网络 (VNET)。 
 
 当与 VM 上运行的应用程序相关联的标识尝试访问 Azure 文件中的数据时，该请求将发送到 Azure AD 域服务以验证标识。 如果身份验证成功，Azure AD 域服务会返回一个 Kerberos 令牌。 应用程序发送一个包含该 Kerberos 令牌的请求，Azure 文件使用该令牌对该请求授权​​。 Azure 文件仅接收令牌，不保存 Azure AD 凭据。
 

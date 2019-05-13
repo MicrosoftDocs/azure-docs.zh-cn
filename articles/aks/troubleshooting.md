@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031399"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192278"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -94,3 +94,27 @@ ms.locfileid: "61031399"
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>能否将我的群集到不同的订阅或我的订阅与我的群集到新的租户？
 
 如果已在 AKS 群集移动到其他订阅或拥有对新租户订阅的群集，群集会丢失由于落选的角色分配和服务主体权限的功能。 **AKS 不支持跨订阅或租户的移动群集**由于此约束。
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>我收到错误尝试使用需要虚拟机规模集的功能。
+
+*此故障排除协助定向从 aka.ms/aks vmss 的支持*
+
+可能会收到错误，指示在 AKS 群集不在虚拟机规模集，如下面的示例：
+
+**AgentPool agentpool 已设置自动缩放为已启用，但它不在虚拟机规模集**
+
+若要使用功能，例如群集自动缩放程序或多个节点池，AKS 群集必须创建使用虚拟机规模集。 如果尝试使用依赖于虚拟机规模集的功能和目标的常规、 虚拟机规模集 AKS 群集，将返回错误。 虚拟机规模集支持目前处于预览状态，在 AKS 中。
+
+请按照*在开始之前*预览和创建 AKS 群集中正确注册虚拟机规模集功能的相应文档的步骤：
+
+* [使用群集自动缩放程序](cluster-autoscaler.md)
+* [创建和使用多个节点池](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>AKS 资源和参数强制实施命名限制是什么？
+
+*此故障排除协助定向从 aka.ms/aks-命名的规则*
+
+由 Azure 平台和 AKS 实现命名限制。 如果资源名称或参数中断了这些限制之一，要求你提供的不同输入返回错误。 以下常见命名准则适用于：
+
+* AKS *MC_* 资源组名称结合了资源组名称和资源名称。 自动生成的语法`MC_resourceGroupName_resourceName_AzureRegion`必须是不应超过 80 个字符。 如果需要减少你的资源组名称或 AKS 群集名称的长度。
+* *DnsPrefix*必须开头和结尾的字母数字值。 有效字符包括字母数字值和连字符 （-）。 *DnsPrefix*不能包含特殊字符，如句点 （.）。

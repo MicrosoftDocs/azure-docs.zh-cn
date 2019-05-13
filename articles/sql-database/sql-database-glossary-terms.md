@@ -12,18 +12,20 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573385"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073689"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL 数据库术语表
 
 |上下文|术语|详细信息|
 |:---|:---|:---|
 |Azure 服务名称|Azure SQL 数据库或 SQL 数据库|[Azure SQL 数据库服务](sql-database-technical-overview.md)|
+|计算层|无服务器 （预览版）|[无服务器计算层](sql-database-serverless.md)
+||已预配|[无服务器计算层](sql-database-serverless.md)
 |部署选项 |单个数据库|[单一数据库](sql-database-single-database.md)|
 ||弹性池|[弹性池](sql-database-elastic-pool.md)|
 ||托管实例|[托管实例](sql-database-managed-instance.md)|

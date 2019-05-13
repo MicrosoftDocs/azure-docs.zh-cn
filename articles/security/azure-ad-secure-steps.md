@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587788"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236773"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>保护标识基础结构的五个步骤
 
@@ -36,7 +36,7 @@ ms.locfileid: "60587788"
 
 本文档中的建议符合[标识安全评分](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score)（Azure AD 租户的标识安全配置的自动评估）。 组织可以使用 Azure AD 门户中的“标识安全评分”页查找当前安全配置的差距，以确保遵循当前的 Microsoft 安全最佳做法。 实施“安全评分”页中的每条建议可以提高评分和跟踪进度，并有助于将实施方案与其他类似规模的组织或行业进行比较。
 
-![标识安全评分](media/azure-ad/azure-ad-sec-steps0.png)
+![标识安全功能分数](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>开始之前：使用 MFA 保护特权帐户
 
@@ -59,12 +59,12 @@ ms.locfileid: "60587788"
 
 许多组织使用传统的复杂性规则（要求使用特殊字符、数字和大小写）和密码过期规则。 [Microsoft 的研究](https://aka.ms/passwordguidance)表明，这些策略会导致用户选择更容易猜出的密码。
 
-Azure AD 的[动态禁止密码](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)功能使用当前的攻击者行为来防止用户设置容易猜出的密码。 在云中创建用户时，始终会启用此功能。混合型组织在部署[适用于 Windows Server Active Directory 的 Azure AD 密码保护](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)时，也可以使用此功能。 Azure AD 密码保护会阻止用户选择这些常用密码，经扩展后可以阻止包含指定的自定义关键字的密码。 例如，可以阻止用户选择包含你公司的产品名称或当地球队的密码。
+Azure AD 的[动态禁止密码](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)功能使用当前的攻击者行为来防止用户设置容易猜出的密码。 在云中创建用户时，始终会启用此功能。混合型组织在部署[适用于 Windows Server Active Directory 的 Azure AD 密码保护](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)时，也可以使用此功能。 Azure AD 密码保护会阻止用户选择这些常用密码，经扩展后可以阻止包含指定的自定义关键字的密码。 例如，可以阻止用户选择包含你公司的产品名称或当地球队的密码。
 
 Microsoft 建议根据 [NIST 指导](https://pages.nist.gov/800-63-3/sp800-63b.html)采用以下新式密码策略：
 
 1. 要求密码至少包含 8 个字符。 密码并非越长越好，因为这会导致用户选择容易预测的密码、将密码保存在文件中，或者写下密码。
-2. 禁用过期规则，因为这种规则会促使用户选择容易猜出的密码，例如 **Summer2018!**
+2. 禁用过期规则，很容易猜出密码，如激发用户**Spring2019 ！**
 3. 禁用字符组合要求，并防止用户选择经常受到攻击的密码，因为这些规则会导致用户在密码中选择容易预测的替代字符。
 
 如果直接在 Azure AD 中创建标识，可以[使用 PowerShell 防止用户的密码过期](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy)。 混合型组织应该使用[域组策略设置](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10))或 [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy) 实施这些策略。
@@ -166,7 +166,7 @@ Azure AD Identity Protection 提供两份应该每日监视的重要报告：
 
 ### <a name="audit-apps-and-consented-permissions"></a>审核应用和许可的权限
 
-用户可能在诱骗之下导航到已被入侵的网站或应用，使攻击者获取用户个人资料信息和数据（例如电子邮件）的访问权限。 恶意行动者可以使用获得的许可权限来加密用户的邮箱内容，并勒索邮箱数据的赎金。 [管理员应该审查并审核](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/)用户授予的权限。
+用户可能在诱骗之下导航到已被入侵的网站或应用，使攻击者获取用户个人资料信息和数据（例如电子邮件）的访问权限。 恶意行动者可以使用获得的许可权限来加密用户的邮箱内容，并勒索邮箱数据的赎金。 [管理员应该审查并审核](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)用户授予的权限。
 
 ## <a name="step-5---enable-end-user-self-help"></a>步骤 5 - 启用最终用户自助
 

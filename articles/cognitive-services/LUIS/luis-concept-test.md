@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710604"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522483"
 ---
 # <a name="testing-example-utterances-in-luis"></a>在 LUIS 中测试示例话语
 
@@ -46,7 +46,7 @@ ms.locfileid: "60710604"
 如果对终结点进行测试，并且不希望记录话语，请记得使用 `logging=false` 查询字符串配置。
 
 ## <a name="where-to-find-utterances"></a>在哪里可以找到话语
-LUIS 将记录的所有话语存储在查询日志中，可在 [LUIS](luis-reference-regions.md) 网站的“应用”列表页，以及 LUIS [创作 API](https://aka.ms/luis-authoring-apis) 上下载。 
+LUIS 将记录的所有话语存储在查询日志中，可在 [LUIS](luis-reference-regions.md) 网站的“应用”列表页，以及 LUIS [创作 API](https://go.microsoft.com/fwlink/?linkid=2092087) 上下载。 
 
 [LUIS](luis-reference-regions.md) 网站的[“查看终结点话语”](luis-how-to-review-endpoint-utterances.md)页列出了 LUIS 不确定的所有话语。 
 

@@ -9,7 +9,7 @@
     - name: 关于应用服务环境
       href: environment/intro.md
     - name: 比较托管选项
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: 快速入门
   expanded: true
   items:
@@ -227,7 +227,7 @@
     - name: Cookbook
       items:
         - name: 参考体系结构
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: 部署脚本
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 故障排除

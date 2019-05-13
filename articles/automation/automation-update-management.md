@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919716"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510656"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解决方案
 
@@ -187,9 +187,9 @@ Heartbeat
 
 | 连接的源 | 支持 | 描述 |
 | --- | --- | --- |
-| Windows 代理 |是 |该解决方案从 Windows 代理收集有关系统更新的信息，然后开始安装必需的更新。 |
-| Linux 代理 |是 |该解决方案从 Linux 代理收集有关系统更新的信息，然后开始在受支持的发行版上安装必需的更新。 |
-| Operations Manager 管理组 |是 |该解决方案从已连接的管理组中的代理收集有关系统更新的信息。<br/>从 Operations Manager 代理直接连接到 Azure Monitor 日志不是必需的。 数据将从管理组转发到 Log Analytics 工作区。 |
+| Windows 代理 |“是” |该解决方案从 Windows 代理收集有关系统更新的信息，然后开始安装必需的更新。 |
+| Linux 代理 |“是” |该解决方案从 Linux 代理收集有关系统更新的信息，然后开始在受支持的发行版上安装必需的更新。 |
+| Operations Manager 管理组 |“是” |该解决方案从已连接的管理组中的代理收集有关系统更新的信息。<br/>从 Operations Manager 代理直接连接到 Azure Monitor 日志不是必需的。 数据将从管理组转发到 Log Analytics 工作区。 |
 
 ### <a name="collection-frequency"></a>收集频率
 
@@ -280,7 +280,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 |安全更新     | 产品特定、安全相关问题的更新。        |
 |更新汇总     | 一起打包以便于部署的一组累积修补程序。        |
 |功能包     | 在产品版本以外发布的新产品功能。        |
-|服务包     | 应用于应用程序的一组累积修补程序。        |
+|Service Pack     | 应用于应用程序的一组累积修补程序。        |
 |定义更新     | 对病毒或其他定义文件的更新。        |
 |工具     | 可帮助完成一个或多个任务的实用工具或功能。        |
 |更新     | 对当前已安装的应用程序或文件的更新。        |
@@ -345,7 +345,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 更新管理特别需要以下地址。 与以下地址的通信通过端口 443 进行。
 
-|Azure Public  |Azure Government   |
+|Azure Public  |Azure 政府  |
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
@@ -634,7 +634,7 @@ Update
 
 按更新分类部署更新在 CentOS 上无法现成地运行。 若要为 CentOS 正确部署更新，请选择所有分类以确保应用更新。 对于 SUSE，如果首先需要与 zypper（包管理器）或其依赖项相关的安全更新，则仅选择“其他更新”作为分类可能会导致同时安装某些安全更新。 此行为是 zypper 的一项限制。 某些情况下，可能需要重新运行更新部署。 若要验证，请检查更新日志。
 
-## <a name="remove-a-vm-for-update-management"></a>删除用于更新管理的 VM
+## <a name="remove-a-vm-from-update-management"></a>从更新管理中删除 VM
 
 从更新管理中删除 VM：
 

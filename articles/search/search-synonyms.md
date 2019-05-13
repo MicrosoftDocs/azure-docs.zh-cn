@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281796"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024318"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure 搜索中的同义词功能
 
@@ -23,11 +23,13 @@ ms.locfileid: "61281796"
 
 在 Azure 搜索中，查询时会完成同义词功能扩展。 可将同义词映射添加到服务，而不会中断现有操作。 可将  **synonymMaps** 属性添加到字段定义，而无需重新生成索引。
 
-## <a name="feature-availability"></a>功能可用性
+## <a name="create-synonyms"></a>创建同义词
 
-最新的 api-version 支持同义词功能 (api-version=2017-11-11)。 此次没有 Azure 门户支持。
+没有用于创建同义词门户支持，但您可以使用 REST API 或.NET SDK。 若要开始使用 REST，我们建议[使用 Postman](search-fiddler.md)和使用此 API 的请求的表述：[创建同义词映射](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)。 有关C#开发人员，您可以开始使用[将同义词添加在 Azure 搜索中使用C# ](search-synonyms-tutorial-sdk.md)。
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>如何在 Azure 搜索中使用同义词功能
+（可选） 如果使用的[客户托管密钥](search-security-manage-encryption-keys.md)对服务端加密的静态，可以保护应用于的同义词映射内容。
+
+## <a name="use-synonyms"></a>使用同义词
 
 在 Azure 搜索中，同义词支持基于定义和上传到服务的同义词映射。 这些映射构成独立的资源（如索引或数据源），在搜索服务中可用于任何索引的任何可搜索字段。
 
@@ -49,7 +51,7 @@ ms.locfileid: "61281796"
 
 如以下示例所示，可使用 HTTP POST 创建新的同义词映射：
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ ms.locfileid: "61281796"
 
 此外，可使用 PUT 并在 URI 上指定同义词映射名称。 如果同义词映射不存在，则创建一个。
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,38 +76,38 @@ ms.locfileid: "61281796"
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 同义词格式
 
-Solr 格式支持等效和显式同义词映射。 映射规则遵循 Apache Solr 的开源同义词筛选器规范，详情请参阅此文档：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)。 下面是等效同义词的示例规则。
+Solr 格式支持等效和显式同义词映射。 映射规则遵循 Apache Solr，本文档中所述的开源同义词筛选器规范：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)。 下面是等效同义词的示例规则。
 ```
 USA, United States, United States of America
 ```
 
 使用以上规则，搜索查询“USA”会扩展为“USA”、“United States”或“United States of America”。
 
-箭头“=>”表示显式映射。 如果指定，与“=>”左侧内容匹配的一系列搜索查询词会被替换为“=>”右侧的替代项。 给定以下规则，搜索查询“Washington”、“Wash”。 或“WA”全都会重写为“WA”。 显式映射只会按指定方向应用，在此示例中，不会将查询“WA”重写为“Washington”。
+箭头“=>”表示显式映射。 如果指定匹配的左上方的搜索查询术语序列"= >"将替换为在右侧的替代方法。 给定以下规则，搜索查询“Washington”、“Wash”。 或“WA”全都会重写为“WA”。 显式映射只会按指定方向应用，在此示例中，不会将查询“WA”重写为“Washington”。
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>列出服务下的同义词映射。
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>获取服务下的同义词映射。
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>删除服务下的同义词映射。
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>配置可搜索字段以在索引定义中使用同义词映射。
 
 新字段属性 **synonymMaps** 可用于指定同义词映射以供可搜索字段使用。 同义词映射是服务级资源，服务下的任意索引字段都可以引用。
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: ae6547b7940ee4007c747847e6cec7b0c67a9d3c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717445"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233701"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Microsoft Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间推移，将扩展和更新，包含更多服务列表。
@@ -123,6 +123,13 @@ ms.locfileid: "64717445"
 使用 Azure 资源管理器和 Azure 资源组时，以下限制适用。 未列出尚未更改与 Azure 资源管理器的限制。 请参阅上的表，了解这些限制。
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
+
+#### <a name="shared-image-gallery-limits"></a>共享映像库限制
+
+有限制，对于每个订阅，使用共享映像库部署资源：
+- 每个订阅，每个区域 100 共享的图像库
+- 1,000 图像定义，每个订阅，每个区域
+- 每个订阅，每个区域 10,000 映像版本
 
 ### <a name="virtual-machine-scale-sets-limits"></a>虚拟机规模集限制
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

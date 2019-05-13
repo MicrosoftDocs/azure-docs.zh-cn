@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648782"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236873"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure 上的 SAP 工作负荷规划和部署清单 
 
@@ -140,9 +140,10 @@ ms.locfileid: "60648782"
       2. 为了避免在本地部署的 SAP GUI 接口和 Azure 中部署的 SAP 应用层之间的 GUI 超时，请检查是否在 default.pfl 或实例配置文件中设置了以下参数：
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. 如果使用 Windows 故障转移群集配置，请确保为 Azure 正确设置了用于对非响应节点做出响应的时间。 Microsoft 的[调整故障转移群集网络阈值](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/)一文列出了参数并介绍了这些参数如何影响故障转移敏感性。 在列出的参数中，应使用以下值设置这两个参数：
-         1.   SameSubNetDelay = 2
+      3. 如果使用 Windows 故障转移群集配置，请确保为 Azure 正确设置了用于对非响应节点做出响应的时间。 Microsoft 的[调整故障转移群集网络阈值](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834)一文列出了参数并介绍了这些参数如何影响故障转移敏感性。 假设群集节点都位于同一子网，应更改以下参数：
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. 测试高可用性和灾难恢复过程
    1. 通过关闭 VM（Windows 来宾 OS）或使操作系统处于崩溃模式（Linux 来宾 OS）来模拟故障转移情况，以确定故障转移配置是否正常运行。 
    2. 测量执行故障转移所需的时间。 如果时间过长，请考虑：

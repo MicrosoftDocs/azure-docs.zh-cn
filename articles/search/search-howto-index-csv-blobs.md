@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 搜索 Blob 索引器为 CSV Blob 编制索引 - Azure 搜索
 description: 使用 Azure 搜索索引在 Azure Blob 存储中抓取 CSV Blob 以进行全文搜索。 索引器可自动为所选数据源（如 Azure Blob 存储）引入数据。
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0bbb131b5fb155443c8c3dc340185f3a6fa950a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871257"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024721"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜索 Blob 索引器对 CSV blob 编制索引
 默认情况下，[Azure 搜索 Blob 索引器](search-howto-indexing-azure-blob-storage.md)会将分隔的文本 blob 分析为单个文本块。 但在 blob 含有 CSV 数据的情况下，通常希望将 blob 中的每一行视为一个单独文档。 例如，给定以下带分隔符的文本，可能要将其分析为两个文档，每个文档包含“id”、“datePublished”和“tags”字段： 
@@ -24,7 +24,9 @@ ms.locfileid: "60871257"
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-本文介绍如何使用 Azure 搜索 Blob 索引器分析 CSV blob。 
+在本文中，您将了解如何使用 Azure 搜索 blob indexerby 设置分析 CSV blob`delimitedText`分析模式。 
+
+`delimitedText`分析模式当前处于公共预览状态，不建议用于生产工作负荷。
 
 > [!NOTE]
 > 请按照中的索引器配置建议[到多索引](search-howto-index-one-to-many-blobs.md)输出从一个 Azure blob 的多个搜索文档。
@@ -62,7 +64,7 @@ ms.locfileid: "60871257"
 
 数据源： 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -75,7 +77,7 @@ ms.locfileid: "60871257"
 
 索引器：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 

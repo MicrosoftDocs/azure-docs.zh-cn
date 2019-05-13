@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685935"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471651"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 可以使用[Azure 备份服务](backup-overview.md)备份的本地计算机和工作负荷和 Azure 虚拟机 (Vm)。 使用 Azure 备份的 Azure Vm 备份时，本文汇总了支持设置和限制。
@@ -41,9 +41,9 @@ Azure Vm (仅 Windows) 的直接备份  | 备份特定的文件/文件夹/卷。
 **Action** | **支持**
 --- | ---
 创建 Windows Azure VM 时启用备份 | 支持：Windows Server 2019 （数据中心/数据中心核心）、 Windows Server 2016 （数据中心/数据中心核心）;Windows Server 2012 R2 数据中心;Windows Server 2008 R2 （RTM 和 SP1）
-创建 Linux VM 时启用备份 | 支持：<br/><br/> - Ubuntu Server：1710、1704、1604 (LTS)、1404 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
+创建 Linux VM 时启用备份 | 支持：<br/><br/> - Ubuntu Server：18.04、 17.10、 17.04，16.04 (LTS)、 14.04 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
 备份 VM 关闭/脱机 VM | 。<br/><br/> 仅创建崩溃一致性快照，不会创建应用一致性快照。
-备份磁盘后迁移到托管磁盘 | 。<br/><br/> 备份将继续工作。 不需要执行任何操作。
+备份磁盘后迁移到托管磁盘 | 。<br/><br/> 备份将继续工作。 无需任何操作。
 启用资源组锁定后备份托管磁盘 | 不支持。<br/><br/> Azure 备份不能删除较旧的资源点，并且备份将开始失败时达到的还原点的最大限制。
 修改 VM 的备份策略 | 。<br/><br/> 将新策略中使用的计划和保留期设置备份 VM。 如果保留期设置已延长，则会标记并保留现有的恢复点。 如果它们的操作已简化，将在下一清理作业中修剪并最终删除现有的恢复点。
 取消备份作业 | 在快照过程中受支持。<br/><br/> 快照正在传输到保管库时不受支持。
@@ -150,6 +150,7 @@ VM 大小 |   至少有 2 个 CPU 核心和 1-GB RAM 的任意 Azure VM 大小�
 备份自定义映像 （第三方） 中部署的 Vm |   。<br/><br/> VM 必须运行受支持的操作系统。<br/><br/> 恢复 VM 上的文件时，可以仅还原到兼容的 OS（不是早期版本或更高版本的 OS）。
 迁移到 Azure 的 Vm 备份  | 。<br/><br/> 若要备份 VM，必须在迁移的计算机上安装 VM 代理。
 备份多 VM 一致性 | Azure 备份不提供跨多个 Vm 的数据和应用程序一致性。
+备份与[诊断设置](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | 不受支持。 <br/><br/> 如果使用触发使用诊断设置的 Azure VM 还原[创建新](backup-azure-arm-restore-vms.md#create-a-vm)选项则还原将失败。
 
 
 ## <a name="vm-storage-support"></a>VM 存储支持
@@ -214,10 +215,10 @@ Azure 备份支持针对传输中数据和静态数据的加密：
 
 **计算机** | **传输中** | **静态**
 --- | --- | ---
-没有 DPM/MABS 的本地 Windows 计算机 | ![是][green] | ![是][green]
-Azure VM | ![是][green] | ![是][green]
-本地计算机/装有 DPM 的 Azure VM | ![是][green] | ![是][green]
-本地计算机/装有 MABS 的 Azure VM | ![是][green] | ![是][green]
+没有 DPM/MABS 的本地 Windows 计算机 | ![“是”][green] | ![“是”][green]
+Azure VM | ![“是”][green] | ![“是”][green]
+本地计算机/装有 DPM 的 Azure VM | ![“是”][green] | ![“是”][green]
+本地计算机/装有 MABS 的 Azure VM | ![“是”][green] | ![“是”][green]
 
 
 
@@ -230,10 +231,10 @@ Azure VM | ![是][green] | ![是][green]
 
 **计算机** | **压缩到 MABS/DPM (TCP)** | **压缩到保管库 (HTTPS)**
 --- | --- | ---
-没有 DPM/MABS 的本地 Windows 计算机 | NA | ![是][green]
+没有 DPM/MABS 的本地 Windows 计算机 | NA | ![“是”][green]
 Azure VM | NA | NA
-本地计算机/装有 DPM 的 Azure VM | ![是][green] | ![是][green]
-本地计算机/装有 MABS 的 Azure VM | ![是][green] | ![是][green]
+本地计算机/装有 DPM 的 Azure VM | ![“是”][green] | ![“是”][green]
+本地计算机/装有 MABS 的 Azure VM | ![“是”][green] | ![“是”][green]
 
 
 ## <a name="next-steps"></a>后续步骤

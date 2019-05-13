@@ -9,9 +9,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 02/25/2019
+  ms.date: 04/26/2019
 abstract:
-  description: 用于 PostgreSQL 的 Azure 数据库是基于开源 Postgres 数据库引擎的关系型数据库服务。  它是完全托管的数据库即服务产品，能够处理任务关键型工作负荷，并提供可预测的性能、安全性、高可用性和动态可伸缩性。  利用所选的开源工具和平台开发包含用于 PostgreSQL 的 Azure 数据库的应用程序。  参考我们的快速入门、教程和示例了解如何使用用于 PostgreSQL 的 Azure 数据库。
+  description: 用于 PostgreSQL 的 Azure 数据库是基于开源 Postgres 数据库引擎的关系型数据库服务。  它是完全托管的数据库即服务产品，能够处理任务关键型工作负荷，并提供可预测的性能、安全性、高可用性和动态可伸缩性。 它提供两个部署选项：“单一服务器”部署和“超大规模(Citus)”（预览）部署。 “超大规模(Citus)”选项可以使用分片跨多个计算机来水平缩放查询，为需要较大的规模和较高的性能的应用程序提供服务。 参考我们的快速入门、教程和示例了解如何使用用于 PostgreSQL 的 Azure 数据库。
 sections:
   - title: 5 分钟快速入门
     items:
@@ -22,22 +22,33 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Azure 门户
+            text: 单服务器 Azure 门户
             href: /azure/postgresql/quickstart-create-server-database-portal
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: Azure CLI
+            text: 单服务器 Azure CLI
             href: /azure/postgresql/quickstart-create-server-database-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: 超大规模 (Citus) Azure 门户
+            href: /azure/postgresql/quickstart-create-hyperscale-portal
   - title: 分步教程
     items:
       - type: paragraph
-        text: 了解如何：
+        text: 对于单服务器：
       - type: list
         style: ordered
         items:
           - html: '设计数据库&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure 门户</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>'
           - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">使用 Python 和 CLI 生成 Web 应用</a>
           - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">监视和优化该服务</a>
+      - type: paragraph
+        text: 对于超大规模 (Citus)（预览版）：
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">设计多租户数据库</a>
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">设计实时数据库</a>
   - title: 利用 Microsoft Learn 掌握技能
     items:
       - type: list

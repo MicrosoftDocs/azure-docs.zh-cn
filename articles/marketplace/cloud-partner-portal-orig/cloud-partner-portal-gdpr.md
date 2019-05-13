@@ -1,25 +1,18 @@
 ---
-title: GDPR 符合性 | Microsoft Docs
+title: GDPR 符合性 |Azure Marketplace
 description: 云合作伙伴门户和 GDPR。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4e6f5095081f0549bc127b9b6949908a64214aee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 221f559dde2017c9b5d13dd4e06a140a6bcb5e2e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857804"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935426"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>云合作伙伴门户 GDPR 符合性
 ====================================

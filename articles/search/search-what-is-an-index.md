@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308209"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024430"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜索中创建基本索引
 
@@ -54,7 +54,7 @@ ms.locfileid: "60308209"
 
 从架构上讲，Azure 搜索索引由以下元素组成。 
 
-[*字段集合*](#fields-collection)通常是索引的最大组成部分，其中每个字段都已命名、类型化，并具有允许行为的属性（确定该字段的用法）。 其他元素包括[建议器](#suggesters)、[评分配置文件](#scoring-profiles)、[分析器](#analyzers)（其组成部分用于支持自定义项）和 [CORS](#cors) 选项。
+[*字段集合*](#fields-collection)通常是索引的最大组成部分，其中每个字段都已命名、类型化，并具有允许行为的属性（确定该字段的用法）。 其他元素包括[suggesters](#suggesters)，[计分配置文件](#scoring-profiles)，[分析器](#analyzers)组件的各部分支持自定义，与[CORS](#cors)和[加密密钥](#encryption-key)选项。
 
 ```json
 {
@@ -126,6 +126,15 @@ ms.locfileid: "60308209"
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -166,11 +175,11 @@ ms.locfileid: "60308209"
 
 所选的属性会影响存储。 以下屏幕截图演示了各种属性组合产生的索引存储模式。
 
-索引基于[内置的 realestate 示例](search-get-started-portal.md)数据源，可在门户中对其编制索引和执行查询。 尽管未显示索引架构，但可以基于索引名称推断属性。 例如，只选择了 *realestate-searchable* 索引中的 **searchable** 属性，只选择了 *realestate-retrievable* 索引中的 **retrievable** 属性，等等。
+索引基于[内置的房地产示例](search-get-started-portal.md)可编制索引的数据源和在门户中的查询。 尽管未显示索引架构，但可以基于索引名称推断属性。 例如，只选择了 *realestate-searchable* 索引中的 **searchable** 属性，只选择了 *realestate-retrievable* 索引中的 **retrievable** 属性，等等。
 
 ![基于属性选择的索引大小](./media/search-what-is-an-index/realestate-index-size.png "基于属性选择的索引大小")
 
-尽管这些索引变体是人造的，但我们可以参考这些变体来对属性影响存储的方式进行广泛比较。 设置 **retrievable** 是否会增大索引大小？ 不。 将字段添加到**建议器**是否会增大索引大小？ 可以。
+尽管这些索引变体是人造的，但我们可以参考这些变体来对属性影响存储的方式进行广泛比较。 设置 **retrievable** 是否会增大索引大小？ 不。 将字段添加到**建议器**是否会增大索引大小？ 是的。
 
 支持筛选和排序的索引在比例上大于仅支持全文搜索的索引。 原因在于，筛选和排序操作基于精确匹配执行查询，因此文档将按原样存储。 相比之下，支持全文搜索和模糊搜索的可搜索字段使用倒排索引，而这些索引中填充了空间占用量比整个文档更小的标记化字词。
 
@@ -203,6 +212,10 @@ ms.locfileid: "60308209"
   若要允许访问所有来源，请将 `*` 作为单个项目包含在 **allowedOrigins** 数组中。 不建议对生产搜索服务采用这种做法，但它在开发和调试中却很有用。
 
 + **maxAgeInSeconds**（可选）：浏览器使用此值确定缓存 CORS 预检响应的持续时间（以秒为单位）。 此值必须是非负整数。 此值越大，性能越好，但 CORS 策略更改生效所需的时间也越长。 如果未设置此值，将使用 5 分钟的默认持续时间。
+
+## <a name="encryption-key"></a>加密密钥
+
+虽然默认情况下使用 Microsoft 托管的密钥加密所有 Azure 搜索索引，索引可以配置为使用加密**客户管理的密钥**密钥保管库中。 若要了解详细信息，请参阅[在 Azure 搜索管理加密密钥](search-security-manage-encryption-keys.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

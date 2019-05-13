@@ -1,21 +1,21 @@
 ---
-title: 如何通过 PHP 使用队列存储 | Microsoft Docs
+title: 如何通过 PHP-Azure 存储使用队列存储
 description: 了解如何使用 Azure 队列存储服务创建和删除队列，以及插入、获取和删除消息。 示例用 PHP 编写。
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: rogarana
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109862"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410452"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何通过 PHP 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -419,7 +419,7 @@ catch(ServiceException $e){
 有关详细信息，另请参阅 [PHP 开发人员中心](https://azure.microsoft.com/develop/php/)。
 
 [download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
+[require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
 

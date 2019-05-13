@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69ded2591478a477cd142decb39218841c9ac62
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800665"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410114"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>在 Azure 上安装 TmaxSoft OpenFrame
 
@@ -78,7 +78,7 @@ CentOS 7.x<br/>
 <tr><td>硬件
 </td>
 <td>内核数：2 （最低配置）<br/>
-内存: 4 GB （最小值）<br/>
+内存:4 GB （最小值）<br/>
 交换空间：1 GB （最小值）<br/>
 硬盘：100 GB （最小值）<br/>
 </td>
@@ -102,7 +102,7 @@ Windows 的 eclipse:开发平台支持的 TmaxSoft<br/>
 
 开始之前，请执行以下操作：
 
-- 获取从 TmaxSoft OpenFrame 安装介质。 如果你是现有 TmaxSoft 客户，请与的许可副本的 TmaxSoft 代表联系。 否则，请求从试用版[TmaxSoft](http://www.tmaxsoft.com/contact/)。
+- 获取从 TmaxSoft OpenFrame 安装介质。 如果你是现有 TmaxSoft 客户，请与的许可副本的 TmaxSoft 代表联系。 否则，请求从试用版[TmaxSoft](https://www.tmaxsoft.com/contact/)。
 
 - 通过发送电子邮件发送到请求 OpenFrame 文档<support@tmaxsoft.com>。
 
@@ -116,7 +116,7 @@ Windows 的 eclipse:开发平台支持的 TmaxSoft<br/>
 
 **若要创建的 VM**
 
-1. 转到 Azure 门户，网址<http://portal.azure.com>并登录到你的帐户。
+1. 转到 Azure 门户，网址<https://portal.azure.com>并登录到你的帐户。
 
 2. 单击“虚拟机”。
 
@@ -308,7 +308,7 @@ Tibero 在 Azure 上提供 OpenFrame 环境中的若干关键功能：
 **若要安装 Tibero**
 
 1. 验证存在 Tibero 二进制安装程序文件，并查看版本号。
-2. 将 Tibero 软件复制到 Tibero 用户帐户 (oframe)。 例如：
+2. 将 Tibero 软件复制到 Tibero 用户帐户 (oframe)。 例如:
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
@@ -331,7 +331,7 @@ Tibero 在 Azure 上提供 OpenFrame 环境中的若干关键功能：
     source .bash_profile
     ```
 
-5. 生成的提示文件 （Tibero 配置文件），然后在 vi 中打开它。 例如：
+5. 生成的提示文件 （Tibero 配置文件），然后在 vi 中打开它。 例如:
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
@@ -386,14 +386,14 @@ Tibero 在 Azure 上提供 OpenFrame 环境中的若干关键功能：
      ******************************************************************************
     ```
 
-8. 若要回收 Tibero，首先关闭它使用`tbdown`命令。 例如：
+8. 若要回收 Tibero，首先关闭它使用`tbdown`命令。 例如:
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
     Tibero instance terminated (NORMAL mode).
     ```
 
-9. 现在启动 Tibero 使用`tbboot`。 例如：
+9. 现在启动 Tibero 使用`tbboot`。 例如:
 
     ```
     [oframe7@ofdemo ~]$ tbboot
@@ -440,19 +440,19 @@ OpenFrame 中的应用程序使用 ODBC API 的开源 unixODBC 项目提供 Tibe
 
 若要安装 ODBC:
 
-1. 验证 unixODBC 2.3.4.tar.gz 安装程序文件是否存在，或使用`wget unixODBC-2.3.4.tar.gz`命令。 例如：
+1. 验证 unixODBC 2.3.4.tar.gz 安装程序文件是否存在，或使用`wget unixODBC-2.3.4.tar.gz`命令。 例如:
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
      ```
 
-2. 将解压缩二进制文件。 例如：
+2. 将解压缩二进制文件。 例如:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
      ```
 
-3. 导航到 unixODBC 2.3.4 目录并使用该检查的计算机信息生成生成文件。 例如：
+3. 导航到 unixODBC 2.3.4 目录并使用该检查的计算机信息生成生成文件。 例如:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
@@ -462,7 +462,7 @@ OpenFrame 中的应用程序使用 ODBC API 的开源 unixODBC 项目提供 Tibe
 
 4. 执行生成文件： `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5. 编译后程序目录中复制的可执行文件。 例如：
+5. 编译后程序目录中复制的可执行文件。 例如:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ make install
@@ -479,7 +479,7 @@ OpenFrame 中的应用程序使用 ODBC API 的开源 unixODBC 项目提供 Tibe
      export ODBCSYSINI=$HOME
      ```
 
-7. 用于 ODBC。 相应地编辑以下文件。 例如：
+7. 用于 ODBC。 相应地编辑以下文件。 例如:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -559,7 +559,7 @@ OpenFrame 中的应用程序使用 ODBC API 的开源 unixODBC 项目提供 Tibe
      ```
 
 3. 执行 bash 配置文件：`[oframe7@ofdemo ~]$ . .bash_profile`
-4. 请确保 Tibero 进程正在运行。 例如：
+4. 请确保 Tibero 进程正在运行。 例如:
 
      ```linux
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
@@ -602,7 +602,7 @@ OpenFrame 中的应用程序使用 ODBC API 的开源 unixODBC 项目提供 Tibe
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
-7. 执行安装程序使用 base.properties 文件。 例如：
+7. 执行安装程序使用 base.properties 文件。 例如:
 
     ```
     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
@@ -611,7 +611,7 @@ OpenFrame 中的应用程序使用 ODBC API 的开源 unixODBC 项目提供 Tibe
 
     完成后，安装完整的消息是显示。
 
-8. 验证 OpenFrame 基目录结构使用`ls -ltr`命令。 例如：
+8. 验证 OpenFrame 基目录结构使用`ls -ltr`命令。 例如:
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
@@ -849,7 +849,7 @@ TACF 管理器是一个 OpenFrame 服务模块，用于控制用户对系统和�
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
-7. 验证进程状态是否可以使用`tmadmin`在`si`命令。 例如：
+7. 验证进程状态是否可以使用`tmadmin`在`si`命令。 例如:
 
      ```
      [oframe7\@ofdemo \~]\$ tmadmin
@@ -923,7 +923,7 @@ ProSort 是在批处理事务，用于对数据进行排序的实用工具。
      mv prosort /opt/tmaxapp/prosort
      ```
 
-4. 创建一个许可证子目录并将该许可证文件复制。 例如：
+4. 创建一个许可证子目录并将该许可证文件复制。 例如:
 
      ```
      cd /opt/tmaxapp/prosort 
@@ -947,7 +947,7 @@ ProSort 是在批处理事务，用于对数据进行排序的实用工具。
 
 6. 若要执行 bash 配置文件中的，在命令提示符处，键入： `. .bash_profile`
 
-7. 创建配置文件。 例如：
+7. 创建配置文件。 例如:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/prosort/config 
@@ -956,14 +956,14 @@ ProSort 是在批处理事务，用于对数据进行排序的实用工具。
       /home/oframe7/prosort/config/gbg.tip generated
      ```
 
-8. 创建符号链接。 例如：
+8. 创建符号链接。 例如:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/OpenFrame/util/ 
      oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
      ```
 
-9. 通过执行验证 ProSort 安装`prosort -h`命令。 例如：
+9. 通过执行验证 ProSort 安装`prosort -h`命令。 例如:
 
      ```
      oframe@oframe7: prosort -h
@@ -1024,11 +1024,11 @@ OFCOBOL 是解释大型机的 COBOL 程序 OpenFrame 编译器。
       source ~/.bash_profile
      ```
 
-7. 将 OFCOBOL 许可证复制到安装文件夹。 例如：
+7. 将 OFCOBOL 许可证复制到安装文件夹。 例如:
      ```
      mv licofcob.dat $OFCOB_HOME/license
      ```
-8. 转到 OpenFrame tjclrun.conf 配置文件，并在 vi 中打开它。 例如：
+8. 转到 OpenFrame tjclrun.conf 配置文件，并在 vi 中打开它。 例如:
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
@@ -1043,7 +1043,7 @@ OFCOBOL 是解释大型机的 COBOL 程序 OpenFrame 编译器。
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. 查看 OpenFrame\_COBOL\_InstallLog.log 文件位于 vi 并验证是否有任何错误。 例如：
+9. 查看 OpenFrame\_COBOL\_InstallLog.log 文件位于 vi 并验证是否有任何错误。 例如:
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1055,7 +1055,7 @@ OFCOBOL 是解释大型机的 COBOL 程序 OpenFrame 编译器。
      0 NonFatalErrors 
      0 FatalError
      ```
-10. 使用`ofcob --version`命令并查看要验证安装的版本号。 例如：
+10. 使用`ofcob --version`命令并查看要验证安装的版本号。 例如:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1073,7 +1073,7 @@ OFASM 是解释大型机的组装器程序 OpenFrame 编译器。
 
 1. 请确保批处理/联机安装成功，然后验证 OpenFrame\_ASM3\_0\_Linux\_x86\_64.bin 安装程序文件是否存在。
 
-2. 执行安装程序。 例如：
+2. 执行安装程序。 例如:
 
      ```
      [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
@@ -1081,7 +1081,7 @@ OFASM 是解释大型机的组装器程序 OpenFrame 编译器。
 
 3. 阅读许可协议，然后按 Enter 以继续。
 4. 接受许可协议。
-5. 验证 bash 配置文件更新与 OFASM 变量。 例如：
+5. 验证 bash 配置文件更新与 OFASM 变量。 例如:
 
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
@@ -1117,7 +1117,7 @@ OFASM 是解释大型机的组装器程序 OpenFrame 编译器。
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. 打开 OpenFrame\_ASM\_InstallLog.log 文件位于 vi 并验证是否有任何错误。 例如：
+7. 打开 OpenFrame\_ASM\_InstallLog.log 文件位于 vi 并验证是否有任何错误。 例如:
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1180,7 +1180,7 @@ OSC 是类似于支持高速 OLTP 事务和其他管理功能的 IBM CICS 的 Op
      0 FatalError
      ```
 
-6. 使用 vi 打开 ofsys.seq 配置文件。 例如：
+6. 使用 vi 打开 ofsys.seq 配置文件。 例如:
 
      ```
      vi $OPENFRAME_HOME/config/ofsys.seq
@@ -1224,7 +1224,7 @@ OSC 是类似于支持高速 OLTP 事务和其他管理功能的 IBM CICS 的 Op
      TPFMAGENT      tmsvr
     ```
 
-8. 将许可证文件复制。 例如：
+8. 将许可证文件复制。 例如:
 
      ```
      [oframe7@ofdemo ~]$ cp /home/oframe7/oflicense/ofonline/licosc.dat 
@@ -1268,13 +1268,13 @@ JEUS （Java 企业用户解决方案） 提供了 OpenFrame web 应用程序服
 
 **若要安装 Apache Ant**
 
-1. 下载 Ant 二进制使用`wget`命令。 例如：
+1. 下载 Ant 二进制使用`wget`命令。 例如:
 
      ```
      wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
      ```
 
-2. 使用`tar`实用工具来解压缩二进制文件并将其移动到相应的位置。 例如：
+2. 使用`tar`实用工具来解压缩二进制文件并将其移动到相应的位置。 例如:
 
      ```
      tar -xvzf apache-ant-1.9.7-bin.tar.gz
@@ -1294,7 +1294,7 @@ JEUS （Java 企业用户解决方案） 提供了 OpenFrame web 应用程序服
      export PATH=$HOME/ant/bin:$PATH
      ```
 
-5.  将应用修改后的环境变量。 例如：
+5.  将应用修改后的环境变量。 例如:
 
      ```
      [oframe7\@ofdemo \~]\$ source \~/.bash\_profile
@@ -1302,14 +1302,14 @@ JEUS （Java 企业用户解决方案） 提供了 OpenFrame web 应用程序服
 
 **若要安装 JEUS**
 
-1. 展开安装程序使用`tar`实用程序。 例如：
+1. 展开安装程序使用`tar`实用程序。 例如:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
      ```
 
 2. 创建**jeus**文件夹 (`mkdir jeus7`) 并解压缩二进制文件。
-3. 将更改为**安装程序**目录 （或 JEUS 参数用于在自己的环境）。 例如：
+3. 将更改为**安装程序**目录 （或 JEUS 参数用于在自己的环境）。 例如:
 
      ```
      [oframe7@ofdemo ~]$ cd jeus7/setup/
@@ -1330,7 +1330,7 @@ JEUS （Java 企业用户解决方案） 提供了 OpenFrame web 应用程序服
      Total time: 0 seconds
      ```
 
-5.  请域配置 template.properties 文件的备份。 例如：
+5.  请域配置 template.properties 文件的备份。 例如:
 
      ```
      [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
@@ -1353,7 +1353,7 @@ JEUS （Java 企业用户解决方案） 提供了 OpenFrame web 应用程序服
      export PATH
      ```
 
-10. 执行 bash 配置文件。 例如：
+10. 执行 bash 配置文件。 例如:
 
      ```
      [oframe7@ofdemo setup]$ . .bash_profile
@@ -1414,7 +1414,7 @@ OFGW 是 OpenFrame 网关支持 3270 终端模拟器和 OSI 基之间的通信�
 **若要安装 OFGW**
 
 1. 请确保 JEUS 已安装成功，然后验证 OFGW7\_0\_1\_Generic.bin 安装程序文件是否存在。
-2. 执行安装程序。 例如：
+2. 执行安装程序。 例如:
 
      ```
      [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
@@ -1448,7 +1448,7 @@ OFManager 为 OpenFrame 提供操作和管理功能在 web 环境中。
 **若要安装 OFManager**
 
 1. 验证 OFManager7\_Generic.bin 安装程序文件是否存在。
-2. 执行安装程序。 例如：
+2. 执行安装程序。 例如:
 
      ```
      OFManager7_Generic.bin

@@ -4,22 +4,22 @@ description: 如何在 Azure 应用配置中存储配置数据的概述
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011276"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408745"
 ---
-# <a name="key-value-store"></a>键值存储
+# <a name="keys-and-values"></a>键和值
 
 Azure 应用配置将配置数据存储为键值对。 键值对是一种简单而灵活的方式，用于表示开发人员熟悉的各种应用程序设置。
 
@@ -45,29 +45,27 @@ Azure 应用配置将配置数据存储为键值对。 键值对是一种简单�
 
 下面是几个例子，说明如何将密钥名称组织成层次结构：
 
-* 基于环境
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * 基于组件服务
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * 基于部署区域
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>标签键
+
+应用配置中的键值可以选择具有“标签”属性。 标签用于区分具有相同键的键值。 带有标签 *A* 和 *B* 的键 *app1* 在应用程序配置存储区中形成两个单独的键。 默认情况下，键值的标签为空（或 `null`）。
+
+标签提供了一种方便的方式来创建键的变体。 标签的常见用途是为同一个键指定多个环境：
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>对键值进行版本调整
-
-应用配置中的键值可以选择具有“标签”属性。 标签用于区分具有相同键的键值。 带有标签 v1 和 v2 的键 app1 在应用程序配置存储区中形成两个单独的键值。 默认情况下，键值的标签为空（或 `null`）。
 
 应用配置在修改时不会自动对键值进行版本调整。 使用标签作为创建键值的多个版本的方法。 例如，可以在标签中输入应用程序版本号或 Git 提交 ID，以标识与特定软件版本关联的键值。
 
@@ -106,5 +104,5 @@ Azure 应用配置将配置数据存储为键值对。 键值对是一种简单�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [时间点快照](./concept-point-time-snapshot.md)  
+* [时间点快照](./concept-point-time-snapshot.md)  
+* [功能管理](./concept-feature-management.md)  

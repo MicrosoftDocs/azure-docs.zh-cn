@@ -10,22 +10,25 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819225"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471882"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure 机器学习加载和读取数据
-
-在本文中，您将学习使用 Azure 机器学习数据准备 SDK 将数据加载不同的方法。 若要查看 SDK 的参考文档，请参阅[概述](https://aka.ms/data-prep-sdk)。 SDK 支持多个数据引入功能，包括：
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>加载和使用 Azure 机器学习数据准备 SDK 读取数据
+在本文中，您将学习使用 Azure 机器学习数据准备 SDK 将数据加载不同的方法。  SDK 支持多个数据引入功能，包括：
 
 * 使用分析参数推理（编码、分隔符和标头）从多种文件类型进行加载
 * 在文件加载时使用推理进行类型转换
 * 支持 MS SQL Server 和 Azure Data Lake Storage 连接
+
+> [!Important]
+> 如果要构建一个新的解决方案，请尝试[Azure 机器学习数据集](how-to-explore-prepare-data.md)（预览），数据探索和准备工作。 数据集是数据准备 SDK，提供可用于管理 AI 解决方案中的数据集的扩展的功能的下一个版本。
+> 如果您使用`azureml-dataprep`包来创建数据流而不是使用转换与`azureml-datasets`的包装，以创建数据集，您将不能以供以后使用快照或版本控制的数据集。
 
 下表显示了一系列函数用于从常见的文件类型加载数据。
 
@@ -65,10 +68,10 @@ dflow = dprep.read_lines(path='./data/text_lines.txt')
 dflow.head(5)
 ```
 
-||折线图|
+||行|
 |----|-----|
 |0|日期\|\|  最低温度\|\|  最高温度|
-|第|2015-07-1 \|\|  -4.1 \|\|  10.0|
+|1|2015-07-1 \|\|  -4.1 \|\|  10.0|
 |2|2015-07-2 \|\|  -0.8 \|\|  10.8|
 
 
@@ -90,8 +93,8 @@ dflow.head(5)
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|1|ALABAMA|1|101710|Hale County|10171002158| |
-|2|ALABAMA|第|101710|Hale County|10171002162| |
+|第|阿拉巴马州|1|101710|Hale County|10171002158| |
+|2|阿拉巴马州|第|101710|Hale County|10171002162| |
 
 
 若要在加载过程中排除行，请定义 `skip_rows` 参数。 此参数将跳过加载在 CSV 文件中以降序排列的行（使用基于 1 的索引）。
@@ -104,8 +107,8 @@ dflow.head(5)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|
-|0|ALABAMA|第|101710|Hale County|10171002158|29|
-|第|ALABAMA|1|101710|Hale County|10171002162|40 |
+|0|阿拉巴马州|第|101710|Hale County|10171002158|29|
+|1|阿拉巴马州|第|101710|Hale County|10171002162|40 |
 
 运行以下代码，显示列数据类型。
 
@@ -159,8 +162,8 @@ dflow.head(5)
 |0|无|无|无|无|无|无|无|无|无| |
 |第|无|无|无|无|无|无|无|无|无| |
 |2|无|无|无|无|无|无|无|无|无| |
-|3|Rank|标题|工作室|全球|国内 / %|Column1|海外 / %|Column2|年份^| |
-|4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
+|3|设置级别|职务|工作室|全球|国内 / %|Column1|海外 / %|Column2|年份^| |
+|4|第|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 输出显示第二个工作表中的数据在标头前有三个空行。 `read_excel()` 函数包含用于跳过行和使用标头的可选参数。 运行以下代码以跳过前三行，并将第四行用作标头。
 
@@ -168,10 +171,10 @@ dflow.head(5)
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||Rank|标题|工作室|全球|国内 / %|Column1|海外 / %|Column2|年份^|
+||设置级别|职务|工作室|全球|国内 / %|Column1|海外 / %|Column2|年份^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
-|1|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|
+|第|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997^|
 
 ## <a name="load-fixed-width-data-files"></a>加载固定宽度数据文件
 
@@ -199,7 +202,7 @@ dflow = dprep.read_fwf('./data/fixed_width_file.txt',
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010000|99999|BOGUS NORWAY|否|NO_1|ENRS|Column7|Column8|Column9|
-|1|010003|99999|BOGUS NORWAY|否|否|ENSO||||
+|第|010003|99999|BOGUS NORWAY|否|否|ENSO||||
 
 
 ## <a name="load-sql-data"></a>加载 SQL 数据
@@ -225,10 +228,10 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |ProductID|名称|ProductNumber|颜色|StandardCost|ListPrice|大小|重量|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+| |ProductID|名称|ProductNumber|颜色|StandardCost|ListPrice|大小|权重|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL Road Frame - 黑色，58|FR-R92B-58|黑色|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|无|无|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
-|1|706|HL Road Frame - 红色，58|FR-R92R-58|红色|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|无|无|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
+|第|706|HL Road Frame - 红色，58|FR-R92R-58|红色|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|无|无|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
 |2|707|Sport-100 Helmet，红色|HL-U509-R|红色|13.0863|34.99|无|无|35|33|2005-07-01 00:00:00+00:00|无|无|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000+00:00|
 
 
@@ -303,15 +306,14 @@ dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azur
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|网站|street|city|县|
+||FMID|MarketName|网站|street|city|郡/县|
 |----|------|-----|----|----|----|----|
 |0|1012063|喀里多尼亚农贸市场协会 - 丹维尔|https://sites.google.com/site/caledoniafarmers.. ||丹维尔|喀里多尼亚|
-|1|1011871|斯特恩斯家园农贸市场|http://Stearnshomestead.com |6975 Ridge Road|帕尔马|凯霍加河|
+|第|1011871|斯特恩斯家园农贸市场|http://Stearnshomestead.com |6975 Ridge Road|帕尔马|凯霍加河|
 |2|1011878|100 英里市场|https://www.pfcmarkets.com |507 哈里森街|卡拉马祖|卡拉马祖|
 |3|1009364|106 S. 主要街道农贸市场|http://thetownofsixmile.wordpress.com/ |106 S. 主要街道|六英里|||
 |4|1010691|第 10 街社区农贸市场|https://agrimissouri.com/.. |第十街和波普拉区|拉马尔|巴顿|
 
 ## <a name="next-steps"></a>后续步骤
 
-* 请参阅 SDK[概述](https://aka.ms/data-prep-sdk)有关设计模式和使用情况示例
 * 请参阅 Azure 机器学习数据准备 SDK[教程](tutorial-data-prep.md)有关解决特定方案的示例

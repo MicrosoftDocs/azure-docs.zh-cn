@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">在用于容器的 Web 应用中创建多容器应用</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">使用 Azure 容器注册表任务生成并部署容器映像</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">生成容器并将其部署到 Azure 容器实例</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">创建 Azure Red Hat OpenShift 群集</a>
   - title: 利用 Microsoft Learn 掌握技能
     items:
       - type: list

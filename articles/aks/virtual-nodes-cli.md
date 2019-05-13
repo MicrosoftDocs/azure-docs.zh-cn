@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7631a2d6aef2efedf30c0b9015913c89949d4c29
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024546"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506963"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>预览-创建和配置使用虚拟节点上使用 Azure CLI 的 Azure Kubernetes 服务 (AKS) 群集
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为通过 Azure CLI 使用虚拟节点
 
-若要快速缩放 Azure Kubernetes 服务 (AKS) 群集中的应用程序工作负载，可以使用虚拟节点。 使用虚拟节点可快速预配 Pod，并且只需对其执行时间按秒付费。 无需等待 Kubernetes 群集自动缩放程序部署 VM 计算节点来运行其他 Pod。 本文介绍如何创建和配置虚拟网络资源和 AKS 群集，然后启用虚拟节点。
+若要快速缩放 Azure Kubernetes 服务 (AKS) 群集中的应用程序工作负载，可以使用虚拟节点。 使用虚拟节点可快速预配 Pod，并且只需对其执行时间按秒付费。 无需等待 Kubernetes 群集自动缩放程序部署 VM 计算节点来运行其他 Pod。 仅在使用 Linux pod 和节点支持的虚拟节点。
 
-> [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
->
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+本文介绍如何创建和配置虚拟网络资源和 AKS 群集，然后启用虚拟节点。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 虚拟节点部署支持以下区域：
 
 * 澳大利亚东部 (australiaeast)
+* 美国中部 (centralus)
 * 美国东部 (eastus)
+* 美国东部 2 (eastus2)
+* 日本东部 (japaneast)
+* 北欧 (northeurope)
+* 东南亚 (southeastasia)
 * 美国中西部 (westcentralus)
 * 西欧 (westeurope)
 * 美国西部 (westus)
+* 美国西部 2 (westus2)
 
 ## <a name="known-limitations"></a>已知限制
 虚拟节点功能是很大程度取决于 ACI 的功能集。 尚不支持以下方案的虚拟节点
@@ -183,11 +186,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> 如果你收到了有关虚拟找不到节点的错误，可能需要安装其 CLI 扩展 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>连接至群集
 
@@ -266,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 系统从被委派用于虚拟节点的 Azure 虚拟网络子网中为该 Pod 分配了一个内部 IP 地址。
 
 > [!NOTE]
-> 如果使用存储在 Azure 容器注册表中的映像，请[配置并使用 Kubernetes 机密][acr-aks-secrets]。 虚拟节点预览版的当前限制在于，无法使用集成的 Azure AD 服务主体身份验证。 如果不使用机密，则在虚拟节点上计划的 Pod 将无法启动并报告错误 `HTTP response status code 400 error code "InaccessibleImage"`。
+> 如果使用存储在 Azure 容器注册表中的映像，请[配置并使用 Kubernetes 机密][acr-aks-secrets]。 虚拟节点的当前限制是，不能使用集成的 Azure AD 服务主体身份验证。 如果不使用机密，则在虚拟节点上计划的 Pod 将无法启动并报告错误 `HTTP response status code 400 error code "InaccessibleImage"`。
 
 ## <a name="test-the-virtual-node-pod"></a>测试虚拟节点 Pod
 
@@ -304,7 +302,15 @@ $ curl -L 10.241.0.4
 
 ## <a name="remove-virtual-nodes"></a>删除虚拟节点
 
-如果不再想要使用虚拟节点，则可以使用 [az aks disable-addons][az aks disable-addons] 命令禁用它们。 以下示例禁用 Linux 虚拟节点：
+如果不再想要使用虚拟节点，则可以使用 [az aks disable-addons][az aks disable-addons] 命令禁用它们。 
+
+首先，删除虚拟节点上运行的 helloworld pod:
+
+```azurecli-interactive
+kubectl delete -f virtual-node.yaml
+```
+
+下面的示例命令禁用 Linux 的虚拟节点：
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
@@ -313,23 +319,29 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 现在，删除虚拟网络资源和资源组：
 
 ```azurecli-interactive
-# Change the name of your resource group and network resources as needed
+# Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
+AKS_CLUSTER=myAKScluster
+AKS_VNET=myVnet
+AKS_SUBNET=myVirtualNodeSubnet
+
+# Get AKS node resource group
+NODE_RES_GROUP=$(az aks show --resource-group $RES_GROUP --name $AKS_CLUSTER --query nodeResourceGroup --output tsv)
 
 # Get network profile ID
-NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet
 az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
 ## <a name="next-steps"></a>后续步骤

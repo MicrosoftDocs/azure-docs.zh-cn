@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574470"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232762"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 
@@ -94,7 +94,7 @@ Azure 备份是可用于高级文件共享和 Azure Kubernetes 服务中 1.13 �
 
 最大限度地提供服务时，对于预配的存储，所有共享都可以突增到每 GiB 3 IOPS，持续 60 分钟或更长时间，具体取决于共享大小。 新共享将根据预配的容量以完全突增额度开始。
 
-以 1 GiB 为增量，必须预配共享。 最小大小为 100 GiB 下, 一步大小为 101 GIB，依此类推。
+以 1 GiB 为增量，必须预配共享。 最小大小为 100 GiB 下, 一步大小为 101 GiB，依此类推。
 
 > [!TIP]
 > 基线 IOPS = 1 * 预配 GiB。 （最多 max 100,000 IOPS)。
@@ -111,20 +111,16 @@ Azure 备份是可用于高级文件共享和 Azure Kubernetes 服务中 1.13 �
 
 下表说明了这些公式的预配的共享大小的几个示例：
 
-(由表示大小 * 受限公共预览版中)
-
 |容量 (GiB) | 基线 IOPS | 迸发 IOPS | 出口 （MiB/秒） | 入口 （MiB/秒） |
 |---------|---------|---------|---------|---------|
 |100         | 100     | 最多 300     | 66   | 44   |
 |500         | 500     | 最多包含 1,500 位   | 90   | 60   |
 |1,024       | 1,024   | 最多 3,072   | 122   | 81   |
 |5,120       | 5,120   | 最多采用长度为 15,360  | 368   | 245   |
-|10,240 *     | 10,240  | 最多 30,720  | 675 | 450   |
-|33,792 *     | 33,792  | 最多 100,000 个 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | 最多 100,000 个 | 3,132 | 2,088   |
-|102,400 *    | 100,000 | 最多 100,000 个 | 6,204 | 4,136   |
-
-目前，最多 5 TiB 文件共享大小是在公共预览版中，虽然大小高达 100 TiB 的受限公共预览版，若要请求访问完整的有限公共预览版[此调查。](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | 最多 30,720  | 675 | 450   |
+|33,792      | 33,792  | 最多 100,000 个 | 2,088 | 1,392   |
+|51,200      | 51,200  | 最多 100,000 个 | 3,132 | 2,088   |
+|102,400     | 100,000 | 最多 100,000 个 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>爆发
 
@@ -184,7 +180,7 @@ GRS 将数据复制到次要区域中的另一个数据中心，但仅当 Micros
 
 ## <a name="data-growth-pattern"></a>数据增长模式
 
-目前，Azure 文件共享的最大大小是 5 TiB （100 TiB 高级文件共享受限公共预览版）。 鉴于此当前限制，必须考虑部署 Azure 文件共享时的预期数据增长。
+目前，Azure 文件共享的最大大小是 5 TiB (100 TiB 高级文件共享，处于公共预览状态)。 鉴于此当前限制，必须考虑部署 Azure 文件共享时的预期数据增长。
 
 可使用 Azure 文件同步将多个 Azure 文件共享同步到单个 Windows 文件服务器。这可确保本地的较旧、大型文件共享能够导入到 Azure 文件同步。有关详细信息，请参阅[规划 Azure 文件同步部署](storage-files-planning.md)。
 

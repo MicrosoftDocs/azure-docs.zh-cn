@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: zarhoads
 ms.openlocfilehash: 150eaa6a4df558ed0c737d99cbcc8010baf63e96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466386"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073926"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 

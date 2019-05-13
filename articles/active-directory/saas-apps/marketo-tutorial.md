@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 09f452a0971e2a0e74e51edd2db44eecda39c204
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 810d19a697e32f2d8e389bf58d52e82529bdd66b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265757"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>教程：Azure Active Directory 与 Marketo 的集成
 
@@ -109,7 +109,7 @@ ms.locfileid: "59265757"
     b. 在“回复 URL”文本框中，使用以下模式键入 URL：`https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     > [!NOTE]
-    > 这些不是实际值。 请使用实际标识符和回复 URL 更新这些值。 请联系 [Marketo 客户端支持团队](http://investors.marketo.com/contactus.cfm)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
+    > 这些不是实际值。 请使用实际标识符和回复 URL 更新这些值。 请联系 [Marketo 客户端支持团队](https://investors.marketo.com/contactus.cfm)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
 5. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
 

@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119123"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145150"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>排查加入解决方案时发生的错误
 
@@ -78,6 +78,36 @@ The solution cannot be enabled on this VM because the permission to read the wor
   * 修改该策略已配置为拒绝的资源集。
 
 检查 Azure 门户的右上角的通知或导航到包含你的自动化帐户和选择的资源组**部署**下**设置**若要查看失败部署。 若要了解有关 Azure Policy 的详细信息，请访问：[Azure Policy 概述](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)。
+
+### <a name="unlink"></a>场景：尝试取消链接工作区的错误
+
+#### <a name="issue"></a>问题
+
+尝试取消链接工作区时收到以下错误：
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>原因
+
+您仍将活动 Log Analytics 工作区中的解决方案取决于要链接的自动化帐户和日志分析工作区时发生此错误。
+
+### <a name="resolution"></a>解决方法
+
+若要解决此问题将需要从你的工作区中删除以下解决方案，如果正在使用它们：
+
+* 更新管理
+* 更改跟踪
+* 在非工作时间启动/停止 VM
+
+一旦删除的解决方案可以取消链接工作区。 请务必清理工作区和自动化帐户从这些解决方案还从任何现有项目。  
+
+* 更新管理
+  * 从自动化帐户中删除更新部署 （计划）
+* 在非工作时间启动/停止 VM
+  * 在自动化帐户下删除解决方案组件上的所有锁**设置** > **锁**。
+  * 需要删除在非工作时间启动/停止 Vm 的额外步骤查看，请[删除在非工作时间启动/停止 VM](../automation-solution-vm-management.md##remove-the-solution)。
 
 ## <a name="mma-extension-failures"></a>MMA 扩展失败
 

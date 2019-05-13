@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793380"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701572"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>快速入门：使用 Azure 容器注册表任务生成和运行容器映像
 
@@ -52,7 +52,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry008 --s
 现在，请使用 Azure 容器注册表来生成映像。 首先创建一个工作目录，然后创建包含以下内容的名为 *Dockerfile* 的 Dockerfile。 这是一个用于演示如何生成 Linux 容器映像的简单示例，你可以创建自己的标准 Dockerfile，并生成适用于其他平台的映像。
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 运行 [az acr build][az-acr-build] 命令生成映像。 成功生成后，映像将推送到注册表。 以下示例推送 `sample/hello-world:v1` 映像。 命令末尾处的 `.` 设置 Dockerfile 的位置（在本例中为当前目录）。

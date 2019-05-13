@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871359"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025341"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>如何管理 Azure 搜索中的并发
 
@@ -170,7 +170,7 @@ ms.locfileid: "60871359"
 
 用于实现乐观并发的设计模式应包含一个循环用于重试访问条件检查，包含一个访问条件测试，并在尝试重新应用更改前选择性地检索更新后的资源。
 
-此代码片段演示如何向已有的索引添加 synonymMap。 此代码摘自[同义词 （预览版） C# Azure 搜索的示例](search-synonyms-tutorial-sdk.md)。
+此代码片段演示如何向已有的索引添加 synonymMap。 此代码摘自[同义词C#Azure 搜索的示例](search-synonyms-tutorial-sdk.md)。
 
 代码片段获取“hotels”索引，检查更新操作上的对象版本，在条件失败时引发异常，然后重试该操作（最多三次），从服务器开始索引检索以获取最新版本。
 

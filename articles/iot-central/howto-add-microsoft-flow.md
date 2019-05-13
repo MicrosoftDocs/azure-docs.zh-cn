@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693599"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467999"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 连接器生成工作流
 
@@ -43,7 +43,7 @@ ms.locfileid: "64693599"
 
 1. 您将看到工作流 tha 有权访问和附加到此 IoT Central 规则的列表。 单击**浏览模板**或**新建 > 从模板创建**，可以选择从任何可用的模板。 
 
-    ![可用的 Microsoft Flow 模板](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![可用的 Microsoft Flow 模板](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. 系统将提示您登录到您选择的模板中的连接器。 连接器登录后，将进入设计器来生成工作流。 工作流有一个 IoT Central 触发器，其中已填充应用程序和规则。
 
@@ -52,7 +52,7 @@ ms.locfileid: "64693599"
     > [!NOTE]
     > 选择**查看更多**动态内容的窗口，以获取触发规则的度量值和属性值中的文本。
 
-    ![Flow 编辑操作，此时动态窗格处于打开状态](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Flow 编辑操作，此时动态窗格处于打开状态](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. 完成编辑你的操作，选择**保存**。 此时会定向到工作流的概览页。 在这里可以看到运行历史记录，并可将它与其他同事共享。
 
@@ -79,7 +79,7 @@ ms.locfileid: "64693599"
 
 1. 选择“设备名称”字段。 在动态内容窗格中，选择“设备名称”。 此值传递从输入用户通过移动应用中，输入，并为新设备在 IoT 中心的名称。 在此示例中，唯一必填字段为设备名称，以红色星号指示。 另一设备模板可能有多个必填字段，需填充这些字段才能创建新设备。
 
-    ![Flow 的创建设备操作动态窗格](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Flow 的创建设备操作动态窗格](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. （可选）根据需要在其他字段中填充内容，以便创建新设备。
 
@@ -110,7 +110,7 @@ ms.locfileid: "64693599"
 
 1. 可以更新设备名称。 若要更新设备的属性和设置，必须在“设备模板”下拉列表中选择要更新的设备对应的设备模板。 此时操作磁贴会展开，显示可更新的所有属性和设置。
 
-    ![Flow 的更新设备工作流](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Flow 的更新设备工作流](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. 选择要更新的每个属性和设置。 在动态内容窗格的触发器中，选择相应的输入。 在此示例中，“位置”值会向下传播，以便更新设备的“位置”属性。
 
@@ -126,7 +126,7 @@ ms.locfileid: "64693599"
 
 可以获取设备名称、 设备模板名称、 属性值和设置的值传递到更高版本在工作流中的操作等信息。 下面是从设备的客户名称属性值一起传递到 Microsoft Teams 的示例工作流。
 
-   ![流获取设备工作流](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![流获取设备工作流](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>在工作流中的设备上运行命令
@@ -137,7 +137,7 @@ ms.locfileid: "64693599"
     
 可以选取要运行并通过此操作在该命令的参数中传递的命令。 下面是从 Microsoft Flow 移动应用中的按钮运行设备重新启动命令的示例工作流。
 
-   ![流获取设备工作流](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![流获取设备工作流](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>在工作流中删除设备
 

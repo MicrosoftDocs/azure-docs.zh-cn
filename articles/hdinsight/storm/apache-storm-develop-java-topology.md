@@ -1,22 +1,20 @@
 ---
 title: Apache Storm 示例 Java 拓扑 - Azure HDInsight
 description: 了解如何通过创建一个简单的单词计数拓扑，来以 Java 语言创建 Apache Storm 拓扑。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm,apache storm 示例,storm java,storm 拓扑示例
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 03/14/2019
-ms.date: 04/29/2019
-ms.author: v-yiso
+ms.date: 03/14/2019
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125164"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695641"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 

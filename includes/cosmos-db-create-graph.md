@@ -2,19 +2,21 @@
 title: include 文件
 description: include 文件
 services: cosmos-db
-author: SnehaGunda
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: sngun
+origin.date: 04/13/2018
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b656001c8a7d1bed21c208bc643018c5f751e09c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9800848b24523a0eb5992e64ce1580cc53b0e3a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60891426"
 ---
+<!--Verify sucessfully-->
 现在可以在 Azure 门户中使用数据资源管理器工具来创建图形数据库。 
 
 1. 依次单击“数据资源管理器” > “新图形”。
@@ -33,3 +35,7 @@ ms.locfileid: "38733811"
     Throughput|400 RU|将吞吐量更改为每秒 400 个请求单位 (RU/s)。 如果想要减少延迟，以后可以增加吞吐量。
 
 3. 填写表单后，请单击“确定”。
+
+<!--Verify sucessfully-->
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

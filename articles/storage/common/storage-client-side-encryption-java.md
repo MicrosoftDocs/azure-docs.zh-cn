@@ -2,19 +2,20 @@
 title: 针对 Microsoft Azure 存储使用 Java 的客户端加密 | Microsoft Docs
 description: 用于 Java 的 Azure 存储客户端库支持客户端加密以及与 Azure 密钥保管库集成以实现 Azure 存储应用程序的最佳安全性。
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992456"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147030"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>针对 Microsoft Azure 存储使用 Java 的客户端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -55,9 +56,9 @@ ms.locfileid: "57992456"
 > 
 > 
 
-下载已加密的 blob 需要检索整个 blob 使用的内容**下载**/**openInputStream**便捷方法。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
+下载已加密的 Blob 需要使用 **download**/**openInputStream** 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
-下载的任意范围 (**downloadRange**方法) 加密的 blob 中涉及调整用户提供的以获取少量可用于成功解密所请求的其他数据的范围范围。  
+下载已加密 blob 中的任意范围（**downloadRange** 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。  
 
 所有 Blob 类型（块 Blob、页 Blob 和追加 Blob）都可以使用此方案进行加密/解密。
 
@@ -118,7 +119,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 1. 脱机创建一个机密并将其上传到密钥保管库。  
 2. 使用机密的基标识符作为参数来解析机密的当前版本进行加密，并在本地缓存此信息。 使用 CachingKeyResolver 进行缓存；用户不需要实现自己的缓存逻辑。  
 3. 创建加密策略时，使用缓存解析程序作为输入。
-   有关密钥保管库用法的详细信息，请查看加密代码示例。 <fix URL>  
+   有关密钥保管库用法的详细信息，请查看加密代码示例。
 
 ## <a name="best-practices"></a>最佳做法
 仅在用于 Java 的存储空间客户端库中提供加密支持。
@@ -142,7 +143,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
   * 如果指定为获取密钥，则将调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则将引发错误。  
   * 如果未指定解析程序，但指定了密钥，则在该密钥的标识符与所需密钥标识符匹配时使用该密钥。 如果标识符不匹配，则将引发错误。  
     
-    [加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>演示了针对 Blob、队列和表的更详细端到端方案，以及密钥保管库集成。
+    [加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)演示了针对 blob、队列和表的更详细端到端方案，以及密钥保管库集成。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 用户可以选择启用一个操作模式，让所有上传和下载都必须加密。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **requireEncryption** 标志控制此行为。 如果应用程序要对存储在 Azure 存储中的所有对象进行加密，则可以在服务客户端对象的默认请求选项上设置 **requireEncryption** 属性。   

@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711899"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153038"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>认知服务语音设备 SDK 发行说明
 
 以下部分列出了最新版本中的更改。
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>认知服务语音设备 SDK 1.5.0:2019-5 月版本
+
+*   语音设备 SDK 现在是 GA 和不再封闭的预览。
+*   更新[Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference)组件到版本 1.5.0。 有关详细信息，请参阅其[发行说明](https://aka.ms/csspeech/whatsnew)。
+*   新的唤醒 word 技术方面做出了重大的质量改进，请参阅的重大更改。
+*   改进了远端域识别的新音频处理管道。
+
+**重大更改**
+
+*   由于新的唤醒 word 技术必须重新创建在我们改进了的唤醒 word 门户唤醒的所有单词。 若要完全删除旧关键字从设备卸载旧应用。
+    - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>认知服务语音设备 SDK 1.4.0:2019 年 4 月版本 
 

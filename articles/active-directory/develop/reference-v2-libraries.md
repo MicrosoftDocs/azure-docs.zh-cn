@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory v2.0 身份验证库 | Microsoft Docs
-description: Azure Active Directory v2.0 终结点的兼容客户端库和服务器中间件库，以及相关的库、源代码和示例链接。
+title: Microsoft 标识平台身份验证库 |Microsoft Docs
+description: 兼容的客户端库和服务器中间件库和相关的库、 源和示例的链接，对于 Microsoft 标识平台终结点。
 services: active-directory
 documentationcenter: ''
 author: negoe
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 05/07/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ecac4122e8c7e016790cd816e4a858ffff47eb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e7678969f58e650382ff2ed478784f4d0107f6e0
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709107"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441555"
 ---
-# <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 身份验证库
+# <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft 标识平台身份验证库
 
-[Azure Active Directory (Azure AD) v2.0 终结点](active-directory-v2-compare.md)支持行业标准 OAuth 2.0 和 OpenID Connect 1.0 协议。 Microsoft 身份验证库 (MSAL) 设计为适用于 Azure AD v2.0 终结点。 还可以使用支持 OAuth 2.0 和 OpenID Connect 1.0 的开放源代码库。
+[Microsoft 标识平台终结点](active-directory-v2-compare.md)支持行业标准 OAuth 2.0 和 OpenID Connect 1.0 协议。 Microsoft 身份验证库 (MSAL) 用于处理 Microsoft 标识平台终结点。 还可以使用支持 OAuth 2.0 和 OpenID Connect 1.0 的开放源代码库。
 
 建议使用协议领域的专家根据安全开发生命周期 (SDL) 方法（例如 [Microsoft 遵循的方法][Microsoft-SDL]）编写的库。 如果决定手动编写协议代码，应遵循 Microsoft 的 SDL 等方法并密切注意每个协议的标准规范中的安全注意事项。
 
 > [!NOTE]
-> 是否在寻找 Azure AD v1.0 库 (ADAL)？ 请查看 [ADAL 库指南](active-directory-authentication-libraries.md)。
+> 查找 Azure AD 身份验证库 (ADAL)？ 请查看 [ADAL 库指南](active-directory-authentication-libraries.md)。
 
 ## <a name="types-of-libraries"></a>库的类型
 
-Azure AD v2.0 终结点适用于两种类型的库：
+Microsoft 标识平台终结点适用于两种类型的库：
 
 * **客户端库**：本机客户端和服务器使用客户端库获取用于调用某个资源（例如 Microsoft Graph）的访问令牌。
 * **服务器中间件库**：Web 应用使用服务器中间件库进行用户登录。 Web API 使用服务器中间件库验证本机客户端或其他服务器发送的令牌。
@@ -46,9 +46,9 @@ Azure AD v2.0 终结点适用于两种类型的库：
 库的支持类型有两种：
 
 * **Microsoft 支持**：Microsoft 为这些库提供修补程序，并对这些库进行 SDL 审慎调查。
-* **兼容**：Microsoft 已在基本方案中测试这些库并确认它们适用于 v2.0 终结点。 Microsoft 不提供这些库的修复程序，且尚未审查这些库。 问题和功能请求应重定向到库的开源项目。
+* **兼容**：Microsoft 已测试这些库的基本方案，并确认它们适用于 Microsoft 标识平台终结点。 Microsoft 不提供这些库的修复程序，且尚未审查这些库。 问题和功能请求应重定向到库的开源项目。
 
-有关适用于 V2.0 终结点的库列表，请参阅本文的后续部分。
+适用于 Microsoft 标识平台终结点的库的列表，请参阅这篇文章中的下一个部分。
 
 ## <a name="microsoft-supported-client-libraries"></a>Microsoft 支持的客户端库
 
@@ -56,10 +56,12 @@ Azure AD v2.0 终结点适用于两种类型的库：
 
 | 平台 | 库 | 下载 | 源代码 | 示例 | 参考 | 概念文档 | 路线图 |
 | --- | --- | --- | --- | --- | --- | --- | ---|
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js（预览） | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)|
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [参考](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [概念文档](msal-overview.md)| [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular（预览） | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
-| ![.NET framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL .NET（预览） |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
+| ![Python](media/sample-v2-code/logo_python.png) | MSAL Python （预览） | [PyPI](https://pypi.org/project/msal) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
+| ![Java](media/sample-v2-code/logo_java.png) | MSAL Java （预览版） | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [Github](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | | | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | ![iOS / Objective C 或 swift](media/sample-v2-code/logo_iOS.png) | MSAL obj_c（预览） | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 应用](https://github.com/Azure-Samples/active-directory-msal-ios-swift) |  |
 |![Android / Java](media/sample-v2-code/logo_Android.png) | MSAL（预览） | [中央存储库](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 应用](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | | |
 
@@ -86,16 +88,16 @@ Azure AD v2.0 终结点适用于两种类型的库：
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | ![iOS](media/sample-v2-code/logo_iOS.png) ![Android](media/sample-v2-code/logo_Android.png) | [React 本机应用身份验证](https://github.com/FormidableLabs/react-native-app-auth) | [版本 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [React 本机应用身份验证](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-对于任何符合标准的库，可以使用 v2.0 终结点，因此了解去哪里寻求支持非常重要。
+对于任何符合标准的库中，你可以使用 Microsoft 标识平台终结点，因此务必要知道从何处获得支持。
 
 * 有关库代码中的问题和新功能请求，请联系库所有者。
 * 有关服务端协议实现中的问题和新功能请求，请联系 Microsoft。
 * 有关要在协议中看到的其他功能，请[提出功能请求](https://feedback.azure.com/forums/169401-azure-active-directory)。
-* 如果发现 Azure AD v2.0 终结点与 OAuth 2.0 或 OpenID Connect 1.0 不兼容的问题，请[创建支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)。
+* [创建支持请求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)如果发现问题的 Microsoft 标识平台终结点不符合 OAuth 2.0 或 OpenID Connect 1.0。
 
 ## <a name="related-content"></a>相关内容
 
-有关 Azure AD v2.0 终结点的详细信息，请参阅 [Azure AD 应用模型 v2.0 概述][AAD-App-Model-V2-Overview]。
+有关 Microsoft 标识平台终结点的详细信息，请参阅[Microsoft 标识平台概述][AAD-App-Model-V2-Overview]。
 
 <!--Image references-->
 

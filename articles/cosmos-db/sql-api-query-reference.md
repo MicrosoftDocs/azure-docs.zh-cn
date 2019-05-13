@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626871"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415461"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB SQL 语言参考 
 
@@ -31,10 +31,11 @@ Azure Cosmos DB 支持使用分层 JSON 文档中的语法等熟悉的 SQL（结
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
- **备注**  
+ **注释**  
   
  有关每个子句的详细信息，请参阅以下部分。  
   
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [FROM 子句](#bk_from_clause)    
 -   [WHERE 子句](#bk_where_clause)    
 -   [ORDER BY 子句](#bk_orderby_clause)  
+-   [偏移量的限制子句](#bk_offsetlimit_clause)
+
   
 SELECT 语句中的子句必须按照以上所示进行排序。 可以省略任一可选子句。 但是当使用可选子句时，它们必须按正确的顺序显示。  
   
@@ -52,7 +55,8 @@ SELECT 语句中的子句必须按照以上所示进行排序。 可以省略任
 1.  [FROM 子句](#bk_from_clause)  
 2.  [WHERE 子句](#bk_where_clause)  
 3.  [ORDER BY 子句](#bk_orderby_clause)  
-4.  [SELECT 子句](#bk_select_query)  
+4.  [SELECT 子句](#bk_select_query)
+5.  [偏移量的限制子句](#bk_offsetlimit_clause)
 
 请注意，此顺序与语法中出现的顺序不同。 采用此排序是为了使已处理子句引入的所有新符号可见，并且可用于后来处理的字句中。 例如，在 WHERE 和 SELECT 子句中可访问在 FROM 子句中声明的别名。  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,12 +105,16 @@ SELECT <select_specification>
 - `VALUE`  
 
   指定应检索 JSON 值而不是完整的 JSON 对象。 与 `<property_list>` 不同的是，它不会将投影值包装在对象中。  
+ 
+- `DISTINCT`
   
+  指定应删除投影属性的重复项。  
+
 - `<scalar_expression>`  
 
   表示要计算的值的表达式。 请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
   
-**备注**  
+**注释**  
   
 只有当 FROM 子句已声明一个别名时，`SELECT *` 语法才有效。 `SELECT *` 提供一个标识投影，在不需要投影的情况下会有所帮助。 只有当指定了 FROM 子句，并且该字句只引入单个输入源时，SELECT * 才有效。  
   
@@ -194,7 +202,7 @@ FROM <from_specification>
   
   指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
   
-**备注**  
+**注释**  
   
 `<from_source>(`) 中提供或推断的所有别名必须唯一。 语法 `<container_expression>.`property_name 等同于 `<container_expression>' ['"property_name"']'`。 但是，如果属性名称包含非标识符字符，则可以使用后一种语法。  
   
@@ -329,7 +337,7 @@ WHERE <filter_condition>
   
    表示要计算的值的表达式。 请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
   
-  **备注**  
+  **注释**  
   
   为了能够返回文档，指定为筛选条件的表达式的求值结果必须为 true。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
   
@@ -341,36 +349,62 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **参数**  
   
 - `<sort_specification>`  
   
-   指定查询结合集要进行排序的属性或表达式。 排序列可以指定为名称或列别名。  
+   指定查询结合集要进行排序的属性或表达式。 列排序可指定为名称或属性的别名。  
   
-   可以指定多个排序列。 列名必须唯一。 ORDER BY 子句中排序列的序列定义了排序结果集的组织。 即：结果集按第一个属性排序，然后该排序列表按第二个属性排序，依此类推。  
+   可以指定多个属性。 属性名称必须是唯一的。 ORDER BY 子句中的排序属性的序列定义的排序的结果集的组织。 即：结果集按第一个属性排序，然后该排序列表按第二个属性排序，依此类推。  
   
-   ORDER BY 子句中引用的列名必须确切无误地对应到选择列表中的列或 FROM 子句中指定的表中定义的列。  
+   在 ORDER BY 子句中引用的属性名称必须对应到选择列表中的任一属性或明确地在 FROM 子句中指定的集合中定义的属性。  
   
 - `<sort_expression>`  
   
-   指定查询结合集要进行排序的单个属性或表达式。  
+   指定一个或多个属性或对查询结果集进行排序所依据的表达式。  
   
 - `<scalar_expression>`  
   
-   有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
+   请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
   
 - `ASC | DESC`  
   
    指定在指定列中的值应按升序或降序排序。 ASC 采用从最低值到最高值的顺序排序。 DESC 采用从最高值到最低值的顺序排序。 ASC 是默认的排序顺序。 NULL 值被视为可能的最低值。  
   
-  **备注**  
+  **注释**  
   
-  虽然查询语法支持多个排序依据属性，但 Cosmos DB 查询运行时支持仅按单个属性排序，以及仅按属性名称排序（不支持按计算属性排序）。 排序也要求索引策略尽可能精确地加入属性和指定类型的范围索引。 有关详细信息，请参阅索引策略文档。  
+   ORDER BY 子句需要索引策略，包括正在排序的字段的索引。 Azure Cosmos DB 查询运行时支持排序与属性名和不是针对计算的属性。 Azure Cosmos DB 支持多个 ORDER BY 属性。 若要运行查询具有多个 ORDER BY 属性，则应定义[组合索引](index-policy.md#composite-indexes)上正在排序的字段。
+
+
+##  <a name=bk_offsetlimit_clause></a> 偏移量的限制子句
+
+指定跳过的项目数和返回的项数。 有关示例，请参阅[偏移量的限制子句示例](how-to-sql-query.md#OffsetLimitClause)
   
+ **语法**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **参数**  
+ 
+- `<offset_amount>`
+
+   指定查询结果应跳过的项的整数数目。
+
+
+- `<limit_amount>`
+  
+   指定查询结果中应包含的项的整数数目
+
+  **注释**  
+  
+  偏移量的限制子句中需要的偏移量计数和限制计数。 如果可选的`ORDER BY`子句使用时，结果集生成的执行跳过操作的有序的值。 否则，查询将返回值的固定的顺序。
+
 ##  <a name="bk_scalar_expressions"></a> 标量表达式  
  标量表达式是符号和运算符的组合，经计算后可获得单个值。 简单表达式可以是常数、属性引用、数组元素引用、别名引用或函数调用。 简单表达式可以使用运算符组合成复杂的表达式。 有关示例，请参阅[标量表达式示例](how-to-sql-query.md#scalar-expressions)
   
@@ -456,7 +490,7 @@ ORDER BY <sort_specification>
   
    表示指定参数名称的值。 参数名称必须以单个 \@ 作为第一个字符。  
   
-  **备注**  
+  **注释**  
   
   调用内置或用户定义的标量函数时，必须定义所有参数。 如果未定义任何参数，则不会调用该函数，且结果也将为未定义。  
   
@@ -511,11 +545,11 @@ ORDER BY <sort_specification>
 |未定义|不可比较。|  
 |Null|单个值：null|  
 |**Number**|自然实数。<br /><br /> 负无穷大值小于任何其他数字值。<br /><br /> 正无穷大值大于任何其他数字值。NaN 值不可比较。 与 NaN 进行比较将产生“未定义”值。|  
-|**字符串**|字典顺序。|  
+|**String**|字典顺序。|  
 |数组|不排序，但可以相等。|  
 |**Object**|不排序，但可以相等。|  
   
- **备注**  
+ **注释**  
   
  在 Cosmos DB 中，通常在数据库中检索到值时，才知道其类型。 为了支持高效地执行查询，大多数运算符都具有严格的类型要求。 此外运算符本身也不执行隐式转换。  
   
@@ -668,7 +702,7 @@ ORDER BY <sort_specification>
     |标识符|标识符。 仅允许以下字符：a-z A-Z 0-9 _第一个字符不能为数字。|  
     |“字符串”|带引号的字符串。 允许任何有效的字符串。 请参阅 string_literal 的说明。|  
     |“符号”|属于语法的一部分的文本符号。|  
-    |&#124;（垂直条形图）|语法项的替代项。 只可使用其中一个指定的项。|  
+    |&#124;（垂直条）|语法项的替代项。 只可使用其中一个指定的项。|  
     |[ ] /（括号）|括号项可将一个或多个可选项括起来。|  
     |[ ,...n ]|表示前面的项可以重复 n 次。 匹配项由逗号分隔。|  
     |[ ...n ]|表示上述项可重复 n 次。 匹配项由空格分隔。|  
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[数学函数](#bk_mathematical_functions)|每个数学函数均执行一个计算，通常基于作为参数提供的输出值，并返回数值。|  
 |[类型检查函数](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
 |[字符串函数](#bk_string_functions)|该字符串函数对字符串输入值执行操作，并返回字符串、数值或布尔值。|  
-|[数组函数](#bk_array_functions)|该数组函数对数组输入值执行操作，并返回数值、布尔值或数组值。|  
+|[数组函数](#bk_array_functions)|该数组函数对数组输入值执行操作，并返回数值、布尔值或数组值。|
+|[日期和时间函数](#bk_date_and_time_functions)|日期和时间函数，您可以在两个窗体; 中获取当前的 UTC 日期和时间其值是以毫秒为单位或作为一个字符串，它符合 ISO 8601 格式的 Unix epoch 数字时间戳。|
 |[空间函数](#bk_spatial_functions)|该空间函数对控件对象输入值执行操作，并返回数值或布尔值。|  
   
 ###  <a name="bk_mathematical_functions"></a> 数学函数  
@@ -1047,7 +1082,7 @@ EXP (<numeric_expression>)
   
   返回一个数值表达式。  
   
-  **备注**  
+  **注释**  
   
   常数 e  (2.718281…) 是自然对数的底数。  
   
@@ -1157,7 +1192,7 @@ LOG10 (<numeric_expression>)
   
   返回一个数值表达式。  
   
-  **备注**  
+  **注释**  
   
   LOG10 和 POWER 函数互为反函数。 例如，10 ^ LOG10(n) = n。  
   
@@ -1272,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- 结果集如下。  
+  结果集如下。  
   
 ```  
 [{  
@@ -1301,7 +1336,18 @@ ROUND(<numeric_expression>)
   
   返回类型  
   
-  返回数值表达式。  
+  返回一个数值表达式。  
+  
+  **注释**
+  
+  执行舍入运算遵循远离零方向舍入的中点。 如果输入是一个数值表达式，此范围恰好两个整数结果将是从零开始的最接近的整数值。  
+  
+  |<numeric_expression>|舍入|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|第|
+  |6.5000|7||
   
   **示例**  
   
@@ -1311,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- 结果集如下。  
+  结果集如下。  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -2363,13 +2409,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- 结果集如下。
+结果集如下。
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- 下面是输入无效的示例。 
+下面是输入无效的示例。 
    
  在数组中使用单引号不是有效的 JSON。
 即使它们在查询中有效，系统也不会将其解析为有效数组。 必须将数组字符串中的字符串转义为 "[\\"\\"]"，否则其引号必须为单个 '[""]'。
@@ -2379,13 +2425,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- 结果集如下。
+结果集如下。
 
 ```
 [{}]
 ```
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
    
  传递的表达式将会解析为 JSON 数组；下面的示例不会计算为类型数组，因此返回未定义。
    
@@ -2398,7 +2444,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- 结果集如下。
+结果集如下。
 
 ```
 [{}]
@@ -2429,7 +2475,7 @@ StringToBoolean(<expr>)
  
  下面是输入有效的示例。
 
- 只能在 "true"/"false" 之前或之后使用空格。
+只能在 "true"/"false" 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2444,8 +2490,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- 下面是输入无效的示例。
- 
+下面是输入无效的示例。
+
  布尔值区分大小写，必须全用小写字符（即 "true" 和 "false"）来表示。
 
 ```  
@@ -2454,15 +2500,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- 结果集如下。  
+结果集如下。  
   
 ```  
 [{}]
 ``` 
 
- 传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
+传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2517,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- 结果集如下。  
+结果集如下。  
   
 ```  
 [{}]
@@ -2500,8 +2546,8 @@ StringToNull(<expr>)
   
   以下示例演示 StringToNull 在不同类型中的行为方式。 
 
- 下面是输入有效的示例。
- 
+下面是输入有效的示例。
+
  只能在 "null" 之前或之后使用空格。
 
 ```  
@@ -2517,9 +2563,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
 
- Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
+Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
 
 ```  
 SELECT    
@@ -2533,7 +2579,7 @@ SELECT
 [{}]
 ```  
 
- 传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
+传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
 
 ```  
 SELECT    
@@ -2572,8 +2618,8 @@ StringToNumber(<expr>)
   
   以下示例演示 StringToNumber 在不同类型中的行为方式。 
 
- 只能在 Number 之前或之后使用空格。
- 
+只能在 Number 之前或之后使用空格。
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2634,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- 在 JSON 中，有效的 Number 必须是整数或浮点数。
- 
+在 JSON 中，有效的 Number 必须是整数或浮点数。
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2647,7 @@ SELECT
 {{}}
 ```  
 
- 传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
+传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
 
 ```  
 SELECT 
@@ -2643,7 +2689,7 @@ StringToObject(<expr>)
   以下示例演示 StringToObject 在不同类型中的行为方式。 
   
  下面是输入有效的示例。
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2698,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- 结果集如下。
+结果集如下。
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2706,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  下面是输入无效的示例。
 即使它们在查询中有效，系统也不会将其解析为有效对象。 必须将对象字符串中的字符串转义为 "{\\"a\\":\\"str\\"}"，否则其引号必须为单个 '{"a": "str"}'。
 
- 属性名称的单引号不是有效的 JSON。
+属性名称的单引号不是有效的 JSON。
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- 结果集如下。
+结果集如下。
 
 ```  
 [{}]
 ```  
 
- 没有引号的属性名称不是有效的 JSON。
+没有引号的属性名称不是有效的 JSON。
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- 结果集如下。
+结果集如下。
 
 ```  
 [{}]
 ``` 
 
- 下面是输入无效的示例。
- 
+下面是输入无效的示例。
+
  传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2844,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- 结果集如下。  
+结果集如下。  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 给定以下输入。
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- 以下示例演示 ToString 如何与其他字符串函数（如 REPLACE）一起使用。   
+以下示例演示 ToString 如何与其他字符串函数（如 REPLACE）一起使用。   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2865,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- 结果集如下。  
+结果集如下。  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  返回删除前导空格和尾随空格后的字符串表达式。  
@@ -2937,7 +2983,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 返回一个布尔，它指示数组是否包含指定的值。 可以通过在命令中使用布尔表达式来检查对象的部分匹配或完全匹配。 
 
- **语法**  
+**语法**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3023,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- 以下示例介绍了如何使用 ARRAY_CONTAINS 检查数组内是否存在 JSON 字符串的部分匹配字符串。  
+以下示例介绍了如何使用 ARRAY_CONTAINS 检查数组内是否存在 JSON 字符串的部分匹配字符串。  
   
 ```  
 SELECT  
@@ -3085,7 +3131,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> 日期和时间函数
+ 以下标量函数，您可以在两个窗体; 中获取当前的 UTC 日期和时间其值是以毫秒为单位或作为一个字符串，它符合 ISO 8601 格式的 Unix epoch 数字时间戳。 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ 返回当前 UTC 日期和时间以 ISO 8601 字符串形式。
+  
+ **语法**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  返回类型
+  
+  返回当前 UTC 日期和时间 ISO 8601 字符串值。 
+
+  这表示格式 YYYY MM DDThh:mm:ss.sssZ 其中：
+  
+  |||
+  |-|-|
+  |YYYY|四位数年份|
+  |MM|两位数月份 (01 = 年 1 月，等等。)|
+  |DD|两位数日期的月份 (01 到 31 之间)|
+  |T|开始时元素为 signifier|
+  |hh|两位数小时 (00 到 23)|
+  |mm|两位数分钟 (00 到 59)|
+  |ss|两位数秒数 (从 00 到 59)|
+  |.sss|三位数字的秒的小数部分|
+  |Z|UTC （协调世界时） 指示符||
+  
+  有关 ISO 8601 格式的更多详细信息，请参阅[ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **注释**
+
+  GetCurrentDateTime 是非确定性函数。 
+  
+  返回的结果是 UTC （协调世界时）。
+
+  **示例**  
+  
+  下面的示例演示如何获取当前 UTC 日期时间使用 GetCurrentDateTime 内置函数。
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ 下面是示例结果集。
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ 返回 00:00:00 星期四，1 1970 年 1 月起经过的毫秒的数。 
+  
+ **语法**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  返回类型  
+  
+  返回数值的当前已经过自 Unix epoch 起经过即 00:00:00 星期四，1 1970 年 1 月起经过的毫秒数的毫秒数。
+
+  **注释**
+
+  GetCurrentTimestamp 是非确定性函数。 
+  
+  返回的结果是 UTC （协调世界时）。
+
+  **示例**  
+  
+  下面的示例演示如何获取使用 GetCurrentTimestamp 内置函数的当前时间戳。
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ 下面是示例结果集。
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> 空间函数  
  以下标量函数对标量对象输入值执行操作，并返回数值或布尔值。  
   
@@ -3292,7 +3431,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>后续步骤  
 
 - [Cosmos DB 的 SQL 语法和 SQL 查询](how-to-sql-query.md)

@@ -4,14 +4,14 @@ description: 了解如何管理 Azure Cosmos DB 中的索引策略
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005582"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068674"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 
@@ -162,7 +162,7 @@ response = client.ReplaceContainer(containerPath, container)
 下面是以 JSON 格式显示的一些索引策略示例，该格式是在 Azure 门户上公开索引策略的方式。 可以通过 Azure CLI 或任何 SDK 设置相同的参数。
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>用以有选择地排除某些属性路径的选择退出策略
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -193,9 +193,10 @@ response = client.ReplaceContainer(containerPath, container)
             }
         ]
     }
+```
 
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>用以有选择地包括某些属性路径的选择加入策略
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -224,11 +225,12 @@ response = client.ReplaceContainer(containerPath, container)
             }
         ]
     }
+```
 
 注意：通常情况下，建议使用**选择退出**索引策略来让 Azure Cosmos DB 主动为可能会添加到模型的任何新属性编制索引。
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>仅在特定属性路径上使用空间索引
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -257,11 +259,12 @@ response = client.ReplaceContainer(containerPath, container)
         ],
         "excludedPaths": []
     }
+```
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>排除所有属性路径，但使索引保持活动状态
 
 当[生存时间 (TTL) 功能](time-to-live.md)处于活动状态但不需要第二索引时（使用 Azure Cosmos DB 作为纯键-值存储），可以使用此策略。
-
+```
     {
         "indexingMode": "consistent",
         "includedPaths": [],
@@ -269,12 +272,130 @@ response = client.ReplaceContainer(containerPath, container)
             "path": "/*"
         }]
     }
+```
 
 ### <a name="no-indexing"></a>无索引
-
+```
     {
         "indexingPolicy": "none"
     }
+```
+
+## <a name="composite-indexing-policy-examples"></a>组合索引策略示例
+
+除了包含或排除各属性的路径，还可以指定一个组合索引。 如果要执行具有针对多个属性的 `ORDER BY` 子句的查询，需要使用这些属性上的[组合索引](index-policy.md#composite-indexes)。
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>针对（name asc、age desc）定义的组合索引：
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+此组合索引能够支持以下两个查询：
+
+查询 #1：
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name asc, age desc    
+```
+
+查询 #2：
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name desc, age asc
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>针对（name asc、age asc）和（name asc、age desc）定义的组合索引：
+
+可以在同一个索引策略中定义多个不同的组合索引。 
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>针对（name asc、age asc）定义的组合索引：
+
+可以选择指定顺序。 如果未指定，顺序为升序。
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
 
 ## <a name="next-steps"></a>后续步骤
 

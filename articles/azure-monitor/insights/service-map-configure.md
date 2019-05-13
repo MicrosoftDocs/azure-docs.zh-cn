@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 04/30/2019
 ms.author: magoedte
-ms.openlocfilehash: ef5ab3d4fe71f688a0b4f3879248ea1715874a0b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a50f080ee4d72ad098ca87f5b3a62b42f8cd5907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793714"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142733"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中配置服务映射
 
@@ -63,7 +63,7 @@ ms.locfileid: "58793714"
 
 ## <a name="supported-linux-operating-systems"></a>受支持的 Linux 操作系统
 
-以下部分列出了 Linux 上的依赖关系代理支持的操作系统。  
+以下部分列出了 Linux 上 Dependency Agent 支持的操作系统。  
 
 - 仅默认版本和 SMP Linux 内核版本受支持。
 - 任何 Linux 分发版都不支持非标准内核版本（例如 PAE 和 Xen）。 例如，不支持版本字符串为“2.6.16.21-0.8-xen”的系统。
@@ -95,7 +95,7 @@ ms.locfileid: "58793714"
 
 | OS 版本 | 内核版本 |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
+| Ubuntu 18.04 | 内核 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | 内核 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -117,8 +117,8 @@ ms.locfileid: "58793714"
 
 | 文件 | 操作系统 | 版本 | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.8.1 | 622C99924385CBF539988D759BCFDC9146BB157E7D577C997CDD2674E27E08DD |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.8.1 | 3037934A5D3FB7911D5840A9744AE9F980F87F620A7F7B407F05E276FE7AE4A8 |
 
 ## <a name="connected-sources"></a>连接的源
 

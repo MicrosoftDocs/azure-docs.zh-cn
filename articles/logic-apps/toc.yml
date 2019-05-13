@@ -55,12 +55,16 @@
           href: logic-apps-create-variables-store-values.md
         - name: 执行数据操作
           href: logic-apps-perform-data-operations.md
-        - name: 使用 Azure Functions 添加自定义代码
+        - name: 添加并运行包含内联代码的代码片段
+          href: logic-apps-add-run-inline-code.md
+        - name: 使用 Azure Functions 添加并运行代码
           href: logic-apps-azure-functions.md
         - name: 使用 Azure Functions 调用逻辑应用
           href: logic-apps-scenario-function-sb-trigger.md
         - name: 调用、触发或嵌套逻辑应用
           href: logic-apps-http-endpoint.md
+        - name: 通过分页获取批量数据
+          href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: 对消息进行批处理
           href: logic-apps-batch-process-send-receive-messages.md
         - name: 创作 JSON 定义
@@ -103,11 +107,8 @@
           href: logic-apps-enterprise-integration-b2b.md
         - name: 交换 AS2 消息
           href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: AS2 编码
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: AS2 解码
-              href: logic-apps-enterprise-integration-as2-decode.md
+        - name: AS2 消息设置
+          href: logic-apps-enterprise-integration-as2-message-settings.md
         - name: 交换 EDIFACT 消息
           href: logic-apps-enterprise-integration-edifact.md
           items:

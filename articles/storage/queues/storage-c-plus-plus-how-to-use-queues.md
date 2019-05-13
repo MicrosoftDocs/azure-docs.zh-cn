@@ -1,21 +1,21 @@
 ---
-title: 如何使用队列存储 (C++) | Microsoft Docs
+title: 如何使用队列存储 (C++)-Azure 存储
 description: 了解如何在 Azure 中使用队列存储服务。 示例用 C++ 编写。
 services: storage
-author: cbrooksmsft
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: cbrooksmsft
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 08c865e5383e4095a22aa6c10c8b181f916d1d30
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 440033233bbd60421cc3245a04544cd04caec6f4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108992"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153126"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>如何通过 C++ 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

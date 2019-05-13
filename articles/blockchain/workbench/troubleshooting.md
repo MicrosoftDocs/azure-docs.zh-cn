@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0263761a4aaf663b16584fbf9caa11bb124d5c4
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60896308"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510093"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 故障排除
 
@@ -39,7 +39,7 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>运行脚本
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-运行 `collectBlockchainWorkbenchTroubleshooting.ps1` 脚本可收集日志并创建一个 ZIP 文件，该文件包含一个文件夹，其中有故障排除信息。 例如：
+运行 `collectBlockchainWorkbenchTroubleshooting.ps1` 脚本可收集日志并创建一个 ZIP 文件，该文件包含一个文件夹，其中有故障排除信息。 例如:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
@@ -48,13 +48,13 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 
 | 参数  | 描述 | 需要 |
 |---------|---------|----|
-| 订阅 ID | SubscriptionID，用于创建或定位所有资源。 | 是 |
-| ResourceGroupName | Blockchain Workbench 部署时所在的 Azure 资源组的名称。 | 是 |
-| OutputDirectory | 用于创建输出 .ZIP 文件的路径。 如果未指定，则默认为当前目录。 | 否 |
-| LookbackHours | 拉取遥测数据时要使用的小时数。 默认值为 24 小时。 最大值为 90 小时 | 否 |
-| OmsSubscriptionId | 部署 Azure 监视器将记录其中的订阅 ID。 如果外 Blockchain Workbench 的资源组部署区块链网络的 Azure Monitor 日志，仅将此参数传递。| 否 |
-| OmsResourceGroup |部署 Azure 监视器将记录其中的资源组。 如果外 Blockchain Workbench 的资源组部署区块链网络的 Azure Monitor 日志，仅将此参数传递。| 否 |
-| OmsWorkspaceName | Log Analytics 工作区名称。 仅传递此参数，如果外 Blockchain Workbench 的资源组部署区块链网络的 Azure Monitor 日志 | 否 |
+| 订阅 ID | SubscriptionID，用于创建或定位所有资源。 | “是” |
+| ResourceGroupName | Blockchain Workbench 部署时所在的 Azure 资源组的名称。 | “是” |
+| OutputDirectory | 用于创建输出 .ZIP 文件的路径。 如果未指定，则默认为当前目录。 | “否” |
+| LookbackHours | 拉取遥测数据时要使用的小时数。 默认值为 24 小时。 最大值为 90 小时 | “否” |
+| OmsSubscriptionId | 部署 Azure 监视器将记录其中的订阅 ID。 如果外 Blockchain Workbench 的资源组部署区块链网络的 Azure Monitor 日志，仅将此参数传递。| “否” |
+| OmsResourceGroup |部署 Azure 监视器将记录其中的资源组。 如果外 Blockchain Workbench 的资源组部署区块链网络的 Azure Monitor 日志，仅将此参数传递。| “否” |
+| OmsWorkspaceName | Log Analytics 工作区名称。 仅传递此参数，如果外 Blockchain Workbench 的资源组部署区块链网络的 Azure Monitor 日志 | “否” |
 
 ## <a name="what-is-collected"></a>收集什么内容？
 

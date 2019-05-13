@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: 了解数据保留
           href: time-series-insights-concepts-retention.md
+        - name: 开发
+          items:
+            - name: 身份验证和授权
+              href: time-series-insights-authentication-and-authorization.md
+            - name: '使用 C# 查询数据'
+              href: time-series-insights-query-data-csharp.md
+            - name: '使用 C# 管理参考数据'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: 共享自定义视图
+              href: time-series-insights-parameterized-urls.md
     - name: Azure 时序见解预览版
       items:
         - name: 规划环境
@@ -52,18 +62,14 @@
           href: time-series-insights-update-tsm.md
         - name: 数据查询
           href: time-series-insights-update-tsq.md
-        - name: 在资源管理器更新版中将数据可视化
+        - name: 在资源管理器预览版中实现数据可视化
           href: time-series-insights-update-explorer.md
-    - name: 开发
-      items:
-        - name: 身份验证和授权
-          href: time-series-insights-authentication-and-authorization.md
-        - name: '使用 C# 查询数据'
-          href: time-series-insights-query-data-csharp.md
-        - name: '使用 C# 管理参考数据'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: 共享自定义视图
-          href: time-series-insights-parameterized-urls.md
+        - name: 开发
+          items:
+            - name: 身份验证和授权
+              href: time-series-insights-authentication-and-authorization.md
+            - name: '使用 C# 查询数据'
+              href: time-series-insights-update-query-data-csharp.md
 - name: 操作指南
   items:
     - name: 授予数据访问权限

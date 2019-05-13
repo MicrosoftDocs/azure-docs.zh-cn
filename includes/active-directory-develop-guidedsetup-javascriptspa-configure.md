@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: c0dcfc4ad7edf4d9203b807aa799eb047c753bed
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 387adcdf8bdabf90bc1e691a7a8ec9ae0a8e90dc
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551529"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993282"
 ---
 ## <a name="register-your-application"></a>注册应用程序
 
@@ -52,17 +52,21 @@ ms.locfileid: "59551529"
 1. 在设置项目期间创建的 `index.html` 文件中，添加应用程序注册信息。 在 `index.html` 文件正文中的 `<script></script>` 标记顶部添加以下代码：
 
     ```javascript
-    var applicationConfig = {
-        clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        graphScopes: ["user.read"],
-        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    var msalConfig = {
+        auth: {
+            clientId: "Enter_the_Application_Id_here",
+            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
     其中：
     - `Enter_the_Application_Id_here` - 是已注册应用程序的**应用程序（客户端）ID**。
     - `Enter_the_Tenant_Info_Here` - 设置为以下选项之一：
-       - 如果应用程序支持“此组织目录中的帐户”，请将该值替换为**租户 ID** 或**租户名称**（例如 contoso.microsoft.com）
+       - 如果应用支持“此组织目录中的帐户”，请将此值替换为“租户 ID”或“租户名称”（例如，contoso.microsoft.com）
        - 如果应用程序支持“任何组织目录中的帐户”，请将该值替换为 `organizations`
-       - 如果应用程序支持“任何组织目录中的帐户和个人 Microsoft 帐户”，请将该值替换为 `common`
+       - 如果应用支持“任何组织目录中的帐户和个人 Microsoft 帐户”，请将此值替换为“`common`”。 若要限制对“仅限个人 Microsoft 帐户”的支持，请将此值替换为“`consumers`”。

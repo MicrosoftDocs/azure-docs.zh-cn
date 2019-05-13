@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: v-wimarc
-ms.openlocfilehash: 661837912c9b2dbdd4b27fe6c25c2ebe95aa96f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 33c2c053fc822e0dd89b8d9aca9b4e55893c07b5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26408147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653727"
 ---
 # <a name="manage-and-connect-to-your-subscription"></a>管理和连接到订阅
 世纪互联运营的 Microsoft Azure（Azure 中国世纪互联）提供独特的 URL 和终结点用于管理环境。 必须使用正确的连接来管理环境。 连接到 Azure 环境后，如果已部署相应的组件，则可以运行管理服务的正常操作。

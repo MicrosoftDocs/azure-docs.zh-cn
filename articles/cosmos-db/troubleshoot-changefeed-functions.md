@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404683"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510531"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>诊断并解决问题时在 Azure Functions 中使用 Azure Cosmos DB 触发器
 
@@ -27,17 +27,19 @@ ms.locfileid: "60404683"
 
 本文将始终引用 Azure Functions V2 时提到运行时，除非显式指定。
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>使用 Cosmos DB SDK 独立于触发器和绑定
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>独立地使用 Azure Cosmos DB SDK
 
 扩展包的关键功能是 Azure Cosmos DB 触发器和绑定提供支持。 它还包括[Azure Cosmos DB.NET SDK](sql-api-sdk-dotnet-core.md)，这都很有用，如果你想要使用 Azure Cosmos DB 以编程方式而无需使用触发器和绑定交互。
 
-如果想要使用 Azure Cosmos DB SDK，请确保不要添加到你的项目另一个 NuGet 包引用。 相反，**允许通过 Azure Functions 的扩展包解析的 SDK 引用**。
+如果想要使用 Azure Cosmos DB SDK，请确保不要添加到你的项目另一个 NuGet 包引用。 相反，**允许通过 Azure Functions 的扩展包解析的 SDK 引用**。 使用 Azure Cosmos DB SDK 独立于触发器和绑定
 
 此外，如果要手动创建的实例[Azure Cosmos DB SDK 客户端](./sql-api-sdk-dotnet-core.md)，应遵循的模式的客户端的一个实例[使用单一实例模式方法](../azure-functions/manage-connections.md#documentclient-code-example-c). 此过程将避免潜在的套接字问题，在您的操作。
 
-## <a name="common-known-scenarios-and-workarounds"></a>常见的已知的情况和解决方法
+## <a name="common-scenarios-and-workarounds"></a>常见方案和解决方法
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Azure 函数失败，出现错误消息"任一源集合集合-name （在数据库数据库名称中） 或租约集合 collection2-name （在数据库 ' database2-name'） 不存在。 侦听器开始之前，必须存在这两个集合。 若要自动创建租用集合，请设置为 'true' CreateLeaseCollectionIfNotExists'"
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Azure 函数失败，错误消息集合不存在
+
+Azure 函数失败，出现错误消息"任一源集合集合-name （在数据库数据库名称中） 或租约集合 collection2-name （在数据库 ' database2-name'） 不存在。 侦听器开始之前，必须存在这两个集合。 若要自动创建租用集合，请设置为 'true' CreateLeaseCollectionIfNotExists'"
 
 这意味着一个或两个触发器才能正常工作所需的 Azure Cosmos 容器不存在或无法对 Azure 函数。 **与错误本身会告诉您哪些 Azure Cosmos 数据库和容器是寻找触发器**基于你的配置。
 
@@ -78,7 +80,8 @@ ms.locfileid: "60404683"
 
 在此方案中，最好的做法是添加`try/catch blocks`在代码中，可能会处理这些更改，以检测任何失败的项的特定子集并相应地处理它们的循环内 （将其发送到另一个存储以进行进一步分析或重试）。 
 
-> **Azure Cosmos DB 触发器，默认情况下，不会重试一批更改未经处理的异常是否**在代码执行过程。 这意味着所做的更改未在目标位置到达的原因，是因为你无法处理它们。
+> [!NOTE]
+> Azure Cosmos DB 触发器，默认情况下，不会重试一批更改如果代码执行期间出现未处理异常。 这意味着所做的更改未在目标位置到达的原因，是因为你无法处理它们。
 
 如果你发现的某些更改未在所有收到了触发器，最常见情况是，则**正在运行另一个 Azure 函数**。 它可能是在 Azure 中部署的另一个 Azure 函数或开发人员的计算机上本地运行 Azure Function**完全相同的配置**（相同监视和租用容器） 和窃取该 Azure 函数你所期望 Azure 函数处理的更改的子集。
 

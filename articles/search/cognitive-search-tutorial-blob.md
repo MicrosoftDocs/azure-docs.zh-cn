@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 55d4f4bdf204453ccfe353e0d79abedb118bd9d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528367"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021612"
 ---
-# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>REST 教程：在 Azure 搜索索引管道中调用认知服务 API（预览版）
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>REST 教程：在 Azure 搜索索引管道中调用认知服务 API
 
-本教程介绍使用认知技能在 Azure 搜索中扩充编程数据的机制。 技能由自然语言处理 (NLP) 和认知服务中的图像分析功能提供支持。 通过技能集组合和配置，可以提取图像或扫描的文档文件的文本和文本表示形式。 还可以检测语言、实体、关键短语等。 最终结果是 Azure 搜索索引中的丰富附加内容，由 AI 支持的索引编制管道创建。 
+本教程介绍使用认知技能在 Azure 搜索中扩充编程数据的机制。 技能由自然语言处理 (NLP) 和认知服务中的图像分析功能提供支持。 通过技能集组合和配置，可以提取图像或扫描的文档文件的文本和文本表示形式。 还可以检测语言、实体、关键短语等。 最终结果是 Azure 搜索索引中有丰富附加内容（使用索引管道中的 AI 扩充创建）。 
 
 在本教程中，我们将发出 REST API 调用来执行以下任务：
 
@@ -35,9 +35,9 @@ ms.locfileid: "59528367"
 本教程在免费服务中运行，但免费事务数目限制为每日 20 个文档。 若要在同一天多次运行本教程，请使用可以运行更多次的较小文件集。
 
 > [!NOTE]
-> 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要附加可计费的认知服务资源。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
+> 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要[附加可计费的认知服务资源](cognitive-search-attach-cognitive-services.md)。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 内置技能的执行将按现有[认知服务即用即付价格](https://azure.microsoft.com/pricing/details/cognitive-services/)计费。 图像提取费用将按预览版定价计费，详见 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)。 了解[详细信息](cognitive-search-attach-cognitive-services.md)。
+> 内置技能执行按现有[认知服务即用即付价格](https://azure.microsoft.com/pricing/details/cognitive-services/)计费。 图像提取定价如 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)所述。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -106,7 +106,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 ### <a name="sample-request"></a>示例请求
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -129,7 +129,7 @@ api-key: [admin key]
 
   ![门户中的“数据源”磁贴](./media/cognitive-search-tutorial-blob/data-source-tile.png "门户中的“数据源”磁贴")
 
-如果收到 403 或 404 错误，请检查请求构造：`api-version=2017-11-11-Preview` 应位于终结点上，`api-key` 应位于标头中的 `Content-Type` 后面，并且其值必须对搜索服务有效。 可对本教程中的剩余步骤重复使用该标头。
+如果收到 403 或 404 错误，请检查请求构造：`api-version=2019-05-06` 应位于终结点上，`api-key` 应位于标头中的 `Content-Type` 后面，并且其值必须对搜索服务有效。 可对本教程中的剩余步骤重复使用该标头。
 
 ## <a name="create-a-skillset"></a>创建技能集
 
@@ -149,7 +149,7 @@ api-key: [admin key]
 此请求创建技能集。 本教程的余下内容将此技能集称作 ```demoskillset```。
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -265,7 +265,7 @@ Content-Type: application/json
 此请求创建索引。 本教程的余下内容使用索引名称 ```demoindex```。
 
 ```http
-PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -338,7 +338,7 @@ Content-Type: application/json
 此外，请提供索引器的名称。 对于本教程的余下内容，可将其称为 ```demoindexer```。
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -410,7 +410,7 @@ Content-Type: application/json
 定义索引器后，提交请求时会自动运行索引器。 根据定义的认知技能，索引编制花费的时间可能会超出预期。 若要确定索引器是否仍在运行，请发送以下请求来检查索引器状态。
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -426,7 +426,7 @@ Content-Type: application/json
 作为验证步骤，请查询所有字段的索引。
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -436,7 +436,7 @@ Content-Type: application/json
 针对 `"*"` 提交另一个查询，以返回单个字段的所有内容，例如 `organizations`。
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -528,7 +528,7 @@ Content-Type: application/json
 可以使用门户删除索引、索引器和技能集。
 
 ```http
-DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```

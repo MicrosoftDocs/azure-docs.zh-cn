@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200287"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150852"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>教程：在 Azure CDN 自定义域中配置 HTTPS
 
@@ -90,10 +90,10 @@ ms.locfileid: "58200287"
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[选项 2：使用自己的证书启用 HTTPS](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> 目前只有“Microsoft 的 Azure CDN 标准版”配置文件支持此选项。 
+> 此选项仅适用于来自 Microsoft 的 Azure CDN 和来自 Verizon 的 Azure CDN 配置文件。 
 >
  
-可以使用自己的证书启用 HTTPS 功能。 此过程通过与 Azure Key Vault 的集成完成，后者允许你安全地存储证书。 Azure CDN 使用此安全机制来获得你的证书，并且需要一些额外的步骤。 创建 SSL 证书时，必须使用允许的证书颁发机构 (CA) 创建。 否则，如果使用不允许的 CA，你的请求将被拒绝。 有关允许的 CA 的列表，请参阅[允许在 Azure CDN 上启用自定义 HTTPS 的证书颁发机构](cdn-troubleshoot-allowed-ca.md)。
+可以使用自己的证书启用 HTTPS 功能。 此过程通过与 Azure Key Vault 的集成完成，后者允许你安全地存储证书。 Azure CDN 使用此安全机制来获得你的证书，并且需要一些额外的步骤。 创建 SSL 证书时，必须使用允许的证书颁发机构 (CA) 创建。 否则，如果使用不允许的 CA，你的请求将被拒绝。 有关允许的 CA 的列表，请参阅[允许在 Azure CDN 上启用自定义 HTTPS 的证书颁发机构](cdn-troubleshoot-allowed-ca.md)。对于来自 Verizon 的 Azure CDN，可接受任何有效 CA。 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>准备 Azure Key Vault 帐户和证书
  

@@ -3,8 +3,7 @@ title: Azure 虚拟机网络吞吐量 | Microsoft Docs
 description: 了解 Azure 虚拟机网络吞吐量。
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689252"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153728"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>虚拟机网络带宽
 
@@ -43,6 +42,30 @@ Azure 虚拟机必须有一个（但也可能有多个）连接的网络接口�
 - **加速网络**:尽管该功能可以有助于流量达到已发布的限制，它不会更改此限制。
 - **流量目标**:所有目标都计入出站限制。
 - **协议**：所有协议的所有出站流量将计入此限制。
+
+## <a name="network-flow-limits"></a>网络流限制
+
+除了带宽，在任何给定时间在 VM 上存在网络连接数可能会影响其网络性能。 Azure 网络堆栈维护每个方向的名为流的数据结构中的 TCP/UDP 连接的状态。 典型的 TCP/UDP 连接将有 2 个流创建，另一个用于入站和出站方向的另一个。 
+
+终结点之间的数据传输，需要创建多个流，除了执行数据传输。 一些示例为创建的 DNS 解析的流和创建负载均衡器运行状况探测的流。 此外请注意，网络如网关、 代理、 防火墙和虚拟设备 (Nva) 将看到正在终止在设备和由设备发起的连接创建的流。 
+
+![通过转发设备的 TCP 会话的流数](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>流限制和建议
+
+目前，Azure 网络堆栈支持具有良好的性能 250k 个总网络流的 Vm 使用大于 8 个 CPU 内核和良好性能的 Vm 使用少于 8 个 CPU 内核的 100 k 总流。 超过此限制网络性能下降正常的最大为 1 M 硬限制的其他流的总流，50 万个入站和 500 K 出站、 后的其他流将被删除。
+
+||使用 Vm < 8 个 CPU 内核|具有 8 个 CPU 内核的 Vm|
+|---|---|---|
+|<b>良好的性能</b>|10 万个流 |250k 个流|
+|<b>性能下降</b>|上面 100k 为单位的流|上面 250k 流|
+|<b>流限制</b>|1 百万的流|1 百万的流|
+
+度量值位于[Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)用于跟踪 VM 或 VMSS 实例上的网络流和流创建速率。
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+连接建立和终止速率也会影响网络性能作为连接建立和终止共享 CPU 与数据包处理例程。 我们建议，都设为基准根据预期的流量模式和横向扩展工作负荷的工作负荷适当地以满足性能需求。 
 
 ## <a name="next-steps"></a>后续步骤
 

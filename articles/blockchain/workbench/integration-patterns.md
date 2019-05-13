@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 11e0e1436e3f640c30fec5e8d6fd9ca10adbd707
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6be1d2b1e68c52d45a42027be5f6d69cc2c25adc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867589"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509928"
 ---
 # <a name="smart-contract-integration-patterns"></a>智能合约集成模式
 

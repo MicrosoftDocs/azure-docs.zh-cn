@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725456"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471632"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>预配和管理 Azure 时序见解预览版
 
@@ -33,7 +33,7 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
 了解[如何规划环境](./time-series-insights-update-plan.md)。
 
 >[!IMPORTANT]
-> 对于预览版，请确保你使用的 Azure 存储常规用途 v1 (GPv1) 帐户。  将在不久的将来添加支持 GPv2 和更高版本。  
+> 对于预览版，请确保你使用的 Azure 存储常规用途 v1 (GPv1) 帐户。
 
 可选择将每个 Azure 时序见解预览版环境与一个事件源关联。 有关详细信息，请阅读[添加事件中心源](./time-series-insights-how-to-add-an-event-source-eventhub.md)和[添加 IoT 中心源](./time-series-insights-how-to-add-an-event-source-iothub.md)。 需要在此步骤提供一个时间戳 ID 属性和一个唯一使用者组。 这样做可确保环境能够访问相应的事件。
 
@@ -45,7 +45,7 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
 
 1. 在“SKU”菜单下选择“PAYG”按钮。 提供一个环境名称，并选择要使用的订阅组和资源组。 然后，选择一个支持的位置，以便在其中托管环境。
 
-   ![创建 Azure 时序见解实例。][1]
+   [![创建 Azure 时序见解实例。](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 1. 输入时序 ID。
 
@@ -56,7 +56,7 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
 
 1. 创建一个 Azure 存储帐户，方法是选择存储帐户名称并指定复制选项。 这样做会自动创建 Azure 存储常规用途 v1 帐户。 该帐户将在之前选择的 Azure 时序见解预览版环境所在的区域中创建。
 
-    ![为实例创建 Azure 存储帐户][5]
+    [![创建你的实例的 Azure 存储帐户](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
 
 1. 可以选择添加事件源。
 
@@ -67,11 +67,11 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
      > [!TIP]
      > 在批处理事件或历史数据上传方案中，消息排队时间可能不是要使用的最佳配置设置。 确保验证在这种情况下你是决定使用还是不使用 Timestamp 属性。
 
-     ![“事件源”选项卡][2]
+     [![事件源选项卡](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
 
 1. 确认环境是否已使用所需设置进行预配。
 
-    ![“查看 + 创建”选项卡][3]
+    [![查看 + 创建选项卡](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 ## <a name="manage-the-environment"></a>管理环境
 
@@ -88,7 +88,7 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
 
 * Azure 门户的“参考数据”边栏选项卡在 Azure 时序见解预览版中已删除，因为参考数据不是 PAYG 环境的组件。
 
-![Azure 门户中的时序见解预览版环境][4]
+[![在 Azure 门户中的时间系列 Insights 预览环境](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -97,10 +97,3 @@ Azure 时序见解预览版环境是即用即付 (PAYG) 环境。
 - 了解如何[添加事件中心源](./time-series-insights-how-to-add-an-event-source-eventhub.md)。
 
 - 配置[IoT 中心源](./time-series-insights-how-to-add-an-event-source-iothub.md)。
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG

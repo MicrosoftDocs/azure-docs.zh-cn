@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 0eec75767ab61aef9322e7475515871bdd36b5d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7346d5f40e0fe7dd4dbe892e96549f7ff181cb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572389"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511006"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 Azure Database for MySQL 支持使用安全套接字层 (SSL) 将 Azure Database for MySQL 服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -53,7 +53,7 @@ mysql> status
 ```
 通过查看输出来确认连接是否已加密，如果已加密，输出应显示为：“SSL: 使用中的密码为 AES256-SHA” 
 
-## <a name="sample-code"></a>代码示例
+## <a name="sample-code"></a>示例代码
 若要从应用程序通过 SSL 与 Azure Database for MySQL 建立安全连接，请参阅以下代码示例：
 
 ### <a name="php"></a>PHP
@@ -64,6 +64,13 @@ mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@myd
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+```
+### <a name="php-using-pdo"></a>PHP （使用 PDO）
+```phppdo
+$options = array(
+    PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+);
+$db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname=databasename', 'username@mydemoserver', 'yourpassword', $options);
 ```
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python

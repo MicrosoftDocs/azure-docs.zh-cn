@@ -2,19 +2,20 @@
 title: 将 Azure CLI 用于 Azure 存储 | Microsoft Docs
 description: 了解如何将 Azure 命令行界面 (Azure CLI) 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: rogarana
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483549"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147014"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>将 Azure CLI 用于 Azure 存储
 

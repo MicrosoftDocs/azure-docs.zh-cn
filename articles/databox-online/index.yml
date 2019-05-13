@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Data Box 文档 - 联机传输
 metadata:
-  title: Azure Data Box 文档 - 联机传输
-  description: 使用 Data Box 设备，以一种快速、廉价且可靠的方式通过网络向 Azure 进行高性能数据传输。
+  title: 介绍如何通过网络将数据传输到 Azure 的 Data Box Gateway 和 Data Box Edge 文档
+  description: 使用 Data Box Edge 和 Data Box Gateway，以一种快速、廉价且可靠的方式通过网络向 Azure 进行高性能数据传输。
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 使用 Azure Data Box 系列能够以快速、廉价且可靠的方式将数百 TB 的数据传输到 Azure。 使用 Data Box 设备进行网络高性能数据传输。<p>选择 Data Box Gateway 发送数据，以便进行云存档、灾难恢复，或者处理云规模的数据。  当数据移动到 Azure 时，使用 Data Box Edge 可对其进行筛选、分析和转换。</p><p>通过我们的教程，了解如何利用 Data Box Gateway 和 Data Box Edge 实现基于网络的传输。</p>
+  description: 使用 Azure Data Box 系列能够以快速、廉价且可靠的方式将数百 TB 的数据传输到 Azure。 使用 Data Box Edge 和 Data Box Gateway 设备进行网络高性能数据传输。<p>选择 Data Box Gateway 发送数据，以便进行云存档、灾难恢复，或者处理云规模的数据。  当数据移动到 Azure 时，使用 Data Box Edge 可对其进行筛选、分析和转换。</p><p>通过我们的教程，了解如何利用 Data Box Gateway 和 Data Box Edge 实现基于网络的传输。</p>
 sections:
   - title: 教程
     items:

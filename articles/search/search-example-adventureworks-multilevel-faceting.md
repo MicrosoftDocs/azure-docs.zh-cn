@@ -6,14 +6,14 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 05/02/2019
 ms.author: chstone
-ms.openlocfilehash: 7fa17528931be40109d81edac0f15a6a6822ec01
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e17a91a35b69102e4e0ac6025559bbc32e71d8fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291735"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024125"
 ---
 # <a name="example-multi-level-facets-in-azure-search"></a>示例：Azure 搜索中的多层分面
 

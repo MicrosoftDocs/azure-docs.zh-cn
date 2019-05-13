@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 17806abe60236a9c9face1ee16e1d9982975fff6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64734702"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509842"
 ---
 存储优化 VM 大小可提供较高的磁盘吞吐量和 IO，非常适合用于大数据、SQL 和 NoSQL 数据库、数据仓库和大型事务数据库。  示例包括 Cassandra、MongoDB、Cloudera 和 Redis。 本文介绍关于 vCPU、数据磁盘和 NIC 的数量以及每个优化大小的本地存储吞吐量和网络带宽的信息。
 
@@ -33,15 +33,15 @@ ACU：150-175
 
 高级存储：支持
 
-高级存储缓存：不支持
+高级存储缓存：不受支持
 
 | 大小          | vCPU | 内存 (GiB) | 临时磁盘<sup>1</sup> (GiB) | NVMe 磁盘<sup>2</sup> | NVMe 磁盘吞吐量<sup>3</sup>（读取 IOPS/MBps） | 非缓存的最大数据磁盘吞吐量 (IOPs/MBps)<sup>4</sup> | 最大数据磁盘 | 最大 NIC 数/预期网络带宽 (MBps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M / 8,000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M / 16,000   | 64,000/1,280 | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20,000   | 80,000/1,400 | 32 | 8 / 32,000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M / 16,000   | 64,000/1,280 | 32 | 8 / 16,600+ |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20,000   | 80,000/1,400 | 32 | 8 / 16,000+ |
 
 <sup>1</sup> Lsv2 系列 VM 具有标准的基于 SCSI 的临时资源磁盘，用于 OS 分页/交换文件的使用（对于 Windows，为 D:；对于 Linux，为 /dev/sdb）。 此磁盘为每 8 个 vCPU 提供 80 GiB 的存储空间、4000 IOPS 和 80 MBps 的传输速率（例如，Standard_L80s_v2 在 40000 IOPS 和 800 MBps 下提供 800 GiB）。 这确保 NVMe 驱动器可以完全专用于应用程序的使用。 此磁盘是临时的，停止/解除分配时将丢失所有数据。
 

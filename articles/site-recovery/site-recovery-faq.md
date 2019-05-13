@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278895"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413929"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
-本文汇总了有关 Azure Site Recovery 的常见问题。 
+本文汇总了有关 Azure Site Recovery 的常见问题。</br>
+有关特定查询上不同 ASR 方案，请参阅方案特定的常见问题解答。<br>
 
+- [Azure VM 灾难恢复到 Azure](azure-to-azure-common-questions.md)
+- [VMware VM 到 Azure 的灾难恢复](vmware-azure-common-questions.md)
+- [到 Azure 的 HYPER-V VM 灾难恢复](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>常规
 
 ### <a name="what-does-site-recovery-do"></a>站点恢复的功能是什么？

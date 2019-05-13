@@ -8,20 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/07/2019
 ms.author: wolfma
-ms.openlocfilehash: d504e3abe148f1f607d8ee359e182832ec7d19f6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c36913cb8f6625895a293c97a6a9779cc0f1d39f
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010305"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466984"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入门：在 Linux 上使用语音 SDK 通过 C++ 识别语音
 
+针对[文本转语音](quickstart-text-to-speech-cpp-linux.md)也提供了快速入门。
+
+如果需要，请切换到不同的编程语言和/或环境：<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，将创建一个适用于 Ubuntu Linux 16.04 或 18.04 的 C++ 控制台应用程序。 你将使用认知服务[语音 SDK](speech-sdk.md)，通过电脑的麦克风将语音实时转录为文本。 该应用程序是通过[适用于 Linux 的语音 SDK](https://aka.ms/csspeech/linuxbinary) 和你的 Linux 发行版的 C++ 编译器（例如 `g++`）构建的。
+在本文中，你将创建一个适用于 Linux（Ubuntu 16.04、Ubuntu 18.04、Debian 9）的 C++ 控制台应用程序。 你将使用认知服务[语音 SDK](speech-sdk.md)，通过电脑的麦克风将语音实时转录为文本。 该应用程序是通过[适用于 Linux 的语音 SDK](https://aka.ms/csspeech/linuxbinary) 和你的 Linux 发行版的 C++ 编译器（例如 `g++`）构建的。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -31,7 +34,7 @@ ms.locfileid: "59010305"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-认知服务语音 SDK 的当前版本是 `1.4.0`。
+认知服务语音 SDK 的当前版本是 `1.5.0`。
 
 适用于 Linux 的语音 SDK 可用于构建 64 位和 32 位应用程序。 可以从 https://aka.ms/csspeech/linuxbinary 以 tar 文件格式下载必需的库和头文件。
 
@@ -39,10 +42,19 @@ ms.locfileid: "59010305"
 
 1. 确保安装了 SDK 的依赖项。
 
-   ```sh
-   sudo apt-get update
-   sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-   ```
+   * 在 Ubuntu 上：
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+     ```
+
+   * 在 Debian 9 上：
+
+     ```sh
+     sudo apt-get update
+     sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+     ```
 
 1. 选择应将语音 SDK 文件提取到的目录，然后将 `SPEECHSDK_ROOT` 环境变量设置为指向该目录。 使用此变量，在将来的命令中可以轻松引用目录。 例如，如果要使用主目录中的 `speechsdk` 目录，请使用如下所示的命令：
 
@@ -91,13 +103,13 @@ ms.locfileid: "59010305"
 * 在 **x64**（64 位）系统上，运行以下命令来生成应用程序。
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libasound.so.2
   ```
 
 * 在 **x86**（32 位）系统上，运行以下命令来生成应用程序。
 
   ```sh
-  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libasound.so.2
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
 ## <a name="run-the-app"></a>运行应用

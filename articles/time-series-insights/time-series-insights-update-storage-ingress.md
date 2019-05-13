@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe6848caad7cdac98d6717b7cea4860e7ce2db8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725737"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405711"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure 时序见解预览版中的数据存储和入口
 
@@ -51,7 +51,7 @@ Parquet 是面向列的数据文件格式，旨在实现：
 
 若要更好地了解 Parquet 文件格式，请参阅 [Parquet 文档](https://parquet.apache.org/documentation/latest/)。
 
-## <a name="event-structure-in-parquet"></a>Parquet 中的事件结构
+### <a name="event-structure-in-parquet"></a>Parquet 中的事件结构
 
 时序见解使用以下两种格式创建和存储 Blob 的副本：
 
@@ -79,18 +79,18 @@ Parquet 是面向列的数据文件格式，旨在实现：
 
 ## <a name="partitions"></a>分区
 
-每个时序见解预览版环境必须有一个用于唯一标识它的“时序 ID”属性和“时间戳”属性。 时序 ID 充当数据的逻辑分区，为时序见解预览版环境提供自然边界，以便跨物理分区分布数据。 时序见解预览版在 Azure 存储帐户中管理物理分区。
+每个时间系列 Insights 预览版环境必须有**时间系列 ID**属性和一个**时间戳**唯一识别它的属性。 时序 ID 充当数据的逻辑分区，为时序见解预览版环境提供自然边界，以便跨物理分区分布数据。 时序见解预览版在 Azure 存储帐户中管理物理分区。
 
 时序见解通过删除和重新创建分区，使用动态分区来优化存储和查询性能。 时序见解预览版动态分区算法会尽量防止在单个物理分区中包含多个不同逻辑分区的数据。 换言之，分区算法专门在 Parquet 文件中保留单个时序 ID 特定的所有数据，使其不与其他时序 ID 重叠。 动态分区算法还会尽量保留单个时序 ID 中事件的原始顺序。
 
 最初在流入时，数据将按时间戳分区，因此，给定时间范围内的单个逻辑分区可以分散在多个物理分区之间。 单个物理分区中还可以包含多个或所有逻辑分区。 由于 Blob 大小有限制，即使使用最佳分区方案，单个逻辑分区也仍可能占用多个物理分区。
 
 > [!NOTE]
-> 默认情况下，“时间戳”值是配置的事件源中消息的*排队时间*。 
+> 默认情况下，“时间戳”值是配置的事件源中消息的*排队时间*。
 
 若要上传历史数据或批消息，请将要连同数据一起存储的值分配到映射至相应时间戳的“时间戳”属性。 “时间戳”属性区分大小写。 有关详细信息，请参阅[时序模型](./time-series-insights-update-tsm.md)。
 
-## <a name="physical-partitions"></a>物理分区
+### <a name="physical-partitions"></a>物理分区
 
 物理分区是存储在存储帐户中的块 Blob。 Blob 的实际大小可能不同，因为大小取决于推送速率。 但是，我们预期 Blob 大小大约为 20 MB 到 50 MB。 时序见解团队可以参考这种预期，选择 20 MB 作为大小来优化查询性能。 此大小根据文件大小和数据流入速度不断变化。
 
@@ -99,7 +99,7 @@ Parquet 是面向列的数据文件格式，旨在实现：
 > * 为了提高性能，偶尔会通过删除和重新创建将 Azure Blob 重新分区。
 > * 此外，相同的时序见解数据可以保存在两个或更多个 Blob 中。
 
-## <a name="logical-partitions"></a>逻辑分区
+### <a name="logical-partitions"></a>逻辑分区
 
 逻辑分区指物理分区内用于存储与单个分区键值关联的所有数据的分区。 时序见解预览版基于两个属性对每个 Blob 进行逻辑分区：
 
@@ -110,9 +110,9 @@ Parquet 是面向列的数据文件格式，旨在实现：
 
 必须选择适当的时序 ID，因为它是不可变的属性。 有关详细信息，请参阅[选择时序 ID](./time-series-insights-update-how-to-id.md)。
 
-## <a name="your-azure-storage-account"></a>你的 Azure 存储帐户
+## <a name="azure-storage"></a>Azure 存储
 
-### <a name="storage"></a>存储
+### <a name="your-storage-account"></a>你的存储帐户
 
 创建时序见解即用即付环境时，会创建两个资源：时序见解环境，以及用于存储数据的 Azure 存储常规用途 V1 帐户。 我们已选择将 Azure 存储常规用途 V1 用作默认资源，由于它在互操作性、价格和性能方面具有优势。 
 
@@ -132,37 +132,25 @@ Parquet 是面向列的数据文件格式，旨在实现：
 
 可通过三种常规方式访问数据：
 
-* 通过时序见解预览版资源管理器。
-* 通过时序见解预览版 API。
-* 从 Azure 存储帐户直接访问。
-
-#### <a name="from-the-time-series-insights-preview-explorer"></a>通过时序见解预览版资源管理器
-
-可以在时序见解预览版资源管理器中将数据导出为 CSV 文件。 有关详细信息，请参阅[时序见解预览版资源管理器](./time-series-insights-update-explorer.md)。
-
-#### <a name="from-the-time-series-insights-preview-apis"></a>通过时序见解预览版 API
-
-可以通过 `/getRecorded` 访问 API 终结点。 有关此 API 的详细信息，请参阅[时序查询](./time-series-insights-update-tsq.md)。
+* 从时间系列 Insights 预览版资源管理器： 可以将数据导出为 CSV 文件中的时间系列 Insights 预览版资源管理器。 有关详细信息，请参阅[时序见解预览版资源管理器](./time-series-insights-update-explorer.md)。
+* 从时序见解预览 Api: API 终结点可以到达`/getRecorded`。 有关此 API 的详细信息，请参阅[时序查询](./time-series-insights-update-tsq.md)。
+* 直接从 Azure 存储帐户 （下面）。
 
 #### <a name="from-an-azure-storage-account"></a>通过 Azure 存储帐户
 
 * 需要对用于访问时序见解数据的任何帐户拥有读取访问权限。 有关详细信息，请参阅[管理对存储帐户资源的访问权限](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources)。
-
 * 有关直接从 Azure Blob 存储读取数据的详细信息，请参阅[将数据移入和移出存储帐户](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
-
 * 从 Azure 存储帐户导出数据：
-
     * 首先确保帐户符合导出数据的必要要求。 有关详细信息，请参阅[存储导入和导出要求](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。
-
     * 若要了解从 Azure 存储帐户导出数据的其他方法，请参阅[从 Blob 导入和导出数据](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)。
 
 ### <a name="data-deletion"></a>数据删除
 
 不要删除 Blob，因为时序见解预览版在其中保留有关 Blob 的元数据。
 
-## <a name="ingress"></a>流入量
+## <a name="time-series-insights-data-ingress"></a>时间时序见解数据入口
 
-### <a name="time-series-insights-ingress-policies"></a>时序见解入口策略
+### <a name="ingress-policies"></a>入口策略
 
 时序见解预览版支持时序见解目前所支持的相同事件源和文件类型。
 
@@ -184,7 +172,7 @@ Parquet 是面向列的数据文件格式，旨在实现：
 
 > [!IMPORTANT]
 > * 在接通事件源的 60 秒内，时序见解正式版 (GA) 即可提供数据。 
-> * 在预览版中，预期需要在更长的时间后才会提供数据。 
+> * 在预览版中，预期需要在更长的时间后才会提供数据。
 > * 如果遇到很长的延迟，请务必联系我们。
 
 ### <a name="scale"></a>缩放

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292584"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506644"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>通过 Azure Active Directory 应用程序代理远程访问本地应用程序 
 
@@ -43,6 +43,8 @@ Azure AD 应用程序代理的特性：
 * 与 Active Directory 身份验证库 (ADAL) 集成的富客户端应用
 
 应用程序代理支持单一登录。 有关支持的方法的详细信息，请参阅[选择单一登录方法](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。
+
+对于让外部的远程用户访问内部资源，建议应用程序代理。 应用程序代理，将适用于 VPN 或反向代理。 这不被专为企业网络上的内部用户。  不必要地使用应用程序代理的内部用户可能会引入意外和不良性能问题。
 
 ## <a name="how-application-proxy-works"></a>应用程序代理的工作原理
 

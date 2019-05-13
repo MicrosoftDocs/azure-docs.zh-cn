@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/16/2018
-ms.openlocfilehash: c86e5faa212fb6458326e00cba02fbe2ea83c8f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/02/2019
+ms.openlocfilehash: 8a0397440e2b10bf1ad6b4f1be999888e09bad8f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850328"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148129"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -30,40 +30,35 @@ ms.locfileid: "58850328"
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 * Azure 订阅。 如果还没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-* Azure PowerShell。 有关详细信息，请参阅[Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装和配置 Azure PowerShell ）文档。
+* 已安装 PowerShell [Az 模块](https://docs.microsoft.com/powershell/azure/overview)。
 
-* SSH 客户端。 文档中的步骤使用 SSH 连接到群集。
+* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-    在 Linux、Unix 和 macOS 系统中，默认提供 `ssh` 命令。 在 Windows 10 上，使用以下方式之一安装 `ssh` 命令：
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-  * 使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)。 Cloud Shell 提供 `ssh` 命令，并且可以配置为将 Bash 或 PowerShell 用作 shell 环境。
+使用 `Connect-AzAccount` cmdlet 登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
-  * [安装适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/windows/wsl/install-win10)。 可通过 Microsoft Store 提供 `ssh` 命令获得 Linux 分发版。
+```azurepowershell-interactive
+# Login to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount
+}
 
-    > [!IMPORTANT]  
-    > 本文档中的此步骤假定正在使用上述 SSH 客户端之一。 如果正在使用不同的 SSH 客户端并遇到问题，请查阅 SSH 客户端的文档。
-    >
-    > 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
-
-## <a name="log-in-to-azure"></a>登录 Azure
-
-使用 `Login-AzAccount` cmdlet 登录到 Azure 订阅，并按照屏幕上的说明进行操作。
-
-```powershell
-Login-AzAccount
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
 ## <a name="create-resource-group"></a>创建资源组
 
 使用 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例将提示输入名称和地址，然后创建新的资源组：
 
-```powershell
-$resourceGroup = Read-Input -Prompt "Enter the resource group name"
-$location = Read-Input -Prompt "Enter the Azure region to use"
+```azurepowershell-interactive
+$resourceGroup = Read-Host -Prompt "Enter the resource group name"
+$location = Read-Host -Prompt "Enter the Azure region to use"
 
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
@@ -72,19 +67,24 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 当 Kafka on HDInsight 使用 Azure 托管磁盘存储 Kafka 数据时，该群集还使用 Azure 存储来存储信息，例如日志。 使用 [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) 创建新的存储帐户。
 
-```powershell
+> [!IMPORTANT]  
+> 存储帐户类型 `BlobStorage` 仅可用作 HDInsight 群集的辅助存储器。
+
+```azurepowershell-interactive
 $storageName = Read-Host -Prompt "Enter the storage account name"
 
 New-AzStorageAccount `
-        -ResourceGroupName $resourceGroup `
-        -Name $storageName `
-        -Type Standard_LRS `
-        -Location $location
+    -ResourceGroupName $resourceGroup `
+    -Name $storageName `
+    -Location $location `
+    -SkuName Standard_LRS `
+    -Kind StorageV2 `
+    -EnableHttpsTrafficOnly 1
 ```
 
 HDInsight 在 blob 容器中的存储帐户中存储数据。 使用 [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) 创建新容器。
 
-```powershell
+```azurepowershell-interactive
 $containerName = Read-Host -Prompt "Enter the container name"
 
 $storageKey = (Get-AzStorageAccountKey `
@@ -93,28 +93,27 @@ $storageKey = (Get-AzStorageAccountKey `
 $storageContext = New-AzStorageContext `
                     -StorageAccountName $storageName `
                     -StorageAccountKey $storageKey
-New-AzStorageContainer -Name $containerName -Context $storageContext 
+
+New-AzStorageContainer -Name $containerName -Context $storageContext
 ```
 
 ## <a name="create-an-apache-kafka-cluster"></a>创建 Apache Kafka 群集
 
 通过 [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) 创建 Apache Kafka on HDInsight 群集。
 
-```powershell
-# Create a Kafka 1.0 cluster
+```azurepowershell-interactive
+# Create a Kafka 1.1 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
-$httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
-    -UserName "admin"
-$sshCredentials = Get-Credential -Message "Enter the SSH user credentials"
+$httpCredential = Get-Credential -Message "Enter the cluster login credentials" -UserName "admin"
+$sshCredentials = Get-Credential -Message "Enter the SSH user credentials" -UserName "sshuser"
 
 $numberOfWorkerNodes = "4"
 $clusterVersion = "3.6"
 $clusterType="Kafka"
-$clusterOS="Linux"
 $disksPerNode=2
 
 $kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-$kafkaConfig.Add("kafka", "1.0")
+$kafkaConfig.Add("kafka", "1.1")
 
 New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroup `
@@ -122,7 +121,7 @@ New-AzHDInsightCluster `
         -Location $location `
         -ClusterSizeInNodes $numberOfWorkerNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
@@ -336,7 +335,7 @@ Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使�
 
 如果不再需要资源组、HDInsight 和所有相关的资源，可以使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 命令将其删除。
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697845"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140959"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-返回一个包含所有输入和输出数据的已命名对象。 例如，function.json 中的以下绑定定义允许通过 `context.bindings.myInput` 访问队列的内容和使用 `context.bindings.myOutput` 将输出分配给队列。
+返回用于读取或分配数据绑定的命名的对象。 可以通过在读取属性访问输入和触发器绑定数据`context.bindings`。 可以通过将数据添加到分配输出绑定数据 `context.bindings`
+
+例如，function.json 中的以下绑定定义允许通过 `context.bindings.myInput` 访问队列的内容和使用 `context.bindings.myOutput` 将输出分配给队列。
 
 ```json
 {
@@ -290,7 +292,7 @@ context.log.warn("Something has happened.");
 
 ## <a name="writing-trace-output-to-the-console"></a>将跟踪输出写入到控制台 
 
-在 Functions 中，可以使用 `context.log` 方法将跟踪输出写入到控制台。 在 Functions v2.x 中，使用 `console.log` 的跟踪输出在函数应用级别捕获。 这意味着来自 `console.log` 的输出不受限于特定的函数调用，因此不会显示在特定函数的日志中。 但是，它们将传播到 Application Insights。 在 Functions v1.x 中，不能使用 `console.log` 向控制台进行写入。
+在 Functions 中，可以使用 `context.log` 方法将跟踪输出写入到控制台。 在 Functions v2.x 中，使用 `console.log` 的跟踪输出在函数应用级别捕获。 这意味着，来自输出`console.log`不受限于特定函数调用，且不会显示在特定函数的日志中。 但是，它们将传播到 Application Insights。 在 Functions v1.x 中，不能使用 `console.log` 向控制台进行写入。
 
 调用 `context.log()` 时，消息会在默认跟踪级别（即_信息_跟踪级别）写入到控制台。 以下代码在信息跟踪级别向控制台进行写入：
 

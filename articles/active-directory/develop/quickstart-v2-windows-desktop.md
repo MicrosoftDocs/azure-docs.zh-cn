@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 2d263014638329c454149af8ca922c1c5c6393a5
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520746"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413837"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API
 
@@ -51,13 +51,14 @@ ms.locfileid: "59520746"
 >
 > 1. 使用工作或学校帐户或个人 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.com)。
 > 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://go.microsoft.com/fwlink/?linkid=2083908)页。
+> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://aka.ms/MobileAppReg)页。
 > 1. 选择“新注册”。
 >      - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `Win-App-calling-MsGraph`。
 >      - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户和个人 Microsoft 帐户(例如 Skype、Xbox、Outlook.com)”。
 >      - 选择“注册”以创建应用程序。
 > 1. 在应用的页面列表中，选择“身份验证”。
-> 1. 在“重定向 URI”部分，找到“建议用于公共客户端(移动、桌面)的重定向 URI”部分，然后选择“urn:ietf:wg:oauth:2.0:oob”。
+> 1. 展开“桌面 + 设备”部分。  （如果“桌面 + 设备”不可见，首先请单击顶部的横幅，以便查看预览版身份验证体验）
+> 1. 在“重定向 URI”部分下选择“添加 URI”。  键入 **urn:ietf:wg:oauth:2.0:oob**。
 > 1. 选择“保存”。
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -71,7 +72,7 @@ ms.locfileid: "59520746"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步骤 2：下载 Visual Studio 项目
 
-[下载 Visual Studio 2017 项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
 

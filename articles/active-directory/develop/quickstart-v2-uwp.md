@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c45cd1627eb1eb98b2fc19f6663d5635b001ce0c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997591"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067790"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入门：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
@@ -51,14 +51,15 @@ ms.locfileid: "59997591"
 > 若要注册应用程序并将应用的注册信息添加到解决方案，请执行以下步骤：
 > 1. 使用工作或学校帐户或个人 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.com)。
 > 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://go.microsoft.com/fwlink/?linkid=2083908)页。
+> 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://aka.ms/MobileAppReg)页。
 > 1. 选择“新注册”。
 > 1. 出现“注册应用程序”页后，请输入应用程序的注册信息：
 >      - 在“名称”部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `UWP-App-calling-MsGraph`。
 >      - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户和个人 Microsoft 帐户(例如 Skype、Xbox、Outlook.com)”。
 >      - 选择“注册”以创建应用程序。
 > 1. 在应用的页面列表中，选择“身份验证”。
-> 1. 在“重定向 URL”部分，找到“建议用于公共客户端(移动、桌面)的重定向 URI”部分，然后选择“urn:ietf:wg:oauth:2.0:oob”。
+> 1. 展开“桌面 + 设备”部分。  （如果“桌面 + 设备”不可见，首先请单击顶部的横幅，以便查看预览版身份验证体验）
+> 1. 在“重定向 URI”部分下选择“添加 URI”。  键入 **urn:ietf:wg:oauth:2.0:oob**。
 > 1. 选择“保存”。
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]

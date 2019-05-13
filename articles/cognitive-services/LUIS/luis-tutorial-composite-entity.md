@@ -11,17 +11,17 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cedec4937da276a4848498ad29a723f6e41ba3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60495772"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073703"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教程：对相关的数据进行分组和提取
 在本教程中，添加复合实体来将提取的各种类型的数据捆绑到单个内含实体中。 通过捆绑数据，客户端应用程序可以轻松提取各种数据类型的相关数据。
 
-复合实体的目的是将相关实体分组为父类别实体。 在创建复合实体之前，这些现有信息都是单独的实体。 它类似于分层实体，但可以包含各种类型的实体。 
+复合实体的目的是将相关实体分组为父类别实体。 在创建复合实体之前，这些现有信息都是单独的实体。 
 
 复合实体非常适合此类数据，因为此类数据：
 

@@ -93,7 +93,7 @@ Google BigQuery 链接服务支持以下属性。
 
 | 属性 | 说明 | 需要 |
 |:--- |:--- |:--- |
-| 电子邮件 | 用于 ServiceAuthentication 的服务帐户电子邮件 ID。 它只能在自承载集成运行时上使用。  | 否 |
+| email | 用于 ServiceAuthentication 的服务帐户电子邮件 ID。 它只能在自承载集成运行时上使用。  | 否 |
 | keyFilePath | .p12 密钥文件的完整路径，该文件用于对服务帐户电子邮件地址进行身份验证。 | 否 |
 | trustedCertPath | 包含受信任 CA 证书（通过 SSL 进行连接时用于验证服务器）的 .pem 文件的完整路径。 仅当在自承载集成运行时上使用 SSL 时，才能设置此属性。 默认值是随集成运行时一起安装的 cacerts.pem 文件。  | 否 |
 | useSystemTrustStore | 指定是使用系统信任存储中的 CA 证书还是使用指定 .pem 文件中的 CA 证书。 默认值为 **false**。  | 否 |

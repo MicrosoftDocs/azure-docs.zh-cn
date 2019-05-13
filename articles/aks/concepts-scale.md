@@ -2,18 +2,17 @@
 title: 概念 - 在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 description: 了解 Azure Kubernetes 服务 (AKS) 中的缩放，包括水平 Pod 自动缩放程序、群集自动缩放程序和 Azure 容器实例连接器。
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466919"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074041"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序缩放选项
 
@@ -57,6 +56,8 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 ![Kubernetes 群集自动缩放程序](media/concepts-scale/cluster-autoscaler.png)
 
 群集自动缩放程序通常与水平 Pod 自动缩放程序配合使用。 当两者组合在一起时，水平 Pod 自动缩放程序会根据应用程序需求增加或减少 Pod 数量，群集自动缩放程序会根据需要调整节点数以相应地运行额外的 Pod。
+
+群集自动缩放程序只应在单个节点池与 AKS 群集上的预览版中进行测试。
 
 若要开始使用 AKS 中的群集自动缩放程序，请参阅 [AKS 上的群集自动缩放程序][aks-cluster-autoscaler]。
 

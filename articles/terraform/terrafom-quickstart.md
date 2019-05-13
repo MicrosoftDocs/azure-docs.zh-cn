@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 6c858514c29a040539516f42e024f1633c2512a7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3905296fca4285ce5b75cfb210d125f667428bfe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776524"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724382"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>创建适用于 Azure 的 Terraform 配置
 
@@ -112,7 +112,7 @@ resource "azurerm_container_group" "vote-aci" {
     image  = "microsoft/azure-vote-front:cosmosdb"
     cpu    = "0.5"
     memory = "1.5"
-    ports  = {
+    ports {
       port     = 80
       protocol = "TCP"
     }

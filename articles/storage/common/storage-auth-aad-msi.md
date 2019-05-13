@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9209161f9c9e34320b1388e0e1edbd5069e73727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4245c44ceaf907512187d7db4a9d6f087a855f70
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438284"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507893"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>对 blob 和队列与 Azure Active Directory 和管理的标识访问 Azure 资源进行身份验证
 
@@ -47,7 +48,7 @@ Azure Blob 和队列存储支持使用 [Azure 资源的托管标识](../../activ
 
 应用身份验证客户端库会自动管理身份验证。 库将使用开发人员的凭据进行身份验证在本地开发过程。 在本地开发期间使用开发人员凭据更安全，因为不需创建 Azure AD 凭据，或者不需在开发人员之间共享凭据。 当解决方案更高版本部署到 Azure 时，库会自动切换到使用应用程序凭据。
 
-若要使用 Azure 存储应用程序中的应用程序身份验证库，请安装最新的预览包从[Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication))，以及最新版本[适用于.NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)。 添加以下**使用**语句至代码：
+若要使用 Azure 存储应用程序中的应用程序身份验证库，请安装最新的预览包从[Nuget](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)，以及最新版本[适用于.NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)。 添加以下**使用**语句至代码：
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373487"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541794"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入门：创建使用 QnA Maker API 服务门户的知识库
 
@@ -50,7 +50,7 @@ QnA Maker API 服务门户轻松创建一个知识库时添加现有数据源。
     - 上传你希望提取的数据的文件。 若要了解能添加的文档数量，请参阅[定价信息](https://aka.ms/qnamaker-pricing)。
     - 如果希望手动添加 QnA，则可以跳过上图中显示的**步骤 4**。
 
-1. 向知识库中添加**聊天内容**。 通过选择 3 个性格之一，选择为你的机器人添加聊天内容支持。 
+1. 向知识库中添加**聊天内容**。 选择通过从个性之一中选择添加对智能机器人，chit 聊天支持。 
 
     ![向 KB 添加聊天内容](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

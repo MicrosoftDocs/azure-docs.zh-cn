@@ -1,20 +1,18 @@
 ---
 title: 使用 Azure 备份来取代磁带基础结构
 description: 了解 Azure 备份如何提供类似于磁带的语义，让你在 Azure 中备份和还原数据
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646894"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146023"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -59,8 +57,7 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 恢复点总数为 56。
 
 > [!NOTE]
-> Azure 备份对恢复点的数量没有限制。
->
+> 使用 Azure 备份可以创建每个受保护实例的 9999 最多个恢复点。 受保护的实例包括计算机、服务器（物理或虚拟）或备份到 Azure 的工作负载。
 >
 
 ## <a name="advanced-configuration"></a>高级配置

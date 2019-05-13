@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2a632ef79c0e9bb925689456d682e7f22504806b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 66051bd0f8be349f748c72218d538bba273be8f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147268"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>访问 Azure blob 和队列使用 Azure Active Directory 进行身份验证
 

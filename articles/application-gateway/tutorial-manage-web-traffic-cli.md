@@ -1,44 +1,41 @@
 ---
-title: 教程 - 管理 Web 流量 - Azure CLI
+title: 管理 Web 流量 - Azure CLI
 description: 了解如何通过 Azure CLI 使用虚拟机规模集创建应用程序网关以管理 Web 流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 264e1050e74c64c003e08bc6a8ba1c115b83032c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: d60c756fcf0b527731b8a1f31a8d93f108c91665
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749064"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146231"
 ---
-# <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>教程：通过 Azure CLI 使用应用程序网关管理 Web 流量
+# <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>通过 Azure CLI 使用应用程序网关管理 Web 流量
 
-应用程序网关用于管理和保护传入你维护的服务器的 Web 流量。 可以使用 Azure CLI 创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](overview.md)以管理 Web 流量。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。
+应用程序网关用于管理和保护传入你维护的服务器的 Web 流量。 可以使用 Azure CLI 创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](overview.md)。 在此示例中，规模集包含两个虚拟机实例。 规模集将添加到应用程序网关的默认后端池。
 
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 设置网络
 > * 创建应用程序网关
 > * 使用默认后端池创建虚拟机规模集
 
-如果需要，可以使用 [Azure PowerShell](tutorial-manage-web-traffic-powershell.md) 完成本教程中的步骤。
+如果需要，可以使用 [Azure PowerShell](tutorial-manage-web-traffic-powershell.md) 完成此过程。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.4 或更高版本。 要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/azure/group#az-group-create) 创建资源组。 
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/azure/group#az-group-create) 创建资源组。
 
 以下示例在 eastus 位置创建名为 myResourceGroupAG 的资源组。
 
@@ -90,7 +87,7 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress
 ```
 
- 创建应用程序网关可能需要几分钟时间。 创建应用程序网关后，将看到以下新功能：
+ 创建应用程序网关可能需要几分钟时间。 创建应用程序网关后，会看到以下新功能：
 
 - *appGatewayBackendPool* - 应用程序网关必须至少具有一个后端地址池。
 - *appGatewayBackendHttpSettings* - 指定将端口 80 和 HTTP 协议用于通信。
@@ -136,7 +133,7 @@ az vmss extension set \
 
 若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/azure/network/public-ip)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -156,12 +153,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
-
-> [!div class="checklist"]
-> * 设置网络
-> * 创建应用程序网关
-> * 使用默认后端池创建虚拟机规模集
-
-> [!div class="nextstepaction"]
-> [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-cli.md)
+[使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-cli.md)

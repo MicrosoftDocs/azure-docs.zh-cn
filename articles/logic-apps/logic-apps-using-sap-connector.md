@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120143"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136732"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 SAP 系统
 
-本文介绍如何使用 SAP ERP Central Component (ECC) 连接器在逻辑应用内部访问本地 SAP 资源。 连接器适用于 ECC 和 S/4 HANA 系统的本地。 SAP ECC 连接器支持通过中间文档 (IDoc)、业务应用程序编程接口 (BAPI) 或远程函数调用 (RFC) 来与基于 SAP Netweaver 的系统相互进行消息或数据集成。
+本文介绍如何通过使用 SAP 连接器来访问你的本地 SAP 内部的资源从逻辑应用。 连接器适用于 SAP 的传统释放此类 R/3 ECC 系统本地。 连接器还使集成与 SAP 的较新基于 HANA SAP 系统，例如 S/4 HANA，无论它们托管-在本地或云中。
+SAP 连接器支持在基于 SAP Netweaver 的系统通过中间文档 (IDoc) 或业务应用程序编程接口 (BAPI) 或远程函数调用 (RFC) 的消息或数据集成。
 
-SAP ECC 连接器使用<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET 连接器 (NCo) 库</a>，并提供了这些操作:
+使用 SAP 连接器<a href="https://support.sap.com/en/product/connectors/msnet.html">SAP.NET 连接器 (NCo) 库</a>，并提供了这些操作:
 
 - **发送到 SAP**：在 SAP 系统中通过 tRFC 发送 IDoc 或调用 BAPI 函数。
 - **从 SAP 接收**：通过 tRFC 从 SAP 系统接收 IDoc 或 BAPI 函数调用。
 - **生成架构**：为 IDoc、BAPI 或 RFC 生成 SAP 项目的架构。
 
+对于上述的所有操作，SAP 连接器支持通过用户名和密码进行基本身份验证。 连接器还支持<a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true">安全网络通信 (SNC)</a>，这可以用于为 SAP Netweaver 单一登录或提供的外部安全产品的其他安全功能。 
+
 SAP 连接器通过[本地数据网关](https://www.microsoft.com/download/details.aspx?id=53127)与本地 SAP 系统集成。 例如，在“发送”方案中，如果将消息从逻辑应用发送到 SAP 系统，则数据网关将充当 RFC 客户端，将从逻辑应用收到的请求转发到 SAP。
 同理，在“接收”方案中，数据网关充当 RFC 服务器，从 SAP 接收请求并将其转发到逻辑应用。 
 
 本文介绍如何创建与 SAP 集成的示例逻辑应用，并阐述以前已介绍过的集成方案。
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>必备组件
 
@@ -43,6 +48,12 @@ SAP 连接器通过[本地数据网关](https://www.microsoft.com/download/detai
 * <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP 应用程序服务器</a>或 <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP 消息服务器</a>
 
 * 在任何本地计算机上下载并安装最新的[本地数据网关](https://www.microsoft.com/download/details.aspx?id=53127)。 在继续操作之前，请确保在 Azure 门户中设置网关。 网关有助于安全访问数据，资源位于本地。 有关详细信息，请参阅[为 Azure 逻辑应用安装本地数据网关](../logic-apps/logic-apps-gateway-install.md)。
+
+* 如果你正在使用 SNC 与单一登录 (SSO)，请确保网关正在作为针对 SAP 用户映射的用户。 若要更改默认帐户，请选择**更改帐户**并输入用户凭据。
+
+   ![更改网关帐户](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* 如果要使用外部安全产品启用 SNC，复制 SNC 库或同一台计算机上安装网关的文件。 SNC 产品的一些示例包括<a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>，Kerberos、 NTLM，依次类推。
 
 * 在本地数据网关所安装到的同一台计算机上，下载并安装最新的 SAP 客户端库，目前为<a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">适用于 Microsoft .NET Framework 4.0 和 Windows 64 位 (x64) 的 SAP 连接器 (NCo) 3.0.21.0</a>。 安装此版本或更高版本的原因是：
 
@@ -114,7 +125,7 @@ SAP 连接器通过[本地数据网关](https://www.microsoft.com/download/detai
       如果“登录类型”属性设置为“组”，则必须指定以下属性（通常显示为可选）： 
 
       ![创建 SAP 消息服务器连接](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. 完成后，选择“创建”。 
    
       逻辑应用会设置并测试连接，确保连接正常工作。
@@ -375,23 +386,45 @@ SAP 连接器通过[本地数据网关](https://www.microsoft.com/download/detai
 
 2. 成功运行后，转到集成帐户，并检查生成的架构是否存在。
 
+## <a name="enable-secure-network-communications-snc"></a>启用安全的网络通信 (SNC)
+
+在开始之前，请确保你已满足之前列出[先决条件](#pre-reqs):
+
+* SAP 系统与位于同一网络中的计算机上安装本地数据网关。
+
+* 为实现单一登录，映射到 SAP 用户的用户身份运行的网关。
+
+* SNC 库，提供其他安全功能的已安装数据网关所在的同一计算机上。 其中的示例包括<a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>，Kerberos、 NTLM，依次类推。
+
+若要启用 SNC 进行请求与 SAP 系统，请选择**使用 SNC** SAP 连接中的复选框，并提供这些属性：
+
+   ![在连接中配置 SAP SNC](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | 属性   | 描述 |
+   |------------| ------------|
+   | **SNC 库** | SNC 库名称或 NCo 安装位置的相对路径或绝对路径。 作为示例 sapsnc.dll 或.\security\sapsnc.dll 或 c:\security\sapsnc.dll  | 
+   | **SNC SSO** | 连接时通过 SNC，SNC 标识通常用于进行身份验证调用方。 另一个选项是重写，以便用户/密码信息可用于进行身份验证调用方，但仍加密行。|
+   | **SNC 我的名称** | 在大多数情况下，才能省略这。 已安装的 SNC 解决方案通常知道自己 SNC 的名称。 仅对支持"多个标识"的解决方案，您可能需要指定要用于此特定的目标/服务器的标识 |
+   | **SNC 合作伙伴名称** | 后端的 SNC 名称 |
+   | **SNC 质量的保护** | 要用于此特定目标/服务器的 SNC 通信的服务质量。 默认值是由后端系统定义的。 最大值定义的安全产品使用 SNC |
+   |||
+
+   > [!NOTE]
+   > SNC_LIB 和 SNC_LIB_64 环境变量不应设置在计算机上有数据网关和 SNC 库的位置。 如果设置，它们将优先于传递通过连接器的 SNC 库值。
+   >
+
 ## <a name="known-issues-and-limitations"></a>已知问题和限制
 
 下面是 SAP 连接器目前存在的已知问题和限制：
+
+* tRFC 仅支持发出单个“发送到 SAP”调用或消息。 不支持业务应用程序编程接口 (BAPI) 提交模式，例如，在同一会话中发出多个 tRFC 调用。
 
 * SAP 触发器不支持从 SAP 接收批处理 IDOC。 此操作可能导致 SAP 系统与数据网关之间的 RFC 连接失败。
 
 * SAP 触发器不支持数据网关群集。 在某些故障转移案例中，与 SAP 系统通信的数据网关节点可能不同于主动节点，从而导致意外的行为。 对于“发送”方案，支持使用数据网关群集。
 
-* 在“接收”方案中，不支持返回非 null 响应。 包含触发器和响应操作的逻辑应用会导致意外行为。 
-
-* tRFC 仅支持发出单个“发送到 SAP”调用或消息。 不支持业务应用程序编程接口 (BAPI) 提交模式，例如，在同一会话中发出多个 tRFC 调用。
-
-* “发送到 SAP”和“生成架构”操作都不支持包含附件的 RFC。
-
 * SAP 连接器目前不支持 SAP 路由器字符串。 本地数据网关必须位于要连接的 SAP 系统所在的同一 LAN 中。
 
-* 将来对本地数据网关进行更新后，DATS 以及 TIMS SAP 字段的缺失 (null) 值、空值、最小值和最大值的转换方式可能会发生变化。
 
 ## <a name="get-support"></a>获取支持
 

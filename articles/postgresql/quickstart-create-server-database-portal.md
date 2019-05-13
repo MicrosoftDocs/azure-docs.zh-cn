@@ -1,18 +1,18 @@
 ---
-title: 快速入门 - 使用 Azure 门户创建 Azure Database for PostgreSQL 服务器
-description: 有关使用 Azure 门户用户界面创建和管理用于 PostgreSQL 的 Azure 数据库服务器的快速入门指南。
+title: 快速入门 - 使用 Azure 门户创建 Azure Database for PostgreSQL - 单一服务器
+description: 使用 Azure 门户用户界面创建和管理 Azure Database for PostgreSQL - 单一服务器的快速入门指南。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.date: 05/06/2019
+ms.openlocfilehash: af1918b24afafce076f6d1efa5fd00b6df1ac537
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524202"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073235"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建用于 PostgreSQL 的 Azure 数据库服务器
 
@@ -32,23 +32,27 @@ ms.locfileid: "59524202"
 
 2. 选择“数据库” > “用于 PostgreSQL 的 Azure 数据库”。
 
-    ![“用于 PostgreSQL 的 Azure 数据库”选项](./media/quickstart-create-database-portal/1-create-database.png)
+    ![菜单中的“Azure Database for PostgreSQL”](./media/quickstart-create-database-portal/1-create-database.png)
 
-3. 使用以下信息填写“新服务器详细信息”窗体：
+3. 选择“单个服务器”部署选项。
 
-    ![创建服务器](./media/quickstart-create-database-portal/3-create.png)
+   ![选择 Azure Database for PostgreSQL - 单个服务器部署选项](./media/quickstart-create-database-portal/select-deployment-option.png)
+
+4. 填写“基本”表单，其中包含以下信息：
+
+    ![创建服务器](./media/quickstart-create-database-portal/create-basics.png)
 
     设置|建议的值|说明
     ---|---|---
-    服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.azure.com* 附加到提供的服务器名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 该名称必须至少包含 3 到 63 个字符。
     订阅|订阅名称|要用于服务器的 Azure 订阅。 如果有多个订阅，请选择要计费的资源所在的订阅。
     资源组|myresourcegroup| 新的资源组名称，或订阅中的现有资源组。
-    选择源 | *空白* | 选择“空白”可从头开始创建新服务器。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”）。
-    服务器管理员登录名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
+    服务器名称 |*mydemoserver*|用于标识用于 PostgreSQL 的 Azure 数据库服务器的唯一名称。 域名 *postgres.database.azure.com* 附加到提供的服务器名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 该名称必须至少包含 3 到 63 个字符。
+    数据源 | 无 | 选择“无”，从头开始创建新的服务器。 （如果是从现有 Azure Database for PostgreSQL 服务器的异地备份创建服务器，则会选择“备份”）。
+    管理员用户名 |*myadmin*| 连接到服务器时使用的自己的登录帐户。 管理员登录名不能是 **azure_superuser**、**azure_pg_admin**、**admin**、**administrator**、**root**、**guest** 或 **public**， 不能以 **pg_** 开头。
     密码 |你的密码| 服务器管理员帐户的新密码。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0 到 9)和非字母数字字符（!, $, #, % 等）。
     位置|离用户最近的区域| 最靠近用户的位置。
     版本|最新主版本| 除非另有特定的要求，否则为最新 PostgreSQL 主版本。
-    定价层 | **常规用途**、**第 5 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“定价层”。 接下来，选择“常规用途”选项卡。“第 5 代”、“2 个 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。 可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从**备份冗余选项**中选择“异地冗余”。 若要保存此定价层选择，请选择“确定”。 下一个屏幕截图捕获了这些选择。
+    计算 + 存储 | **常规用途**、**第 5 代**、**2 个 vCore**、**5 GB**、**7 天**、**异地冗余** | 新服务器的计算、存储和备份配置。 选择“配置服务器”。 接下来，选择“常规用途”选项卡。“第 5 代”、“4 个 vCore”、“100 GB”和“7 天”分别是“计算代系”、“vCore”、“存储”和“备份保持期”的默认值。 可以按原样保留这些滑块，也可以对其进行调整。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”中选择“异地冗余”。 若要保存此定价层选择，请选择“确定”。 下一个屏幕截图捕获了这些选择。
 
    > [!NOTE]
    > 如果轻量级计算和 I/O 足以满足工作负荷要求，请考虑使用“基本”定价层。 请注意，在“基本”定价层中创建的服务器以后不能扩展到“常规用途”或“内存优化”定价层。 有关详细信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/postgresql/)。
@@ -56,9 +60,9 @@ ms.locfileid: "59524202"
 
     ![“定价层”窗格](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-4. 选择“创建”以预配服务器。 此操作可能需要几分钟的时间。
+5. 选择“查看 + 创建”，查看所选内容。 选择“创建”以预配服务器。 此操作可能需要几分钟的时间。
 
-5. 在工具栏上选择“通知”图标（铃铛）以监视部署过程。 完成部署后，可以选择“固定到仪表板”，以便在 Azure 门户仪表板上为此服务器创建磁贴作为到此服务器“概述”页的快捷方式。 选择“转到资源”可打开此服务器的“概述”页。
+6. 在工具栏上选择“通知”图标（铃铛）以监视部署过程。 完成部署后，可以选择“固定到仪表板”，以便在 Azure 门户仪表板上为此服务器创建磁贴作为到此服务器“概述”页的快捷方式。 选择“转到资源”可打开此服务器的“概述”页。
 
     ![“通知”窗格](./media/quickstart-create-database-portal/3-notifications.png)
    

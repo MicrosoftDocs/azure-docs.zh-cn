@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: 准备和连接 Windows IoT Core 设备
           href: howto-connect-windowsiotcore.md
+        - name: 准备和连接 SensorTile.box 设备
+          href: howto-connect-sensortile.md
         - name: 使用命令行监视设备连接
           href: howto-use-iotc-explorer.md
     - name: 管理设备
@@ -97,6 +99,10 @@
           href: howto-administer.md
         - name: 准备和上传图像
           href: howto-prepare-images.md
+        - name: 配置应用程序仪表板
+          href: howto-configure-homepage.md
+        - name: 自定义应用程序 UI
+          href: howto-customize-ui.md
         - name: 从 Azure 门户进行管理
           href: howto-manage-iot-central-from-portal.md
         - name: 从 Azure CLI 进行管理
@@ -104,15 +110,15 @@
         - name: 从 Azure PowerShell 进行管理
           href: howto-manage-iot-central-from-powershell.md
         - name: 以 CSP 身份创建和管理应用程序
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: 配置应用程序仪表板
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: 个性化
       items:
         - name: 创建个人仪表板
           href: howto-personalize-dashboard.md
         - name: 管理首选项
           href: howto-manage-preferences.md
+        - name: 切换实时聊天
+          href: howto-show-hide-chat.md
 - name: 相关内容
   items:
     - name: 解决方案

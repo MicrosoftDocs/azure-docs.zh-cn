@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: cb5676b2609ffb16dd1ef5454ee443bc69fab782
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 60f677c994eb3a30f9dcfb4c341a242b46960c94
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182313"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916612"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>快速入门：使用文本翻译 API 通过 Go 来检测文本语言
 
@@ -164,7 +164,7 @@ go run detect-language.go
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 ```json
 [

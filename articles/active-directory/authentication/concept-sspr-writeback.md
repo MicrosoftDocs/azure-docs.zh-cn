@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190730"
 ---
 # <a name="what-is-password-writeback"></a>什么是密码写回？
 
@@ -165,6 +165,9 @@ ms.locfileid: "64694844"
 * **不支持的管理员操作**
    * 任何管理员通过 [Office 管理门户](https://portal.office.com)发起的任何最终用户密码重置操作
    * 任何管理员发起的最终用户密码重置操作（使用 PowerShell 版本 1、版本 2 或 Azure AD 图形 API）
+
+> [!WARNING]
+> 不支持使用复选框的"用户必须更改密码在下次登录时"等 Active Directory 用户和计算机或 Active Directory 管理中心内的本地 Active Directory 管理工具中。 更改密码时在本地不会检查此选项。 
 
 ## <a name="next-steps"></a>后续步骤
 

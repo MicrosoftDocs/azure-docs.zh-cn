@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910374"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143466"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 安全中心的自适应应用程序控制
 了解如何通过本演练在 Azure 安全中心配置应用程序控制。
@@ -154,6 +154,22 @@ ms.locfileid: "60910374"
 
 Azure 安全中心还可以在非推荐的 VM 组上定义应用程序允许列表策略。 遵循与前述相同的原则，在这些组上配置应用程序允许列表策略。
 
+## <a name="move-a-vm-from-one-group-to-another"></a>将 VM 从一个组移到另一个
+
+ 当 VM 从一个组移到另一个中时，应用于它的应用程序控制策略更改为组设置，您将其移动到。 此外可以从配置的组移动 VM，到非配置组，这会导致删除任何之前应用到 VM 的应用程序控制策略。
+
+ 1. 从**自适应应用程序控件**页上，从**配置**选项卡上，单击要移动当前 VM 所属的组。
+1. 单击**配置的 Vm 和计算机**。
+1. 单击 VM，然后单击的行中的三点式**移动**。 **移动到不同的组的计算机**窗口随即打开。
+
+    ![保护](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. 选择要移动到，VM，然后单击的组**移动计算机**，然后单击**保存**。
+
+    ![保护](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> 请务必单击**保存**单击后**移动计算机**。 如果不单击**保存**，则不会移动计算机。
 
 ## <a name="next-steps"></a>后续步骤
 在本文档中，您学习了如何在 Azure 和非 Azure Vm 中运行的白名单应用程序在 Azure 安全中心中使用自适应应用程序控制。 若要了解更多有关 Azure 安全中心的详细信息，请参阅以下内容：

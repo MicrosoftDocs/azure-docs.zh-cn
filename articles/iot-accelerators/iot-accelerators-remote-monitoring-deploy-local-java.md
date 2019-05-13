@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450749"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412721"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>在本地部署远程监视解决方案加速器 - IntelliJ
 
@@ -27,7 +27,7 @@ ms.locfileid: "61450749"
 
 若要部署远程监视解决方案加速器使用的 Azure 服务，需要一个有效的 Azure 订阅。
 
-如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅 [Azure 免费试用](https://azure.microsoft.com/pricing/free-trial/)。
+如果没有帐户，只需花费几分钟就能创建一个免费试用帐户。 有关详细信息，请参阅[Azure 免费试用版](https://azure.microsoft.com/pricing/free-trial/)。
 
 ### <a name="machine-setup"></a>计算机设置
 
@@ -100,9 +100,9 @@ ms.locfileid: "61450749"
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-作为示例，下图显示了如何添加服务的配置：
+例如下, 图显示添加的服务配置：
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>创建复合配置
@@ -111,14 +111,11 @@ ms.locfileid: "61450749"
 1. 输入**名称**并**添加 sbt 任务**
 1. 单击“应用”>“确定”以保存你的选择。
 
-作为示例，下图显示了如何将所有 sbt 任务添加到单个配置中：
+例如下, 图显示了将所有 sbt 任务都添加到单个配置：
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. 单击“运行”，以在本地计算机上生成并运行 Web 服务。
+单击“运行”，以在本地计算机上生成并运行 Web 服务。
 
 每个 Web 服务将打开一个命令提示符和 Web 浏览器窗口。 在命令提示符下，查看正在运行的服务的输出；在浏览器窗口中可以监视状态。 请不要关闭命令提示符或网页，此操作会停止 Web 服务。
 
@@ -135,7 +132,7 @@ ms.locfileid: "61450749"
 遵循以下步骤启动流分析作业：
 
 1. 导航到 [Azure 门户](https://portal.azure.com)。
-1. 导航到为解决方案创建的**资源组**。 该资源组的名称是在运行 **start.cmd** 脚本时为解决方案选择的名称**。
+1. 导航到为解决方案创建的**资源组**。 该资源组的名称是在运行 **start.cmd** 脚本时为解决方案选择的名称。
 1. 在资源列表中单击“流分析作业”。
 1. 在流分析作业的“概述”页上，单击“启动”按钮。 然后单击“启动”以立即启动该作业。
 

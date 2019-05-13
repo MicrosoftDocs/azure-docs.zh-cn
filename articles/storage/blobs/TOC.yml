@@ -13,9 +13,6 @@
           href: storage-blobs-introduction.md
     - name: 快速入门
       items:
-        - name: 创建存储帐户
-          displayName: 'resource manager, resource manager template, template, ARM'
-          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 在不使用代码的情况下管理 Blob
           items:
             - name: Azure 门户
@@ -80,6 +77,8 @@
               href: storage-create-geo-redundant-storage.md
             - name: 2 - 模拟 RA-GRS 存储故障
               href: storage-simulate-failure-ragrs-account-app.md
+        - name: 使用 Azure Key Vault 加密和解密 Blob
+          href: storage-encrypt-decrypt-blobs-key-vault.md
         - name: 搜索非结构化数据
           href: storage-unstructured-search.md
     - name: 示例
@@ -98,6 +97,10 @@
           href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 安全
           items:
+            - name: 安全概述
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 存储服务加密
+              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 授权
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
@@ -109,24 +112,10 @@
                   href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 匿名访问 Blob
                   href: storage-manage-access-to-resources.md
-            - name: 安全指南
-              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 配置防火墙和虚拟网络
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 静态数据加密
-              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 使用客户密钥进行静态加密
-              href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 使用 Azure CDN 通过 HTTPs 访问包含自定义域的 Blob
-              href: storage-https-custom-domain-cdn.md
             - name: 不可变 blob
               href: storage-blob-immutable-storage.md
             - name: 高级威胁防护
               href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 为 Azure 存储客户端启用安全 TLS
-              href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 需要安全传输
-              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure 的常见安全属性
               href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 数据冗余
@@ -288,15 +277,18 @@
           href: storage-blob-pageblob-overview.md
     - name: 如何
       items:
-        - name: 存储帐户
+        - name: 创建和管理存储帐户
           items:
+            - name: 创建常规用途存储帐户
+              displayName: 'resource manager, resource manager template, template, ARM'
+              href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 创建块 Blob 存储帐户
               href: storage-blob-create-account-block-blob.md
             - name: 管理存储帐户
               href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 升级存储帐户
               href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 安全
+        - name: 保护 Blob 数据
           items:
             - name: 授予对 Blob 数据的访问权限
               items:
@@ -304,16 +296,16 @@
                   items:
                     - name: 门户
                       href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI 或 PowerShell
+                    - name: PowerShell 或 Azure CLI
                       href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 使用 RBAC 管理访问权限
                   items:
                     - name: 门户
                       href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: CLI
-                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: PowerShell
                       href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: Azure CLI
+                      href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: 使用 Azure AD 进行身份验证
                   items:
                     - name: 使用托管标识进行身份验证
@@ -323,14 +315,18 @@
                 - name: 通过共享密钥进行授权
                   items:
                     - name: 配置连接字符串
-                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 使用 Azure 存储 REST API
                       href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 配置防火墙和虚拟网络
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: 使用 Azure Key Vault 加密和解密 Blob
-              href: storage-encrypt-decrypt-blobs-key-vault.md
-            - name: 客户端加密
+            - name: 配置客户管理的密钥以进行服务加密
+              items:
+                - name: 门户
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 配置客户端加密
               items:
                 - name: .NET
                   href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -338,10 +334,14 @@
                   href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Python
                   href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 为 Azure 存储客户端启用安全 TLS
-              href: ../common/storage-security-tls.md
-            - name: 需要安全传输
-              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: 配置网络安全
+              items:
+                - name: 配置防火墙和虚拟网络
+                  href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 需要安全传输
+                  href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 启用传输层安全性
+                  href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 灾难恢复
           items:
             - name: 启动帐户故障转移
@@ -354,6 +354,8 @@
           href: storage-properties-metadata.md
         - name: 托管静态网站
           href: storage-blob-static-website.md
+        - name: 将 Azure CDN 映射到自定义域，以便通过 HTTPS 进行访问
+          href: storage-https-custom-domain-cdn.md
         - name: 配置自定义域
           href: storage-custom-domain-name.md
         - name: 将事件路由到自定义终结点
@@ -411,7 +413,7 @@
             - name: Blob、队列、表和文件
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
             - name: 数据移动
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
             - name: 资源管理器
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
@@ -486,7 +488,7 @@
                 - name: Blob、队列、表和文件
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
                 - name: 数据移动
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
                 - name: 资源管理器
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
             - name: Java
@@ -557,12 +559,12 @@
           href: data-lake-storage-best-practices.md
         - name: 安全
           items:
-            - name: 大数据分析安全指南
-              href: ../common/storage-data-lake-storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Azure 存储加密
-              href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Access Control
+            - name: 存储安全概述
+              href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 访问控制
               href: data-lake-storage-access-control.md
+        - name: 事件处理
+          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 如何
       items:
         - name: 引入数据
@@ -575,16 +577,22 @@
           items:
             - name: 配置防火墙和虚拟网络
               href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 管理用于 Azure 存储加密的自定义密钥
-              href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: 配置客户管理的密钥以进行服务加密
+              items:
+                - name: 门户
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 使用 RBAC 管理访问权限
               items:
                 - name: 门户
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: CLI
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: 设置文件和目录级别权限
               href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
         - name: 与 Azure 服务集成

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: yushwang
-ms.openlocfilehash: 188412130b059cd25952ce9bf570c4e95ebbc43a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 30558300036974a765765fe0eb0181e2a8dc73ca
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761603"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508367"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
@@ -42,10 +42,9 @@ ms.locfileid: "60761603"
 |**供应商**          |**设备系列**     |**最低操作系统版本** |**PolicyBased 配置说明** |**RouteBased 配置说明** |
 | ---                | ---                  | ---                   | ---            | ---           |
 | A10 Networks, Inc. |Thunder CFW           |ACOS 4.1.1             |不兼容  |[配置指南](https://www.a10networks.com/resources/deployment-guides/a10-thunder-cfw-ipsec-vpn-interoperability-azure-vpn-gateways)|
-| Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |即将支持     |[配置指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
+| Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |即将推出     |[配置指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F-series |PolicyBased：5.4.3<br>RouteBased：6.2.0 |[配置指南](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[配置指南](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[配置指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不兼容 |
-| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[配置指南](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |不兼容 |
 | 检查点 |安全网关 |R80.10 |[配置指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[配置指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |支持 |[配置指南*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased：IOS 15.1<br>RouteBased：IOS 15.2 |支持 |支持 |
@@ -142,7 +141,7 @@ ms.locfileid: "60761603"
 | 加密和哈希算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 产品/服务](#RouteBasedOffers) |
 | SA 生存期（时间）            |3,600 秒  |27,000 秒                                |
 | SA 生存期（字节数）           |102,400,000 KB | -                                           |
-| 完全向前保密 (PFS) |否             |[RouteBased QM SA 产品/服务](#RouteBasedOffers) |
+| 完全向前保密 (PFS) |“否”             |[RouteBased QM SA 产品/服务](#RouteBasedOffers) |
 | 死对等体检测 (DPD)     |不支持  |支持                                    |
 
 
@@ -154,7 +153,7 @@ ms.locfileid: "60761603"
 
 |-  |**加密**|**身份验证**|**PFS 组**|
 |---| ---          |---               |---          |
-| 第 |GCM AES256    |GCM (AES256)      |无         |
+| 1 |GCM AES256    |GCM (AES256)      |无         |
 | 2 |AES256        |SHA1              |无         |
 | 3 |3DES          |SHA1              |无         |
 | 4 |AES256        |SHA256            |无         |
@@ -165,7 +164,7 @@ ms.locfileid: "60761603"
 
 |-  |**加密**|**身份验证**|**PFS 组**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |无         |
+| 第 |GCM AES256    |GCM (AES256)      |无         |
 | 2 |AES256        |SHA1              |无         |
 | 3 |3DES          |SHA1              |无         |
 | 4 |AES256        |SHA256            |无         |
@@ -175,7 +174,7 @@ ms.locfileid: "60761603"
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
-| 11|AES128        |SHA1              |第            |
+| 11|AES128        |SHA1              |1            |
 | 12|AES128        |SHA1              |2            |
 | 13|AES128        |SHA1              |14           |
 | 14|3DES          |SHA1              |第            |

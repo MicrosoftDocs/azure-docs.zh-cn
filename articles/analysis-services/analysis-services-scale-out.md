@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939674"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192327"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 横向扩展
 
@@ -51,7 +51,7 @@ ms.locfileid: "64939674"
 
 ### <a name="separate-processing-from-query-pool"></a>从查询池分离处理操作
 
-为了最大限度地提高处理和查询操作的性能，可以选择将处理服务器与查询池分开。 分离后，现有和新的客户端连接仅会分配给查询池中的查询副本。 如果处理操作仅占用一小段时间，则可以选择将处理服务器与查询池分开仅执行处理和同步操作所需的时间，然后将其包含回查询池中。 
+为了最大限度地提高处理和查询操作的性能，可以选择将处理服务器与查询池分开。 当分离出来，新客户端连接将分配给仅在查询池中查询副本中。 如果处理操作仅占用一小段时间，则可以选择将处理服务器与查询池分开仅执行处理和同步操作所需的时间，然后将其包含回查询池中。 分离处理服务器与查询池，或添加回查询池时可能需要 5 分钟才能完成该操作。
 
 ## <a name="monitor-qpu-usage"></a>监视 QPU 使用情况
 

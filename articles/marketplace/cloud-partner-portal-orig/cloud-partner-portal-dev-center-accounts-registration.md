@@ -1,25 +1,18 @@
 ---
-title: 创建 Microsoft 开发人员帐户 | Microsoft Docs
+title: 创建 Microsoft 开发人员帐户 |Azure Marketplace
 description: 创建 Microsoft 开发人员帐户的要求和步骤。
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326695"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935862"
 ---
 <a name="create-a-microsoft-developer-account"></a>创建 Microsoft 开发人员帐户
 ====================================
@@ -106,7 +99,7 @@ Microsoft 开发人员中心用于注册一次公司信息。 注册者必须是
    ![选择国家/地区](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >“销售自”国家/地区：若要在 Azure 市场上销售服务，已注册实体需要来自下拉列表中显示的已批准“销售自”国家/地区之一。 此限制是出于付款和税务的原因。 有关详细信息，请参阅“市场参与策略”。
+    >"销售 from"国家/地区：若要销售你在 Azure Marketplace 上的服务，注册的实体必须是从一个已批准"sell-from"国家/地区的下拉列表中所示。 此限制是出于付款和税务的原因。 有关详细信息，请参阅“市场参与策略”。
 
 5. 选择“公司”作为“帐户类型”，然后选择“下一步”。
 

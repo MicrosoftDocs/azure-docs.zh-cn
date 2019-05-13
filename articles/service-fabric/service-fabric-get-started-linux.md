@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712620"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470231"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -334,7 +334,6 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 * [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 * [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows 和 Linux 差异](service-fabric-linux-windows-differences.md)
-* [在 Linux 群集上自动进行操作系统修补](service-fabric-patch-orchestration-application-linux.md)
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
 <!-- Links -->

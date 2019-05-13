@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916817"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147743"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -48,20 +48,20 @@ ms.locfileid: "64916817"
 
 下面是针对单个逻辑应用运行的限制：
 
-| 名称 | 限制 | 说明 |
-|------|-------|-------|
-| 运行持续时间 | 90 天 | 若要更改此限制，请参阅[更改运行持续时间](#change-duration)。 |
-| 最小重复间隔 | 1 秒 | |
-| 最大重复间隔 | 500 天 | |
-| 存储保留期 | 90 天（从运行开始时间计算） | 若要将此限制更改为介于 7 和 90 天之间的值，请参阅[更改存储保留期](#change-retention)。 |
-||||
+| 名称 | 多租户限制 | 集成服务环境限制 | 说明 |
+|------|--------------------|---------------------------------------|-------|
+| 运行持续时间 | 90 天 | 365 天 | 若要更改此默认限制，请参阅[更改运行持续时间](#change-duration)。 |
+| 存储保留期 | 90 天（从运行开始时间计算） | 365 天 | 若要更改此默认限制，请参阅[更改存储保留期](#change-retention)。 |
+| 最小重复间隔 | 1 秒 | 1 秒 ||
+| 最大重复间隔 | 500 天 | 500 天 ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>更改运行持续时间和存储保留期
 
-若要将默认限制更改为介于 7 天和 90 天之间的值，请执行下列步骤。 如果需要超出最大限制，请[与逻辑应用团队联系](mailto://logicappsemail@microsoft.com)，提出你的需求以获取帮助。
+若要更改运行持续时间和存储保留期的默认限制，请按照下列步骤。 如果需要超出最大限制，请[与逻辑应用团队联系](mailto://logicappsemail@microsoft.com)，提出你的需求以获取帮助。
 
 1. 在 Azure 门户的逻辑应用菜单中，选择“工作流设置”。
 
@@ -91,7 +91,7 @@ ms.locfileid: "64916817"
 
 下面是针对单个逻辑应用运行的限制：
 
-### <a name="global-logic-apps-service"></a>全局逻辑应用服务
+### <a name="multi-tenant-logic-apps-service"></a>逻辑应用的多租户服务
 
 | 名称 | 限制 | 说明 |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ ms.locfileid: "64916817"
 
 | 名称 | 限制 | 说明 |
 |------|-------|-------|
-| 基本单位执行限制 | 10,000 次操作执行每 5 分钟 <br>这是每月大约 80 万个操作执行 | |
-| 扩展单元执行限制 | 5,000 个操作执行每 5 分钟 <br>这是每月约 40 亿个操作执行 | |
-| 您可以添加的最大缩放单位 | 3 | |
+| 基本单位执行限制 | 系统限制的基础结构容量达到 80%时 | 提供了大约 4,000 每分钟，这是每月约 160 万个操作执行的操作执行次数 | |
+| 扩展单元执行限制 | 系统限制的基础结构容量达到 80%时 | 每个缩放单位可以提供大约 2,000 执行其他操作每分钟执行数，即大约 80 万个每月的更多操作执行次数 | |
+| 您可以添加的最大缩放单位 | 10 | |
 ||||
 
 若要在正常处理中超过这些限制，或要运行可能超过这些限制的负载测试，请[与逻辑应用团队联系](mailto://logicappsemail@microsoft.com)，获取满足要求的帮助。
@@ -124,20 +124,20 @@ ms.locfileid: "64916817"
 
 某些连接器操作会进行异步调用或侦听 Webhook 请求，因此，这些操作的超时时间可能会长于以下限制。 有关详细信息，请参阅特定连接器的技术详细信息以及[工作流触发器和操作](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)。
 
-| 名称 | 限制 | 说明 |
-| ---- | ----- | ----- |
-| 传出的请求 | 120 秒 | 对于运行时间较长的操作，请使用[异步轮询模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 循环](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 |
-| 同步响应 | 120 秒 | 要使原始请求能够获得响应，则除非以嵌套工作流的形式调用其他逻辑应用，否则必须在限制内完成响应的所有步骤。 有关详细信息，请参阅[调用、触发器或嵌套逻辑应用](../logic-apps/logic-apps-http-endpoint.md)。 |
-|||| 
+| 名称 | 多租户限制 | 集成服务环境限制 | 说明 |
+|------|--------------------|---------------------------------------|-------|
+| 传出的请求 | 120 秒 | 240 秒 | 对于运行时间较长的操作，请使用[异步轮询模式](../logic-apps/logic-apps-create-api-app.md#async-pattern)或 [until 循环](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action)。 |
+| 同步响应 | 120 秒 | 240 秒 | 要使原始请求能够获得响应，则除非以嵌套工作流的形式调用其他逻辑应用，否则必须在限制内完成响应的所有步骤。 有关详细信息，请参阅[调用、触发器或嵌套逻辑应用](../logic-apps/logic-apps-http-endpoint.md)。 |
+|||||
 
 #### <a name="message-size"></a>消息大小
 
-| 名称 | 限制 | 说明 |
-| ---- | ----- | ----- |
-| 消息大小 | 100 MB | 若要解决此限制问题，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 但是，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 |
-| 使用分块的消息大小 | 1 GB | 此限制适用于本机支持分块或可以在其运行时配置中启用分块的操作。 有关详细信息，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 |
-| 表达式计算限制 | 131,072 个字符 | `@concat()`、`@base64()`、`@string()` 表达式的长度不能超过此限制。 |
-||||
+| 名称 | 多租户限制 | 集成服务环境限制 | 说明 |
+|------|--------------------|---------------------------------------|-------|
+| 消息大小 | 100 MB | 200 MB | 若要解决此限制问题，请参阅[使用分块处理大型消息](../logic-apps/logic-apps-handle-large-messages.md)。 但是，某些连接器和 API 可能不支持分块，甚至不支持默认限制。 |
+| 使用分块的消息大小 | 1 GB | 5 GB | 此限制适用于本机支持分块或可以在其运行时配置中启用分块的操作。 <p>集成服务环境中，逻辑应用引擎支持此限制，但连接器具有最大引擎限制，例如自己块区的限制，请参阅[Azure Blob 存储连接器](/connectors/azureblob/)。 有关详细信息块区，请参阅[处理大消息分块](../logic-apps/logic-apps-handle-large-messages.md)。 |
+| 表达式计算限制 | 131,072 个字符 | 131,072 个字符 | `@concat()`、`@base64()`、`@string()` 表达式的长度不能超过此限制。 |
+|||||
 
 #### <a name="retry-policy"></a>重试策略
 
@@ -154,10 +154,10 @@ ms.locfileid: "64916817"
 
 下面介绍对可通过 Web API 创建的自定义连接器的限制。
 
-| 名称 | 限制 |
-| ---- | ----- |
-| 自定义连接器数 | 每个 Azure 订阅 1,000 |
-| 每分钟的请求数量（对于自定义连接器创建的每个连接） | 每个连接 500 个请求 |
+| 名称 | 多租户限制 | 集成服务环境限制 | 说明 |
+|------|--------------------|---------------------------------------|-------|
+| 自定义连接器数 | 每个 Azure 订阅 1,000 | 每个 Azure 订阅 1,000 ||
+| 每分钟的自定义连接器的请求数 | 每分钟每个连接的 500 个请求 | 每个每分钟 2,000 请求*自定义连接器* ||
 |||
 
 <a name="managed-identity"></a>
@@ -216,13 +216,13 @@ ms.locfileid: "64916817"
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>B2B 协议（AS2、X12、EDIFACT）消息大小
 
-以下限制适用于 B2B 协议：
+下面是适用于 B2B 协议的消息大小限制：
 
-| 名称 | 限制 | 说明 |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | 适用于解码和编码 |
-| X12 | 50 MB | 适用于解码和编码 |
-| EDIFACT | 50 MB | 适用于解码和编码 |
+| 名称 | 多租户限制 | 集成服务环境限制 | 说明 |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2-100 MB<br>v1 - 50 MB | v2-200 MB <br>v1 - 50 MB | 适用于解码和编码 |
+| X12 | 50 MB | 50 MB | 适用于解码和编码 |
+| EDIFACT | 50 MB | 50 MB | 适用于解码和编码 |
 ||||
 
 <a name="disable-delete"></a>

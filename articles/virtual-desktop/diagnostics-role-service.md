@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870483"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234029"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>确定诊断功能的问题
 
@@ -118,7 +118,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 错误方案被分到该服务的内部和外部到 Windows 虚拟机中。
 
-* 内部问题： 指定不能缓解由租户管理员，并且需要解决支持问题的方案。 当提出票证提供活动 ID、 租户名称和近似时间范围内该问题发生。
+* 内部问题： 指定的方案不能由租户管理员可以缓解并需要解决的支持问题。 提供反馈意见时[Windows 虚拟桌面技术社区](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)、 包含的活动 ID 和近似时间范围的问题发生时。
 * 外部问题： 与系统管理员可以缓解方案相关。 这些是外部的 Windows 虚拟桌面。
 
 下表列出了你的管理员可能会遇到的常见错误。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414813"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506874"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密码保护
 
@@ -39,6 +39,9 @@ ms.locfileid: "60414813"
 * 获取 DC 代理服务的 Azure AD 密码保护安装必须运行 Windows Server 2012 或更高版本的所有域控制器。 此要求并不表示，Active Directory 域或林还必须在 Windows Server 2012 域或林功能级别。 如中所述[设计原则](concept-password-ban-bad-on-premises.md#design-principles)，没有最小 DFL 或 FFL 所需的 DC 代理或代理软件运行。
 * 安装 DC 代理服务的所有计算机都必须安装了.NET 4.5。
 * 获取代理服务的 Azure AD 密码保护安装必须运行 Windows Server 2012 R2 或更高版本的所有计算机。
+   > [!NOTE]
+   > 代理服务部署是部署 Azure AD 密码保护，即使域控制器可能会建立出站直接 internet 连接的强制要求。 
+   >
 * 将安装 Azure AD 密码保护代理服务的所有计算机都必须安装的.NET 4.7。
   应已完全更新的 Windows Server 上安装.NET 4.7。 如果这不是这种情况，下载并运行安装程序，请参阅[Windows.NET Framework 4.7 脱机安装程序](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
 * 所有计算机，包括获取 Azure AD 密码保护组件安装的域控制器都必须安装的通用 C 运行时。 通过确保从 Windows 更新的所有更新，可以获取运行时。 也可以特定于操作系统的更新包中获取它。 有关详细信息，请参阅[在 Windows 中的通用 C 运行时的更新](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows)。
@@ -262,7 +265,7 @@ ms.locfileid: "60414813"
 
    可以在尚不是域控制器的计算机上安装 DC 代理服务。 在这种情况下，服务将启动并运行，但保持非活动状态，直到计算机被提升为域控制器。
 
-   您可以通过使用标准的 MSI 过程自动化软件安装。 例如：
+   您可以通过使用标准的 MSI 过程自动化软件安装。 例如:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

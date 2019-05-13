@@ -3,19 +3,18 @@ title: 使用 DPS 自动预配 Windows 设备 - Azure IoT Edge | Microsoft Docs
 description: 使用 Windows 计算机上的模拟设备通过设备预配服务测试 Azure IoT Edge 的自动设备预配
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 01/09/2019
-ms.date: 03/25/2019
+ms.author: kgremban
+ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aa5e5fba3758fa3983924660b9b5f714d02613c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01247dfc0046ef722d70fe48f7ab8ee63f685962
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61247537"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153558"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>在 Windows 上创建和预配模拟 TPM Edge 设备
 
@@ -83,15 +82,9 @@ Get-Service iotedge
 
 检查过去 5 分钟的服务日志。
 
-```powershell
-# Displays logs from last 5 min, newest at the bottom.
 
-Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
-  select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false} |
-  format-table -autosize -wrap
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 列出正在运行的模块。

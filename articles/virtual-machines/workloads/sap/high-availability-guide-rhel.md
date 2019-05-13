@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925785"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142997"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure 虚拟机在 Red Hat Enterprise Linux 上为 SAP NetWeaver 提供的高可用性
 
@@ -87,6 +87,9 @@ ms.locfileid: "64925785"
 
 SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 数据库使用虚拟主机名和虚拟 IP 地址。 在 Azure 上，需要负载均衡器才能使用虚拟 IP 地址。 以下列表显示 (A)SCS 和 ERS 负载均衡器的配置。
 
+> [!IMPORTANT]
+> 多 SID 群集的 SAP ASCS/ERS 为 Red Hat Linux Azure Vm 中的来宾操作系统原样**不支持**。 多 SID 群集描述多个具有一个 Pacemaker 群集中不同的 Sid 的 SAP ASCS/ERS 实例的安装。
+
 ### <a name="ascs"></a>(A)SCS
 
 * 前端配置
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 数据�
 * 探测端口
   * 端口 621&lt;nr&gt;
 * 负载均衡规则
+  * 32&lt;nr&gt; TCP
   * 33&lt;nr&gt; TCP
   * 5&lt;nr&gt;13 TCP
   * 5&lt;nr&gt;14 TCP
@@ -128,7 +132,7 @@ SAP NetWeaver 要求对传输和配置文件目录使用共享存储。 阅读[R
 
 ### <a name="deploy-linux-via-azure-template"></a>通过 Azure 模板部署 Linux
 
-Azure 市场中包含适用于 Red Hat Enterprise Linux 的映像，可以用于部署新的虚拟机。 可以使用 github 上的某个快速启动模板部署全部所需资源。 该模板将部署虚拟机、负载均衡器、可用性集，等等。请遵照以下步骤部署模板：
+Azure 市场中包含适用于 Red Hat Enterprise Linux 的映像，可以用于部署新的虚拟机。 可以使用 GitHub 上的某个快速启动模板部署全部所需资源。 该模板将部署虚拟机、负载均衡器、可用性集，等等。请遵照以下步骤部署模板：
 
 1. 在 Azure 门户中打开 [ASCS/SCS 模板][template-multisid-xscs]  
 1. 输入以下参数
@@ -145,7 +149,7 @@ Azure 市场中包含适用于 Red Hat Enterprise Linux 的映像，可以用于
    1. 系统可用性  
       选择 HA
    1. 管理员用户名、管理员密码或 SSH 密钥  
-      创建可用于登录计算机的新用户。
+      创建一个新用户，可用于登录到计算机。
    1. 子网 ID  
    如果要将 VM 部署到现有 VNet 中，并且该 VNet 中已定义了 VM 应分配到的子网，请指定该特定子网的 ID。 ID 通常如下所示：/subscriptions/&lt;订阅 ID&gt;/resourceGroups/&lt;资源组名称&gt;/providers/Microsoft.Network/virtualNetworks/&lt;虚拟网络名称&gt;/subnets/&lt;子网名称&gt;
 
@@ -194,7 +198,7 @@ Azure 市场中包含适用于 Red Hat Enterprise Linux 的映像，可以用于
          * 重复上述步骤，为 ERS 创建运行状况探测（例如 621**02** 和 **nw1-aers-hp**）
    1. 负载均衡规则
       1. ASCS 的 32**00** TCP
-         1. 打开负载均衡器，选择负载均衡规则，并单击“添加”
+         1. 打开负载均衡器，选择负载均衡规则并单击添加
          1. 输入新的负载均衡器规则的名称（例如 **nw1-lb-3200**）
          1. 选择前面创建的前端 IP 地址、后端池和运行状况探测（例如 **nw1-ascs-frontend**）
          1. 将协议保留为“TCP”，输入端口 **3200**
@@ -457,7 +461,7 @@ Azure 市场中包含适用于 Red Hat Enterprise Linux 的映像，可以用于
 
 1. [A] 配置 Keep Alive
 
-   SAP NetWeaver 应用程序服务器和 ASCS/SCS 之间的通信是通过软件负载均衡器进行路由的。 负载均衡器在可配置的超时之后将断开非活动连接。 为了防止出现此情况，需要在 SAP NetWeaver ASCS/SCS 配置文件中设置一个参数，并更改 Linux 系统设置。 有关详细信息，请参阅 [SAP 说明 1410736][1410736]。
+   SAP NetWeaver 应用程序服务器和 ASCS/SCS 之间的通信是通过软件负载均衡器进行路由的。 负载均衡器在可配置的超时之后将断开非活动连接。 若要防止此情况，需要在 SAP NetWeaver ASCS/SCS 配置文件中设置参数并更改 Linux 系统设置。 有关详细信息，请参阅 [SAP 说明 1410736][1410736]。
 
    在上一步中已添加了 ASCS/SCS 配置文件参数 enque/encni/set_so_keepalive。
 
@@ -527,7 +531,7 @@ Azure 市场中包含适用于 Red Hat Enterprise Linux 的映像，可以用于
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   如果您是从较旧版本进行升级并切换到排队服务器 2，请参阅 sap 说明[2641322](https://launchpad.support.sap.com/#/notes/2641322)。 
+   如果您是从较旧版本进行升级并切换到排队服务器 2，请参阅 SAP 注释[2641322](https://launchpad.support.sap.com/#/notes/2641322)。 
 
    请确保群集状态正常，并且所有资源都已启动。 资源在哪个节点上运行并不重要。
 

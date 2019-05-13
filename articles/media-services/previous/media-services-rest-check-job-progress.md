@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a7b61ba05aea817d65e7cac991ad460d708a5ea7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873404"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869495"
 ---
 # <a name="how-to-check-job-progress"></a>如何：检查作业进度
-> [!div class="op_single_selector"]
-> * [门户](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> 不会向媒体服务 v2 添加任何新特性或新功能。 <br/>查看最新版本：[媒体服务 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，请参阅[从 v2 到 v3 迁移指南](../latest/migrate-from-v2-to-v3.md)
 
 运行作业时，通常需要采用某种方式来跟踪作业进度。 可以使用作业的 State 属性来查看该作业的状态。 有关 State 属性的详细信息，请参阅[作业实体属性](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)。
 

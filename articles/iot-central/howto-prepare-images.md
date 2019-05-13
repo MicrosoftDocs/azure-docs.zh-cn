@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519225"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236481"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>准备图像并将其上传到 Azure IoT Central 应用程序
 
@@ -74,7 +74,7 @@ ms.locfileid: "60519225"
 
 ![上传应用程序图像](media/howto-prepare-images/uploadapplicationmanager.png)
 
-选择要上传已准备的映像的应用程序映像磁贴 (268 x 160 像素) 从本地计算机。
+选择**应用程序映像**磁贴上传图像 (268 x 160 像素) 从本地计算机。
 
 ### <a name="application-dashboard"></a>应用程序仪表板
 
@@ -82,7 +82,7 @@ ms.locfileid: "60519225"
 
 ![上传仪表板图像](media/howto-prepare-images/uploadhomepage.png)
 
-在配置映像下选择图像磁贴，若要上传你从本地计算机的已准备的映像。 最小的磁贴为 200x200 像素，较大的磁贴可以是由多个小磁贴组成的正方形或矩形。 例如，200x400 像素、400x200 像素或 400x400 像素。
+下**配置映像**，选择**映像**磁贴上, 传从本地计算机的映像。 最小的磁贴为 200x200 像素，较大的磁贴可以是由多个小磁贴组成的正方形或矩形。 例如，200x400 像素、400x200 像素或 400x400 像素。
 
 **保存**所上传的图像。 你可以在编辑模式下调整图像大小。 选择**完成**时完成。
 
@@ -92,7 +92,7 @@ ms.locfileid: "60519225"
 
 ![上传设备模板图像](media/howto-prepare-images/uploaddevicetemplate.png)
 
-选择要上传已准备的映像的映像磁贴 (64 x 64 像素) 从本地计算机。
+选择要上传图像的图像磁贴 (64 x 64 像素) 从本地计算机。
 
 ### <a name="device-dashboard"></a>设备仪表板
 
@@ -100,7 +100,7 @@ ms.locfileid: "60519225"
 
 ![上传设备仪表板图像](media/howto-prepare-images/uploaddevicedashboard.png)
 
-下配置的映像，选择图像磁贴，并选择要从本地计算机上传的文件。 最小的磁贴为 200x200 像素，较大的磁贴可以是由多个小磁贴组成的正方形或矩形。 例如，200x400 像素、400x200 像素或 400x400 像素。
+下**配置映像**，选择**映像**磁贴，，然后选择要从本地计算机上传的文件。 最小的磁贴为 200x200 像素，较大的磁贴可以是由多个小磁贴组成的正方形或矩形。 例如，200x400 像素、400x200 像素或 400x400 像素。
 
 **保存**所上传的图像。 你可以在编辑模式下调整图像大小及其位置。 选择**完成**时完成。
 
@@ -110,13 +110,14 @@ ms.locfileid: "60519225"
 
 ![上传设备集仪表板图像](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-在配置映像下选择图像磁贴，若要上传你从本地计算机的已准备的映像。 最小的磁贴为 200x200 像素，较大的磁贴可以是由多个小磁贴组成的正方形或矩形。 例如，200x400 像素、400x200 像素或 400x400 像素。
+下**配置映像**，选择**映像**磁贴上, 传从本地计算机的映像。 最小的磁贴为 200x200 像素，较大的磁贴可以是由多个小磁贴组成的正方形或矩形。 例如，200x400 像素、400x200 像素或 400x400 像素。
 
 **保存**所上传的图像。 你可以在编辑模式下调整图像大小及其位置。 选择**完成**时完成。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解如何准备图像并将其上传到 Azure IoT Central 应用程序后，建议接下来执行以下步骤：
+现在，已了解如何进行准备并将映像上传到 Azure IoT Central 应用程序，以下是建议的后续步骤：
 
-> [!div class="nextstepaction"]
-> [在 Azure IoT Central 应用程序中管理设备](howto-manage-devices.md)
+* [自定义 Azure IoT 中心 UI](./howto-customize-ui.md)
+* [配置应用程序仪表板](./howto-configure-homepage.md)
+* [在 Azure IoT Central 应用程序中管理设备](howto-manage-devices.md)

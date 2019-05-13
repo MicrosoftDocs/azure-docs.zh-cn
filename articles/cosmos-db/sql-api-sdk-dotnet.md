@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c420882b734883039ec95d609c155617359fa25
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626836"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510724"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -47,6 +47,20 @@ ms.locfileid: "60626836"
 * 新对象模型，使用顶级 CosmosClient 和方法拆分成相关的 CosmosDatabases、CosmosContainers 和 CosmosItems 类。 
 * 支持流。 
 * 对来自服务器的 CosmosResponseMessage 进行了更新以返回状态代码，并且仅在未返回响应时引发异常。 
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* SDK 的 System.Net.Http 版本匹配的 NuGet 包中定义的内容
+* 增加小数精度为 LINQ 查询的大小。
+* 添加新的类 CompositePath、 CompositePathSortOrder、 SpatialSpec、 SpatialType 和 PartitionKeyDefinitionVersion
+* 已添加到 DocumentCollection TimeToLivePropertyPath
+* 添加了的 CompositeIndexes 和到 IndexPolicy SpatialIndexes
+* 添加了的版本为 PartitionKeyDefinition
+* 添加到 PartitionKey None
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * 添加了的 IdleTcpConnectionTimeout、 OpenTcpConnectionTimeout、 MaxRequestsPerTcpConnection 和到 ConnectionPolicy MaxTcpConnectionsPerEndpoint。
 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
@@ -361,6 +375,8 @@ Microsoft 至少会在停用 SDK 前提前 12 个月发出通知，以便顺利�
 
 | Version | 发布日期 | 停用日期 |
 | --- | --- | --- |
+| [2.4.0](#2.4.0) |2019 年 5 月 5， |--- |
+| [2.3.0](#2.3.0) |2019 年 4 月 4日日 |--- |
 | [2.2.3](#2.2.3) |2019 年 2 月 11日日 |--- |
 | [2.2.2](#2.2.2) |2019 年 2 月 6 日 |--- |
 | [2.2.1](#2.2.1) |2018 年 12 月 24 日 |--- |

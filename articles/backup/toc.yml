@@ -195,7 +195,7 @@
           href: backup-azure-arm-userestapi-restoreazurevms.md
         - name: 管理 Azure 备份作业
           href: backup-azure-arm-userestapi-managejobs.md
-    - name: Azure VM 上的备份 SQL Server 数据库
+    - name: 备份 Azure VM 上的 SQL Server 数据库
       items:
         - name: 关于 Azure VM 中的 SQL Server 备份
           href: backup-azure-sql-database.md
@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: 管理已备份的 SQL Server 数据库
           href: manage-monitor-sql-database-backup.md
+    - name: 备份 Azure VM 上的 SAP HANA 数据库
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: 备份 Windows Server 文件和文件夹

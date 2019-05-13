@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098195"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228125"
 ---
 # <a name="video-moderation-with-human-review"></a>通过人工评审审查视频
 
-使用内容审查器的计算机辅助[视频审查](video-moderation-api.md)和[人工审阅工具](Review-Tool-User-Guide/human-in-the-loop.md)，审查视频和脚本是否有成人（明示）和挑逗性（暗示）内容，让业务取得最佳业绩。
+使用内容审查器的计算机辅助[视频审查](video-moderation-api.md)并[人工审阅工具](Review-Tool-User-Guide/human-in-the-loop.md)审查视频和成人 （显式） 的脚本和挑逗性 （建议） 的内容，以获得最佳的结果你的业务。
 
 ## <a name="video-trained-classifier-preview"></a>视频定型分类器（预览）
 
@@ -28,52 +28,53 @@ ms.locfileid: "62098195"
 ## <a name="shot-detection"></a>镜头检测
 
 输出分类详细信息时，附加视频智能有助于更灵活地分析视频。 Microsoft 视频审查服务提供镜头级信息，而不是仅仅输出帧。 现在可以视需要选择是在镜头一级，还是在帧一级分析视频。
- 
+
 ## <a name="key-frame-detection"></a>关键帧检测
 
 视频审查服务仅识别和输出可能完整（良好）的帧，而不是定期输出帧。 借助这种功能，可以高效生成帧，从而实现帧级成人内容和挑逗性内容分析。
 
 下面摘取的代码行展示了包含潜在镜头、关键帧以及成人内容和挑逗性内容分数的部分响应：
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>方便人工审阅的直观界面
 
@@ -101,10 +102,7 @@ ms.locfileid: "62098195"
 
 ## <a name="next-steps"></a>后续步骤
 
-开始学习[视频审查快速入门](video-moderation-api.md)。 
-
-了解如何根据审查输出为人工审阅者生成[视频审阅](video-reviews-quickstart-dotnet.md)。
-
-向视频审阅添加[视频脚本审阅](video-transcript-reviews-quickstart-dotnet.md)。
-
-查看有关如何开发[完整视频审查解决方案](video-transcript-moderation-review-tutorial-dotnet.md)的详细教程。 
+- 开始学习[视频审查快速入门](video-moderation-api.md)。
+- 了解如何根据审查输出为人工审阅者生成[视频审阅](video-reviews-quickstart-dotnet.md)。
+- 向视频审阅添加[视频脚本审阅](video-transcript-reviews-quickstart-dotnet.md)。
+- 查看有关如何开发[完整视频审查解决方案](video-transcript-moderation-review-tutorial-dotnet.md)的详细教程。

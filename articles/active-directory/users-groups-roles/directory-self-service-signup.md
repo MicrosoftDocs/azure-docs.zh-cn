@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472243"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501900"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助服务注册？
 
@@ -52,7 +52,7 @@ ms.locfileid: "60472243"
 AllowEmailVerifiedUsers 和 AllowAdHocSubscriptions 是可应用于托管或非托管目录的目录范围的设置。 此处有一个示例，其中：
 
 * 你管理具有已验证域（例如 contoso.com）的目录
-* 你使用另一个目录中的 B2B 协作邀请 constoso.com 主目录中尚不存在的用户 (userdoesnotexist@contoso.com)
+* 使用不同的目录中的 B2B 协作可邀请用户尚不存在 (userdoesnotexist@contoso.com) 在 contoso.com 的主目录中
 * 主目录已开启 AllowEmailVerifiedUsers
 
 如果满足上述条件，那么将在主目录中创建成员用户，并在邀请目录中创建 B2B 来宾用户。

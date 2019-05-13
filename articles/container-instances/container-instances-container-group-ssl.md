@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870382"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411387"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>启用容器组中的 SSL 终结点
 
@@ -44,7 +44,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 按照提示后，若要添加的标识信息。 对于公用名，请输入与证书关联的主机名。 当系统提示输入密码，而无需键入要跳过添加密码按 Enter。
 
-运行以下命令以创建自签名的证书 （.crt 文件） 的证书请求中。 例如：
+运行以下命令以创建自签名的证书 （.crt 文件） 的证书请求中。 例如:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -66,7 +66,7 @@ code nginx.conf
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Base64 编码机密和配置文件
 
-进行 Base64 编码 Nginx 配置文件、 SSL 证书和 SSL 密钥。 使用编码的内容来配置 Nginx 容器。
+进行 Base64 编码 Nginx 配置文件、 SSL 证书和 SSL 密钥。 在下一部分中，输入用来部署容器组的 YAML 文件中的编码的内容。
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ cat ssl.key | base64 -w 0 > base64-ssl.key
 code deploy-aci.yaml
 ```
 
-输入的 base64 编码内容文件下的指示位置`secret`。 在部署期间，这些文件添加到[密卷](container-instances-volume-secret.md)容器组中。 在此示例中，机密卷装载到 Nginx 容器。
+输入的 base64 编码内容文件下的指示位置`secret`。 例如，`cat`每个 base64 编码文件以查看其内容。 在部署期间，这些文件添加到[密卷](container-instances-volume-secret.md)容器组中。 在此示例中，机密卷装载到 Nginx 容器。
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

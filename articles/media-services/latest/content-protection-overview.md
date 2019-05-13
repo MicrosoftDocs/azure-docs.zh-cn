@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e13bcb7d4eeded691669277b64aba9048f3bbefa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684564"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150416"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>使用动态加密内容保护
 
@@ -206,7 +206,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 如果出现错误结尾`_NOT_SPECIFIED_IN_URL`，请确保在 URL 中指定的加密格式。 例如，`…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`。 请参阅[流式处理协议和加密类型](#streaming-protocols-and-encryption-types)。
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875593"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231392"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>停用的安全中心功能 (2019 年 7 月)
 
@@ -81,6 +81,7 @@ ms.locfileid: "64875593"
 ![标识页-仪表板][8]
 
 今后所有三个屏幕更高版本将在停用。 你的数据，仍可在 log analytics 安全解决方案并不会修改或删除。
+用于填充标识和访问仪表板的原始的 Log Analytics 查询位于安全中心[GitHub 存储库](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)。
 
 ### <a name="classic-identity--access-preview---new-experience"></a>经典的标识和访问 （预览版）-新的体验
 Log analytics 仪表板上给定工作区提供了见解，而本机的安全中心功能提供可见性的所有订阅以及与它们关联中一种简单的所有工作区-若要使用视图，让您专注的重要的是，根据安全标识和访问建议的分数。
@@ -96,13 +97,14 @@ Log analytics 仪表板上给定工作区提供了见解，而本机的安全中
 
 现在当你单击"转到安全事件映射到"威胁智能仪表板打开。 威胁智能仪表板将停用。  
 
-![“威胁智能”仪表板][11]
+![威胁智能仪表板][11]
 
 当选择一个工作区以查看其威胁智能仪表板时，安全警报 map(Preview) 屏幕*Log Analytics 中*打开。 此屏幕将停用。
 
 ![在 Log Analytics 中的安全警报映射][12]
 
 现有数据，仍可在 log analytics 安全解决方案并将不能修改也不删除。
+用于填充威胁智能仪表板的原始的 Log Analytics 查询位于安全中心[GitHub 存储库](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)。
 
 ### <a name="security-events-map---new-experience"></a>安全事件映射的新体验
 我们鼓励我们的客户能够使用内置到安全中心的警报映射功能-"安全警报映射 （预览版）"。 这提供了优化的体验并跨所有订阅和关联的工作区、 允许宏的工作在环境中，查看和不专注于单个工作区。
@@ -155,7 +157,7 @@ Azure 安全中心应用 [150 多种建议的规则](https://gallery.technet.mic
 
 ### <a name="edit-security-configurations---new-experience"></a>编辑安全配置的新体验
 
-安全中心将支持[来宾内代理](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)在不久的将来，允许更丰富的功能集-包括支持其他操作系统和来宾配置与 Azure 策略 （来宾的集成策略）。 这将提供在规模较大的控制和自动应用新的资源的能力。
+安全中心将支持[来宾的配置代理](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration)在不久的将来，允许更丰富的功能集-包括支持其他操作系统和来宾配置使用的 Azure 策略 （与集成在来宾策略）。 这将提供在规模较大的控制和自动应用新的资源的能力。
 
 ## 安全和审核仪表板 （最初在 OMS 门户中使用） 的 Log Analytics 工作区<a name="menu_securityomsdashboard"></a>
 
@@ -165,6 +167,8 @@ Azure 安全中心应用 [150 多种建议的规则](https://gallery.technet.mic
 
 ### <a name="security--audit-dashboard---new-experience"></a>安全和审核仪表板的新体验
 建议客户使用 Azure 安全中心，跨多个订阅和工作区关联，以及更丰富的功能集提供相同的安全性概述。
+
+用于填充安全和审核仪表板的原始的 Log Analytics 查询位于安全中心[GitHub 存储库](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards)。
 
 ## <a name="next-steps"></a>后续步骤
 - 了解有关 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/)的详细信息

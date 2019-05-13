@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2018
+ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 5070b6ced29599660afa28308239e1ba07c2cbd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cecafb013b5d22557961e98935fc9a2fee2a79b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710780"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198850"
 ---
 1. 选择 Azure 门户左上角的“创建资源”按钮，然后选择“计算” > “函数应用”。
 
@@ -42,6 +42,3 @@ ms.locfileid: "60710780"
     ![定义新的函数应用设置](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
 5. 选择“转到资源”，查看新的函数应用。
-
-> [!TIP]
-> 如果在门户中找不到函数应用，请尝试[将 Function App 添加到 Azure 门户中的收藏夹](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite)。

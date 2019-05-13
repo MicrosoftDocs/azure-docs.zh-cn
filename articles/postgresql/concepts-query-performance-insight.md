@@ -1,21 +1,21 @@
 ---
-title: Azure Database for PostgreSQL 中的 Query Performance Insight
-description: 本文介绍 Azure Database for PostgreSQL 中的 Query Performance Insight 功能。
+title: Azure Database for PostgreSQL-单个服务器中的查询性能见解
+description: 本文介绍用于 PostgreSQL 的单个服务器的 Azure 数据库中的查询性能见解功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067544"
 ---
 # <a name="query-performance-insight"></a>查询性能见解 
 
-**适用于：** Azure Database for PostgreSQL 9.6 和 10
+**适用于：** Azure Database for PostgreSQL-9.6 和 10 台服务器
 
 Query Performance Insight 可帮助你快速确定运行时间最长的查询、它们如何随时间的推移而变化，以及哪些等待因素会影响它们。
 

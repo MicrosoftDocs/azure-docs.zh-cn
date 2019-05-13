@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ed6fd0a4a1de3fb02b3d8583c0e5c0cecac211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351668"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507972"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect：启用设备写回
 > [!NOTE]
@@ -31,6 +31,7 @@ ms.locfileid: "60351668"
 
 以下文档提供有关如何在 Azure AD Connect 中启用设备写回功能的信息。 设备写回用于以下方案：
 
+* 启用[Windows hello 企业版使用混合证书信任部署](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * 对 ADFS（2012 R2 或更高版本）保护的应用程序（信赖方信任），启用基于设备的条件性访问。
 
 这可以提供额外的安全性，确保只有受信任的设备才能访问应用程序。 有关条件性访问的详细信息，请参阅[使用条件性访问管理风险](../active-directory-conditional-access-azure-portal.md)和[使用 Azure Active Directory Device Registration 设置本地的条件性访问](../../active-directory/active-directory-device-registration-on-premises-setup.md)。

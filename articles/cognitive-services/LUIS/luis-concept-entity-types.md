@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813218"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141043"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>实体类型及其在 LUIS 中的目的
 
@@ -97,7 +97,6 @@ LUIS 提供许多类型的实体。 请根据数据的提取方式以及提取�
 |机器学习|可以标记|教程|示例<br>响应|实体类型|目的|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**复合**](#composite-entity)|实体的分组，不考虑实体类型。|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**分层**](#hierarchical-entity)|简单实体的分组。|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**列表**](#list-entity)|使用文本完全匹配法提取的项列表及其同义词。|
 |混合||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|难以确定末尾部分的实体。|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**预生成**](#prebuilt-entity)|已经过训练，可以提取各种类型的数据。|
@@ -112,7 +111,7 @@ LUIS 提供许多类型的实体。 请根据数据的提取方式以及提取�
 
 ## <a name="composite-entity"></a>复合实体
 
-复合实体由其他实体构成，例如预生成的实体、简单实体、正则表达式实体、列表实体和分层实体。 各种单独的实体构成整个实体。 
+复合实体由组成的其他实体，如预生成的实体，简单，正则表达式和列表实体。 各种单独的实体构成整个实体。 
 
 如果数据具有以下特征，则非常适合使用此实体：
 
@@ -126,18 +125,6 @@ LUIS 提供许多类型的实体。 请根据数据的提取方式以及提取�
 
 [教程](luis-tutorial-composite-entity.md)<br>
 [实体的 JSON 响应示例](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>分层实体
-
-**层次结构的实体最终将被弃用。使用[实体角色](luis-concept-roles.md)以确定实体子类型，而不是分层实体。**
-
-分层实体是根据上下文学习到的一类简单实体，称为子级。
-
-![分层实体](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>角色与分层实体
-
-[角色](luis-concept-roles.md)解决分层实体但适用于所有实体类型相同的问题。  
 
 ## <a name="list-entity"></a>列表实体
 
@@ -171,10 +158,10 @@ Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中�
 
 |话语|
 |--|
-|《错把太太当成帽子的男人与其他医疗故事》是某位美国人在今年撰写的吗？<br>《错把太太当成帽子的男人与其他医疗故事》是某位美国人在今年撰写的吗？|
-|《在宽大睡衣中半梦半睡》是某位美国人在今年撰写的吗？<br>《在宽大睡衣中半梦半睡》是某位美国人在今年撰写的吗？|
-|《小说：柠檬蛋糕的特种忧伤》是某位美国人在今年撰写的吗？<br>《小说：柠檬蛋糕的特种忧伤》是某位美国人在今年撰写的吗？|
-|《口袋里的毛怪！》 是某位美国人在今年撰写的吗？<br>《口袋里的毛怪！》 是某位美国人在今年撰写的吗？|
+|已 Man 谁误认为。 他的妻子 Hat 和其他由美国编写本年度的临床故事？<br>《错把太太当成帽子的男人与其他医疗故事》是某位美国人在今年撰写的吗？|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>预生成实体
 

@@ -4,7 +4,7 @@ title: 混合标识文档
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: 混合标识文档
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样，便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: Microsoft 的标识解决方案跨越本地和基于云的功能，创建单一用户标识对所有资源进行身份验证和授权，而不考虑其位置。 我们称此为混合标识。</br></br></br>Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样，便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题介绍计划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
   aside:
     image:
-      alt: null
+      alt: 第 9 频道视频
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>了解如何开始使用密码哈希同步将标识扩展到云中</p>
             image:
+              alt: 密码哈希同步
               src: media/index/azuread2.png
             title: 使用密码哈希同步 (PHS) 集成单个 AD 林
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>了解如何开始使用直通身份验证将标识扩展到云中。</p>
             image:
+              alt: 直通身份验证
               src: media/index/manage2.png
             title: 使用直通身份验证 (PTA) 集成单个 AD 林
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>了解如何将 Azure Active Directory (Azure AD) Connect 与本地 Active Directory 联合身份验证服务 (AD FS) 和 Azure AD 进行联合。</p>
             image:
+              alt: 联合
               src: media/index/federate2.png
             title: 使用联合身份验证集成单个 AD 林
   - title: 操作方法指南

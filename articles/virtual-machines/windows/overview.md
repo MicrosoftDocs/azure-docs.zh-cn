@@ -16,16 +16,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482039"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506842"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
-Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源](../../app-service/overview-compare.md)之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
+Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源](/azure/architecture/guide/technology-choices/compute-decision-tree)之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
 
 使用 Azure VM 可以灵活进行虚拟化，而无需购买和维护运行 VM 的物理硬件。 不过，仍然需要通过执行任务来维护 VM，例如，配置、修补和安装在 VM 上运行的软件。
 
@@ -103,12 +103,12 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 | 资源 | 需要 | 描述 |
 | --- | --- | --- |
-| [资源组](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必须包含在资源组中。 |
-| [存储帐户](../../storage/common/storage-create-storage-account.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
-| [虚拟网络](../../virtual-network/virtual-networks-overview.md) |是 |VM 必须是虚拟网络的成员。 |
-| [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以向 VM 分配一个公共 IP 地址，以便远程访问它。 |
-| [网络接口](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
-| [数据磁盘](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
+| [资源组](../../azure-resource-manager/resource-group-overview.md) |“是” |VM 必须包含在资源组中。 |
+| [存储帐户](../../storage/common/storage-create-storage-account.md) |“是” |VM 需要使用存储帐户来存储其虚拟硬盘。 |
+| [虚拟网络](../../virtual-network/virtual-networks-overview.md) |“是” |VM 必须是虚拟网络的成员。 |
+| [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |“否” |可以向 VM 分配一个公共 IP 地址，以便远程访问它。 |
+| [网络接口](../../virtual-network/virtual-network-network-interface.md) |“是” |VM 需要使用网络接口在网络中通信。 |
+| [数据磁盘](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |“否” |VM 可以包含数据磁盘，以便扩展存储功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何创建第一个 VM？
 可以选择多种方法创建 VM。 选择哪种方法取决于所在的环境。 

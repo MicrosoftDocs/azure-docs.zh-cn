@@ -5,19 +5,19 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: include
-ms.date: 07/18/2018
+ms.date: 05/05/2019
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 19c570be71583a2933a39780ba948edeb9f68498
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b480f9720cabddbba9e9c35c12ca1f8dda7ab5ab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129088"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190038"
 ---
 | 资源 | 确定目标 | 硬限制 |
 |----------|--------------|------------|
-| 每个区域的存储同步服务数 | 15 个存储同步服务 | 是 |
+| 每个区域的存储同步服务数 | 20 个存储同步服务 | 是 |
 | 每个存储同步服务的同步组数 | 100 个同步组 | 是 |
 | 每个存储同步服务的已注册服务器 | 99 台服务器 | 是 |
 | 每个同步组的云终结点 | 1 个云终结点 | 是 |

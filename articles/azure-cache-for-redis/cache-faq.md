@@ -1,6 +1,6 @@
 ---
 title: Azure Redis 缓存常见问题解答 | Microsoft Docs
-description: 了解 Azure Redis 缓存的常见问题、模式和最佳做法
+description: 了解有关 Azure 缓存为 Redis 解答常见问题、 模式和最佳实践
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552025"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230113"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -108,7 +108,7 @@ Azure Redis 缓存基于热门开源软件 [Redis](https://redis.io/)。 这使�
 * **网络性能**：如果工作负荷需要较高的吞吐量，则可使用高级层，该层可提供比标准层或基本层更高的带宽。 另外，因为基础 VM 托管着缓存，所以，在每个级别中，缓存大小越大，则带宽越高。 有关详细信息，请参阅[下表](#cache-performance)。
 * **吞吐量**：高级级别提供的可用吞吐量最大。 如果缓存服务器或客户端达到带宽限制，则客户端上可能出现超时。 有关详细信息，请参阅下表。
 * **高可用性/SLA**：Azure Redis 缓存保证标准/高级缓存在至少 99.9% 的时间内都可用。 若要了解有关 SLA 的详细信息，请参阅 [Azure Redis 缓存定价](https://azure.microsoft.com/support/legal/sla/cache/v1_0/)。 SLA 仅涉及与缓存终结点的连接。 SLA 不涉及对数据丢失的防护。 我们建议使用高级级别中的 Redis 数据暂留功能来增加灵活性，防止数据丢失。
-* **Redis 数据持久性**：高级层允许将缓存数据暂留在 Azure 存储帐户中。 在基本/标准缓存中，所有数据都只存储在内存中。 如果底层基础结构出现问题，可能会导致数据丢失。 我们建议使用高级级别中的 Redis 数据暂留功能来增加灵活性，防止数据丢失。 Azure Redis 缓存提供可在 Redis 暂留中使用的 RDB 和 AOF（即将推出）选项。 有关详细信息，请参阅[如何为高级 Azure Redis 缓存配置持久性](cache-how-to-premium-persistence.md)。
+* **Redis 数据持久性**：高级层允许将缓存数据暂留在 Azure 存储帐户中。 在基本/标准缓存中，所有数据都只存储在内存中。 基础的基础结构问题可能会导致数据丢失。 我们建议使用高级级别中的 Redis 数据暂留功能来增加灵活性，防止数据丢失。 Azure Redis 缓存提供可在 Redis 暂留中使用的 RDB 和 AOF（即将推出）选项。 有关详细信息，请参阅[如何为高级 Azure Redis 缓存配置持久性](cache-how-to-premium-persistence.md)。
 * **Redis 群集**：要创建大于 53 GB 的缓存，或要将数据通过分片的方式分散到多个 Redis 节点中，可以使用在高级级别中包含的 Redis 群集功能。 每个节点都包含一个主/副缓存对，目的是提高可用性。 有关详细信息，请参阅 [如何为高级 Azure Redis 缓存配置群集功能](cache-how-to-premium-clustering.md)。
 * **增强的安全性和网络独立性**：Azure 虚拟网络 (VNET) 部署为 Azure Redis 缓存提供增强的安全性和隔离性，并提供子网、访问控制策略以及其他进一步限制访问的功能。 有关详细信息，请参阅 [如何为高级 Azure Redis 缓存配置虚拟网络支持](cache-how-to-premium-vnet.md)。
 * **配置 Redis**：在标准级别和高级级别，都可以针对 Keyspace 通知来配置 Redis。
@@ -129,25 +129,26 @@ Azure Redis 缓存基于热门开源软件 [Redis](https://redis.io/)。 这使�
 
 我们可以根据此表得出以下结论。
 
-* 在缓存大小相同的情况下，高级层中的缓存吞吐量要高于标准层中的缓存吞吐量。 例如，使用 6 GB 缓存，P1 的吞吐量为 180,000 RPS，而 C3 的吞吐量为 100,000。
-* 启用 Redis 群集功能时，增加群集中分片（节点）的数量会导致吞吐量线性提高。 例如，若创建一个包含 10 个分片的 P4 群集，则可用吞吐量为 400,000 *10 = 每秒 400 万个请求。
+* 在缓存大小相同的情况下，高级层中的缓存吞吐量要高于标准层中的缓存吞吐量。 例如，使用 6 GB 缓存，P1 的吞吐量为 180,000 每秒请求数 (RPS) 相比 100,000 RPS 为 C3。
+* 启用 Redis 群集功能时，增加群集中分片（节点）的数量会导致吞吐量线性提高。 例如，如果您创建 10 个分片的 P4 群集，则可用吞吐量是 400,000 * 10 = 4 百万 RPS。
 * 如果增加密钥大小，则高级层的吞吐量要高于标准层。
 
 | 定价层 | 大小 | CPU 核心数 | 可用带宽 | 1 KB 值大小 | 1 KB 值大小 |
 | --- | --- | --- | --- | --- | --- |
 | **标准缓存大小** | | |**兆位/秒（Mb/秒）/兆字节/秒（MB/秒）** |**非 SSL 请求数/秒 (RPS)** |**SSL 请求数/秒 (RPS)** |
-| C0 |250 MB |共享 |100/12.5 |15,000 |7,500 |
-| C1 |1 GB |第 |500/62.5 |38,000 |20,720 |
-| C2 |2.5 GB |2 |500/62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000/125 |100,000 |90,000 |
-| C4 |13 GB |2 |500/62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
-| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| C0 | 250 MB | 已共享 | 100/12.5  |  15,000 |   7,500 |
+| C1 |   1 GB | 1      | 500/62.5  |  38,000 |  20,720 |
+| C2 | 2.5 GB | 2      | 500/62.5  |  41,000 |  37,000 |
+| C3 |   6 GB | 4      | 1000/125  | 100,000 |  90,000 |
+| C4 |  13 GB | 2      | 500/62.5  |  60,000 |  55,000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
 | **高级缓存大小** | |**每个分片的 CPU 核心数** | **兆位/秒（Mb/秒）/兆字节/秒（MB/秒）** |**每分片非 SSL 请求数/秒 (RPS)** |**每分片 SSL 请求数/秒 (RPS)** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
-| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172,000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
 有关设置 stunnel 或下载 Redis 工具（例如 `redis-benchmark.exe`）的说明，请参阅[如何运行 Redis 命令？](#cache-commands)部分。
 
@@ -162,22 +163,22 @@ Azure Redis 缓存基于热门开源软件 [Redis](https://redis.io/)。 这使�
 Azure Redis 缓存的定价在[此处](https://azure.microsoft.com/pricing/details/cache/)。 定价页列出了每小时费率。 缓存按分钟计费，从创建缓存时开始，到删除缓存时为止。 没有提供用于停止或暂停缓存的计费选项。
 
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>能否将 Azure Redis 缓存用于 Azure 政府云、Azure 中国云或 Microsoft Azure 德国？
-可以，Azure Redis 缓存可用于 Azure 政府云、Azure 中国云和 Microsoft Azure 德国。 与 Azure 公有云相比，这些云中用于访问和管理 Azure Redis 缓存的 URL 有所不同。 
+是的 Azure Redis 缓存目前在 Azure 政府云、 Azure 中国 21Vianet 云和 Microsoft Azure Germany。 与 Azure 公有云相比，这些云中用于访问和管理 Azure Redis 缓存的 URL 有所不同。
 
 | 云   | Redis 的 Dns 后缀            |
 |---------|---------------------------------|
-| 公共  | *.redis.cache.windows.net       |
-| 美国政府  | *.redis.cache.usgovcloudapi.net |
+| 公开  | *.redis.cache.windows.net       |
+| US Gov  | *.redis.cache.usgovcloudapi.net |
 | 德国 | *.redis.cache.cloudapi.de       |
 | 中国   | *.redis.cache.chinacloudapi.cn  |
 
 若要深入了解通过其他云使用 Azure Redis 缓存的注意事项，请参阅以下链接。
 
 - [Azure 政府数据库 - Azure Redis 缓存](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure 中国云 - Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)
+- [Azure 中国 21Vianet 云-Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
-有关通过 PowerShell 在 Azure 政府云、Azure 中国云和 Microsoft Azure 德国中使用 Azure Redis 缓存的信息，请参阅[如何连接到其他云 - Azure Redis 缓存 PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)。
+有关为 Redis 使用 PowerShell 在 Azure 政府云、 Azure 中国 21Vianet 云和 Microsoft Azure Germany 使用 Azure 缓存的信息，请参阅[如何连接到其他云-Redis PowerShell 的 Azure 缓存](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)。
 
 <a name="cache-configuration"></a>
 
@@ -202,7 +203,7 @@ StackExchange.Redis 有很多选项。 本部分介绍一些常用设置。 有�
   * 使用应用程序的单个 ConnectionMultiplexer 实例。 可以使用 LazyConnection 创建 Connection 属性返回的单个实例，如[使用 ConnectionMultiplexer 类连接到缓存](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)中所示。
   * 将 `ConnectionMultiplexer.ClientName` 属性设置为应用程序实例的唯一名称以进行诊断。
   * 对自定义工作负载使用多个 `ConnectionMultiplexer` 实例。
-      * 如果应用程序中的负载不同，可以遵循此模型。 例如：
+      * 如果应用程序中的负载不同，可以遵循此模型。 例如:
       * 可以使用一个多路复用器来处理大键。
       * 可以使用一个多路复用器来处理小键。
       * 可为连接超时设置不同的值，并为使用的每个 ConnectionMultiplexer 设置重试逻辑。
@@ -257,7 +258,7 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Azure Redis 缓存为何不像某些其他 Azure 服务一样提供 MSDN 类库参考？
-Microsoft Azure Redis 缓存基于热门的开源 Azure Redis 缓存，可以通过适用于许多编程语言的各种 [Redis 客户端](https://redis.io/clients)进行访问。 每个客户端有自身的 API，用于通过 [Redis 命令](https://redis.io/commands)调用 Azure Redis 缓存实例。
+Microsoft Azure Redis 缓存基于主流的开源 Azure Redis 缓存。 可通过各种[Redis 客户端](https://redis.io/clients)供许多编程语言。 每个客户端有自身的 API，用于通过 [Redis 命令](https://redis.io/commands)调用 Azure Redis 缓存实例。
 
 由于客户端各不相同，因此 MSDN 上未提供统一的类参考，并且每个客户端都在维护其自身的参考文档。 除了参考文档以外，还可以参阅多个教程，这些教程介绍了如何通过不同的语言和缓存客户端来开始使用 Azure Redis 缓存。 若要访问这些教程，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)以及它在内容列表中的同级文章。
 
@@ -307,9 +308,9 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可提供此支持。
 #### <a name="stackexchangeredis-best-practices"></a>StackExchange.Redis 的最佳做法
 * 将 `AbortConnect` 设置为 false，然后使 ConnectionMultiplexer 自动重新连接。 [请参阅此处了解详细信息](https://gist.github.com/JonCole/36ba6f60c274e89014dd#file-se-redis-setabortconnecttofalse-md)。
 * 重复使用 ConnectionMultiplexer - 不要为每个请求创建一个新的 ConnectionMultiplexe。 建议使用[此处所示](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache)的 `Lazy<ConnectionMultiplexer>` 模式。
-* 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 [本次讨论的 Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) 为 100 kb，属于大型数据。 阅读[此文章](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size)以了解较大值可能引起的问题示例。
+* 具有较小值的 Redis 工作性能最佳，因此请考虑将较大数据分成多个密钥。 在中[本次讨论的 Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ)，100 kb，属于大型。 阅读[此文章](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size)以了解较大值可能引起的问题示例。
 * 配置 [ThreadPool](#important-details-about-threadpool-growth) 设置，以免超时。
-* 将默认 connectTimeout 至少设置为 5 秒。 出现网络故障时，此间隔可以给 StackExchange.Redis 留出足够的时间来重新建立连接。
+* 将默认 connectTimeout 至少设置为 5 秒。 此时间间隔内提供 StackExchange.Redis 足够的时间来重新建立发生网络故障时连接。
 * 请注意与正在运行的不同操作相关的性能成本。 例如，`KEYS` 命令是 O(n) 操作，应当避免。 [redis.io](https://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
 
 #### <a name="configuration-and-concepts"></a>配置和概念
@@ -328,10 +329,10 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可提供此支持。
 <a name="cache-redis-commands"></a>
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>使用常见 Redis 命令时要注意哪些问题？
-* 对于某些需要较长时间才能完成的 Redis 命令，在未了解这些命令造成的影响的情况下，不应运行这些命令。
-  * 例如，不要在生产环境中运行 [KEYS](https://redis.io/commands/keys) 命令，因为它可能需要很长时间才能返回，具体时间取决于键数。 Redis 是单线程服务器，每次只能处理一个命令。 如果在 KEYS 后面发出了其他命令，则这些命令只会在处理完 KEYS 命令后才会得到处理。 [redis.io](https://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
-* 键大小 - 应使用小键/值还是大键/值？ 通常这取决于具体方案。 如果方案需要较大的键，则可调整 ConnectionTimeout 和重试值，并调整重试逻辑。 从 Redis 服务器的角度来看，值越小，性能就越好。
-* 这些考量并不意味着不能在 Redis 中存储较大值，只是要注意以下事项。 延迟会提高。 如果采用一个较大的数据集和一个较小的数据集，则可以使用多个 ConnectionMultiplexer 实例，并根据 [StackExchange.Redis 配置选项有什么作用](#cache-configuration)部分中所述，为每个实例配置一组不同的超时和重试值。
+
+* 避免使用需要很长时间才能完成，除非你完全了解这些命令的影响某些 Redis 命令。 例如，不会运行[密钥](https://redis.io/commands/keys)命令在生产环境中。 根据键数，它可能需要很长时间才能返回。 Redis 是单线程服务器，每次只能处理一个命令。 如果在 KEYS 后面发出了其他命令，则这些命令只会在处理完 KEYS 命令后才会得到处理。 [redis.io](https://redis.io/commands/) 站点具有关于其支持的每个操作的时间复杂性的详细信息。 单击每个命令以查看每个操作的复杂程度。
+* 键大小 - 应使用小键/值还是大键/值？ 它取决于方案。 如果方案需要较大的键，可以调整 ConnectionTimeout，然后重试值并调整重试逻辑。 从 Redis 服务器的角度来看，较小的值提供更好的性能。
+* 这些注意事项并不意味着无法 Redis 中存储较大值；必须注意以下几点。 延迟会提高。 如果采用一个较大的数据集和一个较小的数据集，则可以使用多个 ConnectionMultiplexer 实例，并根据 [StackExchange.Redis 配置选项有什么作用](#cache-configuration)部分中所述，为每个实例配置一组不同的超时和重试值。
 
 <a name="cache-benchmarking"></a>
 
@@ -349,26 +350,26 @@ Redis 服务器本身不支持 SSL，但 Azure Redis 缓存可提供此支持。
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t SET -n 1000000 -d 1024 -P 50`
 * 使用 1 k 有效负载测试管道 GET 请求。
-  注意：首先运行上面显示的 SET 测试以填充缓存
+  注意:首先运行上面显示的 SET 测试以填充缓存
 
   `redis-benchmark.exe -h **yourcache**.redis.cache.windows.net -a **yourAccesskey** -t GET -n 1000000 -d 1024 -P 50`
 
 <a name="threadpool"></a>
 
 ### <a name="important-details-about-threadpool-growth"></a>有关线程池增长的重要详细信息
-CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成端口”（又称为 IOCP）线程。
+CLR 线程池具有两种类型的线程 —"辅助角色"和"I/O 完成端口"(IOCP) 线程。
 
 * 对于诸如处理 `Task.Run(…)` 或 `ThreadPool.QueueUserWorkItem(…)` 方法这类事务，请使用辅助角色线程。 需要在后台线程上进行工作时，CLR 中的各种组件也会使用这些线程。
-* 进行异步 IO（例如从网络进行读取）时，使用 IOCP 线程。
+* 在异步 IO 情况下，例如，使用 IOCP 线程从网络读取。
 
 线程池按需提供新的辅助角色线程或 I/O 完成线程（没有任何限制），直到它达到每种线程类型的“最小值”设置。 默认情况下，最小线程数设置为系统上的处理器数。
 
-一旦现有（忙碌）线程数达到“最小”线程数，线程池便会将插入新线程的速率限制为每 500 毫秒一个线程。 通常，如果系统中出现需要 IOCP 线程的突发工作，则它会非常快速地处理该工作。 但是，如果突发工作多于配置的“最小值”设置，则在处理某些工作时会出现一定的延迟，因为 ThreadPool 会等待发生以下两种情况之一。
+一旦现有（忙碌）线程数达到“最小”线程数，线程池便会将插入新线程的速率限制为每 500 毫秒一个线程。 通常情况下，如果您的系统中获取的突发工作出现需要 IOCP 线程，则它会快速地处理该工作。 但是，如果突发工作多于配置的“最小值”设置，则在处理某些工作时会出现一定的延迟，因为线程池会等待发生以下两种情况之一。
 
 1. 一个现有线程释放，以便处理工作。
-2. 在 500 毫秒内没有任何现有线程释放，因此会创建一个新线程。
+2. 没有任何现有线程释放为 500 毫秒，以便创建一个新线程。
 
-基本上，这意味着忙碌线程数大于最小线程数，在应用程序处理网络流量之前可能需要付出 500 毫秒延迟。 此外请务必注意，当现有线程保持空闲状态的时间超过 15 秒（基于我记得的内容）时，会清理它，并且这种增长和收缩的循环可能会重复。
+基本上，这意味着时的繁忙线程数大于最小线程数，, 您可能需要付出 500 毫秒延迟的网络流量处理由应用程序之前。 此外请务必注意，当现有线程保持空闲状态的时间超过 15 秒（基于我记得的内容）时，会清理它，并且这种增长和收缩的循环可能会重复。
 
 如果我们考虑一个来自 StackExchange.Redis（内部版本 1.0.450 或更高版本）的示例错误消息，会看到它现在会打印线程池统计信息（请参阅下面的 IOCP 和辅助角色详细信息）。
 
@@ -377,25 +378,38 @@ CLR 线程池具有两种类型的线程 —“辅助角色”和“I/O 完成�
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-在前面的示例中，可以看到对于 IOCP 线程有 6 个忙碌线程，而系统配置为允许最少 4 个线程。 在这种情况下，客户端可能会遇到两个 500 毫秒延迟，因为 6 > 4。
+在上述示例中，可以看到对于 IOCP 线程有 6 个忙碌线程数和系统配置为允许最少的四个线程。 在这种情况下，客户端可能会遇到两个 500 毫秒延迟，因为 6 > 4。
 
 请注意，如果 IOCP 或辅助角色线程受到限制，则 StackExchange.Redis 可以会超时。
 
 ### <a name="recommendation"></a>建议
-考虑到此信息，我们强烈建议客户将 IOCP 和辅助角色线程的最小配置值设置为大于默认值。 我们无法提供有关此值应是多少的通用指导，因为一个应用程序的合适值对于另一个应用程序会太高/低。 此设置还可能会影响复杂应用程序其他部分的性能，因此每个客户需要按照其特定需求来微调此设置。 开始时设置为 200 或 300 会比较好，随后可进行测试并根据需要进行调整。
+
+考虑到此信息，我们强烈建议客户将 IOCP 和辅助角色线程的最小配置值设置为大于默认值。 我们不能提供在因为正确的值为一个应用程序可能会太大或太低，不足以另一个应用程序，此值应为多少的通用指导。 此设置还可能会影响复杂应用程序其他部分的性能，因此每个客户需要按照其特定需求来微调此设置。 开始时设置为 200 或 300 会比较好，随后可进行测试并根据需要进行调整。
 
 如何配置此设置：
 
-* 在 ASP.NET 中，可在 web.config 中的 `<processModel>` 配置元素下使用[“minIoThreads”或“minWorkerThreads”配置设置]["minIoThreads" configuration setting]。如果在 Azure 网站内部运行，则此设置不会通过配置选项进行公开。 但是，应该仍然能够通过 global.asax.cs 中的 Application_Start 方法以编程方式配置此设置置（请参阅下文）。
+* 我们建议使用以编程方式更改此设置[ThreadPool.SetMinThreads （...）](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_)中的方法`global.asax.cs`。 例如:
 
-  > [!NOTE] 
-  > 此配置元素中指定的值是*按核心*设置。 例如，如果使用 4 核计算机，并且希望 minIOThreads 设置在运行时为 200，则使用 `<processModel minIoThreads="50"/>`。
-  >
-
-* 在 ASP.NET 以及 Azure WebSites global.asax 外部，使用 [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_)API。
+```cs
+private readonly int minThreads = 200;
+void Application_Start(object sender, EventArgs e)
+{
+    // Code that runs on application startup
+    AreaRegistration.RegisterAllAreas();
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    BundleConfig.RegisterBundles(BundleTable.Bundles);
+    ThreadPool.SetMinThreads(minThreads, minThreads);
+}
+```
 
   > [!NOTE]
-  > 此 API 指定的值是全局设置，将影响整个 AppDomain。 如果已有 4 核计算机，并想要在运行时将 minWorkerThreads 和 minIOThreads 设置为 50（每个 CPU），可使用 ThreadPool.SetMinThreads (200, 200)。
+  > 此方法指定的值是全局设置，会影响整个应用程序域。 例如，如果你具有 4 核计算机，并想要设置*minWorkerThreads*并*minIoThreads*在运行时期间，每个 CPU 的 50，你将使用**ThreadPool.SetMinThreads （200，200）**.
+
+* 还有可能要指定使用设置的最小线程[ *minIoThreads*或*minWorkerThreads*配置设置](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx)下`<processModel>`中的配置元素`Machine.config`，通常位于`%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`。 **在这种方式中设置的最小线程数是通常不建议，因为它是系统范围的设置。**
+
+  > [!NOTE]
+  > 此配置元素中指定的值是*按核心*设置。 例如，如果有 4 核计算机，并且希望你*minIoThreads*设置为 200 在运行时，将使用`<processModel minIoThreads="50"/>`。
+  >
 
 <a name="server-gc"></a>
 
@@ -439,7 +453,7 @@ Azure Redis 缓存**资源菜单**中还包含了用于对缓存进行监视和�
 * 客户端的原因
   * 已重新部署客户端应用程序。
   * 客户端应用程序执行了缩放操作。
-    * 对于云服务或 Web 应用，原因可能在于自动缩放。
+    * 对于云服务或 Web 应用，这可能是由于自动缩放。
   * 客户端上的网络层已更改。
   * 客户端中或客户端与服务器之间的网络节点中发生暂时性错误。
   * 已达到带宽阈值限制。
@@ -460,9 +474,9 @@ Azure Redis 缓存已正式发布，最大大小为 53 GB，且其可用性 SLA 
 
 Azure Redis 缓存使客户能够使用由 Microsoft 管理的安全、专用的 Azure Redis 缓存。 有了此产品，可以利用 Redis 提供的丰富功能集和生态系统，并可以从 Microsoft 获得可靠的托管和监控。
 
-与仅处理键/值对的传统缓存不同，Redis 因其高性能的数据类型而受欢迎。 Redis 还支持对这些类型运行原子操作，如在字符串后面追加内容；递增哈希中的值；推送到列表；计算交集、并集和差集，或者获取排序集中排名最高的成员。 其他功能包括支持事务、发布/订阅、Lua 脚本、具有有限生存时间的键和配置设置，使 Redis 在行为上更类似于传统缓存。
+与仅处理键 / 值对的传统缓存，Redis 是常用于其高性能的数据类型。 Redis 还支持对这些类型运行原子操作，如在字符串后面追加内容；递增哈希中的值；推送到列表；计算交集、并集和差集，或者获取排序集中排名最高的成员。 其他功能包括支持事务、发布/订阅、Lua 脚本、具有有限生存时间的键和配置设置，使 Redis 在行为上更类似于传统缓存。
 
-Redis 取得成功的另一个重要方面是围绕它构建了健康而充满活力的开放源生态系统。 这反映在可通过多种语言使用各种不同的 Redis 客户端。 此生态系统和广泛的客户端使得 Azure Redis 缓存几乎可供在 Azure 内生成的任何工作负荷使用。
+Redis 取得成功的另一个重要方面是健康而充满活力的开源生态系统围绕它构建。 这反映在可通过多种语言使用各种不同的 Redis 客户端。 此生态系统和广泛的客户端使得 Azure Redis 缓存几乎可供在 Azure 内生成的任何工作负荷使用。
 
 有关如何开始使用 Azure Redis 缓存的详细信息，请参阅[如何使用 Azure Redis 缓存](cache-dotnet-how-to-use-azure-redis-cache.md)和 [Azure Redis 缓存文档](index.md)。
 

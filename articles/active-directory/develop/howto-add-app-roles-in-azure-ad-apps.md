@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410342"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138357"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>如何：在应用程序中添加应用角色并在令牌中接收它们
 
@@ -51,7 +51,9 @@ ms.locfileid: "60410342"
 1. 编辑应用清单，方法是先查找 `appRoles` 设置，然后添加所有应用程序角色。
 
      > [!NOTE]
-     > 此清单中的每个角色定义必须有不同的有效 **Guid**（针对“Id”属性）。 每个角色的 `"value"` 属性应该与应用程序的代码中使用的字符串完全匹配。
+     > 此清单中的每个应用程序角色定义必须具有为不同的有效 GUID`id`属性。 
+     > 
+     > `value`的每个应用程序角色定义的属性应与应用程序中的代码中使用的字符串完全匹配。 `value`属性不能包含空格。 如果是这样，您将收到错误时保存清单。
      
 1. 保存清单。
 

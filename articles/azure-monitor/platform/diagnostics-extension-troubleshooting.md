@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395044"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471789"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](diagnostics-extension-overview.md)。
@@ -48,7 +48,7 @@ ms.locfileid: "60395044"
 | **监视代理配置文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **状态文件** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure 诊断扩展包** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **日志收集实用工具路径** | C:\WindowsAzure\Packages |
+| **日志收集实用工具路径** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost 日志文件** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>指标数据不显示在 Azure 门户中
@@ -250,7 +250,7 @@ Azure 存储中保存 ETW 事件的表是使用以下代码命名的：
 | -108 |无法将诊断配置文件转换为监视代理配置文件。<p><p>此内部错误应仅当使用无效的配置文件手动调用了诊断插件时才会发生。 |
 | -110 |常规诊断配置错误。<p><p>此内部错误应仅当使用无效的配置文件手动调用了诊断插件时才会发生。 |
 | -111 |无法启动监视代理。<p><p>解决方案：验证是否有足够的系统资源可用。 |
-| -112 |常规错误 |
+| -112 |常见错误 |
 
 ### <a name="local-log-extraction"></a>本地日志提取
 监视代理将日志和项目收集为 `.tsf` 文件。 `.tsf` 文件不可读，但可以将其转换为 `.csv`，如下所示：

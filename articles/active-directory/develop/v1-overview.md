@@ -1,5 +1,5 @@
 ---
-title: 关于 v1.0 | Azure
+title: Azure Active Directory 中为开发人员 (v1.0) 概述的
 description: 本文概述了如何使用 Azure Active Directory v1.0 终结点和平台登录 Microsoft 工作和学校帐户。
 services: active-directory
 author: CelesteDG
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd39ee1dc22fb6143a8d098276172c453388170b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2af95d979e90f25c013f5112322d830232199a4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297167"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067646"
 ---
-# <a name="about-v10"></a>关于 v1.0
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory 中为开发人员 (v1.0) 概述的
 
 Azure Active Directory (Azure AD) 是一个云标识服务，开发人员可以使用它来生成应用，让用户使用 Microsoft 工作或学校帐户安全登录。 Azure AD 支持开发人员生成单租户业务线 (LOB) 应用和多租户应用。 除了基本登录以外，Azure AD 还可以让应用调用 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 等 Microsoft API，以及在 Azure AD 平台上生成的自定义 API。 本文档介绍了如何使用行业标准协议（例如 OAuth2.0 与 OpenID Connect）向应用程序添加 Azure AD 支持。
 

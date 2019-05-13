@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/1/2019
 ms.author: mlottner
-ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d56c878eab92a7152bc0b248cab5c2ebf7e6dde
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358578"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198415"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>部署 IoT Edge 设备上的安全模块
 

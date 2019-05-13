@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31795b0dfb5a9815113ab232a266d9f7f8955068
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109791"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688385"
 ---
 # <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器
 
@@ -268,7 +268,7 @@ $availabilitySet = New-AzAvailabilitySet `
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，上一步中创建的 NIC（*VM1* 和 *VM2*）将自动分配给虚拟机 *VM1* 和 *VM2*，因为它们具有相同的名称，并分配了相同的虚拟网络 (*myVnet*) 和子网 (*mySubnet*)。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
+现在，可使用 [New-AzVM](/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，上一步中创建的 NIC（VM1 和 VM2）将自动分配给虚拟机 VM1 和 VM2，因为它们具有相同的名称，并分配了相同的虚拟网络 (myVnet) 和子网 (mySubnet)。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -335,7 +335,7 @@ Get-AzPublicIPAddress `
 
 ![测试负载均衡器](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-若要查看负载均衡器如何在运行应用的所有 3 台 VM 之间分配流量，可以强制刷新 Web 浏览器。
+若要查看负载均衡器如何在运行应用的两台 VM 之间分配流量，可以强制刷新 Web 浏览器。
 
 ## <a name="clean-up-resources"></a>清理资源
 

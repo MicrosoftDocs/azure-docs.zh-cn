@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 8ae9062a5e154f457f86dd7f3fbed7bda8580c88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad29bbd038c8982778f2dbca63756f6995077dce
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306898"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204913"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>使用串行控制台发出 SysRq 和 NMI 调用
 
@@ -63,7 +63,7 @@ echo "1" >/proc/sys/kernel/sysrq
 |``h``  |   将显示帮助（使用此处所列以外的其他任何键也会显示帮助，但 ``h`` 很容易记住）
 |``i``  |    向所有进程（init 除外）发送 SIGKILL。
 |``j``  |    强制“将其解冻”- FIFREEZE ioctl 冻结的文件系统。
-|``k``  |    安全访问键 (SAK) 会终止当前虚拟控制台上的所有程序。 注意：请参阅下面 SAK 部分中的重要注释。
+|``k``  |    安全访问键 (SAK) 会终止当前虚拟控制台上的所有程序。 注意:请参阅下面 SAK 部分中的重要注释。
 |``l``  |    显示所有活动 CPU 的堆栈回溯。
 |``m``  |    将当前内存信息转储到控制台。
 |``n``  |    用于顺利完成 RT 任务

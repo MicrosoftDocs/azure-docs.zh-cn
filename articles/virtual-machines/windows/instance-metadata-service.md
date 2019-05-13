@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 9097fef88a2c3c667416761c341a2e320c790121
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919057"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993066"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -640,6 +640,8 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
+在其中的中间证书不能在验证过程因网络限制而下载的情况下，可以固定的中间证书。 但是，Azure 将根据标准的 PKI 做法证书对其滚动更新。 固定的证书需要滚动更新，会发生时进行更新。 每当计划的更改来更新中间证书，将更新 Azure 网络日志和 Azure 客户将收到通知。 找不到中间证书[此处](https://www.microsoft.com/pki/mscorp/cps/default.htm)。 每个区域的中间证书可能会不同。
+
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server 中的故障转移群集
 
 在某些情况下，在使用故障转移群集查询实例元数据服务时，必须向路由表添加路由。
@@ -688,11 +690,13 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ### <a name="custom-data"></a>自定义数据
 实例元数据服务提供的 VM 具有对其自定义数据的访问权限的功能。 二进制数据必须是小于 64 KB，并提供到 base64 编码窗体中的 VM。 有关如何创建具有自定义数据的 VM 的详细信息，请参阅[部署虚拟机使用 CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata)。
 
+自定义数据是可用于在 VM 中运行的所有进程。 建议客户不要将机密信息插入自定义数据。
+
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>检索虚拟机中的自定义数据
 实例元数据服务提供到 base64 编码窗体中的 VM 的自定义数据。 下面的示例将解码的 base64 编码字符串。
 
 > [!NOTE]
-> 此示例中的自定义数据解释为 ASCII 字符串显示为"我的 super 机密数据。"。
+> 此示例中的自定义数据解释为 ASCII 字符串显示为"我的自定义数据。"。
 
 **请求**
 
@@ -703,7 +707,7 @@ curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/custom
 **响应**
 
 ```text
-My super secret data.
+My custom data.
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>在 VM 内使用不同语言调用元数据服务的示例 

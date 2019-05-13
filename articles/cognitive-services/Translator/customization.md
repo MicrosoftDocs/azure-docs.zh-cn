@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951431"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205923"
 ---
 # <a name="customize-your-text-translations"></a>自定义文本翻译
 
@@ -27,7 +27,7 @@ Microsoft 自定义翻译是 Microsoft Translator 服务的一项功能，它允
 
 使用自定义翻译，可以构建神经翻译系统，以了解自己的业务和行业中使用的术语。 然后，自定义的翻译系统将集成到现有的应用程序、工作流和网站中。
 
-### <a name="how-does-it-work"></a>工作原理
+### <a name="how-does-it-work"></a>它是如何工作的?
 
 使用以前翻译过的文档（传单、网页、文档等）构建一个翻译系统，以反映领域特定的术语和样式，比通用翻译系统更好。 用户可以上传 TMX、XLIFF、TXT、DOCX 和 XLSX 文档。  
 
@@ -51,10 +51,10 @@ Microsoft 自定义翻译是 Microsoft Translator 服务的一项功能，它允
 |:-----|:----:|:----:|
 |自定义功能状态   | 正式版  | 正式版 |
 | 文本 API 版本  | 仅 V2   | 仅 V3 |
-| SMT 自定义 | 是   | 否 |
-| NMT 自定义 | 否    | 是 |
-| 新的统一语音服务自定义 | 否    | 是 |
-| [无跟踪](https://www.aka.ms/notrace) | 是  | 是 |
+| SMT 自定义 | “是”   | “否” |
+| NMT 自定义 | “否”    | “是” |
+| 新的统一语音服务自定义 | “否”    | “是” |
+| [无跟踪](https://www.aka.ms/notrace) | “是”  | “是” |
 
 ## <a name="collaborative-translations-framework"></a>协作翻译框架
 

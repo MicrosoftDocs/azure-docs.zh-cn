@@ -214,7 +214,7 @@ Amazon Redshift 链接的服务支持以下属性：
 | CHAR |String |
 | DATE |DateTime |
 | DECIMAL |Decimal |
-| 双精度 |Double |
+| DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |

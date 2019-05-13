@@ -1,7 +1,7 @@
 ---
 title: 适用于筛选器和 order-by 子句的 OData 表达式语法 - Azure 搜索
 description: 适用于 Azure 搜索查询的筛选器和 order-by 表达式 OData 语法。
-ms.date: 03/27/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1f77a9e0a3308098e5f6c699f2fc79e5c437f17
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317094"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024264"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure 搜索中适用于筛选器和 order-by 子句的 OData 表达式语法
 
@@ -36,7 +36,7 @@ Azure 搜索支持一组适用于 **$filter** 和 **$orderby** 表达式的 ODat
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
     }
@@ -45,7 +45,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 另一个常见用例是组合使用筛选器和 facet，其中筛选器根据用户驱动的 facet 导航选择减少查询外围应用：
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "search": "test",
       "facets": [ "tags", "baseRate,values:80|150|220" ],

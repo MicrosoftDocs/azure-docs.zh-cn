@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: DTU 服务层级
           href: sql-database-service-tiers-dtu.md
+        - name: 无服务器计算层
+          href: sql-database-serverless.md
         - name: 为预留容量预付费
           href: sql-database-reserved-capacity.md
         - name: 从“高级 RS”服务层级迁移
@@ -232,8 +234,6 @@
     - name: 安全
       items:
         - name: 安全概述
-          href: sql-database-security-index.yml
-        - name: 安全功能
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: 高级数据安全
@@ -284,6 +284,8 @@
               href: transparent-data-encryption-azure-sql.md
             - name: 将 TDE 与自带密钥配合使用
               href: transparent-data-encryption-byok-azure-sql.md
+        - name: 安全属性
+          href: sql-database-security-attributes.md
     - name: 可伸缩性
       items:
         - name: 可伸缩性概述
@@ -356,9 +358,9 @@
           href: sql-database-temporal-tables.md
         - name: 作业自动化
           href: sql-database-job-automation-overview.md
-        - name: 机器学习
+        - name: 机器学习服务
           items:
-            - name: 机器学习概述
+            - name: 概述
               href: sql-database-machine-learning-services-overview.md
             - name: 主要区别
               href: sql-database-machine-learning-services-differences.md
@@ -460,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: 为托管实例配置现有 VNet 和子网
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: 在删除托管实例后删除子网
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: 配置自定义 DNS
           href: sql-database-managed-instance-custom-dns.md
         - name: 同步网络配置
@@ -474,6 +478,8 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: 连接应用程序
           href: sql-database-managed-instance-connect-app.md
+        - name: 配置公共终结点
+          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: 加载和移动数据
       items:
         - name: 在 Azure 中复制数据库
@@ -658,6 +664,8 @@
           href: sql-database-machine-learning-services-functions.md
         - name: 使用 R 和 SQL 数据
           href: sql-database-machine-learning-services-data-issues.md
+        - name: 添加 R 包
+          href: sql-database-machine-learning-services-add-r-packages.md
 - name: 引用
   items:
     - name: Azure PowerShell

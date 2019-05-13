@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867059"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152652"
 ---
 # <a name="media-services-concepts"></a>媒体服务概念
 
@@ -134,7 +134,7 @@ ms.locfileid: "64867059"
 
 - [Azure Media Player 概述](use-azure-media-player.md)
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

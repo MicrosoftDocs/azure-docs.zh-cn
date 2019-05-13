@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880043"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466303"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教程：将 Azure 部署管理器与资源管理器模板配合使用（个人预览版）
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>教程：将 Azure 部署管理器与资源管理器模板配合使用（公共预览版）
 
 了解如何使用 [Azure 部署管理器](./deployment-manager-overview.md)跨多个区域部署应用程序。 若要使用部署管理器，需要创建两个模板：
 
 * **拓扑模板**：描述构成应用程序的 Azure 资源以及这些资源的部署位置。
 * **实施模板**：描述部署应用程序时要执行的步骤。
+
+> [!IMPORTANT]
+> 如果为 Canary 标记了你的订阅来测试新的 Azure 功能，则只能使用 Azure 部署管理器来部署到 Canary 区域。 
 
 本教程涵盖以下任务：
 
@@ -432,4 +435,4 @@ variables 节定义资源的名称。 请确保服务拓扑名称、服务名称
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程已介绍 Azure 部署管理器的用法。 若要了解更多信息，请参阅 [Azure 资源管理器文档](/azure/azure-resource-manager/)。
+本教程已介绍 Azure 部署管理器的用法。 若要在 Azure 部署管理器中集成运行状况监视，请参阅[教程：在 Azure 部署管理器中使用运行状况检查](./deployment-manager-tutorial-health-check.md)。

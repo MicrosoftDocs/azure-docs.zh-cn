@@ -13,28 +13,44 @@
       href: quickstart.md
 - name: 教程
   items:
-    - name: 使用 Azure Functions 筛选数据
-      href: tutorial-deploy-function.md
-    - name: 使用 ASA 查找平均值
-      href: tutorial-deploy-stream-analytics.md
-    - name: 使用 Azure 机器学习服务对数据进行评分
-      href: tutorial-deploy-machine-learning.md
-    - name: 使用自定义视觉对图像进行分类
-      href: tutorial-deploy-custom-vision.md
-    - name: 使用 SQL 在本地存储数据
-      href: tutorial-store-data-sql-server.md
-    - name: 开发自定义代码模块
+    - name: 1. 设置开发环境
       items:
+        - name: 针对 Linux 设备进行开发
+          href: tutorial-develop-for-linux.md
+        - name: 针对 Windows 设备进行开发
+          href: tutorial-develop-for-windows.md
+    - name: 2. 开发自定义代码模块
+      items:
+        - name: C
+          items:
+            - name: 适用于 Linux 设备的 C 模块
+              href: tutorial-c-module.md
+            - name: 适用于 Windows 设备的 C 模块
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: '适用于 Linux 设备的 C# 模块'
+              href: tutorial-csharp-module.md
+            - name: '适用于 Windows 设备的 C# 模块'
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. 将 Azure 服务部署为模块
+      items:
+        - name: 使用 Azure Functions 筛选数据
+          href: tutorial-deploy-function.md
+        - name: 使用 ASA 查找平均值
+          href: tutorial-deploy-stream-analytics.md
+        - name: 使用 Azure 机器学习服务对数据进行评分
+          href: tutorial-deploy-machine-learning.md
+        - name: 使用自定义视觉对图像进行分类
+          href: tutorial-deploy-custom-vision.md
+        - name: 使用 SQL 在本地存储数据
+          href: tutorial-store-data-sql-server.md
 - name: 概念
   items:
     - name: IoT Edge 运行时
@@ -93,8 +109,14 @@
           href: how-to-install-iot-edge-linux-arm.md
         - name: Windows X64
           href: how-to-install-iot-edge-windows.md
+        - name: Windows X64 上的 Linux 容器
+          href: how-to-install-iot-edge-windows-with-linux.md
+        - name: Windows Server VM
+          href: how-to-install-iot-edge-windows-server-vm.md
         - name: Ubuntu VM
           href: how-to-install-iot-edge-ubuntuvm.md
+        - name: Kubernetes
+          href: how-to-install-iot-edge-kubernetes.md
         - name: 更新运行时版本
           href: how-to-update-iot-edge.md
     - name: 使用 DPS 进行自动预配

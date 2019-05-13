@@ -4,7 +4,7 @@ description: 有关 Azure IaaS Windows VM 磁盘和高级磁盘（托管和非�
 services: virtual-machines-windows
 documentationcenter: ''
 author: roygara
-manager: jeconnoc
+manager: twooley
 editor: tysonn
 ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 10882c088f4fd0ef0e8669dbb7c02fac0501ccbe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 81cdb0273f64bd70fc77a6e61007290bdd4627c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469203"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727460"
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]

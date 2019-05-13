@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Monitor 日志来监视 Azure HDInsight 群集
-description: 了解如何使用 Azure Azure Monitor 日志来监视在 HDInsight 群集中运行的作业。
+description: 了解如何使用 Azure Monitor 日志来监视在 HDInsight 群集中运行的作业。
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0c37ff3c62817d238a94d5bbeae90c67663a6029
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 610843d325744aec8ad944075f06c63c90b6fe4d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203678"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>使用 Azure Monitor 日志来监视 HDInsight 群集
 

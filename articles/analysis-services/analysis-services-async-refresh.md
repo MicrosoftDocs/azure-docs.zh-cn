@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025223"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506977"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>使用 REST API 执行异步刷新
 
@@ -104,7 +104,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 | `CommitMode`     | 枚举  | 确定是要分批提交对象，还是只在完成时才提交。 模式包括：default、transactional、partialBatch。  |  transactional       |
 | `MaxParallelism` | Int   | 此值确定用于并行运行处理命令的最大线程数。 此值与 MaxParallelism 属性（可以在 TMSL [Sequence 命令](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl)中或使用其他方法设置此属性）相符。       | 10        |
 | `RetryCount`     | Int   | 指示操作在失败之前要重试的次数。      |     0    |
-| `Objects`        | Array | 要处理的对象数组。 每个对象包含：“table”（处理整个表时），或者“table”和“partition”（处理分区时）。 如果未指定任何对象，则会刷新整个模型。 |   处理整个模型      |
+| `Objects`        | 阵列 | 要处理的对象数组。 每个对象包含：“table”（处理整个表时），或者“table”和“partition”（处理分区时）。 如果未指定任何对象，则会刷新整个模型。 |   处理整个模型      |
 
 CommitMode 等于 partialBatch。 针对大型数据集执行可能需要几个小时的初始加载时，将会使用 CommitMode。 如果在成功提交一个或多个批之后刷新操作失败，则成功提交的批将保留已提交状态（不会回滚已成功提交的批）。
 
@@ -201,42 +201,9 @@ CommitMode 等于 partialBatch。 针对大型数据集执行可能需要几个�
 1.  克隆或下载存储库。 打开 RestApiSample 解决方案。
 2.  找到 **client.BaseAddress = …** 行 并提供自己的[基 URL](#base-url)。
 
-该代码示例可以使用交互式登录、用户名/密码或[服务主体](#service-principal)。
+该代码示例使用[服务主体](#service-principal)身份验证。
 
-#### <a name="interactive-login-or-usernamepassword"></a>交互式登录或用户名/密码
-
-这种形式的身份验证要求使用分配的所需 API 权限创建一个 Azure 应用程序。 
-
-1.  在 Azure 门户中，单击“创建资源” > “Azure Active Directory” > “应用注册” > “新建应用程序注册”。
-
-    ![新建应用程序注册](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  在“创建”中键入一个名称，选择“本机”应用程序类型。 对于“重定向 URI”，请输入 **urn:ietf:wg:oauth:2.0:oob**，然后单击“创建”。
-
-    ![设置](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  选择应用，然后复制并保存**应用程序 ID**。
-
-    ![复制应用程序 ID](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  在“设置”中，单击“所需权限” > “添加”。
-
-    ![添加 API 访问权限](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  在“选择 API”中，将 **Azure Analysis Services** 键入到搜索框中，然后选择它。
-
-    ![选择 API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  选择“读取和写入所有模型”，然后单击“选择”。 选择这两项后，请单击“完成”添加权限。 可能需要几分钟时间才能完成传播。
-
-    ![选择“读取和写入所有模型”](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  在代码示例中，找到 **UpdateToken()** 方法。 观察此方法的内容。
-8.  找到 **string clientID = …**，然后输入步骤 3 中复制的**应用程序 ID**。
-9.  运行示例。
-
-#### <a name="service-principal"></a>服务主体
+### <a name="service-principal"></a>服务主体
 
 有关如何在 Azure AS 中设置服务主体和分配必要权限的详细信息，请参阅[创建服务主体 - Azure 门户](../active-directory/develop/howto-create-service-principal-portal.md)和[将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)。 完成上述步骤后，请完成以下附加步骤：
 

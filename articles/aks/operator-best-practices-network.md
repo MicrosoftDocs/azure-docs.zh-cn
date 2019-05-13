@@ -2,18 +2,17 @@
 title: 操作员最佳做法 - Azure Kubernetes 服务 (AKS) 中的网络连接
 description: 了解 Azure Kubernetes 服务 (AKS) 中虚拟网络资源和连接的群集运算符的最佳实践
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/10/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/10/2018
+ms.author: iainfou
+ms.openlocfilehash: b26af87de8a09f987d69f0441a817638e626b4af
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463967"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192235"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的网络连接和安全的最佳做法
 
@@ -125,7 +124,7 @@ Web 应用程序防火墙 (WAF) 通过筛选传入流量提供额外的安全层
 
 **最佳做法指南** - 使用网络策略允许或拒绝到 Pod 的流量。 默认情况下，将允许群集中 Pod 之间的所有流量。 为了提高安全性，请定义对 Pod 通信进行限制的规则。
 
-网络策略（目前在 AKS 中预览）是一项 Kubernetes 功能，可用于控制 Pod 之间的流量流。 可选择基于分配的标签、命名空间或流量端口等设置来允许或拒绝流量。 使用网络策略提供了一种云本机方式来控制流量流。 因为 Pod 是在 AKS 群集中动态创建的，则可以动态应用所需的网络策略。 不要使用 Azure 网络安全组来控制 Pod 到 Pod 流量，请使用网络策略。
+网络策略是一项 Kubernetes 功能，可用于控制 Pod 之间的流量流。 你可以选择基于分配的标签、命名空间或流量端口等设置来允许或拒绝流量。 使用网络策略提供了一种云本机方式来控制流量流。 因为 Pod 是在 AKS 群集中动态创建的，则可以动态应用所需的网络策略。 不要使用 Azure 网络安全组来控制 Pod 到 Pod 流量，请使用网络策略。
 
 若要使用网络策略，必须在创建 AKS 群集时启用此功能。 无法在现有 AKS 群集上启用网络策略。 请提前进行规划以确保在群集上启用网络策略并根据需要使用它们。
 

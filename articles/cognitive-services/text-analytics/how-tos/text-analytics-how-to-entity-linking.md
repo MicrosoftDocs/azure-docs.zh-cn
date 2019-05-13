@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829712"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231427"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -39,31 +39,31 @@ ms.locfileid: "60829712"
 
 ## <a name="supported-types-for-named-entity-recognition"></a>命名实体识别支持的类型
 
-| Type  | 子类型 | 示例 |
+| Type  | SubType | 示例 |
 |:-----------   |:------------- |:---------|
-| 人员        | 暂无\*         | “Jeff”、“Bill Gates”     |
+| 个人        | 暂无\*         | “Jeff”、“Bill Gates”     |
 | Location      | 暂无\*         | “Redmond, Washington”、“Paris”  |
 | 组织  | 暂无\*         | “Microsoft”   |
-| 数量      | Number        | “6”、“six”     | 
+| 数量      | 数量        | “6”、“six”     | 
 | 数量      | 百分比    | “50%”、“fifty percent”| 
-| 数量      | Ordinal       | “2nd”、“second”     | 
+| 数量      | 序号       | “2nd”、“second”     | 
 | 数量      | NumberRange   | “4 to 8”     | 
-| 数量      | Age           | “90 day old”、“30 years old”    | 
+| 数量      | 期限           | “90 day old”、“30 years old”    | 
 | 数量      | 货币      | “$10.99”     | 
 | 数量      | 维度     | “10 miles”、“40 cm”     | 
 | 数量      | 温度   | “32 degrees”    |
 | DateTime      | 暂无\*         | “6:30PM February 4, 2012”      | 
 | DateTime      | date          | “May 2nd, 2017”、“05/02/2017”   | 
-| DateTime      | 时间          | “8am”、“8:00”  | 
+| DateTime      | Time          | “8am”、“8:00”  | 
 | DateTime      | DateRange     | “May 2nd to May 5th”    | 
 | DateTime      | TimeRange     | “6pm to 7pm”     | 
-| DateTime      | Duration      | “1 minute and 45 seconds”   | 
-| DateTime      | 设置           | “every Tuesday”     | 
+| DateTime      | 持续时间      | “1 minute and 45 seconds”   | 
+| DateTime      | 集合           | “every Tuesday”     | 
 | DateTime      | TimeZone      |    | 
-| 代码           | 暂无\*         | "https:\//www.bing.com"    |
+| URL           | 暂无\*         | "https:\//www.bing.com"    |
 | 电子邮件         | 暂无\*         | "support@contoso.com" |
 
-\*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。
+\*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。  列出的所有支持的实体类型都仅可用于英语、 简体中文、 法语、 德语和西班牙语语言。
 
 
 

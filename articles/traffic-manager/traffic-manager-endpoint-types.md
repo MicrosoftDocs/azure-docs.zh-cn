@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916659"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508429"
 ---
 # <a name="traffic-manager-endpoints"></a>流量管理器终结点
 使用 Microsoft Azure 流量管理器可以控制如何将网络流量分布到在不同数据中心运行的应用程序部署。 需要在流量管理器中将每个应用程序部署配置为一个“终结点”。 当流量管理器收到 DNS 请求时，将选择要在 DNS 响应中返回的可用终结点。 流量管理器根据当前终结点状态和流量路由方法做出这种选择。 相关详细信息，请参阅[流量管理器工作原理](traffic-manager-how-it-works.md)。
 
 流量管理器支持三种类型的终结点：
 * **Azure 终结点**用于在 Azure 中托管的服务。
-* **外部终结点**用于 IPv4/IPv6 地址，或用于在 Azure 外部托管的服务，可以是在本地托管或通过其他托管提供商进行托管。
+* **外部终结点**用于 IPv4/IPv6 地址、 Fqdn，或可以是本地的 Azure 外部或与其他托管提供商托管的服务。
 * **嵌套终结点**用于组合流量管理器配置文件，以便创建更灵活的流量路由方案，从而满足更大、更复杂部署的需求。
 
 可以不受限制地在单个流量管理器配置文件中通过各种方式组合不同类型的终结点。 每个配置文件都可以包含任何组合形式的终结点类型。
@@ -36,7 +36,7 @@ ms.locfileid: "64916659"
 Azure 终结点用于流量管理器中基于 Azure 的服务。 支持以下 Azure 资源类型：
 
 * PaaS 云服务。
-* Web 应用
+* Web Apps
 * Web 应用槽
 * PublicIPAddress 资源（可直接或通过 Azure 负载均衡器连接到 VM）。 必须为 publicIpAddress 分配一个 DNS 名称，才能在流量管理器配置文件中使用它。
 
@@ -46,7 +46,7 @@ PublicIPAddress 资源属于 Azure 资源管理器资源。 经典部署模型�
 
 ## <a name="external-endpoints"></a>外部终结点
 
-外部终结点用于 IPv4/IPv6 地址，或用于 Azure 外部的服务。 使用 IPv4/IPv6 地址终结点允许流量管理器检查终结点的运行状况，而无需为其指定 DNS 名称。 因此，在响应中返回终结点时，流量管理器可以使用 A/AAAA 记录响应查询。 Azure 外部的服务可以包括本地托管的服务或通过其他提供商托管的服务。 外部终结点可以单独使用，也可以与同一流量管理器配置文件中的 Azure 终结点结合使用，但指定为 IPv4 或 IPv6 地址的终结点除外，这些终结点只能是外部终结点。 可以将 Azure 终结点与外部终结点结合用于多种方案：
+外部终结点用于任一 IPv4/IPv6 地址、 Fqdn 或 Azure 外部的服务。 使用 IPv4/IPv6 地址终结点允许流量管理器检查终结点的运行状况，而无需为其指定 DNS 名称。 因此，在响应中返回终结点时，流量管理器可以使用 A/AAAA 记录响应查询。 Azure 外部的服务可以包括本地托管的服务或通过其他提供商托管的服务。 外部终结点可以单独使用，也可以与同一流量管理器配置文件中的 Azure 终结点结合使用，但指定为 IPv4 或 IPv6 地址的终结点除外，这些终结点只能是外部终结点。 可以将 Azure 终结点与外部终结点结合用于多种方案：
 
 * 在主动-主动或主动-被动故障转移模型中，可以使用 Azure 为现有的本地应用程序提供增强的冗余。 
 * 将流量路由到没有与其关联的 DNS 名称的终结点。 此外，由于无需运行第二个 DNS 查询以返回 DNS 名称的 IP 地址，减少了整体 DNS 查找延迟。 

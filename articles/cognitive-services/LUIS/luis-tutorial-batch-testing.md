@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597301"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146162"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教程：成批测试数据集
 
@@ -28,7 +28,7 @@ ms.locfileid: "60597301"
 
 * 每个测试的最大话语量为 1000 个。 
 * 没有重复项。 
-* 允许的实体类型：仅简单、层次（仅父级）和复合的机器学习实体。 批处理测试仅适用于机器学习意向和实体。
+* 允许实体类型： 简单和复合的只有加工获知的实体。 批处理测试仅适用于机器学习意向和实体。
 
 使用本教程以外的应用时，请不要使用已经添加到意向的示例话语。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "60597301"
 
 ## <a name="review-batch-results"></a>查看批处理结果
 
-批处理图表将结果显示在四个象限中。 在图表右侧是一个筛选器。 默认情况下，筛选器设置为列表中的第一个意向。 筛选器包含所有意向，并且仅包含简单、分层（仅父级）和复合实体。 选择[图表的一个部分](luis-concept-batch-test.md#batch-test-results)或图表中的一个点时，关联的话语显示在图表下方。 
+批处理图表将结果显示在四个象限中。 在图表右侧是一个筛选器。 默认情况下，筛选器设置为列表中的第一个意向。 筛选器包含所有意图和仅简单和复合实体。 选择[图表的一个部分](luis-concept-batch-test.md#batch-test-results)或图表中的一个点时，关联的话语显示在图表下方。 
 
 鼠标悬停在图表上时，鼠标滚轮可以放大或缩小图表中的显示。 当图表上有许多点紧密地聚集在一起时，这是非常有用的。 
 
@@ -169,7 +169,7 @@ ms.locfileid: "60597301"
 
 ## <a name="create-batch-file-with-entities"></a>使用实体创建批处理文件 
 
-若要验证批处理测试中的实体，需要在批处理 JSON 文件中标记实体。 仅使用机器学习实体：简单、分层（仅父级）和复合实体。 不要添加非机器学习实体，因为它们总是通过正则表达式或显式文本匹配找到的。
+若要验证批处理测试中的实体，需要在批处理 JSON 文件中标记实体。 使用仅机器学习的内容的实体： 简单和复合实体。 不要添加非机器学习实体，因为它们总是通过正则表达式或显式文本匹配找到的。
 
 总字（[令牌](luis-glossary.md#token)）计数的实体的变化会影响预测质量。 请确保提供给具有标记话语的意向的定型数据包括各种长度的实体。 
 
@@ -205,7 +205,7 @@ ms.locfileid: "60597301"
 
 ## <a name="review-entity-batch-results"></a>查看实体批处理结果
 
-图表打开，所有意向都已正确预测。 在右侧筛选器中向下滚动，查找错误的实体预测。 
+图表打开，所有意向都已正确预测。 向下滚动以查找具有错误的实体预测在右侧的筛选器中。 
 
 1. 在筛选器中选择“工作”实体。
 

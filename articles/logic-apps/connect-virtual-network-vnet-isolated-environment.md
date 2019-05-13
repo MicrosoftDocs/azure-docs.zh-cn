@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511314"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150566"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>使用集成服务环境 (ISE) 从 Azure 逻辑应用连接到 Azure 虚拟网络
-
-> [!NOTE]
-> 此功能目前以[*公共预览版*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 对于逻辑应用和集成帐户需要访问 [ Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)的情况，请创建[集成服务环境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)。 ISE 是私有和隔离的环境使用专用的存储和保留独立于公共或"全局"逻辑应用服务的其他资源。 这种分离还减少了其他 Azure 租户可能对应用性能产生的影响。 可以将 ISE 注入到 Azure 虚拟环境，后者然后会将逻辑应用服务部署到虚拟网络中。 创建逻辑应用或集成帐户时，请选择此 ISE 作为其位置。 然后，逻辑应用或集成帐户可以直接访问虚拟网络中的虚拟机 (VM)、服务器、系统和服务等资源。
 
@@ -101,13 +98,11 @@ ms.locfileid: "60511314"
 若要创建集成服务环境 (ISE)，请执行以下步骤：
 
 1. 在 [Azure 门户](https://portal.azure.com)上的 Azure 主菜单上，选择“创建资源”。
+在搜索框中，输入“集成服务环境”作为筛选器。
 
    ![新建资源](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. 在搜索框中，输入“集成服务环境”作为筛选器。
-在结果列表中选择“集成服务环境(预览版)”，然后选择“创建”。
-
-   ![选择“集成服务环境”](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. 在集成服务环境创建窗格中，选择**创建**。
 
    ![选择“创建”](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ ms.locfileid: "60511314"
    | **资源组** | 是 | <*Azure-resource-group-name*> | 要在其中创建环境的 Azure 资源组 |
    | **集成服务环境名称** | 是 | <*environment-name*> | 为环境指定的名称 |
    | **位置** | 是 | <*Azure-datacenter-region*> | 要在其中部署环境的 Azure 数据中心区域 |
-   | **额外容量** | 是 | 0、1、2、3 | 要使用此 ISE 资源的处理单位数。 若要在创建后添加容量，请参阅[添加容量](#add-capacity)。 |
-   | **虚拟网络** | 是 | <Azure-virtual-network-name> | 要注入环境以便该环境中的逻辑应用可以访问虚拟网络的 Azure 虚拟网络。 如果没有网络，可以在此处创建一个。 <p>**重要说明**：创建 ISE 时可以仅执行此注入。 但是，可以创建此关系之前，请确保你设置了基于角色的访问控制在虚拟网络中为 Azure 逻辑应用。 |
+   | **额外容量** | 是 | 0 到 10 | 要使用此 ISE 资源的其他处理单位数。 若要在创建后添加容量，请参阅[添加 ISE 容量](#add-capacity)。 |
+   | **虚拟网络** | 是 | <Azure-virtual-network-name> | 要注入环境以便该环境中的逻辑应用可以访问虚拟网络的 Azure 虚拟网络。 如果您没有网络，[先创建 Azure 虚拟网络](../virtual-network/quick-create-portal.md)。 <p>**重要**：创建 ISE 时可以仅执行此注入。 |
    | **子网** | 是 | <*subnet-resource-list*> | ISE 需要四个空的子网来在环境中创建资源。 要创建每个子网，请[按照此表下方的步骤操作](#create-subnet)。  |
    |||||
 
@@ -172,6 +167,9 @@ ms.locfileid: "60511314"
 
    1. 重复这些步骤创建额外三个子网。
 
+      > [!NOTE]
+      > 如果你尝试创建的子网不是有效的在 Azure 门户显示一条消息，但不会阻止您的进度。
+
 1. Azure 成功验证 ISE 信息后，请选择“创建”，例如：
 
    ![成功验证后，选择“创建”](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ ms.locfileid: "60511314"
 
    ![部署成功](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   否则，请按照 Azure 门户说明排查部署问题。
+
    > [!NOTE]
-   > 如果部署失败或删除 ISE，Azure 在释放子网之前可能需要长达一个小时。 因此，可能需要等待一段时间才能在另一个 ISE 中重复使用这些子网。
+   > 如果部署失败，或者删除在 ISE 中，Azure 可能要需要一小时之前释放您的子网。 这种延迟表示可能需要重复使用在 ISE 中另一个子网之前等待的表示。 
+   >
+   > 如果删除你的虚拟网络，Azure 时通常需要两个小时前发布了您的子网，但此操作可能需要更长。 
+   > 在删除虚拟网络时，请确保没有资源仍连接。 请参阅[删除虚拟网络](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)。
 
 1. 如果部署完成后 Azure 未自动转到你的环境，可以选择“转到资源”来查看该环境。  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>添加容量
-
-在 ISE 基本单位具有固定容量，因此如果需要更大的吞吐量，你可以添加更多缩放单位。 你可以基于性能指标或基于的处理单位数的自动缩放。 如果选择基于指标自动缩放，可以从各种条件中进行选择，并指定满足该条件的阈值条件。
-
-1. 在 Azure 门户中，找到你 ISE。
-
-1. 若要查看性能指标的 ISE 中，在 ISE 的主菜单上，选择**概述**。
-
-1. 若要设置自动缩放下,**设置**，选择**横向扩展**。上**配置**选项卡上，选择**启用自动缩放**。
-
-1. 在中**默认**部分中，选择**基于指标缩放**或**缩放为具体实例数**。
-
-1. 如果选择基于实例的，输入处理单位的数介于 0 到 3 之间 （含）。 否则，为基于指标，请遵循以下步骤：
-
-   1. 在中**默认**部分中，选择**添加规则**。
-
-   1. 上**缩放规则**窗格中，设置你的条件和操作执行时，规则将触发。
-
-   1. 完成后，选择**添加**。
-
-1. 完成后，请记住保存所做的更改。
+有关创建子网的详细信息，请参阅[添加虚拟网络子网](../virtual-network/virtual-network-manage-subnet.md)。
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ ms.locfileid: "60511314"
 
 ![选择集成服务环境](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>获取支持
+<a name="add-capacity"></a>
 
-* 有关问题，请访问 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure 逻辑应用论坛</a>。
-* 若要提交功能建议或对功能建议进行投票，请访问<a href="https://aka.ms/logicapps-wish" target="_blank">逻辑应用用户反馈网站</a>。
+## <a name="add-ise-capacity"></a>添加 ISE 容量
+
+在 ISE 基本单位具有固定容量，因此如果需要更大的吞吐量，你可以添加更多缩放单位。 你可以基于性能指标或额外的处理单位数的自动缩放。 如果选择基于指标自动缩放，可以从各种条件中进行选择，并指定满足该条件的阈值条件。
+
+1. 在 Azure 门户中，找到你 ISE。
+
+1. 若要查看使用情况和性能指标的 ISE 中，在 ISE 的主菜单上，选择**概述**。
+
+   ![查看使用情况的 ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. 若要设置自动缩放下,**设置**，选择**横向扩展**。上**配置**选项卡上，选择**启用自动缩放**。
+
+   ![启用自动缩放](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. 有关**自动缩放设置名称**，提供你设置的名称。
+
+1. 在中**默认**部分中，选择**基于指标缩放**或**缩放为具体实例数**。
+
+   * 如果选择基于实例的，输入处理单位的数介于 0 和 10 之间 （含）。
+
+   * 如果选择基于指标的，请按照下列步骤：
+
+     1. 在中**规则**部分中，选择**添加规则**。
+
+     1. 上**缩放规则**窗格中，设置你的条件和操作执行时，规则将触发。
+
+     1. 完成后，选择**添加**。
+
+1. 完成后自动缩放设置后，保存所做的更改。
 
 ## <a name="next-steps"></a>后续步骤
 

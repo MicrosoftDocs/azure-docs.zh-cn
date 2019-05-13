@@ -45,14 +45,22 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: 操作指南
+- name: 概念
   items:
     - name: 人脸检测
-      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+      href: concepts/face-detection.md
     - name: 人脸识别
+      href: concepts/face-recognition.md
+- name: 操作指南
+  items:
+    - name: 检测人脸
+      href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
+    - name: 标识人脸
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: 添加人脸
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: 使用 HeadPose 来旋转矩形
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: 指定人脸识别模型
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: 使用大规模使用的功能
@@ -69,10 +77,6 @@
           href: face-resource-container-config.md
     - name: 使用人脸 API 连接服务
       href: vs-face-connected-service.md
-- name: 示例
-  items:
-    - name: 代码示例
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: 引用
   items:
     - name: 人脸 API
@@ -93,10 +97,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: 资源
   items:
-    - name: 术语表
-      href: Glossary.md
-    - name: 常见问题解答
-      href: FAQ.md
+    - name: 示例
+      items:
+        - name: 人脸 API 示例
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: 定价和限制
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice

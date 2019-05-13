@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 4a360968285b91b00c8ca1999f81c11951e74482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479841"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416047"
 ---
-# <a name="machine-learning-integration-in-stream-analytics"></a>流分析中的机器学习集成
+# <a name="machine-learning-integration-in-stream-analytics-preview"></a>机器学习集成在 Stream Analytics （预览版）
 流分析支持用于调用 Azure 机器学习终结点的用户定义函数。 [流分析 REST API 库](https://msdn.microsoft.com/library/azure/dn835031.aspx)中详细介绍了此功能的 REST API 支持。 本文提供了在流分析中成功实现此功能所需的补充信息。 还发布了教程，可从[此处](stream-analytics-machine-learning-integration-tutorial.md)获取。
 
 ## <a name="overview-azure-machine-learning-terminology"></a>概述：Azure 机器学习术语

@@ -2,18 +2,18 @@
 title: 快速入门：使用 Azure 存储资源管理器管理 Azure 文件共享
 description: 通过本快速入门了解如何使用 Azure 存储资源管理器来管理 Azure 文件。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452237"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713875"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器创建和管理 Azure 文件共享
 本指南介绍通过 Azure 存储资源管理器来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准 SMB 协议，可以跨多个计算机、应用程序和实例进行文件共享。 

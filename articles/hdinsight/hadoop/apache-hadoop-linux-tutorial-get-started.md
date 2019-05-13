@@ -2,7 +2,6 @@
 title: 快速入门：使用资源管理器创建 Apache Hadoop 群集，并使用 Apache Hive 查询数据 - Azure HDInsight
 description: 了解如何创建 HDInsight 群集，以及如何使用 Hive 查询数据。
 keywords: hadoop 入门,hadoop linux,hadoop 快速入门,hive 入门,hive 快速入门
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 220549c4ac3b6db584654b2c8bf27d9b4519b54a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f192c0bcd11aacde90992e06c2736e1412f85505
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225801"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729416"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中开始使用 Apache Hadoop 和 Apache Hive
 
@@ -82,7 +81,7 @@ ms.locfileid: "58225801"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 右键单击脚本编辑器，然后选择“HDInsight：Hive 交互”提交查询。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 很快，查询结果将显示在新选项卡中。
+4. 右键单击脚本编辑器，然后选择“**HDInsight：Hive 交互”提交查询**。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 很快，查询结果将显示在新选项卡中。
 
    ![交互式 Hive 结果](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
 
@@ -103,7 +102,7 @@ ms.locfileid: "58225801"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 右键单击脚本编辑器，然后选择“HDInsight：Hive Batch”提交 Hive 作业。 
+4. 右键单击脚本编辑器，然后选择“**HDInsight：Hive Batch”提交 Hive 作业**。 
 
 5. 选择想要提交的群集。  
 

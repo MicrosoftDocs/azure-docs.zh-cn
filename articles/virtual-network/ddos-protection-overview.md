@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: c639bc1edceba9c9da08ee6bcc54c860f857cd33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696018"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209460"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS 保护标准概述
 
@@ -29,7 +29,7 @@ ms.locfileid: "64696018"
 Azure DDoS 保护与应用程序设计最佳做法相结合，可提供针对 DDoS 攻击的防御。 Azure DDoS 防护提供了以下服务层级：
 
 - **基本**：自动启用作为 Azure 平台的一部分。 始终可用的流量监控和常见网络级别攻击的实时风险缓解提供了 Microsoft 联机服务所利用的相同防御。 整个 Azure 全球网络的规模可用于跨区域分散和缓解攻击流量。 为 IPv4 和 IPv6 Azure [公共 IP 地址](virtual-network-public-ip-address.md)提供保护。
-- **标准**： 通过专门针对 Azure 虚拟网络资源优化的基本服务层提供的其他缓解功能。 DDoS 保护标准易于启用，无需更改应用程序。 通过专用流量监控和机器学习算法优化保护策略。 策略应用到与部署在虚拟网络中资源相关的公共 IP 地址，例如 Azure 负载均衡器、Azure 应用程序网关和 Azure Service Fabric 实例，但此保护不适用于应用服务环境。 可在攻击期间通过 Azure Monitor 视图并针对历史记录获得实时遥测。 可通过诊断设置获取大量攻击缓解分析。 可通过 [Azure 应用程序网关 Web 应用程序防火墙](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或通过从 Azure 市场安装第三方防火墙来添加应用程序层保护。 为 IPv4 Azure [公共 IP 地址](virtual-network-public-ip-address.md)提供保护。
+- **标准**： 通过专门针对 Azure 虚拟网络资源优化的基本服务层提供的其他缓解功能。 DDoS 保护标准易于启用，无需更改应用程序。 通过专用流量监控和机器学习算法优化保护策略。 策略应用到与部署在虚拟网络中资源相关的公共 IP 地址，例如 Azure 负载均衡器、Azure 应用程序网关和 Azure Service Fabric 实例，但此保护不适用于应用服务环境。 可在攻击期间通过 Azure Monitor 视图并针对历史记录获得实时遥测。 可通过诊断设置获取大量攻击缓解分析。 可通过 [Azure 应用程序网关 Web 应用程序防火墙](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或通过从 Azure 市场安装第三方防火墙来添加应用程序层保护。 为 IPv4 和 IPv6 Azure [公共 IP 地址](virtual-network-public-ip-address.md)提供保护。
 
 ![Azure DDoS 防护基本与标准](./media/ddos-protection-overview/ddoscomparison.png)
 

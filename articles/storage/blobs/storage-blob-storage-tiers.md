@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
+ms.reviewer: clausjor
 ms.subservice: blobs
-ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9e27f14c4ccd6f5822033baa21aaafcf96c428
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61426793"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148498"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 存储：热、冷、存档访问层
 

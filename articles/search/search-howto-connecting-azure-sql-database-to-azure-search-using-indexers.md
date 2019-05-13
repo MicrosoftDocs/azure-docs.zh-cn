@@ -1,7 +1,7 @@
 ---
 title: 使用索引器连接 Azure SQL 数据库并为其内容编制索引 - Azure 搜索
 description: 了解如何使用索引器抓取 Azure SQL 数据库中的数据，以便在 Azure 搜索中进行全文搜索。 本文介绍连接、索引器配置和数据引入。
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817167"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025354"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>使用 Azure 搜索索引器连接 Azure SQL 数据库并为其内容编制索引
 
@@ -63,7 +63,7 @@ ms.locfileid: "60817167"
 1. 创建数据源：
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ ms.locfileid: "60817167"
 3. 通过为索引器命名并引用数据源和目标索引创建索引器：
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ ms.locfileid: "60817167"
 
 通过此方式创建的索引器不包含计划。 它会在创建后自动运行一次。 可使用**运行索引器**请求随时再次运行：
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 可自定义索引器行为的几个方面，例如批大小和可在索引器执行失败前跳过的文档数。 有关详细信息，请参阅[创建索引器 API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)。
@@ -104,7 +104,7 @@ ms.locfileid: "60817167"
 
 若要监视索引器状态和执行历史记录（已编制索引的项目数、失败数等），请使用**索引器状态**请求：
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 响应应类似于以下形式：
@@ -146,7 +146,7 @@ ms.locfileid: "60817167"
 ## <a name="run-indexers-on-a-schedule"></a>按计划运行索引器
 还可以排列索引器，以按计划定期运行。 若要执行此操作，在创建或更新索引器时添加**计划**属性。 下面的示例显示了用于更新索引器的 PUT 请求：
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -332,11 +332,11 @@ SQL 索引器公开多个配置设置：
 
 **问：是否可以创建多个按计划运行的索引器？**
 
-可以。 但是，一次只能在一个节点上运行一个索引器。 如果需要同时运行多个索引器，请考虑将搜索服务扩展到多个搜索单位。
+是的。 但是，一次只能在一个节点上运行一个索引器。 如果需要同时运行多个索引器，请考虑将搜索服务扩展到多个搜索单位。
 
 **问：运行索引器是否会影响我的查询工作负荷？**
 
-可以。 索引器在搜索服务中的一个节点上运行，该节点的资源在编制查询流量索引并进行处理和其他 API 请求之间共享。 如果运行密集型编制索引和查询工作负荷，并频繁遇到 503 错误或响应时间增加，请考虑[纵向扩展搜索服务](search-capacity-planning.md)。
+是的。 索引器在搜索服务中的一个节点上运行，该节点的资源在编制查询流量索引并进行处理和其他 API 请求之间共享。 如果运行密集型编制索引和查询工作负荷，并频繁遇到 503 错误或响应时间增加，请考虑[纵向扩展搜索服务](search-capacity-planning.md)。
 
 **问：是否可以将[故障转移群集](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)中的次要副本用作数据源？**
 

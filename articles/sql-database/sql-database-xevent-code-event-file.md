@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a2ef01d96db74486b4b7f797f33df0ed66247a9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce559e50d5a34ebad9113f0e21dcb732adc40dd2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331158"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233793"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的事件文件目标代码
 
@@ -100,7 +100,7 @@ $resourceGroupName   = 'YOUR_RESOURCE-GROUP-NAME';
 $policySasExpiryTime = '2018-08-28T23:44:56Z';
 $policySasStartTime  = '2017-10-01';
 
-$storageAccountLocation = 'West US';
+$storageAccountLocation = 'YOUR_STORAGE_ACCOUNT_LOCATION';
 $storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
 $contextName            = 'YOUR_CONTEXT_NAME';
 $containerName          = 'YOUR_CONTAINER_NAME';
@@ -423,6 +423,7 @@ SELECT
         sys.fn_xe_file_target_read_file
             (
                 -- TODO: Fill in Storage Account name, and the associated Container name.
+                -- TODO: The name of the .xel file needs to be an exact match to the files in the storage account Container (You can use Storage Account explorer from the portal to find out the exact file names or you can retrieve the name using the following DMV-query: select target_data from sys.dm_xe_database_session_targets. The 3rd xml-node, "File name", contains the name of the file currently written to.)
                 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b',
                 null, null, null
             );

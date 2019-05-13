@@ -4,6 +4,8 @@
   items:
     - name: 什么是流分析？
       href: stream-analytics-introduction.md
+    - name: 端到端解决方案模式
+      href: stream-analytics-solution-patterns.md
 - name: 快速入门
   items:
     - name: 创建作业 - Azure 门户
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: 创建作业 - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: 创建作业 - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: 教程
   items:
     - name: 1 - 创建/管理作业
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: 对 IoT Edge 作业使用 API
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio 工具
+    - name: Visual Studio 和 VS Code
       items:
         - name: 安装工具
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: 编写适用于 Edge 的 .NET UDF
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: 在 VS Code 中探索流分析
+          href: vs-code-how-to.md
     - name: 故障排除
       items:
         - name: 输入
@@ -435,6 +441,9 @@
               maintainContext: true
             - name: 翻转窗口
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: 聚合开窗函数
+              href: /stream-analytics-query/windows-azure-stream-analytics
               maintainContext: true
     - name: 数据类型
       items:

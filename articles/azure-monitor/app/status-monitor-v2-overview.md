@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870442"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145028"
 ---
 # <a name="status-monitor-v2"></a>状态监视器 v2
 
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - 如何验证启用成功？
 
    我们没有一个 cmdlet 以验证该支持成功。 我们建议使用[实时指标](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)以快速观察到是否你的应用程序向我们发送遥测数据。
+
+## <a name="next-steps"></a>后续步骤
+
+查看遥测：
+
+* [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
+* [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)来诊断问题
+* [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
+* [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
+
+添加更多遥测：
+
+* [创建 web 测试](monitor-web-app-availability.md)以确保你的站点保持活动状态。
+* [添加 web 客户端遥测](../../azure-monitor/app/javascript.md)，查看网页代码中的异常，并将其插入跟踪调用。
+* [将 Application Insights SDK 添加到你的代码](../../azure-monitor/app/asp-net.md)，以便您可以插入跟踪和日志调用
+

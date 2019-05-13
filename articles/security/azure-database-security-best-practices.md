@@ -1,9 +1,9 @@
 ---
-title: Azure 数据库安全最佳做法 | Microsoft Docs
+title: 数据库安全最佳实践-Microsoft Azure
 description: 本文提供有关 Azure 数据库安全性的一套最佳做法。
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -12,28 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587508"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409808"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 数据库安全性最佳做法
+本指南介绍了数据库安全性的最佳做法。
+
+最佳做法以观点的共识以及 Azure 平台功能和特性集为基础。 随时间变化的观点和技术和定期以反映这些更改更新这篇文章。
+
+## <a name="secure-databases"></a>确保数据库安全
 安全性是管理数据库时的首要考虑因素，并且始终是 [Azure SQL 数据库](https://docs.microsoft.com/azure/sql-database/)的优先事务。 严格保护数据库有助于满足大部分法规或安全要求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心站点](https://azure.microsoft.com/support/trust-center/services/)上提供了安全合规认证的最新列表。 也可以根据法规要求将数据库放置在特定的 Azure 数据中心。
-
-本文介绍一系列 Azure 数据库安全最佳做法。 这些最佳做法衍生自我们的 Azure 数据库安全经验和客户的经验。
-
-对于每项最佳做法，本文将说明：
-
--   最佳实践是什么
--   为何要启用该最佳实践
--   如果无法启用该最佳实践，可能的结果是什么
--   如何学习启用最佳实践
-
-这篇 Azure 数据库安全最佳做法以共识以及 Azure 平台功能和特性集（因为在编写本文时已存在）为基础。 看法和技术将随着时间改变，本文会定期更新以反映这些更改。
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>使用防火墙规则来限制数据库访问
 Microsoft Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关系数据库服务。 为确保访问安全性，SQL 数据库通过以下方式来控制访问：

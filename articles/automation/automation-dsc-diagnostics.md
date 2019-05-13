@@ -136,8 +136,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | ConfigurationMode | 如何将配置应用到节点。 可能的值为“ApplyOnly”、“ApplyandMonitior”和“ApplyandAutoCorrect”。 <ul><li>__ApplyOnly__：DSC 将应用配置，且不执行进一步操作，除非有新配置被推送到目标节点或从服务器请求新配置。 首次应用新配置后，DSC 将不检查以前配置状态的偏离。 在 ApplyOnly 生效之前，DSC 将尝试应用配置，直到成功。 </li><li> __ApplyAndMonitor__：这是默认值。 LCM 将应用任意新配置。 首次应用新配置后，如果目标节点偏离所需状态，DSC 将在日志中报告差异。 在 ApplyAndMonitor 生效之前，DSC 将尝试应用配置，直到成功。</li><li>__ApplyAndAutoCorrect__：DSC 将应用任意新配置。 首次应用新配置后，如果目标节点偏离所需状态，DSC 将在日志中报告差异，然后重新应用当前配置。</li></ul> |
 | HostName_s | 托管节点的名称。 |
 | IPAddress | 托管节点的 IPv4 地址。 |
-| 类别 | DscNodeStatus |
-| 资源 | Azure 自动化帐户的名称。 |
+| Category | DscNodeStatus |
+| Resource | Azure 自动化帐户的名称。 |
 | Tenant_g | GUID，用于为 Caller 标识租户。 |
 | NodeId_g |标识托管节点的 GUID。 |
 | DscReportId_g |标识报表的 GUID。 |
@@ -162,8 +162,8 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | OperationName |DscResourceStatusData|
 | ResultType |资源是否符合。 |
 | NodeName_s |托管节点的名称。 |
-| 类别 | DscNodeStatus |
-| 资源 | Azure 自动化帐户的名称。 |
+| Category | DscNodeStatus |
+| Resource | Azure 自动化帐户的名称。 |
 | Tenant_g | GUID，用于为 Caller 标识租户。 |
 | NodeId_g |标识托管节点的 GUID。 |
 | DscReportId_g |标识报表的 GUID。 |

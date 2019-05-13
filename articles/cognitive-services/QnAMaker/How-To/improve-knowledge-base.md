@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372647"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144977"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>使用 active 学习来改善您的知识库
 
@@ -75,7 +75,7 @@ QnA Maker 通过隐式和显式反馈学习新的问题变体。
 
 ## <a name="add-active-learning-suggestion-to-knowledge-base"></a>向知识库添加主动学习建议
 
-1. 要查看建议的问题，请在“编辑”知识库页上，选择“显示建议”。 
+1. 若要查看建议的问题，在**编辑**知识库页上，选择**视图选项**，然后选择**显示主动学习建议**。 
 
     [![在门户的编辑部分中，选择显示的建议，若要查看主动学习新问题替代项。](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283326"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024500"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Azure 搜索中的安全性和数据隐私
 
@@ -43,11 +43,8 @@ Azure 搜索针对以下标准进行了认证，如 [2018 年 6 月发布的公�
 | 安全层 | 描述 |
 |----------------|-------------|
 | 传输中加密 <br>(HTTPS/SSL/TLS) | Azure 搜索在 HTTPS 端口 443 上侦听。 与 Azure 服务建立的跨平台连接经过加密。 <br/><br/>所有从客户端到服务的 Azure 搜索交互都支持 SSL/TLS 1.2。  请务必为你的服务的 SSL 连接使用 TLSv1.2。|
-| 静态加密 | 加密在索引过程中完全进行内部化处理，而不会显著影响完成索引所需的时间或索引大小。 加密自动对所有索引进行，包括对未完全加密的索引（在 2018 年 1 月前创建）的增量更新。<br><br>在内部，加密基于 [Azure 存储服务加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)，使用 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)进行。|
-
-加密在 Azure 搜索内部进行，证书和加密密钥由 Microsoft 内部管理，并广泛应用。 无法在门户中或以编程方式打开或关闭加密、管理或替换为自己的密钥，或者查看加密设置。 
-
-静态加密已于 2018 年 1 月 24 日宣布推出并应用于所有区域中的所有服务层级，包括共享（免费）服务。 对于完全加密，必须删除该日期之前创建的索引并重新生成，以便进行加密。 否则，仅对 1 月 24 日以后添加的新数据进行加密。
+| 静态加密 <br>Microsoft 托管的密钥 | 加密在索引过程中完全进行内部化处理，而不会显著影响完成索引所需的时间或索引大小。 加密自动对所有索引进行，包括对未完全加密的索引（在 2018 年 1 月前创建）的增量更新。<br><br>在内部，加密基于 [Azure 存储服务加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)，使用 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)进行。<br><br> 加密在 Azure 搜索内部进行，证书和加密密钥由 Microsoft 内部管理，并广泛应用。 无法在门户中或以编程方式打开或关闭加密、管理或替换为自己的密钥，或者查看加密设置。<br><br>静态加密已于 2018 年 1 月 24 日宣布推出并应用于所有区域中的所有服务层级，包括共享（免费）服务。 对于完全加密，必须删除该日期之前创建的索引并重新生成，以便进行加密。 否则，仅对 1 月 24 日以后添加的新数据进行加密。|
+| 静态加密 <br>客户管理的密钥 | 使用客户托管密钥的加密是**预览版**功能未免费提供的服务。 对于付费服务，它才可用于搜索服务上创建或年 1 月 2019年之后使用最新预览 api 版本 (api 版本 = 2019年-05-06-预览)。<br><br>Azure 搜索索引和同义词映射可以现在是静态加密与 Azure Key Vault 中客户托管的密钥密钥。 若要了解详细信息，请参阅[在 Azure 搜索管理加密密钥](search-security-manage-encryption-keys.md)。<br>此功能不会替代默认静态加密，但除了它而不是应用。<br>启用此功能将增加索引的大小，并会降低查询性能。 根据迄今为止观察结果，您有望看到查询时间提高 30%-60%的实际性能将会有所不同，具体取决于索引定义和类型的查询但。 由于这种性能影响，我们建议你仅启用此功能在真正需要的索引。
 
 ## <a name="azure-wide-user-access-controls"></a>Azure 范围的用户访问控制
 

@@ -2,19 +2,20 @@
 title: 使用 Azure 存储在云中上传图像数据 | Microsoft Docs
 description: 将 Azure blob 存储与 Web 应用配合使用来存储应用数据
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 242f3cb6cb9d957d13ecb133c4bfc59a01132ab1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58015307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142307"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教程：使用 Azure 存储在云中上传图像数据
 

@@ -2,23 +2,19 @@
 title: 如何为 Azure Key Vault 生成和传输受 HSM 保护的密钥 - Azure Key Vault | Microsoft Docs
 description: 使用这篇文章可帮助你规划、生成然后传输自己的受 HSM 保护的密钥，以便与 Azure 密钥保管库一起使用。 也称为 BYOK 或自带密钥。
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522722"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573008"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何为 Azure 密钥保管库生成和传输受 HSM 保护的密钥
 
@@ -45,7 +41,7 @@ ms.locfileid: "59522722"
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Thales HSM 和 Microsoft 服务的详细信息
 
-Thales E-security 是全球领先的数据加密和网络安全解决方案供应商，主要面向金融服务、高科技、制造、政府和技术行业。 Thales E-security 在保护企业和政府信息方面拥有 40 年的骄人历史记录，目前规模最大的五大能源和航天公司中有四家都在使用 Thales 解决方案。 此外，还有 22 个北约国家/地区也使用了他们的解决方案，全球有超过 80% 支付交易都受其保护。
+Thales E-security 是全球领先的数据加密和网络安全解决方案供应商，主要面向金融服务、高科技、制造、政府和技术行业。 Thales E-security 在保护企业和政府信息方面拥有 40 年的骄人历史记录，目前规模最大的五大能源和航天公司中有四家都在使用 Thales 解决方案。 其解决方案 22 北约国家/地区，也可使用和保护超过 80%的全球范围内的付款事务。
 
 Microsoft 已与 Thales 联手增强 HSM 的技术开发水平。 这些增强功能可使你能够获得托管服务的典型优势，而且无需放弃对密钥的控制权。 具体来说，这些增强功能可以让 Microsoft 管理 HSM，这样你就不必费心管理了。 作为云服务，Azure 密钥保管库无需通知即可扩大，以满足组织的使用高峰需求。 同时，密钥也会在 Microsoft 的 HSM 内部获得保护：你生成密钥并将其传输到 Microsoft 的 HSM，所以可以保留对密钥生命周期的控制权。
 
@@ -455,7 +451,7 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 * kmfile-dump.exe:
 
         "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-  运行这些命令时，请将 contosokey 替换为在[生成密钥](#step-3-generate-your-key)步骤的“步骤 3.5：新建密钥”中指定的相同值。
+  运行这些命令时，请将 contosokey 替换为在生成密钥步骤的“步骤 3.5：新建密钥”中指定的相同值。**
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>步骤 4.2：使用 Microsoft 的密钥交换密钥加密密钥
 

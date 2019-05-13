@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308561"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947148"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>教程：创建可改进 Web 应用程序访问的应用程序网关
 
 如果你是希望改进 Web 应用程序访问的 IT 管理员，则可以优化应用程序网关，以根据客户需求进行缩放并跨多个可用性区域。 本教程可帮助你配置执行此操作的 Azure 应用程序网关功能：自动缩放、区域冗余和保留的 VIP（静态 IP）。 将使用 Azure PowerShell cmdlet 和 Azure 资源管理器部署模型来解决此问题。
-
-> [!IMPORTANT] 
-> 自动缩放和区域冗余应用程序网关 SKU 目前处于公共预览状态。 此预览版在提供时没有附带服务级别协议，不建议用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 本教程介绍如何执行下列操作：
 

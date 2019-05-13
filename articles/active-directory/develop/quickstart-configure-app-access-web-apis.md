@@ -1,10 +1,10 @@
 ---
-title: 将应用程序配置为访问 Web API（预览版）| Azure
+title: 配置应用程序来访问 Web API - Microsoft 标识平台
 description: 了解如何配置注册到 Microsoft 标识平台的应用程序，使之包括访问 Web API 所需的重定向 URI、凭据或权限。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7b2f5331b22f6292b00c367c6abb8cd4f439a70c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999580"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413977"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>快速入门：将客户端应用程序配置为访问 Web API（预览版）
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>快速入门：将客户端应用程序配置为访问 Web API
 
 为使 Web/机密客户端应用程序能够参与要求身份验证的授权流程（以及获取访问令牌），必须建立安全凭据。 Azure 门户支持的默认身份验证方法为“客户端 ID + 机密密钥”。
 
@@ -49,7 +49,6 @@ ms.locfileid: "59999580"
 * 了解支持的[权限和许可](v2-permissions-and-consent.md)，这是在生成其他用户或应用程序需要使用的应用程序时必须理解的。
 * 拥有一个其中已注册了应用程序的租户。
   * 如果尚未注册应用，请[了解如何将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)。
-* 加入预览版体验，了解如何在 Azure 门户中进行应用注册。 本快速入门中的步骤对应于新的 UI，只有在你选择加入预览版体验的情况下才适用。
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>登录到 Azure 门户，并选择应用
 
@@ -57,7 +56,7 @@ ms.locfileid: "59999580"
 
 1. 使用工作或学校帐户或个人 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.com)。
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中选择“Azure Active Directory”服务，然后选择“应用注册(预览版)”。
+1. 在左侧导航窗格中，选择“Azure Active Directory”服务，然后选择“应用注册”。
 1. 找到并选择要配置的应用程序。 选择应用以后，会看到应用程序的“概览”页或主注册页。
 1. 按步骤将应用程序配置为访问 Web API： 
     * [将重定向 URL 添加到应用程序](#add-redirect-uris-to-your-application)

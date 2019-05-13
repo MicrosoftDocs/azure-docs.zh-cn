@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550869"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466558"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>使用 Azure 部署管理器启用安全部署实践（个人预览版）
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>启用安全部署实践与 Azure 部署管理器 （公共预览版）
 
 要跨多个区域部署服务并确保它在每个区域中按预期运行，可以使用 Azure 部署管理器来协调服务的分阶段推出。 与任何 Azure 部署一样，需在[资源管理器模板](resource-group-authoring-templates.md)中为服务定义资源。 创建模板后，使用部署管理器描述服务的拓扑及其推出方式。
 
@@ -200,7 +200,9 @@ Azure 部署管理器现以个人预览版提供。 要使用 Azure 部署管理
 
 ### <a name="steps"></a>Steps
 
-可以定义在部署操作之前或之后执行的步骤。 目前只有 `wait` 步骤可用。 wait 步骤将先暂停部署，然后才能继续部署。 此步骤允许在部署下一个服务单位之前验证服务是否按预期运行。 以下示例显示了 wait 步骤的一般格式。
+可以定义在部署操作之前或之后执行的步骤。 目前，仅`wait`步骤和运行状况检查步骤都可用。 
+
+wait 步骤将先暂停部署，然后才能继续部署。 此步骤允许在部署下一个服务单位之前验证服务是否按预期运行。 以下示例显示了 wait 步骤的一般格式。
 
 ```json
 {
@@ -219,7 +221,7 @@ Azure 部署管理器现以个人预览版提供。 要使用 Azure 部署管理
 
 持续时间属性使用 [ISO 8601 标准](https://en.wikipedia.org/wiki/ISO_8601#Durations)。 前面的示例指定了一分钟的等待时间。
 
-有关详细信息，请参阅[步骤模板引用](/azure/templates/Microsoft.DeploymentManager/steps)。
+有关运行状况检查步骤的详细信息，请参阅[]()并[]()有关详细信息，请参阅[步骤模板引用](/azure/templates/Microsoft.DeploymentManager/steps)。
 
 ### <a name="rollouts"></a>推出
 

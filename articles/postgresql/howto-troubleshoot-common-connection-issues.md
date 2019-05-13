@@ -1,20 +1,20 @@
 ---
-title: 排查 Azure Databases for PostgreSQL 的连接问题
-description: 了解如何排查 Azure Databases for PostgreSQL 的连接问题。
+title: 用于 PostgreSQL 的单个服务器对 Azure 数据库的连接问题进行故障排除
+description: 了解如何对 Azure 数据库的连接问题进行故障排除用于 PostgreSQL 的单个服务器。
 keywords: postgresql 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420907"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069030"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>排查 Azure Databases for PostgreSQL 的连接问题
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>用于 PostgreSQL 的单个服务器对 Azure 数据库的连接问题进行故障排除
 
 连接问题可能由多种因素造成，包括：
 

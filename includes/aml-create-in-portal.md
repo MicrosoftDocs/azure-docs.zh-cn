@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57fd69542a5d92b9afd1e003d8b94c1ebb64953e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753803"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65031760"
 ---
 1. 使用将所使用的 Azure 订阅的凭据登录到 [Azure 门户](https://portal.azure.com/)。 
 
@@ -26,7 +26,7 @@ ms.locfileid: "60753803"
 
 1. 在搜索栏中输入“机器学习”。 选择搜索结果“机器学习服务工作区”。
 
-   ![搜索工作区](./media/aml-create-in-portal/allservices-search.PNG)
+   ![搜索工作区](./media/aml-create-in-portal/allservices-search.png)
 
 1. 在“机器学习服务工作区”窗格中，滚动到底部并选择“创建”。
 
@@ -34,7 +34,7 @@ ms.locfileid: "60753803"
 
 1. 在“机器学习服务工作区”窗格中，配置工作区。
 
-   字段|描述
+   字段|说明
    ---|---
    工作区名称 |输入用于标识工作区的唯一名称。 本示例使用 docs-ws。 名称在整个资源组中必须唯一。 使用易于记忆且区别于其他人所创建工作区的名称。  
    订阅 |选择要使用的 Azure 订阅。

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691185"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471850"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>排查无数据问题 - 用于 .NET 的 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>缺少一些遥测数据
@@ -42,7 +42,7 @@ ms.locfileid: "60691185"
 * 工具并非支持所有类型的 .NET 项目。 支持 Web 和 WCF 项目。 对于其他项目类型，例如桌面或服务应用程序，仍可以[手动将 Application Insights SDK 添加到项目](../../azure-monitor/app/windows-desktop.md)。
 * 请务必使用 [Visual Studio 2013 Update 3 或更高版本](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)。 该软件预装了开发人员分析工具，其中提供了 Application Insights SDK。
 * 选择“工具”、“扩展和更新”，检查“开发人员分析工具”是否已安装并启用。 如果是，请单击“更新”查看是否有可用的更新。
-* 打开“新建项目”对话框，选择“ASP.NET Web 应用程序”。 如果看到了 Application Insights 选项，则表示工具已安装。 否则，请尝试卸载再重新安装 Application Insights 工具。
+* 打开“新建项目”对话框，选择“ASP.NET Web 应用程序”。 如果看到了 Application Insights 选项，则表示工具已安装。 如果没有，请尝试卸载然后重新安装 Developer Analytics Tools。
 
 ## <a name="q02"></a>添加 Application Insights 失败
 *尝试将 Application Insights 添加到现有项目时看到错误消息。*
@@ -85,7 +85,7 @@ ms.locfileid: "60691185"
 * 选择“工具”、“扩展和更新”，检查“开发人员分析工具”是否已安装并启用。 如果是，请单击“更新”查看是否有可用的更新。
 * 在解决方案资源管理器中右键单击项目。 如果看到命令“Application Insights”>“配置 Application Insights”，请使用它将项目连接到 Application Insights 服务中的资源。
 
-否则，Application Insights 工具不会直接支持项目类型。 要查看遥测数据，请登录到 [Azure 门户](https://portal.azure.com)，在左侧导航栏中选择“Application Insights”，然后选择应用程序。
+否则，开发人员分析工具不直接支持项目类型。 要查看遥测数据，请登录到 [Azure 门户](https://portal.azure.com)，在左侧导航栏中选择“Application Insights”，然后选择应用程序。
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>从 Visual Studio 打开 Application Insights 时出现“拒绝访问”
 *使用“打开 Application Insights”菜单命令时转到了 Azure 门户，但同时出现“拒绝访问”错误。*
@@ -183,7 +183,7 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 
 按照这些说明来捕获框架的故障排除日志。
 
-### <a name="net-framework"></a>.NET framework
+### <a name="net-framework"></a>.NET Framework
 
 1. 从 NuGet 安装 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 包。 安装的版本必须与当前安装的 `Microsoft.ApplicationInsighs` 版本匹配
 

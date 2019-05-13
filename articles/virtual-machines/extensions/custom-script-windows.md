@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869854"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408273"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -106,9 +106,9 @@ ms.locfileid: "60869854"
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | 发布者 | Microsoft.Compute | string |
-| type | CustomScriptExtension | string |
+| 类型 | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | 数组 |
+| fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | 阵列 |
 | timestamp（示例） | 123456789 | 32 位整数 |
 | commandToExecute（例如） | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName（例如） | examplestorageacct | string |
@@ -207,6 +207,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 * 扩展**名称**参数是与以前的部署的扩展相同。
 * 更新的配置否则为不会重新执行此命令。 可以将动态属性添加到命令中，如时间戳。
 
+或者，可以设置[ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag)属性设置为**true**。
+
+### <a name="using-invoke-webrequest"></a>使用调用 WebRequest
+
+如果使用的[Invoke-webrequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest)必须在脚本中，指定参数`-UseBasicParsing`或其他将检查的详细的状态时收到以下错误：
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
+
 ## <a name="classic-vms"></a>经典 VM
 
 若要部署经典 Vm 上的自定义脚本扩展，可以使用 Azure 门户或经典 Azure PowerShell cmdlet。
@@ -239,7 +249,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>故障排除和支持
 
-### <a name="troubleshoot"></a>故障排除
+### <a name="troubleshoot"></a>排除故障
 
 有关扩展部署状态的数据可以从 Azure 门户和使用 Azure PowerShell 模块进行检索。 若要查看给定 VM 的扩展部署状态，请运行以下命令：
 
@@ -263,7 +273,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 执行 `commandToExecute` 命令时，扩展会将该目录（例如 `...\Downloads\2`）设置为当前工作目录。 此过程使得可以通过 `fileURIs` 属性使用相对路径查找下载的文件。 请参阅下表中的示例。
 
-绝对下载路径可能会随时间而变化，因此在可能情况下，最好是在 `commandToExecute` 字符串中选择使用相对的脚本/文件路径。 例如：
+绝对下载路径可能会随时间而变化，因此在可能情况下，最好是在 `commandToExecute` 字符串中选择使用相对的脚本/文件路径。 例如:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

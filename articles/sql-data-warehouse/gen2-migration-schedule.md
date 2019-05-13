@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729297"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987943"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>将数据仓库升级到 Gen2
 
@@ -67,7 +67,7 @@ Microsoft 帮助降低运行数据仓库的入门级的成本。  降低计算�
 
 ## <a name="automatic-upgrade-process"></a>自动升级过程
 
-基于在上图的可用性，我们将进行计划进行自动的升级为 Gen1 实例。 为了避免数据仓库可用性发生任何意外中断，将在维护计划期间安排自动升级。 有关计划的详细信息，请参阅[查看维护计划](viewing-maintenance-schedule.md)
+基于在上图的可用性，我们将进行计划进行自动的升级为 Gen1 实例。 为了避免数据仓库可用性发生任何意外中断，将在维护计划期间安排自动升级。 创建新的 Gen1 实例的功能将禁用正在自动升级到第 2 代的区域中。 有关计划的详细信息，请参阅[查看维护计划](viewing-maintenance-schedule.md)
 
 升级过程将连接 （大约 5 分钟） 涉及简要放置，因为我们重启数据仓库。  重启数据仓库后，它将完全可用。 但是，可能会遇到性能下降，而升级过程将继续进行升级在后台中的数据文件。 性能下降的总时间将根据数据文件的大小而有所不同。
 
@@ -103,7 +103,7 @@ Microsoft 帮助降低运行数据仓库的入门级的成本。  降低计算�
 
 **问：Gen2 的成本与 Gen1 相同吗？**
 
-- 答：可以。
+- 答：是的。
 
 **问：升级将如何影响我的自动化脚本？**
 
@@ -139,7 +139,7 @@ Microsoft 帮助降低运行数据仓库的入门级的成本。  降低计算�
 
 **问：Gen2 是否支持维护时段？**
 
-- 答：可以。
+- 答：是的。
 
 **问：在我的区域升级后，我能够创建新的 Gen1 实例吗？**
 

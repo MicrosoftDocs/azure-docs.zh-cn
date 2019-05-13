@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff8d94213e4e07b6597f6195126116a607c18bf7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188315"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191714"
 ---
-# <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>预览版：通过 Azure PowerShell 创建和使用虚拟机规模集的共享映像
+# <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>通过 Azure PowerShell 创建和使用虚拟机规模集的共享映像
 
 创建规模集时，需指定部署 VM 实例时要使用的映像。 共享映像库服务大大简化了整个组织中的自定义映像共享。 自定义映像类似于市场映像，不同的是自定义映像的创建者是自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 
 
@@ -48,7 +48,9 @@ ms.locfileid: "60188315"
 
 下列步骤详细说明如何将现有 VM 转换为可重用自定义映像，以便将其用于创建新 VM 实例。
 
-完成本文中的示例，必须具有现有托管映像。 可以按照[教程：通过 Azure PowerShell 创建和使用虚拟机规模集的自定义映像](tutorial-use-custom-image-powershell.md)根据需要创建。 通过本文进行操作时，请根据需要替换资源组和 VM 名称。
+完成本文中的示例，必须具有现有托管映像。 可以按照[教程：通过 Azure PowerShell 创建和使用虚拟机规模集的自定义映像](tutorial-use-custom-image-powershell.md)根据需要创建。 如果托管的映像中包含的数据磁盘，数据磁盘大小不能超过 1 TB。
+
+通过本文进行操作时，请根据需要替换资源组和 VM 名称。
 
 
 [!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-powershell.md)]
@@ -74,15 +76,7 @@ New-AzVmss `
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-
-## <a name="clean-up-resources"></a>清理资源
-
-不再需要时，可以使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet 删除资源组、VM 和所有相关资源：
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-Remove-AzResourceGroup -Name myVMSSRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 
 ## <a name="next-steps"></a>后续步骤

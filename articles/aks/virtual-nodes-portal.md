@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: d12226daa7353c01ee462ea31c5cbf011ba28409
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4376db8cdfa90b8d29ecd9b210e683848b4c94b4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726074"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072588"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>预览 - 创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为使用 Azure 门户中的虚拟节点
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>创建 Azure Kubernetes 服务 (AKS) 群集并将其配置为使用 Azure 门户中的虚拟节点
 
-若要在 Azure Kubernetes 服务 (AKS) 群集中快速部署工作负荷，可以使用虚拟节点。 使用虚拟节点可快速预配 Pod，并且只需对其执行时间按秒付费。 在缩放方案中，无需等待 Kubernetes 群集自动缩放程序部署 VM 计算节点来运行其他 Pod。 本文介绍如何创建和配置虚拟网络资源以及启用了虚拟节点的 AKS 群集。
+若要在 Azure Kubernetes 服务 (AKS) 群集中快速部署工作负荷，可以使用虚拟节点。 使用虚拟节点可快速预配 Pod，并且只需对其执行时间按秒付费。 在缩放方案中，无需等待 Kubernetes 群集自动缩放程序部署 VM 计算节点来运行其他 Pod。 仅在使用 Linux pod 和节点支持的虚拟节点。
 
-> [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
->
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+本文介绍如何创建和配置虚拟网络资源以及启用了虚拟节点的 AKS 群集。
 
 ## <a name="before-you-begin"></a>开始之前
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 虚拟节点部署支持以下区域：
 
 * 澳大利亚东部 (australiaeast)
+* 美国中部 (centralus)
 * 美国东部 (eastus)
+* 美国东部 2 (eastus2)
+* 日本东部 (japaneast)
+* 北欧 (northeurope)
+* 东南亚 (southeastasia)
 * 美国中西部 (westcentralus)
 * 西欧 (westeurope)
 * 美国西部 (westus)
+* 美国西部 2 (westus2)
 
 ## <a name="known-limitations"></a>已知限制
 虚拟节点功能是很大程度取决于 ACI 的功能集。 尚不支持以下方案的虚拟节点
@@ -177,7 +180,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 系统从被委派用于虚拟节点的 Azure 虚拟网络子网中为该 Pod 分配了一个内部 IP 地址。
 
 > [!NOTE]
-> 如果使用存储在 Azure 容器注册表中的映像，请[配置并使用 Kubernetes 机密][acr-aks-secrets]。 虚拟节点预览版的当前限制在于，无法使用集成的 Azure AD 服务主体身份验证。 如果不使用机密，则在虚拟节点上计划的 Pod 将无法启动并报告错误 `HTTP response status code 400 error code "InaccessibleImage"`。
+> 如果使用存储在 Azure 容器注册表中的映像，请[配置并使用 Kubernetes 机密][acr-aks-secrets]。 虚拟节点的当前限制是，不能使用集成的 Azure AD 服务主体身份验证。 如果不使用机密，则在虚拟节点上计划的 Pod 将无法启动并报告错误 `HTTP response status code 400 error code "InaccessibleImage"`。
 
 ## <a name="test-the-virtual-node-pod"></a>测试虚拟节点 Pod
 

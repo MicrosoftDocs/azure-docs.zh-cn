@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 847d6238bd42dc7da723dcc9acd47ed09c16dbf9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919941"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200584"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge 安全模块
 

@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358520"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198446"
 ---
 # <a name="tutorial-configure-security-agents"></a>教程：配置安全代理
 

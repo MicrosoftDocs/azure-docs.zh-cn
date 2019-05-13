@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e6b949824ec5da60c5e2485be830e61d156a11ff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5f919a04b47aa6fdef9500f3d7e6bef4ddaa239e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55830679"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65515526"
 ---
 1. 登录到 [Firebase 控制台](https://firebase.google.com/console/)。 如果还没有 Firebase 项目，创建一个新项目。
 2. 创建项目后，选择“向 Android 应用添加 Firebase”。 
@@ -39,11 +39,12 @@ ms.locfileid: "55830679"
         implementation 'com.google.firebase:firebase-core:16.0.1'
         ```
 
-    3. 在**应用级 build.gradle** 文件的末尾，在 dependenices 部分后面添加以下行。 
+    3. 在**应用级 build.gradle** 文件的末尾，在 dependencies 部分后面添加以下行。 
 
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
+    4. 在工具栏上选择“立即同步”。 
  
         ![build.gradle 配置更改](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
 6. 在页面上选择“下一步”。 

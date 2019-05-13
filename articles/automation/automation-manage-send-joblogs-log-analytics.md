@@ -1,6 +1,6 @@
 ---
 title: 将 Azure 自动化作业数据转发到 Azure Monitor 日志
-description: 本文演示如何将作业状态和 Runbook 作业流发送到 Azure Monitor 日志，以提供更多见解和管理信息。
+description: 本文演示如何将作业状态和 runbook 作业流发送到 Azure Monitor 日志，以提供附加见解和管理。
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739095"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200619"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
 

@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: 路由覆盖区域
           href: routing-coverage.md
-    - name: 支持的语言
+    - name: 本地化支持
       href: supported-languages.md
     - name: 支持的地图样式
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: 地图控件
           items:
-            - name: 使用地图控件
+            - name: Web 地图控件入门
               href: how-to-use-map-control.md
             - name: 创建地图
               href: map-create.md
-            - name: 选择地图样式
+            - name: 更改地图的样式
               href: choose-map-style.md
             - name: 将控件添加到地图
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: 使用 Android SDK 进行开发
       items:
-        - name: 如何使用 Android 地图控件
+        - name: Android 地图控件入门
           href: how-to-use-android-map-control-library.md
+        - name: 添加符号层
+          href: how-to-add-symbol-to-android-map.md
+        - name: 添加形状
+          href: how-to-add-shapes-to-android-map.md
+        - name: 更改地图的样式
+          href: set-android-map-styles.md
 - name: 引用
   items:
     - name: API 和参数扩展

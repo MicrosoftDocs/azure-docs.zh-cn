@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f55ef6f8829db7033790e21653e01a5390be7992
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323143"
 documentType: LandingData
 title: Azure Time Series Insights 文档
 metadata:
@@ -17,51 +11,51 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/07/2018
+  ms.date: 04/23/2019
   ms.author: anshan
 abstract:
-  description: 欢迎使用 Azure 时序见解。 Azure 时序见解提供强大的数据浏览和遥测工具，有助于优化运营分析。 本文档介绍此服务的多项功能、入门方法以及功能强大的时序见解 API。 提供的信息适用于两个版本，一个是公开发行版（时序见解 GA），另一个是预览版（时序见解预览版）。
+  description: 欢迎使用 Azure 时序见解。 Azure 时序见解提供功能强大的数据浏览和遥测工具，有助于改进运营分析。 本文档介绍了此服务、如何开始使用其多项功能、客户端 SDK 和功能强大的时序见解 API。 提供的信息适用于两个版本，一个是已经公开发行的版本（时序见解 GA），另一个是主要服务更新预览版（时序见解预览版）。
   aside:
     image:
       alt: Azure IoT 时序见解功能视频简介。
       height: 110
       src: media/index/new-tsi-intro.png
       width: 250
-    title: 适用于 IoT 应用的时序见解。 (13:31)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics
+    title: '适用于 IoT 应用的时序见解。 (13:31)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics'
     width: 250
 sections:
-- title: 5 分钟快速入门
-  items:
-  - type: paragraph
-    text: 抽几分钟时间浏览有助于入门的快速示例，了解 Azure 时序见解。
-  - type: list
-    style: icon48
+  - title: 5 分钟快速入门
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: 浏览 Azure 时序见解 GA
-      href: /azure/time-series-insights/time-series-quickstart
-  - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">浏览 Azure 时序见解预览版</a></p>
-- title: 分步教程
-  items:
-  - type: paragraph
-    text: 了解如何借鉴多个分步示例，以便创建 Azure 时序见解环境、单页 Web 应用以及其他内容。
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 抽几分钟时间浏览有助于入门的快速示例，了解 Azure 时序见解。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg'
+            text: 浏览 Azure 时序见解 GA
+            href: /azure/time-series-insights/time-series-quickstart
+      - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">浏览 Azure 时序见解预览版</a></p>
+  - title: 分步教程
     items:
-    - title: Azure 时序见解 GA
-      html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">创建环境</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">创建单页 Web 应用</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">浏览 JavaScript 客户端库</a></p>
-    - title: Azure 时序见解预览版
-      html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">预览版教程</a></p>
-- title: 引用
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 了解如何借鉴多个分步示例，以便创建 Azure 时序见解环境、单页 Web 应用以及其他内容。
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Azure 时序见解 GA
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">创建环境</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">创建单页 Web 应用</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">浏览 JavaScript 客户端库</a></p>
+          - title: Azure 时序见解预览版
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">预览版教程</a></p>
+  - title: 引用
     items:
-    - title: 时序见解 GA API
-      html: <p><a href="/rest/api/time-series-insights-management">资源管理 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">查询 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">查询语法</a></p>
-    - title: 时序见解预览版 API
-      html: <p><a href="/rest/api/time-series-insights/preview-query">查询 API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">模型 API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">环境 API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">时序表达式 API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 时序见解 GA API
+            html: <p><a href="/rest/api/time-series-insights-management">资源管理 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">查询 API</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">查询语法</a></p>
+          - title: 时序见解预览版 API
+            html: <p><a href="/rest/api/time-series-insights/preview-query">查询 API</a></p> <p><a href="/rest/api/time-series-insights/preview-model">模型 API</a></p> <p><a href="/rest/api/time-series-insights/preview-env">环境 API</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">时序表达式 API</a></p>

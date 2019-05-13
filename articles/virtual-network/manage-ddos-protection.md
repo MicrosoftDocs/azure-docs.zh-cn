@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728347"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203541"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>使用 Azure 门户管理 Azure DDoS 保护标准
 
@@ -33,7 +33,7 @@ ms.locfileid: "64728347"
 
 ## <a name="create-a-ddos-protection-plan"></a>创建 DDoS 防护计划
 
-DDoS 防护计划在订阅中定义一组已启用 DDoS 防护标准的虚拟网络。 可以为组织配置一个 DDoS 防护计划，然后从多个订阅将虚拟网络链接到相同计划。 DDoS 防护计划本身也与在计划创建期间选择的订阅相关联。 如果受保护的公共 IP 地址超过 100，计划关联的订阅将产生针对计划以及超额费用的每月定期帐单。 有关 DDoS 定价的详细信息，请参阅[定价详细信息](https://azure.microsoft.com/pricing/details/ddos-protection/)。
+DDoS 防护计划在订阅中定义一组已启用 DDoS 防护标准的虚拟网络。 可以为组织配置一个 DDoS 防护计划，然后从多个订阅将虚拟网络链接到相同计划。 DDoS 防护计划本身也与在计划创建期间选择的订阅相关联。 DDoS 保护计划可在区域和订阅。 示例-可以在租户中区域美国东部和链接到订阅 #1 中创建该计划。 在同一个计划可以链接到虚拟网络位于不同的区域的其他订阅中跨你的租户。 如果受保护的公共 IP 地址超过 100，计划关联的订阅将产生针对计划以及超额费用的每月定期帐单。 有关 DDoS 定价的详细信息，请参阅[定价详细信息](https://azure.microsoft.com/pricing/details/ddos-protection/)。
 
 大多数组织都不需要创建多个计划。 无法直接在订阅之间移动计划。 如果要更改计划所位于的订阅，需要[删除现有计划](#work-with-ddos-protection-plans)并创建新的计划。
 
@@ -127,6 +127,7 @@ DDoS 防护计划在订阅中定义一组已启用 DDoS 防护标准的虚拟网
 4. 选择包含要为其遥测的公共 IP 地址的订阅和资源组。
 5. 为“资源类型”选择“公共 IP 地址”，然后选择要为其遥测的特定公共 IP 地址。
 6. 屏幕的左侧将显示一系列可用指标。 选中这些指标时，会在概述屏幕上的 **Azure Monitor 指标图表**中绘制这些指标。
+7. 选择**聚合**键入为**最大值**
 
 指标名称提供不同的数据包类型和字节数与数据包数，每个指标都有如下所示的标记名称基本构造：
 
@@ -138,7 +139,7 @@ DDoS 防护计划在订阅中定义一组已启用 DDoS 防护标准的虚拟网
 
 ## <a name="view-ddos-mitigation-policies"></a>查看 DDoS 缓解策略
 
-标准 DDoS 防护针对已启用 DDoS 的虚拟网络中受保护资源的每个公共 IP 地址，应用三个自动优化的缓解策略（TCP SYN、TCP 和 UDP）。 通过选择“触发 DDoS 缓解的入站 TCP 数据包”和“触发 DDoS 缓解的入站 UDP 数据包”指标，可查看策略阈值，如下图中所示：
+标准 DDoS 防护针对已启用 DDoS 的虚拟网络中受保护资源的每个公共 IP 地址，应用三个自动优化的缓解策略（TCP SYN、TCP 和 UDP）。 选择可查看策略阈值**触发 DDoS 缓解的入站 TCP 数据包**并**触发 DDoS 缓解的入站 UDP 数据包**指标**聚合**键入作为 Max，如下图中所示：
 
 ![查看缓解策略](./media/manage-ddos-protection/view-mitigation-policies.png)
 

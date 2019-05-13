@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 墨迹识别器文档
+metadata:
+  title: 墨迹识别器文档 - 快速入门、教程和 API 参考 - Azure 认知服务 | Microsoft Docs
+  description: 了解如何使用文本翻译来翻译多个语言的文本。
+  services: cognitive-services
+  author: erhopf
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/02/2019
+  ms.author: erhopf
+abstract:
+  description: 数字墨迹是以数字形式表示手写和绘制等输入内容的技术。 随着设备中不断推出丰富的数字墨迹书写体验，可以通过人工智能和机器学习来识别任意上下文中的书写形状和文本。 墨迹识别器 API 是基于云的服务，可用于发送墨迹笔划及获取其详细信息。
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/ink-recognizer/overview
+            html: <p>了解墨迹识别器以及如何将它集成到产品中</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什么是墨迹识别器 API？
+          - href: concepts/send-ink-data.md
+            html: <p>了解使用 API 时建议的调用模式</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 将墨迹数据发送到墨迹识别器 API
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: 开始使用墨迹识别器 API：
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo-csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo-java.svg
+            title: Java
+          - image:
+              src: media/index/logo-js.svg
+            title: Javascript
+        rows:
+          - title: 识别数字墨迹笔划
+            values:
+              - href: quickstarts/csharp.md
+              - href: quickstarts/java.md
+              - href: quickstarts/javascript.md
+  - title: 示例
+    items:
+      - type: paragraph
+        text: 使用这些示例程序来了解如何将墨迹识别器 API 集成到应用程序中：
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# 和通用 Windows 平台 (UWP)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# 和 Windows Presentation Foundation(WPF)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">Javascript Web 浏览器应用</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Java 和 Android 移动应用</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Swift 和 iOS 移动应用</a>'
+  - title: 引用
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST API
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907">REST API 参考</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>'

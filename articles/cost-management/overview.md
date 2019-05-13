@@ -10,12 +10,12 @@ ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 08a1980a8855fc119a5066e058e9bb4d2df6646e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bdf47991435a9a28a4db12f3aa89478b18bb9f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998867"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020242"
 ---
 # <a name="what-is-the-cloudyn-service"></a>什么是 Cloudyn 服务？
 

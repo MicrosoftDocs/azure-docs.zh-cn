@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 758eeedb89b3cef6766cf195a2cada50fbe63042
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330323"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148420"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教程：在 Microsoft Azure 存储中使用 Azure Key Vault 加密和解密 Blob
 

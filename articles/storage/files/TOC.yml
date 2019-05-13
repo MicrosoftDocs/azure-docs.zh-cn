@@ -153,6 +153,8 @@
           href: storage-troubleshoot-windows-file-connection-problems.md
         - name: 排查 Linux 上的 Azure 文件问题
           href: storage-troubleshoot-linux-file-connection-problems.md
+        - name: 排查 Azure 文件存储性能问题
+          href: storage-troubleshooting-files-performance.md
         - name: 对 Azure 文件同步进行故障排除
           href: storage-sync-files-troubleshoot.md
 - name: 引用
@@ -166,7 +168,7 @@
         - name: Blob、队列、表和文件
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: 数据移动
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
         - name: 资源管理器
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java

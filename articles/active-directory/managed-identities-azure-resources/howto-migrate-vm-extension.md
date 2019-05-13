@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440811"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406788"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>如何停止使用的虚拟机托管标识扩展并开始使用 Azure 实例元数据服务
 
@@ -35,7 +35,7 @@ ms.locfileid: "60440811"
 
 ### <a name="provision-the-extension"></a>预配扩展 
 
-在配置虚拟机或虚拟机规模集具有托管的标识时，您可能可选选择，您可以根据需要选择预配 Azure 资源 VM 扩展使用的托管的标识`-Type`上的参数[集 AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet。 您可以传递`ManagedIdentityExtensionForWindows`或`ManagedIdentityExtensionForLinux`，具体取决于虚拟机的类型并将其使用命名`-Name`参数。 `-Settings` 参数指定 OAuth 令牌终结点用于令牌获取的端口：
+在配置虚拟机或虚拟机规模集具有托管的标识时，您可以根据需要选择预配 Azure 资源 VM 扩展使用的托管的标识`-Type`参数上的[集 AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet。 您可以传递`ManagedIdentityExtensionForWindows`或`ManagedIdentityExtensionForLinux`，具体取决于虚拟机的类型并将其使用命名`-Name`参数。 `-Settings` 参数指定 OAuth 令牌终结点用于令牌获取的端口：
 
 ```powershell
    $settings = @{ "port" = 50342 }

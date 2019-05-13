@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001580"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154433"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -117,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | 资源 |`sr=b` |资源是 Blob。 |
 | 权限 |`sp=rw` |SAS 授予的权限包括读取 (r) 和写入 (w)。 |
 | IP 范围 |`sip=168.1.5.60-168.1.5.70` |将从中接受请求的 IP 地址范围。 |
-| 协议 |`spr=https` |仅允许使用 HTTPS 的请求。 |
+| Protocol |`spr=https` |仅允许使用 HTTPS 的请求。 |
 | 签名 |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |用于授予对 Blob 的访问权限。 该签名是利用 SHA256 算法通过“字符串到签名”和密钥进行计算，并使用 Base64 编码进行编码的 HMAC。 |
 
 ### <a name="account-sas-uri-example"></a>帐户 SAS URI 示例
@@ -329,7 +330,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>示例：在容器上创建服务 SAS
-下面的代码在容器上创建 SAS。 如果提供现有存储访问策略的名称，则该策略与 SAS 关联。 如果未不提供任何存储的访问策略，然后该代码创建一个临时 SAS 时在容器上。
+下面的代码在容器上创建 SAS。 如果提供现有存储访问策略的名称，则该策略与 SAS 关联。 如果未提供存储访问策略，则代码会在容器上创建一个临时 SAS。
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -372,7 +373,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>示例：在 Blob 上创建服务 SAS
-下面的代码在 Blob 上创建 SAS。 如果提供现有存储访问策略的名称，则该策略与 SAS 关联。 如果未不提供任何存储的访问策略，然后该代码创建一个临时 SAS 时在 blob 上。
+下面的代码在 Blob 上创建 SAS。 如果提供现有存储访问策略的名称，则该策略与 SAS 关联。 如果未提供存储访问策略，则代码会在 Blob 上创建一个临时 SAS。
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)

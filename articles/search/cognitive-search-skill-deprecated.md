@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637512"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021956"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>已弃用的认知搜索技能
 
@@ -31,7 +31,7 @@ ms.locfileid: "60637512"
 
 ### <a name="last-available-api-version"></a>最后一个可用的 API 版本
 
-2017-11-11-preview
+2019-05-06-Preview
 
 ### <a name="end-of-support"></a>结束支持
 
@@ -43,7 +43,8 @@ ms.locfileid: "60637512"
 
 若要迁移到[实体识别技能](cognitive-search-skill-entity-recognition.md)，需对技能定义进行下述一个或多个更改。 可以使用[更新技能集 API](https://docs.microsoft.com/rest/api/searchservice/update-skillset) 更新技能定义。
 
-_注意_：目前不支持作为概念的置信度分数。 不久的将来会支持它。 `minimumPrecision` 参数存在于 `EntityRecognitionSkill` 上，可供将来使用，并可实现后向兼容。
+> [!NOTE]
+> 目前不支持作为概念的置信度分数。 `minimumPrecision` 参数存在于 `EntityRecognitionSkill` 上，可供将来使用，并可实现后向兼容。
 
 1. （必需）将 `@odata.type` 从 `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` 更改为 `"#Microsoft.Skills.Text.EntityRecognitionSkill"`。
 

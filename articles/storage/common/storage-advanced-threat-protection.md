@@ -2,18 +2,18 @@
 title: Azure 存储的高级威胁防护
 description: 配置 Azure 存储高级威胁防护以检测帐户活动中的异常情况，并通知用户可能有害的访问帐户尝试。
 services: storage
-author: rmatchoro
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: monhaber
-ms.manager: shaik
-ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: tamram
+ms.reviewer: cbrooks
+ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926508"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153977"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 存储的高级威胁防护
 

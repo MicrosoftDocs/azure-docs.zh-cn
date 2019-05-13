@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615874"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232476"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>计费和成本管理自动化方案
 
@@ -85,9 +85,9 @@ ms.locfileid: "60615874"
 -   [未计费的使用情况 API](/previous-versions/azure/reference/mt219003(v=azure.100))：获取在 Azure 进行任何计量/计费前的原始使用情况信息。
 
 ### <a name="billing"></a>计费
--   [计费周期 API](https://docs.microsoft.com/rest/api/billing/billingperiods)：确定要分析的计费周期，以及此周期的发票 ID。 可以将发票 ID 与发票 API 结合使用。
+-   [计费周期 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)：确定要分析的计费周期，以及此周期的发票 ID。 可以将发票 ID 与发票 API 结合使用。
 
--   [发票 API](https://docs.microsoft.com/rest/api/billing/invoices)：获取计费周期的发票（PDF 格式）的下载 URL。
+-   [发票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices)：获取计费周期的发票（PDF 格式）的下载 URL。
 
 ### <a name="enterprise-consumption"></a>企业使用情况
 以下 API 仅适用于企业：
@@ -126,7 +126,7 @@ ms.locfileid: "60615874"
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>发票 API 与使用情况详细信息 API 有何区别？
 这些 API 提供包含相同数据的不同视图：
 
-- [发票 API](https://docs.microsoft.com/rest/api/billing/invoices) 仅适用于 Web 直连客户。 它根据每种计量类型的汇总费用提供每月帐单汇总。 
+- [发票 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) 仅适用于 Web 直连客户。 它根据每种计量类型的汇总费用提供每月帐单汇总。 
 
 - [使用情况详细信息 API](https://docs.microsoft.com/rest/api/consumption/usagedetails) 提供每天使用情况/费用记录的具体视图。 企业客户和 Web 直连客户都可以使用它。
 

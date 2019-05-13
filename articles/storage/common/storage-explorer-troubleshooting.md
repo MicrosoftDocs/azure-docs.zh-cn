@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710870"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154198"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -235,7 +235,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 一般情况下，需要安装以下包才能在 Linux 上运行存储资源管理器：
 
-* [.NET core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)注意：存储资源管理器版本 1.7.0 和之前需要.NET Core 2.0。 如果有较新版本的.NET Core 安装将需要修补存储资源管理器 （见下文）。 如果在运行存储资源管理器 1.8.0 或更高版本然后应能够使用.NET Core 2.2。 超出了 2.2 版本未验证工作这一次。
 * `libgnome-keyring-common` 和 `libgnome-keyring-dev`
 * `libgconf-2-4`
 

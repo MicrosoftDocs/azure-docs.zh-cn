@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0eff3ea74f8514bb09cc1674dc0de38e13963ac0
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793877"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865876"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>快速入门：使用 .NET SDK 创建数据工厂和管道
 
@@ -285,13 +285,13 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```csharp
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
-   
-    List<ActivityRun> activityRuns = client.ActivityRuns.ListByPipelineRun(
-    resourceGroup, dataFactoryName, runResponse.RunId, DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10)).ToList(); 
+
+    RunFilterParameters filterParams = new RunFilterParameters(DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
     if (pipelineRun.Status == "Succeeded")
-        Console.WriteLine(activityRuns.First().Output);
+        Console.WriteLine(queryResponse.Value.First().Output);
     else
-        Console.WriteLine(activityRuns.First().Error);
+        Console.WriteLine(queryResponse.Value.First().Error);
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```

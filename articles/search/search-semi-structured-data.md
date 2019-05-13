@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 4b996effbc03bd1f7c446965b0aa5fb6fa2d0175
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525341"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024388"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 教程：在 Azure 搜索中为半结构化数据 (JSON Blob) 编制索引以及搜索此类数据
 
@@ -27,9 +27,6 @@ Azure 搜索可使用一个知晓如何读取半结构化数据的[索引器](se
 > * 创建 Azure 搜索索引以包含可搜索的内容
 > * 配置和运行索引器以读取容器和从 Azure blob 存储中提取可搜索内容
 > * 搜索刚刚创建的索引
-
-> [!NOTE]
-> 本教程依赖于 JSON 数组支持，该项当前是 Azure 搜索中的预览功能。 该功能在门户中不可用。 为此，我们会使用可提供此功能的预览版 REST API，并使用某个 REST 客户端工具来调用该 API。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -81,7 +78,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 我们将使用 Postman 向搜索服务发出三个 API 调用，以创建数据源、索引和索引器。 数据源包含指向存储帐户的指针以及 JSON 数据。 加载数据时，搜索服务会建立连接。
 
-查询字符串必须包含一个预览 API（如 api-version=2017-11-11-Preview），每个调用应返回“201 Created”。 正式版 api-version 尚未提供将 json 作为 jsonArray 进行处理的功能，目前只有预览版 api-version 提供此功能。
+查询字符串必须指定 api-version，并且每个调用都应返回“201 已创建”。 用于使用 JSON 数组的正式版 api-version 为 `2019-05-06`。
 
 从 REST 客户端执行以下三个 API 调用。
 
@@ -89,7 +86,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 [创建数据源 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 可创建一个 Azure 搜索对象，用于指定要编制索引的数据。
 
-此调用的终结点为 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`。 请将 `[service name]` 替换为搜索服务的名称。 
+此调用的终结点为 `https://[service name].search.windows.net/datasources?api-version=2019-05-06`。 请将 `[service name]` 替换为搜索服务的名称。 
 
 对于此调用，请求正文必须包含存储帐户名称、存储帐户密钥和 Blob 容器名称。 可在 Azure 门户上存储帐户的“访问密钥”中找到存储帐户密钥。 下图显示了该位置：
 
@@ -132,7 +129,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
     
 第二次调用的是[创建索引 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)，用于创建可存储所有可搜索数据的 Azure 搜索索引。 索引指定所有参数及其属性。
 
-此调用的 URL 为 `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`。 请将 `[service name]` 替换为搜索服务的名称。
+此调用的 URL 为 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`。 请将 `[service name]` 替换为搜索服务的名称。
 
 首先替换 URL。 然后，将以下代码复制并粘贴到正文，并运行查询。
 
@@ -222,7 +219,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 索引器连接数据源，将数据导入目标搜索索引，并选择性地提供一个计划来自动执行数据刷新。 REST API 为[创建索引器](https://docs.microsoft.com/rest/api/searchservice/create-indexer)。
 
-此调用的 URL 为 `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`。 请将 `[service name]` 替换为搜索服务的名称。
+此调用的 URL 为 `https://[service name].search.windows.net/indexers?api-version=2019-05-06`。 请将 `[service name]` 替换为搜索服务的名称。
 
 首先替换 URL。 然后，将以下代码复制并粘贴到正文，并发送请求。 系统会立即处理该请求。 当响应返回时，便拥有了可进行全文搜索的索引。
 
@@ -267,7 +264,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 在 Azure 门户中，打开搜索服务的“概述”页，在“索引”列表中找到创建的索引。
 
-请务必选择刚刚创建的索引。 API 版本可以是预览版或正式版。 唯一的预览版要求是为 JSON 数组编制索引。
+请务必选择刚刚创建的索引。 
 
   ![非结构化搜索](media/search-semi-structured-data/indexespane.png)
 

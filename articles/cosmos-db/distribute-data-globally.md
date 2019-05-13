@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 70ead36e20861026e08e864f438071948c526844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889034"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070793"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>使用 Azure Cosmos DB 在全球范围内分发数据 - 概述
 
@@ -51,6 +51,6 @@ Azure Cosmos DB 是一个全局分布式数据库服务，旨在提供低延迟�
 
 * [全球分布 - 揭秘](global-dist-under-the-hood.md)
 * [如何配置应用程序中的多主数据库](how-to-multi-master.md)
-* [配置多宿主客户端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [配置多宿主客户端](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [在 Azure Cosmos DB 帐户中添加或删除区域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [为 SQL API 帐户创建自定义冲突解决策略](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: 流式传输到用于 Apache Kafka 的事件中心
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: 创建专用事件中心群集
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: 教程
   items:
     - name: 直观显示事件中心数据流的数据异常

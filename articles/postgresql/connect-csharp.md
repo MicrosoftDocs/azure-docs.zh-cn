@@ -1,21 +1,21 @@
 ---
-title: 从 C# 连接到 Azure Database for PostgreSQL
-description: 本快速入门提供了一个 C# (.NET) 代码示例，可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
+title: 使用 C# 连接到 Azure Database for PostgreSQL - 单一服务器
+description: 此快速入门提供了可用于从 Azure Database for PostgreSQL - 单一服务器连接和查询数据的 C# (.NET) 代码示例。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 03/12/2019
-ms.openlocfilehash: 79f2749c9a1f5a6a34628087dc2fd22f6eab6d17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 5/6/2019
+ms.openlocfilehash: 546626b1bf655ce6755e0a34ae8d8a85bcf6990f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881344"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067360"
 ---
-# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 .NET (C#) 连接和查询数据
+# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL - 单一服务器：使用 .NET (C#) 连接和查询数据
 本快速入门演示了如何使用 C# 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 C# 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
 
 ## <a name="prerequisites"></a>先决条件

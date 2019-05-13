@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720339"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142542"
 ---
 # <a name="get-resource-changes"></a>获取资源更改
 
@@ -29,7 +29,7 @@ ms.locfileid: "64720339"
 - 保持配置管理数据库，称为 CMDB，保持最新状态。 而不是刷新所有资源和其完整的属性组的计划的频率，只能获取更改的内容。
 - 了解哪些其他属性可能已更改时某个资源更改符合性状态。 这些附加属性的计算可以深入了解可能需要管理通过 Azure 策略定义其他属性。
 
-本文介绍如何收集此信息通过资源关系图的 SDK。 若要查看此信息在 Azure 门户中的，请参阅 Azure 策略[更改历史记录](../../policy/how-to/determine-non-compliance.md#change-history-preview)。
+本文介绍如何收集此信息通过资源关系图的 SDK。 若要查看此信息在 Azure 门户中的，请参阅 Azure 策略[更改历史记录](../../policy/how-to/determine-non-compliance.md#change-history-preview)或 Azure 活动日志[更改历史记录](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history)。
 
 > [!NOTE]
 > 在资源图表中的更改详细信息适用于资源管理器属性。 有关跟踪虚拟机内部的更改，请参阅 Azure 自动化[更改跟踪](../../../automation/automation-change-tracking.md)或 Azure 策略[Vm 的来宾配置](../../policy/concepts/guest-configuration.md)。

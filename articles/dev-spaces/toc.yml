@@ -4,6 +4,8 @@
       href: index.yml
     - name: 快速入门
       items:
+        - name: 团队开发
+          href: quickstart-team-development.md
         - name: Java（VS Code 和 CLI）
           href: quickstart-java.md
         - name: .NET Core（VS Code 和 CLI）

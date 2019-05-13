@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564758"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教程：Azure Active Directory 与 Tableau Server 集成
 
@@ -116,13 +116,13 @@ ms.locfileid: "59564758"
 
 5. Tableau Server 应用程序需要一个应当如下定义的自定义声明 **username**。 这用作用户标识符，而不是唯一的用户标识符声明。 可以在应用程序集成页的“用户属性和声明”部分管理这些属性的值。 单击“编辑”按钮以打开“用户属性和声明”对话框。
 
-    ![图像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. 在“用户属性和声明”对话框的“用户声明”部分中，按上图所示配置 SAML 令牌属性，并执行以下步骤：
 
     | 名称 | 源属性 | 命名空间 |
     | ---------------| --------------- | ----------- |
-    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 单击“添加新声明”以打开“管理用户声明”对话框。

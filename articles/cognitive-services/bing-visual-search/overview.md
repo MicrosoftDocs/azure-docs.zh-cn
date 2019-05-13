@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8bcb0372ebb60ac3a46cf06bf85322b288e153ba
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630207"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916625"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>什么是必应视觉搜索 API？
 
@@ -47,7 +47,7 @@ ms.locfileid: "58630207"
 
 必应视觉搜索 API 是一项 RESTful Web 服务，可以轻松地通过任何编程语言调用，只要该语言能够发出 HTTP 请求和分析 JSON 即可。 可以通过 REST API 或 SDK 使用此服务。
 
-1. 创建一个[认知服务帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)用于访问必应搜索 API。 如果没有 Azure 订阅，可以[免费创建一个帐户](https://azure.microsoft.com/free/)。 创建帐户后，可以从 [Azure 门户](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource)获取订阅密钥；激活免费试用帐户后，可以从 [Azure 网站](https://azure.microsoft.com/try/cognitive-services/my-apis)获取订阅密钥。
+1. 创建一个[认知服务帐户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)用于访问必应搜索 API。 如果没有 Azure 订阅，可以[免费创建一个帐户](https://azure.microsoft.com/free/)。 创建帐户后，可以从 [Azure 门户](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource)获取订阅密钥；激活免费试用帐户后，可以从 [Azure 网站](https://azure.microsoft.com/try/cognitive-services/my-apis)获取订阅密钥。
 2. 使用有效的搜索查询向 API 发送请求。
 3. 通过分析返回的 JSON 消息处理 API 响应。
 

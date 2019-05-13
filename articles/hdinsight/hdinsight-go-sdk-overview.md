@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight Go SDK
-description: Azure HDInsight Go SDK 参考
+title: Azure HDInsight SDK for Go
+description: Azure HDInsight sdk for Go 的引用
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 05/8/2019
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 113948d77d87a34822f81f020b03f6628b9c5e84
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700607"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466224"
 ---
-# <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 管理 SDK 预览版
+# <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go （预览版）
 
 ## <a name="overview"></a>概述
-HDInsight Go SDK 提供了用于管理 HDInsight 群集的类和函数。 该 SDK 包含用于创建、删除、更新、列出、调整大小、执行脚本操作，以及监视、获取 HDInsight 群集属性等操作。
+HDInsight SDK for Go 提供类和函数，可用于管理 HDInsight 群集。 该 SDK 包含用于创建、删除、更新、列出、调整大小、执行脚本操作，以及监视、获取 HDInsight 群集属性等操作。
 
 > [!NOTE]  
 >还可以[从此处获得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)适用于此 SDK 的GoDoc 参考资料。

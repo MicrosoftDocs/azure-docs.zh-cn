@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821278"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502103"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure 机器学习服务的工作原理：体系结构和概念
 
@@ -32,9 +32,7 @@ ms.locfileid: "60821278"
 1. **将脚本提交**到配置的计算目标以在该环境中运行。 在训练期间，脚本可以读取或写入**数据存储**。 并且执行记录在**工作区**中保存为**运行**，并在**试验**下分组。
 1. **查询试验**了解当前和过去的运行中已记录的指标。 如果指标未指示所需结果，请循环回到步骤 1 并循环访问脚本。
 1. 找到满意的运行后，在**模型注册表**中注册持久化模型。
-1. 开发评分脚本。
-1. **创建映像**并将其注册在**映像注册表**中。
-1. 在 Azure 中**将映像部署**为 **Web 服务**。
+1. 开发使用模型评分脚本和**部署模型**作为**web 服务**在 Azure 中，或设置为**IoT Edge 设备**。
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ ms.locfileid: "60821278"
 
 工作区保留可用于训练模型的计算目标的列表。 此外，它还保留训练运行的历史记录，包括日志、指标、输出和脚本快照。 使用此信息可以确定哪个训练运行产生最佳模型。
 
-将模型注册到工作区。 使用已注册模型和评分脚本创建映像。 然后，可将映像部署到 Azure 容器实例、Azure Kubernetes 服务中或部署到现场可编程门阵列 (FPGA) 作为基于 REST 的 HTTP 终结点。 还可以将映像作为模块部署到 Azure IoT Edge 设备。
+将模型注册到工作区。 使用已注册的模型和评分脚本以将模型部署到 Azure 容器实例时，Azure Kubernetes 服务，或作为基于 REST 的 HTTP 终结点现场可编程门列阵 (FPGA)。 还可以将映像作为模块部署到 Azure IoT Edge 设备。 在内部，创建 docker 映像以承载部署的映像。 如果需要可以指定自己的映像。
 
 你可以创建多个工作区，并且每个工作区可由多个用户共享。 共享工作区时，可以通过将用户分配到以下角色来控制访问权限：
 
@@ -68,7 +66,7 @@ ms.locfileid: "60821278"
 
 下图演示了工作区的分类：
 
-[![工作区分类](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![工作区分类](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>试验
 
@@ -94,7 +92,7 @@ Azure 机器学习服务与框架无关。 创建模型时，可以使用任何�
 
 注册模型时，可以提供其他元数据标记，然后在搜索模型时使用这些标记。
 
-映像正在使用的模型无法删除。
+不能删除正在使用的活动部署的模型。
 
 有关注册模型的示例，请参阅[使用 Azure 机器学习训练映像分类模型](tutorial-train-models-with-aml.md)。
 
@@ -105,6 +103,16 @@ Azure 机器学习服务与框架无关。 创建模型时，可以使用任何�
 运行配置可以保存到包含训练脚本的目录内的文件中，或构造为内存中对象以及用于提交运行。
 
 有关示例运行配置，请参阅[选择并使用计算目标来训练模型](how-to-set-up-training-targets.md)。
+
+## <a name="dataset"></a>数据集
+
+Azure 机器学习数据集 （预览版） 使其更轻松地访问和使用你的数据。 数据集管理在各种情况下，例如模型训练数据和创建的管道。 使用 Azure 机器学习 SDK，可以访问基础存储、 探索和准备数据、 管理不同的数据集定义的生命周期和在培训和在生产环境中使用的数据集之间进行比较。
+
+数据集提供用于处理中常用的格式，例如，使用的数据的方法`from_delimited_files()`或`to_pandas_dataframe()`。
+
+有关详细信息，请参阅[创建和注册 Azure 机器学习数据集](how-to-create-register-datasets.md)。
+
+使用数据集的示例，请参阅[示例笔记本](https://aka.ms/dataset-tutorial)。
 
 ## <a name="datastore"></a>数据存储
 
@@ -127,7 +135,7 @@ Azure 机器学习服务与框架无关。 创建模型时，可以使用任何�
 | Azure 容器实例 | &nbsp; | ✓ |
 | Azure Kubernetes 服务 | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Project Brainwave</br>（现场可编程门阵列） | &nbsp; | ✓ |
+| 现场可编程门阵列 (FPGA) | &nbsp; | ✓ |
 
 计算目标附加到工作区。 本地计算机以外的计算目标由工作区的用户共享。
 
@@ -190,8 +198,6 @@ Azure 机器学习可以创建两种类型的映像：
 
 Azure 机器学习服务提供了一个基本映像，默认情况下使用。 你还可以提供自己的自定义映像。
 
-有关详细信息，请参阅[部署模型](how-to-deploy-and-where.md#configureimage)的配置和注册映像部分。
-
 有关创建映像的示例，请参阅[在 Azure 容器实例中部署映像分类模型](tutorial-deploy-models-with-aml.md)。
 
 ### <a name="image-registry"></a>映像注册表
@@ -200,11 +206,11 @@ Azure 机器学习服务提供了一个基本映像，默认情况下使用。 �
 
 ## <a name="deployment"></a>部署
 
-部署是将映像实例化为可在云中托管的 Web 服务或用于集成设备部署的 IoT 模块。
+部署是模型的为 web 服务，可以托管在云中或 IoT 模块集成的设备部署到您的实例化。
 
 ### <a name="web-service"></a>Web 服务
 
-已部署的 Web 服务可以使用 Azure 容器实例、Azure Kubernetes 服务或 FPGA。 基于封装模型、脚本和关联文件的映像创建该服务。 映像具有负载均衡的 HTTP 终结点，可接收发送到 Web 服务的评分请求。
+已部署的 Web 服务可以使用 Azure 容器实例、Azure Kubernetes 服务或 FPGA。 从模型、 脚本和关联的文件创建的服务。 这些被封装在一个映像，而提供的 web 服务的运行的时环境中。 映像具有负载均衡的 HTTP 终结点，可接收发送到 Web 服务的评分请求。
 
 如果已选择启用此功能，Azure 可通过收集 Application Insight 遥测数据或模型遥测数据帮助监视 Web 服务部署。 遥测数据仅供你访问，并且存储在 Application Insights 和存储帐户实例中。
 

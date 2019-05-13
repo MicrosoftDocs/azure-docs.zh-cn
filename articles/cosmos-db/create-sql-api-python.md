@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 91a5bf71983511f58fc13a0edf4a1109c3829602
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565055"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410680"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB：使用 Azure Cosmos DB SQL API 帐户生成 Python 应用程序
 
@@ -28,7 +28,7 @@ ms.locfileid: "59565055"
 
 Azure Cosmos DB 是 Microsoft 提供的全球分布式多模型数据库服务。 可以快速创建和查询文档、键/值和图形数据库。 所有这些操作受益于 Azure Cosmos DB 的分布和规模。
 
-本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和容器， 然后使用 [SQL API](sql-api-sdk-python.md) 的 Python SDK 构建并运行控制台应用。 本快速入门使用 3.0 版的 [Python SDK]。(https://pypi.org/project/azure-cosmos)
+本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和容器， 然后使用 [SQL API](sql-api-sdk-python.md) 的 Python SDK 构建并运行控制台应用。 本快速入门使用 3.0 版的 [Python SDK](https://pypi.org/project/azure-cosmos)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

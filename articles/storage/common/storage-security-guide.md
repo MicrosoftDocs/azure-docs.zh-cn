@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 74be21629a884313e74a824bb34fb5b66f5db61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729018"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154400"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 

@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917612"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190071"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -145,7 +145,7 @@ ms.locfileid: "64917612"
 
 * <a id="afs-os-support"></a>
   **我是否可以将 Azure 文件同步与 Windows Server 2008 R2、Linux 或我的网络连接存储 (NAS) 设备一起使用？**  
-    Azure 文件同步当前仅支持 Windows Server 2016 和 Windows Server 2012 R2。 目前，我们暂无可分享的其他计划，但我们愿意根据客户需求支持其他平台。 请在 [Azure 文件 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 上告知你想要我们支持的平台。
+    目前，Azure 文件同步仅支持 Windows Server 2019、 Windows Server 2016 和 Windows Server 2012 R2。 目前，我们暂无可分享的其他计划，但我们愿意根据客户需求支持其他平台。 请在 [Azure 文件 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 上告知你想要我们支持的平台。
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **为什么分层文件存在于服务器终结点命名空间之外？**  
@@ -222,7 +222,7 @@ ms.locfileid: "64917612"
 * <a id="encryption-at-rest"></a>
 **如何确保已静态加密 Azure 件共享？**  
 
-    Azure 存储服务加密默认在所有区域启用。 对于这些区域，你无需执行任何操作来启用加密。 对其他区域，请参阅[服务器端加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+    可以。 有关详细信息请参阅[Azure 存储服务加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 * <a id="access-via-browser"></a>
 **如何使用 Web 浏览器提供对特定文件的访问权限？**  

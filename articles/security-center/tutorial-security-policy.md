@@ -3,7 +3,7 @@ title: 使用安全策略 | Microsoft Docs
 description: 本文介绍如何使用 Azure 安全中心的安全策略。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111504"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236307"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -110,6 +110,9 @@ Azure Policy 由以下组件构成：
    ![策略管理](./media/tutorial-security-policy/policy-management.png)
 
 2. 单击你想要禁用该建议的订阅或管理组。
+
+   > [!Note]
+   > 请记住，管理组将其策略适用于其订阅。 因此，如果禁用订阅的策略，并且在订阅属于仍使用相同的策略的管理组，您将继续接收策略建议。 仍将从管理级别应用该策略，且仍将生成建议。
 
 1. 单击分配的策略。
 

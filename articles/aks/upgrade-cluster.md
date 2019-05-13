@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
 ms.openlocfilehash: 59d52db8c3f5f8968eae1a544abe1e5c6bbaacca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185972"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072745"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>升级 Azure Kubernetes 服务 (AKS) 群集
 

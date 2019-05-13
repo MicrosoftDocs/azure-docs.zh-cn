@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 12/04/2018
+ms.date: 4/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154268"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -57,8 +57,9 @@ ms.locfileid: "61474838"
 ## <a name="polybase"></a>Polybase
 | 问题                                           | 解决方法                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| 由于行大加载失败                | 目前 Polybase 不提供大型行支持。  这意味着，如果表包含 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)，将无法使用外部表加载数据。  目前仅支持通过 Azure 数据工厂（带 BCP）、Azure 流分析、SSIS、BCP 或 .NET SQLBulkCopy 类加载大型行。 在未来版本中将添加对大型行的 PolyBase 支持。 |
-| 使用 bcp 加载包含 MAX 数据类型的表失败 | 有一个已知问题，它要求在某些情况下将 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX) 放置在表的末尾。  请尝试将 MAX 列移到表的末尾。 |
+| 导出失败，并 TINYINT 和日期类型             | Parquet 和 ORC 文件格式，日期类型值之间必须 1970年-01-01 00:00:01 UTC 和 2038年-01-19 日 03:14:07。 TINYINT 类型值必须介于 0 到 127 之间。    |
+| Parquet 十进制类型的问题： 从 Spark 编写键入 DecimalType(18,4) 和双精度或实际导入到类型的列的为提供"错误： java.base/java.lang.Long 无法强制转换为 java.base/java.lang.Float"。 | 您必须导入到 bigint 以及将多个使用大于等于 10000 [Databricks] SQL DW 连接器。 |
+| Parquet 问题日期类型： 编写从 Spark 日期类型和导入的列中键入日期或日期时间为提供"错误： java.base/java.lang.Integer 无法强制转换为 parquet.io.api.Binary"。 | 您必须使用不同的 Spark 类型 (int) 和计算日期或使用[Databricks] SQL DW 连接器。 |
 
 ## <a name="differences-from-sql-database"></a>与 SQL 数据库的差异
 | 问题                                 | 解决方法                                                   |
@@ -132,3 +133,4 @@ ms.locfileid: "61474838"
 [Stackoverflow 论坛]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[Databricks]: https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse

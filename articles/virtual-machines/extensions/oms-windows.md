@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468374"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142880"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>适用于 Windows 的 azure 监视虚拟机扩展
 
@@ -32,7 +32,10 @@ Azure Monitor 日志提供跨云和本地资产的监视功能。 适用于 Wind
 
 ### <a name="operating-system"></a>操作系统
 
-可以针对 Windows Server 2008 R2、2012、2012 R2 和 2016 版本运行适用于 Windows 的 Log Analytics 代理扩展。
+适用于 Windows 的 Log Analytics 代理扩展支持以下版本的 Windows 操作系统：
+
+- Windows Server 2019
+- Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
 
 ### <a name="azure-security-center"></a>Azure 安全中心
 
@@ -43,7 +46,7 @@ Azure 安全中心自动预配的 Log Analytics 代理，并将其连接的 Azur
 
 ## <a name="extension-schema"></a>扩展架构
 
-以下 JSON 显示 Log Analytics 代理扩展的架构。 此扩展需要目标 Log Analytics 工作区的工作区 ID 和工作区密钥。 这些数据可在 Azure 门户的工作区设置中找到。 由于工作区密钥应视为敏感数据，因此它应存储在受保护的设置配置。 Azure VM 扩展保护的设置数据已加密，并且只能在目标虚拟机上解密。 请注意，**workspaceId** 和 **workspaceKey** 区分大小写。
+以下 JSON 显示 Log Analytics 代理扩展的架构。 此扩展需要工作区 ID 和目标 Log Analytics 工作区的工作区密钥。 这些数据可在 Azure 门户的工作区设置中找到。 由于工作区密钥应视为敏感数据，因此它应存储在受保护的设置配置。 Azure VM 扩展保护的设置数据已加密，并且只能在目标虚拟机上解密。 请注意，**workspaceId** 和 **workspaceKey** 区分大小写。
 
 ```json
 {
@@ -84,6 +87,9 @@ Azure 安全中心自动预配的 Log Analytics 代理，并将其连接的 Azur
 ## <a name="template-deployment"></a>模板部署
 
 可使用 Azure 资源管理器模板部署 Azure VM 扩展。 可以在 Azure 资源管理器模板中使用上一部分中详细介绍的 JSON 架构，以便在 Azure 资源管理器模板部署过程中运行 Log Analytics 代理扩展。 包含 Log Analytics 代理 VM 扩展的示例模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)中找到。 
+
+>[!NOTE]
+>该模板不支持指定多个工作区 ID 和工作区密钥，当你想要配置代理向多个工作区报告。 若要配置代理向多个工作区报告，请参阅[添加或删除工作区](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
 
 虚拟机扩展的 JSON 可以嵌套在虚拟机资源内，或放置在 Resource Manager JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 有关详细信息，请参阅[设置子资源的名称和类型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
 

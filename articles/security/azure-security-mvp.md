@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: fa845ba81139c9930f66ce9bd8e99a5f65eece56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b75a6ef341483201dc9cb2a30f68b4854332cbce
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611000"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190421"
 ---
 # <a name="azure-security-mvp-program"></a>Azure 安全 MVP 计划
 
@@ -36,5 +36,3 @@ Microsoft Azure 现已任命在 Azure 安全方面具有特殊专业知识的社
 - 会议和用户组
 - 播客、网站、博客和社交媒体
 - 文章和书籍。
-
-是否是 Azure 安全方面的专家？ 你知道谁是吗？ 立即[提名自己或他人](https://mvp.microsoft.com/Nomination/nominate-an-mvp)成为 Azure 安全 MVP！

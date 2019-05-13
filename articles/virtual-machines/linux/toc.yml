@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - 高度可用的 VM
       href: tutorial-availability-sets.md
-    - name: 6 - 创建 VM 规模集
+    - name: 6 - 创建规模集
       href: tutorial-create-vmss.md
     - name: 7 - 对 VM 进行负载均衡
       href: tutorial-load-balancer.md
@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 临时 OS 磁盘
+          href: ephemeral-os-disks.md
     - name: 网络
       href: network-overview.md
     - name: 自动缩放应用程序
@@ -253,14 +255,32 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: 使用映像
       items:
-        - name: 共享映像库（预览版）
+        - name: 共享映像库
           items:
             - name: 概述
               href: shared-image-galleries.md
-            - name: 使用 CLI 创建共享映像
+            - name: CLI
               href: shared-images.md
+            - name: 门户
+              href: shared-images-portal.md
+            - name: 在租户间共享映像
+              href: share-images-across-tenants.md
             - name: 排查共享映像问题
               href: troubleshooting-shared-images.md
+        - name: 映像生成器（预览版）
+          items:
+            - name: 概述
+              href: image-builder-overview.md
+            - name: 使用 CLI
+              href: image-builder.md
+            - name: 模板参考
+              href: image-builder-json.md
+            - name: 与库配合使用
+              href: image-builder-gallery.md
+            - name: 更新映像版本
+              href: image-builder-gallery-update-image-version.md
+            - name: 故障排除
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: 查找和使用映像
           href: cli-ps-findimage.md
         - name: 创建自定义映像

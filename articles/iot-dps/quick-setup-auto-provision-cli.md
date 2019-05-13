@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42024025"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363710"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>使用 Azure CLI 设置 IoT 中心设备预配服务
 
@@ -26,8 +26,6 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 > 在本快速入门中创建的 IoT 中心和预配服务将会充当可以公开发现的 DNS 终结点。 如果决定更改用于这些资源的名称，请确保不使用任何敏感信息。
 >
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 
 ## <a name="create-a-resource-group"></a>创建资源组

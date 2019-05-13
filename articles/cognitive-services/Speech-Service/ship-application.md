@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456166"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020409"
 ---
 # <a name="ship-an-application"></a>交付应用程序
 
@@ -49,19 +49,26 @@ ms.locfileid: "61456166"
 
 ## <a name="linux"></a>Linux
 
-Speech SDK 目前支持 Ubuntu 16.04 和 18.04 发行版。
+Speech SDK 目前支持的 Ubuntu 16.04、 Ubuntu 18.04 和 Debian 9 分发版。
 对于本机应用程序，需要交付语音 SDK 库 `libMicrosoft.CognitiveServices.Speech.core.so`。
 请确保选择与应用程序匹配的版本（x86、x64）。 根据 Linux 版本，可能还需要包括以下依赖项：
 
 * GNU C 库的共享库（包括 POSIX 线程编程库 `libpthreads`）
-* OpenSSL 库 (`libssl.so.1.0.0`)
+* OpenSSL 库 (`libssl.so.1.0.0`或`libssl.so.1.0.2`)
 * ALSA 应用程序的共享库 (`libasound.so.2`)
 
 举例来说，应该已默认安装 GNU C 库。 可使用以下命令安装后三个依赖项：
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+在 Debian 9 上安装这些包：
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>后续步骤

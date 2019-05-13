@@ -1,20 +1,21 @@
 ---
 title: 创建 Azure 存储的块 blob 存储帐户-|Microsoft Docs
 description: 演示如何创建具有高级性能特征的 Azure 块 blob 存储帐户。
+author: tamram
+services: storage
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
-author: twooley
-ms.author: twooley
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f4d3e3ad923b6a603902bc007107cb41dae8cf6c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9d8fb8f5f470dc47088efb30b7f823a0b8c624c8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400468"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141001"
 ---
-# <a name="create-a-block-blob-storage-account"></a>创建块 blob 存储帐户
+# <a name="create-a-block-blob-storage-account"></a>创建块 Blob 存储帐户
 
 块 blob 存储帐户类型，可以使用高级性能特征创建块 blob。 针对具有高事务率的工作负荷优化此类型的存储帐户，或者要求非常快的访问时间。 本文介绍如何使用 Azure 门户、 Azure CLI 或 Azure PowerShell 创建块 blob 存储帐户。
 

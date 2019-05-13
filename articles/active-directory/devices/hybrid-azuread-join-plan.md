@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351982"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190493"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何：规划混合 Azure Active Directory 加入实现
 
@@ -41,7 +41,7 @@ ms.locfileid: "60351982"
 本文假设读者已阅读 [Azure Active Directory 中的设备管理简介](../device-management-introduction.md)。
 
 > [!NOTE]
-> 所需的最低所需 Windows 10 混合 Azure AD join 是 Windows Server 2008 R2 域功能和林功能级别。 在较低版本中，用户可能无法获得主刷新令牌由于 LSA 问题的 Windows 登录期间。
+> 所需的最低所需 Windows 10 混合 Azure AD join 是 Windows Server 2008 R2 域功能和林功能级别。
 
 ## <a name="plan-your-implementation"></a>规划实施
 
@@ -121,6 +121,9 @@ Windows 下层设备的混合 Azure AD 加入：
 
 - 直通身份验证 (PTA)
 - 密码哈希同步 (PHS)
+
+> [!NOTE]
+> Azure AD 不支持在托管域中智能卡或证书。
 
 自版本 1.1.819.0 起，Azure AD Connect 提供了混合 Azure AD 联接的配置向导。 该向导可让你显著简化配置过程。 有关详细信息，请参阅：
 

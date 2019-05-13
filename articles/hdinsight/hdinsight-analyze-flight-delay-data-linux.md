@@ -1,7 +1,6 @@
 ---
 title: '教程：在 HDInsight 上使用 Hive 执行提取、转换、加载 (ETL) 操作 - Azure '
 description: 了解如何从原始 CSV 数据集提取数据，在 HDInsight 上使用 Hive 将其转换，然后使用 Apache Sqoop 将已转换的数据加载到 Azure SQL 数据库。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: b8a45f3014b3fd5d0f5592b3f9bd408fc37b387b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb86dc8c5c3b215a2c90380b4009efd00d2a243c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999952"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723139"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据
 
@@ -320,7 +319,7 @@ ms.locfileid: "57999952"
 * [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
 * [将 Apache Pig 和 HDInsight 配合使用][hdinsight-use-pig]
 * [为 Apache Hadoop on HDInsight 开发 Java MapReduce 程序][hdinsight-develop-mapreduce]
-* [为 HDInsight 开发 Python 流式处理 MapReduce 程序][hdinsight-develop-streaming]
+
 * [将 Apache Oozie 和 HDInsight 配合使用][hdinsight-use-oozie]
 * [将 Apache Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]
 
@@ -342,7 +341,7 @@ ms.locfileid: "57999952"
 [hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL

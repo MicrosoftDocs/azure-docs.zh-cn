@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819419"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023980"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>导出或删除机器学习服务工作区数据 
 
@@ -231,3 +231,29 @@ ms.locfileid: "60819419"
 可以使用以下调用获取数据源：
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>删除的直观界面的资产
+
+在其中创建试验 visual 界面中，删除单个资产：
+
+1. 在左侧，选择你想要删除的资产的类型。
+
+    ![删除资产](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. 在列表中，选择要删除的单个资产。
+
+1. 在底部，选择**删除**。
+
+## <a name="export-visual-interface-data"></a>导出的直观界面的数据
+
+在其中创建试验 visual 界面中，已添加的数据的导出：
+
+1. 在左侧，选择**数据**。
+
+1. 在顶部，选择**我的数据集**或**示例**来查找想要导出的数据。
+
+    ![下载数据](media/how-to-export-delete-data.md/download-data.png)
+
+1. 在列表中，选择要导出的单个数据集。
+
+1. 在底部，选择**下载**。

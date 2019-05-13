@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15e65c155a98ae12c156587735d34a16ed2c9109
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61357552"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192661"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>调查可疑的 IoT 设备
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201803"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508387"
 ---
 # <a name="devtest-labs-concepts"></a>开发测试实验室概念
 ## <a name="overview"></a>概述
@@ -29,7 +29,7 @@ ms.locfileid: "60201803"
 实验室是包含一组资源（例如，虚拟机 (VM)）的基础结构，通过指定限制和配额可以更好地管理这些资源。
 
 ## <a name="virtual-machine"></a>虚拟机
-Azure VM 是 Azure 提供的多种[可缩放按需分配计算资源](https://docs.microsoft.com/azure/app-service/overview-compare)之一。 无需购买和维护运行 Azure VM 的物理硬件，Azure VM 即可提供虚拟化灵活性，尽管你仍需要执行某些任务（如配置、修补和安装在 Azure VM 上运行的软件）来维护 VM。
+Azure VM 是 Azure 提供的多种[可缩放按需分配计算资源](/azure/architecture/guide/technology-choices/compute-decision-tree)之一。 无需购买和维护运行 Azure VM 的物理硬件，Azure VM 即可提供虚拟化灵活性，尽管你仍需要执行某些任务（如配置、修补和安装在 Azure VM 上运行的软件）来维护 VM。
 
 [Azure 中的 Windows 虚拟机概述](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview)提供有关在创建 VM 之前应考虑的信息、如何创建 VM 以及如何管理 VM。
 

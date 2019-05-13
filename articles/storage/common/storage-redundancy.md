@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 347ae6dbdbab866b6d82d64bec4e668689078429
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729556"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150062"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 

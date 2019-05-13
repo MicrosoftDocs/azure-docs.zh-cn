@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: fb3935a58e1bc4e1ab3c582d9f3b84b87349aef7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928027"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148039"
 ---
 ## <a name="sign-in-to-azure"></a>登录 Azure 
 

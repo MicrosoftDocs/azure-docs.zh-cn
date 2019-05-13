@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/3/2018
+ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820604"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024251"
 ---
 # <a name="collect-data-for-models-in-production"></a>为生产环境中的模型收集数据
 

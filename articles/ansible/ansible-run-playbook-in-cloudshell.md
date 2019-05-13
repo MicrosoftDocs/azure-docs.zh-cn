@@ -1,52 +1,54 @@
 ---
-title: 使用 Bash in Azure Cloud Shell 运行 Ansible
-description: 了解如何使用 Bash in Azure Cloud Shell 执行各种 Ansible 任务
-ms.service: azure
+title: 快速入门 - 通过 Azure Cloud Shell 中的 Bash 运行 Ansible Playbook | Microsoft Docs
+description: 本快速入门介绍如何使用 Azure Cloud Shell 中的 Bash 执行各种 Ansible 任务
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/07/2018
-ms.topic: quickstart
-ms.openlocfilehash: 37426f1cdc51734c28b2c9739e26ad35f08e606f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 083d10de94c39ab134b8e475b66ebf2df30088bc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791386"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407649"
 ---
-# <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>使用 Bash in Azure Cloud Shell 运行 Ansible
+# <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>快速入门：通过 Azure Cloud Shell 中的 Bash 运行 Ansible Playbook
 
-在本教程中，将学习如何在 Cloud Shell 中使用 Bash 将 Azure 订阅配置为 Ansible 工作区。 
+Azure Cloud Shell 是一个用于管理 Azure 资源的交互式的可通过浏览器访问的 shell。 Cloud Shell 允许使用 Bash 或 Powershell 命令行。 在本文中，你将使用 Azure Cloud Shell 中的 Bash 运行一个 Ansible Playbook。
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅** - 如果没有 Azure 订阅，请创建一个[免费帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-
-- **配置 Azure Cloud Shell** - 如果不熟悉 Azure Cloud Shell，请参阅 [Bash in Azure Cloud Shell 快速入门](https://docs.microsoft.com/azure/cloud-shell/quickstart)一文，了解如何启动和配置 Cloud Shell。 
-
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- **配置 Azure Cloud Shell** - 如果你是 Azure Cloud Shell 的新手，请参阅 [Azure Cloud Shell 中的 Bash 快速入门](https://docs.microsoft.com/azure/cloud-shell/quickstart)。
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>自动凭据配置
 
-登录 Cloud Shell 后，Ansible 将通过 Azure 进行身份验证以管理基础架构，无需任何其他配置。 如果有多个订阅，可通过导出 `AZURE_SUBSCRIPTION_ID` 环境变量来选择 Ansible 应使用哪个订阅。 要列出所有 Azure 订阅，请运行以下命令：
+登录 Cloud Shell 后，Ansible 将通过 Azure 进行身份验证以管理基础架构，无需任何其他配置。 
+
+使用多个订阅时，请通过导出 `AZURE_SUBSCRIPTION_ID` 环境变量来指定 Ansible 使用的订阅。 
+
+要列出所有 Azure 订阅，请运行以下命令：
 
 ```azurecli-interactive
 az account list
 ```
 
-通过要使用的订阅的 ID，按如下设置 AZURE_SUBSCRIPTION_ID：
+按如下所示使用 Azure 订阅 ID 设置 `AZURE_SUBSCRIPTION_ID`：
 
 ```azurecli-interactive
 export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ```
 
 ## <a name="verify-the-configuration"></a>验证配置
-要验证配置是否成功，请使用 Ansible 创建资源组。
+若要验证配置是否成功，请使用 Ansible 创建一个 Azure 资源组。
 
-[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-create-resource-group.md)]
+[!INCLUDE [create-resource-group-with-ansible.md](../../includes/ansible-snippet-create-resource-group.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"] 
-> [使用 Ansible 在 Azure 中创建基本的虚拟机](/azure/virtual-machines/linux/ansible-create-vm)
+> [快速入门：使用 Ansible 在 Azure 中配置虚拟机](/azure/virtual-machines/linux/ansible-create-vm)

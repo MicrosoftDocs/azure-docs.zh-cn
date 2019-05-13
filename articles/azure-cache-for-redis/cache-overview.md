@@ -14,22 +14,22 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fd790d27c958bf982f95b98426c6ab4d94c5f17f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433801"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412738"
 ---
-# <a name="what-is-azure-cache-for-redis"></a>什么是 Azure Redis 缓存
+# <a name="azure-cache-for-redis-description"></a>Azure Redis 缓存说明
 
 Azure Redis 缓存基于热门软件 [Redis](https://redis.io/)。 它通常用作缓存，目的是提高极其依赖后端数据存储的系统的性能和可伸缩性。 提高性能的方式是将经常访问的数据暂时复制到靠近应用程序的快速存储。 使用 [Azure Redis 缓存](https://redis.io/)时，此快速存储位于 Azure Redis 缓存的内存中，而不是通过数据库从磁盘加载。
 
 Azure Redis 缓存也可用作内存中数据结构存储、分布式非关系数据库以及消息代理。 若要提高应用程序性能，可充分利用 Redis 引擎低延迟、高吞吐量的性能特点。
 
-可以通过 Azure Redis 缓存来访问安全、专用的 Azure Redis 缓存，该缓存由 Microsoft 管理并在 Azure 中进行托管，可供 Azure 内外的任何应用程序访问。
+Azure Redis 缓存提供了安全的专用 Redis 缓存。 Azure Redis 缓存由 Microsoft 进行管理并承载在 Azure 中，可供 Azure 内外的任何应用程序访问。
 
-## <a name="why-use-azure-cache-for-redis"></a>为何使用 Azure Redis 缓存
+## <a name="using-azure-cache-for-redis"></a>使用 Azure Redis 缓存
 
 可以通过多种模式使用 Azure Redis 缓存来支持应用程序体系结构或提高应用程序性能。 部分最常用的模式包括：
 
@@ -49,7 +49,7 @@ Azure Redis 缓存在下述层中提供：
 |---|---|
 基本 | 单节点缓存。 此层支持多种内存大小 (250 MB - 53 GB)。 此层适用于开发/测试和非关键型工作负荷。 基本层没有服务级别协议 (SLA) |
 | 标准 | 在 Microsoft 托管的双节点（主/辅）配置中提供复制的缓存，并提供高可用性 SLA (99.9%) |
-| 高级 | 高级层是可供企业使用的层。 高级层缓存支持更多的功能，吞吐量更高，延迟更低。 高级层中的缓存部署在更强大的硬件上，其性能优于基本层或标准层。 这种优势意味着，在缓存大小相同的情况下，高级层的吞吐量大于标准层 |
+| 高级 | 高级层是面向企业的层。 高级层缓存支持更多的功能，吞吐量更高，延迟更低。 高级层中的缓存部署在更强大的硬件上，其性能优于基本层或标准层。 这种优势意味着，在缓存大小相同的情况下，高级层的吞吐量大于标准层。 |
 
 > [!TIP]
 > 有关高级缓存大小、吞吐量和带宽的详细信息，请参阅 [Azure Redis 缓存常见问题解答](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)。
@@ -67,9 +67,10 @@ Azure Redis 缓存在下述层中提供：
 | [Redis 数据持久性](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Redis 群集](cache-how-to-premium-clustering.md) |✔|-|-|
 | [通过防火墙规则确保安全性](cache-configure.md#firewall) |✔|✔|✔|
+| 传输中加密 |✔|✔|✔|
 | [通过 VNet 增强安全性和隔离性](cache-how-to-premium-vnet.md) |✔|-|-|
 | [导入/导出](cache-how-to-import-export-data.md) |✔|-|-|
-| [计划更新](cache-administration.md#schedule-updates) |✔|-|-|
+| [计划的更新](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [异地复制](cache-how-to-geo-replication.md) |✔|-|-|
 | [重新启动](cache-administration.md#reboot) |✔|✔|✔|
 

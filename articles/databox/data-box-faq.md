@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077337"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473263"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box：常见问题
 
@@ -36,12 +36,12 @@ ms.locfileid: "58077337"
 A.  Azure Data Box 服务专为脱机数据引入而设计。 此服务可以管理针对数据传输定制的、具有不同存储容量的所有产品阵列。 
 
 ### <a name="q-what-is-azure-data-box"></a>问： 什么是 Azure Data Box？
-A. 使用 Azure Data Box 能够快速、经济、安全地将 TB 量级的数据传入和传出 Azure。 可通过 Azure 门户订购 Data Box 设备。 Microsoft 通过区域承运人向你寄送具有 80 TB 可用容量的存储设备。 
+A. 使用 Azure Data Box，可以快速、廉价且安全地将数 TB 的数据传输到 Azure。 可通过 Azure 门户订购 Data Box 设备。 Microsoft 通过区域承运人向你寄送具有 80 TB 可用容量的存储设备。 
 
 收到设备后，可使用本地 Web UI 进行快速设置。 将数据从服务器复制到设备，然后将设备发回 Azure。 在 Azure 数据中心内，数据将从设备自动上传到 Azure。 通过 Azure 门户中的 Data Box 服务对整个过程进行端到端跟踪。
 
 ### <a name="q-when-should-i-use-data-box"></a>问： 何时应使用 Data Box？
-A. 如果需要将 40 - 500 TB 的数据传输到 Azure，则使用 Data Box 会很有利。 对于小于 40 TB 的数据，请使用 Data Box Disk；对于大于 500 TB 的数据，请注册 Data Box Heavy。
+A. 如果需要将 40 - 500 TB 的数据传输到 Azure，则使用 Data Box 会很有利。 对于 < 40 TB 的数据大小，请使用 Data Box Disk，对于 > 500 TB 的数据大小，请注册 [Data Box Heavy](data-box-heavy-overview.md)。
 
 ### <a name="q-what-is-the-price-of-data-box"></a>问： Data Box 的价格是多少？
 A. 使用 Data Box 10 天会产生少许费用。 在 Azure 门户中创建订单并选择产品型号时，将显示设备的费用。 寄送也是免费的，但是，Azure 存储会产生费用。 有关详细信息，请转到 [Azure Data Box 定价](https://azure.microsoft.com/pricing/details/storage/databox/)。 
@@ -50,7 +50,7 @@ A. 使用 Data Box 10 天会产生少许费用。 在 Azure 门户中创建订�
 A. Data Box 的原始容量为 100 TB，可用容量为 80 TB。 使用 Data Box 最多可传输 80 TB 数据。 若要传输更多数据，需订购更多设备。
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>问： 如何确认 Data Box 在我的区域是否可用？ 
-A.  有关支持 Data Box 的国家/地区的信息，请转到[适用区域](data-box-overview.md#region-availability)。  
+A.  有关 Data Box 在哪些国家/区域可用的信息，请转到[区域可用性](data-box-overview.md#region-availability)。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>问： 可在哪些区域使用 Data Box 存储数据？
 A. 美国、西欧、北欧、法国和英国的所有区域支持 Data Box。 仅支持 Azure 公有云区域。 不支持 Azure 政府版或其他主权云。 有关详细信息，请参阅[适用区域](data-box-overview.md#region-availability)。

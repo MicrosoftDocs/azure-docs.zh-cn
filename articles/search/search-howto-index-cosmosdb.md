@@ -1,7 +1,7 @@
 ---
 title: 为 Azure Cosmos DB 数据源编制索引 - Azure 搜索
 description: 在 Azure 搜索中抓取 Azure Cosmos DB 数据源并通过全文可搜索索引引入数据。 索引器可自动为所选数据源（如 Azure Cosmos DB）引入数据。
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871677"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024716"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>如何使用 Azure 搜索索引器的 Cosmos DB 索引
 
@@ -122,9 +122,8 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
 
 在 Cosmos DB 帐户中，可以选择是否让集合自动为所有文档编制索引。 默认情况下，为所有文档自动执行索引，但可关闭自动索引。 关闭索引功能后，只能通过本身的链接或通过使用文档 ID 进行查询的方法访问文档。 Azure 搜索要求在将由 Azure 搜索编制索引的集合中启用 Cosmos DB 自动索引。 
 
-> [!NOTE]
-> Azure Cosmos DB 是下一代 DocumentDB。 虽然产品名称已更改，但无论是在 Azure 搜索 API 中还是在门户页面中，Azure 搜索索引器中的 `documentdb` 语法都仍然存在以实现向后兼容。 在配置索引器时，请务必按本文中的说明指定 `documentdb` 语法。
-
+> [!WARNING]
+> Azure Cosmos DB 是下一代 DocumentDB。 以前使用 api-version **2017年-11-11**您可以使用`documentdb`语法。 这意味着您可以指定作为数据源类型`cosmosdb`或`documentdb`。 从 API 版本开始**2019年-05-06** Azure 搜索 Api 和门户仅支持`cosmosdb`这篇文章中所述的语法。 这意味着，数据源类型必须`cosmosdb`如果想要连接到 Cosmos DB 终结点。
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-组装为请求的输入
 
@@ -150,13 +149,13 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
 
 若要创建数据源，公式化 POST 请求：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
@@ -172,7 +171,7 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
 | 字段   | 描述 |
 |---------|-------------|
 | name | 必需。 选择任意名称来表示数据源对象。 |
-|type| 必需。 必须是 `documentdb`。 |
+|type| 必需。 必须是 `cosmosdb`。 |
 |**凭据** | 必需。 必须是 Cosmos DB 连接字符串。<br/>对于 SQL 集合，连接字符串是按以下格式： `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>对于 MongoDB 集合，添加**ApiKind = MongoDb**到连接字符串：<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>避免在终结点 URL 中包含端口号。 如果包含端口号，Azure 搜索将无法为 Azure Cosmos DB 数据库编制索引。|
 | **容器** | 包含下列元素： <br/>**名称**：必需。 指定要编制索引的数据库集合的 ID。<br/>**查询**：可选。 可以指定一个查询来将一个任意 JSON 文档平整成 Azure 搜索可编制索引的平面架构。<br/>对于 MongoDB 集合，不支持查询。 |
 | **dataChangeDetectionPolicy** | 推荐。 请参阅[为已更改的文档编制索引](#DataChangeDetectionPolicy)部分。|
@@ -193,7 +192,7 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
             "lastName": "hoh"
         },
         "company": "microsoft",
-        "tags": ["azure", "documentdb", "search"]
+        "tags": ["azure", "cosmosdb", "search"]
     }
 
 筛选查询：
@@ -219,7 +218,7 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
 
 [创建目标 Azure 搜索索引](/rest/api/searchservice/create-index)如果你还没有。 下面的示例使用 ID 和说明字段创建索引：
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -263,13 +262,13 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
 
 创建索引和数据源后，就可以准备创建索引器了：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
     {
-      "name" : "mydocdbindexer",
-      "dataSourceName" : "mydocdbdatasource",
+      "name" : "mycosmosdbindexer",
+      "dataSourceName" : "mycosmosdbdatasource",
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
@@ -334,17 +333,17 @@ Azure Cosmos 项的索引的最简单方法是使用中的向导[Azure 门户](h
 
 下面的示例创建具有软删除策略的数据源：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
     {
-        "name": "mydocdbdatasource",
-        "type": "documentdb",
+        "name": "mycosmosdbdatasource",
+        "type": "cosmosdb",
         "credentials": {
-            "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
+            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;Database=myCosmosDbDatabaseId"
         },
-        "container": { "name": "myDocDbCollectionId" },
+        "container": { "name": "myCosmosDbCollectionId" },
         "dataChangeDetectionPolicy": {
             "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
             "highWaterMarkColumnName": "_ts"

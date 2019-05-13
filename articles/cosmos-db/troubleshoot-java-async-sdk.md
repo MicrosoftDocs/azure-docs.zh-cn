@@ -4,17 +4,17 @@ description: 使用客户端日志记录等功能和其他第三方工具来确�
 author: moderakh
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 10/28/2018
+ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0dc45f104e05fde083489604865aaae8282d6a2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404658"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146212"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>排查将 Java 异步 SDK 与 Azure Cosmos DB SQL API 帐户配合使用时出现的问题
 本文介绍了将 [Java 异步 SDK](sql-api-sdk-async-java.md) 与 Azure Cosmos DB SQL API 帐户配合使用时的常见问题、解决方法、诊断步骤和工具。
@@ -57,6 +57,16 @@ ulimit -a
 
     启用服务终结点后，不再从公共 IP 向 Azure Cosmos DB 发送请求， 而是发送虚拟网络和子网标识。 如果仅允许公共 IP，则此更改可能会导致防火墙丢失。 如果使用防火墙，则在启用服务终结点后，请使用[虚拟网络 ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl) 将子网添加到防火墙。
 * 将公共 IP 分配给 Azure VM。
+
+##### <a name="cant-connect"></a>不能访问的服务-防火墙
+``ConnectTimeoutException`` 指示 SDK 无法访问的服务。
+使用直接模式下时，可能会收到失败如下所示：
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
+```
+
+如果必须在应用程序计算机上运行的防火墙，打开端口范围 10000 到 20000 直接模式下使用它们。
+此外请按照[主机计算机上的连接限制](#connection-limit-on-host)。
 
 #### <a name="http-proxy"></a>HTTP 代理
 

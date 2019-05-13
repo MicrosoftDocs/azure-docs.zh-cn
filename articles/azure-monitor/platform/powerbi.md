@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453939"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234204"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure Monitor 日志数据导入到 Power BI
 
@@ -60,7 +60,9 @@ Power BI Desktop 是一个桌面应用程序，用于创建可发布到 Power BI
 ## <a name="publish-to-power-bi"></a>发布到 Power BI
 当你发布到 Power BI 时，将创建数据集和报表。  如果你是在 Power BI Desktop 中创建报表，则发布的报表将包含你的数据。  如果不是，则会创建一个空白报表。  你可以在 Power BI 中修改报表或基于数据集创建新报表。
 
-1. 基于你的数据创建报表。  请使用 [Power BI Desktop 文档](https://docs.microsoft.com/power-bi/desktop-report-view)（如果你不熟悉此应用程序）。  如果你已准备好将其发送到 Power BI，请单击“发布”。  出现提示时，请在 Power BI 帐户中选择目标。  除非你有特定的目标，否则请使用“我的工作区”。
+1. 基于你的数据创建报表。  请使用 [Power BI Desktop 文档](https://docs.microsoft.com/power-bi/desktop-report-view)（如果你不熟悉此应用程序）。  
+1. 如果你已准备好将其发送到 Power BI，请单击“发布”。  
+1. 出现提示时，请在 Power BI 帐户中选择目标。  除非你有特定的目标，否则请使用“我的工作区”。
 
     ![Power BI Desktop 发布](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Power BI Desktop 是一个桌面应用程序，用于创建可发布到 Power BI
 ### <a name="configure-scheduled-refresh"></a>配置计划的刷新
 在 Power BI 中创建的数据集中包含的数据与你以前在 Power BI Desktop 中看到的数据一样。  需要刷新定期要再次运行查询并使用 Azure Monitor 中的最新数据填充它的数据集。  
 
-1. 单击要在其中上传报表的工作区并选择“数据集”菜单。 选择你的新数据集旁边的上下文菜单，然后选择“设置”。 在“数据源凭据”下，应显示一条消息，提示凭据无效。  这是因为你尚未提供在刷新数据时要使用的数据集的凭据。  单击**编辑凭据**并有权访问 Azure Monitor 中的 Log Analytics 工作区中指定的凭据。
+1. 单击要在其中上传报表的工作区并选择“数据集”菜单。 
+1. 选择你的新数据集旁边的上下文菜单，然后选择“设置”。 
+1. 在“数据源凭据”下，应显示一条消息，提示凭据无效。  这是因为你尚未提供在刷新数据时要使用的数据集的凭据。  
+1. 单击**编辑凭据**并有权访问 Azure Monitor 中的 Log Analytics 工作区中指定的凭据。 如果需要双因素身份验证，请选择**OAuth2**有关**身份验证方法**，会提示您使用您的凭据登录。
 
     ![Power BI 计划](media/powerbi/powerbi-schedule.png)
 

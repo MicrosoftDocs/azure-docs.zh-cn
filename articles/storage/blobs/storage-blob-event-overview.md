@@ -2,18 +2,19 @@
 title: 响应 Azure Blob 存储事件 | Microsoft Docs
 description: 使用 Azure 事件网格订阅 Blob 存储事件。
 services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61427604"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142163"
 ---
 # <a name="reacting-to-blob-storage-events"></a>响应 Blob 存储事件
 

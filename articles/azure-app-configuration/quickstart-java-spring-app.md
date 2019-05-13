@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 9137262ffc7c172e6a99920a7abb31459a8703fe
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000007"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408564"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>快速入门：使用应用配置创建 Java Spring 应用
 
@@ -37,7 +37,7 @@ Azure 应用配置是 Azure 中的托管配置服务。 借助它，无需代码
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“键/值资源管理器” > “+创建”来添加以下键值对：
+6. 选择“配置资源管理器” > “+创建”来添加以下键值对：
 
     | 密钥 | 值 |
     |---|---|

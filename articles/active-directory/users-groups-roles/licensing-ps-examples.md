@@ -14,12 +14,12 @@ ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70e4e56742f45e0f6bfd80455e4d7545523a478b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2fc6e31afbb7ced4699afef38b67b637914198e4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60469606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192417"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD 中基于组的许可的 PowerShell 示例
 
@@ -564,10 +564,8 @@ $servicePlansFromGroups = ("EXCHANGE_S_ENTERPRISE", "SHAREPOINTENTERPRISE", "OFF
 
 $expectedDisabledPlans = GetDisabledPlansForSKU $skuId $servicePlansFromGroups
 
-#process all members in the group
-Get-MsolGroupMember -All -GroupObjectId $groupId
-    #get full info about each user in the group
-    Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
+#process all members in the group and get full info about each user in the group looping through group members. 
+Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.ObjectId} | Foreach {
         $user = $_;
         $operationResult = "";
 
@@ -618,6 +616,8 @@ UserId                               OperationResult
 0ddacdd5-0364-477d-9e4b-07eb6cdbc8ea User has extra plans that may be lost - license removal was skipped. Extra plans: SHAREPOINTWAC
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
+> [!NOTE]
+> 请更新变量的值`$skuId`并`$groupId` 其为目标删除直接许可证根据测试环境之前运行上述脚本。 
 
 ## <a name="next-steps"></a>后续步骤
 

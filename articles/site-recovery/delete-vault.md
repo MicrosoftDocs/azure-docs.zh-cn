@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784754"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412842"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>删除 Site Recovery 服务保管库
 
@@ -22,6 +22,10 @@ ms.locfileid: "59784754"
 
 ## <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库 
 若要删除保管库，请按照方案对应的推荐步骤操作。
+### <a name="azure-vms-to-azure"></a>Azure VM 到 Azure
+
+1. 按照[禁用 VMware 保护](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure)中的步骤操作，删除所有受保护的 VM。
+2. 删除保管库。
 
 ### <a name="vmware-vms-to-azure"></a>VMware VM 到 Azure
 

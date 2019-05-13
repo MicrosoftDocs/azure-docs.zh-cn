@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411298"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231340"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>如何：为企业应用程序自定义 SAML 令牌中颁发的声明
 
@@ -73,7 +73,7 @@ ms.locfileid: "60411298"
 
 为 `NameIdentifier`（或 NameID）声明选择所需的源。 可以从以下选项中选择。
 
-| Name | 描述 |
+| 名称 | 描述 |
 |------|-------------|
 | 电子邮件 | 用户的电子邮件地址 |
 | userprincipalName | 用户主体名称 (UPN) 的用户 |

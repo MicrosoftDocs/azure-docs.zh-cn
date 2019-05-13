@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 067bdcfc496fc986ae87620b7d57d7cad3a0f734
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/09/2019
+ms.openlocfilehash: 22015d1e838e940cbf5a79323f4046c4a7e1719e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694166"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506800"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>将 Data Lake Storage Gen1 与 Azure HDInsight 群集配合使用
 
@@ -42,12 +42,12 @@ HDInsight 群集可通过以下两种方式使用 Data Lake Storage Gen1：
 
 | HDInsight 群集类型 | 将 Data Lake Storage Gen1 用作默认存储 | 将 Data Lake Storage Gen1 用作附加存储| 说明 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 版本 4.0 | 否 | 否 |使用 HDInsight 4.0 不支持 ADLS Gen1 |
-| HDInsight 版本 3.6 | 是 | 是 | HBase 除外|
-| HDInsight 版本 3.5 | 是 | 是 | HBase 除外|
-| HDInsight 版本 3.4 | 否 | 是 | |
-| HDInsight 版本 3.3 | 否 | 否 | |
-| HDInsight 版本 3.2 | 否 | 是 | |
+| HDInsight 版本 4.0 | “否” | “否” |使用 HDInsight 4.0 不支持 ADLS Gen1 |
+| HDInsight 版本 3.6 | 是 | “是” | HBase 除外|
+| HDInsight 版本 3.5 | 是 | “是” | HBase 除外|
+| HDInsight 版本 3.4 | 否 | “是” | |
+| HDInsight 版本 3.3 | “否” | “否” | |
+| HDInsight 版本 3.2 | “否” | 是 | |
 | Storm | | |可使用 Data Lake Storage Gen1 从 Storm 拓扑写入数据。 对于可由 Storm 拓扑读取的参考数据，也可使用 Data Lake Storage。|
 
 > [!WARNING]  
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>将 Data Lake Storage Gen1 用作附加存储
 
-也可将 Data Lake Storage Gen1 用作群集的附加存储。 在这种情况下，群集的默认存储可以是 Azure 存储 Blob，也可以是 Data Lake Storage 帐户。 如果要针对 Data Lake Storage（作为附加存储）中存储的数据运行 HDInsight 作业，则必须使用文件的完全限定的路径。 例如：
+也可将 Data Lake Storage Gen1 用作群集的附加存储。 在这种情况下，群集的默认存储可以是 Azure 存储 Blob，也可以是 Data Lake Storage 帐户。 如果要针对 Data Lake Storage（作为附加存储）中存储的数据运行 HDInsight 作业，则必须使用文件的完全限定的路径。 例如:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 请注意，当前在 URL 中没有 **cluster_root_path**。 这是因为，在此情况下，Data Lake Storage 不是默认存储，因此只需提供文件的路径即可。
 
-为了能够使用 Data Lake Storage Gen1 作为附加存储，只需授予服务主体对存储文件的路径位置的访问权限。  例如：
+为了能够使用 Data Lake Storage Gen1 作为附加存储，只需授予服务主体对存储文件的路径位置的访问权限。  例如:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -220,8 +220,8 @@ if($addNewCertKeyCredential)
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Write-Host "Waiting for 7 minutes for the permissions to get propagated"
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."

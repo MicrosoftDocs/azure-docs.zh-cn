@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: 高可用性和灾难恢复
       href: high-availability-disaster-recovery.md
+    - name: 任务运行时环境变量
+      href: batch-compute-node-environment-variables.md
 - name: 操作指南
   items:
     - name: 管理 Batch 帐户
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: 任务失败事件
           href: batch-task-fail-event.md
-    - name: Batch 计算节点环境变量
-      href: batch-compute-node-environment-variables.md
 - name: 资源
   items:
     - name: Azure 路线图

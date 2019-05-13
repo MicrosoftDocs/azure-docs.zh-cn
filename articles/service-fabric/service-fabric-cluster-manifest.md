@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386714"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209704"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
 本文介绍可使用 ClusterConfig.json 文件设置的独立 Azure Service Fabric 群集的配置设置。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。  更改或添加配置设置后，可以[创建一个独立的群集](service-fabric-cluster-creation-for-windows-server.md)，也可以[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -122,7 +122,7 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
 }
 ```
 
-metadata 用于描述安全群集，可根据具体的情况进行设置。 ClusterCredentialType 和 ServerCredentialType 确定群集与节点将要实现的安全类型。 可将这两项设置为 *X509* 来实现基于证书的安全性，或者设置为 *Windows* 来实现基于 Azure Active Directory 的安全性。 security 节的余下设置基于安全类型。 若要了解如何填充 security 节的余下设置，请参阅[独立群集中基于证书的安全性](service-fabric-windows-cluster-x509-security.md)，或[独立群集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
+metadata 用于描述安全群集，可根据具体的情况进行设置。 ClusterCredentialType 和 ServerCredentialType 确定群集与节点将要实现的安全类型。 这些属性可设置为*X509*基于证书的安全性或*Windows*基于 Active Directory 的安全性。 security 节的余下设置基于安全类型。 若要了解如何填充 security 节的余下设置，请参阅[独立群集中基于证书的安全性](service-fabric-windows-cluster-x509-security.md)，或[独立群集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
 
 ### <a name="node-types"></a>节点类型
 nodeTypes 节描述群集中的节点类型。 一个群集必须指定至少一个节点类型，如以下代码片段所示： 

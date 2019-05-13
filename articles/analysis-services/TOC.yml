@@ -70,41 +70,10 @@
           href: analysis-services-deploy.md
         - name: 使用 REST API 进行刷新
           href: analysis-services-async-refresh.md
-        - name: Visual Studio 中的数据建模 - Adventure Works (1400) 教程
-          href: tutorials/aas-adventure-works-tutorial.md
-          items:
-            - name: 1 - 创建表格模型项目
-              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-            - name: 2 - 获取数据
-              href: tutorials/aas-lesson-2-get-data.md
-            - name: 3 - 标记为日期表
-              href: tutorials/aas-lesson-3-mark-as-date-table.md
-            - name: 4 - 创建关系
-              href: tutorials/aas-lesson-4-create-relationships.md
-            - name: 5 - 创建计算列
-              href: tutorials/aas-lesson-5-create-calculated-columns.md
-            - name: 6 - 创建度量值
-              href: tutorials/aas-lesson-6-create-measures.md
-            - name: 7 - 创建关键绩效指标
-              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-            - name: 8 - 创建透视
-              href: tutorials/aas-lesson-8-create-perspectives.md
-            - name: 9 - 创建层次结构
-              href: tutorials/aas-lesson-9-create-hierarchies.md
-            - name: 10 - 创建分区
-              href: tutorials/aas-lesson-10-create-partitions.md
-            - name: 11 - 创建角色
-              href: tutorials/aas-lesson-11-create-roles.md
-            - name: 12 - 在 Excel 中分析
-              href: tutorials/aas-lesson-12-analyze-in-excel.md
-            - name: 13 - 部署
-              href: tutorials/aas-lesson-13-deploy.md
-            - name: 补充课程 - 详细信息行
-              href: tutorials/aas-supplemental-lesson-detail-rows.md
-            - name: 补充课程 - 动态安全性
-              href: tutorials/aas-supplemental-lesson-dynamic-security.md
-            - name: 补充课程 - 不规则层次结构
-              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+        - name: 使用逻辑应用进行刷新
+          href: analysis-services-refresh-logic-app.md
+        - name: 使用 Azure 自动化进行刷新
+          href: analysis-services-refresh-azure-automation.md
     - name: 安全
       items:
         - name: 管理数据库用户

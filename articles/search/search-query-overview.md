@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283502"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024464"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜索中撰写查询
 

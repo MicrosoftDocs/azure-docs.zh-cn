@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 0fcd688c9e5164522a482a4375c524a97a48d400
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175618"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467834"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>快速入门：在 Azure 中部署并运行 IoT 设备模拟
 
@@ -36,7 +36,7 @@ ms.locfileid: "58175618"
 
 在“设备模拟”说明页上单击“立即试用”：
 
-![单击“立即试用”](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![单击“立即试用”](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 在“创建设备模拟解决方案”页上输入唯一的“解决方案名称”。
 
@@ -58,7 +58,7 @@ ms.locfileid: "58175618"
 
 首次打开时，你会看到显示**入门**指南的设备模拟仪表板。 单击第一个磁贴以打开示例模拟。 如果关闭**入门**指南，则可以通过单击相应磁贴从仪表板打开**示例简单模拟**：
 
-![解决方案仪表板](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![解决方案仪表板](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## <a name="sample-simulation"></a>示例模拟
 
@@ -72,7 +72,7 @@ ms.locfileid: "58175618"
 | 遥测频率 | 10 秒                  |
 | 模拟持续时间 | 无限期地运行            |
 
-![模拟配置](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![模拟配置](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## <a name="run-the-simulation"></a>运行模拟
 

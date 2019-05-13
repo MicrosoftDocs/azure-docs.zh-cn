@@ -97,6 +97,8 @@
       href: service-fabric-best-practices-infrastructure-as-code.md
     - name: 监视和诊断
       href: service-fabric-best-practices-monitoring.md
+    - name: 应用程序设计
+      href: service-fabric-best-practices-applications.md
     - name: 生产就绪情况核对清单
       href: service-fabric-production-readiness-checklist.md
 - name: 示例
@@ -609,6 +611,8 @@
                   href: service-fabric-cluster-azure-deployment-preparation.md
                 - name: 在 Azure 门户中创建
                   href: service-fabric-cluster-creation-via-portal.md
+                - name: 跨可用性区域部署 Azure Service Fabric 群集
+                  href: service-fabric-cross-availability-zones.md
                 - name: 设置 Azure Active Directory 身份验证
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: 创建自定义群集模板
@@ -639,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: 修补群集节点 (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: 修补群集节点 (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: 启用磁盘加密 (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: 启用磁盘加密 (Linux)

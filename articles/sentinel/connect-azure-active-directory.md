@@ -4,7 +4,7 @@ description: 了解如何将 Azure Active Directory 数据连接到 Azure Sentin
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357435b8a4ac396c1548c89206f269730e871f6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444072"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204497"
 ---
 # <a name="connect-data-from-azure-active-directory"></a>将数据从 Azure Active Directory 连接
 

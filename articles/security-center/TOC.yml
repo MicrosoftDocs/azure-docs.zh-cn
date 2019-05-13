@@ -58,6 +58,8 @@
       items:
         - name: 数据收集
           href: security-center-enable-data-collection.md
+        - name: IaaS 高级数据安全
+          href: security-center-iaas-advanced-data.md
         - name: 内置安全策略
           href: security-center-policy-definitions.md
         - name: 电子邮件通知
@@ -168,6 +170,8 @@
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: 服务更新
       href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: 功能和 API 停用（2019 年 7 月）
+      href: security-center-features-retirement-july2019.md
 - name: 资源
   items:
     - name: 利用 Microsoft Learn 掌握技能

@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682553"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190902"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录功能
 
@@ -68,13 +68,14 @@ ms.locfileid: "59682553"
 
 #### <a name="step-2-download-your-project"></a>步骤 2：下载项目
 
-[下载 Visual Studio 2017 解决方案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[下载 Visual Studio 2019 解决方案](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
 
 1. 将 zip 文件提取到更靠近根文件夹的本地文件夹（例如，**C:\Azure-Samples**）
 1. 在 Visual Studio 中打开解决方案 (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. 你可能需要右键单击项目 `AppModelv2-WebApp-OpenIDConnect-DotNet` 和“还原 NuGet 包”，具体取决于 Visual Studio 的版本
+1. 可能需要右键单击项目 `AppModelv2-WebApp-OpenIDConnect-DotNet` 和“还原 NuGet 包”，具体取决于 Visual Studio 的版本
+1. 打开包管理器控制台（“视图”->“其他 Windows”->“包管理器控制台”）并运行 `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. 编辑 **Web.config**，将参数 `ClientId` 和 `Tenant` 替换为：
 
     ```xml
@@ -95,7 +96,7 @@ ms.locfileid: "59682553"
 
 ## <a name="more-information"></a>详细信息
 
-本部分概述了登录用户所需的代码。 这有助于了解代码的工作原理、主要参数，并且可用于向现有 ASP.NET 应用程序添加登录。
+本部分概述了登录用户所需的代码。 阅读本概述对于了解代码的工作原理、主要参数非常有用，如果你想要将登录功能添加到现有 ASP.NET 应用程序，阅读本概述也非常有用。
 
 ### <a name="owin-middleware-nuget-packages"></a>OWIN 中间件 NuGet 包
 
@@ -109,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>OWIN 启动类
 
-OWIN 中间件使用一个启动类，该类在托管进程初始化时执行（在本快速入门中，该类是指根文件夹中的 *startup.cs* 文件）。 以下代码显示本快速入门使用的参数：
+OWIN 中间件使用在托管进程初始化时运行的“启动类”。 在本快速入门中，*startup.cs* 文件位于根文件夹下。 以下代码显示本快速入门使用的参数：
 
 ```csharp
 public void Configuration(IAppBuilder app)

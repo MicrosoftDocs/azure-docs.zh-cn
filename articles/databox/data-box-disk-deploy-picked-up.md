@@ -1,20 +1,20 @@
 ---
-title: 寄回 Microsoft Azure Data Box 磁盘 | Microsoft Docs
+title: 寄回 Azure Data Box Disk 的教程| Microsoft Docs
 description: 通过本教程了解如何将 Azure Data Box 磁盘寄送到 Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425944"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150763"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>教程：退回 Azure Data Box Disk 并验证到 Azure 的数据上传
 
@@ -54,7 +54,12 @@ ms.locfileid: "59425944"
     - 将标签粘贴在设备上。
 
 2. 密封包装箱，并确保退件发货标签可见。
-3. 安排 UPS 取件。
+3. 安排 UPS 取件。 安排提货：
+
+    - 给本地 UPS 打电话（特定于国家/地区的免费电话号码）。
+    - 在通话中，引用反向装运跟踪号码，如打印的标签中所示。
+    - 如果未引用跟踪号码，UPS 将要求你在提货时支付额外费用。
+    - 也可以在最近的卸货位置放置 Data Box Disk，而不是安排提货。
 
 
 ### <a name="pick-up-in-europe"></a>在欧洲取件

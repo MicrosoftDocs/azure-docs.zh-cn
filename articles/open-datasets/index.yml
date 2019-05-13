@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 开放数据集（预览版）文档
+metadata:
+  title: Azure 开放数据集（预览版）文档 - 教程和 API 参考 | Microsoft Docs
+  description: 了解如何使用 Azure 开放数据集，这是只需最少准备工作即可使用的精选、已清理数据。 开放数据集是可扩充机器学习模型的天气、人口普查和节假日等公共数据。 教程、示例和 API 参考文档介绍了操作说明。
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 了解如何使用 Azure 开放数据集，这是只需最少准备工作即可使用的精选、已清理数据。 开放数据集包括可扩充机器学习模型的天气、人口普查和节假日等公共数据。 教程、示例和 API 参考文档介绍了操作说明。
+sections:
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">使用自动化机器学习生成回归模型</a>
+  - title: 示例
+    items:
+      - type: paragraph
+        text: <a href="samples">用于扩充数据集的笔记本</a>
+  - title: 引用
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">API 参考</a>'

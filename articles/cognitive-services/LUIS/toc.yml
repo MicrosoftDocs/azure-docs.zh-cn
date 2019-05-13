@@ -99,7 +99,7 @@
       href: luis-concept-best-practices.md
       displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
     - name: 规划应用
-      displayName: 'simple, hierarchical, composite, prebuilt, list, regex, regular expression'
+      displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
     - name: 创作应用
       items:
@@ -116,7 +116,7 @@
         - name: 意向
           href: luis-concept-intent.md
         - name: 实体
-          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed, roles'
+          displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
         - name: 陈述
           href: luis-concept-utterance.md
@@ -218,12 +218,15 @@
                   href: luis-tutorial-bot-csharp-appinsights.md
     - name: 提高预测准确性
       items:
-        - name: 查看终结点表述
-          displayName: active learning
-          href: luis-how-to-review-endpoint-utterances.md
+        - name: 使用仪表板
+          displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
+          href: luis-how-to-use-dashboard.md
         - name: 添加短语列表
           displayName: 'synonym, interchange'
           href: luis-how-to-add-features.md
+        - name: 查看终结点话语
+          displayName: active learning
+          href: luis-how-to-review-endpoint-utterances.md
         - name: 添加模式
           displayName: 'syntax, template, roles'
           href: luis-how-to-model-intent-pattern.md
@@ -235,14 +238,11 @@
           href: luis-interactive-test.md
         - name: 批处理测试
           href: luis-how-to-batch-test.md
-          displayName: import
+          displayName: 'import, export'
     - name: 发布
       href: luis-how-to-publish-app.md
     - name: 管理应用
       items:
-        - name: 使用仪表板
-          displayName: 'analytics, usage'
-          href: luis-how-to-use-dashboard.md
         - name: 将订阅密钥与 LUIS 应用配合使用
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription'
           href: luis-how-to-azure-subscription.md
@@ -256,12 +256,17 @@
           href: luis-how-to-account-settings.md
         - name: 使用流量管理器将终结点配额分布在各个密钥上
           href: luis-traffic-manager.md
-    - name: 迁移到 V2 REST API
-      href: luis-migration-api-v1-to-v2.md
+    - name: 迁移 API
+      items:
+        - name: 迁移到 V2 REST API
+          href: luis-migration-api-v1-to-v2.md
+        - name: 迁移到 V3 REST API
+          href: luis-migration-api-v3.md
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
     - name: 使用容器
       items:
         - name: 安装并运行容器
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container'
           href: luis-container-howto.md
         - name: 配置容器
           href: luis-container-configuration.md
@@ -269,7 +274,7 @@
   items:
     - name: 用户隐私
       href: luis-user-privacy.md
-    - name: 创作和发布区域
+    - name: 区域
       href: luis-reference-regions.md
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: 边界
@@ -284,6 +289,7 @@
           href: luis-reference-prebuilt-currency.md
         - name: DatetimeV2 实体
           href: luis-reference-prebuilt-datetimev2.md
+          displayName: timex
         - name: 维度实体
           href: luis-reference-prebuilt-dimension.md
         - name: 已弃用的实体
@@ -310,16 +316,17 @@
           href: luis-reference-prebuilt-url.md
     - name: 预构建的域参考
       href: luis-reference-prebuilt-domains.md
+      displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Azure CLI
-      href: 'https://aka.ms/az-cli-cognitiveservices'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
     - name: REST API
       items:
         - name: 创作 V2 REST API
-          href: 'https://aka.ms/luis-authoring-apis'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092087'
         - name: 终结点 V2 REST API
-          href: 'https://aka.ms/luis-endpoint-apis'
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092356'
         - name: HTTP 代码
           displayName: '400, 401, 403, 409, 410, 414, 429'
           href: luis-reference-response-codes.md
@@ -392,12 +399,12 @@
 - name: 资源
   items:
     - name: 区域可用性
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: 语言和区域支持
       href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
     - name: Azure 路线图
-      href: 'https://aka.ms/luis-roadmap'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: 术语表
       href: luis-glossary.md
     - name: 故障排除
@@ -408,7 +415,7 @@
     - name: 堆栈溢出
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice
-      href: 'https://aka.ms/luis-uservoice-forum'
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
     - name: 搜索
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 博客

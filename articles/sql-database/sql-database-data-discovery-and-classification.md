@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/22/2019
-ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e451b7837a1cff4bbeaecd1573dc860524caf4d3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403272"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142659"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL 数据库和 SQL 数据仓库数据发现和分类
 
@@ -127,7 +127,7 @@ SQL 数据发现和分类附带了一组内置的敏感度标签和一组内置�
 
 ![审核日志](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>自动化/编程分类
+## <a id="subheading-4"></a>管理数据分类使用 T-SQL
 
 可以使用 T-SQL 添加/删除列分类，以及检索整个数据库的所有分类。
 
@@ -146,7 +146,26 @@ SQL 数据发现和分类附带了一组内置的敏感度标签和一组内置�
 - [按数据库列出当前项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - 获取给定数据库的当前敏感度标签
 - [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的建议敏感度标签
 
+## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>管理数据发现和分类使用 Azure PowerShell
+
+可以使用 PowerShell 获取 Azure SQL 数据库和托管的实例中的所有建议的列。
+
+### <a name="powershell-cmdlets-for-azure-sql-database"></a>适用于 Azure SQL 数据库 PowerShell Cmdlet
+
+- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+
+### <a name="powershell-cmdlets-for-managed-instance"></a>托管实例的 PowerShell Cmdlet
+
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+
 ## <a name="permissions"></a>权限
+
 以下内置角色可以读取 Azure SQL 数据库的数据分类：`Owner`、`Reader`、`Contributor`、`SQL Security Manager`、`User Access Administrator`。
 
 以下内置角色可以修改 Azure SQL 数据库的数据分类：`Owner`、`Contributor`、`SQL Security Manager`。

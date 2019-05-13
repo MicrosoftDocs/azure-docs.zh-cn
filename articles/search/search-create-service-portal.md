@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264023"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471603"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在门户中创建 Azure 搜索服务
 
@@ -67,11 +67,13 @@ Azure 搜索是用于在自定义应用中插入搜索体验的独立资源。 �
 > [!TIP]
 > 删除资源组也会删除其中的服务。 对于使用多个服务项目的原型，将它们放在同一资源组中可在项目结束后更加轻松地进行清理。
 
-## <a name="select-a-hosting-location"></a>选择托管位置
+## <a name="select-a-location"></a>选择一个位置
 
 作为 Azure 服务，Azure 搜索可托管在世界各地的数据中心中。 [价格因地域而异](https://azure.microsoft.com/pricing/details/search/)。
 
-若要为位于 Azure 服务（Azure 存储、Azure Cosmos DB、Azure SQL 数据库）中的内容编制索引，请在数据所在的区域中创建 Azure 搜索服务，以避免带宽费用。 当服务位于同一区域时，出站数据不收费。
+如果你为由另一项 Azure 服务（Azure 存储、Azure Cosmos DB、Azure SQL 数据库）提供的数据编制索引，请在同一区域中创建 Azure 搜索服务以避免产生带宽费用。 当服务位于同一区域时，出站数据不收费。
+
+如果你使用的是认知服务 AI 扩充，请在你的认知服务资源所在的区域中创建服务。 服务共存于同一位置是 AI 扩充所必需的。
 
 ## <a name="select-a-pricing-tier-sku"></a>选择定价层 (SKU)
 

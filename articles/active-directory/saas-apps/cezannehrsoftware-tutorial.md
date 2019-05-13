@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834947"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>教程：Azure Active Directory 与 Cezanne HR Software 集成
 
@@ -156,7 +156,7 @@ ms.locfileid: "57834947"
 
     d. 在“安全令牌服务终结点”文本框中，粘贴从 Azure 门户复制的“登录 URL”值。
 
-    e. 在用户 ID 属性名称文本框中，输入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    e. 在用户 ID 属性名称文本框中，输入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
     f. 单击“上传”图标，上传从 Azure 门户下载的证书。
 

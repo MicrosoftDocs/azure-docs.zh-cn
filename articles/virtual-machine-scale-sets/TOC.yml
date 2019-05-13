@@ -129,6 +129,8 @@
         - name: 高级存储性能
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: 临时 OS 磁盘
+          href: ephemeral-os-disks.md
         - name: 磁盘的可伸缩性目标
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -152,6 +154,8 @@
         - name: vCPU 配额
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: 规模集常见问题解答
+      href: virtual-machine-scale-sets-faq.md
 - name: 如何
   items:
     - name: 规划和设计
@@ -183,6 +187,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: 高级自动缩放
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: 自动缩放疑难解答
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: 规模集中的应用程序
           href: virtual-machine-scale-sets-deploy-app.md
         - name: 规模集中的扩展
@@ -199,6 +206,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: 使用 Azure CLI
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: 扩展排序
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: 使用大型规模集
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 将规模集模板转换为使用托管磁盘
@@ -213,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: 使用 Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: 共享映像库（预览版）
-          href: shared-image-galleries.md
+        - name: 共享映像库
           items:
+            - name: 概述
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: 在租户间共享映像
+              href: share-images-across-tenants.md
             - name: 排查共享映像问题
               href: troubleshooting-shared-images.md
         - name: 规模集中的纵向缩放
@@ -247,14 +260,6 @@
         - name: 自动缩放规模集
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: 故障排除
-      items:
-        - name: 自动缩放
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: 常见问题解答
-      items:
-        - name: 规模集常见问题解答
-          href: virtual-machine-scale-sets-faq.md
 - name: 引用
   items:
     - name: Azure PowerShell

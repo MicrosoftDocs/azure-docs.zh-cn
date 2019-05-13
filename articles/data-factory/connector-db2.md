@@ -174,11 +174,11 @@ DB2 链接服务支持以下属性：
 | DB2 数据库类型 | 数据工厂临时数据类型 |
 |:--- |:--- |
 | BigInt |Int64 |
-| 二进制 |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
 | Char |String |
 | Clob |String |
-| date |Datetime |
+| Date |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
@@ -193,7 +193,7 @@ DB2 链接服务支持以下属性：
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| 时间 |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |

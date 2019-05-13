@@ -1,37 +1,35 @@
 ---
-title: 使用 Azure Functions 在 Azure 逻辑应用中添加并运行自定义代码 | Microsoft Docs
-description: 了解如何使用 Azure Functions 在 Azure 逻辑应用中添加并运行自定义代码片段
+title: 添加和使用 Azure Functions 的 Azure 逻辑应用中运行代码
+description: 添加和使用 Azure Functions 的 Azure 逻辑应用中运行代码
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687550"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142311"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>使用 Azure Functions 在 Azure 逻辑应用中添加并运行自定义代码片段
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>添加并在 Azure 逻辑应用中使用 Azure Functions 运行代码
 
-若要在逻辑应用中仅运行足够执行特定作业的代码，可以使用 [Azure Functions](../azure-functions/functions-overview.md) 创建自己的函数。 该服务有助于创建 Node.js、C# 和 F# 代码段，使你无需为运行代码而构建完整的应用或基础架构。 Azure Functions 在云中提供无服务器计算，且对执行任务非常有用，如以下示例：
+当你想要运行逻辑应用中执行特定的代码时，可以创建您自己的函数与[Azure Functions](../azure-functions/functions-overview.md)。 此服务可帮助您创建 Node.js， C#，和F#代码，使你无需构建一个完整的应用或运行代码的基础结构。 还能[从 Azure Functions 内部调用逻辑应用](#call-logic-app)。
+Azure Functions 在云中提供无服务器计算，且对执行任务非常有用，如以下示例：
 
 * 通过 Node.js 或 C# 函数扩展逻辑应用的行为。
 * 在逻辑应用工作流中执行计算。
 * 在逻辑应用中应用高级格式设置或计算字段。
 
-还能[从 Azure Functions 内部调用逻辑应用](#call-logic-app)。
+若要运行而无需创建 Azure 函数代码片段，了解如何[添加并运行内联代码](../logic-apps/logic-apps-add-run-inline-code.md)。
 
 ## <a name="prerequisites"></a>必备组件
 
-若要按本文中所述进行操作，需具备以下各项：
-
-* 如果没有 Azure 订阅，请<a href="https://azure.microsoft.com/free/" target="_blank">注册一个免费 Azure 帐户</a>。 
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
 * 一个 Azure 函数应用，它是 Azure Functions 和你的 Azure 函数的容器。 若没有函数应用，请先[创建函数应用](../azure-functions/functions-create-first-azure-function.md)。 然后才可以在逻辑应用设计器中[在逻辑应用外部单独](#create-function-external)创建函数或[从逻辑应用内部](#create-function-designer)创建函数。
 
@@ -58,7 +56,7 @@ ms.locfileid: "60687550"
 
 ## <a name="create-functions-outside-logic-apps"></a>在逻辑应用外部创建函数
 
-在 <a href="https://portal.azure.com" target="_blank">Azure 门户</a>中创建 Azure 函数应用，该应用必须具备与逻辑应用一样的 Azure 订阅，然后创建 Azure 函数。
+在 [Azure 门户](https://portal.azure.com)中创建 Azure 函数应用，该应用必须具备与逻辑应用一样的 Azure 订阅，然后创建 Azure 函数。
 若是初次接触创建 Azure Functions，则需要了解如何[在 Azure 门户中创建第一个函数](../azure-functions/functions-create-first-azure-function.md)，不过请注意有关创建可从逻辑应用调用的函数的要求：
 
 * 请确保选择适用于 JavaScript 或 C# 的 HTTP 触发器函数模板。
@@ -116,7 +114,7 @@ function convertToDateString(request, response){
 
 若要在逻辑应用编辑器中从逻辑应用内部创建 Azure 函数，必须先具备一个 Azure 函数应用，这是函数的容器。 若没有函数应用，请先创建一个。 请参阅[在 Azure 门户中创建第一个函数](../azure-functions/functions-create-first-azure-function.md)。 
 
-1. 在 <a href="https://portal.azure.com" target="_blank">Azure 门户</a>的逻辑应用设计器中打开逻辑应用。 
+1. 在 [Azure 门户](https://portal.azure.com)的逻辑应用设计器中打开逻辑应用。 
 
 2. 按照适用于自身方案的步骤，创建并添加函数：
 
@@ -176,7 +174,7 @@ function convertToDateString(request, response){
 
 若要从逻辑应用调用现有 Azure 函数，可以添加 Azure 函数，具体方法与在逻辑应用设计器中执行的任何其他操作一样。 
 
-1. 在 <a href="https://portal.azure.com" target="_blank">Azure 门户</a>的逻辑应用设计器中打开逻辑应用。 
+1. 在 [Azure 门户](https://portal.azure.com)的逻辑应用设计器中打开逻辑应用。 
 
 2. 在要添加函数的步骤下，选择“新建步骤” > “添加操作”。 
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/4/2018
+ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3f1dd0921153d6b65bdc257f91019483adbb18fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9049e22d15dacb91e86fd0ba623d69c9d17c789
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821074"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024827"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>使用 Azure 机器学习服务生成机器学习管道
 

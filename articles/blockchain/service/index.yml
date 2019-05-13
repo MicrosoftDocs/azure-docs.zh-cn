@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 区块链服务文档
+metadata:
+  title: Azure 区块链服务文档 - 教程和 API 参考
+  description: 了解如何创建区块链应用程序。 教程、API 参考和其他文档介绍了如何使用 Azure 区块链服务在 Azure 上创建、开发和管理区块链应用程序。
+  services: azure-blockchain
+  author: patricka
+  manager: femila
+  ms.service: azure-blockchain
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/13/2019
+  ms.author: patricka
+abstract:
+  description: 了解如何创建区块链应用程序。 教程、API 参考和其他文档介绍了如何使用 Azure 区块链服务在 Azure 上创建、开发和使用区块链应用程序。
+sections:
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: 了解如何创建和连接到 Azure 上的联盟成员。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/deploy.svg
+            text: 创建联盟成员
+            href: /azure/blockchain/service/create-member
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: 使用 MetaMask 进行连接
+            href: /azure/blockchain/service/connect-metamask
+          - image:
+              src: ./media/index/cligeneric.svg
+            text: 使用 geth 进行连接
+            href: /azure/blockchain/service/connect-geth
+          - image:
+              src: ./media/index/code-blocks.svg
+            text: 使用 Truffle 进行连接
+            href: /azure/blockchain/service/connect-truffle
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 了解如何在 Azure 上创建、配置和开发区块链应用程序。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/blockchain/service/send-transaction">创建 Azure 区块链服务成员并发送事务</a>
+  - title: 引用
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">REST API</a></p>'

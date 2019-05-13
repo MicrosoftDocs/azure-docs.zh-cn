@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142372"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure 数据工厂中支持的文件格式和压缩编解码器
 
@@ -412,7 +412,7 @@ ms.locfileid: "64925141"
 ## <a name="parquet-format"></a>Parquet 格式
 
 >[!NOTE]
->数据工厂引入了新的 Parquet 格式对，请参阅[Parquet 格式](format-delimited-text.md)文章的详细信息。 基于文件的数据存储区数据集上的以下配置仍支持作为-用于向后 compabitility。 建议以使用新的模型继续。
+>数据工厂引入了新的 Parquet 格式对，请参阅[Parquet 格式](format-parquet.md)文章的详细信息。 基于文件的数据存储区数据集上的以下配置仍支持作为-用于向后 compabitility。 建议以使用新的模型继续。
 
 若要分析 Parquet 文件或以 Parquet 格式写入数据，请将 `format` `type` 属性设置为 **ParquetFormat**。 不需在 typeProperties 节的 Format 节中指定任何属性。 示例：
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0b8d5ac13b6c4b327a03eb85032a13407601c1ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d56e7f4750510dc7bb50dbb316dce320b8e8d12b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60867497"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510029"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>配置 Azure Blockchain Workbench 数据库防火墙
 

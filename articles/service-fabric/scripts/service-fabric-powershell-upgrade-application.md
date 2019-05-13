@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8a291e49272c47035f73ad70534ac5393060940a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2f896e0ff8d05d9c77a4a11c97afd9c0ffc17b7d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621751"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>升级 Service Fabric 应用程序
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 1a5b6d435dcc82b59c30302f9cd711975864594c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3957fefb44bd8e4732f74f69d5522bd499100d0b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901904"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149867"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 配置 Application Insights SDK
 Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://www.nuget.org/packages/Microsoft.ApplicationInsights)提供 API，用于将遥测数据发送到 Application Insights。 [其他包](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遥测*模块*和*初始值设定项*，用于自动从应用程序及其上下文跟踪遥测。 可以通过调整配置文件来启用或禁用遥测模块和初始值设定项并为其设置参数。
@@ -79,13 +79,13 @@ Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://w
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet 包。
 
 ### <a name="eventsource-tracking"></a>EventSource 跟踪
-通过 `EventSourceTelemetryModule` 可配置要作为跟踪发送到 Application Insights 的 EventSource 事件。 有关跟踪 EventSource 事件的信息，请参阅[使用 EventSource 事件](../../azure-monitor/app/asp-net-trace-logs.md#using-eventsource-events)。
+通过 `EventSourceTelemetryModule` 可配置要作为跟踪发送到 Application Insights 的 EventSource 事件。 有关跟踪 EventSource 事件的信息，请参阅[使用 EventSource 事件](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)。
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
 * [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
 
 ### <a name="etw-event-tracking"></a>ETW 事件跟踪
-通过 `EtwCollectorTelemetryModule` 可从 ETW 提供程序配置要作为跟踪发送到 Application Insights 的事件。 有关跟踪 ETW 事件的信息，请参阅[使用 ETW 事件](../../azure-monitor/app/asp-net-trace-logs.md#using-etw-events)。
+通过 `EtwCollectorTelemetryModule` 可从 ETW 提供程序配置要作为跟踪发送到 Application Insights 的事件。 有关跟踪 ETW 事件的信息，请参阅[使用 ETW 事件](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events)。
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
@@ -198,7 +198,7 @@ Microsoft.ApplicationInsights 包提供 SDK 的[核心 API](https://msdn.microso
 #### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
 确定以何种频率刷新存储在内存中的数据（以及将数据发送到 Application Insights）。
 
-* 最小值：第
+* 最小值：1
 * 最大值：300
 * 默认值：5
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: v-wimarc
-ms.openlocfilehash: deb53da47a0429bc57364d2593128230207cbbfa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2a134967da7a0263b360b0334ed1dd6538252b98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398459"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510338"
 ---
 # <a name="azure-operations-in-china-vs-global-azure"></a>中国与全球 Azure 中的 Azure 运营
 
-Microsoft Azure 是在中国推出的、符合政府法规的第一个外资公有云服务提供程序。 Microsoft 已授权[世纪互联](http://www.ch.21vianet.com/)在中国大陆运营公有云业务，因而能够满足这些要求。 
+Microsoft Azure 是在中国推出的、符合政府法规的第一个外资公有云服务提供程序。 Microsoft 已授权[世纪互联](http://www.ch.21vianet.com/)在中国运营公有云业务，因而能够满足这些要求。 
 
 与中国的其他外资公有云服务提供程序相比，Azure 提供以下多项优势：
 - 作为在中国运营的第一个国际公有云服务，Azure 采用成熟的运营模式，并具有良好的口碑。
@@ -35,9 +35,9 @@ Microsoft Azure 是在中国推出的、符合政府法规的第一个外资公�
 [世纪互联集团公司](http://www.ch.21vianet.com/) (21Vianet Group, Inc.) 是中国一家独立于电信运营商的领先 Internet 数据中心服务提供商，并且是中国最大的提供商之一。 他们提供主机空间和相关服务、托管网络服务及云计算基础结构服务，可通过其基础结构帮助提高 Internet 连接的可靠性、安全性和速度。
 
 ## <a name="operations"></a>操作
-根据中国的[电信法规](http://www.miit.gov.cn/n1146295/n1146557/n1146619/c4860613/content.html)，云服务（基础结构即服务 (IaaS) 和平台即服务 (PaaS)）的提供商必须获得增值电信业务的许可。 在当地注册的公司中，只有不到 50% 的外资公司符合这些许可条件。 为了遵守此法规，中国的 Azure 服务由世纪互联根据 Microsoft 许可的技术运营。  
+根据中国的[电信法规](http://www.china.org.cn/business/laws_regulations/2010-01/20/content_19273945.htm)，云服务（基础结构即服务 (IaaS) 和平台即服务 (PaaS)）的提供商必须获得增值电信业务的许可。 在当地注册的公司中，只有不到 50% 的外资公司符合这些许可条件。 为了遵守此法规，中国的 Azure 服务由世纪互联根据 Microsoft 许可的技术运营。  
 
-世纪互联运营的 Microsoft Azure（Azure 中国世纪互联）是位于中国大陆的云服务的物理独立实例，其运营和交易由上海蓝云网络科技有限公司（即“世纪互联”，北京世纪互联宽带数据中心有限公司的全资子公司）展开。服务立足于 Microsoft 全球云服务所涵盖的相同 Azure、Office 365 和 Power BI 技术，并提供与全球云服务相当的服务级别。 既然世纪互联是 Microsoft Azure 的官方法人实体，在适用的情况下，协议与合同将在客户与世纪互联之间签订。
+世纪互联运营的 Microsoft Azure（Azure 中国世纪互联）是位于中国的云服务的物理独立实例，其运营和交易由上海蓝云网络科技有限公司（即“世纪互联”，北京世纪互联宽带数据中心有限公司的全资子公司）展开。服务立足于 Microsoft 全球云服务所涵盖的相同 Azure、Office 365 和 Power BI 技术，并提供与全球云服务相当的服务级别。 既然世纪互联是 Microsoft Azure 的官方法人实体，在适用的情况下，协议与合同将在客户与世纪互联之间签订。
 
 ## <a name="service-availability"></a>服务可用性
 根据政府法规，中国的 Azure 服务是与全球 Azure 不同的独立实例。 因此，[可供服务](https://www.azure.cn/home/features/products-by-region)不同于全球 Azure，但可供服务的质量是相同的。 请参阅[可用服务](https://www.azure.cn/home/features/what-is-azure/)的最新列表（中文版）。

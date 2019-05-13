@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924792"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410050"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP 的性能优化 Azure Vm
 
@@ -178,7 +178,7 @@ Azure，我们建议您设置 TCP MSS 钳位为 1,350 字节和隧道接口 MTU 
 | | | | |
 |-|-|-|-|
 |**TCP 窗口大小 （字节）**|**RTT 延迟 (ms)**|**最大兆字节/秒吞吐量**|**最大兆比特/秒吞吐量**|
-|65,535|第|65.54|524.29|
+|65,535|1|65.54|524.29|
 |65,535|30|2.18|17.48|
 |65,535|60|1.09|8.74|
 |65,535|90|.73|5.83|
@@ -240,8 +240,8 @@ Set-NetTCPSetting
 |已禁用|无|无|窗口大小|
 |受限|4|2^4|窗口大小 * (2 ^4)|
 |严格限制|2|2^2|窗口大小 * (2 ^2)|
-|一般|8|2^8|窗口大小 * (2 ^8)|
-|试验|14|2^14|窗口大小 * (2 ^14)|
+|普通|8|2^8|窗口大小 * (2 ^8)|
+|实验性|14|2^14|窗口大小 * (2 ^14)|
 
 这些设置是最有可能会影响 TCP 性能，但请记住通过 internet、 Azure 中，控件范围之外的许多其他因素也会影响 TCP 性能。
 
@@ -256,7 +256,7 @@ Set-NetTCPSetting
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>加速网络和接收方缩放
 
-#### <a name="accelerated-networking"></a>加速网络
+#### <a name="accelerated-networking"></a>更快的网络连接
 
 虚拟机网络功能就是长久以来 CPU 资源在来宾 VM 和虚拟机监控程序/主机上。 通过在主机上传输的每个数据包在软件中处理的主机 CPU，包括所有虚拟网络封装和解封。 通过主机出现更多流量，因此更高的 CPU 负载。 并且，如果主机 CPU 正忙于处理其他操作，将还影响网络吞吐量和延迟。 Azure，解决此问题，具有加速网络。
 
@@ -276,7 +276,7 @@ Set-NetTCPSetting
 
 接收的方缩放 (RSS) 是一种网络驱动程序技术的更有效地将接收网络流量分发的分发在多处理器系统中接收处理跨多个 Cpu。 简单来说，RSS 允许系统处理更接收的流量，因为它而不是只是一个使用所有可用的 Cpu。 有关 RSS 的更多技术讨论，请参阅[简介接收方缩放](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)。
 
-若要获得最佳性能的 VM 上启用加速的网络时，需要启用 RSS。 RSS 还可以提供不使用的 Vm 上的优势加速网络。 有关如何确定是否启用了 RSS 和如何启用它的概述，请参阅[的 Azure 虚拟机优化网络吞吐量](http://aka.ms/FastVM)。
+若要获得最佳性能的 VM 上启用加速的网络时，需要启用 RSS。 RSS 还可以提供不使用的 Vm 上的优势加速网络。 有关如何确定是否启用了 RSS 和如何启用它的概述，请参阅[的 Azure 虚拟机优化网络吞吐量](https://aka.ms/FastVM)。
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT 和 TIME_WAIT assassination
 
@@ -316,13 +316,13 @@ Azure 虚拟机都至少一个网络接口附加到它们。 它们可能具有�
 
 - **协议**：所有协议的所有出站流量将计入此限制。
 
-有关详细信息，请参阅[虚拟机的网络带宽](http://aka.ms/AzureBandwidth)。
+有关详细信息，请参阅[虚拟机的网络带宽](https://aka.ms/AzureBandwidth)。
 
 ### <a name="internet-performance-considerations"></a>Internet 性能注意事项
 
 如本文所述，在 internet 上和 Azure 的控制范围之外的因素会影响网络性能。 下面是一些因素：
 
-- **延迟**:在中间网络上的问题、 流量并不需要的"最短"的距离路径，以及非最优的对等互连路径，则可能会影响两个目标之间的往返时间。
+- **延迟**：在中间网络上的问题、 流量并不需要的"最短"的距离路径，以及非最优的对等互连路径，则可能会影响两个目标之间的往返时间。
 
 - **数据包丢失**:数据包丢失可能引起网络拥塞、 物理路径问题和性能不佳的网络设备。
 

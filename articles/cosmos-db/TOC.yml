@@ -74,6 +74,8 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Azure 资源管理器
+      href: resource-manager-samples.md
 - name: 概念
   items:
     - name: 全球分布
@@ -143,17 +145,6 @@
             - name: 索引策略
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: 更改源
-          items:
-            - name: 概述
-              href: change-feed.md
-            - name: 读取更改源
-              href: read-change-feed.md
-            - name: 更改源处理器
-              href: change-feed-processor.md
-            - name: 触发 Azure Functions
-              displayName: change feed
-              href: change-feed-functions.md
         - name: 生存时间
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -172,6 +163,8 @@
         - name: 触发 Azure Functions
           displayName: change feed
           href: change-feed-functions.md
+    - name: 使用 Apache Spark 进行分析
+      href: spark-api-introduction.md
     - name: 服务器端编程
       items:
         - name: 存储过程、触发器和 UDF
@@ -214,6 +207,9 @@
           href: firewall-support.md
         - name: 从虚拟网络访问
           href: vnet-service-endpoint.md
+        - name: 基于角色的访问控制
+          displayName: rbac
+          href: role-based-access-control.md
     - name: 企业就绪情况
       items:
         - name: 联机备份和本地还原
@@ -277,6 +273,8 @@
                   href: cassandra-spark-aggregation-ops.md
                 - name: 复制表数据
                   href: cassandra-spark-table-copy-ops.md
+            - name: 使用资源管理器模板进行管理
+              href: manage-cassandra-with-resource-manager.md
     - name: MongoDB API
       items:
         - name: 介绍
@@ -354,6 +352,8 @@
             - name: MongoDB 扩展命令
               href: mongodb-custom-commands.md
               displayName: custom commands
+            - name: 使用资源管理器模板进行管理
+              href: manage-mongodb-with-resource-manager.md
     - name: Gremlin API
       displayName: 'graph, graph database'
       items:
@@ -390,6 +390,8 @@
             - name: 存储和管理 Spring Data
               href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
               maintainContext: true
+            - name: 使用资源管理器模板进行管理
+              href: manage-gremlin-with-resource-manager.md
     - name: 表 API
       items:
         - name: 介绍
@@ -440,6 +442,8 @@
               href: table-support.md
             - name: 表存储设计指南
               href: table-storage-design-guide.md
+            - name: 使用资源管理器模板进行管理
+              href: manage-table-with-resource-manager.md
         - name: 引用
           items:
             - name: .NET
@@ -454,6 +458,12 @@
               href: table-sdk-python.md
             - name: 表存储 REST API
               href: /rest/api/storageservices/Table-Service-Concepts
+    - name: Etcd API
+      items:
+        - name: 介绍
+          href: etcd-api-introduction.md
+        - name: 将 Azure Kubernetes 与 Azure Cosmos DB 配合使用
+          href: bootstrap-kubernetes-cluster.md
 - name: 操作指南
   items:
     - name: 管理 Azure Cosmos 帐户
@@ -484,11 +494,15 @@
       items:
         - name: 创建容器
           href: how-to-create-container.md
+        - name: 使用大型分区键创建容器
+          href: large-partition-keys.md
         - name: 查询容器
           href: how-to-query-container.md
         - name: 数据建模和分区 - 实际示例
           displayName: 'model, partition, example'
           href: how-to-model-partition-example.md
+        - name: 迁移到分区的容器
+          href: migrate-containers-partitioned-to-nonpartitioned.md
         - name: 配置生存时间
           displayName: 'delete, delete data, ttl'
           href: how-to-time-to-live.md
@@ -498,6 +512,9 @@
           href: data-explorer.md
         - name: 管理索引策略
           href: how-to-manage-indexing-policy.md
+        - name: SQL 子查询示例
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: 更改源
       items:
         - name: 多个 Azure Cosmos DB 触发器
@@ -529,9 +546,11 @@
     - name: 管理 Azure Cosmos DB 资源
       items:
         - name: 使用 PowerShell 管理
-          href: manage-account-with-powershell.md
+          href: manage-with-powershell.md
         - name: 使用 Azure CLI 进行管理
           href: manage-with-cli.md
+        - name: 使用资源管理器模板进行管理
+          href: manage-sql-with-resource-manager.md
     - name: 日志记录
       items:
         - name: 诊断日志记录
@@ -660,7 +679,7 @@
     - name: REST 资源提供程序
       href: /rest/api/cosmos-db-resource-provider/
     - name: 资源管理器模板
-      href: /azure/templates/microsoft.documentdb/databaseaccounts
+      href: /templates/microsoft.documentdb/allversions
 - name: 资源
   items:
     - name: 利用 Microsoft Learn 掌握技能

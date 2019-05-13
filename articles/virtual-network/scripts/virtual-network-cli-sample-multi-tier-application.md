@@ -3,8 +3,8 @@ title: Azure CLI 脚本示例 - 为多层应用程序创建网络 | Microsoft Do
 description: Azure CLI 脚本示例 - 为多层应用程序创建虚拟网络。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: 2db43d842ec5656f6f059c240eb9b9cc2376459e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.author: kumud
+ms.openlocfilehash: 9bd6fac54c4f6c86c4e1c624ffc26f626e938e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697461"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715701"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>为多层应用程序创建网络脚本示例
 

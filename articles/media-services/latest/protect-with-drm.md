@@ -1,5 +1,5 @@
 ---
-title: 将 DRM 动态加密许可证传送服务与 Azure 媒体服务配合使用 | Microsoft Docs
+title: 使用 Azure 媒体服务 DRM 动态加密和许可证传送服务 |Microsoft Docs
 description: 可以使用 Azure 媒体服务来传送通过 Microsoft PlayReady、Google Widevine 或 Apple FairPlay 许可证加密的流。
 services: media-services
 documentationcenter: ''
@@ -11,62 +11,43 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f53ae122e9888f3e537a3557b6ac5bd76856c2eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24ea6b2b44518b4cf75389585caf42ff6bc6722f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995692"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191067"
 ---
-# <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>使用 DRM 动态加密和许可证传送服务
+# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教程：使用 DRM 动态加密和许可证传送服务
 
-可以使用 Azure 媒体服务传送受 [PlayReady 数字版权管理 (DRM)](https://www.microsoft.com/playready/overview/) 保护的 MPEG-DASH 流、平滑流式处理流和 HTTP Live Streaming (HLS) 流。 还可以使用媒体服务通过 **Google Widevine** DRM 许可证传送已加密的 DASH 流。 PlayReady 和 Widevine 都是按通用加密 (ISO/IEC 23001-7 CENC) 规范加密的。 使用媒体服务还能通过 **Apple FairPlay** (AES-128 CBC) 加密 HLS 内容。 
+可以使用 Azure 媒体服务来传送通过 Microsoft PlayReady、Google Widevine 或 Apple FairPlay 许可证加密的流。 有关深入的说明，请参阅[内容使用动态加密的保护](content-protection-overview.md)。
 
 此外，媒体服务提供用于传送 PlayReady、Widevine 和 FairPlay DRM 许可证的服务。 当用户请求受 DRM 保护的内容时，播放器应用程序会从媒体服务许可证服务请求许可证。 如果播放器应用程序获得授权，媒体服务许可证服务会向该播放器颁发许可证。 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
 
-本文基于[使用 DRM 进行加密](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM)示例。 该示例演示了多种操作，其中包括：
-
-* 创建一个编码转换，该转换使用内置的预设来进行自适应比特率编码，并直接从 [HTTPs 源 URL](job-input-from-http-how-to.md) 引入文件。
-* 设置用于验证令牌的签名密钥。
-* 在使用指定的配置传送密钥时必须满足的内容密钥策略中设置要求（限制）。 
-
-    * 配置 
-    
-        此示例中配置了 [PlayReady](playready-license-template-overview.md) 和 [Widevine](widevine-license-template-overview.md) 许可证，因此只能由媒体服务许可证传送服务传送这些许可证。 尽管此示例应用未配置 [FairPlay](fairplay-license-overview.md) 许可证，但它包含一个可用来配置 FairPlay 的方法。 如果需要，可以添加 FairPlay 配置作为另一个选项。
-
-    * 限制
-
-        该应用在策略中设置了 JWT 令牌类型限制。
-
-* 为具有指定流式处理策略名称的指定资产创建 StreamingLocator。 在这种情况下，将使用预定义的策略。 该应用在 StreamingLocator 中设置两个内容密钥：AES-128（信封）和 CENC（PlayReady 和 Widevine）。  
-    
-    创建 StreamingLocator 后，将发布输出资产，并将其提供给客户端播放。
-
-    > [!NOTE]
-    > 确保要从中流式传输内容的 StreamingEndpoint 处于“正在运行”状态。
-
-* 创建 Azure Media Player 的 URL，其中包括播放 PlayReady 加密内容所需的 DASH 清单和 PlayReady 令牌。 该示例将令牌的过期时间设置为 1 小时。 
-
-    可以打开浏览器并粘贴生成的 URL 来启动 Azure Media Player 演示页，其中已经填充了该 URL 和令牌。  
-
-    ![使用 DRM 提供保护](./media/protect-with-drm/playready_encrypted_url.png)
-
-> [!NOTE]
-> 可以使用多个加密类型（AES-128、PlayReady、Widevine、FairPlay）来加密每个资产。 请参阅[流式处理协议和加密类型](content-protection-overview.md#streaming-protocols-and-encryption-types)，以了解有效的组合方式。
+本文基于[使用 DRM 进行加密](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM)示例。 
 
 本文中所述的示例生成以下结果：
 
 ![具有 DRM 保护的视频的 AMS](./media/protect-with-drm/ams_player.png)
+
+本教程演示如何：    
+
+> [!div class="checklist"]
+> * 创建编码的转换
+> * 设置用于验证你的令牌的签名密钥
+> * 在内容密钥的策略设置要求
+> * 使用指定的流式处理策略创建 StreamingLocator
+> * 创建你的文件播放使用某 URL
 
 ## <a name="prerequisites"></a>必备组件
 
 以下是完成本教程所需具备的条件。
 
 * 查看[内容保护概述](content-protection-overview.md)一文。
-* 查看[设计带访问控制的多 DRM 内容保护系统](design-multi-drm-system-with-access-control.md)
+* 查看[设计多 DRM 内容保护系统，使用访问控制](design-multi-drm-system-with-access-control.md)
 * 安装 Visual Studio Code 或 Visual Studio
 * 按照[本快速入门](create-account-cli-quickstart.md)所述，创建新的 Azure 媒体服务帐户。
 * 根据[访问 API](access-api-cli-how-to.md) 中所述，获取使用媒体服务 API 时所需的凭据
@@ -163,18 +144,42 @@ ContentKeyPolicy 中使用了 ContentKeyIdentifierClaim，这意味着，提供�
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
-## <a name="build-a-dash-streaming-url"></a>生成 DASH 流 URL
+## <a name="build-a-streaming-url"></a>生成流 URL
 
 创建 [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) 后，可以获取流 URL。 若要生成 URL，需要连接 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 主机名称和 **StreamingLocator** 路径。 在此示例中，使用默认的 StreamingEndpoint。 首次创建媒体服务帐户时，默认 StreamingEndpoint 处于停止状态，因此需要调用 Start。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 
+当您运行该应用程序时，你看到以下信息：
+
+![使用 DRM 提供保护](./media/protect-with-drm/playready_encrypted_url.png)
+
+可以打开浏览器并粘贴生成的 URL 来启动 Azure Media Player 演示页，其中已经填充了该 URL 和令牌。 
+ 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>清理媒体服务帐户中的资源
 
 通常情况下，除了打算重复使用的对象，用户应清理所有内容（通常将重复使用转换并保留 StreamingLocators 等）。 如果希望帐户在试验后保持干净状态，则应删除不打算重复使用的资源。  例如，以下代码可删除作业。
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
+## <a name="clean-up-resources"></a>清理资源
+
+如果不再需要资源组中的任何一个资源（包括为本教程创建的媒体服务和存储帐户），请删除之前创建的资源组。 
+
+执行以下 CLI 命令：
+
+```azurecli
+az group delete --name amsResourceGroup
+```
+
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
+
+查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
+
 ## <a name="next-steps"></a>后续步骤
 
-了解如何[使用 AES-128 提供保护](protect-with-aes128.md)
+签出
+
+> [!div class="nextstepaction"]
+> [使用 AES-128 进行保护](protect-with-aes128.md)
+

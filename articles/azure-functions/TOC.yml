@@ -19,6 +19,8 @@
       href: functions-create-first-java-maven.md
     - name: 创建函数 - Python
       href: functions-create-first-function-python.md
+    - name: 创建函数 - PowerShell
+      href: functions-create-first-function-powershell.md
     - name: 创建函数 - Azure CLI
       href: functions-create-first-azure-function-azure-cli.md
     - name: 创建函数 - 门户
@@ -39,7 +41,9 @@
       items:
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
-        - name: 存储
+        - name: 存储 - Python
+          href: functions-add-output-binding-storage-queue-python.md
+        - name: 存储 - 门户
           href: functions-integrate-storage-queue-output-binding.md
 - name: 教程
   items:
@@ -100,6 +104,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: Python
           href: functions-reference-python.md
     - name: 诊断
@@ -134,6 +140,8 @@
           href: functions-create-maven-eclipse.md
         - name: 创建 Linux 函数应用
           href: create-function-app-linux-app-service-plan.md
+        - name: 调试本地 PowerShell 函数
+          href: functions-debug-powershell-local.md
         - name: 管理连接
           href: manage-connections.md
         - name: 错误处理。
@@ -148,6 +156,8 @@
       items:
         - name: 连续部署
           href: functions-continuous-deployment.md
+        - name: 使用 Azure Pipelines 进行构建和部署
+          href: functions-how-to-azure-devops.md
         - name: Zip 部署
           href: deployment-zip-push.md
         - name: 从程序包运行

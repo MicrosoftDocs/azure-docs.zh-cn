@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 0206fd2b2ea0a7cfaf79aaf19052e0174645780b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506805"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143115"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>使用集成服务环境 (ISE) 从 Azure 逻辑应用访问 Azure 虚拟网络资源
-
-> [!NOTE]
-> 此功能目前以[*公共预览版*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 有时，逻辑应用和集成帐户需要访问 [Azure 虚拟网络](../virtual-network/virtual-networks-overview.md)中受保护的资源，例如虚拟机 (VM) 和其他系统或服务。 若要设置此访问权限，可以[创建一个集成服务环境 (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 以运行逻辑应用和集成帐户。 当创建 ISE 时，Azure 将部署专用和独立实例的逻辑应用服务，到在 Azure 虚拟网络。 此专用实例使用专用资源（如存储），并与公用“全局”逻辑应用服务分开运行。 分离隔离的专用实例和公共的全局实例还有助于降低影响其他 Azure 租户可能会对应用的性能，也称为["噪声邻居"效果](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)。
 
@@ -70,11 +67,6 @@ ISE 和非 ISE 连接器之间的区别在于触发器和操作运行的位置�
 ## <a name="integration-accounts-with-ise"></a>集成帐户与 ISE
 
 可以在集成服务环境 (ISE) 中将集成帐户与逻辑应用结合使用。 但是，这些集成帐户必须使用相同的 ISE 作为链接的逻辑应用。 ISE 中的逻辑应用只能引用同一 ISE 中的这些集成帐户。 创建集成帐户时，可以选择 ISE 作为集成帐户的位置。
-
-## <a name="get-support"></a>获取支持
-
-* 有关问题，请访问 <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure 逻辑应用论坛</a>。
-* 若要提交功能建议或对功能建议进行投票，请访问<a href="https://aka.ms/logicapps-wish" target="_blank">逻辑应用用户反馈网站</a>。
 
 ## <a name="next-steps"></a>后续步骤
 

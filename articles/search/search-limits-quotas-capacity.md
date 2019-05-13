@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193092"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024642"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜索中的服务限制
 最大限制对存储、 工作负荷，以及数量的索引、 文档和其他对象依赖于是否您[预配 Azure 搜索](search-create-service-portal.md)处**免费**，**基本**， **标准**，或**存储优化**定价层。
@@ -50,8 +50,11 @@ ms.locfileid: "60193092"
 | 资源 | 免费 | 基本&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | 最大索引数 |3 |5 或 15 |50 |200 |200 |每个分区 1000，或者每个服务 3000 |10 |10 |
-| 每个索引的最大字段 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| 每个索引最大[建议器](https://docs.microsoft.com/rest/api/searchservice/suggesters)数 |1 |1 |1 |1 |1 |1 |1 |1 |
+| 每个索引的最大简单字段 |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| 每个索引的最大的复杂集合字段 |40 |40 |40 |40 |40 |40 |40 |40 |
+| 每个文档的所有复杂集合中的最大元素 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| 复杂的字段的最大深度 |10 |10 |10 |10 |10 |10 |10 |10 |
+| 每个索引最大[建议器](https://docs.microsoft.com/rest/api/searchservice/suggesters)数 |第 |1 |1 |1 |1 |1 |1 |第 |
 | 每个索引的最大[计分配置文件](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)数 |100 |100 |100 |100 |100 |100 |100 |100 |
 | 每个配置文件的最大函数数量 |8 |8 |8 |8 |8 |8 |8 |8 |
 

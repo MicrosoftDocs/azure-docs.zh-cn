@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916388"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205379"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>监视任何网站的可用性和响应能力
 将 Web 应用或网站部署到任何服务器之后，可以设置测试来监视其可用性和响应能力。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 将来自全球各地的 Web 请求定期发送到应用程序。 如果应用程序无响应或响应太慢，则会发出警报。
@@ -274,7 +274,7 @@ Web 测试插件提供时间参数化方式。
 
 ## <a name="performance-tests"></a>性能测试
 > [!NOTE]  
-> 不推荐使用基于云的负载测试服务。 可以找到有关不推荐使用、 服务可用性和其他服务的详细信息[此处](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops)。
+> 不推荐使用基于云的负载测试服务。 可以找到有关不推荐使用、 服务可用性和其他服务的详细信息[此处](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops)。
 
 可以在网站上运行负载测试。 与可用性测试一样，可以从全球各地的站点发送简单请求或多步骤请求。 与可用性测试不同的是，发送的许多请求可以模拟多个并发用户。
 
@@ -294,7 +294,7 @@ Web 测试插件提供时间参数化方式。
 * [使用 PowerShell 脚本自动设置可用性测试](../../azure-monitor/app/powershell.md#add-an-availability-test)。
 * 设置在引发警报时调用的 [webhook](../../azure-monitor/platform/alerts-webhooks.md) 。
 
-## <a name="qna"></a> FAQ
+## <a name="qna"></a> 常见问题解答
 
 * *站点看上去正常，但测试却失败？为什么 Application Insights 向我发出警报？*
 

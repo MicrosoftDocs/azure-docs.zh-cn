@@ -4,7 +4,7 @@ description: 了解如何启用 Azure Sentinel 中的合成。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 82becf50-6628-47e4-b3d7-18d7d72d505f
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 55d569d4a993a725137d7bfab37c113147fe81ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf9a78006d13614a73a3fccfc57f28ce850456d9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714906"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204474"
 ---
 # <a name="enable-fusion"></a>启用融合
 

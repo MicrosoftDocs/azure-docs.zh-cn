@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734348"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235678"
 ---
 # <a name="assets"></a>资产
 
@@ -33,6 +33,9 @@ ms.locfileid: "60734348"
 ## <a name="upload-digital-files-into-assets"></a>将数字文件上传到资产
 
 一个常见的媒体服务工作流是上传、编码和流式传输文件。 本部分概述常规步骤。
+
+> [!TIP]
+> 开始开发之前，请查看[使用媒体服务 v3 Api 进行开发](media-services-apis-overview.md)（包括访问 Api，命名约定，等等信息。）
 
 1. 使用媒体服务 v3 API 创建新的“输入”资产。 此操作在与媒体服务帐户关联的存储帐户中创建一个容器。 API 返回容器名称（例如 `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`）。
    

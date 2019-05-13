@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195806"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523523"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帐户和创作密钥
 
@@ -24,7 +24,7 @@ LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录�
 
 ## <a name="authoring-key"></a>创作密钥
 
-此创作单一、 特定于区域的密钥，在**设置**页上，可创建所有的应用，从[LUIS](luis-reference-regions.md)门户，以及[创作 Api](https://aka.ms/luis-authoring-api)。 为方便起见，创作密钥每月可执行[有限](luis-boundaries.md)数量的终结点查询。
+此创作单一、 特定于区域的密钥，在**设置**页上，可创建所有的应用，从[LUIS](luis-reference-regions.md)门户，以及[创作 Api](https://go.microsoft.com/fwlink/?linkid=2092087)。 为方便起见，创作密钥每月可执行[有限](luis-boundaries.md)数量的终结点查询。
 
 [![LUIS 设置页](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

@@ -95,7 +95,9 @@
           href: vmware-azure-common-questions.md
         - name: VMware/物理服务器到 Azure 支持矩阵
           href: vmware-physical-azure-support-matrix.md
-        - name: 配置服务器部署的支持要求
+        - name: 关于 Site Recovery 组件（配置/进程/主目标服务器）
+          href: vmware-physical-azure-config-process-server-overview.md
+        - name: 配置和进程服务器的支持要求
           href: vmware-azure-configuration-server-requirements.md
         - name: VMware 到 Azure 体系结构
           href: vmware-azure-architecture.md
@@ -165,6 +167,8 @@
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
             - name: 为 S2D VM 启用 Azure 到 Azure 复制
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+            - name: 为添加的磁盘启用复制
+              href: azure-to-azure-enable-replication-added-disk.md
             - name: 排除磁盘
               href: azure-to-azure-exclude-disks.md
             - name: 故障转移后重新保护 Azure VM
@@ -197,6 +201,8 @@
               items:
                 - name: 概述与先决条件
                   href: site-recovery-deployment-planner.md
+                - name: 部署规划器版本历史记录
+                  href: site-recovery-deployment-planner-history.md
                 - name: 运行部署规划器工具
                   href: site-recovery-vmware-deployment-planner-run.md
                 - name: 分析生成的报告
@@ -319,6 +325,8 @@
               items:
                 - name: 概述与先决条件
                   href: hyper-v-deployment-planner-overview.md
+                - name: 部署规划器版本历史记录
+                  href: site-recovery-deployment-planner-history.md
                 - name: 运行部署规划器工具
                   href: hyper-v-deployment-planner-run.md
                 - name: 分析生成的报告
@@ -425,10 +433,14 @@
           href: site-recovery-extension-troubleshoot.md
     - name: VMware/物理服务器
       items:
+        - name: 监视进程服务器
+          href: vmware-physical-azure-monitor-process-server.md
         - name: 排查 VMware 到 Azure 复制的问题
           href: vmware-azure-troubleshoot-replication.md
         - name: 排查配置服务器问题
           href: vmware-azure-troubleshoot-configuration-server.md
+        - name: 排查进程服务器问题
+          href: vmware-physical-azure-troubleshoot-process-server.md
         - name: 排查 VMware VM/物理服务器的移动服务推送安装问题
           href: vmware-azure-troubleshoot-push-install.md
         - name: 排查故障转移到 Azure 的问题

@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL 服务器防火墙规则
-description: 本文介绍 Azure Database for PostgreSQL 服务器的防火墙规则。
+title: Azure Database for PostgreSQL-单个服务器中的防火墙规则
+description: 本文介绍 Azure Database for PostgreSQL-单个服务器防火墙规则。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560175"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073575"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure Database for PostgreSQL 服务器防火墙规则
-在指定哪些计算机具有访问权限之前，Azure Database for PostgreSQL 服务器防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-单个服务器中的防火墙规则
+Azure Database for PostgreSQL 服务器防火墙阻止对你的数据库服务器所有访问，直到你指定哪些计算机具有的权限。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
 要配置防火墙，请创建防火墙规则，以指定可接受的 IP 地址的范围。 可以在服务器级别创建防火墙规则。
 
 **防火墙规则：** 这些规则允许客户端访问整个 Azure Database for PostgreSQL 服务器，即同一逻辑服务器内的所有数据库。 可以通过使用 Azure 门户或 Azure CLI 命令配置服务器级防火墙规则。 若要创建服务器级防火墙规则，用户必须是订阅所有者或订阅参与者。

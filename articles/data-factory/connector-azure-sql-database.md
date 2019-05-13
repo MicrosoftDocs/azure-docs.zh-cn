@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 231f44612b5e87afdf84f31d86c80be644fb4484
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926533"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154328"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure SQL 数据库复制数据
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -228,7 +228,7 @@ Azure SQL 数据库链接服务支持以下属性：
 
 有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 本部分提供 Azure SQL 数据库数据集支持的属性列表。
 
-要从/向 Azure SQL 数据库复制数据，请将数据集的 type 属性设置为 AzureSqlTable。 支持以下属性：
+若要从 / 向 Azure SQL 数据库复制数据，支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -247,6 +247,7 @@ Azure SQL 数据库链接服务支持以下属性：
             "referenceName": "<Azure SQL Database linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -368,7 +369,7 @@ GO
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 复制活动接收器的 type 属性必须设置为 SqlSink。 | 是 |
-| writeBatchSize | 插入 SQL 表的行数**每个批处理**。<br/> 允许的值为 **integer**（行数）。 | 不。 默认值为 10000。 |
+| writeBatchSize | 插入 SQL 表的行数**每个批处理**。<br/> 允许的值为 **integer**（行数）。 默认情况下，数据工厂动态确定基于行大小的合适的批大小。 | 否 |
 | writeBatchTimeout | 超时前等待批插入操作完成的时间。<br/> 允许的值为 **timespan**。 示例：“00:30:00”（30 分钟）。 | 否 |
 | preCopyScript | 将数据写入到 Azure SQL 数据库之前，指定复制活动要运行的 SQL 查询。 每次运行复制仅调用该查询一次。 使用此属性清理预加载的数据。 | 否 |
 | sqlWriterStoredProcedureName | 定义如何将源数据应用于目标表的存储过程的名称。 例如，使用自己的业务逻辑执行 upsert 或转换操作。 <br/><br/>此存储过程由每个批处理调用。 对于仅运行一次且与源数据无关的操作，请使用 `preCopyScript` 属性。 例如，删除和截断操作。 | 否 |

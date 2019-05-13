@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 2074ea1028f6a5e8a0251c6d0c9519361db6ba8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617331"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150385"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>快速入门：使用 T-SQL（预览版）创建工作负荷分类器
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入门：使用 T-SQL 创建工作负荷分类器
 
 在本快速入门中，我们将为组织的 CEO 快速创建一个具有较高重要性的工作负荷分类器。 此工作负荷分类器允许 CEO 查询的优先级高于队列中重要性更低的其他查询。
-
-> [!Note]
-> SQL 数据仓库第 2 代已提供工作负载分类预览。 工作负载管理分类和重要性预览适用于发布日期为 2019 年 4 月 9 日或之后的版本。  用户应避免使用早于此日期的版本来进行工作负载管理测试。  要确定你的版本是否支持工作负载管理，请在连接到 SQL 数据仓库实例时运行select @@version。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
 

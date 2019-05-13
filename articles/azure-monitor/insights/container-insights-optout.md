@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 2493866f2926f29e673a7825dbd3c4a2d0e41808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e4268cb3a8d6ac62da12f689560338eee7e6935
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494911"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071819"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -26,13 +26,13 @@ ms.locfileid: "60494911"
 
 
 ## <a name="azure-cli"></a>Azure CLI
-使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 此命令从群集节点删除代理，它不会删除该解决方案或已收集和存储在 Azure Monitor 资源中的数据。  
+使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-若要重新启用对群集的监视，请参阅[使用 Azure CLI 启用监视](container-insights-onboard.md#enable-using-azure-cli)。
+若要重新启用对群集的监视，请参阅[使用 Azure CLI 启用监视](container-insights-enable-new-cluster.md#enable-using-azure-cli)。
 
 ## <a name="azure-resource-manager-template"></a>Azure 资源管理器模板
 下面提供了两个 Azure 资源管理器模板，以支持在资源组中一致且重复地删除解决方案资源。 一个是 JSON 模板，用于指定配置为“停止监视”，另一个模板包含配置的参数值，用于指定在其中部署群集的 AKS 群集资源 ID 和资源组。 

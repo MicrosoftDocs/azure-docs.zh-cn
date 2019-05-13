@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/29/2018
 ms.author: sharadag
-ms.openlocfilehash: 346fa5721df6c9ce0cf355adea21f59c93a394a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2d4c93b7ef707f5b09bc2f5f93d56c50c1bb3458
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736320"
 ---
 # <a name="what-is-azure-front-door-service"></a>什么是 Azure Front Door 服务？
 在 Azure Front Door 服务中可以进行优化以实现最佳性能以及进行即时全球故障转移以实现高可用性，并以此定义、管理和监视 Web 流量的全局路由。 使用 Front Door，可将全球（多区域）消费型和企业应用程序转化成可靠、高性能、个性化的现代应用程序、API 和内容，供 Azure 全球受众访问。

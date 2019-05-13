@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/13/2018
+ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: d48a8d2f937cee67d6ab9a12618607d367cdaed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0f2c2ccc9634e1354c1b740e50b65b217aa996b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615129"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992847"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure 中虚拟机的维护 
 

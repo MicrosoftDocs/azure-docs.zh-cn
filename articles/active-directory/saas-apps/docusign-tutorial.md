@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565744"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>教程：Azure Active Directory 与 DocuSign 的集成
 
@@ -178,7 +178,7 @@ ms.locfileid: "59565744"
 
     ![配置单一登录][62]
 
-    i. 选择要通过 Azure AD 声明映射的字段。 在此示例中，**emailaddress** 声明使用 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 的值映射。 这是 Azure AD 中用于电子邮件声明的默认声明名称，然后单击“保存”。
+    i. 选择要通过 Azure AD 声明映射的字段。 在此示例中，**emailaddress** 声明使用 **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 的值映射。 这是 Azure AD 中用于电子邮件声明的默认声明名称，然后单击“保存”。
 
     ![配置单一登录][57]
 

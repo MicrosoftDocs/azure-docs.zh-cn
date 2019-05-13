@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847342"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>教程：Azure Active Directory 与 OpenAthens 的集成
 
@@ -143,11 +143,11 @@ ms.locfileid: "57847342"
 
     a. 在“显示名称映射”中，选择“使用属性”。
 
-    b. 在“显示名称属性”文本框中，输入值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    b. 在“显示名称属性”文本框中，输入值 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
     
     c. 在“唯一用户映射”中，选择“使用属性”。
 
-    d. 在“唯一用户属性”文本框中，输入值 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    d. 在“唯一用户属性”文本框中，输入值 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
 
     e. 在“状态”中，选中所有三个复选框。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0bf4aff8e0bae3e84e6383ec560dbfe67e30b994
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998084"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408720"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入门：使用应用程序配置创建 .NET Core 应用
 
@@ -39,7 +39,7 @@ Azure 应用配置是 Azure 中的托管配置服务。 借助它，无需代码
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“键/值资源管理器” > “+创建”来添加以下键值对：
+6. 选择“配置资源管理器” > “+创建”来添加以下键值对：
 
     | 密钥 | 值 |
     |---|---|
@@ -61,13 +61,13 @@ Azure 应用配置是 Azure 中的托管配置服务。 借助它，无需代码
 
 1. 通过运行以下命令，添加对 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 包的引用：
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. 运行以下命令，还原项目包：
 
         dotnet restore
 
-3. 打开 *Program.cs*，并添加对应用程序配置 .NET Core 配置提供程序的引用。
+3. 打开 *Program.cs*，并添加对 .NET Core 应用程序配置提供程序的引用。
 
     ```csharp
     using Microsoft.Extensions.Configuration;

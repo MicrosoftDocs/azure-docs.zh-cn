@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919996"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441505"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>加入 Azure Automation State Configuration 管理的计算机
 
@@ -75,95 +75,13 @@ Azure Automation State Configuration 可让你使用 Azure 门户、Azure 资源
 [Desired State Configuration 扩展与 Azure 资源管理器模板](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template)中提供了示例。
 若要查找在模板中用作参数的注册密钥和注册 URL，请参阅以下[**安全注册**](#secure-registration)部分。
 
-## <a name="azure-virtual-machines-classic"></a>Azure 虚拟机（经典）
-
-利用 Azure Automation State Configuration 可以轻松加入 Azure 虚拟机（经典），以使用 Azure 门户或 PowerShell 进行配置管理。 在幕后，在不需要管理员远程连接到 VM 的情况下，Azure VM Desired State Configuration 扩展会在 Azure Automation State Configuration 中注册 VM。
-在下面的示例提供了跟踪进度或故障排除步骤[**排查 Azure 虚拟机登记**](#troubleshooting-azure-virtual-machine-onboarding)部分。
-
-### <a name="azure-portal-classic-virtual-machines"></a>Azure 门户 （经典虚拟机）
-
-在 [Azure 门户](https://portal.azure.com/)中，单击“浏览” -> “虚拟机(经典)”。 选择要登记的 Windows VM。 在虚拟机的仪表板边栏选项卡上，单击“所有设置” -> “扩展” -> “添加” -> “Azure 自动化 DSC” -> “创建”。
-输入[PowerShell DSC 本地配置管理器值](/powershell/dsc/metaconfig4)的自动化帐户的注册密钥和注册 URL，并可以选择的节点配置将分配给 VM。
-
-![DSC 的 Azure VM 扩展](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
-
-若要查找计算机所要登记到的自动化帐户的注册 URL 与密钥，请参阅以下[**安全注册**](#secure-registration)部分：
-
-### <a name="powershell-classic-virtual-machines"></a>PowerShell （经典虚拟机）
-
-```powershell
-# log in to both Azure Service Management and Azure Resource Manager
-Add-AzureAccount
-Connect-AzureRmAccount
-
-# fill in correct values for your VM/Automation account here
-$VMName = ''
-$ServiceName = ''
-$AutomationAccountName = ''
-$AutomationAccountResourceGroup = ''
-
-# fill in the name of a Node Configuration in Azure Automation State Configuration, for this VM to conform to
-# NOTE: DSC Node Configuration names are case sensitive in the portal.
-$NodeConfigName = ''
-
-# get Azure Automation State Configuration registration info
-$Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-$RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
-
-# use the DSC extension to onboard the VM for management with Azure Automation State Configuration
-$VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-$PublicConfiguration = ConvertTo-Json -Depth 8 @{
-    SasToken = ''
-    ModulesUrl = 'https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip'
-    ConfigurationFunction = 'RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2'
-
-# update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
-# See https://docs.microsoft.com/powershell/dsc/metaConfig for more details
-    Properties = @{
-        RegistrationKey = @{
-            UserName = 'notused'
-            Password = 'PrivateSettingsRef:RegistrationKey'
-        }
-        RegistrationUrl = $RegistrationInfo.Endpoint
-        NodeConfigurationName = $NodeConfigName
-        ConfigurationMode = 'ApplyAndMonitor'
-        ConfigurationModeFrequencyMins = 15
-        RefreshFrequencyMins = 30
-        RebootNodeIfNeeded = $False
-        ActionAfterReboot = 'ContinueConfiguration'
-        AllowModuleOverwrite = $False
-    }
-}
-
-$PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-    Items = @{
-        RegistrationKey = $RegistrationInfo.PrimaryKey
-    }
-}
-
-$VM = Set-AzureVMExtension `
-    -VM $vm `
-    -Publisher Microsoft.Powershell `
-    -ExtensionName DSC `
-    -Version 2.76 `
-    -PublicConfiguration $PublicConfiguration `
-    -PrivateConfiguration $PrivateConfiguration `
-    -ForceUpdate
-
-$VM | Update-AzureVM
-```
-
-> [!NOTE]
-> State Configuration 节点配置名称在门户中区分大小写。 如果大小写不匹配，节点将不会显示在“节点”选项卡下。
-
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Amazon Web Services (AWS) 虚拟机
 
 可以轻松地加入 Amazon Web Services 虚拟机，以便通过 Azure Automation State Configuration 使用 AWS DSC Toolkit 进行配置管理。 可在[此处](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/)了解更多有关此工具包的信息。
 
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>位于本地或 Azure 以外的云中的物理/虚拟 Windows 计算机/AWS
 
-还可以将本地或其他云环境中运行的 Windows 服务器加入到 Azure Automation State Configuration，只要它们能够对 Azure 进行出站访问即可：
+运行 Windows 服务器在本地或其他云环境中还可以登记到 Azure 自动化状态配置，只要它们具有[到 Azure 的出站访问](automation-dsc-overview.md#network-planning):
 
 1. 确保已在要加入到 Azure Automation State Configuration 的计算机上安装最新版本的 [WMF 5](https://aka.ms/wmf5latest)。
 1. 请根据以下[**生成 DSC 元配置**](#generating-dsc-metaconfigurations)部分中的说明生成包含所需 DSC 元配置的文件夹。
@@ -178,7 +96,7 @@ $VM | Update-AzureVM
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>位于本地或者非 Azure 云中的物理/虚拟 Linux 计算机
 
-还可以将本地或其他云环境中运行的 Linux 服务器加入到 Azure Automation State Configuration，只要它们能够对 Azure 进行出站访问即可：
+运行的 Linux 服务器的本地或其他云环境中还可以登记到 Azure 自动化状态配置，只要它们具有[到 Azure 的出站访问](automation-dsc-overview.md#network-planning):
 
 1. 确保已在希望加入到 Azure Automation State Configuration 的计算机上安装[适用于 Linux 的 PowerShell Desired State Configuration](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 的最新版本。
 1. 如果 [PowerShell DSC 本地 Configuration Manager 默认值](/powershell/dsc/metaconfig4)与用例匹配，并且想要将计算机加入为**同时**从 Azure Automation State Configuration 提取并报告信息，则请执行以下操作：

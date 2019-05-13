@@ -3,19 +3,19 @@ title: 快速入门 - 使用 Azure Active Directory B2C 为单页应用设置登
 description: 运行一个使用 Azure Active Directory B2C 提供帐户登录的示例单页应用程序。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c841497fe0a072497b622876b9b0205097ccb25e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190389"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>快速入门：使用 Azure Active Directory B2C 为单页应用设置登录
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C 提供云身份管理来保护应用程序
 
 ## <a name="prerequisites"></a>先决条件
 
-- 带有 ASP.NET 和 Web 开发工作负荷的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+- 带有 ASP.NET 和 Web 开发工作负荷的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 - 安装 [Node.js](https://nodejs.org/en/download/)
 - Facebook、Google、Microsoft 或 Twitter 中的社交帐户。
 - 从 GitHub [下载 zip 文件](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip)或克隆示例 Web 应用。
@@ -82,7 +82,12 @@ Azure Active Directory (Azure AD) B2C 提供云身份管理来保护应用程序
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用示例单页应用程序执行以下操作：使用自定义登录页登录、使用社交标识提供者登录、创建 Azure AD B2C 帐户，以及调用受 Azure AD B2C 保护的 Web API。 
+本快速入门使用示例单页应用程序执行了以下操作：
+
+* 使用自定义登录页登录
+* 使用社交标识提供者登录
+* 创建 Azure AD B2C 租户
+* 调用受 Azure AD B2C 保护的 Web API
 
 通过创建自己的 Azure AD B2C 租户来完成入门。
 

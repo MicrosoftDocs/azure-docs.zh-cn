@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467393"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230148"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 的 Kubernetes 核心概念
 
@@ -99,9 +99,11 @@ AKS 提供单租户群集主和专用 API 服务器，计划程序等。由你�
 
 ### <a name="node-pools"></a>节点池
 
-具有相同配置的节点将统一合并成节点池。 Kubernetes 群集包含一个或多个节点池。 创建 AKS 群集时会定义初始节点数和大小，从而创建默认节点池。 AKS 中的此默认节点池包含运行代理节点的基础 VM。
+具有相同配置的节点将统一合并成节点池。 Kubernetes 群集包含一个或多个节点池。 创建 AKS 群集时会定义初始节点数和大小，从而创建默认节点池。 AKS 中的此默认节点池包含运行代理节点的基础 VM。 多个节点池支持目前处于预览状态，在 AKS 中。
 
-缩放或升级 AKS 群集时，将对默认节点池执行操作。 对于升级操作，将在节点池中的其他节点上计划运行的容器，直到成功升级所有节点。
+缩放或升级 AKS 群集时，将对默认节点池执行操作。 您还可以选择缩放或升级的特定节点池。 对于升级操作，将在节点池中的其他节点上计划运行的容器，直到成功升级所有节点。
+
+有关如何使用在 AKS 中的多个节点池的详细信息，请参阅[创建和管理在 AKS 中为群集的多个节点池][use-multiple-node-pools]。
 
 ## <a name="pods"></a>Pod
 
@@ -245,3 +247,4 @@ Kubernetes 资源（如 Pod 和部署）以逻辑方式分组到命名空间中�
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

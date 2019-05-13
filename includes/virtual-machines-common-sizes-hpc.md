@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b7cda593bd4dd39a7220aa282529535c6a63bea
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64914532"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198846"
 ---
 Azure H 系列虚拟机 (Vm) 旨在提供领导类性能，MPI 可伸缩性和成本效率的真实 HPC 工作负荷有多种。
 
@@ -31,7 +31,7 @@ H 系列 Vm 的高 CPU 频率或每个核心要求较大内存由驱动应用程
 
 | 大小 | vCPU | 处理器 | 内存 (GB) | 内存带宽 GB/秒 | 基本 CPU 频率 (GHz) | 所有核心频率 （g h z，峰值） | 单核频率 （g h z，峰值） | RDMA 性能 (GB/s) | MPI 支持 | 临时存储 (GB) | 最大数据磁盘数 | 最大以太网 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | 全部 | 700 | 4 | 1 |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | 全部 | 700 | 4 | 第 |
 
 <br>
 
@@ -61,8 +61,8 @@ ACU：290-300
 | Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x，MS MPI | 2000 | 64 | 4 |
 | Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS MPI | 1000 | 32 | 2 |
 | Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS MPI | 2000 | 64 | 4 |
-| Standard_H16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | 2000 | Intel 5.x，MS MPI | 64 | 4 |
-| Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | 2000 | Intel 5.x，MS MPI | 64 | 4 |
+| Standard_H16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS MPI | 2000 | 64 | 4 |
+| Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x，MS MPI | 2000 | 64 | 4 |
 
 <sup>1</sup> 对于 MPI 应用程序来说，专用 RDMA 后端网络是通过 FDR InfiniBand 网络启用的，后者可以提供相当低的延迟和高带宽。
 

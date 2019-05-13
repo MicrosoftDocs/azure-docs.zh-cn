@@ -4,6 +4,8 @@
   items:
     - name: 关于通知中心
       href: notification-hubs-push-notification-overview.md
+    - name: 与应用服务移动应用集成
+      href: notification-hubs-app-service.md
 - name: 快速入门
   items:
     - name: 创建通知中心 - Azure 门户
@@ -14,16 +16,24 @@
   items:
     - name: Android
       items:
-        - name: 使用 Firebase Cloud Messaging 推送通知
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: 使用 Google Cloud Messaging 推送通知
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: 向特定设备推送通知
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: 向特定用户推送通知
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: 向 Xamarin Android 应用推送通知
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Firebase Cloud Messaging
+          items:
+            - name: 将通知推送到所有注册
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: 向特定设备推送通知
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: 向特定用户推送通知
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: 向 Xamarin Android 应用推送通知
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Google Cloud Message（已弃用）
+          items:
+            - name: 将通知推送到所有注册
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: 向特定设备推送通知
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: 向特定用户推送通知
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: 百度
       items:
         - name: 使用百度云推送来推送通知

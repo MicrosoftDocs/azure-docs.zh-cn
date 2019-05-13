@@ -1,10 +1,10 @@
 ---
-title: 将应用注册到 Microsoft 标识平台（预览版）| Azure
+title: 将应用注册到 Microsoft 标识平台 | Microsoft 标识平台
 description: 了解如何添加应用程序并将其注册到 Microsoft 标识平台。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090706"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413608"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>快速入门：将应用程序注册到 Microsoft 标识平台（预览版）
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入门：将应用程序注册到 Microsoft 标识平台
 
 企业开发人员和软件即服务 (SaaS) 提供商可以开发能够与 Microsoft 标识平台集成的商业云服务或业务线应用程序，以针对其服务提供安全的登录和授权。
 
-本快速入门介绍如何在 Azure 门户中使用**应用注册（预览版）** 体验添加和注册应用程序，使应用能够与 Microsoft 标识平台集成。 若要详细了解新应用注册体验中的新功能和改进，请参阅[此博客文章](https://developer.microsoft.com/graph/blogs/new-app-registration/)。 
-
-## <a name="prerequisite"></a>先决条件
-
-若要开始，需加入预览版体验，了解如何在 Azure 门户中进行应用注册。 本快速入门中的步骤对应于新的 UI，只有在你选择加入预览版体验的情况下才适用。
+本快速入门介绍了如何在 Azure 门户中使用**应用注册**体验来添加和注册应用程序，使应用能够与 Microsoft 标识平台集成。 若要详细了解新应用注册体验中的新功能和改进，请参阅[此博客文章](https://developer.microsoft.com/graph/blogs/new-app-registration/)。
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>使用 Azure 门户注册新应用程序
 
 1. 使用工作或学校帐户或个人 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.com)。
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中选择“Azure Active Directory”服务，然后选择“应用注册(预览版)”>“新建注册”。
+1. 在左侧导航窗格中，选择“Azure Active Directory”服务，然后选择“应用注册”>“新建注册”。
 1. 出现“注册应用程序”页后，请输入应用程序的注册信息：
 
    - **名称**：输入一个会显示给应用用户的有意义的应用程序名称。

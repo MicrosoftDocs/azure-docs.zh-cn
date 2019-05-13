@@ -48,7 +48,7 @@
         - name: 用户、组和角色
           tocHref: /azure/active-directory/users-groups-roles/
           topicHref: /azure/active-directory/users-groups-roles/
-        - name: 标识治理
+        - name: 标识监管
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
         - name: 应用程序管理
@@ -105,6 +105,9 @@
     - name: 自动化
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure 区块链服务
+      tocHref: /azure/blockchain/service
+      topicHref: /azure/blockchain/service
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
@@ -145,6 +148,9 @@
     - name: Azure NetApp 文件
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
+    - name: CloudSimple 提供的 Azure VMware 解决方案
+      tocHref: /azure/vmware-cloudsimple/
+      topicHref: /azure/vmware-cloudsimple/
     - name: Azure 门户自定义
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
@@ -342,6 +348,9 @@
     - name: AKS
       tocHref: /azure/aks/
       topicHref: /azure/aks/
+    - name: OpenShift
+      tocHref: /azure/openshift/
+      topicHref: /azure/openshift/
     - name: 容器服务
       tocHref: /azure/container-service/
       topicHref: /azure/container-service/
@@ -476,6 +485,10 @@
         - name: 服务
           tocHref: /azure/machine-learning/service
           topicHref: /azure/machine-learning/service/
+          items:
+            - name: 算法和模块参考
+              tocHref: /azure/machine-learning/algorithm-module-reference
+              topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
         - name: 工作室
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
@@ -532,6 +545,9 @@
     - name: 通知中心
       tocHref: /azure/notification-hubs/
       topicHref: /azure/notification-hubs/
+    - name: 开放数据集
+      tocHref: /azure/open-datasets/
+      topicHref: /azure/open-datasets/
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/

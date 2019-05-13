@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914902"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021663"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>向 Azure 搜索索引添加自定义分析器
 
@@ -300,7 +300,7 @@ analyzer_type 仅适用于可自定义的分析器。 如果没有选项（比�
 |[mapping](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|一个字符筛选器，它应用使用 mappings 选项定义的映射。 匹配具有贪婪性（给定点的最长模式匹配获胜）。 允许替换为空字符串。<br /><br /> 选项<br /><br /> mappings (type: string array) - 以下格式的映射列表：“a=>b”（出现的所有字符“a”均替换为字符“b”）。 必需。|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|一个字符筛选器，用于替换输入字符串中的字符。 它使用正则表达式来标识要保留的字符序列，并使用替换模式来标识要替换的字符。 例如，input text = "aa  bb aa bb", pattern="(aa)\\\s+(bb)" replacement="$1#$2", result = "aa#bb aa#bb"。<br /><br /> 选项<br /><br /> pattern (type: string) - 必需。<br /><br /> replacement (type: string) - 必需。|  
 
- <sup>1</sup> 字符筛选器类型在代码中始终带有前缀“#Microsoft.Azure.Search”，因此，“MappingCharFilter”实际上会被指定为“#Microsoft.Azure.Search.MappingCharFilter”。 为缩小表的宽度，我们删除了该前缀，但请记住在代码中包含该前缀。 请注意，char_filter_type 仅适用于可自定义的筛选器。 如果没有选项（比如 html_strip），则没有关联的 #Microsoft.Azure.Search 类型。
+ <sup>1</sup> 字符筛选器类型在代码中始终带有前缀“#Microsoft.Azure.Search”，因此，“MappingCharFilter”实际上会被指定为“#Microsoft.Azure.Search.MappingCharFilter”。 为缩小表的宽度，我们删除了该前缀，但请记住在代码中包含该前缀。 请注意该 char_filter_type 仅提供的可自定义的筛选器。 如果没有选项（比如 html_strip），则没有关联的 #Microsoft.Azure.Search 类型。
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ analyzer_type 仅适用于可自定义的分析器。 如果没有选项（比�
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|将 URL 和电子邮件标记为一个标记。<br /><br /> 选项<br /><br /> maxTokenLength (type: int) - 最大标记长度。 默认值：255，最大值：300。 超过最大长度的标记将被拆分。|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|（仅当有可用的选项时，类型才适用） |在空格处划分文本。 超过 255 个字符的标记将被拆分。|  
 
- <sup>1</sup> Tokenizer 类型在代码中始终带有前缀“#Microsoft.Azure.Search”，因此，“ClassicTokenizer”实际上会被指定为“#Microsoft.Azure.Search.ClassicTokenizer”。 为缩小表的宽度，我们删除了该前缀，但请记住在代码中包含该前缀。 请注意，tokenizer_type 仅适用于可自定义的 tokenizer。 如果没有选项（比如 letter tokenizer），则没有关联的 #Microsoft.Azure.Search 类型。
+ <sup>1</sup> Tokenizer 类型在代码中始终带有前缀“#Microsoft.Azure.Search”，因此，“ClassicTokenizer”实际上会被指定为“#Microsoft.Azure.Search.ClassicTokenizer”。 为缩小表的宽度，我们删除了该前缀，但请记住在代码中包含该前缀。 请注意该 tokenizer_type 仅提供给可自定义的标记化器。 如果没有选项（比如 letter tokenizer），则没有关联的 #Microsoft.Azure.Search 类型。
 
 <a name="TokenFilters"></a>
 

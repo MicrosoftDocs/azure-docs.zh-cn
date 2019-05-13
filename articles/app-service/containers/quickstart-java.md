@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: c97d4a373970514b920581aa258b61c1b1cb978c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 7c6d5034335a455d24b1f22919b672e2ead2810d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683998"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510865"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>快速入门：在 Linux 上的应用服务中创建 Java 应用
 
@@ -115,7 +115,7 @@ code pom.xml
 mvn package azure-webapp:deploy
 ```
 
-部署完成后，在 Web 浏览器中使用以下 URL 浏览到已部署的应用程序，例如 `http://<webapp>.azurewebsites.net/helloworld`。 
+部署完成后，在 Web 浏览器中使用以下 URL 浏览到已部署的应用程序，例如 `http://<webapp>.azurewebsites.net`。 
 
 ![在 Azure 中运行应用的示例](media/quickstart-java/java-hello-world-in-browser-curl.png)
 

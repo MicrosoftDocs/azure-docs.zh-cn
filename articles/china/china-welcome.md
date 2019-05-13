@@ -1,6 +1,6 @@
 ---
 title: 欢迎访问 Azure 中国世纪互联 | Microsoft Docs
-description: Microsoft Azure 中国世纪互联是中国大陆的云服务的物理独立实例。 这些服务立足于 Microsoft 全球云服务所涵盖的相同 Azure、Office 365 和 Power BI 技术，并提供与全球云服务相当的服务级别。
+description: Microsoft Azure 中国世纪互联是中国的云服务的物理独立实例。 这些服务立足于 Microsoft 全球云服务所涵盖的相同 Azure、Office 365 和 Power BI 技术，并提供与全球云服务相当的服务级别。
 services: china
 cloud: na
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: v-wimarc
-ms.openlocfilehash: ae3c2d57c3ea43f67f612c6933c0a4e335ed3e3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60f847a4d708e8c5c8e9bac352a19f2386adfa4e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226813"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511140"
 ---
 # <a name="welcome-to-azure-china-21vianet"></a>欢迎访问 Azure 中国世纪互联
-世纪互联运营的 Microsoft Azure（Azure 中国世纪互联）是位于中国大陆的云服务的物理独立实例，其运营和交易由上海蓝云网络科技有限公司（即“世纪互联”，北京世纪互联宽带数据中心有限公司的全资子公司）展开。 
+世纪互联运营的 Microsoft Azure（Azure 中国世纪互联）是位于中国的云服务的物理独立实例，其运营和交易由上海蓝云网络科技有限公司（即“世纪互联”，北京世纪互联宽带数据中心有限公司的全资子公司）展开。 
 
 这些服务立足于 Microsoft 全球云服务所涵盖的相同 Azure、Microsoft Office 365 和 Microsoft Power BI 技术，并提供与全球云服务相当的服务级别。 在适用的情况下，中国区 Microsoft Azure 的协议与合同将在客户与世纪互联之间签订。
 
@@ -37,7 +37,7 @@ Azure 中国世纪互联支持全球 Azure 所提供的大多数优异[服务](h
 - 提供 Azure 解决方案产品的[合作伙伴](/azure/china/china-resources-partners)
 
 ## <a name="operations"></a>操作
-根据中国的[电信法规](http://www.miit.gov.cn/n1146295/n1146557/n1146619/c4860613/content.html)，（中文版），云服务（IaaS 和 PaaS）的提供商必须获得增值电信业务的许可。 在当地注册的公司中，只有不到 50% 的外资公司符合这些许可条件。 为了遵守此法规，中国的 Azure 服务由世纪互联根据 Microsoft 许可的技术运营。 
+根据中国的[电信法规](http://www.china.org.cn/business/laws_regulations/2010-01/20/content_19273945.htm)，（中文版），云服务（IaaS 和 PaaS）的提供商必须获得增值电信业务的许可。 在当地注册的公司中，只有不到 50% 的外资公司符合这些许可条件。 为了遵守此法规，中国的 Azure 服务由世纪互联根据 Microsoft 许可的技术运营。 
 
 ## <a name="next-steps"></a>后续步骤
 - [Microsoft Azure 中国世纪互联的服务和功能](https://www.azure.cn/home/features/products-by-region)
@@ -45,6 +45,6 @@ Azure 中国世纪互联支持全球 Azure 所提供的大多数优异[服务](h
 - [Azure 案例研究](https://www.azure.cn/partnerancasestudy/case-studies/)（中文版）
 - [GitHub 中的全局连接工具包](https://github.com/Azure/AzureGlobalConnectionToolkit)
 - [世纪互联运营的云服务业务模型](https://wacnppe.blob.core.chinacloudapi.cn/marketing-resource/documents/Windows_Azure_and_Office_365_cloud_services_business_model_operated_by_21Vianet12.pdf)（中文版）
-- [Azure 中国世纪互联信任中心：符合性](https://www.trustcenter.cn/compliance/)
+- [Azure 中国世纪互联信任中心：Compliance](https://www.trustcenter.cn/compliance/)（Microsoft 信任中心：合规性）
 - [开发人员指南](https://www.azure.cn/documentation/articles/developerdifferences/#dev-guide)（中文版）
 

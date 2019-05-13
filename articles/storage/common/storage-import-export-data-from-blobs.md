@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479175"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209626"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 本文分步说明如何使用 Azure 导入/导出服务从 Azure Blob 存储安全地导出大量数据。 该服务要求你将空驱动器寄送到 Azure 数据中心。 该服务将数据从存储帐户导出到驱动器，然后将驱动器寄回。
@@ -52,10 +52,10 @@ ms.locfileid: "61479175"
     - 为导出作业输入一个描述性名称。 使用所选名称来跟踪作业进度。 
         - 此名称只能包含小写字母、数字、连字符和下划线。
         - 此名称必须以字母开头，并且不得包含空格。 
-    - 选择一个订阅。
+    - 选择订阅。
     - 输入或选择一个资源组。
 
-        ![基础](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![基本](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. 在“作业详细信息”中：
 
@@ -83,7 +83,7 @@ ms.locfileid: "61479175"
 4. 在“回寄信息”中：
 
     - 从下拉列表中选择承运商。 如果你想要使用非 FedEx/DHL 快递商，请从下拉列表中选择一个现有的选项。 联系 Azure 数据框操作团队的`adbops@microsoft.com`与你打算使用与运营商相关的信息。
-    - 输入你已在该承运商那里创建的有效承运商帐户编号。 导入作业完成后，Microsoft 使用此帐户寄回驱动器。 
+    - 输入你已在该承运商那里创建的有效承运商帐户编号。 Microsoft 使用此帐户寄回驱动器导出作业完成后。 
     - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。
 
         > [!TIP] 
@@ -196,10 +196,10 @@ Number of drives needed:        3
    | 选择器 | Blob 路径 | 描述 |
    | --- | --- | --- |
    | 开头为 |/ |导出存储帐户中的所有 Blob |
-   | 开头为 |/$root/ |导出根容器中的所有 Blob |
-   | 开头为 |/book |导出任何容器中以前缀 **book** 开头的所有 Blob |
-   | 开头为 |/music/ |导出容器 **music** 中的所有 Blob |
-   | 开头为 |/music/love |导出容器 **music** 中以前缀 **love** 开头的所有 Blob |
+   | 开始 |/$root/ |导出根容器中的所有 Blob |
+   | 开始 |/book |导出任何容器中以前缀 **book** 开头的所有 Blob |
+   | 开始 |/music/ |导出容器 **music** 中的所有 Blob |
+   | 开始 |/music/love |导出容器 **music** 中以前缀 **love** 开头的所有 Blob |
    | 等于 |$root/logo.bmp |导出根容器中的 Blob **logo.bmp** |
    | 等于 |videos/story.mp4 |导出容器 **videos** 中的 Blob **story.mp4** |
 

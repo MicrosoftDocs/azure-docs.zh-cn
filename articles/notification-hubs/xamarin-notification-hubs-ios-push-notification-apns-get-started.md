@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 94268d47eaf23e1bac54bb9791ec149bb5cccacb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 94f3d2345ad9ab8187a8c3eff8dc3684b9f4cc39
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855650"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141347"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用推送通知
 
@@ -90,7 +90,7 @@ ms.locfileid: "57855650"
 
     ![Visual Studio- iOS 应用配置][32]
 
-4. 在“解决方案”视图中双击 `Entitlements.plist`，确保选中“启用推送通知”。**
+4. 在“解决方案”视图中双击 `Entitlements.plist`，确保选中“启用推送通知”。
 
     ![Visual Studio - iOS 授权配置][33]
 

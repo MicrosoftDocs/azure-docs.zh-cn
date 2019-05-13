@@ -10,12 +10,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3b802573bfc1eba74217d01005a2f232ff575fda
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990473"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730393"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库的单一数据库中设计关系数据库
 
@@ -79,7 +79,7 @@ Azure SQL 数据库是 Microsoft 云 (Azure) 中的关系型数据库即服务 (
 5. 单击“选择”。
 6. 单击“定价层”，指定服务层级、DTU 或 vCore 数，以及存储量。 可以浏览相关选项，了解每个服务层级可提供的 DTU/vCore 数和存储。
 
-    选择服务层级、DTU 数或 vCore 数以及存储量后，然后单击“应用”。
+    选择服务层、DTU 数或 vCore 数以及存储量后，然后单击“应用”。
 
 7. 输入空白数据库的“排序规则”（就本教程来说，请使用默认值）。 有关排序规则的详细信息，请参阅 [Collations](/sql/t-sql/statements/collations)（排序规则）
 
@@ -227,10 +227,10 @@ SQL 数据库服务在服务器级别创建 IP 防火墙。 此防火墙阻止�
 4. 执行以下命令，将示例数据插入表，使用环境值替换“服务器”、“数据库”、“用户”和“密码”的值。
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 现已将示例数据加载到了之前创建的表中。

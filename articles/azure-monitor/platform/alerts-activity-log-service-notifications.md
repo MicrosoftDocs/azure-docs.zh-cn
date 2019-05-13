@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b3c967cd43745a4ae87fefc578282f5427a5f79
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776838"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405702"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>创建有关服务通知的活动日志警报
 ## <a name="overview"></a>概述
@@ -36,6 +36,10 @@ ms.locfileid: "60776838"
 若要了解有关操作组的详细信息，请参阅[创建和管理操作组](../../azure-monitor/platform/action-groups.md)。
 
 有关如何使用 Azure 资源管理器模板配置服务运行状况通知警报的信息，请参阅[资源管理器模板](alerts-activity-log.md)。
+
+### <a name="watch-a-video-on-setting-up-your-first-azure-service-health-alert"></a>观看视频设置第一个 Azure 服务运行状况警报
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
 ## <a name="alert-and-new-action-group-using-azure-portal"></a>使用 Azure 门户发出警报和新建操作组
 1. 在[门户](https://portal.azure.com)中，选择“服务运行状况”。
@@ -195,6 +199,8 @@ ms.locfileid: "60776838"
 * 如果要暂时停止或恢复接收警报的通知，可“禁用”或“启用”它。
 
 ## <a name="next-steps"></a>后续步骤
+- 了解如何[的最佳实践设置 Azure 服务运行状况警报](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUa)。
+- 了解如何[安装程序的 Azure 服务运行状况的移动推送通知](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw)。
 - 了解如何[为现有问题管理系统配置 Webhook 通知](../../service-health/service-health-alert-webhook-guide.md)。
 - 了解[服务运行状况通知](../../azure-monitor/platform/service-notifications.md)。
 - 了解[通知速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。

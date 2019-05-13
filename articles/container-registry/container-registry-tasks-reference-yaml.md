@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827249"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192269"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 任务参考：YAML
 
@@ -452,8 +452,10 @@ ACR 任务包含一组在执行时可供任务步骤使用的默认变量。 可
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### <a name="run46id"></a>运行 ID
+### <a name="runid"></a>Run.ID
 
 通过 `az acr run` 执行的，或者使用基于触发器的执行任务通过 `az acr task create` 创建的每个运行都有唯一的 ID。 此 ID 表示当前正在执行的运行。
 
@@ -478,6 +480,14 @@ steps:
 ### <a name="rundate"></a>Run.Date
 
 运行开始时的当前 UTC 时间。
+
+### <a name="runcommit"></a>Run.Commit
+
+提交到 GitHub 存储库，提交标识符由触发任务。
+
+### <a name="runbranch"></a>Run.Branch
+
+触发提交到 GitHub 存储库，分支名称的任务。
 
 ## <a name="next-steps"></a>后续步骤
 

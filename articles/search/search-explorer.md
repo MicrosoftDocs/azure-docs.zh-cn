@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61292342"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024026"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Azure 搜索中用于查询数据的搜索浏览器 
 

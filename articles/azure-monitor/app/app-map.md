@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692809"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509967"
 ---
 # <a name="application-map-triage-distributed-applications"></a>应用程序映射：会审分布式应用程序
 
@@ -50,7 +50,7 @@ ms.locfileid: "60692809"
 
 ![浮出控件](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>调查故障
+### <a name="investigate-failures"></a>调查失败
 
 选择“调查故障”以启动故障窗格。
 
@@ -68,7 +68,7 @@ ms.locfileid: "60692809"
 
 ### <a name="go-to-details"></a>转到详细信息
 
-选择“转到详细信息”可探索端到端事务体验，从而可以查看深入到调用堆栈级别的信息。
+选择**转到详细信息**若要了解的端到端事务体验，可提供到调用堆栈级别视图。
 
 ![“转到详细信息”按钮的屏幕截图](media/app-map/go-to-details.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 如何为复杂数据类型建模 - Azure 搜索
-description: 可以在 Azure 搜索索引中使用平展行集和集合数据类型对嵌套或分层数据结构建模。
+description: 可以在使用复杂类型和集合数据类型的 Azure 搜索索引中建模嵌套或分层数据结构。
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,129 +8,190 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00606ed5cbcd8681748241e9404c6e6e5aa95021
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61076171"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147315"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>如何在 Azure 搜索中为复杂数据类型建模
-用于填充 Azure 搜索索引的外部数据集有时包括分层或嵌套子结构，此种结构无法整齐地分解为表格行集。 此类结构可能包括单个客户的多个位置和电话号码、单个 SKU 的多个颜色和大小、一本书籍的多位作者等等。 在建模术语中，可能会看到称为*复杂数据类型*、*复合数据类型*、*复合数据类型*或*聚合数据类型*，仅举几例。
 
-Azure 搜索本身并不支持复杂数据类型，但经验证的解决方法包括以下两步骤过程：平展该结构，并使用**集合**数据类型重构内部结构。 遵循本文中所述技术，可允许内容被搜索、查找、筛选和排序。
+外部数据集用于填充 Azure 搜索索引有时包括分层或嵌套子结构。 示例可能包括多个位置和电话号码的单个客户、 多个颜色和大小的单一 SKU，单个书籍的多位作者等等。 在建模术语中，可能会看到这些结构称为*复杂数据类型*，*复合数据类型*，*复合数据类型*，或*聚合数据类型*。 在 Azure 搜索术语中，复杂类型是包含子级 （子字段） 的字段本身可以是简单或复杂。 这是类似于编程语言中的结构化的数据类型。 复杂的字段可以是单个字段，表示文档中的单个对象或一个集合，它表示对象的数组
 
-## <a name="example-of-a-complex-data-structure"></a>复杂数据结构示例
-通常，相关数据驻留为一组 JSON 或 XML 文档，或者驻留为 NoSQL 存储（如 Azure Cosmos DB）中的项目。 在结构上，挑战来自于具有需要搜索和筛选的多个子项目。  开始说明解决方法，请将列出一组联系人的以下 JSON 文档用作示例：
+Azure 搜索以本机方式支持复杂类型和集合。 在一起，这些类型，可在 Azure 搜索索引中几乎所有嵌套的 JSON 结构的模型。 在以前版本的 Azure 搜索 Api，仅平展的行集无法导入。 在最新版本中，索引可以现在更紧密地对应于源数据。 换而言之，如果您的源数据具有复杂类型，索引可以还具有复杂类型。
 
-~~~~~
-[
-  {
-    "id": "1",
-    "name": "John Smith",
-    "company": "Adventureworks",
-    "locations": [
-      {
-        "id": "1",
-        "description": "Adventureworks Headquarters"
-      },
-      {
-        "id": "2",
-        "description": "Home Office"
-      }
-    ]
-  }, 
-  {
-    "id": "2",
-    "name": "Jen Campbell",
-    "company": "Northwind",
-    "locations": [
-      {
-        "id": "3",
-        "description": "Northwind Headquarter"
-      },
-      {
-        "id": "4",
-        "description": "Home Office"
-      }
-    ]
-}]
-~~~~~
+若要开始，我们建议[酒店的数据集](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md)，以便在加载**导入数据**向导在 Azure 门户中。 向导在源中检测到复杂类型，并提供建议索引架构基于检测到的结构。
 
-虽然名为“id”、“name”和“company”的字段可以轻松地一对一映射为 Azure 搜索索引中的字段，但“locations”字段包含一个位置数组，其中具有一组位置 ID 以及位置描述。 鉴于 Azure 搜索没有支持此结构的数据类型，我们需要使用其他方法以在 Azure 搜索中对此结构建模。 
+> [!Note]
+> 对复杂类型的支持已在公开发布`api-version=2019-05-06`。 
+>
+> 如果你搜索的解决方案基于集合中的平展数据集的早期解决方法，应更改索引以包含复杂类型，如最新的 API 版本中受支持。 有关升级的 API 版本的详细信息，请参阅[升级到最新的 REST API 版本](search-api-migration.md)或[升级到最新的.NET SDK 版本](search-dotnet-sdk-migration-version-9.md)。
 
-> [!NOTE]
-> 另外，此技术由 Kirk Evans 在[使用 Azure 搜索索引 Azure Cosmos DB](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/) 博客文章中进行了介绍，其中演示了一种称为“平展数据”的技术，由此得到名为 `locationsID` 和 `locationsDescription` 的字段（两者都是[集合](https://msdn.microsoft.com/library/azure/dn798938.aspx)或字符串数组）。   
-> 
-> 
+## <a name="example-of-a-complex-structure"></a>复杂结构示例
 
-## <a name="part-1-flatten-the-array-into-individual-fields"></a>第 1 部分：将数组平展为单个字段
-若要创建适合此数据集的 Azure 搜索，请为嵌套子结构创建个别字段：`locationsID` 和 `locationsDescription`（数据类型为[集合](https://msdn.microsoft.com/library/azure/dn798938.aspx)或字符串数组）。 在这些字段中，将值“1”和“2”索引到 John Smith 的 `locationsID` 字段，将值“3”和“4”索引到 Jen Campbell 的 `locationsID` 字段。  
+下面的 JSON 文档是简单的字段和复杂的字段组成。 复杂字段，如`Address`和`Rooms`，具有子字段。 `Address` 具有一组这些子字段的值，因为它是单个对象在文档中。 与此相反，`Rooms`集合中有多个组及其子字段的值，一个用于每个对象。
 
-Azure 搜索中的数据将如下所示： 
-
-![示例数据，2 行](./media/search-howto-complex-data-types/sample-data.png)
-
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>第 2 部分：在索引定义中添加集合字段
-在索引架构中，字段定义可能与此示例类似。
-
-~~~~
-var index = new Index()
+```json
 {
-    Name = indexName,
-    Fields = new[]
-    {
-        new Field("id", DataType.String) { IsKey = true },
-        new Field("name", DataType.String) { IsSearchable = true, IsFilterable = false, IsSortable = false, IsFacetable = false },
-        new Field("company", DataType.String) { IsSearchable = true, IsFilterable = false, IsSortable = false, IsFacetable = false },
-        new Field("locationsId", DataType.Collection(DataType.String)) { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-        new Field("locationsDescription", DataType.Collection(DataType.String)) { IsSearchable = true, IsFilterable = true, IsFacetable = true }
-    }
-};
-~~~~
+    "HotelId": "1",
+    "HotelName": "Secret Point Motel",
+    "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+    "Address": {
+        "StreetAddress": "677 5th Ave",
+        "City": "New York",
+        "StateProvince": "NY"
+    },
+    "Rooms": [
+        {
+            "Description": "Budget Room, 1 Queen Bed (Cityside)",
+            "Type": "Budget Room",
+            "BaseRate": 96.99,
+        },
+        {
+            "Description": "Deluxe Room, 2 Double Beds (City View)",
+            "Type": "Deluxe Room",
+            "BaseRate": 150.99,
+        },
+    ]
+}
+```
 
-## <a name="validate-search-behaviors-and-optionally-extend-the-index"></a>验证搜索行为并选择性地扩展索引
-假设已创建了索引并加载了数据，现在可以测试解决方案，以验证针对数据集的搜索查询执行。 每个 **collection** 字段应**可搜索**、**可筛选**和**可查找**。 应能够运行如下所示的查询：
+## <a name="creating-complex-fields"></a>创建复杂的字段
 
-* 查找在“Adventureworks Headquarters”工作的所有人员。
-* 获取在“Home Office”工作的人数。  
-* 在“Home Office”工作的这些人中，显示他们工作的其他办公室以及每个地点的人数。  
+与任何索引定义中，可以使用门户中，如[REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)，或[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) ，创建包含复杂类型的架构。 
 
-在需要执行结合位置 ID 以及位置描述的查询时，此技术将崩溃。 例如：
+下面的示例演示具有简单的字段、 集合和复杂类型的 JSON 索引架构。 请注意，在复杂类型中，每个子字段都有一种类型，可能有属性，只需为顶级字段执行操作。 架构对应于上面的示例数据。 `Address` 是一个复杂的字段，不是的集合 （一家酒店都有一个地址）。 `Rooms` 为复杂集合字段 （一家酒店具有许多聊天室）。
 
-* 查找在 Home Office 工作且位置 ID 为 4 的所有人员。  
+<!---
+For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
 
-如果还记得如下所示的原始内容：
+Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with Knowledge Store](knowledge-store-howto.md).
+-->
 
-~~~~
-   {
-        id: '4',
-        description: 'Home Office'
-   }
-~~~~
+```json
+{
+    "name": "hotels",
+    "fields": [
+        {   "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true    },
+        {   "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+        { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+        {   "name": "Address", "type": "Edm.ComplexType",
+            "fields": [{
+                    "name": "StreetAddress",
+                    "type": "Edm.String",
+                    "filterable": false,
+                    "sortable": false,
+                    "facetable": false,
+                    "searchable": true  },
+                {
+                    "name": "City",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                },
+                {
+                    "name": "StateProvince",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "filterable": true,
+                    "sortable": true,
+                    "facetable": true
+                }
+            ]
+        },
+        {
+            "name": "Rooms",
+            "type": "Collection(Edm.ComplexType)",
+            "fields": [{
+                    "name": "Description",
+                    "type": "Edm.String",
+                    "searchable": true,
+                    "analyzer": "en.lucene"
+                },
+                {
+                    "name": "Type",
+                    "type": "Edm.String",
+                    "searchable": true
+                },
+                {
+                    "name": "BaseRate",
+                    "type": "Edm.Double",
+                    "filterable": true,
+                    "facetable": true
+                },
+            ]
+        }
+    ]
+}
+```
+## <a name="updating-complex-fields"></a>正在更新复杂域
 
-不过，由于我们已将数据分成单独的字段，我们无从知道 Jen Campbell 的 Home Office 是否与 `locationsID 3` 或 `locationsID 4` 相关。  
+所有[重建索引规则](search-howto-reindex.md)适用于字段一般情况下仍将应用于复杂的字段。 在这里，主要的规则的重述一些添加字段不需要重新生成索引，但大多数修改执行操作。
 
-要处理这种情况，请在将所有数据合并为单个集合的索引中定义另一个字段。  对于我们的示例，我们将调用此字段 `locationsCombined`，并且我们将使用 `||` 分隔内容，虽说可以选择任何你认为是内容的一组独特字符的分隔符。 例如： 
+### <a name="structural-updates-to-the-definition"></a>对定义结构更新
 
-![示例数据，带分隔符的 2 行](./media/search-howto-complex-data-types/sample-data-2.png)
+可以在任何时间无需重新生成索引到复杂的字段添加新的子字段。 例如，将"ZipCode"添加到`Address`或"便利设施"到`Rooms`允许，就像将顶级字段添加到索引。 现有文档具有新的字段的 null 值，直到显式通过更新你的数据填充这些字段。
 
-通过使用此 `locationsCombined` 字段，我们现在可以适应更多查询，例如：
+请注意，在复杂类型中，每个子字段都有一种类型，可能有属性，只需为顶级字段执行操作
 
-* 显示在“Home Office”工作、位置 ID 为“4”的人数。  
-* 搜索在“Home Office”工作、位置 ID 为“4”的人员。 
+### <a name="data-updates"></a>数据更新
 
-## <a name="limitations"></a>限制
-这种技术对于若干情形非常有用，但它不适用于每种情况。  例如：
+与上传操作更新现有文档索引中的运行方式相同的方式对复杂和简单字段--替换所有字段。 但是，合并 （或 mergeOrUpload 时应用于现有文档） 不起作用相同的所有字段。 具体而言，合并没有合并集合中的元素的功能。 这适用于基元类型的集合以及复杂的集合。 若要更新集合，您将需要检索完整的集合值进行的更改，并将包含新集合在索引 API 请求。
 
-1. 如果在复杂数据类型中没有一组静态字段，并且无法将所有可能类型映射到单个字段。 
-2. 更新嵌套对象需要一些额外的工作，才能够准确确定需要在 Azure 搜索索引中更新的内容
 
-## <a name="sample-code"></a>代码示例
-可以看到有关如何将复杂 JSON 数据集索引到 Azure 搜索的示例，并对此 [GitHub 存储库](https://github.com/liamca/AzureSearchComplexTypes)中的此数据集执行大量查询。
+## <a name="searching-complex-fields"></a>搜索复杂字段
 
-## <a name="next-step"></a>后续步骤
-在 Azure 搜索 UserVoice 页上[对复杂数据类型的本机支持进行投票](https://feedback.azure.com/forums/263029-azure-search)，并提供希望我们考虑关于功能实现的任何其他输入。 还可以直接在 Twitter 通过 @liamca 与我联系。
+自由的搜索表达式正常工作，具有复杂类型。 如果任何可搜索字段或子字段任意位置在文档中的与匹配，文档本身是一个匹配项。 
 
+微妙的时你具有多个词语或运算符，且一些术语具有字段名称指定，按原样使用的查询更多[Lucene 语法](query-lucene-syntax.md)。 例如，此查询将尝试匹配这两个术语，"Portland"和"OR"针对两个子字段的地址字段：
+
+```json
+search=Address/City:Portland AND Address/State:OR
+```
+
+此类查询都是无关联的全文搜索 (与不同的筛选器，可以使用任何关联的一系列复杂的子字段的查询或所有，如 SQL 中的相关子查询)。 这意味着上面的 Lucene 查询将返回包含"波特兰，Maine"的文档，以及"波特兰，俄勒冈州"和其他俄勒冈州的城市。 这是因为针对整个文档中的指定字段的所有值计算每个子句，因此没有概念的"当前子文档"。 
+
+ 
+
+## <a name="selecting-complex-fields"></a>选择复杂的字段
+
+`$select`参数用于选择在搜索结果中返回哪些字段。 若要使用此参数选择复杂的字段的特定子字段，包含父字段和由斜杠分隔的子字段 (`/`)。
+
+```json
+$select=HotelName, Address/City, Rooms/BaseRate
+```
+
+必须将字段标记为可检索索引中如果你希望它们在搜索结果中。 只有标记为可检索的字段可在`$select`语句。 
+
+
+## <a name="filter-facet-and-sort-complex-fields"></a>筛选器、 分面和排序复杂字段
+
+相同[OData 路径语法](query-odata-filter-orderby-syntax.md)用作筛选器和审定搜索还可用于分面、 排序和搜索请求中选择字段。 对于复杂类型，规则将应用用于控制哪些子字段可以标记为可排序或可查找。 
+
+### <a name="faceting-sub-fields"></a>分面子字段 
+
+可以将标记为可查找任何子字段，除非它是类型`Edm.GeographyPoint`或`Collection(Edm.GeographyPoint)`。 
+
+当分面导航结构返回文档计数时的计数是相对于父文档 （酒店） 不到复杂集合 （聊天室） 中的嵌套文档。 例如，假设一家酒店有 20 聊天室的类型"套件"。 给定此分面参数`facet=Rooms/Type`，分面计数将是一个父文档 （酒店） 和不中间子文档 （聊天室）。 
+
+### <a name="sorting-complex-fields"></a>对复杂字段进行排序
+
+排序操作应用于文档 （酒店） 和不子文档 （聊天室）。 在必须将复杂类型集合，例如聊天室，请务必认识到，不能在对排序聊天室根本。 事实上，不能对任何集合进行排序。 
+
+排序操作的工作单值字段时是否为简单字段，或为复杂类型中的子字段。 例如，`$orderby=Address/ZipCode`复杂类型是否可排序，因为每个酒店的只有一个邮政编码。 
+
+摆有关排序规则，在索引字段中必须标记为可筛选和可排序，以用于`$orderby`语句。 
+
+## <a name="next-steps"></a>后续步骤
+
+ 请尝试[酒店的数据集](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md)中**导入数据**向导。 你将需要提供用于访问数据的自述文件中的 Cosmos DB 连接信息。 
+ 
+ 使用该信息后，该向导的第一步是创建新的 Azure Cosmos DB 数据源。 进一步上在向导中，转到目标索引页中，你将看到索引具有复杂类型。 创建和加载此索引，并执行查询，以了解新的结构。
+
+> [!div class="nextstepaction"]
+> [导入、 索引和查询快速入门： 门户向导](search-get-started-portal.md)

@@ -56,6 +56,8 @@
           href: active-directory-b2c-overview-custom.md
         - name: 用户访问权限
           href: manage-user-access.md
+    - name: JavaScript 和页面协定
+      href: user-flow-javascript-overview.md
     - name: OAuth 2.0
       href: active-directory-b2c-reference-oauth-code.md
     - name: OpenId Connect
@@ -70,8 +72,6 @@
       href: manage-user-data.md
     - name: 用户流
       href: active-directory-b2c-reference-policies.md
-    - name: 在用户流中使用 JavaScript
-      href: user-flow-javascript-overview.md
     - name: 用户界面自定义
       href: customize-ui-overview.md
 - name: 操作指南

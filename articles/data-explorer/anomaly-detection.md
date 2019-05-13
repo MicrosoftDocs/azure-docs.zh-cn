@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872011"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233530"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>异常情况检测和预测在 Azure 数据资源管理器
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>摘要
 
-本文档详细介绍本机 Azure 数据资源管理器函数，用于时序异常检测和预测，这会显著提高所基于的基本分解模型。 每个原始时序分解，异常检测到，并预测执行。 时间序列异常情况检测和预测功能用于接近实时的监视方案，例如故障检测、 预见性维护和按需和负载预测。
+本文档详细介绍用于时序异常检测和预测的本机 Azure 数据资源管理器函数。 每个原始时序分解为检测异常和/或预测季节性、 趋势和剩余组件。 这些功能可用于接近实时的监视方案，例如故障检测、 预见性维护和需求和负载预测。
 
 ## <a name="next-steps"></a>后续步骤
 

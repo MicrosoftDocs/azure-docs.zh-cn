@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379170"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541509"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知识库的最佳做法
 [知识库开发生命周期](../Concepts/development-lifecycle-knowledge-base.md)介绍如何从头至尾地管理 KB。 使用这些最佳做法来改进知识库，并向应用程序/聊天机器人的最终用户提供更好的结果。
@@ -39,27 +39,29 @@ QnA Maker 服务持续改进着从内容提取 QnA 的算法，并扩展支持�
 最佳答案都是简单的答案，但不要太简单，比如“是”和“否”。 如果答案可能会链接到其他来源，或者提供丰富的媒体和链接体验，请使用[标记](../how-to/metadata-generateanswer-usage.md)来区分所期望的答案类型，然后将该标记与查询一起提交，以便获得正确答案版本。
 
 ## <a name="chit-chat"></a>聊天内容
-向机器人中添加聊天内容可以轻松地使其更健谈而有趣。 可以在创建知识库时轻松地为 3 种预定义的个性添加聊天数据集，并可随时对其进行更改。 了解如何[向知识库添加聊天内容](../How-To/chit-chat-knowledge-base.md)。 
+向机器人中添加聊天内容可以轻松地使其更健谈而有趣。 可以轻松地从预定义的个性添加 chit 聊天数据集时创建知识库，并在任何时候更改其。 了解如何[向知识库添加聊天内容](../How-To/chit-chat-knowledge-base.md)。 
 
 ### <a name="choosing-a-personality"></a>选择一种个性
-聊天内容适用于 3 种预定义的个性： 
+支持多个预定义的个性 chit 聊天： 
 
-|个性|
-|--|
-|专业|
-|友好|
-|有趣|
+|个性 |QnA Maker 数据集文件 |
+|---------|-----|
+|专业的 |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|友好 |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|与红 |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|关注 |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|热情 |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-响应既有正式的，也有非正式的和粗鲁的。 应该选择与所需机器人语气最接近的个性。 可以查看数据集，选择一个充当机器人的库，然后自定义响应。 
+响应既有正式的，也有非正式的和粗鲁的。 应该选择与所需机器人语气最接近的个性。 您可以查看[数据集](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)，并选择一个可作为类的基础，智能机器人，然后自定义响应。 
 
 ### <a name="edit-bot-specific-questions"></a>编辑特定于机器人的问题
 有一些特定于机器人的问题，这些问题是聊天数据集的一部分，并且已经使用泛型答案进行填充。 更改这些答案，使之能够最好地反映机器人的细节。 
 
 建议使下述聊天 QnA 更具体：
 
-* 你是谁？
+* 您是谁?
 * 该怎么办？
-* 你多大了？
+* 几岁了?
 * 谁创建了你？
 * 你好
    

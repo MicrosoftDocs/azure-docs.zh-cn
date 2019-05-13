@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 9157765afaa610d207a47e19b73f80ae3898fd68
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 57fbab4194f6cd232e1462ecea9a07d104c6cb51
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977552"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205735"
 ---
-# <a name="create-a-vm-from-a-managed-image"></a>从托管的映像创建 VM
+# <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 
-可以使用 Azure 门户或 PowerShell 基于 Azure 托管 VM 映像创建多台虚拟机 (VM)。 托管 VM 映像包含创建 VM（包括 OS 和数据磁盘）所需的信息。 构成映像的虚拟硬盘 (VHD)（包括 OS 磁盘和任何数据磁盘）均作为托管磁盘存储。 
+可以使用 Azure 门户或 PowerShell 基于 Azure 托管 VM 映像创建多台虚拟机 (VM)。 托管 VM 映像包含创建 VM 所需的信息，包括 OS 和数据磁盘。 构成映像的虚拟硬盘 (VHD)（包括 OS 磁盘和任何数据磁盘）均作为托管磁盘存储。 
 
-在创建新的 VM 之前，需要[创建托管 VM 映像](capture-image-resource.md)来用作源映像。 
+然后再创建新的 VM，你将需要[创建托管的 VM 映像](capture-image-resource.md)用作源映像和映像的读取访问权限授予任何用户都应该有权访问该映像。 
 
 
 ## <a name="use-the-portal"></a>使用门户
@@ -44,7 +44,7 @@ ms.locfileid: "55977552"
 
 可以使用 PowerShell 通过使用 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 的简化参数集来基于映像创建 VM。 该映像需要位于你要在其中创建 VM 的同一资源组中。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 的简化参数集仅要求提供名称、资源组和映像名称便可基于映像创建 VM。 New-AzVm 将使用 -Name 参数的值作为它自动创建的所有资源的名称。 在此示例中，我们为每个资源提供更详细的名称，但让 cmdlet 自动创建这些资源。 你还可以提前创建资源（例如虚拟网络）并将名称传递给 cmdlet。 如果 New-AzVm 可以通过名称找到现有资源，就会使用现有资源。
 

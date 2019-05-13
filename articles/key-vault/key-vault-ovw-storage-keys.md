@@ -4,21 +4,21 @@ description: 存储帐户密钥在 Azure Key Vault 与 Azure 存储帐户基于�
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: mbaldwin
+author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: eefdb4d644c97bb55342e21c9a2fcf0a122a6ec5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 190375700f65cf2d3ea47335a646562eb46b2d49
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724777"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232560"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 托管存储帐户 - CLI
 
 > [!NOTE]
-> [与 Azure Active Directory (Azure AD) 集成的 Azure 存储目前以预览版提供](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)。 我们建议使用 Azure AD 进行身份验证和授权。与 Azure Key Vault 一样，Azure AD 支持使用 OAuth2 令牌访问 Azure 存储。 这样，便可以：
+> [Azure 存储集成与 Azure Active Directory (Azure AD)] 是 Microsoft 的基于云的标识和访问管理服务。 Azure AD 的集成仅适用于 Blob 和队列服务。(https://docs.microsoft.com/azure/storage/common/storage-auth-aad). 我们建议使用 Azure AD 进行身份验证和授权。与 Azure Key Vault 一样，Azure AD 支持使用 OAuth2 令牌访问 Azure 存储。 这样，便可以：
 > - 使用应用程序标识或用户标识（而不是存储帐户凭据）对客户端应用程序进行身份验证。 
 > - 在 Azure 上运行时使用 [Azure AD 托管标识](/azure/active-directory/managed-identities-azure-resources/)。 托管标识完全消除了客户端身份验证的需要，并可以在应用程序中存储凭据，或者将凭据与应用程序一同存储。
 > - 使用同样受 Key Vault 支持的基于角色的访问控制 (RBAC) 来管理授权。

@@ -1,47 +1,64 @@
 ---
 title: 什么是 Azure 搜索服务 - Azure 搜索
-description: Azure 搜索是 Microsoft 推出的完全托管的托管云搜索服务。 查看功能说明、开发工作流、Azure 搜索与其他 Microsoft 搜索产品相比如何，以及操作说明入门。
+description: Azure 搜索是 Microsoft 提供的完全托管云搜索服务。 查看功能说明、开发工作流、Azure 搜索与其他 Microsoft 搜索产品相比如何，以及操作说明入门。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 02/01/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 797d0cdb8d164955991de321d8df22e43f5c6a40
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090009"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024327"
 ---
 # <a name="what-is-azure-search"></a>什么是 Azure 搜索？
 Azure 搜索是一种搜索即服务云解决方案，它为开发人员提供 API 和工具，以便基于 Web、移动和企业应用程序中的专用异类内容添加丰富的搜索体验。 查询执行是通过用户定义的索引进行的。
 
-+ 生成仅包含你的数据的搜索语料库，这些数据源自多种内容类型和平台。 
-+ 利用 AI 驱动的索引从图像文件或实体以及原始文本中的关键短语中提取文本和特征。
-+ 使用分面导航和筛选器、同义词、自动完成和文本分析创建直观的搜索体验，以获取“你的意思是”自动更正的搜索词。
-+ 添加“查找我附近”的地理搜索、非英语全文搜索的语言分析器以及搜索排名的评分逻辑。
++ 生成仅包含你数据的搜索索引，这些数据源自多种内容类型和平台。 
+
++ 利用 AI 扩充从图像文件中提取文本和特征，或从原始文本中提取实体和关键短语。
+
++ 使用分面导航和筛选器、同义词、自动完成和文本分析创建直观的搜索体验，以获取“你是不是要搜索”自动更正的搜索词。 通过函数和提升逻辑来实现相关性优化。
+
++ 创建适用于特定用例的搜索应用。 地理位置搜索支持“附近查找”体验。 通过用于非英语全文搜索的语言分析器，支持多语言搜索。
 
 功能通过简单的 [REST API](/rest/api/searchservice/) 或 [.NET SDK](search-howto-dotnet-sdk.md) 公开，消除了信息检索固有的复杂性。 除了 API，Azure 门户还通过原型制作和查询索引工具，提供管理和内容管理支持。 因为服务在云中运行，所以基础结构和可用性由 Microsoft 管理。
 
 <a name="feature-drilldown"></a>
 
-## <a name="feature-summary"></a>功能摘要
+## <a name="feature-descriptions"></a>功能说明
 
-| 类别 | 功能 |
-|----------|----------|
-|全文搜索和文本分析 | [全文搜索](search-lucene-query-architecture.md)是大多数基于搜索的应用的主要用例。 查询可以使用支持的语法进行陈述。 <br/><br/>[简单查询语法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)提供逻辑运算符、短语搜索运算符、后缀运算符和优先运算符。<br/><br/>[Lucene 查询语法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)包括简单语法中的所有操作，以及模糊搜索、邻近搜索、术语提升和正则表达式扩展。|
-|认知搜索（预览版） | 适用于图像和文本分析的 [AI 支持的算法](cognitive-search-concept-intro.md)可以应用于索引编制管道，以便从原始内容提取文本信息。 [内置技术](cognitive-search-predefined-skills.md)的一些示例包括：光学字符识别（使扫描的 JPEG 变得可搜索）、实体识别（标识组织、名称或位置）、关键短语识别。 也可[将自定义技术编码](cognitive-search-create-custom-skill-example.md)，以便将其附加到管道。 |
-| 数据集成 | Azure 搜索索引接受来自任何源的数据，前提是以 JSON 数据结构提交这些数据。 <br/><br/> （可选）对于 Azure 中支持的数据源，可以使用[**索引器**](search-indexer-overview.md)自动爬网式搜索 [Azure SQL 数据库](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Azure Cosmos DB](search-howto-index-cosmosdb.md) 或 [Azure Blob 存储](search-howto-indexing-azure-blob-storage.md)，以便获取主数据存储中的可搜索内容。 Azure Blob 索引器可以执行“文档破解”[从主要文件格式提取文本](search-howto-indexing-azure-blob-storage.md)，包括 Microsoft Office、PDF 和 HTML 文档。 |
-| 语言分析 | 分析器是在编制索引和搜索操作期间用于处理文本的组件。 有两种类型。 <br/><br/>[自定义词汇分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)用于使用拼音匹配和正则表达式的复杂搜索查询。 <br/><br/>Lucene 或 Microsoft 的[语言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)用于智能处理特定于语言的语言学，包括谓词时态、词性、不规则复数名词（例如“mouse”与“mice”）、词取消复合、词拆分（对于不带空格的语言）等。 |
+| 核心搜索&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 功能 |
+|-------------------|----------|
+|自由格式文本搜索 | [全文搜索](search-lucene-query-architecture.md)是大多数基于搜索的应用的主要用例。 查询可以使用支持的语法进行陈述。 <br/><br/>[简单查询语法](query-simple-syntax.md)提供逻辑运算符、短语搜索运算符、后缀运算符和优先运算符。<br/><br/>[Lucene 查询语法](query-lucene-syntax.md)包括简单语法中的所有操作，以及模糊搜索、邻近搜索、术语提升和正则表达式扩展。|
+| 相关性 | [**简单计分**](index-add-scoring-profiles.md)是 Azure 搜索的主要优势。 计分配置文件用于在文档中自行将相关性建模为值的函数。 例如，你可能希望较新产品或打折产品显示在搜索结果的顶部位置。 也可以基于已跟踪和单独存储的客户搜索首选项将标记用于个性化计分，来生成计分配置文件。 |
 | 地理搜索 | Azure 搜索可以处理、筛选和显示地理位置。 它可以让用户基于搜索结果与物理位置的临近程度浏览数据。 [观看此视频](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)或[查看此示例](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)了解详细信息。 |
-| 用户体验功能 | 可在搜索栏中为提前键入查询启用[**自动完成（预览版）**](search-autocomplete-tutorial.md)。 <br/><br/>[**搜索建议**](https://docs.microsoft.com/rest/api/searchservice/suggesters)也基于搜索栏中的部分文本输入开始工作，但结果是索引中的实际文档而不是查询术语。 <br/><br/>[**同义词**](search-synonyms.md)功能无需用户提供替换术语，便可关联隐式扩展查询范围的等效术语。 <br/><br/>通过单个查询参数实现[**分面导航**](search-faceted-navigation.md)。 Azure 搜索返回一个分面导航结构，可以将该结构用作类别列表背后的代码，用于自定向筛选（例如，按价格范围或品牌来筛选目录项）。 <br/><br/> 可以使用[**筛选器**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)将分面导航纳入到应用程序的 UI 中，改进查询表述，以及基于用户或开发人员指定的条件进行筛选。 可以使用 OData 语法创建筛选器。<br/><br/> [命中项突出显示](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)向搜索结果中的匹配关键字应用文本格式设置。 可以选择哪些字段返回突出显示的片段。<br/><br/>[**排序**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)通过索引架构覆盖多个字段，可以使用一个搜索参数在查询时进行切换。<br/><br/> 通过 Azure 搜索所提供的对搜索结果的优化控制，[**分页**](search-pagination-page-layout.md)和限制搜索结果将变得更简单。  
-| 相关性 | [**简单计分**](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)是 Azure 搜索的主要优势。 计分配置文件用于在文档中自行将相关性建模为值的函数。 例如，你可能希望较新产品或打折产品显示在搜索结果的顶部位置。 也可以基于已跟踪和单独存储的客户搜索首选项将标记用于个性化计分，来生成计分配置文件。 |
-| 监视和报告 | 可以收集并分析[**搜索流量分析**](search-traffic-analytics.md)，以根据用户键入到搜索框的内容来解锁见解。 <br/><br/>门户页面中会捕获并报告关于每秒查询数、延迟和限制的指标，无需额外进行配置。 还可以轻松监视索引和文档计数，以便可以根据需要调整容量。 有关详细信息，请参阅[服务管理](search-manage.md)。 |
+| 筛选器和分面导航 | 通过单个查询参数实现[**分面导航**](search-faceted-navigation.md)。 Azure 搜索返回一个分面导航结构，可以将该结构用作类别列表背后的代码，用于自定向筛选（例如，按价格范围或品牌来筛选目录项）。 <br/><br/> 可以使用[**筛选器**](query-odata-filter-orderby-syntax.md)将分面导航纳入到应用程序的 UI 中，改进查询表述，以及基于用户或开发人员指定的条件进行筛选。 可以使用 OData 语法创建筛选器。 |
+| 用户体验功能 | 可以为搜索栏中预先键入的查询启用[自动完成](search-autocomplete-tutorial.md)。 <br/><br/>[**搜索建议**](https://docs.microsoft.com/rest/api/searchservice/suggesters)也基于搜索栏中的部分文本输入开始工作，但结果是索引中的实际文档而不是查询术语。 <br/><br/>[**同义词**](search-synonyms.md)功能无需用户提供替换术语，便可关联隐式扩展查询范围的等效术语。 <br/><br/>[命中项突出显示](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)向搜索结果中的匹配关键字应用文本格式设置。 可以选择哪些字段返回突出显示的片段。<br/><br/>[**排序**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)通过索引架构覆盖多个字段，可以使用一个搜索参数在查询时进行切换。<br/><br/> 通过 Azure 搜索所提供的对搜索结果的优化控制，[**分页**](search-pagination-page-layout.md)和限制搜索结果将变得更简单。  <br/><br/>|
+
+| AI&nbsp;扩充&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | 功能 |
+|-------------------|----------|
+|AI 扩充文档 | 适用于图像和文本分析的[认知搜索](cognitive-search-concept-intro.md)可以应用于索引管道，以从原始内容中提取文本信息。 [内置技术](cognitive-search-predefined-skills.md)的一些示例包括：光学字符识别（使扫描的 JPEG 变得可搜索）、实体识别（标识组织、名称或位置）、关键短语识别。 也可[将自定义技术编码](cognitive-search-create-custom-skill-example.md)，以便将其附加到管道。 |
+| 用于分析和使用的已存储扩充| [知识存储](knowledge-store-concept-intro.md)是基于 AI 的索引扩展。 通过将 Azure 存储用作后端，可以保存在编制索引期间创建的扩充。 这些项目可用于帮助你设计更好的技能集，或创建不含无固定结构或不明确数据的形状和结构。 可以创建定目标到特定工作负荷或用户的这些结构的投影。 还可以直接分析已提取的数据，或将它加载到其他应用中。<br/><br/> |
+
+| 数据导入/编制索引 | 功能 |
+|----------------------------------|----------|
+| 数据源 | Azure 搜索索引接受来自任何源的数据，前提是以 JSON 数据结构提交这些数据。 <br/><br/> [索引器](search-indexer-overview.md)自动引入受支持的 Azure 数据源中的数据，并处理 JSON 序列化。 连接到 [Azure SQL 数据库](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)、[Azure Cosmos DB](search-howto-index-cosmosdb.md) 或 [Azure Blob 存储](search-howto-indexing-azure-blob-storage.md)，以提取主要数据存储中的可搜索内容。 Azure Blob 索引器可以执行“文档破解”[从主要文件格式提取文本](search-howto-indexing-azure-blob-storage.md)，包括 Microsoft Office、PDF 和 HTML 文档。 |
+| 分层的嵌套数据结构 | 借助[复杂类型](search-howto-complex-data-types.md)和集合，可以将几乎所有类型的 JSON 结构建模为 Azure 搜索索引。 可以通过集合、复杂类型和复杂类型集合，以本机方式表示一对多和多对多基数。|
+| 语言分析 | 分析器是在编制索引和搜索操作期间用于处理文本的组件。 有两种类型。 <br/><br/>[自定义词汇分析器](index-add-custom-analyzers.md)用于使用拼音匹配和正则表达式的复杂搜索查询。 <br/><br/>Lucene 或 Microsoft 的[语言分析器](index-add-language-analyzers.md)用于智能处理特定于语言的语言学，包括谓词时态、词性、不规则复数名词（例如“mouse”与“mice”）、词取消复合、词拆分（对于不带空格的语言）等。 <br/><br/>|
+
+
+| 平台级别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 功能 |
+|-------------------|----------|
 | 用于原型制作和检查的工具 | 在门户中，可以使用[**导入数据向导**](search-import-data-portal.md)来配置索引器、索引设计器以建立索引，并可以使用[**搜索浏览器**](search-explorer.md)来测试查询并优化评分配置文件。 还可以打开任何索引来查看其架构。 |
-| 基础结构 | **高可用性平台**确保极其可靠的搜索服务体验。 正确缩放时，[Azure 搜索可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> 作为一种**完全托管且可缩放的**端到端解决方案，Azure 搜索绝对不需要基础结构管理。 通过在两个维度进行缩放以便处理更多文档存储和/或更高的查询负载，可以根据需求来定制服务。
+| 监视和诊断 | [启用监视功能](search-monitor-usage.md)可查看除门户中始终可见的一目了然指标外的其他指标。 门户页面中会捕获并报告关于每秒查询数、延迟和限制的指标，无需额外进行配置。 <br/><br/>[搜索流量分析](search-traffic-analytics.md)是另一种备用监视方法，可收集和分析服务器端数据和客户端数据，以挖掘有关什么用户正在搜索框中键入内容的见解。 |
+| 服务器端加密 | [Microsoft 托管的静态加密](search-security-overview.md#encrypted-transmission-and-storage)内置在内部存储层中，它是不可撤消的。 可以视需要使用[客户托管的加密密钥](search-security-manage-encryption-keys.md)来补充默认加密。 你在 Azure Key Vault 中创建和管理的密钥用于加密 Azure 搜索中的索引和同义词映射。 |
+| 基础结构 | **高可用性平台**确保极其可靠的搜索服务体验。 正确缩放时，[Azure 搜索可提供 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。<br/><br/> 作为一种**完全托管且可缩放的**端到端解决方案，Azure 搜索绝对不需要基础结构管理。 通过在两个维度进行缩放以便处理更多文档存储和/或更高的查询负载，可以根据需求来定制服务。<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>如何使用 Azure 搜索
 ### <a name="step-1-provision-service"></a>步骤 1：预配服务

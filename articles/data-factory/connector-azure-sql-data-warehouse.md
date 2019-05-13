@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926602"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153423"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据复制到 Azure SQL 数据仓库或从 Azure SQL 数据仓库复制数据 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,7 +229,7 @@ Azure SQL 数据仓库链接服务支持以下属性：
 
 有关可用于定义数据集的各部分和属性的完整列表，请参阅[数据集](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)一文。 本部分提供 Azure SQL 数据仓库数据集支持的属性列表。
 
-要从/向 Azure SQL 数据仓库复制数据，请将数据集的 **type** 属性设置为 **AzureSqlDWTable**。 支持以下属性：
+若要从 / 向 Azure SQL 数据仓库复制数据，支持以下属性：
 
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
@@ -248,6 +248,7 @@ Azure SQL 数据仓库链接服务支持以下属性：
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ GO
 | rejectType | 指定 **rejectValue** 选项是文本值还是百分比。<br/><br/>允许的值为 **Value**（默认值）和 **Percentage**。 | 否 |
 | rejectSampleValue | 确定在 PolyBase 重新计算被拒绝行的百分比之前要检索的行数。<br/><br/>允许的值为 1、2 等。 | 如果 **rejectType** 是 **percentage**，则为“是” |
 | useTypeDefault | 指定 PolyBase 从文本文件检索数据时如何处理分隔文本文件中的缺失值。<br/><br/>有关此属性的详细信息，请参阅[创建外部文件格式 (Transact SQL)](https://msdn.microsoft.com/library/dn935026.aspx) 中的参数部分。<br/><br/>允许的值为 **True** 和 **False**（默认值）。 | 否 |
-| writeBatchSize | 缓冲区大小达到 writeBatchSize 时会将数据插入到 SQL 表。 仅在未使用 PolyBase 时适用。<br/><br/>允许的值为 **integer**（行数）。 | 不。 默认值为 10000。 |
+| writeBatchSize | 插入 SQL 表的行数**每个批处理**。 仅在未使用 PolyBase 时适用。<br/><br/>允许的值为 **integer**（行数）。 默认情况下，数据工厂动态确定基于行大小的合适的批大小。 | 否 |
 | writeBatchTimeout | 超时前等待批量插入操作完成的时间。仅在未使用 PolyBase 时适用。<br/><br/>允许的值为 **timespan**。 示例：“00:30:00”（30 分钟）。 | 否 |
 | preCopyScript | 每次运行时，将数据写入到 Azure SQL 数据仓库之前，指定复制活动要运行的 SQL 查询。 使用此属性清理预加载的数据。 | 否 |
 
@@ -423,12 +424,13 @@ SQL 数据仓库 PolyBase 直接支持 Azure Blob、 Azure 数据湖存储 Gen1 
 
 2. **源数据格式**属于**Parquet**， **ORC**，或者**分隔文本**，采用以下配置：
 
-   1. `folderPath` 和`fileName`不包含通配符筛选器。
-   2. `rowDelimiter` 必须是 **\n**。
-   3. 将 `nullValue` 设置为“空字符串”（“”）或保留为默认值，并将 `treatEmptyAsNull` 设置为默认值或 true。
-   4. `encodingName` 设置为 **utf-8**（默认值）。
-   5. `escapeChar`、`quoteChar` 和 `skipLineCount` 未指定。 PolyBase 支持跳过可以在 ADF 中配置为 `firstRowAsHeader` 的标头行。
-   6. `compression` 可为**无压缩**、**GZip** 或 **Deflate**。
+   1. 文件夹路径不包含通配符筛选器。
+   2. 文件名指向单个文件或已`*`或`*.*`。
+   3. `rowDelimiter` 必须是 **\n**。
+   4. 将 `nullValue` 设置为“空字符串”（“”）或保留为默认值，并将 `treatEmptyAsNull` 设置为默认值或 true。
+   5. `encodingName` 设置为 **utf-8**（默认值）。
+   6. `quoteChar``escapeChar`，和`skipLineCount`未指定。 PolyBase 支持跳过可以在 ADF 中配置为 `firstRowAsHeader` 的标头行。
+   7. `compression` 可为**无压缩**、**GZip** 或 **Deflate**。
 
 ```json
 "activities":[

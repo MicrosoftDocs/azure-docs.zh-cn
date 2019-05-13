@@ -15,16 +15,21 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd2e30f7ae96ff38b0ded11c158fcef636e3a26
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448799"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191081"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教程：使用 Windows VM 系统分配的托管标识通过访问密钥访问 Azure 存储
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+
+> [!IMPORTANT] 
+> Azure 存储现在支持 Azure AD 身份验证。 最佳做法是使用 [Azure AD 身份验证](tutorial-vm-windows-access-storage.md)，而不是访问密钥。 
+
 
 本教程介绍了如何使用 Windows 虚拟机 (VM) 的系统分配的托管标识来检索存储帐户访问密钥。 可以像平常在执行存储操作时一样使用存储访问密钥，例如使用存储 SDK 时。 本教程将使用 Azure 存储 PowerShell 上传和下载 blob。 将了解如何执行以下操作：
 

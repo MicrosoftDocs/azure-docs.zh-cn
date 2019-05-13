@@ -1,7 +1,7 @@
 ---
 title: 添加到索引的 Azure 搜索 typeahead 查询
 description: 通过创建建议器和表述请求调用记忆式键入功能或 autosuggested 查询词中启用 Azure 搜索中的提前键入查询操作。
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844419"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021875"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>将建议器添加到 Azure 搜索中的 typeahead 的索引
 
@@ -39,9 +39,6 @@ ms.locfileid: "60844419"
 + 索引组件是建议器。 可以使用门户、 REST API 或.NET SDK 来创建建议器。 
 
 + 查询组件是查询请求 （建议或自动完成操作） 中指定的操作。 
-
-> [!Important]
-> 记忆式键入功能目前以预览版提供，可在预览版 REST Api 和.NET SDK。 它不适合生产应用程序。 
 
 在每个字段的基础上启用搜索---键入时支持。 如果你想体验类似于屏幕截图所示，您可以实现相同的搜索解决方案中这两种 typeahead 行为。 这两个请求目标*文档*后用户已提供的至少三个字符的输入的字符串，将返回的特定索引和响应的集合。
 
@@ -106,7 +103,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 |属性      |描述      |
 |--------------|-----------------|
-|`name`        |建议器的名称。 在调用时使用的建议器名称[建议 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[记忆式键入功能 REST API （预览）](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。|
+|`name`        |建议器的名称。 在调用时使用的建议器名称[建议 REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[记忆式键入功能 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。|
 |`searchMode`  |用于搜索候选短语的策略。 当前唯一受支持的模式是 `analyzingInfixMatching`，此模式在句子开头或中间执行短语的灵活匹配。|
 |`sourceFields`|作为建议内容源的一个或多个字段的列表。 只有 `Edm.String` 和 `Collection(Edm.String)` 类型的字段可作为建议的源。 只能使用没有自定义语言分析器的字段。<p/>仅指定这些字段都适用于预期进行相应的响应，无论它是在搜索栏或下拉列表中完成的字符串。<p/>酒店名称是好的候选，因为它具有精度。 详细的字段，例如说明和注释都过于密集。 同样，重复性字段，例如类别和标记，将会降低。 在示例中，我们"的类别"仍要包含演示您可以包含多个字段。 |
 
@@ -120,7 +117,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 如上文所述，您可以建议的查询，记忆式键入功能，或这两种使用建议器。 
 
-建议器引用的操作以及请求。 例如上一个 GET REST 调用中，, 指定`suggest`或`autocomplete`documents 集合。 对于其余部分中，创建建议器后，请使用[建议 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[记忆式键入功能 API （预览）](https://docs.microsoft.com/rest/api/searchservice/autocomplete)中查询逻辑。
+建议器引用的操作以及请求。 例如上一个 GET REST 调用中，, 指定`suggest`或`autocomplete`documents 集合。 对于其余部分中，创建建议器后，请使用[建议 API](https://docs.microsoft.com/rest/api/searchservice/suggestions)或[记忆式键入功能 API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)中查询逻辑。
 
 对于.NET，请使用[SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview)或[AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet)。
 

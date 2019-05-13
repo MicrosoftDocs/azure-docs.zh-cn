@@ -7,21 +7,20 @@ author: axayjo
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 5366a4d2ef353ba09c18147dceb231631c8ad52e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca625093ce85e63042a92dec07b6bcb8968f3fda
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799515"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235997"
 ---
 # <a name="shared-image-galleries-overview"></a>共享映像库概述
 

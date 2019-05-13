@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/21/2019
+ms.date: 05/02/2019
 ms.topic: hub-page
-ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 027d6c862deb9efeaa8d30dd6acbc814ac230c80
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61294181"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464490"
 ---
 <div id="main" class="v2">
 <h1>Azure 认知服务文档</h1>
@@ -295,9 +295,10 @@ ms.locfileid: "61294181"
                     <div class="cardText">
                         <h3>视觉 API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">计算机视觉</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">内容审查器</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">自定义视觉服务</a></p>
                         <p><a href="/azure/cognitive-services/face/">人脸 API</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>表单识别器&nbsp;<sup style="font-size:70%">预览版</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>墨迹识别器&nbsp;<sup style="font-size:70%">预览版</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">视频索引器</a></p>
                     </div>
                 </div>
@@ -310,7 +311,7 @@ ms.locfileid: "61294181"
                 <div class="card">
                     <div class="cardText">
                         <h3>语音 API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">语音服务 API</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">语音服务</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>说话人识别&nbsp;<sup style="font-size:70%">预览</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>必应语音 API&nbsp;<sup style="font-size:70%">即将停用</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>语音翻译&nbsp;<sup style="font-size:70%">即将停用</sup></span></a></p>
@@ -325,22 +326,10 @@ ms.locfileid: "61294181"
                 <div class="card">
                     <div class="cardText">
                         <h3>语言 API</h3>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">必应拼写检查</a></p>
                         <p><a href="/azure/cognitive-services/luis/">语言理解 (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">文本分析</a></p>
                         <p><a href="/azure/cognitive-services/translator/">文本翻译</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>知识 API</h3>
-                            <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
             </div>
@@ -360,6 +349,7 @@ ms.locfileid: "61294181"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">必应实体搜索</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">必应图像搜索</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">必应视觉搜索</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">必应拼写检查</a></p>
                         <p><a href="/azure/cognitive-services/bing-local-business-search"><span>必应当地企业搜索&nbsp;<sup style="font-size:70%">预览</sup></span></a></p>
                     </div>
                 </div>
@@ -371,8 +361,10 @@ ms.locfileid: "61294181"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>异常检测</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>异常检测器&nbsp;<sup style="font-size:70%">预览版</sup></span></a></p>               
+                        <h3>决策 API</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>异常检测器&nbsp;<sup style="font-size:70%">预览版</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">内容审查器</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>个性化体验创建服务&nbsp;<sup style="font-size:70%">预览版</sup></span></a></p>
                     </div>
                 </div>
             </div>

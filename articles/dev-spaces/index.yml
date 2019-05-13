@@ -18,7 +18,7 @@ sections:
       - type: markdown
         text: |-
           > [!IMPORTANT]
-          > Azure Dev Spaces 当前处于预览状态，仅受“美国东部”、“美国东部 2”、“美国中部”、“美国西部 2”、“北欧”、“西欧”、“东南亚”、“加拿大中部”和“加拿大东部”区域内的 AKS 群集支持。 需同意[补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)才可使用预览版。 在正式版 (GA) 推出之前，此功能的某些方面可能会有所更改。
+          > Azure Dev Spaces 仅受“美国东部”、“美国东部 2”、“美国中部”、“美国西部 2”、“北欧”、“西欧”、“东南亚”、“加拿大中部”和“加拿大东部”区域内的 AKS 群集支持。 Azure Dev Spaces 支持在 Linux、MacOS 或 Windows 8 或更高版本上安装了 [Azure Dev Spaces 扩展](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)的情况下使用 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 或 [Visual Studio Code](https://code.visualstudio.com/download)，从而在 AKS 上生成和运行应用程序。 它还支持将 [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) 与 Web Development 工作负荷以及安装在 Windows 8 或更高版本上的 [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools) 配合使用。
   - title: 开始使用 Azure Dev Spaces
     items:
       - type: paragraph

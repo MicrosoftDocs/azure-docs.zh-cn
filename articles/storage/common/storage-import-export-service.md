@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478712"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413910"
 ---
 # <a name="what-is-azure-importexport-service"></a>什么是 Azure 导入/导出服务？
 
@@ -160,7 +160,7 @@ Azure 导入/导出服务支持将数据复制到所有 Azure 存储帐户，以
 
 **事务成本**
 
-将数据导入 Azure 存储时，除标准存储事务成本外没有任何事务成本。 将数据从 Blob 存储导出时，需支付标准的传出费用。 有关事务费用的更多信息，请参阅[数据传输定价。](https://azure.microsoft.com/pricing/details/data-transfers/)
+[标准存储事务费用](https://azure.microsoft.com/pricing/details/storage/)在导入，以及将数据导出过程中应用。 从 Azure 存储导出数据时，都还存储事务费用以及适用标准的传出费用。 数据传出费用的详细信息，请参阅[数据传输定价。](https://azure.microsoft.com/pricing/details/data-transfers/)。
 
 
 

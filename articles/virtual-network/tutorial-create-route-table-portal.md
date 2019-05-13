@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: 本教程介绍如何使用 Azure 门户通过路由表路由网络流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095951"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681538"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 
@@ -54,7 +54,7 @@ ms.locfileid: "55095951"
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入 *myRouteTablePublic*。 |
+    | 名称 | 输入 *myRouteTablePublic*。 |
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“新建”，输入 *myResourceGroup*，然后选择“确定”。 |
     | 位置 | 保留默认值“美国东部”。
@@ -95,7 +95,7 @@ ms.locfileid: "55095951"
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入 myVirtualNetwork。 |
+    | 名称 | 输入 myVirtualNetwork。 |
     | 地址空间 | 输入 *10.0.0.0/16*。 |
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“选择现有项” > “myResourceGroup”。 |
@@ -119,7 +119,7 @@ ms.locfileid: "55095951"
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入“专用”。 |
+    | 名称 | 输入“专用”。 |
     | 地址空间 | 输入 *10.0.1.0/24*。 |
 
 1. 将剩余的字段保留默认设置，然后选择“确定”。
@@ -128,7 +128,7 @@ ms.locfileid: "55095951"
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入“外围网络”。 |
+    | 名称 | 输入“外围网络”。 |
     | 地址空间 | 输入 *10.0.2.0/24*。 |
 
 1. 与上次一样，将剩余的字段保留默认值，然后选择“确定”。
@@ -193,7 +193,7 @@ NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入 *mynvastorageaccount*。 |
+    | 名称 | 输入 *mynvastorageaccount*。 |
     | 帐户类型 | 保留默认值“存储(常规用途 v1)”。 |
     | 性能 | 保留默认值“标准”。 |
     | 复制 | 保留默认值“本地冗余存储(LRS)”。

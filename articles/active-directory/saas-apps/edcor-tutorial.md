@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834969"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>教程：Azure Active Directory 与 Edcor 集成
 
@@ -124,7 +124,7 @@ ms.locfileid: "57834969"
 
 ### <a name="configure-edcor-single-sign-on"></a>配置 Edcor 单一登录
 
-若要在 **Edcor** 端配置单一登录，需要将下载的“联合元数据 XML”以及从 Azure 门户复制的相应 URL 发送给 [Edcor 支持团队](http://www.edcor.com/contact-us-2/)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
+若要在 **Edcor** 端配置单一登录，需要将下载的“联合元数据 XML”以及从 Azure 门户复制的相应 URL 发送给 [Edcor 支持团队](https://www.edcor.com/contact-us/)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 
@@ -179,7 +179,7 @@ ms.locfileid: "57834969"
 
 ### <a name="create-edcor-test-user"></a>创建 Edcor 测试用户
 
-在本部分中，将在 Edcor 中创建一个名为 Britta Simon 的用户。 与  [Edcor 支持团队](http://www.edcor.com/contact-us-2/)协作，将用户添加到 Edcor 平台中。 使用单一登录前，必须先创建并激活用户。
+在本部分中，将在 Edcor 中创建一个名为 Britta Simon 的用户。 与  [Edcor 支持团队](https://www.edcor.com/contact-us/)协作，将用户添加到 Edcor 平台中。 使用单一登录前，必须先创建并激活用户。
 
 ### <a name="test-single-sign-on"></a>测试单一登录 
 

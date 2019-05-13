@@ -4,7 +4,7 @@ description: 了解如何连接到 Azure Sentinel Barracuda 数据。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b0285903537dafb004b5aca033b50560247c605
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443919"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204458"
 ---
 # <a name="connect-your-barracuda-appliance"></a>连接 Barracuda 设备 
 

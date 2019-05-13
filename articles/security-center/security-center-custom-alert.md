@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925091"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192626"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 安全中心的自定义警报规则（预览版）
 本文档介绍了如何在 Azure 安全中心创建自定义警报规则。
 
 > [!NOTE]
-> 自定义警报将在稍后停用，请阅读下面的在多个备用服务。
+> 自定义警报将在 2019 年 6 月 30 日停用。
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>停用的自定义警报规则在 Azure 安全中心
 
 自定义警报体验将在停用 2019 年 6 月 30 日，由于它基于对底层基础结构的停用。 在之前不推荐使用时间范围内，用户将能够编辑现有的自定义警报规则，但将不能添加新的。
-建议用户将启用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)与单击一次载入自动迁移其现有的警报并创建新的或或者重新创建其使用 Azure Monitor 警报的日志警报。
+建议用户将为：
+- 启用[Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)单击一次载入自动迁移其现有的警报并创建新的
+- 重新创建其警报与 Azure Monitor 日志警报
                                      
 若要保留现有警报并将其迁移到 Azure Sentinel，请[启动 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一步，选择自定义警报的存储位置工作区，然后选择分析菜单项将自动迁移你的警报。
 

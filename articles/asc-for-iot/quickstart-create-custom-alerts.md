@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861989"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192465"
 ---
 # <a name="quickstart-create-custom-alerts"></a>快速入门：创建自定义警报
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867720"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150682"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从与意图和实体的查询文本文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
@@ -172,34 +172,6 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 |--|--|--|
 |简单实体|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>分层实体数据
-
-**层次结构的实体最终将被弃用。使用[实体角色](luis-concept-roles.md)以确定实体子类型，而不是分层实体。**
-
-[分层](luis-concept-entity-types.md)实体是机器学习的，并且可包括单词或短语。 子级通过上下文进行标识。 如果想要查找具备确切文本匹配的父子关系，请使用[列表](#list-entity-data)实体。
-
-`book 2 tickets to paris`
-
-在之前的陈述中，`paris` 被标记为 `Location` 分层实体的 `Location::ToLocation` 子级。
-
-从终结点返回的数据包括实体名称和子级名称、从陈述中发现的文本、所发现文本的位置，以及评分：
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|数据对象|父级|子|值|
-|--|--|--|--|
-|分层实体|Location|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>复合实体数据
 [复合](luis-concept-entity-types.md)实体是机器学习的，并且可包括单词或短语。 例如，考虑一个预构建的 `number` 和 `Location::ToLocation` 的复合实体，其具有以下陈述：
 
@@ -212,53 +184,54 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 复合实体返回在 `compositeEntities` 数组中，且该复合中的所有实体也都返回在 `entities` 数组中：
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |数据对象|实体名称|值|
 |--|--|--|
 |预构建实体 - 数量|"builtin.number"|"2"|
-|分层实体 - 位置|"Location::ToLocation"|"paris"|
+|Prebuilt Entity - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>列表实体数据
 
@@ -268,8 +241,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 |列表项|项同义词|
 |---|---|
-|西雅图|sea-tac、sea、98101、206、+1 |
-|巴黎|cdg、roissy、ory、75001、1、+33|
+|`Seattle`|`sea-tac`、`sea`、`98101`、`206`、`+1` |
+|`Paris`|`cdg`、`roissy`、`ory`、`75001`、`1`、`+33`|
 
 `book 2 tickets to paris`
 

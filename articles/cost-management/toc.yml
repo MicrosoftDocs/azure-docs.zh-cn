@@ -34,6 +34,10 @@
           href: assign-access-acm-data.md
         - name: 使用成本警报
           href: cost-mgt-alerts-monitor-usage-spending.md
+        - name: 设置和配置 AWS 集成
+          href: aws-integration-set-up-configure.md
+        - name: 管理 AWS 成本和使用情况
+          href: aws-integration-manage.md
     - name: 引用
       items:
         - name: Azure 成本管理 REST API

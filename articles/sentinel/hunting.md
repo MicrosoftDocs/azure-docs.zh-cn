@@ -4,7 +4,7 @@ description: 本文介绍如何使用 Azure Sentinel 搜索功能。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 754722508de248294667ee9e923e8faf3ad67f61
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714782"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236289"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>寻找 Azure Sentinel 预览版中使用的威胁
 

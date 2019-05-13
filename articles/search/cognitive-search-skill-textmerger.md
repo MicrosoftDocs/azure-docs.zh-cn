@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4dfd00f7f6bf591b3b40a3ca391d2f722b01b7f0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bbf2e524d626ac17596ded61746c26f20a6caf1b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919143"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021830"
 ---
 #    <a name="text-merge-cognitive-skill"></a>文本合并认知技能
 

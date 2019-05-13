@@ -2,18 +2,19 @@
 title: 数据复制或移动到 Azure 存储使用 AzCopy v10 |Microsoft Docs
 description: 使用 AzCopy 命令行实用工具来移动或复制数据到或从 blob、 data lake 和文件内容。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-author: seguler
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723189"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149033"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>使用 AzCopy v10 传输数据
 

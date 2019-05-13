@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a8e51534fec3dacb577ef9b79bb42c48557dc15b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 746551cf05634427f839bf33af641bc4615179fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916893"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>使用 Java 从知识库获取问题的答案
 
@@ -24,7 +24,7 @@ ms.locfileid: "58884935"
 ## <a name="prerequisites"></a>先决条件
 
 * [JDK SE](https://aka.ms/azure-jdks)（Java 开发工具包，标准版）
-* 此示例使用 HTTP 组件中的 Apache [HTTP 客户端](http://hc.apache.org/httpcomponents-client-ga/)。 需向项目添加以下 Apache HTTP 客户端库： 
+* 此示例使用 HTTP 组件中的 Apache [HTTP 客户端](https://hc.apache.org/httpcomponents-client-ga/)。 需向项目添加以下 Apache HTTP 客户端库： 
     * httpclient-4.5.3.jar
     * httpcore-4.4.6.jar
     * commons-logging-1.2.jar

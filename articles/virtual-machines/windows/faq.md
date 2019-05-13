@@ -13,20 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095589"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466350"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
-本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 本主题的 Linux 版本，请参阅[常问问题有关 Linux 虚拟机](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
-所有订户都可以在 Azure 虚拟机上运行服务器软件。 有关在 Azure 中运行 Microsoft 服务器软件的支持策略的信息，请参阅 [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)（对 Azure 虚拟机中的 Microsoft 服务器软件的支持）
+所有订户都可以在 Azure 虚拟机上运行服务器软件。 在 Azure 中运行 Microsoft 服务器软件的支持策略的信息，请参阅[Microsoft 服务器软件支持适用于 Azure 虚拟机](https://support.microsoft.com/kb/2721672)。
 
 MSDN Azure 权益订户以及 MSDN 开发和测试即用即付订户可使用某些版本的 Windows 7、Windows 8.1 和 Windows 10 执行开发和测试任务。 有关详细信息（包括说明和限制），请参阅[适用于 MSDN 订户的 Windows 客户端映像](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。 
 
@@ -57,10 +57,10 @@ Azure 存储帐户还可提供用于操作系统磁盘和任意数据磁盘的�
 不。 不可以。如果希望 VM 成为可用性集的一部分，需要在该集内创建 VM。 目前不支持在创建 VM 之后再将其添加到可用性集。
 
 ## <a name="can-i-upload-a-virtual-machine-to-azure"></a>我是否可以将虚拟机上传到 Azure？
-是的。 相关说明，请参阅[将本地 VM 迁移到Azure](on-prem-to-azure.md)。
+可以。 相关说明，请参阅[将本地 VM 迁移到Azure](on-prem-to-azure.md)。
 
 ## <a name="can-i-resize-the-os-disk"></a>我是否可以调整 OS 磁盘的大小？
-是的。 有关说明，请参阅 [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（如何扩展 Azure 资源组中虚拟机的 OS 驱动器）。
+可以。 有关说明，请参阅 [How to expand the OS drive of a Virtual Machine in an Azure Resource Group](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)（如何扩展 Azure 资源组中虚拟机的 OS 驱动器）。
 
 ## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>我是否可以复制或克隆现有的 Azure VM？
 可以。 借助托管映像，可创建虚拟机的映像，然后使用该映像生成多个新的 VM。 相关说明，请参阅[创建 VM 的自定义映像](tutorial-custom-images.md)。
@@ -85,36 +85,26 @@ Azure 存储帐户还可提供用于操作系统磁盘和任意数据磁盘的�
 
 用户名最长为 20 个字符，不能以句点（“.”）结尾。 
 
-
 不允许使用以下用户名：
-<table>
-    <tr>
-        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
-    </tr>   <tr>
-        <td style="text-align:center">administrator</td><td style="text-align:center">aspnet</td><td style="text-align:center">backup</td><td style="text-align:center">console</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">david </td><td style="text-align:center">guest</td><td style="text-align:center">john</td><td style="text-align:center">owner</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">root</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">测试</td><td style="text-align:center">test1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
-    </tr>
-</table>
+
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
+
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>创建 VM 时，密码有什么要求？
-密码的长度必须为 12 到 123 个字符，并满足以下 4 个复杂性要求中的 3 个要求：
+
+有不同的密码长度要求，具体取决于所使用的工具：
+ - 门户-12 到 72 个字符之间
+ - PowerShell-介于 8 到 123 个字符之间
+ - CLI-12 到 123 之间
 
 * 具有小写字符
 * 具有大写字符

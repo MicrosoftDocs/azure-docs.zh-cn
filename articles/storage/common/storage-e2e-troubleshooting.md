@@ -2,19 +2,20 @@
 title: 使用诊断和消息分析器对 Azure 存储进行故障排除 | Microsoft Docs
 description: 本教程演示如何使用 Azure 存储分析、AzCopy 和 Microsoft Message Analyzer 进行点对点故障排除
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2707081adafa74237e3fb7730837f581e0c8b790
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098603"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154226"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 存储指标和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]

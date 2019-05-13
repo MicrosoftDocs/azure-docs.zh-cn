@@ -4,7 +4,7 @@ description: Azure Sentinel 快速入门 - Azure Sentinel 入门
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 07839c6372e0048048b62fbfedd58bfa9b9942f5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207518"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>快速入门：Azure Sentinel 预览版入门
 

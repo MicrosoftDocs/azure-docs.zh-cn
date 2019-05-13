@@ -1,7 +1,6 @@
 ---
 title: 教程：在 Azure HDInsight 中生成 Spark 机器学习应用程序
 description: 有关如何使用 Jupyter Notebook 在 HDInsight Spark 群集中生成 Apache Spark 机器学习应用程序的分步说明。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 54ef9ac72ffeebbf228a85768f6c2eb4b64862c9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433393"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719064"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Apache Spark 机器学习应用程序 
 

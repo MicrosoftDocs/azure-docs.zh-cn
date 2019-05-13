@@ -4,7 +4,7 @@ description: 了解如何将 Office 365 数据连接到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: ff7c862e-2e23-4a28-bd18-f2924a30899d
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b1e167d26b5848238dd51bf9792f8316c33a385
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205578"
 ---
 # <a name="connect-data-from-office-365-logs"></a>从 Office 365 日志连接数据
 

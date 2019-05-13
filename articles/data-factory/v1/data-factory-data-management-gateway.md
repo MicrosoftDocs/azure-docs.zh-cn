@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143306"
 ---
 # <a name="data-management-gateway"></a>数据管理网关
 > [!NOTE]
@@ -205,8 +205,8 @@ ms.locfileid: "60489416"
 ### <a name="configure-proxy-server-settings"></a>配置代理服务器设置
 如果为 HTTP 代理服务器选择“使用系统代理”设置，则网关使用 diahost.exe.config 和 diawp.exe.config 中的代理设置。如果 diahost.exe.config 和 diawp.exe.config 中未指定代理，则网关无需通过代理，直接连接到云服务。 以下过程说明如何更新 diahost.exe.config 文件。
 
-1. 在文件资源管理器中，生成 C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config 的安全副本，以备份原始文件。
-2. 启动作为管理员运行的 Notepad.exe，并打开文本文件“C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config”。找到 system.net 的默认标记，如以下代码中所示：
+1. 在文件资源管理器，安全复制一份*c:\\\\Program Files\\Microsoft 数据管理网关\\2.0\\共享\\diahost.exe.config*到备份原始文件。
+2. 启动作为管理员，运行的 Notepad.exe，并打开文本文件*c:\\\\Program Files\\Microsoft 数据管理网关\\2.0\\共享\\diahost.exe.config*。找到 system.net 的默认标记，如以下代码中所示：
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ ms.locfileid: "60489416"
 
 [适用于单节点网关]
 1. 在网关计算机上启动 Windows PowerShell。
-2. 切换到 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 文件夹。
+2. 切换到*c:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 文件夹。
 3. 运行以下命令以关闭自动更新功能（禁用）。
 
     ```powershell
@@ -293,7 +293,7 @@ ms.locfileid: "60489416"
     ```
    [对于多节点高度可用的可扩展网关](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 在网关计算机上启动 Windows PowerShell。
-2. 切换到 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 文件夹。
+2. 切换到*c:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* 文件夹。
 3. 运行以下命令以关闭自动更新功能（禁用）。
 
     对于具有高可用性功能的网关，需要额外的 AuthKey 参数。
@@ -310,7 +310,7 @@ ms.locfileid: "60489416"
 安装网关后，可以通过以下方式之一来启动数据管理网关配置管理器：
 
 1. 在“搜索”窗口中，键入“数据管理网关”，以访问此实用程序。
-2. 在以下文件夹中找到可执行文件 **ConfigManager.exe**：**C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. 在以下文件夹中找到可执行文件 *ConfigManager.exe*：*C:\\\\程序文件\\Microsoft 数据管理网关\\2.0\\共享*。
 
 ### <a name="home-page"></a>主页
 在主页中可执行以下操作：
@@ -511,7 +511,7 @@ CPU 使用率 | 网关节点的 CPU 使用率。 此值为近实时快照。
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. 在 Azure PowerShell 中，切换到的文件夹：**C:\\程序 Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**。 运行与本地变量 $Key 关联的 RegisterGateway.ps1，如以下命令所示。 此脚本使用之前创建的逻辑网关注册安装在计算机上的客户端代理。
+1. 在 Azure PowerShell 中，切换到的文件夹：*C:\\\\程序文件\\Microsoft 集成运行时\\3.0\\PowerShellScript\\*。 运行与本地变量 $Key 关联的 RegisterGateway.ps1，如以下命令所示。 此脚本使用之前创建的逻辑网关注册安装在计算机上的客户端代理。
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -4,7 +4,7 @@ description: 本文介绍了如何在 Azure Sentinel 中运行 playbook。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5ce409b984ab9110a8ca44f47675045e4d80aed5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5f055ce337cb43e0813bc9ff295d0958e06f561
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088632"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205445"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>教程：在 Azure Sentinel 预览版中设置自动威胁响应
 
@@ -70,7 +70,7 @@ ms.locfileid: "58088632"
 
 4. 在“创建逻辑应用”页面上，键入所请求的信息以创建新的逻辑应用，然后单击“创建”。 
 
-5. 在[逻辑应用设计器**中，选择要使用的模板](../logic-apps/logic-apps-overview.md)**。 如果选择必须使用凭据的模板，则必须提供凭据。 或者，可从头开始创建新的空白 playbook。 选择“空白逻辑应用”。 
+5. 在[**逻辑应用设计器中，选择要使用的模板**](../logic-apps/logic-apps-overview.md)。 如果选择必须使用凭据的模板，则必须提供凭据。 或者，可从头开始创建新的空白 playbook。 选择“空白逻辑应用”。 
 
    ![逻辑应用设计器](./media/tutorial-respond-threats-playbook/playbook-template.png)
 

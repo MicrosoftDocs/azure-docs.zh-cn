@@ -120,7 +120,9 @@
   items:
     - name: 管道和活动
       href: concepts-pipelines-activities.md
-    - name: 数据集和链接服务
+    - name: 链接服务
+      href: concepts-linked-services.md
+    - name: 数据集
       href: concepts-datasets-linked-services.md
     - name: 管道执行和触发器
       href: concepts-pipeline-execution-triggers.md
@@ -130,8 +132,6 @@
       items:
         - name: 映射数据流概念
           href: concepts-data-flow-overview.md
-        - name: 数据流数据集
-          href: concepts-data-flow-datasets.md
         - name: 调试模式
           href: concepts-data-flow-debug-mode.md
         - name: 架构偏差
@@ -216,6 +216,8 @@
           href: connector-couchbase.md
         - name: DB2
           href: connector-db2.md
+        - name: 带分隔符的文本格式
+          href: format-delimited-text.md
         - name: 钻取
           href: connector-drill.md
         - name: Dynamics 365
@@ -283,6 +285,8 @@
           href: connector-oracle-responsys.md
         - name: Oracle 服务云
           href: connector-oracle-service-cloud.md
+        - name: Parquet 格式
+          href: format-parquet.md
         - name: Paypal
           href: connector-paypal.md
         - name: Phoenix
@@ -582,6 +586,8 @@
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
     - name: 常见问题解答
       href: frequently-asked-questions.md
+    - name: 白皮书
+      href: whitepapers.md
     - name: 路线图
       href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: 定价

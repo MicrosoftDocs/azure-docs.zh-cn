@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/23/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690490"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510750"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric 联盟网络
 
@@ -70,11 +70,11 @@ ms.locfileid: "60690490"
 
 模板部署将引导你配置多节点 [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) 网络。 部署流程分为四个步骤：基本信息、联盟网络设置、Fabric 配置和可选组件。
 
-### <a name="basics"></a>基础
+### <a name="basics"></a>基本
 
 在“基本信息”中，指定适用于任何部署的标准参数的值。 例如，订阅、资源组和基本的虚拟机属性。
 
-![基础](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![基本](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
 | 参数名称 | 描述 | 允许的值 |
 |---|---|---|
@@ -100,7 +100,7 @@ ms.locfileid: "60690490"
 **网络配置** |可以选择创建新网络或加入现有网络。 如果选择“加入现有网络”，则需要提供其他值。 |新建网络 <br/> 加入现有网络 |
 **HLF CA 密码** |用于由证书颁发机构生成的证书的密码，在部署过程中创建。 密码必须包含以下三种字符类型：1 个大写字符、1 个小写字符、1 个数字和 1 个特殊字符。<br /><br />虽然所有虚拟机最初都有相同的密码，但可以在预配后更改密码。|1 - 25 个字符 |
 **组织设置** |可以自定义组织的名称和证书，也可以使用默认值。|默认 <br/> 高级 |
-**VPN 网络设置** | 预配 VPN 隧道网关以访问 VM | 是 <br/> 否 |
+**VPN 网络设置** | 预配 VPN 隧道网关以访问 VM | “是” <br/> “否” |
 
 选择“确定”。
 
@@ -113,7 +113,7 @@ ms.locfileid: "60690490"
 | 参数名称 | 描述 | 允许的值 |
 |---|---|---|
 **缩放类型** |以下两种部署类型之一：具有多个容器的单个虚拟机或横向扩展模型中的多个虚拟机。|单 VM 或多 VM |
-**VM 磁盘类型** |支持每个已部署的节点的存储类型。 <br/> 若要详细了解可用的磁盘类型，请访问[选择磁盘类型](../../virtual-machines/windows/disks-types.md)。|标准 SSD <br/> 高级·SSD |
+**VM 磁盘类型** |支持每个已部署的节点的存储类型。 <br/> 若要详细了解可用的磁盘类型，请访问[选择磁盘类型](../../virtual-machines/windows/disks-types.md)。|标准 SSD <br/> 高级 SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>多 VM 部署（其他设置）
 

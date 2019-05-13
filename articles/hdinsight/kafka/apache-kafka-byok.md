@@ -1,32 +1,30 @@
 ---
-title: 为 Azure HDInsight 上的 Apache Kafka 创建自己的密钥（预览版）
+title: 在 Azure HDInsight 上 Apache Kafka 的自带密钥
 description: 本文介绍如何使用你在 Azure Key Vault 中的密钥加密 Azure HDInsight 上的 Apache Kafka 中存储的数据。
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ce9df58e9640cab2e6ba50fce772f1e30739dc5a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 6108bfd9e39b37507ec7e113bf2c489e890f0ca0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714852"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233563"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>在 Azure HDInsight 上 Apache Kafka 的自带密钥
 
-Azure HDInsight 包括为 Apache Kafka 提供创建自己的密钥 (BYOK) 支持。 借助此功能，你可以拥有和管理用于加密静态数据的密钥。 
+Azure HDInsight 包括为 Apache Kafka 提供创建自己的密钥 (BYOK) 支持。 借助此功能，你可以拥有和管理用于加密静态数据的密钥。
 
-通过 Azure 存储服务加密 (SSE) 保护 HDInsight 中的所有托管磁盘。 默认情况下，这些磁盘上的数据使用 Microsoft 托管密钥进行加密。 如果启用 BYOK，则会为 HDInsight 提供加密密钥，以便通过 Azure Key Vault 使用该密钥并对其进行管理。 
+通过 Azure 存储服务加密 (SSE) 保护 HDInsight 中的所有托管磁盘。 默认情况下，这些磁盘上的数据使用 Microsoft 托管密钥进行加密。 如果启用 BYOK，则会为 HDInsight 提供加密密钥，以便通过 Azure Key Vault 使用该密钥并对其进行管理。
 
 BYOK 加密是在群集创建期间处理的一步过程，无需额外费用。 需要做的就是将 HDInsight 注册为 Azure Key Vault 的托管标识，并在创建群集时添加加密密钥。
 
 所有发送到 Kafka 群集的消息（包括由 Kafka 维护的副本）都使用对称数据加密密钥 (DEK) 进行加密。 使用密钥保管库中的密钥加密密钥 (KEK) 保护 DEK。 加密和解密过程完全由 Azure HDInsight 处理。 
 
 可以使用 Azure 门户或 Azure CLI 安全地旋转密钥保管库中的密钥。 当密钥旋转时，HDInsight Kafka 群集会在几分钟内开始使用新密钥。 启用"软删除"密钥保护功能可防止勒索软件的方案和意外删除。 密钥保管库不支持此保护功能没有。
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>BYOK 入门
 若要创建 BYOK 启用 Kafka 群集，我们会完成以下步骤：
@@ -121,9 +119,9 @@ BYOK 加密是在群集创建期间处理的一步过程，无需额外费用。
    No, all managed disks in the cluster are encrypted by the same key.
 
 **What happens if the cluster loses access to the key vault or the key?**
-   If the cluster loses access to the key, warnings will be shown in the Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, ambari warnings will go away and operations such as key rotation can be successfully performed.
+   If the cluster loses access to the key, warnings will be shown in the Apache Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, Ambari warnings will go away and operations such as key rotation can be successfully performed.
 
-   ![Kafka key access ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
+   ![Kafka key access Ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **How can I recover the cluster if the keys are deleted?**
 

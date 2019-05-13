@@ -9,18 +9,35 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752328"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149758"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Azure 机器学习服务的已知问题和故障排除
 
 本文可帮助你查找和更正使用 Azure 机器学习服务时遇到的错误或失败。
+
+## <a name="visual-interface-issues"></a>可视界面问题
+
+机器学习服务问题的可视界面。
+
+### <a name="long-compute-preparation-time"></a>长时间的计算准备时间
+
+创建新的计算或调用它保留计算会花费些时间，可能是数分钟或更长时间。 团队正在进行优化。
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>不能运行试验仅包含数据集 
+
+你可能想要运行试验仅包含要直观显示数据集的数据集。 但是，它具有不允许运行试验仅现在包含数据集。 我们一直在解决此问题。
+ 
+之前修复，可以将数据集连接到的任何数据转换模块 （选择的列，在数据集、 编辑元数据、 拆分数据等） 并运行此试验。 然后可以直观显示数据集。 
+
+下图显示了如何： ![visulize 数据](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>SDK 安装问题
 
@@ -52,6 +69,9 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 
 Tensor Flow 自动执行机器学习当前不支持 tensor flow 版本 1.13。 安装此版本将导致包依赖项停止工作。 我们正在努力在将来的版本中修复此问题。 
 
+### <a name="experiment-charts"></a>实验图
+
+二元分类图自动化机器学习试验迭代中所示 （精度和召回率 ROC，获得曲线等） 不是自 4 月 12 呈现若要正确用户界面中。 图表绘图当前是显示反结果，其中具有较低结果显示了更好的执行模型。 解决方法是在调查下。
 
 ## <a name="databricks"></a>Databricks
 

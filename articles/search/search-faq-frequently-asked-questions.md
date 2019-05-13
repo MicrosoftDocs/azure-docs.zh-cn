@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c77f26187914b2c6e52426bb2a07303b22ccb2b0
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290442"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024000"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Azure 搜索 - 常见问题解答 (FAQ)
 
@@ -64,7 +64,7 @@ Azure 搜索支持多个数据源、[针对多种语言的语言分析](https://
 
 不，不支持此操作。 搜索始终限制在单一索引内。
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>能否根据用户身份限制搜索语料库访问？
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>可以按用户标识限制搜索索引访问？
 
 可以使用 `search.in()` 筛选器实现[安全筛选器](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)。 使用 [Azure Active Directory(AAD) 等标识管理服务](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad)可很好地编写筛选器，并基于定义的用户组成员身份裁剪搜索结果。
 

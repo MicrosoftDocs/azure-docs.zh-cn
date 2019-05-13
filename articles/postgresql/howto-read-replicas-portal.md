@@ -1,22 +1,24 @@
 ---
-title: 在 Azure 门户中管理 Azure Database for PostgreSQL 的只读副本
-description: 了解如何在 Azure 门户中管理 Azure Database for PostgreSQL 只读副本。
-author: WenJason
-ms.author: v-jay
+title: 管理适用于 PostgreSQL 的 Azure 门户中的单个服务器的 Azure 数据库的只读的副本
+description: 了解如何管理只读的副本 Azure Database for PostgreSQL-从 Azure 门户的单个服务器。
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420591"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510396"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>在 Azure 门户中创建和管理只读副本
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>创建和管理用于 PostgreSQL 的 Azure 门户中的单个服务器的 Azure 数据库中的只读的副本
 
 本文介绍如何使用 Azure 门户在 Azure Database for PostgreSQL 中创建和管理只读副本。 若要详细了解只读副本，请参阅[概述](concepts-read-replicas.md)。
+
+> [!IMPORTANT]
+> 在与主服务器，在同一区域或所选的任何其他 Azure 区域中，可以创建只读的副本。 跨区域复制当前处于公共预览状态。
 
 
 ## <a name="prerequisites"></a>必备组件
@@ -59,9 +61,15 @@ ms.locfileid: "60420591"
 
    ![添加副本](./media/howto-read-replicas-portal/add-replica.png)
 
-4. 输入只读副本的名称。 选择“确定”以确认创建该副本。
+4. 输入只读副本的名称。 
 
-   ![为副本命名](./media/howto-read-replicas-portal/name-replica.png) 
+    ![为副本命名](./media/howto-read-replicas-portal/name-replica.png)
+
+5. 选择该副本的位置。 可以在任何 Azure 区域中创建的副本。 默认位置是主服务器相同。
+
+    ![选择位置](./media/howto-read-replicas-portal/location-replica.png)
+
+6. 选择“确定”以确认创建该副本。
 
 副本是使用与主服务器相同的服务器配置创建的。 创建副本后，可以独立于主服务器更改多项设置：计算代系、vCore 数、存储和备份保留期。 定价层也可以独立更改，但“基本”层除外。
 

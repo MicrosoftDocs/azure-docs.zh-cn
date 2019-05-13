@@ -171,7 +171,7 @@ ms.locfileid: "60737174"
 
 |属性  |默认 | 描述 |
 |---------|---------|---------| 
-|已启用|true|指定是否已启用该功能。 | 
+|enabled|true|指定是否已启用该功能。 | 
 |healthCheckInterval|10 秒|定期后台运行状况检查之间的时间间隔。 | 
 |healthCheckWindow|2 分钟|与 `healthCheckThreshold` 设置结合使用的滑动时间窗口。| 
 |healthCheckThreshold|6|在启动主机回收之前，运行状况检查可以失败的最大次数。| 

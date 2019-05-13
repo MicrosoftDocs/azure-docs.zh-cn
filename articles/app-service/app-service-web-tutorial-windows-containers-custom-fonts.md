@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 15a1e388b17a66bf22fc0fd51744cb0aaa1b36d4
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904060"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415528"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>使用 Windows 容器将 ASP.NET 应用迁移到 Azure 应用服务（预览）
 
@@ -34,7 +34,7 @@ ms.locfileid: "58904060"
 - <a href="https://hub.docker.com/" target="_blank">注册 Docker 中心帐户</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">安装用于 Windows 的 Docker</a>。
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">将 Docker 切换为运行 Windows 容器</a>。
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">安装 Visual Studio 2017</a>，其中包含 ASP.NET 和 web 开发以及 Azure 开发工作负载。 如果已安装 Visual Studio 2017：
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">安装 Visual Studio 2019</a>，其中包含 **ASP.NET 和 web 开发**以及 **Azure 开发**工作负载。 如果已安装 Visual Studio 2019：
     - 通过单击“帮助” > “检查更新”，在 Visual Studio 中安装最新的更新。
     - 在 Visual Studio 中，通过单击“工具” > “获取工具和功能”，添加工作负载。
 

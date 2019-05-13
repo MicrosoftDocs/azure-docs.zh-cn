@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079054"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205869"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
 
@@ -42,7 +42,7 @@ ms.locfileid: "58079054"
     ![使用 Azure 门户创建 Azure 存储帐户](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 输入以下信息：
 
-    |Name|值|
+    |名称|值|
     |----|----|
     |**资源组**|选择“新建”，然后指定所选资源组的名称。 在屏幕截图中，资源组名称为 *mystorage1016rg*。 资源组是 Azure 资源的容器。 资源组方便 Azure 资源的管理。 |
     |**名称**|为存储帐户指定唯一的名称。 存储帐户名称在整个 Azure 中必须是唯一的，且仅包含小写字母和数字。 名称长度必须介于 3 到 24 个字符之间。 如果收到错误消息“存储帐户名称‘mystorage1016’已被占用”，请尝试使用“&lt;名称>存储&lt;MMDD 格式的今日日期>”，例如“johndolestorage1016”。 有关详细信息，请参阅[命名规则和限制](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions)。|
@@ -153,7 +153,7 @@ Azure 要求每个 Azure 服务都具有唯一的名称。 如果输入了已存
 8. 选择“保存”。
 9. 输入以下值：
 
-    |Name|值|
+    |名称|值|
     |----|----|
     |**资源组**|选择在上一部分中创建的资源组名称。 |
     |**位置**|选择存储帐户的位置。 例如“美国中部”。 |

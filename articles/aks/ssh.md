@@ -2,18 +2,17 @@
 title: 通过 SSH 登录到 Azure Kubernetes 服务 (AKS) 群集节点
 description: 了解如何与 Azure Kubernetes 服务 (AKS) 群集节点建立 SSH 连接，以完成故障排除和维护任务。
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/05/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/05/2019
+ms.author: iainfou
+ms.openlocfilehash: d421fad5f574b0d10b24453aca01adf574f493e8
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031637"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407709"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 连接到 Azure Kubernetes 服务 (AKS) 群集节点以进行维护或故障排除
 
@@ -35,14 +34,14 @@ ms.locfileid: "61031637"
 
 1. 使用 [az aks show][az-aks-show] 获取 AKS 群集资源的资源组名称。 提供自己的核心资源组和 AKS 群集名称：
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. 使用 [az vm list][az-vm-list] 命令列出 AKS 群集资源组中的 VM。 这些 VM 是 AKS 节点：
 
-    ```azurecli
-    az vm list --resource-group MC_myResourceGroup_myAKSCluster_chinaeast -o table
+    ```azurecli-interactive
+    az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
     以下示例输出显示 AKS 节点：
@@ -50,14 +49,14 @@ ms.locfileid: "61031637"
     ```
     Name                      ResourceGroup                                  Location
     ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast  chinaeast
+    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_eastus  eastus
     ```
 
 1. 若要将 SSH 密钥添加到节点，请使用 [az vm user update][az-vm-user-update] 命令。 提供资源组名称，然后提供在上一步骤中获取的 AKS 节点之一。 默认情况下，AKS 节点的用户名为 *azureuser*。 提供自己的 SSH 公钥位置（例如 *~/.ssh/id_rsa.pub*），或粘贴 SSH 公钥的内容：
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
-      --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
+      --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
       --username azureuser \
       --ssh-key-value ~/.ssh/id_rsa.pub
@@ -69,8 +68,8 @@ AKS 节点不会在 Internet 中公开。 若要通过 SSH 连接到 AKS 节点�
 
 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令查看 AKS 群集节点的专用 IP 地址。 提供在前面 [az-aks-show][az-aks-show] 步骤中获取的自己的 AKS 群集资源组名称：
 
-```azurecli
-az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_chinaeast -o table
+```azurecli-interactive
+az vm list-ip-addresses --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
 ```
 
 以下示例输出显示 AKS 节点的专用 IP 地址：
@@ -101,7 +100,7 @@ aks-nodepool1-79590246-0  10.240.0.4
 
     ```
     $ kubectl get pods
-
+    
     NAME                       READY     STATUS    RESTARTS   AGE
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
@@ -124,22 +123,22 @@ aks-nodepool1-79590246-0  10.240.0.4
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-
+    
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-
+    
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-
+    
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-
+    
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-
+    
     [...]
-
+    
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 
@@ -155,12 +154,12 @@ aks-nodepool1-79590246-0  10.240.0.4
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-vm-list]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list
-[az-vm-user-update]: https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
-[az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-vm-list]: /cli/azure/vm#az-vm-list
+[az-vm-user-update]: /cli/azure/vm/user#az-vm-user-update
+[az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: /cli/azure/install-azure-cli

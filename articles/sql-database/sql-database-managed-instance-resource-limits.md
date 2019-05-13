@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487494"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233521"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>概述 Azure SQL 数据库托管实例资源限制
 
@@ -37,11 +37,11 @@ Azure SQL 数据库托管实例可部署在两代硬件 (Gen4 和 Gen5) 上。 �
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | 硬件 | Intel E5-2673 v3 (Haswell) 2.4-GHz 处理器、附加的 SSD vCore = 1 PP（物理核心） | Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器、快速 NVMe SSD、vCore=1 LP（超线程） |
-| 计算 | 8、16、24 个 vCore | 8、16、24、32、40、64、80 个 vCore |
+| vCore 数 | 8、16、24 个 vCore | 8、16、24、32、40、64、80 个 vCore |
 | 内存 | 每个 vCore 7 GB | 每个 vCore 5.1 GB |
-| 内存中 OLTP 内存 | 每个 vCore 3 GB | 每个 vCore 2.6 GB |
-| 最大存储（常规用途） |  8 TB | 8 TB |
-| 最大存储（业务关键） | 1 TB | 1 TB、2 TB 或 4 TB，具体取决于核心数 |
+| 最大内存中 OLTP 内存 | 每个 vCore 3 GB | 每个 vCore 2.6 GB |
+| 所需的最大实例存储 （常规用途） |  8 TB | 8 TB |
+| 最大实例存储 （业务关键） | 1 TB | 1 TB、2 TB 或 4 TB，具体取决于核心数 |
 
 ### <a name="service-tier-characteristics"></a>服务层特征
 
@@ -50,12 +50,12 @@ Azure SQL 数据库托管实例可部署在两代硬件 (Gen4 和 Gen5) 上。 �
 | **功能** | **常规用途** | **业务关键** |
 | --- | --- | --- |
 | vCore 数目\* | 第 4 代：8、16、24<br/>第 5 代：8、16、24、32、40、64、80 | 第 4 代：8、16、24、32 <br/> 第 5 代：8、16、24、32、40、64、80 |
-| 内存 | Gen4：56 GB - 168 GB<br/>Gen5：40.8 GB - 408 GB<br/>\*与 vCore 数目成正比 | Gen4：56 GB - 168 GB <br/> Gen5：40.8 GB - 408 GB<br/>\*与 vCore 数目成正比 |
-| 最大存储大小 | 8 TB | Gen4：1 TB <br/> Gen5： <br/>- 8、16 个 vCore 1 TB<br/>- 24 个 vCore 2 TB<br/>- 4 TB（适用于 32、40、64、80 个 vCore） |
+| 内存 | Gen4：56 GB-168 GB (7 GB/vCore)<br/>Gen5：40.8 GB-408 GB (5.1 GB/vCore) | Gen4：56 GB-168 GB (7 GB/vCore)<br/>Gen5：40.8 GB-408 GB (5.1 GB/vCore) |
+| 最大实例存储大小 | 8 TB | Gen4：1 TB <br/> Gen5： <br/>- 8、16 个 vCore 1 TB<br/>- 24 个 vCore 2 TB<br/>- 4 TB（适用于 32、40、64、80 个 vCore） |
 | 每个数据库的最大存储 | 由每个实例的最大存储大小决定 | 由每个实例的最大存储大小决定 |
 | 每个实例的数据库数目上限 | 100 | 100 |
 | 每个实例的数据库文件数目上限 | 最多 280 个 | 每个数据库 32,767 个文件 |
-| 数据/日志 IOPS（近似） | 500 - 7,500（每个文件）<br/>\*[取决于文件大小](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K（每个 vCore 为 1,375） |
+| 数据/日志 IOPS（近似） | 500 - 7,500（每个文件）<br/>\*[取决于文件大小](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K-110 K (1375年/vCore) |
 | 日志吞吐量 | 22 MB/s（每个实例） | 3 MB/s（每个 vCore）<br/>最大为 48 MB/秒（每个实例）|
 | 数据吞吐量（近似） | 100 - 250 MB/s（每个文件）<br/>\*[取决于文件大小](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s（每个 vCore） |
 | IO 延迟（近似） | 5-10 毫秒 | 1-2 毫秒 |
@@ -123,7 +123,7 @@ Azure SQL 数据库托管实例可部署在两代硬件 (Gen4 和 Gen5) 上。 �
 
 |子网数|子网 1|子网 2|子网 3|
 |:---|:---|:---|:---|
-|第|1 个 BC 和最多 8 个 GP<br>2 个 BC 和最多 4 个 GP|不适用| 不适用|
+|1|1 个 BC 和最多 8 个 GP<br>2 个 BC 和最多 4 个 GP|不适用| 不适用|
 |2|0 个BC，最多 4 个 GP|1 个 BC，最多 4 个 GP<br>2 个 BC，0 个 GP|不适用|
 |2|1 个 BC，0 个 GP|0 个 BC，最多 8 个 GP<br>1 个BC，最多 4 个 GP|不适用|
 |2|2 个 BC，0 个 GP|0 个BC，最多 4 个 GP|不适用|

@@ -10,13 +10,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: ea16efbb846f21ec7c3fa39b2efeac741d8f8ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928357"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465195"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>在 Azure SQL 数据库托管实例中配置公共终结点
 

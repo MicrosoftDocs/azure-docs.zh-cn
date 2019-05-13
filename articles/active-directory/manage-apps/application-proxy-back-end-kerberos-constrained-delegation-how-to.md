@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440867"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441448"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>排查应用程序代理的 Kerberos 约束委派配置问题
 
@@ -177,7 +177,7 @@ Azure AD 应用程序代理可以部署到许多类型的基础结构或环境�
 
 ## <a name="other-scenarios"></a>其他方案
 
-- 在将请求发送至应用程序前，Azure 应用程序代理将请求 Kerberos 票证。 某些第三方应用程序（如 Tableau Server）不喜欢此身份验证方法。 这些应用程序希望进行更多常规协商。 首个请求为匿名请求，允许应用程序响应通过 401 支持的身份验证类型。
+- 在将请求发送至应用程序前，Azure 应用程序代理将请求 Kerberos 票证。 某些第三方应用程序不使用这种方法进行身份验证。 这些应用程序希望进行更多常规协商。 首个请求为匿名请求，允许应用程序响应通过 401 支持的身份验证类型。
 
 - 多跃点身份验证常用于应用程序分层的情形，具有都需要验证身份的后端和前端，例如 SQL Server Reporting Services。 若要配置多跃点方案，请参阅支持文章 [Kerberos 约束委派可能需要在多跃点方案中进行协议转换](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul)。
 

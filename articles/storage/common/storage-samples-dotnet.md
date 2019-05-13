@@ -2,19 +2,19 @@
 title: 使用 .NET 的 Azure 存储示例 | Microsoft Docs
 description: 查看、下载和运行 Azure 存储的示例代码和应用程序 使用 .NET 存储客户端库发现 Blob、队列、表和文件的入门示例。
 services: storage
-author: seguler
+author: mhopkins-msft
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/12/2017
-ms.author: seguler
+ms.date: 05/03/2019
+ms.author: mhopkins
 ms.subservice: common
-ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: df7c14f1ee83015303657f9a0babde3d60c92292
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101369"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209694"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
@@ -25,11 +25,11 @@ ms.locfileid: "62101369"
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">终结点</th><th style="font-size:110%">场景</th><th style="font-size:110%">代码示例</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>追加 Blob</td> 
-<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference 方法示例</a></td> 
+<td>追加 blob</td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Blob 入门</a></td> 
 </tr> 
 <tr> 
-<td>块 blob</td>
+<td>块 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a>（Azure Blob 存储照片库 Web 应用程序）</td>
 </tr> 
 <tr> 

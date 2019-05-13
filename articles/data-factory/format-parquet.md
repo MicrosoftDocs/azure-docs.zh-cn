@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 5b711fac2a7bc41d11bcc80927f460390888cc3e
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64878053"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144883"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure 数据工厂中的 parquet 格式
 
@@ -46,7 +46,7 @@ Parquet 格式支持以下连接器：[Amazon S3](connector-amazon-simple-storag
             "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
-        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "location": {
                 "type": "AzureBlobStorageLocation",

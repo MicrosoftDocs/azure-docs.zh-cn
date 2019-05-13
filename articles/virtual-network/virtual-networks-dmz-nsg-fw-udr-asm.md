@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362923"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410481"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>示例 3：构建外围网络以通过防火墙、 UDR 和 Nsg 保护网络
 
@@ -635,7 +635,7 @@ DNS 规则文档中的更高版本中使用此单个 IP 地址引用。
 设置用户定义变量之后, 运行此脚本保存到：
 
 1. 连接到 Azure 订阅
-1. 新建存储帐户
+1. 创建新的存储帐户
 1. 创建新的虚拟网络和网络配置文件中定义的三个子网
 1. 生成五个虚拟机： 防火墙和四个 Windows Server Vm
 1. 配置 UDR:
@@ -989,7 +989,7 @@ DNS 规则文档中的更高版本中使用此单个 IP 地址引用。
 使用更新的位置保存此 XML 文件。 更改`$NetworkConfigFile`变量完整上述脚本中要链接到已保存的网络配置文件。
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

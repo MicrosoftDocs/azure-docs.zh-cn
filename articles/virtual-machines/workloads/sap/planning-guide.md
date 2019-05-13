@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689399"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409769"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虚拟机规划和实施指南
 
@@ -391,17 +391,10 @@ Azure 文档中 SAP 工作负荷的入口点位于[此处](https://docs.microsof
 ## <a name="possible-scenarios"></a>可能的方案
 SAP 通常被视为企业中最关键的应用程序之一。 通常，这些应用程序的体系结构和操作非常复杂，因此，符合可用性与性能方面的要求十分重要。
 
-企业必须慎重考虑哪些应用程序可以在公有云环境中运行，而不管选择的是哪一家云提供商。
+企业必须考虑仔细有关要选择用于运行此类业务的云提供程序关键业务流程上。 Azure 是业务关键 SAP 应用程序和业务流程的理想的公有云平台。 给定各种各样的 Azure 基础结构，几乎所有的现有 SAP NetWeaver 和 S/4HANA 系统可以在 Azure 中托管今天。 Azure 提供了许多千吉字节的内存和 Cpu，200 多个 Vm。 Azure 提供的更高版本[HANA 大型实例](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)，其允许的最大 24 TB 和向外缩放 ANA 横向扩展 HANA 部署最多 120 TB 的部署。 
 
-下面列出了用于在公有云环境中部署基于 SAP NetWeaver 的应用程序的可能系统类型：
 
-1. 中型生产系统
-2. 开发系统
-3. 测试系统
-4. 原型系统
-5. 学习/演示系统
-
-要成功地将 SAP 系统部署到 Azure IaaS 或者一般的 IaaS，必须了解传统外购商或托管商的产品与 IaaS 产品之间的明显差异。 尽管传统主机托管服务提供商或外包商会根据客户想要托管的工作负荷改造其基础结构（网络、存储和服务器类型），但是，为 IaaS 部署选择适当的工作负荷却需要由客户负责。
+要成功地将 SAP 系统部署到 Azure IaaS 或者一般的 IaaS，必须了解传统外购商或托管商的产品与 IaaS 产品之间的明显差异。 传统托管商或外包商适应客户想要承载的工作负荷的基础结构 （网络、 存储和服务器类型），而它负责改为客户或合作伙伴的特征化工作负荷和选择正确的 AzureVm、 存储和网络为 IaaS 部署的组件。
 
 首先，客户需要确认以下事项：
 
@@ -422,11 +415,13 @@ SAP 通常被视为企业中最关键的应用程序之一。 通常，这些应
 
 请注意，上述链接中列出的限制是上限。 这并不意味着在所有情况下都能提供任何资源（例如 IOPS）的限制。 例外情况包括所选 VM 类型的 CPU 资源和内存。 对于 SAP 支持的 VM 类型，CPU 和内存资源是保留的，因此，这些资源在任意时间点都能够在 VM 中提供消耗。
 
-与其他 IaaS 平台一样，Microsoft Azure Platform 是多租户平台。 因此，存储、网络和其他资源在租户间是共享的。 其中使用了智能限制和配额逻辑来防止一个租户严重影响另一个租户的性能（干扰性邻居）。 尽管 Azure 中的逻辑会尝试将带宽差异控制在较小范围内，但是，共享度较高的平台的资源/带宽可用性与许多客户在其本地部署中通常能够获得的可用性很容易出现较大差异。 因此，在网络或存储 I/O（资源量和延迟）方面，每分钟都可能会遇到带宽级别的变化。 需要考虑 Azure 上 SAP 系统遇到的差异大于本地系统中的差异的可能性。
+Microsoft Azure 平台是多租户平台。 因此，存储、网络和其他资源在租户间是共享的。 其中使用了智能限制和配额逻辑来防止一个租户严重影响另一个租户的性能（干扰性邻居）。 尤其是对 Azure 平台的 SAP HANA 进行认证，Microsoft 需要证明位置的多个 Vm 可以运行定期在同一主机 SAP 的情况下的资源隔离。 尽管 Azure 中的逻辑会尝试在带宽中保留的方差可能会出现在资源/带宽可用性较大差异不是客户在其本地部署可能会遇到小的、 高度共享平台。 需要考虑 Azure 上 SAP 系统遇到的差异大于本地系统中的差异的可能性。
 
-最后，需要评估可用性要求。 有时，底层 Azure 基础结构需要更新，并要求重新启动运行 VM 的主机。 在这种情况下，这些主机上运行的 VM 也会关闭并重新启动。 此类维护可以在特定区域的非重要工作时间完成，但是，在几个小时内执行重新启动的可能性相对较为常见。 可以配置 Azure 平台中的多种技术来部分或完全消除此类更新造成的影响。 随着将来对 Azure 平台的增强，DBMS 和 SAP 应用程序可以最大程度地减少这种重启带来的影响。
+最后，需要评估可用性要求。 有时，底层 Azure 基础结构需要更新，并要求重新启动运行 VM 的主机。 Microsoft 文档中的不同用例[在 Azure 中的虚拟机的维护](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)。 若要缓解极少数情况下，Vm 被强制重新启动，但您需要对修补程序来宾 OS 或 DBMS 组件，更重要的情况下进行开发所需在生产 SAP 系统有效的高可用性概念。 此要求不是任何不同于您面临着在本地的要求。 Microsoft 正在不断推进 Azure 平台，以减少平台更改所造成的停机时间。 
 
 要成功将 SAP 系统部署到 Azure，本地 SAP 系统的操作系统、数据库和 SAP 应用程序必须出现在 SAP Azure 支持矩阵中、符合 Azure 基础结构可提供的资源限制，并且可配合 Microsoft Azure 提供的可用性 SLA 使用。 在确定这些系统后，需要决定采用下列两种部署方案中的哪一种。
+
+
 
 
 
@@ -1506,7 +1501,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* 新建存储帐户
+* 创建新的存储帐户
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1639,7 +1634,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 | 调度程序 |sapdp`<nn>` 请参阅 * |3201 |3200 - 3299 |SAP 调度程序，由适用于 Windows 和 Java 的 SAP GUI 使用 |
 | 消息服务器 |sapms`<sid`> 请参阅 ** |3600 |free sapms`<anySID`> |sid = SAP-System-ID |
 | 网关 |sapgw`<nn`> 请参阅 * |3301 |可用 |SAP 网关，用于 CPIC 和 RFC 通信 |
-| SAP 路由器 |sapdp99 |3299 |可用 |仅限 CI（中心实例）。安装后，可在 /etc/services 中将服务名称重新指定为任意值。 |
+| SAP 路由器 |sapdp99 |3299 |免费 |仅限 CI（中心实例）。安装后，可在 /etc/services 中将服务名称重新指定为任意值。 |
 
 *) nn = SAP 实例编号
 

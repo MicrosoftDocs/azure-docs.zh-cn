@@ -8,7 +8,7 @@ metadata:
   author: mamccrea
   ms.service: azure-databricks
   ms.topic: landing-page
-  ms.date: 03/19/2018
+  ms.date: 05/07/2019
   ms.author: mamccrea
 abstract:
   description: 了解如何使用 Azure Databricks（一种基于 Apache Spark 的分析平台，它提供了一键设置，简化了工作流，并提供了一个交互工作区，使数据科学家、数据工程师和商业分析师可以相互协作）。 快速入门和教程介绍了如何开始使用 Azure Databricks 以及如何与其他 Azure 服务集成。
@@ -37,6 +37,10 @@ sections:
               src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
             text: 资源管理器模板
             href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+          - image:
+              src: /azure/azure-databricks/media/index/virtualnetwork.svg
+            text: 虚拟网络
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection
   - title: 分步教程
     items:
       - type: paragraph
@@ -44,6 +48,8 @@ sections:
       - type: list
         style: ordered
         items:
+          - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">查询在 Docker 容器中运行的 SQL Server</a>
+          - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">使用 Cosmos DB 服务终结点</a>
           - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">提取、转换和加载数据</a>
           - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">从事件中心对数据进行流式传输</a>
           - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">使用认知服务进行情绪分析</a>
@@ -56,3 +62,5 @@ sections:
         items:
           - title: REST
             html: <p><a href="/rest/api/databricks">REST API</a></p>
+          - title: 资源管理器
+            html: <p><a href="/azure/templates/microsoft.databricks/workspaces">模板</a></p>

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: fc52512f48050c46894996d5a79b26f36fc6ad6c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 99766c0f2ed5f61cc5c5bd44b77eb7dde6537c76
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183826"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916589"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>快速入门：使用 C# 通过文本翻译 API 来翻译字符串
 
@@ -155,7 +155,7 @@ dotnet run
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 ```json
 [

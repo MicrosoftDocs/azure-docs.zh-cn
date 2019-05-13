@@ -1,6 +1,6 @@
 ---
-title: 关于 v2.0 | Azure
-description: 了解 v2.0 终结点和平台。
+title: Microsoft 标识平台 (v2.0) 概述 - Azure
+description: 了解有关 Microsoft 标识平台 (v2.0) 终结点和平台。
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,71 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208291"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231095"
 ---
-# <a name="about-v20"></a>关于 v2.0
+# <a name="microsoft-identity-platform-v20-overview"></a>Microsoft 标识平台 (v2.0) 概述
 
-v2.0 终结点和平台已处于预览状态并不断增强。 目前，JavaScript 单页应用程序 (SPA) 方案功能已完成，我们邀请你使用 MSAL.js 构建基于浏览器的应用程序并向我们提供反馈，以便我们可以将状态从“预览”更新为“正式发布”(GA)。
+Microsoft 标识平台是 Azure Active Directory (Azure AD) 标识服务和开发人员平台的一种演变。 开发人员可以通过它来生成应用程序，从而可以采用所有 Microsoft 标识登录，以及获取令牌来调用 Microsoft Graph 等 Microsoft API 或开发人员生成的 API。 Microsoft 标识平台包括：
 
-> [!NOTE]
-> MSAL Android、iOS 和 .NET 的功能仍在开发中。 可以使用它们来构建应用程序并向我们发送反馈。
+- **符合 OAuth 2.0 和 OpenID Connect 标准的身份验证服务**，使开发人员能够对任何 Microsoft 标识进行身份验证并，包括：
+  - 工作或学校帐户（通过 Azure AD 预配的）
+  - 个人 Microsoft 帐户（例如 Skype、Xbox 和 Outlook.com）
+  - 社交或本地帐户（通过 Azure AD B2C）
+- **开放源代码库**：Microsoft 身份验证库 (MSAL)，并支持其他符合标准的库
+- **应用程序管理门户**：Azure 门户中内置的注册和配置体验，以及你的所有其他 Azure 管理功能。
+- **应用程序配置 API 和 PowerShell**：允许通过 REST API（Microsoft Graph 和 Azure Active Directory Graph 1.6）和 PowerShell 以编程方式配置你的应用程序，以便可以自动执行 DevOps 任务。
+- **开发人员内容**：概念性和参考文档、快速入门示例、代码示例、教程以及操作指南。
 
-Azure 门户[应用注册（预览版）](quickstart-register-app.md)体验已经过重大更新，现在包括使用 ADAL 或 MSAL 构建的所有应用程序，并提高了可用性。
+对于开发人员而言，Microsoft 标识平台可无缝集成到标识和安全领域的创新中，例如无密码身份验证、升级身份验证和条件访问。  你不需要自己实现这样的功能：集成了 Microsoft 标识平台的应用程序原本就可以利用这样的创新。
 
-在过去，想要支持个人 Microsoft 帐户和 Azure Active Directory (Azure AD) 中的工作帐户的应用程序开发人员必须集成两个单独的系统。 v2.0 终结点和平台提供了一个简化此过程的身份验证 API 版本。 使用它可通过一次集成从这两种类型的帐户登录。 使用 v2.0 终结点的应用程序还可以通过其中一种帐户从 [Microsoft 图形 API](https://developer.microsoft.com/graph) 使用 REST API。
+使用 Microsoft 标识平台，你可以编写一次代码并影响任何用户。 你可以构建一次应用并使其在许多平台上运行，也可以构建充当客户端以及资源应用程序 (API) 的应用。
 
 ## <a name="getting-started"></a>入门
 
-从下述列表中选择偏爱的平台，以使用 Microsoft 开源库与框架生成应用程序：
+可以轻松使用标识。 选择适合你的方案 - 每个方案路径都有一个快速入门和一个概述页面，可以通过它们在数分钟内实现正常运转：
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [构建单页应用](scenario-spa-overview.md)
+- [构建用于让用户登录的 Web 应用](scenario-web-app-sign-user-overview.md)
+- [构建调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md)
+- [构建受保护的 Web API](scenario-protected-web-api-overview.md)
+- [构建调用 Web API 的 Web 应用](scenario-web-api-call-api-overview.md)
+- [构建桌面应用](scenario-desktop-overview.md)
+- [构建守护程序应用](scenario-daemon-overview.md)
+- [构建移动应用](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>详细了解 v2.0 终结点和平台
+下图概述了常见的身份验证应用方案 - 将 Microsoft 标识平台与你的应用程序集成时，可以使用它作为参考。
 
-了解 Azure AD v2.0 终结点的作用：
+[![Microsoft 标识平台中的应用程序方案](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-* 探索[可以使用 Azure AD v2.0 终结点生成的应用程序类型](v2-app-types.md)。
-* 了解 Azure AD v2.0 终结点的[限制、局限性和约束](active-directory-v2-limitations.md)。
+## <a name="next-steps"></a>后续步骤
 
-## <a name="additional-resources"></a>其他资源
+如果要详细了解核心身份验证概念，建议你先阅读以下主题：
 
-浏览有关 v2.0 的深入信息：
+- [身份验证基础知识](authentication-scenarios.md)
+- [应用程序和服务主体](app-objects-and-service-principals.md)
+- [受众](v2-supported-account-types.md)
+- [权限和许可](v2-permissions-and-consent.md)
+- [ID 令牌](id-tokens.md)和[访问令牌](access-tokens.md)
 
-* [关于 Microsoft 标识平台](about-microsoft-identity-platform.md)
-* [v2.0 协议参考](active-directory-v2-protocols.md)
-* [访问令牌参考](access-tokens.md)
-* [ID 令牌参考](id-tokens.md)
-* [v2.0 身份验证库参考](reference-v2-libraries.md)
-* [v2.0 中的权限和许可](v2-permissions-and-consent.md)
-* [Microsoft 图形 API](https://developer.microsoft.com/graph)
+构建调用 [Microsoft Graph](https://docs.microsoft.com/graph/overview) 的富数据应用程序。
 
-> [!NOTE]
-> 如果只需从 Azure Active Directory 登录到工作和学校帐户，请从 [Azure AD 开发人员指南](v1-overview.md)入手。 V2.0 终结点供显式需要登录 Microsoft 个人帐户的开发人员使用。
+当准备好在**生产环境**中启动你的应用后，查看以下最佳做法：
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+- 在你的应用程序中[启用日志记录](msal-logging.md)。
+- 在你的应用程序中启用遥测。
+- 启用[代理并自定义 HTTP 客户端](msal-net-provide-httpclient.md)。
+- 按照 [Microsoft 标识平台集成清单](identity-platform-integration-checklist.md)测试你的集成。
+
+## <a name="learn-more"></a>了解详细信息
+
+如果你打算构建以社交和本地标识进行登录的面向客户的应用程序，请查看 [Azure AD B2C 概述](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers)。

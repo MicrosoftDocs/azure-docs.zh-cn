@@ -59,7 +59,7 @@
     - name: 更改跟踪
       items:
         - name: 更改跟踪概述
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: 查看所跟踪文件的文件内容
           href: change-tracking-file-contents.md

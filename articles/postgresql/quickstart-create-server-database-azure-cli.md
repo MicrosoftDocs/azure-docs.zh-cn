@@ -1,21 +1,21 @@
 ---
-title: 快速入门 - 使用 Azure CLI 创建 Azure Database for PostgreSQL
-description: 有关使用 Azure CLI（命令行界面）创建和管理 Azure Database for PostgreSQL 服务器的快速入门指南。
+title: 快速入门 - 使用 Azure CLI 创建 Azure Database for PostgreSQL - 单一服务器
+description: 使用 Azure CLI（命令行界面）创建和管理 Azure Database for PostgreSQL - 单一服务器的快速入门指南。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902012"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069054"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL - 单一服务器
 
 > [!TIP]
 > 请考虑使用更简单的 [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI 命令（当前为预览版）。 试用[快速入门](./quickstart-create-server-up-azure-cli.md)。
@@ -28,12 +28,12 @@ ms.locfileid: "57902012"
 
 如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。 
 
-如果在本地运行 CLI，需要使用 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
+要本地运行 CLI，需要使用 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 命令登录你的帐户。 记下命令行输出中相应订阅名称的 ID 属性。
 ```azurecli-interactive
 az login
 ```
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/azure/account) 命令选择帐户下的特定订阅 ID。 用订阅的 **az login** 输出中的 **id** 属性代替订阅 id 占位符。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/azure/account) 命令选择帐户下的特定订阅 ID。 将 az login 输出中你的订阅的 ID 属性替换到订阅 ID 占位符中。
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```
@@ -57,7 +57,7 @@ resource-group | myresourcegroup | 提供 Azure 资源组的名称。
 sku-name | GP_Gen5_2 | SKU 的名称。 请遵循简写约定 {pricing tier}\_{compute generation}\_{vCores}。 请参阅下表，详细了解 sku-name 参数。
 backup-retention | 7 | 保留备份的时长。 单位为天。 范围为 7-35。 
 geo-redundant-backup | 已禁用 | 是否应该为此服务启用异地冗余备份。 允许的值：“Enabled”、“Disabled”。
-位置 | westus | 服务器的 Azure 位置。
+location | westus | 服务器的 Azure 位置。
 ssl-enforcement | 已启用 | 是否应该为此服务启用 ssl。 允许的值：“Enabled”、“Disabled”。
 storage-size | 51200 | 服务器的存储容量（单位是兆字节）。 有效的存储大小最小为 5120MB，以 1024MB 为增量。 请参阅[定价层](./concepts-pricing-tiers.md)文档，详细了解存储大小限制。 
 版本 | 9.6 | PostgreSQL 主版本。

@@ -2,18 +2,19 @@
 title: 如何使用适用于 Node.js v2 的客户端库在 Azure 存储中创建 Blob
 description: 在对象 (Blob) 存储中创建存储帐户和容器。 随后，使用适用于 Node.js v2 的 Azure 存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.author: tamram
-ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 7ca1eacd1add7453833b4b9ad1d4bd0fbef13ca7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121532"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149421"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用适用于 Node.js v2 的客户端库上传、下载和列出 Blob
 

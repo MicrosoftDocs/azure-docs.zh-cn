@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344450"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472477"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>将认知服务资源与 Azure 搜索中的技能集联系起来 
 
@@ -28,8 +28,7 @@ AI 算法驱动器[认知索引管道](cognitive-search-concept-intro.md)用于�
 > [!NOTE]
 > 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要附加可计费的认知服务资源。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 执行[内置认知技能](cognitive-search-predefined-skills.md)执行收费[认知服务付款现转价格](https://azure.microsoft.com/pricing/details/cognitive-services)，在相同速率像已直接执行该任务。 图像提取是反映在 Azure 搜索费用[Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)。
-
+> 内置技能执行按现有[认知服务即用即付价格](https://azure.microsoft.com/pricing/details/cognitive-services/)计费。 图像提取定价如 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)所述。
 
 ## <a name="use-free-resources"></a>使用免费资源
 
@@ -61,7 +60,7 @@ AI 算法驱动器[认知索引管道](cognitive-search-concept-intro.md)用于�
 
    ![创建认知服务资源](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "创建认知服务资源")
 
-1. 在位置中，选择与 Azure 搜索以避免跨区域的出站带宽的费用相同的区域。
+1. 在位置中，选择 Azure 搜索所在的同一区域。 这是出于性能原因，必需的但也使无效出站带宽费用，跨区域。
 
 1. 在定价层中，选择**S0**若要获取的认知服务功能，包括返回 Azure 搜索使用的预定义的技能的视觉和语言功能的多功能一体集合。 
 
@@ -100,7 +99,7 @@ AI 算法驱动器[认知索引管道](cognitive-search-concept-intro.md)用于�
 以下示例演示了此模式。 请注意定义底部的 cognitiveServices 节
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Content-Type: application/json
 + 每个页面包含一个图像（共 6000 个图像）
 + 每个页面包含 3000 个字符
 
-假设管道的功能包括：使用图像和文本提取破解每个 PDF，使用光学字符识别 (OCR) 处理图像，以及组织的命名实体识别。 
+假设管道包含的图像和文本提取，光学字符识别 (OCR) 的映像，与每个 PDF 文档破解和实体识别的组织。 
 
 在此练习中，我们将为每笔交易应用最贵的价格。 考虑到阶梯定价，实际成本可能更低。 请参阅[认知服务定价](https://azure.microsoft.com/pricing/details/cognitive-services)。
 

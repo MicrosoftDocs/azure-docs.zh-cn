@@ -2,20 +2,20 @@
 title: 教程：将纽约出租车数据加载到 Azure SQL 数据仓库 | Microsoft Docs
 description: 教程使用 Azure 门户和 SQL Server Management Studio 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca4084fb271320eb4cdfdeb6cb9026367761be0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61078755"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143660"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -561,6 +561,49 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
     ![查看已加载的表](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>使用管理的标识来加载 （可选） 进行身份验证
+加载使用 PolyBase，然后通过管理的标识进行身份验证是最安全的机制，使你能够使用 Azure 存储利用 VNet 服务终结点。 
+
+### <a name="prerequisites"></a>必备组件
+1.  按照此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安装 Azure PowerShell。
+2.  如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)将该帐户升级到常规用途 v2 帐户。
+3.  必须在 Azure 存储帐户的“防火墙和虚拟网络”设置菜单下启用“允许受信任的 Microsoft 服务访问此存储帐户”。 有关详细信息，请参阅此[指南](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
+
+#### <a name="steps"></a>Steps
+1. 在 PowerShell 中，向 Azure Active Directory (AAD) 注册 SQL 数据库服务器：
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. 按照此[指南](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)创建**常规用途 v2 存储帐户**。
+
+   > [!NOTE]
+   > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)将该帐户**升级到 v2** 帐户。
+    
+1. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。 向 SQL 数据库服务器分配“存储 Blob 数据参与者”RBAC 角色。
+
+   > [!NOTE] 
+   > 只有具有“所有者”特权的成员能够执行此步骤。 若要了解 Azure 资源的各种内置角色，请参阅此[指南](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)。
+  
+1. **通过 Polybase 连接到 Azure 存储帐户：**
+    
+   1. 创建具有在数据库作用域凭据**标识 = 托管服务标识**:
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用[托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)。
+       > - 标识名称应**托管服务标识**的 PolyBase 连接要使用 Azure 存储帐户。
+    
+   1. 创建外部数据源使用托管服务标识中指定数据库作用域凭据。
+        
+   1. 使用[外部表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)进行正常查询。
+
+请参阅以下 [文档] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) 如果你想要为 SQL 数据仓库设置虚拟网络服务终结点。 
 
 ## <a name="clean-up-resources"></a>清理资源
 

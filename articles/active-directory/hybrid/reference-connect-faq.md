@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381431"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137788"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
@@ -78,6 +78,47 @@ Microsoft 建议强化你的 Azure AD Connect 服务器以减少您的 IT 环境
 
 为简单起见，我们建议安装 Azure AD Connect 的用户是 SQL 中的系统管理员。 但是，在最新的版本中，现在也可以根据[使用 SQL 委派的管理员权限安装 Azure AD Connect](how-to-connect-install-sql-delegation.md) 中所述，使用委派的 SQL 管理员。
 
+**问：一些字段中的最佳实践是什么？**  
+
+以下是支持的工程，提供了一些最佳做法的信息性文档，多年来开发了我们的顾问。  这是可以快速引用的项目符号列表中显示。  虽然此列表试图详尽，但可能有其他可能不具有其列表尚未建立的最佳做法。
+
+- 如果使用完整的 SQL，则它应保留在本地与远程
+    - 更少跃点
+    - 更轻松地进行故障排除
+    - 减少复杂性
+    - 需要将指定的资源添加到 SQL，并允许 Azure AD Connect 和 OS 开销
+- 如有可能不使用代理服务器，如果您不能绕过代理，则需要确保超时值大于 5 分钟。
+- 如果代理是必需的则必须将代理添加到 machine.config 文件
+- 要注意的本地 SQL 作业和维护以及它们如何影响 Azure AD Connect-尤其重新编制索引
+- 确保不是 DNS 可以从外部解析
+- 絋粄[服务器规范](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect)是按每个建议使用物理或虚拟服务器
+- 确保如果使用所需的资源都专用的虚拟服务器
+- 确保你具有的磁盘和磁盘配置适用于 SQL Server 符合最佳实践
+- 安装和配置 Azure AD Connect Health 进行监视
+- 使用内置于 Azure AD Connect 的删除阈值。
+- 请仔细查看版本更新做好准备的所有更改和可能添加的新特性
+- 备份的所有内容
+    - 备份密钥
+    - 备份同步规则
+    - 备份服务器配置
+    - 备份 SQL 数据库
+- 请确保没有备份而无需 SQL VSS 编写器 （在使用第三方快照的虚拟服务器公用） 的 SQL 没有第三方备份代理
+- 限制使用添加复杂的自定义同步规则的量
+- 将 Azure AD 连接的服务器，因为层 0 个服务器
+- 是不愿意使用修改没有很好理解的影响，以及正确的业务驱动程序的云同步规则
+- 请确保正确的 URL 以及防火墙端口已打开用于支持的 Azure AD Connect 和 Azure AD Connect Health
+- 利用云筛选的属性以进行故障排除并防止幻影对象
+- 使用暂存服务器，请确保使用 Azure AD Connect 配置文档的服务器之间的一致性
+- 过渡服务器应位于独立的数据中心 （物理位置
+- 过渡服务器并不是高可用性解决方案，但可以有多个暂存服务器
+- 引入了"延迟"暂存服务器可能会缓解一些潜在的停机时间发生错误时
+- 测试并首先验证所有升级过渡服务器上
+- 始终验证导出之前切换到过渡 serverLeverage 完整导入和完全同步，以减少业务影响暂存服务器
+- 保留尽可能多地版本 Azure AD Connect 服务器之间的一致性 
+
+**问：允许 Azure AD Connect 将在工作组计算机上创建 Azure AD 连接器帐户？**
+不。  为了使 Azure AD Connect 将自动创建的 Azure AD 连接器帐户，计算机必须已加入域的。  
+
 ## <a name="network"></a>网络
 **问：我的防火墙、网络设备或其他软硬件会限制在网络上打开连接的时间。使用 Azure AD Connect 时，客户端超时阈值应设为多少？**  
 所有网络软件、物理设备或其他软硬件限制最长连接时间的阈值应该至少为 5 分钟 (300 秒)，使装有 Azure AD Connect 客户端的服务器能够与 Azure Active Directory 连接。 此项建议同样适用于以前发布的 Microsoft 标识同步工具。
@@ -107,6 +148,9 @@ Azure AD Connect 不支持纯 IPv6 环境。
 ## <a name="environment"></a>环境
 **问：安装 Azure AD Connect 之后，是否支持重命名服务器？**  
 不。 更改服务器名称将导致同步引擎无法连接到 SQL 数据库实例，并且服务将无法启动。
+
+**问：已启用 FIPS 的计算机上支持下一代加密 (NGC) 同步规则？**  
+不。  不支持。
 
 ## <a name="identity-data"></a>标识数据
 **问：Azure AD 中的 userPrincipalName (UPN) 属性为何与本地 UPN 不匹配？**  

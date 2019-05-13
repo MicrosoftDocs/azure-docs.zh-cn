@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445377"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233779"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 
@@ -32,7 +32,7 @@ Azure 计算请求可能会根据订阅和区域进行限制，以便优化服�
 
 ## <a name="call-rate-informational-response-headers"></a>调用速率信息响应标头 
 
-| 标头                            | 值格式                           | 示例                               | 描述                                                                                                                                                                                               |
+| 页眉                            | 值格式                           | 示例                               | 描述                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 限制策略（涵盖资源 Bucket 或操作组，包括此请求的目标）的剩余 API 调用计数                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | 针对此 HTTP 请求进行的调用计数计入相应策略的限制。 这通常为 1。 针对特殊情况（例如针对虚拟机规模集的缩放）的批请求可以有多个计数。 |
@@ -80,7 +80,7 @@ Content-Type: application/json; charset=utf-8
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 调用速率和限制错误分析器
 针对计算资源提供程序的 API 提供了故障排除功能的一个预览版版本。 这些 PowerShell cmdlet 按时间间隔按操作提供有关 API 请求速率的统计信息并且按操作组（策略）提供限制违规统计信息：
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 使用此 API 调用统计信息可以很好地洞察订阅的客户端的行为，并轻松识别导致限制的调用模式。
 

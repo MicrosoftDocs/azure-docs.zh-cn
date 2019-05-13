@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726645"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236356"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -105,11 +105,14 @@ ms.locfileid: "64726645"
 >
 
 ### <a name="dns-hostname-resolution"></a>DNS 主机名解析
-可以为公共 IP 资源指定一个 DNS 域名标签，以便在 Azure 托管的 DNS 服务器中为 *domainnamelabel*.*location*.cloudapp.azure.com 创建目标为公共 IP 地址的映射。 例如，如果在创建公共 IP 资源时将 *domainnamelabel* 指定为 **contoso**，将 Azure 的“位置”指定为“美国西部”，则会将完全限定域名 (FQDN) **contoso.westus.cloudapp.azure.com** 解析成该资源的公共 IP 地址。 可以使用 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。 除了使用带有默认后缀的 DNS 名称标签，还可以改用 Azure DNS 服务来配置带有自定义后缀（可解析为公用 IP 地址）的 DNS 名称。 有关详细信息，请参阅[将 Azure DNS 与 Azure 公用 IP 地址配合使用](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)。
+可以为公共 IP 资源指定一个 DNS 域名标签，以便在 Azure 托管的 DNS 服务器中为 *domainnamelabel*.*location*.cloudapp.azure.com 创建目标为公共 IP 地址的映射。 例如，如果在创建公共 IP 资源时将 *domainnamelabel* 指定为 **contoso**，将 Azure 的“位置”指定为“美国西部”，则会将完全限定域名 (FQDN) **contoso.westus.cloudapp.azure.com** 解析成该资源的公共 IP 地址。
 
 > [!IMPORTANT]
 > 所创建的每个域名标签在其 Azure 位置中必须是唯一的。  
 >
+
+### <a name="dns-best-practices"></a>DNS 最佳实践
+如果需要迁移到不同的区域，则不能迁移的公共 IP 地址的 FQDN。 最佳做法是，可以使用 FQDN 创建指向 Azure 中的公共 IP 地址的自定义域 CNAME 记录。 如果你需要将移动到不同的公共 IP，它将需要的更新而无需手动更新到新的地址的 FQDN 的 CNAME 记录。 可以使用[Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address)或你的 DNS 记录的外部 DNS 提供程序。 
 
 ### <a name="virtual-machines"></a>虚拟机
 
@@ -132,9 +135,9 @@ ms.locfileid: "64726645"
 
 | 顶级资源 | IP 地址关联 | 动态 | 静态 |
 | --- | --- | --- | --- |
-| 虚拟机 |Linux |是 |是 |
-| 面向 Internet 的负载均衡器 |前端配置 |是 |是 |
-| VPN 网关 |网关 IP 配置 |是 |是 |
+| 虚拟机 |Linux |“是” |“是” |
+| 面向 Internet 的负载均衡器 |前端配置 |“是” |“是” |
+| VPN 网关 |网关 IP 配置 |“是” |“否” |
 | 应用程序网关 |前端配置 |是（仅限 V1） |是（仅限 V2） |
 
 ## <a name="private-ip-addresses"></a>专用 IP 地址
@@ -180,9 +183,9 @@ ms.locfileid: "64726645"
 
 | 顶级资源 | IP 地址关联 | 动态 | 静态 |
 | --- | --- | --- | --- |
-| 虚拟机 |Linux |是 |是 |
-| 负载均衡 |前端配置 |是 |是 |
-| 应用程序网关 |前端配置 |是 |是 |
+| 虚拟机 |Linux |“是” |“是” |
+| 负载均衡器 |前端配置 |“是” |“是” |
+| 应用程序网关 |前端配置 |“是” |“是” |
 
 ## <a name="limits"></a>限制
 Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，根据业务需求将默认限制提高到最大限制。

@@ -1,7 +1,7 @@
 ---
 title: 为 Azure 表存储中的内容编制索引，以便进行全文搜索 - Azure 搜索
 description: 了解如何使用 Azure 搜索索引器为 Azure 表存储中存储的数据编制索引。
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871228"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024787"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>使用 Azure 搜索编制 Azure 表存储的索引
 本文介绍如何使用 Azure 搜索对 Azure 表存储中存储的数据编制索引。
@@ -49,7 +49,7 @@ ms.locfileid: "60871228"
 
 若要创建数据源，请执行以下操作：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ ms.locfileid: "60871228"
 
 若要创建索引，请执行以下操作：
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ ms.locfileid: "60871228"
 
 创建索引和数据源后，可以创建索引器：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +133,7 @@ ms.locfileid: "60871228"
 
 若要指示必须从索引中删除某些文档，可使用软删除策略。 不删除行，而是添加一个属性来指示删除行，并对数据源设置软删除检测策略。 例如，如果某行具有值为 `"true"` 的属性 `IsDeleted`，以下策略会将该行视为已删除：
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

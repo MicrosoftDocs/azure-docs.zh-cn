@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282655"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024733"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>快速入门：使用内置门户工具在 Azure 搜索中进行导入、索引编制和查询
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ ms.locfileid: "59282655"
    ![跳过认知技能步骤](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> 若要尝试 Azure 搜索的全新认知搜索预览版功能，可以阅读[认知搜索快速入门](cognitive-search-quickstart-blob.md)或[教程](cognitive-search-tutorial-blob.md)。
+> 可以在[快速入门](cognitive-search-quickstart-blob.md)或[教程](cognitive-search-tutorial-blob.md)中逐步执行 AI 索引示例。
 
 ### <a name="step-3---configure-index"></a>步骤 3 - 配置索引
 
@@ -154,7 +154,7 @@ ms.locfileid: "59282655"
 
    ![搜索浏览器命令](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. 在命令栏中单击“更改索引”切换到 *realestate-us-sample*。 在命令栏中单击“设置 API 版本”，查看有哪些 REST API 可用。 对于以下查询，请使用正式版 (2017-11-11)。
+2. 在命令栏中单击“更改索引”切换到 *realestate-us-sample*。 在命令栏中单击“设置 API 版本”，查看有哪些 REST API 可用。 对于以下查询，请使用正式版 (2019-05-06)。
 
    ![索引和 API 命令](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

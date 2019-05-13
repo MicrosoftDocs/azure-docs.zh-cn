@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure Database for PostgreSQL 中的 PostgreSQL 扩展
-description: 介绍有关使用 Azure Database for PostgreSQL 中的扩展来扩展数据库功能的功能。
+title: Azure Database for PostgreSQL-单个服务器中的使用 PostgreSQL 扩展
+description: 描述扩展的数据库使用 Azure database for PostgreSQL-单台服务器扩展功能的能力。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720587"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410273"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的 PostgreSQL 扩展
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-单个服务器中的 PostgreSQL 扩展
 PostgreSQL 支持使用扩展来扩展数据的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展可以如同内置功能一样运行。 有关 PostgreSQL 扩展的详细信息，请参阅  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)（将相关对象打包到扩展中）。
 
 ## <a name="how-to-use-postgresql-extensions"></a>如何使用 PostgreSQL 扩展
@@ -73,7 +73,6 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 > | **扩展** | **说明** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可加载过程语言。 |
-> | [plv8](https://plv8.github.io/) | 可用于存储过程、触发器等的 PostgreSQL 的 Javascript 语言扩展。 |
 
 ### <a name="miscellaneous-extensions"></a>其他扩展
 

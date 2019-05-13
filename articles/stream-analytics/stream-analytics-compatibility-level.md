@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2019
-ms.openlocfilehash: e4bbfdbcf7a295089570d4c8b77b07fd7270b3fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/2/2019
+ms.openlocfilehash: c1b2875e6899d2301a4c4b564882214dc7bc4981
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771681"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205462"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -25,8 +25,8 @@ ms.locfileid: "60771681"
 
 Azure Stream Analytics 当前支持三种兼容性级别：
 
-* 1.0-默认级别
-* 1.1-当前版本行为
+* 1.0-以前的行为
+* 1.1-默认行为
 * 1.2 （预览版）-在计算中的最新改进的最新行为
 
 在公开上市的 Azure Stream Analytics 几年前引入了原始 1.0 兼容性级别。
@@ -49,7 +49,7 @@ Azure Stream Analytics 当前支持三种兼容性级别：
 
 在更新兼容性级别时，T-SQL 编译器会使用与所选兼容性级别相对应的语法来验证作业。
 
-## <a name="compatibility-level-12"></a>兼容级别 1.2
+## <a name="compatibility-level-12-preview"></a>兼容性级别 1.2 （预览版）
 
 在兼容级别 1.2 中引入了以下重大更改：
 
@@ -107,7 +107,7 @@ Upsert 行为*插入或替换*。
 
 ### <a name="service-bus-xml-format"></a>服务总线 XML 格式
 
-**1.0 级别：** Azure 流分析使用 DataContractSerializer，因此消息内容包括 XML 标记。 例如：
+**1.0 级别：** Azure 流分析使用 DataContractSerializer，因此消息内容包括 XML 标记。 例如:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

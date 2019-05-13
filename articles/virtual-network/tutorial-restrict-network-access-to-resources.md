@@ -3,8 +3,8 @@ title: 限制对 PaaS 资源的网络访问 - 教程 - Azure 门户 | Microsoft 
 description: 本教程介绍如何使用 Azure 门户通过虚拟网络服务终结点限制对 Azure 资源（例如 Azure 存储和 Azure SQL 数据库）的网络访问。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/23/2018
-ms.author: jdial
-ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.author: kumud
+ms.openlocfilehash: 4d3fd152782c65c7f63e459a1c35dee6ae764361
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810078"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708842"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教程：使用 Azure 门户通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -104,28 +104,28 @@ ms.locfileid: "42810078"
 
     |设置|值|
     |----|----|
-    |Source| 选择“VirtualNetwork” |
+    |源| 选择“VirtualNetwork” |
     |源端口范围| * |
     |目标 | 选择“服务标记”|
     |目标服务标记 | 选择“存储”|
     |目标端口范围| * |
     |协议|任意|
     |操作|允许|
-    |Priority|100|
+    |优先度|100|
     |名称|Allow-Storage-All|
 
 8. 创建另一条出站安全规则，拒绝到 Internet 的通信。 此规则将覆盖所有网络安全组中允许出站 Internet 通信的默认规则。 使用以下值再次完成步骤 5-7：
 
     |设置|值|
     |----|----|
-    |Source| 选择“VirtualNetwork” |
+    |源| 选择“VirtualNetwork” |
     |源端口范围| * |
     |目标 | 选择“服务标记”|
     |目标服务标记| 选择“Internet”|
     |目标端口范围| * |
     |协议|任意|
     |操作|拒绝|
-    |Priority|110|
+    |优先度|110|
     |名称|Deny-Internet-All|
 
 9. 在“设置”下，选择“入站安全规则”。
@@ -134,13 +134,13 @@ ms.locfileid: "42810078"
 
     |设置|值|
     |----|----|
-    |Source| 任意 |
+    |源| 任意 |
     |源端口范围| * |
     |目标 | 选择“VirtualNetwork”|
     |目标端口范围| 3389 |
     |协议|任意|
     |操作|允许|
-    |Priority|120|
+    |优先度|120|
     |名称|Allow-RDP-All|
 
 12. 在“设置”下选择“子网”。

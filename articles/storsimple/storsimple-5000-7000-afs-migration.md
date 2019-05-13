@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309814"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150740"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>将数据从 StorSimple 5000-7000 系列迁移到 Azure 文件同步
 
@@ -87,7 +87,7 @@ StorSimple 5000 和 7000 系列存储设备将在 2019 年 7 月退役。 这意
     如果使用不同的 Windows Server 主机，请跳过此步骤并转到下一步骤。 如果对 AFS 使用相同的 Windows 文件服务器，则现在会出现几分钟的停机时间。 
     - **停机时间开始** - 删除在“步骤 1F”中创建的服务器终结点。 
     - 使用数据接下来要驻留到的路径创建新的服务器终结点。
-    - 当服务器终结点显示为“正常”（这可能需要几分钟时间）后，新位置中会出现这些数据。 现在，可将 Windows Server 主机配置为从此新位置提供文件。 -**停机时间结束**。
+    - 当服务器终结点显示为“正常”（这可能需要几分钟时间）后，新位置中会出现这些数据。 现在，可将 Windows Server 主机配置为从此新位置提供文件。 - **停机时间结束**。
 5.  如果对 Azure 文件同步使用另一个 Windows 文件服务器，则不会出现任何停机时间。 
     - 使用准备用作缓存的本地存储的路径添加另一个服务器终结点，以代替 StorSimple 设备。 
     - 片刻之后，即可在新服务器中看到文件。 随时可以在主机上从 StorSimple 设备切换到此新位置。

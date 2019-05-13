@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 560958c2b420d3a1ec592e6bd7e0124ecad7c984
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215d8b8fbc49e9f38dc89655981edce37984163a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715252"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510670"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>使用 Microsoft Excel 查看 Azure Blockchain Workbench 数据
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719302"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509804"
 ---
 # <a name="service-connectivity-monitor"></a>服务连接监视器
 
@@ -64,6 +64,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
     * 如果要监视响应 HTTP/S 请求的服务（例如 outlook.office365.com 或 bing.com）的连接，请选择“Web”。<br>
     * 如果要监视响应 TCP 请求，但不响应 HTTP/S 请求的服务（例如 SQL 服务器、FTP 服务器、SSH 端口等）的连接，请选择“网络”。 
+    * 例如:若要创建 web 测试到 blob 存储帐户，请选择**Web**并输入目标，因为*yourstorageaccount*。 blob.core.windows.net。 同样，您可以创建其他表存储、 队列存储和 Azure 文件使用的测试[此链接。](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. 如果你不希望执行网络度量（例如网络延迟、数据包丢失和拓扑发现），请清除“执行网络度量”复选框。 保持选中此项可以最大程度地利用此功能。 
 5. 在“目标”中，输入要监视其网络连接的目标 URL/FQDN/IP 地址。
 6. 在“端口号”中，输入目标服务的端口号。 
@@ -127,6 +128,16 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * 如果应用程序运行速度缓慢，请确定应用程序性能差是由于网络问题，还是由于应用程序提供商一端出现某种问题。
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>适用于美国政府客户的 gcc 高级版 Office Url
+对于美国弗吉尼亚州政府区域，仅 DOD Url 是内置 NPM。 使用 GCC Url 的客户需要创建自定义测试，并添加每个 URL 单独。
+
+| 字段 | GCC |
+|:---   |:--- |
+| Office 365 门户和共享 | portal.apps.mil |
+| Office 365 身份验证和标识 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www。 office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>后续步骤
 [搜索日志](../../azure-monitor/log-query/log-query-overview.md)以查看详细的网络性能数据记录。

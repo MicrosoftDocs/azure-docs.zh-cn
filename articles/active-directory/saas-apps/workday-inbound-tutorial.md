@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60385149"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407931"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教程：针对自动用户预配来配置 Workday
 
@@ -368,7 +368,7 @@ Azure AD 用户预配服务支持的 Workday 用户预配工作流可将以下�
 
 部署 .NET 4.7.1 或更高版本之后，可在此处下载[本地预配代理](https://go.microsoft.com/fwlink/?linkid=847801)，并按照下述步骤完成代理配置。
 
-1. 登录到要安装新代理的 Windows Server。
+1. 登录到你想要安装新代理的 Windows 服务器。
 2. 启动预配代理安装程序，同意条款并单击“安装”按钮。
 
    ![安装屏幕](./media/workday-inbound-tutorial/pa_install_screen_1.png "安装屏幕")
@@ -816,7 +816,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>如何知道我的预配代理的版本？
 
-* 登录到安装有预配代理的 Windows Server。
+* 登录到安装预配代理的 Windows 服务器。
 * 转到“控制面板” -> “卸载或更改程序”菜单
 * 查找与条目“Microsoft Azure AD Connect 预配代理”相对应的版本
 
@@ -867,7 +867,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>如何取消注册与我的预配代理相关联的域？
 
 * 在 Azure 门户中，获取 Azure AD 租户的租户 ID。
-* 登录到运行预配代理的 Windows Server。
+* 登录到运行预配代理的 Windows 服务器。
 * 以 Windows 管理员身份打开 PowerShell。
 * 切换到包含注册脚本的目录，并运行以下命令，将 \[租户 ID\] 参数替换为租户 ID 的值。
 
@@ -878,7 +878,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
   ```
 
 * 在显示的代理列表中，从其 resourceName 等于你的 AD 域名的资源中复制“ID”字段的值。
-* 将该 ID 粘贴到此命令并在 Powershell 中执行它。
+* 将 ID 值粘贴到此命令并在 PowerShell 中执行命令。
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>如何卸载预配代理？
 
-* 登录到安装有预配代理的 Windows Server。
+* 登录到安装预配代理的 Windows 服务器。
 * 转到“控制面板” -> “卸载或更改程序”菜单
 * 卸载以下程序：
   * Microsoft Azure AD Connect 预配代理
@@ -946,9 +946,9 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>如何根据用户的部门/国家/地区/城市特性在 AD 中设置显示名的格式并处理区域差异问题？
 
-通常要求在 AD 中配置 displayName，这样它才会提供用户所属部门和国家/地区的相关信息。 例如，如果 John Smith 就职于美国市场营销部门，则你希望他的 displayName 显示为“Smith, John (Marketing-US)”。
+它是一个常见要求来配置*displayName*属性在 AD 中，以便它还提供有关用户的部门和国家/地区的信息。 例如，如果 John Smith 就职于美国市场营销部门，则你希望他的 displayName 显示为“Smith, John (Marketing-US)”。
 
-下面介绍了如何应对有关构建 CN 或 displayName 来包含公司、业务单位、城市或国家/地区等属性的此类要求。
+下面是如何处理用于构造此类要求*CN*或*displayName*包含属性，如公司、 业务部门、 城市或国家/地区。
 
 * 每个 Workday 属性均通过基础 XPATH API 表达式进行检索，后者可在“属性映射”->“高级部分”->“编辑 Workday 属性列表”中进行配置。 下面是 Workday 的 PreferredFirstName、PreferredLastName、Company 和 SupervisoryOrganization 属性的默认 XPATH API 表达式。
 
@@ -976,7 +976,7 @@ Workday 预配应用配置完成后，可在 Azure 门户中启用预配服务�
 
   咨询 Workday 团队，确认上述 API 表达式对 Workday 租户配置而言有效。 如有必要，可按[自定义 Workday 用户属性列表](#customizing-the-list-of-workday-user-attributes)部分中所述进行编辑。
 
-* 要构建正确的属性映射表达式，请确定哪个 Workday 属性“权威地”表示用户的名字、姓氏、国家/地区和部门。 假设属性分别是 PreferredFirstName、PreferredLastName、CountryReferenceTwoLetter 和 SupervisoryOrganization。 可使用此方法为 AD 的 displayName 属性构建表达式（如下所示），以获取显示名称，例如“Smith, John (Marketing-US)”。
+* 若要生成正确的属性映射表达式，标识哪些 Workday 属性"权威"表示用户的名字、 最后一个名称、 国家/地区和部门。 假设属性分别是 PreferredFirstName、PreferredLastName、CountryReferenceTwoLetter 和 SupervisoryOrganization。 可使用此方法为 AD 的 displayName 属性构建表达式（如下所示），以获取显示名称，例如“Smith, John (Marketing-US)”。
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ SelectUniqueValue(
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>设置 Windows 事件查看器来排查代理方面的问题
 
-* 登录到部署有预配代理的 Windows Server 计算机
+* 登录到在其中部署预配代理的 Windows Server 计算机
 * 打开“Windows Server 事件查看器”桌面应用。
 * 选择“Windows 日志”>“应用程序”。
 * 使用“筛选当前日志…” 选项，以查看在源 AAD.Connect.ProvisioningAgent 下记录的所有事件，然后通过如下指定筛选器“-5”来排除事件 ID 为“5”的事件。
@@ -1236,7 +1236,7 @@ Azure AD 预配服务支持自定义列表或 Workday 属性，以包含人力�
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">

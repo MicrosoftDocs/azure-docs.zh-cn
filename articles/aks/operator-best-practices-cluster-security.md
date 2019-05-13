@@ -2,18 +2,17 @@
 title: 操作员最佳做法 - Azure Kubernetes 服务 (AKS) 中的群集安全性
 description: 了解有关如何在 Azure Kubernetes 服务 (AKS) 中管理群集安全性和升级的群集操作员最佳做法
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: bf794c6c4f73c4dd25849148aa2ea68b538372c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: iainfou
+ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465070"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192195"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的群集安全性和升级的最佳做法
 
@@ -68,7 +67,7 @@ Azure Active Directory (AD) 提供可与 AKS 群集集成的企业级标识管�
 #include <tunables/global>
 profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
-
+  
   file,
   # Deny all file writes.
   deny /** w,
@@ -182,13 +181,13 @@ AKS 支持四个 Kubernetes 次要版本。 这意味着，在引入新的次要
 
 若要检查可用于群集的版本，请使用 [az aks get-upgrades][az-aks-get-upgrades] 命令，如以下示例所示：
 
-```azurecli
+```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
 然后，可以使用 [az aks upgrade][az-aks-upgrade] 命令升级 AKS 群集。 升级过程会以安全的方式逐一封锁并清空节点，在剩余的节点上计划 Pod，然后部署一个运行最新 OS 和 Kubernetes 版本的新节点。
 
-```azurecli
+```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
 ```
 
@@ -225,13 +224,13 @@ Weaveworks 的 [kured（KUbernetes 重启守护程序）][kured]开源项目可�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
-[az-aks-get-upgrades]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-upgrades
-[az-aks-upgrade]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-upgrade
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [aks-supported-versions]: supported-kubernetes-versions.md
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration.md
 [best-practices-container-image-management]: operator-best-practices-container-image-management.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources

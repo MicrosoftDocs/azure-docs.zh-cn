@@ -5,16 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-origin.date: 03/30/2018
-ms.date: 04/08/2019
-ms.author: v-biyu
+ms.date: 03/30/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ff729084d194ff2e05e89eadc45782f775b1c5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560608"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929347"
 ---
 本部分说明如何从 .NET 控制台应用以标记模板通知的形式发送突发新闻。 
 
@@ -52,7 +51,7 @@ ms.locfileid: "60560608"
 
         // Send the notification as a template notification. All template registrations that contain
         // "messageParam" and the proper tags will receive the notifications.
-        // This includes APNS, WNS, and MPNS template registrations.
+        // This includes APNS, GCM, WNS, and MPNS template registrations.
 
         Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
@@ -82,7 +81,7 @@ ms.locfileid: "60560608"
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[Notification Hubs REST interface]: https://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
 [Microsoft.Azure.Notification Hubs NuGet 包]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/

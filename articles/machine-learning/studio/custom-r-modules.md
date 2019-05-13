@@ -1,7 +1,7 @@
 ---
 title: 定义自定义 R 模块
 titleSuffix: Azure Machine Learning Studio
-description: 本主题介绍如何在 Azure 机器学习工作室中创建和部署自定义 R 模块。 解释什么是自定义 R 模块以及要使用什么文件来定义此类模块，
+description: 本主题介绍如何创建和部署自定义 R Studio。 解释什么是自定义 R 模块以及要使用什么文件来定义此类模块，
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751191"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025063"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>定义 Azure 机器学习工作室的自定义 R 模块
 
-本主题介绍如何在 Azure 机器学习工作室中创建和部署自定义 R 模块。 解释什么是自定义 R 模块以及要使用什么文件来定义此类模块， 并举例说明如何构建定义模块的文件以及如何在机器学习工作区中进行模块部署注册。 随后本主题会详细说明用于定义自定义模块的元素和属性。 本主题还会讨论如何使用辅助功能和文件以及多个输出。 
+本主题介绍如何创建和部署自定义 R Studio。 解释什么是自定义 R 模块以及要使用什么文件来定义此类模块， 并举例说明如何构建定义模块的文件以及如何在机器学习工作区中进行模块部署注册。 随后本主题会详细说明用于定义自定义模块的元素和属性。 本主题还会讨论如何使用辅助功能和文件以及多个输出。 
 
 
 
@@ -159,7 +159,7 @@ XML 定义文件中的 **Language** 元素用于指定自定义模块的语言�
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-对于自定义 R 模块，Zip 端口的 ID 无需与 R 函数的任何参数匹配。 这是因为 zip 文件会自动提取到 R 工作目录。
+自定义 R 模块，不需要任何 R 函数的参数匹配的 Zip 端口的 ID。 这是因为 zip 文件会自动提取到 R 工作目录。
 
 **输入的规则：**
 
@@ -225,7 +225,7 @@ XML 定义文件中的 **Language** 元素用于指定自定义模块的语言�
 ### <a name="arguments"></a>参数
 通过在 **Arguments** 元素中定义的模块参数可向 R 函数传送其他数据。 选择该模块时，这些参数将出现在机器学习 UI 最右侧的“属性”窗格中。 参数可以是任何受支持的类型，或者可按需创建自定义枚举。 与 **Ports** 元素相似，**Arguments** 元素可拥有一个可选 **Description** 元素，该元素可指定鼠标悬停在参数名上时会出现的文本。
 可将 defaultValue、minValue 和 maxValue 等模块可选属性作为 **Properties** 元素的属性添加到任意参数。 **Properties** 元素的有效属性取决于参数类型，这些属性将在下一节的受支持参数中进行说明。 对于 **isOptional** 属性设置为 **"true"** 的参数，用户无需输入值。 如果未向参数提供值，那么不会将该参数传送到入口点函数。 函数需要对入口点函数的可选参数进行显式处理，例如，向入口点函数定义分配一个默认的 NULL 值。 如果用户提供了值，可选参数仅会执行其他参数约束，即最小或最大。
-与输入和输出一样，每个参数必须有与其关联的唯一 ID 值。 在快速入门示例中，关联的 ID/参数为 swap。
+使用输入和输出，很重要，每个参数具有与之关联的唯一 ID 值。 在本快速入门示例中是每个参数的 id 相关联*交换*。
 
 ### <a name="arg-element"></a>Arg 元素
 使用 XML 定义文件 **Arguments** 部分的 **Arg** 子元素定义模块参数。 与 **Ports** 部分的子元素一样，**Arguments** 部分的参数顺序可定义 UX 中的布局。 参数在 UI 中从上到下排列，排列顺序与其在 XML 文件中进行定义的顺序相同。 此处列出了机器学习支持的参数类型。 
@@ -270,7 +270,7 @@ XML 定义文件中的 **Language** 元素用于指定自定义模块的语言�
 
 * 可选属性：**default** 和 **isOptional**
 
-**ColumnPicker**：列选择参数。 此类型在 UX 中显示为列选择器。 此处的 **Property** 元素用于指定要从其中选择列的端口的 ID；目标端口类型必须为 *DataTable*。 列选择结果以字符串列表的形式传送到 R 函数，其中包含选中的列的名称。 
+**ColumnPicker**：列选择参数。 此类型在 UX 中显示为列选择器。 **属性**此处使用元素指定要从中选择列，其中目标端口类型必须为该端口的 ID *DataTable*。 列选择结果以字符串列表的形式传送到 R 函数，其中包含选中的列的名称。 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ XML 定义文件中的 **Language** 元素用于指定自定义模块的语言�
         </Arg>
 
 
-* 必需属性：**portId** - 将 Input 元素 ID 与 *DataTable* 类型相匹配。
+* *所需属性*: **portId** -与类型匹配的输入元素 ID *DataTable*。
 * 可选属性：
   
   * **allowedTypes** - 筛选可选的列类型。 有效值包括： 
@@ -327,7 +327,7 @@ XML 定义文件中的 **Language** 元素用于指定自定义模块的语言�
     </Arg>    
 
 * 可选属性：
-  * **default** - default 属性的值必须与一个 **Item** 元素中的 ID 值相对应。
+  * **默认值**-默认属性的值必须与从之一的 ID 值相对应**项**元素。
 
 ### <a name="auxiliary-files"></a>辅助文件
 放置在自定义模块 ZIP 文件中的所有文件都可以在执行期间使用。 所有存在的目录结构都将保留。 这意味着本地和 Azure 机器学习工作室执行中的文件寻源方式相同。 

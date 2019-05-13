@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834789"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709569"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>教程：Azure Active Directory 与 Coupa 的集成
 
@@ -114,16 +114,16 @@ ms.locfileid: "57834789"
 
     | 环境  | 代码 |
     |:-------------|----|
-    | 沙盒 | `devsso35.coupahost.com`|
-    | 生产 | `prdsso40.coupahost.com`|
+    | 沙盒 | `sso-stg1.coupahost.com`|
+    | 生产 | `sso-prd1.coupahost.com`|
     | | |
 
     c. 在“回复 URL”文本框中键入 URL：
 
     | 环境 | 代码 |
     |------------- |----|
-    | 沙盒 | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | 生产 | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | 沙盒 | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | 生产 | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分，单击“下载”以根据要求下载从给定选项提供的“联合元数据 XML”并将其保存在计算机上。

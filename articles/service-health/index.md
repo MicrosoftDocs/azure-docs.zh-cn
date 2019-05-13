@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506868"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441655"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 
@@ -25,6 +25,11 @@ Azure 提供了一系列的体验，以便你随时了解有关云资源运行�
 **[Azure 资源运行状况](resource-health-overview.md)** 提供有关单个云资源（例如特定虚拟机实例）运行状况的信息。 使用 Azure Monitor，还可以配置警报以通知你有关云资源可用性更改的信息。 Azure 资源运行状况将随 Azure Monitor 通知一起，帮助你更好地随时了解资源可用性并快速评估问题是由于你方导致还是与 Azure 平台事件相关。
 
 同时，这些体验在与你最相关的粒度上提供 Azure 运行状况的综合视图。
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>观看有关 Azure 状态页、Azure 服务运行状况和 Azure 资源运行状况的概述
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>

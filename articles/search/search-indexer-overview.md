@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/02/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321921"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024896"
 ---
 # <a name="indexers-in-azure-search"></a>Azure 搜索中的索引器
 
@@ -79,7 +79,7 @@ Azure 搜索中的*索引器*是一种爬网程序，它从外部 Azure 数据�
 
 通常会计划编制索引时，在索引器，也可以根据需要使用调用[运行命令](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Azure 搜索中的*索引器*是一种爬网程序，它从外部 Azure 数据�
 您可以检索通过索引器的状态和执行历史记录[获取索引器状态命令](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
 响应包含总体索引器状态、最后一次（或正在进行的）索引器调用以及最近索引器调用的历史记录。

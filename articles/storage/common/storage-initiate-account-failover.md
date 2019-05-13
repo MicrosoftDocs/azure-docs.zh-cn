@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320480"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150016"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>启动存储帐户故障转移（预览版）
 

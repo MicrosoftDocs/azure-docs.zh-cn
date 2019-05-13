@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc05f285b286bd0f036c583c154a40cf64e144d4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894451"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522034"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -46,7 +46,7 @@ ms.locfileid: "58894451"
 请参阅[必应拼写检查 API V7](luis-tutorial-bing-spellcheck.md) 教程。 LUIS 强制实施必应拼写检查 API V7 施加的限制。
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>如何以编程方式编辑 LUIS 应用？
-若要以编程方式编辑 LUIS 应用，请使用[创作 API](https://aka.ms/luis-authoring-apis)。 请参阅[调用 LUIS 创作 API](./luis-quickstart-node-add-utterance.md) 和[使用 Node.js 以编程方式生成 LUIS 应用](./luis-tutorial-node-import-utterances-csv.md)，通过示例了解如何调用创作 API。 创作 API 要求使用[创作密钥](luis-concept-keys.md#authoring-key)而不是终结点密钥。 编程创作最多允许每个月进行 1,000,000 次调用，每秒处理五个事务。 若要详细了解可与 LUIS 配合使用的密钥，请参阅[管理密钥](./luis-concept-keys.md)。
+若要以编程方式编辑 LUIS 应用，请使用[创作 API](https://go.microsoft.com/fwlink/?linkid=2092087)。 请参阅[调用 LUIS 创作 API](./luis-quickstart-node-add-utterance.md) 和[使用 Node.js 以编程方式生成 LUIS 应用](./luis-tutorial-node-import-utterances-csv.md)，通过示例了解如何调用创作 API。 创作 API 要求使用[创作密钥](luis-concept-keys.md#authoring-key)而不是终结点密钥。 编程创作最多允许每个月进行 1,000,000 次调用，每秒处理五个事务。 若要详细了解可与 LUIS 配合使用的密钥，请参阅[管理密钥](./luis-concept-keys.md)。
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>提供了正则表达式匹配的“模式”功能位于何处？
 以前的 **“模式”功能**目前已弃用，代之以现在的**[模式](luis-concept-patterns.md)** 功能。
@@ -240,7 +240,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 #### <a name="resolve-issue-in-luis"></a>在 LUIS 中解决问题
 从 [LUIS 终结点](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance)传递相同的言语到 LUIS。 如果收到错误，请在 LUIS 中解决该问题直到不再返回错误。 常见错误包括：
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - 此问题表明需要从创作密钥更改为[终结点密钥](luis-how-to-azure-subscription.md)，或者需要更改[服务层](luis-how-to-azure-subscription.md#change-pricing-tier)。 
+* `Out of call volume quota. Quota will be replenished in <time>.` - 此问题表明需要从创作密钥更改为[终结点密钥](luis-how-to-azure-subscription.md)，或者需要更改[服务层级](luis-how-to-azure-subscription.md#change-pricing-tier)。 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>在 Azure 机器人服务中解决问题
 
@@ -282,27 +282,19 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 是，如果具有计量使用情况的必要连接，则可以为这些方案使用 LUIS [容器](luis-container-howto.md)。 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>在 Build 2018 大会上，我了解到一项语言理解功能或演示，但我不记得它的名称了，它叫什么呢？
+## <a name="migrating-to-the-next-version"></a>迁移到下一个版本
 
-以下功能是在 Build 2018 大会上发布的：
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>如何迁移预览 V3 API？ 
 
-|名称|内容|
-|--|--|
-|增强功能|[正则表达式](luis-concept-data-extraction.md##regular-expression-entity-data)实体和[关键短语](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)实体
-|模式|模式[概念](luis-concept-patterns.md)、[教程](luis-tutorial-pattern.md)、[操作方法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 实体概念，包括用作例外的[显式列表](luis-concept-patterns.md#explicit-lists)<br>[角色](luis-concept-roles.md)概念|
-|集成|[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)集成（集成了[情绪分析](luis-how-to-publish-app.md#enable-sentiment-analysis)）<br>[语音](https://docs.microsoft.com/azure/cognitive-services/speech)集成（集成了语音启动和[语音 SDK](https://aka.ms/SpeechSDK)）|
-|Dispatch 工具|Dispatch 命令行[工具](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)是 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 的一部分，可以将多个 LUIS 应用和 QnA Maker 应用组合成单个 LUIS 应用，以便增强机器人中的意向识别功能
+请参阅[API v2 到 v3 迁移指南为 LUIS 应用](luis-migration-api-v3.md)
 
-此外还包括其他创作 [API 路由](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)。
+## <a name="build-2019-conference-announcements"></a>Build 2019 大会公告
 
-视频：
-* [Build 2018 中的 Azure Friday：认知服务 - 语言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)（Build 2018 AI 演示 - 语言理解服务的新增功能）
-* [Build 2018 会议 - 机器人智能、语音功能和 NLU 最佳做法](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)（Build 2018 - LUIS 更新）
+在生成 2019年大会上发布了以下功能：
 
-项目：
-* [Contoso 咖啡店机器人](https://github.com/botbuilderbuild2018/build2018demo)演示 - GitHub 上的源代码
+* [V3 API 迁移指南的预览](luis-migration-api-v3.md)
+* [改进的分析仪表板](luis-how-to-use-dashboard.md)
+* [改进了预生成的域](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>后续步骤
 

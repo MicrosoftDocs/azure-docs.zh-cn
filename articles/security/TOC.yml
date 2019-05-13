@@ -5,13 +5,13 @@
   expanded: false
   items:
     - name: 高级威胁检测
-      displayName: 'vulnerability, virus, ids, incident'
+      displayName: 'vulnerability, virus, IDs, incident'
       href: azure-threat-detection.md
     - name: Azure 日志记录和审核
       displayName: incident
       href: azure-log-audit.md
     - name: Azure 网络安全
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
       href: abstract-azure-network-security.md
     - name: Azure 无服务器平台安全
       href: abstract-serverless-platform-security.md
@@ -50,7 +50,7 @@
         - name: IaaS VM 的磁盘加密
           items:
             - name: 关于 Azure 磁盘加密
-              displayName: 'bitlocker, bek'
+              displayName: 'Bitlocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: 快速入门
               items:
@@ -67,27 +67,29 @@
                 - name: 使用 VMSS 扩展序列化进行磁盘加密
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: 有关磁盘加密的附录
-              href: azure-security-disk-encryption-appendix.md
-            - name: 磁盘加密常见问题解答
-              href: azure-security-disk-encryption-faq.md
-            - name: 故障排除
-              href: azure-security-disk-encryption-tsg.md
-            - name: 使用 Azure AD 应用的 Azure 磁盘加密（以前的版本）
-              displayName: active directory
-              items:
-                - name: 使用 Azure AD 应用的磁盘加密先决条件
+                  href: azure-security-disk-encryption-appendix.md
+                - name: 磁盘加密常见问题解答
+                  href: azure-security-disk-encryption-faq.md
+                - name: 故障排除
+                  href: azure-security-disk-encryption-tsg.md
+                - name: 使用 Azure AD 应用的 Azure 磁盘加密（以前的版本）
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: 使用 Azure AD 应用的磁盘加密（用于 Windows VM）
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: 使用 Azure AD 应用的磁盘加密（用于 Linux VM）
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: 使用 Azure AD 应用的磁盘加密先决条件
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: 使用 Azure AD 应用的磁盘加密（用于 Windows VM）
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: 使用 Azure AD 应用的磁盘加密（用于 Linux VM）
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Azure 存储安全
       href: security-storage-overview.md
     - name: 存储安全指南
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: 客户密码箱
+      href: azure-customer-lockbox-overview.md
 - name: 平台和基础结构
   items:
     - name: 基础结构安全性
@@ -141,7 +143,7 @@
           displayName: identity
           href: azure-security-global-admin.md
     - name: 网络安全
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
       href: security-network-overview.md
       items:
         - name: 最佳做法
@@ -270,6 +272,11 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: PaaS Web 应用程序
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: SCCA
+      displayName: 'blueprint, privacy, certifications'
+      items:
+        - name: 保护 Azure 计算体系结构
+          href: ./compliance/secure-azure-computing-architecture.md
     - name: TIC
       displayName: 'blueprint, privacy, certifications'
       items:
@@ -327,7 +334,7 @@
         - name: 发行版本
           href: azure-security-threat-modeling-tool-releases.md
           items:
-            - name: Threat Modeling Tool GA 版 7.1.5091.2 - 2018 年 9 月 12 日
+            - name: Threat Modeling Tool 正式版 7.1.5091.2 - 2018 年 9 月 12 日
               href: azure-security-threat-modeling-tool-releases-71509112.md
             - name: Threat Modeling Tool 更新版 7.1.51023.1 - 2018 年 11 月 1 日
               href: azure-security-threat-modeling-tool-releases-71510231.md

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: dea66cfe63f566afc1f0186f0386525f90564708
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: efa8399d20f6bacb41720d77e14336833f085323
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175728"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916566"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>快速入门：使用 C# 通过文本翻译 API 获取受支持语言的列表
 
@@ -142,7 +142,7 @@ dotnet run
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 ```json
 {

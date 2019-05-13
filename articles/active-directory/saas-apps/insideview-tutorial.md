@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263173"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>教程：Azure Active Directory 与 InsideView 的集成
 
@@ -142,13 +142,13 @@ ms.locfileid: "59263173"
 
     c. 打开从 Azure 门户中下载的 base-64 编码证书，将其内容复制到剪贴板，然后再粘贴到“STS 证书”文本框中。
 
-    d. 在“Crm 用户 ID 映射”文本框中，键入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    d. 在“Crm 用户 ID 映射”文本框中，键入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
-    e. 在“Crm 电子邮件映射”文本框中，键入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    e. 在“Crm 电子邮件映射”文本框中，键入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
 
-    f. 在“Crm 名字映射”文本框中，键入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
+    f. 在“Crm 名字映射”文本框中，键入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
 
-    g. 在“Crm 姓氏映射”文本框中，键入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。  
+    g. 在“Crm 姓氏映射”文本框中，键入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。  
 
     h. 单击“ **保存**”。
 

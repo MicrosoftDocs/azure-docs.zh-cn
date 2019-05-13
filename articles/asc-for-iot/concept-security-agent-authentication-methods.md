@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 634d1aedfaf868766e3c1bf97373b9c310885835
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61359043"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198388"
 ---
 # <a name="security-agent-authentication-methods"></a>安全代理身份验证方法 
 

@@ -1,20 +1,20 @@
 ---
-title: 连接到使用 Windows 7 和 Windows 10-Azure Windows 虚拟桌面预览
-description: 如何连接到 Windows 7 或 Windows 10 的 Windows 虚拟桌面预览服务。
+title: 从 Windows 10 或 Windows 7-Azure 连接到 Windows 虚拟桌面预览
+description: 如何从 Windows 10 或 Windows 7 连接到 Windows 虚拟桌面预览。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145988"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>使用 Windows 7 和 Windows 10 进行连接
+# <a name="connect-from-windows-10-or-windows-7"></a>从 Windows 10 或 Windows 7 连接
 
 > 适用对象：Windows 7 和 Windows 10。
 
@@ -25,11 +25,11 @@ ms.locfileid: "60328844"
 
 ## <a name="install-the-client"></a>安装客户端
 
-[下载](https://go.microsoft.com/fwlink/?linkid=2068602) 和客户端安装到本地 PC。 这需要管理员权限。
+[下载](https://go.microsoft.com/fwlink/?linkid=2068602) 和客户端安装到本地 PC。 安装需要管理员权限。
 
 ## <a name="subscribe-to-a-feed"></a>订阅源
 
-获取列表的可用资源向你从本地电脑通过订阅源提供的管理员联系。
+通过订阅到源提供的管理员联系。 您获取可用的托管资源的列表订阅使资源可在本地 PC 上。
 
 若要订阅源：
 
@@ -44,6 +44,33 @@ ms.locfileid: "60328844"
 - 从客户端的主页上，双击要启动它的资源。
 - 启动资源，如往常一样从开始菜单上的其他应用。
   - 您还可以搜索在搜索栏中的应用。
+
+一旦订阅源，该源的内容定期自动更新。 资源可能会添加、 更改或删除由您的管理员所做的更改。
+
+## <a name="view-the-details-of-a-feed"></a>查看源的详细信息
+
+订阅之后, 可以通过访问详细信息面板中查看有关源的其他信息。
+
+1. 从客户端的主页上，选择省略号 (**...**) 右侧的源的名称。
+1. 从下拉列表菜单中选择**详细信息**。
+1. 详细信息面板将显示在右侧的客户端。
+
+详细信息面板包含有关源的有用信息：
+
+- URL 和用于订阅的用户名
+- 应用和桌面的数量
+- 上次更新日期/时间
+- 最后一个更新的状态
+
+如果需要您可以通过选择上启动手动更新**立即更新**。
+
+## <a name="unsubscribe-from-a-feed"></a>取消订阅源
+
+本部分将介绍如何取消订阅源。 您可以随时取消订阅，以再次订阅与不同的帐户或从系统中删除你的资源。
+
+1. 从客户端的主页上，选择省略号 (**...**) 右侧的源的名称。
+1. 从下拉列表菜单中选择**Unsubscribe**。
+1. 查看并选择**继续**从对话框。
 
 ## <a name="update-the-client"></a>更新客户端
 

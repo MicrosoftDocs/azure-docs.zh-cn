@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616545"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405643"
 ---
 # <a name="creating-and-using-resource-files"></a>创建和使用资源文件
 
@@ -38,7 +38,7 @@ Azure Batch 任务通常需要某种形式的数据处理。 资源文件是向 
 
 ### <a name="storage-container-url"></a>存储容器 URL
 
-使用存储容器 URL 意味着您可以访问 Azure 中的任何存储容器中的文件。 使用正确的权限
+使用存储容器 URL 意味着您可以访问在 Azure 中使用正确的权限的任何存储容器中的文件。
 
 在此C#的示例中，具有已文件上传到 Azure 存储容器作为 blob 存储。 若要访问需创建一个资源文件的数据，我们首先需要获取对存储容器访问权限。
 

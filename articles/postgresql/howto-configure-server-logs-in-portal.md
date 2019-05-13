@@ -1,21 +1,21 @@
 ---
-title: 在 Azure 门户中配置和访问 PostgreSQL 的服务器日志
-description: 本文介绍了如何从 Azure 门户配置和访问 Azure Database for PostgreSQL 中的服务器日志。
+title: 配置和访问 Azure database for PostgreSQL 服务器日志-Azure 门户中的单个服务器
+description: 本文介绍如何配置和访问 PostgreSQL 的 Azure 门户中的单个服务器的 Azure 数据库中的服务器日志。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421831"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067451"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>配置和访问 Azure Database for PostgreSQL-Azure 门户中的单个服务器日志
 
-可以从 Azure 门户配置、列出和下载 [Azure Database for PostgreSQL 服务器日志](concepts-server-logs.md)。
+可以配置、 列出和下载[Azure Database for PostgreSQL 日志](concepts-server-logs.md)从 Azure 门户。
 
 ## <a name="prerequisites"></a>必备组件
 若要逐步执行本操作方法指南，需要：

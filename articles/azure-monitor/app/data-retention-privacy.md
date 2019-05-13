@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899211"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204892"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -87,7 +87,7 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 
 1 分钟粒度的聚合数据（即，在指标资源管理器中显示的计数、平均值和其他统计信息）可保留 90 天。
 
-[调试快照](../../azure-monitor/app/snapshot-debugger.md)存储七天。 此保留策略是逐个应用程序进行设置。 如果需要，可以在 Azure 门户中打开支持案例，以请求增加此值。
+[调试快照](../../azure-monitor/app/snapshot-debugger.md)存储十五天。 此保留策略是逐个应用程序进行设置。 如果需要，可以在 Azure 门户中打开支持案例，以请求增加此值。
 
 ## <a name="who-can-access-the-data"></a>谁可以访问该数据？
 你和团队成员（如果使用组织帐户）可以看到数据。 
@@ -237,15 +237,15 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 
 | 操作 | 收集的数据类（参阅下一表格） |
 | --- | --- |
-| [将 Application Insights SDK 添加到 .NET Web 项目][greenbrown] |ServerContext<br/>推断<br/>性能计数器<br/>Requests<br/>**异常**<br/>会话<br/>users |
+| [将 Application Insights SDK 添加到 .NET Web 项目][greenbrown] |ServerContext<br/>推断<br/>性能计数器<br/>Requests<br/>**异常**<br/>会话<br/>用户 |
 | [在 IIS 上安装状态监视器][redfield] |依赖项<br/>ServerContext<br/>推断<br/>性能计数器 |
-| [将 Application Insights SDK 添加到 Java Web 应用][java] |ServerContext<br/>推断<br/>请求<br/>会话<br/>users |
+| [将 Application Insights SDK 添加到 Java Web 应用][java] |ServerContext<br/>推断<br/>请求<br/>会话<br/>用户 |
 | [将 JavaScript SDK 添加到网页][client] |ClientContext <br/>推断<br/>页<br/>ClientPerf<br/>Ajax |
 | [定义默认属性][apiproperties] |所有标准事件和自定义事件的**属性** |
 | [调用 TrackMetricapi][api] |数字值<br/>**属性** |
 | [调用跟踪*][api] |事件名称<br/>**属性** |
 | [调用 TrackException][api] |**异常**<br/>堆栈转储<br/>**属性** |
-| SDK 无法收集数据。 例如： <br/> - 无法访问性能计数器<br/> - 遥测初始值设定项异常 |SDK 诊断 |
+| SDK 无法收集数据。 例如: <br/> - 无法访问性能计数器<br/> - 遥测初始值设定项异常 |SDK 诊断 |
 
 有关[适用于其他平台的 SDK][platforms]，请参阅相关文档。
 
@@ -260,7 +260,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 | ServerContext |计算机名称、区域性、OS、设备、用户会话、用户上下文、操作 |
 | 推断 |IP 地址中的地理位置、时间戳、OS、浏览器 |
 | 度量值 |指标名称和值 |
-| 活动 |事件名称和值 |
+| 事件 |事件名称和值 |
 | PageViews |URL 和页面名称或屏幕名称 |
 | 客户端性能 |URL/页面名称、浏览器加载时间 |
 | Ajax |从网页到服务器的 HTTP 调用 |
@@ -278,7 +278,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 > [!NOTE]
 > 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。 若要了解有关个人数据处理的详细信息，推荐参阅这一篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果需要存储 IP 地址，可以使用[遥测初始值设定项](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)完成此操作。
 
-## <a name="credits"></a>致谢
+## <a name="credits"></a>制作人员
 此产品包含 MaxMind 创建的 GeoLite2 数据，可从 [https://www.maxmind.com](https://www.maxmind.com) 获取。
 
 

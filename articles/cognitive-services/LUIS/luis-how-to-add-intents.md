@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097014"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148169"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>添加意向以确定用户的话语意向
 
@@ -42,16 +42,25 @@ ms.locfileid: "62097014"
 
     LUIS 会将所有话语转换为小写，并在连字符等标记的两侧添加空格。
 
-## <a name="intent-prediction-discrepancy-errors"></a>意向预测偏差错误 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-意向中的话语可能在所选意向和预测分数之间存在意向预测偏差。 LUIS 通过用红框围住示例话语行上的“已标记意向”来指示这种偏差。 
+## <a name="intent-prediction-errors"></a>意向预测错误 
 
-![意向详细信息页的屏幕截图，其中包含表述预测差异错误](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+示例查询文本中意向可能有意向预测错误之间的示例查询文本目前处于意向和在定型过程中确定的预测目的。 
 
-在顶部导航栏中，选择“训练”。 预测偏差现已消失。
+若要查找预测错误的查询文本并修复它们，请使用**筛选器**选项的**评估**与结合使用的不正确和 Unclear 选项**视图**选项**详细的视图**。 
 
-> [!Note]
-> 在单词或短语中的示例查询文本下, 一条红线时[实体预测误差](luis-how-to-add-example-utterances.md#entity-status-predictions)已发生。 您需要更正它。 
+![查找查询文本预测错误并解决这些问题，请使用筛选器选项。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+时应用的筛选器和视图，并且有示例语音样本，但出现错误，列出的示例查询文本显示了语音样本和问题。
+
+![![时应用的筛选器和视图，并且有示例语音样本，但出现错误，此示例查询文本列表显示查询文本和问题。](。 / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+每行显示当前训练的预测得分的示例查询文本，最接近的竞争对手的分数，这是这些两个分数中的差异。 
+
+### <a name="fixing-intents"></a>修复意向
+
+若要了解如何修复意向预测错误，请使用[摘要仪表板](luis-how-to-use-dashboard.md)。 摘要仪表板对活动版本的最后一个培训进行了分析，并提供前的建议，以修复您的模型。  
 
 ## <a name="add-a-custom-entity"></a>添加自定义实体
 

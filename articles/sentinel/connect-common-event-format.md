@@ -4,7 +4,7 @@ description: 了解如何将 CEF 数据连接到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c0b895c3ef811268c7b67393a5382362601d875
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445496"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204392"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>连接外部解决方案是使用通用事件格式
 

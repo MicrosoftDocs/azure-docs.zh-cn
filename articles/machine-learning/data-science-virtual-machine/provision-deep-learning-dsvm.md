@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943924"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410441"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上预配深度学习虚拟机 
 
@@ -68,7 +68,7 @@ DLVM 包含 AI 的多个工具，包括 GPU 版本的常用深度学习框架（
 
 ### <a name="linux-edition"></a>Linux 版
 
-创建 VM 后，可使用 SSH 登录。 使用你在中创建的帐户凭据[**基础知识**](#basics)部分步骤 3 为文本 shell 接口。 连接到 Azure Vm 的 SSH 连接有关的详细信息，请参阅[安装和配置远程桌面以连接到 Azure 中的 Linux VM](/azure/virtual-machines/linux/use-remote-desktop)。 在 Windows 客户端，您可以下载之类的 SSH 客户端工具[Putty](http://www.putty.org)。 如果喜欢图形桌面（X Windows系统），可以在 Putty 上使用 X11 转发或安装 X2Go 客户端。 
+创建 VM 后，可使用 SSH 登录。 使用你在中创建的帐户凭据[**基础知识**](#basics)部分步骤 3 为文本 shell 接口。 连接到 Azure Vm 的 SSH 连接有关的详细信息，请参阅[安装和配置远程桌面以连接到 Azure 中的 Linux VM](/azure/virtual-machines/linux/use-remote-desktop)。 在 Windows 客户端，您可以下载之类的 SSH 客户端工具[Putty](https://www.putty.org)。 如果喜欢图形桌面（X Windows系统），可以在 Putty 上使用 X11 转发或安装 X2Go 客户端。 
 
 > [!NOTE]
 > 在我们的测试中，X2Go 客户端的性能优于 X11 转发。 建议对图形桌面界面使用 X2Go 客户端。

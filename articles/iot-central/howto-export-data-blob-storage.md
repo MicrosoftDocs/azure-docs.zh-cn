@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682028"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464628"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>将数据导出到 Azure Blob 存储
 
@@ -38,7 +38,7 @@ ms.locfileid: "64682028"
 
 1. [在 Azure 门户中创建新的存储帐户](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 可以在 [Azure 存储文档](https://aka.ms/blobdocscreatestorageaccount)中进行详细的了解。
 2. 对于帐户类型，选择“常规用途”或“Blob 存储”。
-3. 选择订阅。 
+3. 请选择订阅。 
 
     > [!Note] 
     > 可以将数据导出到其他订阅，此类订阅**不同于**那些适用于即用即付 IoT Central 应用程序的订阅。 在此示例中，将使用连接字符串进行连接。
@@ -57,14 +57,14 @@ ms.locfileid: "64682028"
     > [!Note]
     > 如果在左侧菜单中看不到“连续数据导出”，则说明你在应用中不是管理员。 请与管理员联系以设置数据导出。
 
-    ![创建新的 cde 事件中心](media/howto-export-data/export_menu.PNG)
+    ![创建新的 cde 事件中心](media/howto-export-data/export_menu1.png)
 
 3. 选择 **+ 新建**在右上角的按钮。 选择**Azure Blob 存储**为导出的目标。 
 
     > [!NOTE] 
     > 每个应用的最大导出数目是 5。 
 
-    ![创建新的连续数据导出](media/howto-export-data/export_new.PNG)
+    ![创建新的连续数据导出](media/howto-export-data/export_new1.png)
 
 4. 在下拉列表框中，选择你**存储帐户命名空间**。 也可选取列表中的最后一个选项，即“输入连接字符串”。 
 
@@ -87,7 +87,7 @@ ms.locfileid: "64682028"
 
 6. 若要启用连续数据导出，请确保将“数据导出”设置为“打开”。 选择“保存”。
 
-  ![配置连续数据导出](media/howto-export-data/export-list-blob.png)
+   ![配置连续数据导出](media/howto-export-data/export-list-blob.png)
 
 7. 几分钟后，数据便会出现在所选目标中。
 

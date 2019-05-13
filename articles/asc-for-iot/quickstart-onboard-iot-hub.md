@@ -5,21 +5,21 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010554"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192493"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>快速入门：在 IoT 中心启用服务
 
@@ -39,6 +39,7 @@ ms.locfileid: "60010554"
   - 默认情况下，适用于 IoT 的 ASC 会在 Log Analytics 工作区中存储两类信息：**安全警报**和**建议**。 
   - 可以选择添加另一信息类型（**原始事件**）的存储。 请注意，在 Log Analytics 中存储**原始事件**会带来额外的存储成本。 
 - IoT 中心（标准层或更高层）
+- 满足所有[服务先决条件](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>在 IoT 中心启用适用于 IoT 的 ASC 
 
@@ -50,8 +51,7 @@ ms.locfileid: "60010554"
 4. 提供 Log Analytics 工作区详细信息。 
    - 选择存储除默认存储信息类型之外的“原始事件”，方法是让“原始事件”开关保持“打开”状态。 
    - 选择启用“孪生收集”，方法是让“孪生收集”开关保持“打开”状态。 
-5. 单击“确定”。 
-6. 单击“ **保存**”。 
+5. 单击“ **保存**”。 
 
 祝贺你！ 你已完成在 IoT 中心启用适用于 IoT 的 ASC 的操作。 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b4cd5bb020e73dc9045eb164ce49931f818f72d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61277155"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415491"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -150,6 +150,12 @@ ms.locfileid: "61277155"
 
 > [!NOTE]
 > 这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。 如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。
+
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>禁用对 Azure VM (Azure 到 Azure) 的保护
+
+-  依次转到“受保护的项” > “复制的项”，右键单击计算机，再单击“禁用复制”。
+> [!NOTE]
+> 不会从受保护的服务器卸载移动服务，需要手动将其卸载。 如果您计划重新保护服务器，则可以跳过卸载移动服务。
 
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>禁用对 Hyper-V 虚拟机（Hyper-V 到 Azure）的保护
 

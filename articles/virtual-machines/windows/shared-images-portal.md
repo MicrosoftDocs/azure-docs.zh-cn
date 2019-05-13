@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a89cbe4a9c042b0cc7dac49c9153c8ce283ede55
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927697"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236595"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>创建共享的映像库使用 Azure 门户
 
@@ -43,7 +43,9 @@ ms.locfileid: "64927697"
 
 ## <a name="before-you-begin"></a>开始之前
 
-完成本文中的示例，必须具有现有托管映像。 可以按照[教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像](tutorial-custom-images.md)来创建映像（如有需要）。 通过本文进行操作时，请根据需要替换资源组和 VM 名称。
+完成本文中的示例，必须具有现有托管映像。 可以按照[教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像](tutorial-custom-images.md)来创建映像（如有需要）。 如果托管的映像中包含的数据磁盘，数据磁盘大小不能超过 1 TB。
+
+通过本文进行操作时，请根据需要替换资源组和 VM 名称。
 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]

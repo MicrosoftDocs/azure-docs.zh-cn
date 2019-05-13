@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b8b9076c0a4b1fddda4ab0bcfe9f104d7dcf8a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887928"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>教程：Azure Active Directory 与 Atlassian Cloud 的集成
 
@@ -38,7 +39,7 @@ ms.locfileid: "57887928"
 
 若要配置 Azure AD 与 Atlassian Cloud 的集成，需要具有以下项：
 
-* 一个 Azure AD 订阅。 如果你没有 Azure AD 环境，可以在[此处](https://azure.microsoft.com/pricing/free-trial/)获取一个月的试用版。
+* 一个 Azure AD 订阅。 如果没有 Azure AD 环境，可以获取一个[免费帐户](https://azure.microsoft.com/free/)
 * 已启用 Atlassian Cloud 单一登录的订阅
 * 若要对 Atlassian Cloud 产品启用安全断言标记语言 (SAML) 单一登录，需要设置 Atlassian Access。 详细了解 [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager)。
 
@@ -102,7 +103,7 @@ ms.locfileid: "57887928"
 
     ![编辑基本 SAML 配置](common/edit-urls.png)
 
-4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分中执行以下步骤：
+4. 如果要在 **IDP** 发起的模式下配置应用程序，请在“基本 SAML 配置”部分执行以下步骤：
 
     ![[应用程序名称] 域和 URL 单一登录信息](common/idp-relay.png)
 
@@ -115,7 +116,7 @@ ms.locfileid: "57887928"
     d. 在“中继状态”文本框中，使用以下模式键入 URL：`https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > 上面的值不是实际值。 请使用实际标识符和回复 URL 更新这些值。 可以从 Atlassian Cloud SAML 配置屏幕获取这些实际值，具体将在本教程后面部分进行介绍。
+    > 上面的值不是实际值。 请使用实际标识符和回复 URL 更新这些值。 可以从“Atlassian Cloud SAML 配置”屏幕获取这些实际值，具体将在本教程的“配置 Atlassian Cloud 单一登录”部分中进行介绍。
 
 5. 如果要在 SP 发起的模式下配置应用程序，请单击“设置其他 URL”，并执行以下步骤：
 
@@ -128,7 +129,7 @@ ms.locfileid: "57887928"
 
 6. Atlassian Cloud 应用程序需要特定格式的 SAML 断言，这需要向“SAML 令牌属性”配置添加自定义属性映射。 以下屏幕截图显示了默认属性的列表，其中的 **nameidentifier** 通过 **user.userprincipalname** 进行映射。 Atlassian Cloud 应用程序要求通过 **user.mail** 对 **nameidentifier** 进行映射，因此需单击“编辑”图标对属性映射进行编辑，然后更改属性映射。
 
-    ![图像](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 7. 在“使用 SAML 设置单一登录”页上，在“SAML 签名证书”部分中，单击“下载”以根据要求从给定的选项下载**证书(Base64)** 并将其保存在计算机上。
 
@@ -146,33 +147,41 @@ ms.locfileid: "57887928"
 
 ### <a name="configure-atlassian-cloud-single-sign-on"></a>配置 Atlassian Cloud 单一登录
 
-1. 若要为应用程序配置 SSO，请使用管理员凭据登录到 Atlassian 门户。
+1. 若要在 Atlassian Cloud 中自动执行配置，需要安装“我的应用安全登录浏览器扩展”，方法是单击“安装扩展”。
 
-2. 在打算配置单一登录前，需要对你的域进行验证。 有关详细信息，请参阅 [Atlassian 域验证](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)文档。
+    ![我的应用扩展](common/install-myappssecure-extension.png)
 
-3. 在左窗格中，选择“SAML 单一登录”。 如果尚未订阅 Atlassian Identity Manager，请订阅。
+2. 将扩展添加到浏览器后，单击“设置 Atlassian Cloud”会将你定向到 Atlassian Cloud 应用程序。 在此处，提供管理员凭据以登录到 Atlassian Cloud。 浏览器扩展会自动配置应用程序，并自动执行第 3-7 步。
+
+    ![设置配置](common/setup-sso.png)
+
+3. 如果想要手动设置 Atlassian Cloud，请打开新的 Web 浏览器窗口并以管理员身份登录到 Atlassian Cloud 公司网站，并执行以下步骤：
+
+4. 在打算配置单一登录前，需要对你的域进行验证。 有关详细信息，请参阅 [Atlassian 域验证](https://confluence.atlassian.com/cloud/domain-verification-873871234.html)文档。
+
+5. 在左窗格中，选择“SAML 单一登录”。 如果尚未订阅 Atlassian Identity Manager，请订阅。
 
     ![配置单一登录](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. 在“添加 SAML 配置”窗口中执行以下操作：
+6. 在“添加 SAML 配置”窗口中执行以下操作：
 
     ![配置单一登录](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. 在“标识提供者实体 ID”框中，粘贴从 Azure 门户复制的 SAML 实体 ID。
+    a. 在“标识提供者实体 ID”框中，粘贴从 Azure 门户复制的 **Azure AD 标识符**。
 
-    b. 在“标识提供者 SSO URL”框中，粘贴从 Azure 门户复制的 SAML 单一登录服务 URL。
+    b. 在“标识提供者 SSO URL”框中，粘贴从 Azure 门户复制的**登录 URL**。
 
     c. 在 Azure 门户中打开下载的证书 .txt 文件，复制其中包含的值（不要复制 *Begin Certificate* 和 *End Certificate* 行），然后将其粘贴到“公共 X509 证书”框中。
 
     d. 单击“保存配置”。
 
-5. 为了确保设置正确的 URL，请执行以下操作来更新 Azure AD 设置：
+7. 为了确保设置正确的 URL，请执行以下操作来更新 Azure AD 设置：
 
     ![配置单一登录](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. 在“SAML”窗口中，复制“SP 标识 ID”，然后在 Azure 门户中 Atlassian Cloud 的“域和 URL”下，将此 ID 粘贴到“标识符”框中。
+    a. 在“SAML”窗口中，复制“SP 标识 ID”，然后在 Azure 门户中 Atlassian Cloud 的“基本 SAML 配置”下，将此 ID 粘贴到“标识符”框中。
 
-    b. 在“SAML”窗口中，复制“SP 断言使用者服务 URL”，然后在 Azure 门户中 Atlassian Cloud 的“域和 URL”下，将此 URL 粘贴到“回复 URL”框中。 “登录 URL”是 Atlassian Cloud 的租户 URL。
+    b. 在“SAML”窗口中，复制“SP 断言使用者服务 URL”，然后在 Azure 门户中 Atlassian Cloud 的“基本 SAML 配置”下，将此 URL 粘贴到“回复 URL”框中。 “登录 URL”是 Atlassian Cloud 的租户 URL。
 
     > [!NOTE]
     > 现有客户在 Azure 门户中更新“SP 标识 ID”和“SP 断言使用者服务 URL”值之后，应选择“是，更新配置”。 新客户可以跳过此步骤。

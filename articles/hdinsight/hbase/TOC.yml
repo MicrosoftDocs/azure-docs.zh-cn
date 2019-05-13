@@ -148,6 +148,8 @@
             - name: 使用 Apache Ambari REST API
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: 加速写入
+          href: ../hbase/apache-hbase-accelerated-writes.md
         - name: 缩放 HDInsight 群集
           href: ../hdinsight-scaling-best-practices.md
           maintainContext: true

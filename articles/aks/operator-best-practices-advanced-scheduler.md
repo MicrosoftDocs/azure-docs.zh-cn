@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690470"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074185"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的高级计划程序功能的最佳做法
 
@@ -30,6 +30,8 @@ ms.locfileid: "64690470"
 **最佳做法指导** - 限制资源密集型应用程序（例如入口控制器）对特定节点的访问。 将节点资源保留给需要它们的工作负荷使用，但不允许在节点上计划其他工作负荷。
 
 创建 AKS 群集时，可以部署支持 GPU 的节点或具有大量强大 CPU 的节点。 这些节点通常用于大数据处理工作负荷，例如机器学习 (ML) 或人工智能 (AI)。 由于此类硬件通常是需要部署的昂贵节点资源，因此需要限制可在这些节点上计划的工作负荷。 你可能想要专门使用群集中的某些节点来运行入口服务，并阻止其他工作负荷。
+
+通过使用多个节点池提供此支持不同的节点。 AKS 群集提供了一个或多个节点的池。 在 AKS 中的多个节点池的支持目前处于预览状态。
 
 Kubernetes 计划程序能够使用排斥和容许来限制可在节点上运行的工作负荷。
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ spec:
 应用排斥时，请与应用程序开发人员和所有者协作，让他们在其部署中定义所需的容许。
 
 有关排斥和容许的详细信息，请参阅[应用排斥和容许][k8s-taints-tolerations]。
+
+有关如何使用在 AKS 中的多个节点池的详细信息，请参阅[创建和管理在 AKS 中为群集的多个节点池][use-multiple-node-pools]。
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Taints 和 tolerations 在 AKS 中的行为
 
@@ -195,3 +199,4 @@ Kubernetes 计划程序逻辑隔离工作负荷的最终方法之一是使用 po
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

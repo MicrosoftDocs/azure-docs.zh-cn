@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570834"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228173"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题解答
 
@@ -146,11 +146,11 @@ Microsoft 不保证相同号码传送的短信或基于语音的多重身份验�
 
 **问：我的用户指出，有时他们收不到短信，或者回复了双向短信但验证超时。**
 
-发送短信和接收双向短信回复无法得到保障，因为它们属于可能影响服务可靠性的不可控因素。 这些因素包括目标国家/地区、移动电话运营商和信号强度。
+发送短信和接收双向短信回复无法得到保障，因为它们属于可能影响服务可靠性的不可控因素。 这些因素包括目标国家/地区、 移动电话运营商和信号强度。
 
 如果用户经常无法可靠地接收短信，请告诉他们改用移动应用或电话验证方法。 移动应用可以同时通过手机网络和 Wi-Fi 连接接收通知。 此外，即使设备根本没有信号，也可以生成验证码。 Microsoft 验证器应用适用于 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
-如果必须使用短信，建议尽可能使用单向短信，而不要使用双向短信。 单向短信更加可靠，可以防止由于回复其他国家/地区发来的短信而给用户造成的全球短信费用。
+如果必须使用短信，建议尽可能使用单向短信，而不要使用双向短信。 单向短信更加可靠，它会阻止用户不会产生从回复短信发送从其他国家/地区的全球短信费用。
 
 **问：是否可以更改在系统超时之前，用户必须输入短信中验证代码的时限？**
 

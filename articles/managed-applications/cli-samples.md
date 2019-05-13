@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 38ebea86783970e0b045dcf5a8a91f54ae6c6d6a
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d8b7c645bd9ee87faf51eab58651ddc5c7cde46a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23632548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60588877"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 示例
 

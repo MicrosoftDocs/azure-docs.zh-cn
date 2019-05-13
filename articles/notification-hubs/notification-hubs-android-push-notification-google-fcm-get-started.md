@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a344e4a068ac6791403f686fa728530b3c4f17e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857940"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65209351"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教程：使用 Azure 通知中心和 Google Firebase Cloud Messaging 将通知推送到 Android 设备
 
@@ -111,7 +111,8 @@ ms.locfileid: "57857940"
 1. 在**应用**的 `Build.Gradle` 文件中的 **dependencies** 节内添加以下行（如果没有此行）。 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.7'
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ```
 
 2. 在该文件的末尾添加以下插件（如果尚不存在）。 
@@ -119,22 +120,11 @@ ms.locfileid: "57857940"
     ```gradle
     apply plugin: 'com.google.gms.google-services'
     ```
+3. 在工具栏上选择“立即同步”。
 
 ### <a name="updating-the-androidmanifestxml"></a>更新 AndroidManifest.xml
 
-1. 为支持 FCM，必须在代码中实现实例 ID 侦听器服务，以便使用 [Google 的 FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId) 来[获取注册令牌](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register)。 在本教程中，类的名称为 `MyInstanceIDService`。
-
-    将以下服务定义添加到 AndroidManifest.xml 文件的 `<application>` 标记内。
-
-    ```xml
-    <service android:name=".MyInstanceIDService">
-        <intent-filter>
-            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-        </intent-filter>
-    </service>
-    ```
-
-2. 从 FirebaseInstanceId API 收到 FCM 注册令牌后，需使用它[在 Azure 通知中心注册](notification-hubs-push-notification-registration-management.md)。 请使用名为 `RegistrationIntentService` 的 `IntentService` 在后台支持此注册。 此服务还负责刷新 FCM 注册令牌。
+1. 收到 FCM 注册令牌后，使用它[在 Azure 通知中心注册](notification-hubs-push-notification-registration-management.md)。 请使用名为 `RegistrationIntentService` 的 `IntentService` 在后台支持此注册。 此服务还负责刷新 FCM 注册令牌。
 
     将以下服务定义添加到 AndroidManifest.xml 文件的 `<application>` 标记内。
 
@@ -145,7 +135,7 @@ ms.locfileid: "57857940"
     </service>
     ```
 
-3. 还需定义通知接收者。 将以下接收者定义添加到 AndroidManifest.xml 文件的 `<application>` 标记内。 
+2. 还需定义通知接收者。 将以下接收者定义添加到 AndroidManifest.xml 文件的 `<application>` 标记内。 
 
     ```xml
     <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
@@ -159,8 +149,7 @@ ms.locfileid: "57857940"
 
     > [!IMPORTANT]
     > 将 `<your package NAME>` 占位符替换为 `AndroidManifest.xml` 文件顶部显示的实际包名称。
-4. 在工具栏上选择“立即同步”。
-5. 在 `</application>` 标记**下面**添加以下必要的 FCM 相关权限。
+3. 在 `</application>` 标记**下面**添加以下必要的 FCM 相关权限。
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -188,29 +177,6 @@ ms.locfileid: "57857940"
 
      > [!IMPORTANT]
      > 输入通知中心的**名称**和 **DefaultListenSharedAccessSignature**，然后继续。 
-2. 添加名为 `MyInstanceIDService` 的另一个类。 此类是实例 ID 侦听器服务实现。
-
-    此类的代码调用 `IntentService` 以在后台 [刷新 FCM 令牌](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)。
-
-    ```java
-    import android.content.Intent;
-    import android.util.Log;
-    import com.google.firebase.iid.FirebaseInstanceIdService;
-
-    public class MyInstanceIDService extends FirebaseInstanceIdService {
-
-        private static final String TAG = "MyInstanceIDService";
-
-        @Override
-        public void onTokenRefresh() {
-
-            Log.d(TAG, "Refreshing FCM Registration Token");
-
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-        }
-    };
-    ```
 
 3. 将另一个名为 `RegistrationIntentService`的新类添加到项目。 此类实现 `IntentService` 接口，并负责[刷新 FCM 令牌](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)以及[在通知中心注册](notification-hubs-push-notification-registration-management.md)。
 
@@ -222,12 +188,16 @@ ms.locfileid: "57857940"
     import android.content.SharedPreferences;
     import android.preference.PreferenceManager;
     import android.util.Log;
+    import com.google.android.gms.tasks.OnSuccessListener;
     import com.google.firebase.iid.FirebaseInstanceId;
+    import com.google.firebase.iid.InstanceIdResult;
     import com.microsoft.windowsazure.messaging.NotificationHub;
+    import java.util.concurrent.TimeUnit;
 
     public class RegistrationIntentService extends IntentService {
 
         private static final String TAG = "RegIntentService";
+        String FCM_token = null;
 
         private NotificationHub hub;
 
@@ -244,8 +214,14 @@ ms.locfileid: "57857940"
             String storedToken = null;
 
             try {
-                String FCM_token = FirebaseInstanceId.getInstance().getToken();
-                Log.d(TAG, "FCM Registration Token: " + FCM_token);
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
+                    @Override 
+                    public void onSuccess(InstanceIdResult instanceIdResult) { 
+                        FCM_token = instanceIdResult.getToken(); 
+                        Log.d(TAG, "FCM Registration Token: " + FCM_token); 
+                    } 
+                }); 
+                TimeUnit.SECONDS.sleep(1);
 
                 // Storing the registration ID that indicates whether the generated token has been
                 // sent to your server. If it is not stored, send the token to your server,
@@ -541,13 +517,13 @@ ms.locfileid: "57857940"
 ### <a name="run-the-mobile-app-on-emulator"></a>在仿真器中运行移动应用
 如果想要在模拟器中测试推送通知，请确保模拟器映像支持你为应用程序选择的 Google API 级别。 如果映像不支持本机 Google API，可能会收到 **SERVICE\_NOT\_AVAILABLE** 异常。
 
-另外，请确保已将 Google 帐户添加到运行的模拟器的“设置” > “帐户”下。 否则，尝试向 GCM 注册可能会导致 **AUTHENTICATION\_FAILED** 异常。
+另外，请确保已将 Google 帐户添加到运行的模拟器的“设置” > “帐户”下。 否则，尝试向 FCM 注册可能会导致 **AUTHENTICATION\_FAILED** 异常。
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍了如何使用 Firebase Cloud Messaging 将通知推送到 Android 设备。 若要了解如何使用 Google Cloud Messaging 来推送通知，请转到以下教程：
+在本教程中，你已使用 Firebase Cloud Messaging 将通知广播到在该服务中注册的所有 Android 设备。 若要了解如何向特定的设备推送通知，请转到以下教程：
 
 > [!div class="nextstepaction"]
->[使用 Google Cloud Messaging 将通知推送到 Android 设备](notification-hubs-android-push-notification-google-gcm-get-started.md)
+>[教程：向特定 Android 设备推送通知](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Images. -->
 
@@ -556,6 +532,4 @@ ms.locfileid: "57857940"
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure 门户]: https://portal.azure.com

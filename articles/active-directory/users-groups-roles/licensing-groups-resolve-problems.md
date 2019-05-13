@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470147"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466286"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>识别和解决 Azure Active Directory 中组的许可证分配问题
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) 中基于组的许可引入了处于许可错�
 
 以下部分提供每个潜在问题的说明及其解决方法。
 
-## <a name="not-enough-licenses"></a>许可证不足
+## <a name="not-enough-licenses"></a>没有足够的许可证
 
 **问题：** 组中指定的某个产品没有足够的可用许可证。 需要为该产品购买更多的许可证，或者释放其他用户或组中未使用的许可证。
 
@@ -77,7 +77,7 @@ Azure Active Directory (Azure AD) 中基于组的许可引入了处于许可错�
 
 **PowerShell：** PowerShell cmdlet 将此错误报告为 _MutuallyExclusiveViolation_。
 
-## <a name="other-products-depend-on-this-license"></a>其他产品依赖于此许可证
+## <a name="other-products-depend-on-this-license"></a>依赖于此许可证的其他产品
 
 **问题：** 组中指定的某个产品包含的服务计划必须为另一个产品中的另一个服务计划启用才能正常工作。 当 Azure AD 尝试删除基础服务计划时，将出现此错误。 例如，从组中删除用户时，可能会发生此错误。
 
@@ -107,9 +107,15 @@ Azure Active Directory (Azure AD) 中基于组的许可引入了处于许可错�
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> 有关此问题的详细信息，请参阅 [Exchange Online 中的“代理地址已被使用”错误消息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 此文还包含有关[如何使用远程 PowerShell 连接到 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx) 的信息。 有关[如何在 Azure AD 中填充 proxyAddresses 属性](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)的详细信息，请参阅此文。
+> 有关此问题的详细信息，请参阅 [Exchange Online 中的“代理地址已被使用”错误消息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 此文还包含有关[如何使用远程 PowerShell 连接到 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx) 的信息。
 
 为受影响的用户解决代理地址问题之后，请确保强制对组进行许可证处理，确保现在可以应用许可证。
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Azure AD 邮件和 ProxyAddresses 属性更改
+
+**问题：** 更新用户或组的许可证分配，时可能会看到更改某些用户的 Azure AD 邮件和 ProxyAddresses 属性。
+
+更新代理地址计算触发用户原因的许可证分配，这可以更改用户属性。 若要了解此更改的确切原因和解决问题，请参阅这篇文章[如何在 Azure AD 中填充 proxyAddresses 属性](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad)。
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>如果组中有多个产品许可证，会发生什么情况？
 

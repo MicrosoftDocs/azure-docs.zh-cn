@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118393"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198849"
 ---
 ## <a name="benefits-of-managed-disks"></a>托管磁盘的好处
 
@@ -31,9 +31,9 @@ ms.locfileid: "60118393"
 
 托管磁盘集成可用性集，可确保[可用性集中的 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 的磁盘彼此之间完全隔离以避免单点故障。 磁盘自动放置于不同的存储缩放单元（模块）。 如果某个模块因硬件或软件故障而失败，则只有其磁盘在该模块上的 VM 实例会失败。 例如，假定某个应用程序在 5 台 VM 上运行并且这些 VM 位于一个可用性集中。 这些 VM 的磁盘不会存储在同一个模块中，因此，如果一个模块失败，该应用程序的其他实例可以继续运行。
 
-### <a name="integration-with-availability-zones"></a>与可用性区域的集成
+### <a name="integration-with-availability-zones"></a>与可用性区域集成
 
-托管磁盘支持[可用性区域](../articles/availability-zones/az-overview.md)，这是保护数据中心发生故障的应用程序高可用性产品/服务。 可用性区域是 Azure 区域中独特的物理位置。 每个区域由一个或多个数据中心组成，这些数据中心配置了独立电源、冷却和网络。 为确保能够进行复原，所有已启用的区域中必须至少有三个单独的区域。 Azure 凭借可用性区域提供一流的 99.99% VM 运行时间 SLA。
+托管磁盘支持[可用性区域](../articles/availability-zones/az-overview.md)，这是一种高可用性产品/服务，可以保护应用程序免受数据中心故障的影响。 可用性区域是 Azure 区域中独特的物理位置。 每个区域由一个或多个数据中心组成，这些数据中心配置了独立电源、冷却和网络。 为确保能够进行复原，所有已启用的区域中必须至少有三个单独的区域。 Azure 凭借可用性区域提供一流的 99.99% VM 运行时间 SLA。
 
 ### <a name="azure-backup-support"></a>Azure 备份支持
 
@@ -45,13 +45,13 @@ ms.locfileid: "60118393"
 
 ## <a name="disk-roles"></a>磁盘角色
 
-在 Azure 中有三个主要磁盘角色： 数据磁盘、 OS 磁盘和临时磁盘。 这些角色映射到附加到虚拟机的磁盘。
+在 Azure 中有三个主要磁盘角色：数据磁盘、OS 磁盘和临时磁盘。 这些角色将映射到附加到虚拟机的磁盘。
 
-![磁盘操作中的角色](media/virtual-machines-managed-disks-overview/disk-types.png)
+![操作中的磁盘角色](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### <a name="data-disk"></a>数据磁盘
 
-数据磁盘是附加到虚拟机的托管磁盘，用于存储应用程序数据或其他需要保留的数据。 数据磁盘注册为 SCSI 驱动器并且带有所选择的字母标记。 每个数据磁盘的最大容量为 32,767 gibibyte 计算的 (GiB)。 虚拟机的大小决定了可附加的磁盘数目，以及可用来托管磁盘的存储类型。
+数据磁盘是附加到虚拟机的托管磁盘，用于存储应用程序数据或其他需要保留的数据。 数据磁盘注册为 SCSI 驱动器并且带有所选择的字母标记。 每个数据磁盘的最大容量为 32,767 gibibytes (GiB)。 虚拟机的大小决定了可附加的磁盘数目，以及可用来托管磁盘的存储类型。
 
 ### <a name="os-disk"></a>操作系统磁盘
 
@@ -61,7 +61,7 @@ ms.locfileid: "60118393"
 
 ### <a name="temporary-disk"></a>临时磁盘
 
-每个 VM 包含一个不是托管磁盘的临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 时，临时磁盘上的数据可能会丢失。 Azure Linux Vm 上的临时磁盘默认情况下为 /dev/sdb，Windows Vm 上的临时磁盘 e： 默认情况下。 过程成功标准重启 VM，将会保留在临时磁盘上的数据。
+每个 VM 包含一个不是托管磁盘的临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 Azure Linux VM 上，临时磁盘默认为 /dev/sdb，而在 Windows VM 上，临时磁盘默认为 E:。 在 VM 成功标准重启期间，临时磁盘上的数据将保留。
 
 ## <a name="managed-disk-snapshots"></a>托管磁盘快照
 

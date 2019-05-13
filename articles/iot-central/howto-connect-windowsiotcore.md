@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886593"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510323"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>将 Windows IoT Core 设备连接到 Azure IoT Central 应用程序
 
@@ -74,7 +74,7 @@ Azure IoT Central 应用程序中使用**Device Explorer**页，将添加从实�
 [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal)包括可用于你的设备进行故障排除的工具：
 
 - **应用程序管理器**页可用于控制设备上运行的应用。
-- 如果你没有连接到你的设备的监视器，则可以使用**设备设置**页后，可以捕获你的设备的屏幕截图。 例如：
+- 如果你没有连接到你的设备的监视器，则可以使用**设备设置**页后，可以捕获你的设备的屏幕截图。 例如:
 
     ![应用程序的屏幕截图](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -111,4 +111,4 @@ Azure IoT Central 应用程序中使用**Device Explorer**页，将添加从实�
 
 ## <a name="next-steps"></a>后续步骤
 
-现在，已了解如何将 Raspberry Pi 连接到 Azure IoT Central 应用程序，建议下一步是了解如何[设置自定义设备模板](howto-set-up-template.md)IoT 设备。
+现在，已了解如何将 Windows IoT Core 设备连接到 Azure IoT Central 应用程序，建议下一步是了解如何[设置自定义设备模板](howto-set-up-template.md)IoT 设备。

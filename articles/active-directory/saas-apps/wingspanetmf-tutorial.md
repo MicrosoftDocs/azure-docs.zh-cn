@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280751"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>教程：Azure Active Directory 与 Wingspan eTMF 集成
 
@@ -112,7 +112,7 @@ ms.locfileid: "59280751"
     c. 在“回复 URL”文本框中，使用以下模式键入 URL：`https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > 这些不是实际值。 请使用实际登录 URL、标识符和回复 URL 更新这些值。 请联系 [Wingspan eTMF 客户端支持团队](http://www.wingspan.com/contact-us/)来获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
+    > 这些不是实际值。 请使用实际登录 URL、标识符和回复 URL 更新这些值。 请联系 [Wingspan eTMF 客户端支持团队](https://www.wingspan.com/contact-us/)来获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
 5. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分，单击“下载”以根据要求下载从给定选项提供的“联合元数据 XML”并将其保存在计算机上。
 
@@ -130,7 +130,7 @@ ms.locfileid: "59280751"
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>配置 Wingspan eTMF 单一登录
 
-若要在 **Wingspan eTMF** 端配置单一登录，需要将下载的“联合元数据 XML”以及从 Azure 门户复制的相应 URL 发送给 [Wingspan eTMF 支持团队](http://www.wingspan.com/contact-us/)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
+若要在 **Wingspan eTMF** 端配置单一登录，需要将下载的“联合元数据 XML”以及从 Azure 门户复制的相应 URL 发送给 [Wingspan eTMF 支持团队](https://www.wingspan.com/contact-us/)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 
@@ -184,7 +184,7 @@ ms.locfileid: "59280751"
 
 ### <a name="create-wingspan-etmf-test-user"></a>创建 Wingspan eTMF 测试用户
 
-在本部分中，会在 Wingspan eTMF 中创建一个名为 Britta Simon 的用户。 在  [Wingspan eTMF 支持团队](http://www.wingspan.com/contact-us/)的配合下，将用户添加到 Wingspan eTMF 平台。 使用单一登录前，必须先创建并激活用户。
+在本部分中，会在 Wingspan eTMF 中创建一个名为 Britta Simon 的用户。 在  [Wingspan eTMF 支持团队](https://www.wingspan.com/contact-us/)的配合下，将用户添加到 Wingspan eTMF 平台。 使用单一登录前，必须先创建并激活用户。
 
 ### <a name="test-single-sign-on"></a>测试单一登录 
 

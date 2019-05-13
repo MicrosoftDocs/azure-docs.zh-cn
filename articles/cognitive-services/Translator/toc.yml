@@ -228,6 +228,8 @@
           href: custom-translator/how-to-manage-settings.md
         - name: 从中心迁移
           href: custom-translator/how-to-migrate.md
+        - name: 不支持的语言部署
+          href: custom-translator/unsupported-language-deployments.md
     - name: 资源
       items:
         - name: 语言支持

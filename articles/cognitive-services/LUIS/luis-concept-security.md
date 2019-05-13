@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 499854bcf6774c3e4eee350c1dd4a2204885f3b1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813641"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522480"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>创作和终结点用户访问权限
 所有者和协作者具有创作访问权限。 对于专用应用，所有者和协作者具有终结点访问权限。 对于公共应用，任何具有 LUIS 帐户和公共应用 ID 的人员均具有终结点访问权限。 
 
 ## <a name="access-to-authoring"></a>访问创作
-从 [LUIS](luis-reference-regions.md#luis-website) 网站或[创作 API](https://aka.ms/luis-authoring-apis) 访问应用的权限由应用的所有者控制。 
+从 [LUIS](luis-reference-regions.md#luis-website) 网站或[创作 API](https://go.microsoft.com/fwlink/?linkid=2092087) 访问应用的权限由应用的所有者控制。 
 
 所有者和所有协作者具有创作应用的权限。 
 

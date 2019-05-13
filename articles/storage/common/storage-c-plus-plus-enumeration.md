@@ -2,18 +2,19 @@
 title: 使用用于 C++ 的存储客户端库列出 Azure 存储资源 | Microsoft Docs
 description: 了解如何在用于 C++ 的 Microsoft Azure 存储客户端库中使用列表 API 来枚举容器、blob、队列、表和实体。
 services: storage
-author: dineshmurthy
+author: mhopkins-msft
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dineshm
+ms.author: mhopkins
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: edf50b97ff25a67b41bad266df9236145f288409
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483445"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146881"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>使用 C++ 列出 Azure 存储资源
 使用 Azure 存储进行开发时，很多情况下列表操作很重要。 本文介绍如何使用用于 C++ 的 Microsoft Azure 存储客户端库中提供的列表 API 最有效率地枚举 Azure 存储中的对象。

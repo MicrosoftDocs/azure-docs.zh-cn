@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b0b0c256db3cc93e515b38bf7daad72b082d2d3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa516c5050bfd53add761bea56c74a58057263c7
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850252"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465691"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-core"></a>快速入门：使用适用于 .NET Core 的语音 SDK 翻译语音
+
+针对[语音转文本](quickstart-csharp-dotnet-windows.md)和[文本转语音](quickstart-text-to-speech-dotnet-windows.md)也提供了快速入门。
 
 在本快速入门中，你将创建一个简单的 .NET Core 应用程序，该应用程序从计算机的麦克风中捕获用户语音，翻译语音，并将翻译后的文本实时转录到命令行。 此应用程序设计为在 64 位 Windows 上运行，并使用[语音 SDK NuGet 包](https://aka.ms/csspeech/nuget)和 Microsoft Visual Studio 2017 构建。
 

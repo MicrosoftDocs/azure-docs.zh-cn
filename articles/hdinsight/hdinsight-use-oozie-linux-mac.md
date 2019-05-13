@@ -2,18 +2,17 @@
 title: 在基于 Linux 的 Azure HDInsight 中使用 Hadoop Oozie 工作流
 description: 在基于 Linux 的 HDInsight 中使用 Hadoop Oozie。 了解如何定义 Oozie 工作流，并提交 Oozie 作业。
 ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 97e1836952020723c1043617d74a96471ae07aad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724163"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142831"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -38,13 +37,8 @@ ms.locfileid: "64724163"
 
 * **Azure SQL 数据库**。  请参阅[在 Azure 门户中创建 Azure SQL 数据库](../sql-database/sql-database-get-started.md)。  本文使用名为 `oozietest` 的数据库。
 
-* **对存储配置所做的可能更改。**  如果使用 `BlobStorage` 类型的存储帐户，请参阅[存储配置](#storage-configuration)。
+* 群集主存储的 [URI 方案](./hdinsight-hadoop-linux-information.md#URI-and-scheme)。 这将是`wasb://`适用于 Azure 存储`abfs://`有关 Azure 数据湖存储第 2 代或`adl://`的 Azure 数据湖存储 Gen1。 如果为 Azure 存储或数据湖存储第 2 代启用了安全传输，则 URI 将为`wasbs://`或`abfss://`分别另请参阅[安全传输](../storage/common/storage-require-secure-transfer.md)。
 
-## <a name="storage-configuration"></a>存储配置
-如果使用 `Storage (general purpose v1)` 或 `StorageV2 (general purpose v2)` 类型的存储帐户，则不需要执行任何操作。  本文中的过程至少向 `/mapreducestaging` 生成输出。  默认的 Hadoop 配置将在 `core-site.xml` 中的 `fs.azure.page.blob.dir` 配置变量内包含服务 `HDFS` 的 `/mapreducestaging`。  此配置会导致将页 Blob 输出到目录，而 `BlobStorage` 类型的存储帐户不支持页 Blob。  若要在本文中使用 `BlobStorage`，请删除 `fs.azure.page.blob.dir` 配置变量中的 `/mapreducestaging`。  可以通过 [Ambari UI](hdinsight-hadoop-manage-ambari.md) 访问配置。  否则，会收到错误消息：`Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> 本文中使用的存储帐户已启用[安全传输](../storage/common/storage-require-secure-transfer.md)，因此，本文通篇使用 `wasbs` 而不是 `wasb`。
 
 ## <a name="example-workflow"></a>示例工作流
 
@@ -451,7 +445,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 5. 编辑以下代码，将 `<JOBID>` 替换为前面返回的 ID。  若要启动作业，请使用以下命令：
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
     如果在运行此命令后检查状态，会发现作业处于正在运行状态，并且返回了作业中操作的信息。  该作业可能需要几分钟时间才能完成。

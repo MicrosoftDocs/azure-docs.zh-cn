@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685620"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148858"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新用于容器的 Azure Monitor 启用指标
 用于容器的 azure 监视器引入了对从 Azure Kubernetes 服务 (AKS) 群集节点和 pod 收集指标和写入到 Azure Monitor 指标存储区的支持。 此更改旨在显示性能图表，将在 Azure 门户仪表板中的性能图表固定的支持中的聚合计算 （平均值、 计数、 最大、 最小值、 总和） 时提供改进的及时性和支持的指标警报。
@@ -55,7 +55,7 @@ ms.locfileid: "64685620"
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
     配置更改可能需要几秒钟即可完成。 完成后，系统会显示包含结果的消息，如下所示：

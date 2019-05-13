@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5a87563e54e0d932acefc5bd5808ac49b3cbf30a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a592a7d0d8c9d32de83c92b258c4678dc3f8166
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60188254"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 自动缩放虚拟机规模集
 
@@ -197,7 +197,7 @@ mstsc /v 52.168.121.216:50001
 登录后，从任务栏打开 Internet Explorer。
 
 - 选择“确定”，接受“使用推荐的安全性、隐私和兼容性设置”这一提示。
-- 在地址栏中键入 *http://download.sysinternals.com/files/CPUSTRES.zip*。
+- 在地址栏中键入 *http://download.sysinternals.com/files/CPUSTRES.zip* 。
 - 由于 Internet Explorer 增强型安全配置已启用，因此请选择“添加”，以便将 *http://download.sysinternals.com* 域添加到受信任站点的列表。
 - 提示查找下载的文件时，请选择“打开”，然后选择“运行”，以便运行 *CPUSTRES.EXE* 工具。
 

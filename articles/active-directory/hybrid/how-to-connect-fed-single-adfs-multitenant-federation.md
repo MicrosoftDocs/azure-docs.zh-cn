@@ -1,5 +1,5 @@
 ---
-title: 联合多个 Azure AD 与单个 AD FS | Microsoft Docs
+title: 联合多个 Azure AD 与单个 AD FS-Azure
 description: 本文档介绍如何联合多个 Azure AD 与单个 AD FS。
 keywords: 联合, ADFS, AD FS, 多个租户, 单个 AD FS, 一个 ADFS, 多租户联合身份验证, 多林 adfs, aad connect, 联合身份验证, 跨租户联合身份验证
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 620255896e02319675928396c3d6e5e0d9865c0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244398"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137834"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 

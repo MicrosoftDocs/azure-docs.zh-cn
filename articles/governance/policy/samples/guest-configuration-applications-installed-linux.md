@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256458"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204016"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>示例 - 审核是否未在 Linux VM 中安装指定的应用程序
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>示例 - 审核是否未在 Linux VM 中安装指定的应用程序
 
-此示例“策略来宾配置”计划会审核是否已在 Linux 虚拟机中安装指定的应用程序。 此内置计划的 ID 为 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`。
+当指定的应用程序未安装在 Linux 虚拟机中时，此“策略来宾配置”计划会创建一个审核事件。 此内置计划的 ID 为 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`。
 
 > [!IMPORTANT]
 > 所有来宾配置计划均由 audit 和 deployIfNotExists 策略定义组成。 如果仅分配其中一个策略定义，则无法正常执行来宾配置。
@@ -32,9 +32,9 @@ ms.locfileid: "59256458"
 
 此[来宾配置](../concepts/guest-configuration.md)计划由以下策略组成：
 
-- [audit](#audit-definition) - 审核是否已在 Linux VM 中安装某应用程序
+- [audit](#audit-definition) - 当应用程序未安装在 Linux VM 中时进行审核
   - ID：`/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) - 部署 VM 扩展以审核是否已在 Linux VM 中安装某应用程序
+- [deployIfNotExists](#deployIfNotExists-definition) - 部署 VM 扩展，这样，当应用程序未安装在 Linux VM 中时，就可以进行审核
   - ID：`/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>计划定义
@@ -45,7 +45,9 @@ ms.locfileid: "59256458"
 
 ### <a name="initiative-parameters"></a>计划参数
 
-|名称 |类型 ||说明 | |---|---||---| |applicationName |字符串 |应用程序名称。 示例：“python”、“powershell”，或者“python,powershell”等以逗号分隔的列表。 为通配符匹配使用 \*，例如 'power\*'.|
+|名称 |类型 |说明 |
+|---|---|---|
+|applicationName |String |应用程序名称。 示例：“python”、“powershell”，或者“python,powershell”等以逗号分隔的列表。 使用 \* 进行通配符匹配，例如 'power\*'。 |
 
 通过 PowerShell 或 Azure CLI 创建分配时，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 通过字符串或文件将参数值传递为 JSON。
 PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一个 Name/Value 哈希表，其中，**Name** 是参数名称，**Value** 是在赋值期间传递的单个值或值数组。
@@ -106,7 +108,7 @@ deployIfNotExists 策略定义会定义曾用作策略验证依据的 Azure 图�
 
 ### <a name="create-copy-of-audit-definition"></a>创建 audit 定义的副本
 
-[![将策略示例部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![将策略示例部署到 Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 如果使用这些按钮通过门户进行部署，则会创建 audit 策略定义的副本。
@@ -114,7 +116,7 @@ deployIfNotExists 策略定义会定义曾用作策略验证依据的 Azure 图�
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>创建 deployIfNotExists 定义的副本
 
-[![将策略示例部署到 Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![将策略示例部署到 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![将策略示例部署到 Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 如果使用这些按钮通过门户进行部署，则会创建 deployIfNotExists 策略定义的副本。 如果没有配对的 audit 策略定义，则将无法正常执行来宾配置。

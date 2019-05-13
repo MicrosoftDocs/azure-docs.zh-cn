@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Monitor 数据收集器 API 创建数据管道 | Microsoft Docs
+title: 使用 Azure 监视器数据收集器 API 创建数据管道 |Microsoft Docs
 description: 可以使用 Azure Monitor HTTP 数据收集器 API，从能够调用 REST API 的任何客户端将 POST JSON 数据添加到 Log Analytics 工作区。 本文介绍如何以自动方式上传存储在文件中的数据。
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199979"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205949"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>使用数据收集器 API 创建数据管道
 

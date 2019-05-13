@@ -4,7 +4,7 @@ description: Azure 搜索中用于全文搜索查询的简单查询语法的参�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 99729141e5e1478f45ad385cf671c44a8e08f21a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e2d7c493b535c984b0ef61dd9a9fae53aee80a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316891"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024201"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Azure 搜索中的简单查询语法
 Azure 搜索实现两种基于 Lucene 的查询语言：[简单查询分析器](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html)和 [Lucene 查询分析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)。 在 Azure 搜索中，简单查询语法排除了模糊/贪婪选项。  

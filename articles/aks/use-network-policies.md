@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027961"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230018"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>预览-保护使用 Azure Kubernetes 服务 (AKS) 中的网络策略的 pod 之间的流量
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用网络策略保护 Pod 之间的流量
 
 在 Kubernetes 中运行最新的基于微服务的应用程序时，通常想要控制哪些组件可以相互通信。 应为流量可以在 Azure Kubernetes 服务 (AKS) 群集中的 pod 之间流动，如何应用最小特权原则。 让我们假设你可能想要阻止直接到后端应用程序的流量。 *网络策略*在 Kubernetes 中的功能允许您定义的群集中的 pod 之间入口和出口流量的规则。
 
-本文介绍如何安装网络策略引擎和创建 Kubernetes 网络策略来控制在 AKS 中的 pod 之间的流量流。 此功能目前处于预览状态。
-
-> [!IMPORTANT]
-> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
->
-> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
+本文介绍如何安装网络策略引擎和创建 Kubernetes 网络策略来控制在 AKS 中的 pod 之间的流量流。 网络策略应仅用于基于 Linux 的节点和 AKS 中的 pod。
 
 ## <a name="before-you-begin"></a>开始之前
 
 你需要 Azure CLI 版本 2.0.61 或更高版本安装和配置。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
-若要创建的 AKS 群集，可以使用网络策略，请先启用你的订阅上的一个功能标志。 若要注册 EnableNetworkPolicy 功能标志，请使用 [az feature register][az-feature-register] 命令，如以下示例所示：
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-状态显示为“已注册”需要几分钟时间。 可以使用在注册状态检查[az 功能列表][ az-feature-list]命令：
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-准备就绪后，刷新的注册*Microsoft.ContainerService*使用的资源提供程序[az provider register] [ az-provider-register]命令：
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> 如果在预览期间使用的网络策略功能，我们建议您[创建新的群集](#create-an-aks-cluster-and-enable-network-policy)。
+> 
+> 如果你想要继续使用在预览期间使用网络策略的现有测试群集，将群集升级到最新 GA 版本新 Kubernetes 版本，然后将部署下面的 YAML 清单，若要修复崩溃的指标服务器和 Kubernetes仪表板。 此修补程序才需要使用的是 Calico 网络策略引擎的群集。
+>
+> 作为安全性最佳实践，[查看此 YAML 清单的内容][ calico-aks-cleanup]若要了解什么部署到 AKS 群集。
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>网络策略概述
 
@@ -78,6 +64,7 @@ Azure 提供两种方法来实现网络策略。 创建 AKS 群集时选择的�
 | 与 Kubernetes 规范的符合性 | 支持的所有策略类型 |  支持的所有策略类型 |
 | 其他功能                      | 无                       | 扩展包括全局网络策略、 全局网络设置和主机终结点的策略模型。 有关使用的详细信息`calicoctl`CLI 来管理这些扩展功能，请参阅[calicoctl 用户参考][calicoctl]。 |
 | 支持                                  | 受 Azure 支持和工程团队 | Calico 社区支持。 有关其他付费支持的详细信息，请参阅[项目 Calico 支持选项][calico-support]。 |
+| 日志记录                                  | 规则已添加 / 删除 IPTables 中记录下每个主机上 */var/log/azure-npm.log* | 有关详细信息，请参阅[Calico 组件日志][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>创建 AKS 群集并启用网络策略
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ kubectl delete namespace development
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

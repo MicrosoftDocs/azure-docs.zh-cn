@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 7f152de89f5d374a5b97368eafe7287fc9377291
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691115"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149898"
 ---
 # <a name="dependency-auto-collection"></a>依赖项自动收集
 
@@ -58,6 +58,7 @@ ms.locfileid: "60691115"
 | [Apache Http 客户端](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>存储客户端</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
+| [PostgreSQL （测试版支持）](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>日志记录库</b> | |

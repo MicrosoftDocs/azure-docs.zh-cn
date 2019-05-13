@@ -1,280 +1,319 @@
 ---
-title: 在 Azure 中使用 Ansible 创建虚拟机规模集
+title: 教程 - 使用 Ansible 在 Azure 中配置虚拟机规模集 | Microsoft Docs
 description: 了解如何在 Azure 中使用 Ansible 创建和配置虚拟机规模集
-ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, 虚拟机, 虚拟机规模集, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097883"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230741"
 ---
-# <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>在 Azure 中使用 Ansible 创建虚拟机规模集
-使用 Ansible 可以在环境中自动部署和配置资源。 可以在 Azure 中使用 Ansible 管理虚拟机规模集 (VMSS)，就像管理任何其他 Azure 资源一样。 本文介绍如何使用 Ansible 创建和横向扩展虚拟机规模集。 
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>教程：使用 Ansible 在 Azure 中配置虚拟机规模集
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * 为 VM 配置资源
+> * 配置规模集
+> * 通过增加 VM 实例来扩展规模集 
 
 ## <a name="prerequisites"></a>先决条件
-- **Azure 订阅** - 如果没有 Azure 订阅，请在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> 在本教程中运行以下示例 playbook 需要 Ansible 2.6。 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-vmss"></a>创建 VMSS
-本部分提供一个示例 Ansible playbook，它定义了以下资源：
-- 所有资源将部署到的**资源组**
-- 10.0.0.0/16 地址空间中的**虚拟网络**
-- 虚拟网络中的**子网**
-- 用于通过 Internet 访问资源的**公共 IP 地址**
-- **网络安全组**，控制传入和传出虚拟机规模集的网络流量
-- **负载均衡器**，使用负载均衡器规则将流量分配到一组定义的 VM
-- 使用所有已创建资源的**虚拟机规模集**
+## <a name="configure-a-scale-set"></a>配置规模集
 
-输入自己的密码作为 *admin_password* 值。
+本部分的 playbook 代码定义以下资源：
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-      vmss_lb_name: myVMSSlb
-      location: eastus
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-      - name: Create a resource group
-        azure_rm_resourcegroup:
-          name: "{{ resource_group }}"
-          location: "{{ location }}"
-      - name: Create virtual network
-        azure_rm_virtualnetwork:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefixes: "10.0.0.0/16"
-      - name: Add subnet
-        azure_rm_subnet:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefix: "10.0.1.0/24"
-          virtual_network: "{{ vmss_name }}"
-      - name: Create public IP address
-        azure_rm_publicipaddress:
-          resource_group: "{{ resource_group }}"
-          allocation_method: Static
-          name: "{{ vmss_name }}"
-      - name: Create Network Security Group that allows SSH
-        azure_rm_securitygroup:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          rules:
-            - name: SSH
-              protocol: Tcp
-              destination_port_range: 22
-              access: Allow
-              priority: 1001
-              direction: Inbound
+* 所有资源将部署到的**资源组**。
+* 10.0.0.0/16 地址空间中的**虚拟网络**
+* 虚拟网络中的**子网**
+* 用于通过 Internet 访问资源的**公共 IP 地址**
+* **网络安全组**，控制传入和传出规模集的网络流量
+* **负载均衡器**，使用负载均衡器规则将流量分配到一组定义的 VM
+* 使用所有已创建资源的**虚拟机规模集**
 
-      - name: Create a load balancer
-        azure_rm_loadbalancer:
-          name: "{{ vmss_lb_name }}"
-          location: "{{ location }}"
-          resource_group: "{{ resource_group }}"
-          public_ip: "{{ vmss_name }}"
-          probe_protocol: Tcp
-          probe_port: 8080
-          probe_interval: 10
-          probe_fail_count: 3
-          protocol: Tcp
-          load_distribution: Default
-          frontend_port: 80
-          backend_port: 8080
-          idle_timeout: 4
-          natpool_frontend_port_start: 50000
-          natpool_frontend_port_end: 50040
-          natpool_backend_port: 22
-          natpool_protocol: Tcp
+有两种方式可获取相同的 playbook：
 
-      - name: Create VMSS
-        azure_rm_virtualmachine_scaleset:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          vm_size: Standard_DS1_v2
-          admin_username: "{{ admin_username }}"
-          admin_password: "{{ admin_password }}"
-          ssh_password_enabled: true
-          capacity: 2
-          virtual_network_name: "{{ vmss_name }}"
-          subnet_name: "{{ vmss_name }}"
-          upgrade_policy: Manual
-          tier: Standard
-          managed_disk_type: Standard_LRS
-          os_disk_caching: ReadWrite
-          image:
-            offer: UbuntuServer
-            publisher: Canonical
-            sku: 16.04-LTS
-            version: latest
-          load_balancer: "{{ vmss_lb_name }}"
-          data_disks:
-            - lun: 0
-              disk_size_gb: 20
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-            - lun: 1
-              disk_size_gb: 30
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-  ```
+* [下载 playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) 并将其保存到 `vmss-create.yml`。
+* 新建名为 `vmss-create.yml` 的文件，并将以下内容复制到其中：
 
-若要使用 Ansible 创建虚拟机规模集环境，请将前面的 playbook 保存为 `vmss-create.yml`，或者[下载示例 Ansible playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml)。
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+    vmss_lb_name: myScaleSetLb
+    location: eastus
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefixes: "10.0.0.0/16"
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefix: "10.0.1.0/24"
+        virtual_network: "{{ vmss_name }}"
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "{{ vmss_name }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
 
-若要运行 Ansible playbook，请使用 **ansible-playbook** 命令，如下所示：
+    - name: Create a load balancer
+      azure_rm_loadbalancer:
+        name: "{{ vmss_lb_name }}"
+        location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+        public_ip: "{{ vmss_name }}"
+        probe_protocol: Tcp
+        probe_port: 8080
+        probe_interval: 10
+        probe_fail_count: 3
+        protocol: Tcp
+        load_distribution: Default
+        frontend_port: 80
+        backend_port: 8080
+        idle_timeout: 4
+        natpool_frontend_port_start: 50000
+        natpool_frontend_port_end: 50040
+        natpool_backend_port: 22
+        natpool_protocol: Tcp
 
-  ```bash
-  ansible-playbook vmss-create.yml
-  ```
+    - name: Create Scale Set
+      azure_rm_virtualmachinescaleset:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        vm_size: Standard_DS1_v2
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
+        ssh_password_enabled: true
+        capacity: 2
+        virtual_network_name: "{{ vmss_name }}"
+        subnet_name: "{{ vmss_name }}"
+        upgrade_policy: Manual
+        tier: Standard
+        managed_disk_type: Standard_LRS
+        os_disk_caching: ReadWrite
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          version: latest
+        load_balancer: "{{ vmss_lb_name }}"
+        data_disks:
+          - lun: 0
+            disk_size_gb: 20
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+          - lun: 1
+            disk_size_gb: 30
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+```
 
-运行 playbook 后，类似于以下示例的输出显示已成功创建虚拟机规模集：
+在运行 playbook 之前，请参阅以下说明：
 
-  ```Output
-  PLAY [localhost] ***********************************************************
+* 在 `vars` 节中，请将 `{{ admin_password }}` 占位符替换为你自己的密码。
 
-  TASK [Gathering Facts] *****************************************************
-  ok: [localhost]
+使用 `ansible-playbook` 命令运行 playbook：
 
-  TASK [Create a resource group] ****************************************************************************
-  changed: [localhost]
+```bash
+ansible-playbook vmss-create.yml
+```
 
-  TASK [Create virtual network] ****************************************************************************
-  changed: [localhost]
+运行 playbook 后，将看到类似于以下结果的输出：
 
-  TASK [Add subnet] **********************************************************
-  changed: [localhost]
+```Output
+PLAY [localhost] 
 
-  TASK [Create public IP address] ****************************************************************************
-  changed: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  TASK [Create Network Security Group that allows SSH] ****************************************************************************
-  changed: [localhost]
+TASK [Create a resource group] 
+changed: [localhost]
 
-  TASK [Create a load balancer] ****************************************************************************
-  changed: [localhost]
+TASK [Create virtual network] 
+changed: [localhost]
 
-  TASK [Create VMSS] *********************************************************
-  changed: [localhost]
+TASK [Add subnet] 
+changed: [localhost]
 
-  PLAY RECAP *****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+TASK [Create public IP address] 
+changed: [localhost]
 
-  ```
+TASK [Create Network Security Group that allows SSH] 
+changed: [localhost]
 
-## <a name="scale-out-a-vmss"></a>横向扩展 VMSS
-创建的虚拟机规模集有两个实例。 如果在 Azure 门户中导航到虚拟机规模集，则会看到“Standard_DS1_v2 (2 个实例)”。 还可以通过在 Cloud Shell 中运行以下命令来使用 [Azure Cloud Shell](https://shell.azure.com/)：
+TASK [Create a load balancer] 
+changed: [localhost]
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+TASK [Create Scale Set] 
+changed: [localhost]
 
-会看到结果类似于以下输出：
+PLAY RECAP 
+localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
-  ```bash
-  {
-    "capacity": 2,
-  }
-  ```
+```
 
-现在，让我们从两个实例扩展到三个实例。 以下 Ansible playbook 代码检索有关虚拟机规模的信息，并将其容量从 2 更改为 3。 
+## <a name="view-the-number-of-vm-instances"></a>查看 VM 实例数目。
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-    tasks: 
-      - name: Get scaleset info
-        azure_rm_virtualmachine_scaleset_facts:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          format: curated
-        register: output_scaleset
+[配置的规模集](#configure-a-scale-set)当前有两个实例。 使用以下步骤确认该值：
 
-      - name: Dump scaleset info
-        debug:
-          var: output_scaleset
+1. 登录到 [Azure 门户](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 
-      - name: Modify scaleset (change the capacity to 3)
-        set_fact:
-          body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
+1. 导航到配置的规模集。
 
-      - name: Update something in that VMSS
-        azure_rm_virtualmachine_scaleset: "{{ body }}"
-  ```
+1. 将会看到规模集名称以及括号中的实例数目：`Standard_DS1_v2 (2 instances)`
 
-若要横向扩展已创建的虚拟机规模集，请将前面的 playbook 保存为 `vmss-scale-out.yml`，或者[下载示例 Ansible playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)。 
+1. 还可以通过运行以下命令，使用 [Azure Cloud Shell](https://shell.azure.com/) 检查实例数目：
 
-以下命令将运行 playbook：
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
 
-  ```bash
-  ansible-playbook vmss-scale-out.yml
-  ```
+    在 Cloud Shell 中运行 Azure CLI 命令的结果显示现在存在三个实例： 
 
-运行 Ansible playbook 的输出显示虚拟机规模集已成功横向扩展：
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
-  ```Output
-  PLAY [localhost] **********************************************************
+## <a name="scale-out-a-scale-set"></a>横向扩展规模集
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+本部分的 playbook 代码检索有关规模集的信息，并将其容量从 2 更改为 3。
 
-  TASK [Get scaleset info] ***************************************************************************
-  ok: [localhost]
+有两种方式可获取相同的 playbook：
 
-  TASK [Dump scaleset info] ***************************************************************************
-  ok: [localhost] => {
-      "output_scaleset": {
-          "ansible_facts": {
-              "azure_vmss": [
-                  {
-                      ......
-                  }
-              ]
-          },
-          "changed": false,
-          "failed": false
-      }
-  }
+* [下载 playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) 并将其保存到 `vmss-scale-out.yml`。
+* 新建名为 `vmss-scale-out.yml` 的文件，并将以下内容复制到其中：
 
-  TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] ***************************************************************************
-  ok: [localhost]
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+  tasks: 
+    - name: Get scaleset info
+      azure_rm_virtualmachine_scaleset_facts:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        format: curated
+      register: output_scaleset
 
-  TASK [Update something in that VMSS] ***************************************************************************
-  changed: [localhost]
+    - name: Dump scaleset info
+      debug:
+        var: output_scaleset
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=5    changed=1    unreachable=0    failed=0
-  ```
+    - name: Modify scaleset (change the capacity to 3)
+      set_fact:
+        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
 
-如果在 Azure 门户中导航到配置的虚拟机规模集，则会看到“Standard_DS1_v2 (3 个实例)”。 还可以通过运行以下命令，使用 [Azure Cloud Shell](https://shell.azure.com/) 验证更改：
+    - name: Update something in that scale set
+      azure_rm_virtualmachinescaleset: "{{ body }}"
+```
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+使用 `ansible-playbook` 命令运行 playbook：
 
-在Cloud Shell 中运行命令的结果显示现在存在三个实例。 
+```bash
+ansible-playbook vmss-scale-out.yml
+```
 
-  ```bash
-  {
-    "capacity": 3,
-  }
-  ```
+运行 playbook 后，将看到类似于以下结果的输出：
+
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
+ok: [localhost]
+
+TASK [Get scaleset info] 
+ok: [localhost]
+
+TASK [Dump scaleset info] 
+ok: [localhost] => {
+    "output_scaleset": {
+        "ansible_facts": {
+            "azure_vmss": [
+                {
+                    ......
+                }
+            ]
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
+ok: [localhost]
+
+TASK [Update something in that scale set] 
+changed: [localhost]
+
+PLAY RECAP 
+localhost                  : ok=5    changed=1    unreachable=0    failed=0
+```
+
+## <a name="verify-the-results"></a>验证结果
+
+通过 Azure 门户验证操作结果：
+
+1. 登录到 [Azure 门户](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
+
+1. 导航到配置的规模集。
+
+1. 将会看到规模集名称以及括号中的实例数目：`Standard_DS1_v2 (3 instances)` 
+
+1. 还可以通过运行以下命令，使用 [Azure Cloud Shell](https://shell.azure.com/) 验证更改：
+
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
+
+    在 Cloud Shell 中运行 Azure CLI 命令的结果显示现在存在三个实例： 
+
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
 ## <a name="next-steps"></a>后续步骤
+
 > [!div class="nextstepaction"] 
-> [使用 Ansible 将应用程序部署到虚拟机规模集](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-> 
-> [使用 Ansible 自动缩放虚拟机规模集](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [教程：使用 Ansible 将应用部署到 Azure 中的虚拟机规模集](./ansible-deploy-app-vmss.md)

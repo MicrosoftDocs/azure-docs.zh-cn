@@ -1,21 +1,21 @@
 ---
-title: 从 Node.js 连接到 Azure Database for PostgreSQL
-description: 本快速入门提供了一个 Node.js 代码示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
+title: 使用 Node.js 连接到 Azure Database for PostgreSQL - 单一服务器
+description: 本快速入门提供了可用于从 Azure Database for PostgreSQL - 单一服务器连接和查询数据的 Node.js 代码示例。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 4c7f2f71ff302cbaa0aab66f97b93cb1c5b9e5e4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 5ebcb3151bf9b6eaca4a726553a3c8f1d93c08aa
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541109"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067131"
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 Node.js 连接和查询数据
+# <a name="azure-database-for-postgresql---single-server-use-nodejs-to-connect-and-query-data"></a>Azure Database for PostgreSQL - 单一服务器：使用 Node.js 连接和查询数据
 本快速入门演示了如何使用 [Node.js](https://nodejs.org/) 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 Node.js 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
 
 ## <a name="prerequisites"></a>先决条件

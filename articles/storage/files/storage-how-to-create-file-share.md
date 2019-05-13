@@ -2,18 +2,18 @@
 title: 如何创建 Azure 文件共享 | Microsoft Docs
 description: 如何使用 Azure 门户、PowerShell 和 Azure CLI 在 Azure 文件中创建 Azure 文件共享。
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1620683f4bc02d607afd8e0371e8d4a5461612b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d945d5b79c274aa8e142203c56b27eb673e36741
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772324"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510509"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 文件中创建文件共享
 可以使用  [Azure 门户](https://portal.azure.com/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。 本教程介绍：
@@ -73,7 +73,7 @@ ms.locfileid: "57772324"
     请将以下示例中的  ```<storage-account>``` 和 ```<resource_group>```  替换为自己的存储帐户名称和资源组：
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."

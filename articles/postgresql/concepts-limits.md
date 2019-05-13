@@ -1,19 +1,19 @@
 ---
-title: Azure Database for PostgreSQL 中的限制
-description: 本文介绍了 Azure Database for PostgreSQL 中的限制，例如连接数和存储引擎选项。
+title: 在 Azure Database for PostgreSQL-单个服务器的限制
+description: 本文介绍在 Azure Database for PostgreSQL-单个服务器，例如连接数和存储引擎选项的限制。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 01133662ca3a7364efd362f6db99d33243b2ad4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559846"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073540"
 ---
-# <a name="limitations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的限制
+# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL-单个服务器的限制
 下列各部分介绍数据库服务中的容量和功能限制。
 
 ## <a name="maximum-connections"></a>最大连接数
@@ -21,7 +21,7 @@ ms.locfileid: "60559846"
 
 |**定价层**| **vCore(s)**| 最大连接数 |
 |---|---|---|
-|基本| 第| 50 |
+|基本| 1| 50 |
 |基本| 2| 100 |
 |常规用途| 2| 150|
 |常规用途| 4| 250|

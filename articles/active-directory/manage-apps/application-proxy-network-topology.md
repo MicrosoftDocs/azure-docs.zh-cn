@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443323"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231518"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 应用程序代理时的网络拓扑注意事项
 
@@ -39,7 +39,7 @@ ms.locfileid: "60443323"
 
 ## <a name="tenant-location-and-application-proxy-service"></a>租户位置和应用程序代理服务
 
-注册 Azure AD 租户时，租户所在的区域根据指定的国家/地区确定。 启用应用程序代理时，将在 Azure AD 租户所在的同一区域或者与它最靠近的区域中选择或创建租户的应用程序代理服务实例。
+当你注册 Azure AD 租户时，租户的区域由你指定的国家/地区/区域决定。 启用应用程序代理时，将在 Azure AD 租户所在的同一区域或者与它最靠近的区域中选择或创建租户的应用程序代理服务实例。
 
 例如，如果你的 Azure AD 租户所在的区域为英国，则所有 Azure AD 应用程序代理连接器都使用位于 EU 数据中心内的服务实例。 当用户访问发布的应用程序时，其流量会流经此位置中的应用程序代理服务实例。
 
@@ -78,7 +78,7 @@ ms.locfileid: "60443323"
 
 ## <a name="focus-your-optimization-strategy"></a>注重优化策略
 
-很难控制用户与应用程序代理之间的连接。 因为用户可能会通过家庭网络、咖啡店或在其他国家/地区访问你的应用。 不过，可以优化从应用程序代理服务到应用程序代理连接器再到应用的连接。 考虑在环境中整合以下模式。
+很难控制用户与应用程序代理之间的连接。 用户可以从家庭网络、 咖啡店或其他国家/地区访问你的应用。 不过，可以优化从应用程序代理服务到应用程序代理连接器再到应用的连接。 考虑在环境中整合以下模式。
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>模式 1：将连接器放在靠近应用程序的位置
 

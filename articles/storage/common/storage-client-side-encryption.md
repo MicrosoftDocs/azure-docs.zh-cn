@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c8f9b17bf5b572128348b22de62566ba06d5d766
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992404"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153269"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure 存储的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -51,7 +52,7 @@ ms.locfileid: "57992404"
 存储客户端库使用 [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 来加密用户数据。 具体而言，是使用 AES 的[加密块链接 (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 模式。 每个服务的工作方式都稍有不同，因此我们会在此讨论其中每个服务。
 
 ### <a name="blobs"></a>Blob
-目前，客户端库仅支持整个 Blob 的加密。 具体而言，当用户使用时支持加密**UploadFrom**方法或**OpenWrite**方法。 对于下载，支持完整下载和范围下载。
+目前，客户端库仅支持整个 Blob 的加密。 具体而言，用户使用 **UploadFrom** 方法或 OpenWrite 方法时支持加密。 对于下载，支持完整下载和范围下载。
 
 在加密过程中，客户端库将生成 16 字节的随机初始化向量 (IV) 和 32 字节的随机内容加密密钥 (CEK) 并将使用此信息对 Blob 数据执行信封加密。 然后，已包装的 CEK 和一些附加加密元数据将与服务上的已加密 Blob 一起存储为 Blob 元数据。
 
@@ -60,9 +61,9 @@ ms.locfileid: "57992404"
 > 
 > 
 
-下载已加密的 blob 需要检索整个 blob 使用的内容**DownloadTo**/**BlobReadStream**便捷方法。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
+下载已加密的 Blob 需要使用 **DownloadTo**/**BlobReadStream** 便捷方法检索整个 Blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
-下载的任意范围 (**DownloadRange**方法) 加密的 blob 中涉及调整用户提供的以获取少量可用于成功解密所请求的其他数据的范围范围。
+下载已加密 Blob 中的任意范围（**DownloadRange** 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。
 
 所有 Blob 类型（块 Blob、页 Blob 和追加 Blob）都可以使用此方案进行加密/解密。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283505"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>教程：Azure Active Directory 与 T&E Express 集成
 
@@ -110,7 +110,7 @@ ms.locfileid: "59283505"
     b. 在“回复 URL”文本框中，使用以下模式键入 URL：`https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
-    > 这些不是实际值。 请使用实际标识符和回复 URL 更新这些值。 此处我们建议在“标识符”中使用字符串的唯一值。 请联系 [T&E Express 客户端支持团队](http://www.tyeexpress.com/contacto.aspx)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
+    > 这些不是实际值。 请使用实际标识符和回复 URL 更新这些值。 此处我们建议在“标识符”中使用字符串的唯一值。 请联系 [T&E Express 客户端支持团队](https://www.tyeexpress.com/contacto.aspx)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
 5. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分，单击“下载”以根据要求下载从给定选项提供的“联合元数据 XML”并将其保存在计算机上。
 

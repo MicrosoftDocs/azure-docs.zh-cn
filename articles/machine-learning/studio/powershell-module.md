@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bee42f8a9582908963c0eef95a2fd04742cd425e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094317"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205666"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Azure 机器学习工作室 PowerShell 模块
 
@@ -53,11 +53,11 @@ PowerShell 经典可以与 Az 或 AzureRM 以覆盖这两个"新"和"经典"资�
 
 | | **Az** |  **PowerShell 经典** |
 | --- | --- | --- |
-| 创建/删除工作区 | [资源管理器模板](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| 创建/删除工作区 | [Resource Manager 模板](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | 管理工作区承诺计划 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | 管理工作区用户 |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | 管理 Web 服务 | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("new"web 服务)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("经典"web 服务) |
-| 管理 web 服务终结点/密钥 |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| 管理 web 服务终结点/密钥 |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | 管理用户数据集/训练模型| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | 管理用户试验 |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
 | 管理自定义模块 | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |

@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692555"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406551"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒体服务 v3 Api 进行开发
 
@@ -25,7 +25,11 @@ ms.locfileid: "64692555"
 
 ## <a name="accessing-the-azure-media-services-api"></a>访问 Azure 媒体服务 API
 
-若要访问 Azure 媒体服务资源，可以使用 Azure Active Directory (AD) 服务主体身份验证。
+若要有权访问媒体服务资源和媒体服务 API，必须先进行身份验证。 媒体服务支持[Azure Active Directory (Azure AD) 的基于](../../active-directory/fundamentals/active-directory-whatis.md)身份验证。 两个常见的身份验证选项包括：
+ 
+* **服务主体身份验证**-用于进行身份验证服务 (例如： web 应用、 函数应用、 逻辑应用、 API 和微服务)。 常常使用这种身份验证方法的应用程序是运行守护程序服务、中间层服务或计划作业的应用程序。 例如，对于 Web 应用程序存在应始终为连接到媒体服务与服务主体的中间层。
+* **用户身份验证**-用于进行身份验证使用应用程序与媒体服务资源进行交互的人员。 交互式应用程序应先提示用户输入用户凭据。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。
+
 媒体服务 API 需要用户或应用程序进行 REST API 请求有权访问媒体服务帐户资源，并使用**参与者**或**所有者**角色。 可以使用访问 API**读取器**角色但只**获取**或**列表** 操作将可用。 有关详细信息，请参阅[媒体服务帐户的基于角色的访问控制](rbac-overview.md)。
 
 而不是创建服务主体，请考虑使用 Azure 资源的管理的标识访问通过 Azure 资源管理器中的媒体服务 API。 若要了解有关 Azure 资源的管理的标识的详细信息，请参阅[什么是 Azure 资源的管理的标识](../../active-directory/managed-identities-azure-resources/overview.md)。
@@ -52,6 +56,16 @@ ms.locfileid: "64692555"
 2. Azure AD 访问令牌发送到中间层。
 4. 中间层使用 Azure AD 令牌向 Azure 媒体 REST API 发送请求。
 5. 中间层获取媒体服务返回的数据。
+
+### <a name="samples"></a>示例
+
+请参阅下面的示例演示如何使用 Azure AD 服务主体进行连接：
+
+* [使用 REST 连接](media-rest-apis-with-postman.md)  
+* [通过 Java 进行连接](configure-connect-java-howto.md)
+* [通过 .NET 进行连接](configure-connect-dotnet-howto.md)
+* [通过 Node.js 进行连接](configure-connect-nodejs-howto.md)
+* [通过 Python 进行连接](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>命名约定
 
@@ -88,7 +102,7 @@ Azure 媒体服务 v3 资源名称（例如，资产、作业、转换）需遵�
 
 请参阅[筛选、 排序、 分页的 Azure 媒体服务实体](entities-overview.md)
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、提供反馈、获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

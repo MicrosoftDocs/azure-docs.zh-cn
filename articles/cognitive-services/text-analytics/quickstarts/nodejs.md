@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a2fdeeab2e8027dc3b548f7004912906d4574ccc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007418"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694976"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Node.js 调用文本分析认知服务  
 <a name="HOLTop"></a>
@@ -156,7 +156,7 @@ get_language (documents);
 
 ## <a name="analyze-sentiment"></a>分析情绪
 
-情绪分析 API 使用 [Sentiment 方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c9)检测一组文本记录的情绪。 通过在原始文本中分析有关积极和消极情绪的线索，可以使用情绪分析确定客户如何看待你的品牌或主题。 以下示例提供了两个文档的分数，一个是英文文档，另一个是西班牙文文档。
+情绪分析 API 使用 [Sentiment 方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)检测一组文本记录的情绪。 通过在原始文本中分析有关积极和消极情绪的线索，可以使用情绪分析确定客户如何看待你的品牌或主题。 以下示例提供了两个文档的分数，一个是英文文档，另一个是西班牙文文档。
 
 1. 在最喜爱的 IDE 或桌面上的某个文件夹中创建一个新的 Node.JS 项目。
 2. 将下面提供的代码添加到新的 `.js` 文件中。
@@ -252,7 +252,7 @@ get_sentiments (documents);
 
 ## <a name="extract-key-phrases"></a>提取关键短语
 
-关键短语提取 API 使用[关键短语方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c6)从文本文档中提取关键短语。 关键短语提取用于快速识别文档或文本的要点。 以下示例为英文和西班牙文文档提取关键短语。
+关键短语提取 API 使用[关键短语方法](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)从文本文档中提取关键短语。 关键短语提取用于快速识别文档或文本的要点。 以下示例为英文和西班牙文文档提取关键短语。
 
 1. 在最喜爱的 IDE 或桌面上的某个文件夹中创建一个新的 Node.JS 项目。
 2. 将下面提供的代码添加到新的 `.js` 文件中。

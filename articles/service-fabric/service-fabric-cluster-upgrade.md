@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711590"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472770"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升级和更新 Azure Service Fabric 群集
 
@@ -99,7 +99,7 @@ Service Fabric 使用创建群集时指定的 [X.509 服务器证书](service-fa
 可以在群集上自定义许多不同的配置设置，例如群集的可靠性级别和节点属性。 有关详细信息，请参阅 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)。
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>修补群集节点的操作系统
-修补业务流程应用程序 (POA) 是一个 Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。 可在群集上部署[适用于 Windows 的修补业务流程应用程序](service-fabric-patch-orchestration-application.md)或[适用于 Linux 的修补业务流程应用程序](service-fabric-patch-orchestration-application-linux.md)，以便以协调一致的方式安装修补程序，同时使服务始终可用。 
+修补业务流程应用程序 (POA) 是一个 Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。 [适用于 Windows 的修补业务流程应用程序](service-fabric-patch-orchestration-application.md)可部署在群集上，以便以协调一致的方式安装修补程序，同时使服务始终可用。
 
 
 ## <a name="next-steps"></a>后续步骤

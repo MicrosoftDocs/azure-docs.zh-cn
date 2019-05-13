@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925805"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142958"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SUSE Linux Enterprise Server for SAP applications 上的 Azure VM 上 SAP NetWeaver 的高可用性
 
@@ -87,6 +87,9 @@ ms.locfileid: "64925805"
 
 NFS 服务器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 数据库使用虚拟主机名和虚拟 IP 地址。 在 Azure 上，需要负载均衡器才能使用虚拟 IP 地址。 以下列表显示 (A)SCS 和 ERS 负载均衡器的配置。
 
+> [!IMPORTANT]
+> 多 SID 群集的 SAP ASCS/ERS 为 SUSE Linux Azure Vm 中的来宾操作系统原样**不支持**。 多 SID 群集描述多个具有一个 Pacemaker 群集中不同的 Sid 的 SAP ASCS/ERS 实例的安装
+
 ### <a name="ascs"></a>(A)SCS
 
 * 前端配置
@@ -114,6 +117,7 @@ NFS 服务器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
 * 探测端口
   * 端口 621&lt;nr&gt;
 * 负载均衡规则
+  * 32&lt;nr&gt; TCP
   * 33&lt;nr&gt; TCP
   * 5&lt;nr&gt;13 TCP
   * 5&lt;nr&gt;14 TCP
@@ -202,7 +206,7 @@ Azure 市场中包含适用于 SUSE Linux Enterprise Server for SAP Applications
          * 重复上述步骤，为 ERS 创建运行状况探测（例如 621**02** 和 **nw1-aers-hp**）
    1. 负载均衡规则
       1. ASCS 的 32**00** TCP
-         1. 打开负载均衡器，选择负载均衡规则，并单击“添加”
+         1. 打开负载均衡器，选择负载均衡规则并单击添加
          1. 输入新的负载均衡器规则的名称（例如 **nw1-lb-3200**）
          1. 选择前面创建的前端 IP 地址、后端池和运行状况探测（例如 **nw1-ascs-frontend**）
          1. 将协议保留为“TCP”，输入端口 **3200**
@@ -587,7 +591,7 @@ Azure 市场中包含适用于 SUSE Linux Enterprise Server for SAP Applications
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  如果您是从较旧版本进行升级并切换到排队服务器 2，请参阅 sap 说明[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
+  如果您是从较旧版本进行升级并切换到排队服务器 2，请参阅 SAP 注释[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
 
    请确保群集状态正常，并且所有资源都已启动。 资源在哪个节点上运行并不重要。
 

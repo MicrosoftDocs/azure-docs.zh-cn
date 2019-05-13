@@ -1,6 +1,6 @@
 ---
-title: 在 PIM 的 Azure Active Directory 中执行我的 Azure 资源角色的访问评审 |Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中对 Azure 资源角色执行访问评审。
+title: 查看对 PIM 的 Azure Active Directory 中的 Azure 资源角色的访问 |Microsoft Docs
+description: 了解如何查看在 Azure AD Privileged Identity Management (PIM) 中的 Azure 资源角色的访问。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287400"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141188"
 ---
-# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>在 PIM 中对 Azure 资源角色执行访问评审
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>评审在 PIM 中的 Azure 资源角色的访问权限
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 简化了企业管理对 Azure 中的资源特许访问权限。 
 
 如果已被分配到某个管理角色，组织中的特权角色管理员可能要求定期确认仍然需要使用该角色来完成工作。 可以通过你所收到的电子邮件中的链接，或者直接转到 [Azure 门户](https://portal.azure.com)来执行此操作。 请遵循本文中的步骤对分配的角色执行自我审查。

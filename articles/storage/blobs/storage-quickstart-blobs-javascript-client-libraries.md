@@ -3,19 +3,20 @@ title: Azure 快速入门 - 在浏览器中使用 JavaScript 和 HTML 在对象�
 description: 了解如何通过 BlobService 实例在 HTML 页面中使用 JavaScript 上传、列出和删除 Blob。
 services: storage
 keywords: 存储, javascript, html
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.date: 11/14/2018
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: df697ab31875c8f806456c1e60820e7e8d752539
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245365"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149582"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

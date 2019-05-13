@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a5c839d6d662f9d330099f89c97eb83c4fe516
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494688"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071800"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>如何管理用于容器的 Azure Monitor 代理
 用于容器的 Azure Monitor 使用适用于 Linux 的 Log Analytics 代理的容器化版本。 初始部署之后，在其生命周期内可能需要执行一些例程或可选任务。 本文详细介绍如何手动升级代理并禁用来自特定容器的环境变量集合。 
@@ -35,7 +35,7 @@ ms.locfileid: "60494688"
 >执行此维护活动时，群集中的节点不会转发所收集的数据，并且性能视图不会显示从删除代理到安装新版本这段时间内的数据。 
 >
 
-若要安装代理的新版本，请使用 Azure CLI 遵循[加入监视](container-insights-onboard.md?#enable-using-azure-cli)一文中介绍的步骤来完成此过程。  
+若要安装新版本的代理，请按照中所述的步骤[使用 Azure CLI 启用监视](container-insights-enable-new-cluster.md#enable-using-azure-cli)来完成此过程。  
 
 启用监视后，可能需要约 15 分钟才能查看群集的更新后运行状况指标。 若要验证代理是否成功升级，请运行以下命令：`kubectl logs omsagent-484hw --namespace=kube-system`
 

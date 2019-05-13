@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717427"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406585"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
@@ -25,7 +25,8 @@ ms.locfileid: "64717427"
 
 | Feature | 详细信息 |
 | ---| --- |
-| 弹性数据库作业 | 有关信息，请参阅[创建、 配置和管理弹性作业](elastic-jobs-overview.md) |
+| 无服务器计算层 | 有关信息，请参阅[SQL 数据库无服务器 （预览版）](sql-database-serverless.md)。|
+| 灵活的数据库作业 | 有关信息，请参阅[创建、 配置和管理弹性作业](elastic-jobs-overview.md) |
 | 弹性事务 | [跨云数据库的分布式事务](sql-database-elastic-transactions-overview.md) |
 | 弹性查询 | 有关信息，请参阅[弹性查询概述](sql-database-elastic-query-overview.md) |
 | 与托管实例的复制 |有关信息，请参阅[在 Azure SQL 数据库托管的实例数据库中配置复制](replication-with-sql-database-managed-instance.md)|
@@ -45,6 +46,16 @@ ms.locfileid: "64717427"
 |SQL Analytics|有关信息，请参阅[Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
 | 托管实例的时区支持|有关详细信息，请参阅[中 Azure SQL 数据库托管实例所在的时区](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>2019 年 5
+
+### <a name="service-improvements"></a>服务改进
+
+| 服务改进 | 详细信息 |
+| --- | --- |
+|“超大规模”服务层级| 有关详细信息，请参阅[达 100 TB 的超大规模服务层](sql-database-service-tier-hyperscale.md)。|
+|无服务器计算层| 有关详细信息，请参阅[SQL 数据库无服务器 （预览版）](sql-database-serverless.md)。|
+
 
 ## <a name="april-2019"></a>2019 年 4 月
 

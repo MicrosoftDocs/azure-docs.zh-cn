@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8605e614574b7ebd45e9f18c4e5685a9c5450e64
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688342"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409920"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -156,7 +156,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
                 "resourceGroupName": "<resource group>",
                 "resourceProviderName": "Microsoft.Resourcehealth/healthevent/action",
                 "status": "Active",
-                "subscriptionId": "<subscription Id",
+                "subscriptionId": "<subscription Id>",
                 "submissionTimestamp": "2018-09-04T23:11:06.1607287+00:00",
                 "resourceType": "Microsoft.Compute/virtualMachines"
             }
@@ -176,7 +176,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 | resourceProviderName |受影响资源的资源提供程序。 |
 | conditionType |始终为“事件”。 |
 | 名称 |警报规则的名称。 |
-| id |警报的资源 ID。 |
+| ID |警报的资源 ID。 |
 | description |创建警报时设置警报说明。 |
 | subscriptionId |Azure 订阅 ID。 |
 | timestamp |处理请求的 Azure 服务生成事件的时间。 |
@@ -186,7 +186,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
 | event |包含有关事件的元数据的元素。 |
 | authorization |事件的基于角色的访问控制属性。 这些属性通常包括“action”、“role”和“scope”。 |
 | category |事件的类别。 支持的值包括“Administrative”、“Alert”、“Security”、“ServiceHealth”和“Recommendation”。 |
-| caller |执行操作的用户的电子邮件地址（基于可用性的 UPN 声明或 SPN 声明）。 对于某些系统调用可以为 null。 |
+| 调用方 |执行操作的用户的电子邮件地址（基于可用性的 UPN 声明或 SPN 声明）。 对于某些系统调用可以为 null。 |
 | correlationId |通常是字符串格式的 GUID。 具有属于同一较大操作的 correlationId 的事件，通常共享 correlationId。 |
 | eventDescription |事件的静态文本说明。 |
 | eventDataId |事件的唯一标识符。 |

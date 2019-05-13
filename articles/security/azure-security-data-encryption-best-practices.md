@@ -1,10 +1,10 @@
 ---
-title: 数据安全与加密最佳做法 | Microsoft Docs
+title: 数据安全与加密最佳实践-Microsoft Azure
 description: 本文提供一系列有关使用内置 Azure 功能实现数据安全与加密的最佳实践。
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125113"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190713"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 数据安全与加密最佳实践
+本文介绍数据安全与加密最佳的实践。
 
+最佳做法以观点的共识以及 Azure 平台功能和特性集为基础。 随时间变化的观点和技术和定期以反映这些更改更新这篇文章。
+
+## <a name="protect-data"></a>保护数据
 为了帮助保护云中的数据，需要考虑数据可能出现的状态以及可用于该状态的控件。 Azure 数据安全与加密的最佳做法与以下数据状态相关：
 
 - 静态：包括物理媒体（磁盘或光盘）上以静态方式存在的所有信息存储对象、容器和类型。
 - 传输中：在各组件、位置或程序间传输数据时，数据处于“传输中”状态。 例如通过网络、通过服务总线（从本地到云，反之亦然，包括诸如 ExpressRoute 的混合连接）进行传输，或在输入/输出过程。
-
-本文介绍一系列 Azure 数据安全与加密最佳实践。 这些最佳实践衍生自我们的 Azure 数据安全与加密经验和客户经验。
-
-对于每项最佳实践，我们将说明：
-
-* 最佳实践是什么
-* 为何要启用该最佳实践
-* 如果无法启用该最佳实践，可能的结果是什么
-* 最佳实践的可能替代方案
-* 如何学习启用最佳实践
-
-这篇 Azure 数据安全与加密最佳实践以共识以及 Azure 平台功能和特性集（因为在编写本文时已存在）为基础。 看法和技术将随着时间改变，本文会定期更新以反映这些更改。
 
 ## <a name="choose-a-key-management-solution"></a>选择密钥管理解决方案
 
@@ -95,7 +87,7 @@ Azure Key Vault 旨在支持应用程序密钥和机密。 Key Vault 不应用�
 
 Azure 存储和 Azure SQL 数据库默认对静态数据进行加密，并且许多服务都将加密作为选项提供。 可以使用 Azure Key Vault 来持续控制用于访问和加密数据的密钥。 有关详细信息，请参阅 [Azure 资源提供程序加密模型支持](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support)。
 
-**最佳做法**：使用加密来帮助降低与未经授权访问数据相关的风险。
+**最佳做法**：使用加密来帮助降低与未经授权访问数据相关的风险。   
 **详细信息**：在将敏感数据写入驱动器之前先将驱动器加密。
 
 未实施数据加密的组织面临的数据保密性问题风险更大。 例如，未经授权的用户或恶意用户可能会窃取已入侵帐户中的数据，或者未经授权访问以明文格式编码的数据。 公司还必须证明，为了遵守行业法规，他们在不断作出相应努力并使用正确的安全控件来增强其数据安全性。
@@ -118,7 +110,7 @@ Azure 存储和 Azure SQL 数据库默认对静态数据进行加密，并且许
 **详细信息**：使用 [ExpressRoute](../expressroute/expressroute-introduction.md)。 如果选择使用 ExpressRoute，则还可以使用 [SSL/TLS](https://support.microsoft.com/kb/257591) 或其他协议在应用程序级别加密数据，以提供额外的保护。
 
 **最佳做法**：通过 Azure 门户与 Azure 存储进行交互。   
-**详细信息**：所有事务都通过 HTTPS 进行。 也可以通过 HTTPS 使用[存储 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) 与 [Azure 存储](https://azure.microsoft.com/services/storage/)和 [Azure SQL 数据库](https://azure.microsoft.com/services/sql-database/)交互。
+**详细信息**：所有事务都通过 HTTPS 进行。 此外可以使用[存储 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)通过 HTTPS 与进行交互[Azure 存储](https://azure.microsoft.com/services/storage/)。
 
 无法保护传输中数据的组织更容易遭受[中间人攻击](https://technet.microsoft.com/library/gg195821.aspx)、[窃听](https://technet.microsoft.com/library/gg195641.aspx)和会话劫持。 这些攻击可能是获取机密数据访问权限的第一步。
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682149"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153062"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒体服务 v3 发行说明
 
@@ -34,9 +34,19 @@ ms.locfileid: "64682149"
 
 有关详细信息，请参阅[有关从媒体服务 v2 迁移到 v3 的指导](migrate-from-v2-to-v3.md#known-issues)。
 
+## <a name="may-2019"></a>2019 年 5
+
+### <a name="performance-improvements"></a>性能提升
+
+* 已更新，支持以进行处理的最大文件大小。 查看，请[配额和限制](limits-quotas-constraints.md)。
+* [编码的速度改进](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types)。
+
 ## <a name="april-2019"></a>2019 年 4 月
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)已添加到内置分析器预设。
+### <a name="new-presets"></a>新预设
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)已添加到内置分析器预设。
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)已添加到内置编码器预设。 有关详细信息，请参阅[识别的内容的编码](cae-experimental.md)。 
 
 ## <a name="march-2019"></a>2019 年 3 月
 
@@ -205,7 +215,7 @@ CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DA
 
 * 提交作业时，可以指定使用 HTTPS URL、SAS URL 或位于 Azure Blob 存储中的文件路径引入源视频。 目前，AMS v3 不支持基于 HTTPS URL 的块传输编码。
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

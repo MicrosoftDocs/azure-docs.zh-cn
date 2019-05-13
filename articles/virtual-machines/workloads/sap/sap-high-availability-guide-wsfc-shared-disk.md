@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637616"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205104"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -190,7 +190,7 @@ ms.locfileid: "60637616"
 
 Windows Server 故障转移群集是 Windows 中高可用性 SAP ASCS/SCS 安装和 DBMS 的基础。
 
-故障转移群集是一组 1+n 个独立服务器（节点），这些服务器相互配合，共同提高应用程序和服务的可用性。 如果发生节点故障，Windows Server 故障转移群集会计算可能发生的故障数并保留正常运行的群集以提供应用程序和服务。 可从不同的仲裁模式中选择，以实现故障转移群集。
+故障转移群集是一组 1+n 个独立服务器（节点），这些服务器相互配合，共同提高应用程序和服务的可用性。 如果发生节点故障，Windows Server 故障转移群集会计算可能发生的故障数并保留正常运行的群集以提供应用程序和服务。 可从不同的仲裁模式中进行选择，以实现故障转移群集。
 
 ## <a name="prerequisites"></a>必备组件
 在开始本文中的任务之前，请先查看以下文章：
@@ -204,9 +204,9 @@ Windows Server 故障转移群集是 Windows 中高可用性 SAP ASCS/SCS 安装
 
 ### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Azure 中的名称解析和群集虚拟主机名
 
-Azure 云平台不提供配置虚拟 IP 地址（例如浮动 IP 地址）的选项。 需要一个替代解决方案来设置虚拟 IP，以便连接到云中的群集资源。 
+Azure 云平台不提供配置虚拟 IP 地址（例如浮动 IP 地址）的选项。 需要使用一种替代解决方案来设置虚拟 IP 地址，用于访问云中的群集资源。 
 
-Azure 负载均衡器服务提供适用于 Azure 的内部负载均衡器。 借助内部负载均衡器，客户端通过群集虚拟 IP 地址访问群集。 
+Azure 负载均衡器服务提供适用于 Azure 的内部负载均衡器。 使用内部负载均衡器，客户端可以通过群集虚拟 IP 地址访问群集。 
 
 在包含群集节点的资源组中部署内部负载均衡器。 然后，使用内部负载均衡器的探测端口配置所有必要的端口转发规则。 客户端可以通过虚拟主机名连接。 DNS 服务器解析群集 IP 地址，内部负载均衡器处理向活动群集节点的端口转发。
 
@@ -254,24 +254,24 @@ _**图 4：** SAP ASCS/SCS HA 体系结构使用共享磁盘_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Azure 中使用 SIOS DataKeeper 的共享磁盘
 
-对于高可用性 SAP ASCS/SCS 实例，需要群集共享存储。
+需要为高可用性 SAP ASCS/SCS 实例使用群集共享存储。
 
-可使用第三方软件 SIOS DataKeeper Cluster Edition 创建模拟群集共享存储的镜像存储。 SIOS 解决方案提供实时同步的数据复制。
+可以使用第三方软件 SIOS DataKeeper Cluster Edition 创建镜像存储，模拟群集共享存储。 SIOS 解决方案提供实时同步的数据复制。
 
 为群集创建共享磁盘资源：
 
 1. 将额外磁盘附加到 Windows 群集配置中的每个虚拟机。
-2. 在两个虚拟机节点上都运行 SIOS DataKeeper Cluster Edition。
+2. 在两个虚拟机节点上运行 SIOS DataKeeper Cluster Edition。
 3. 配置 SIOS DataKeeper Cluster Edition，以便它将额外磁盘附加卷的内容从源虚拟机映射到目标虚拟机的额外磁盘附加卷。 SIOS DataKeeper 抽象化源和目标本地卷，并以单个共享磁盘形式呈现给 Windows Server 故障转移群集。
 
-获取有关 [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/) 的详细信息。
+获取有关 [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/)的详细信息。
 
 ![图 5：Windows Server 故障转移群集使用 SIOS DataKeeper 在 Azure 中的配置][sap-ha-guide-figure-1002]
 
 _**图 5：** Windows 故障转移群集使用 SIOS DataKeeper 在 Azure 中的配置_
 
 > [!NOTE]
-> 对于某些 DBMS 产品（如 SQL Server），无需共享磁盘来实现高可用性。 SQL Server AlwaysOn 将 DBMS 数据和日志从一个群集节点的本地磁盘复制到另一个群集节点的本地磁盘。 在此情况下，Windows 群集配置不需要共享磁盘。
+> 对于某些 DBMS 产品（如 SQL Server），无需共享磁盘来实现高可用性。 SQL Server AlwaysOn 将 DBMS 数据和日志从一个群集节点的本地磁盘复制到另一个群集节点的本地磁盘。 在这种情况下，Windows 群集配置不需要共享磁盘。
 >
 
 ## <a name="next-steps"></a>后续步骤

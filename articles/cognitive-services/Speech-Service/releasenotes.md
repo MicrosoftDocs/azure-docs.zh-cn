@@ -8,18 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/24/2019
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 6a9e66b1731a06d81e89b5f3fc4467a0f0344160
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697883"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465604"
 ---
 # <a name="release-notes"></a>发行说明
 
+## <a name="speech-sdk-150-2019-may-release"></a>语音 SDK 1.5.0:2019-5 月版本
+
+**新功能**
+
+* 唤醒字 (关键字发现/KWS) 功能现已可供 Windows 和 Linux。 KWS 功能可能会使用任何麦克风类型，官方 KWS 支持，但是，当前限制为麦克风阵列中找到 Azure Kinect DK 硬件或语音设备 SDK。
+* 可通过 SDK 短语提示功能。 有关详细信息，请参阅[此文](how-to-phrase-lists.md)。
+* 通过 SDK 提供了会话的脚本功能。 参阅[此处](conversation-transcription-service.md)。
+* 添加对语音第一个虚拟助手使用直接行语音通道的支持。
+
+**示例**
+
+* 添加了适用于新功能或新的服务支持的 SDK 示例。
+
+**改进 / 更改**
+
+* 添加了各种识别器属性，以调整服务行为或服务 （如屏蔽不雅内容等） 的结果。
+* 你现在可以配置通过标准配置属性，识别器，即使创建识别器`FromEndpoint`。
+* Objective c: `OutputFormat` SPXSpeechConfiguration 中添加属性。
+* SDK 现在支持 Debian 9 作为一种 Linux 分发。
+
+**Bug 修复**
+
+* 解决了问题的演讲者资源已过早地在文本到语音转换会销毁。
 ## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
 这是一个 Bug 修复版本，只影响本机/托管 SDK。 它不影响 SDK 的 JavaScript 版本。
@@ -28,14 +51,14 @@ ms.locfileid: "64697883"
 
 这是一个仅限 JavaScript 的版本。 未增加任何功能。 进行了以下修复：
 
-* 防止 webpack 加载 https 代理程序。
+* 防止 web 包加载 https 代理程序。
 
 ## <a name="speech-sdk-140-2019-april-release"></a>语音 SDK 1.4.0:2019 年 4 月版本
 
 **新功能** 
 
 * SDK 现在支持作为测试版的文本到语音转换服务。 支持 Windows 和 Linux 桌面从C++和C#。 有关详细信息，请[文本到语音转换概述](text-to-speech.md#get-started-with-text-to-speech)。
-* SDK 现在支持 MP3 和大作/Ogg 音频文件作为流输入文件。 此功能目前仅在从 Linux 上C++和C#和当前为 beta 版本 (更多详细信息[此处](how-to-use-compressed-audio-input-streams.md))。
+* SDK 现在支持 MP3 和大作/OGG 音频文件作为流输入文件。 此功能目前仅在从 Linux 上C++和C#和当前为 beta 版本 (更多详细信息[此处](how-to-use-codec-compressed-audio-input-streams.md))。
 * 适用于 Java、.NET core 的语音 SDK C++ ，Objective C 已获得 macOS 支持。 适用于 macOS 的 Objective C 支持目前处于 beta 版本。
 * iOS：适用于 iOS (OBJECTIVE-C) 的语音 SDK 现在还作为 CocoaPod 发布。
 * JavaScript：对非默认麦克风作为输入设备的支持。
@@ -49,7 +72,7 @@ ms.locfileid: "64697883"
 **改进 / 更改**
 
 * Python:识别结果的其他属性现已公开，通过`properties`属性。
-* 您可以获得更多的开发和调试支持重定向到日志文件的 SDK 日志记录和诊断信息 (更多详细信息[此处](how-to-use-logging.md))。
+* 有关额外的开发和调试支持，您可以重定向到日志文件的 SDK 日志记录和诊断信息 (更多详细信息[此处](how-to-use-logging.md))。
 * JavaScript：提高音频处理性能。
 
 **Bug 修复**
@@ -70,8 +93,8 @@ ms.locfileid: "64697883"
 
 **新功能**
 
-* 语音 SDK 支持通过 AudioConfig 类来选择输入麦克风。 这样可以流式传输到语音服务从非默认麦克风的音频数据。 有关详细信息，请参阅文档描述[音频输入设备选择](how-to-select-audio-input-devices.md)。 这在 JavaScript 中尚不可用。
-* 语音 SDK 目前在 beta 版本中支持 Unity。 请通过 [GitHub 示例存储库](https://aka.ms/csspeech/samples)中的问题部分来提供反馈。 此版本支持在 Windows x86 和 x64（桌面或通用 Windows 平台应用程序）以及 Android（ARM32/64，x86）上使用 Unity。 [Unity 快速入门](quickstart-csharp-unity.md)中提供了更多信息。
+* 语音 SDK 支持通过 AudioConfig 类来选择输入麦克风。 这样可以流式传输到语音服务从非默认麦克风的音频数据。 有关详细信息，请参阅文档描述[音频输入设备选择](how-to-select-audio-input-devices.md)。 此功能尚不可用从 JavaScript。
+* 语音 SDK 目前在 beta 版本中支持 Unity。 通过中的问题部分提供反馈[GitHub 示例存储库](https://aka.ms/csspeech/samples)。 此版本支持在 Windows x86 和 x64（桌面或通用 Windows 平台应用程序）以及 Android（ARM32/64，x86）上使用 Unity。 [Unity 快速入门](quickstart-csharp-unity.md)中提供了更多信息。
 * 不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
 
@@ -107,9 +130,9 @@ ms.locfileid: "64697883"
 **Bug 修复**
 
 * 过去无法正确处理空的代理用户名和代理密码。 在此版本中，如果将代理用户名和代理密码设置为空字符串，则在连接到代理时不会提交它们。
-* 对于某些语言&nbsp;/ 环境，由 SDK 创建的 SessionId 并非总是真正随机的。 已添加了随机生成器初始化来修复此问题。
+* 对于某些语言&nbsp;/ 环境，由 SDK 创建的 SessionId 并非总是真正随机的。 添加随机生成器初始化，若要解决此问题。
 * 改进了对授权令牌的处理。 如果希望使用授权令牌，请在 SpeechConfig 中进行指定并将订阅密钥保留为空。 然后，像往常一样创建识别器。
-* 过去，在某些情况下，连接对象不能正确释放。 此问题已解决。
+* 过去，在某些情况下，连接对象不能正确释放。 现在已修复此问题。
 * JavaScript 示例已修复，在 Safari 上也支持用于翻译合成的音频输出。
 
 ## <a name="speech-sdk-121"></a>语音 SDK 1.2.1
@@ -134,7 +157,7 @@ ms.locfileid: "64697883"
   * 已删除了对音频会话的长度限制，将自动在后台进行重新连接。
 * 连接对象
   * 从识别器，可以访问连接对象。 此对象允许你显式启动服务连接并订阅连接事件和断开连接事件。
-    （这在 JavaScript 和 Python 中尚不可用。）
+    （此功能尚不可用从 JavaScript 和 Python。）
 * 支持 Ubuntu 18.04。
 * Android
   * 在生成 APK 期间启用了 ProGuard 支持。
@@ -142,7 +165,7 @@ ms.locfileid: "64697883"
 **改进**
 
 * 改进了内部线程的使用，减少了线程、锁和互斥的数量。
-* 改进了错误报告 / 信息。 在某些情况下，错误消息没有完全传播出去。
+* 改进了错误报告 / 信息。 在几个情况下，错误消息不传播出扩展。
 * 更新了 JavaScript 中的开发依赖项来使用最新模块。
 
 **Bug 修复**
@@ -218,7 +241,7 @@ ms.locfileid: "64697883"
 **重大更改**
 
 * 此版本中，都会引入大量重大更改。
-  有关详细信息，请查看[此页](https://aka.ms/csspeech/breakingchanges_1_0_0)。
+  检查[本页](https://aka.ms/csspeech/breakingchanges_1_0_0)有关详细信息。
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>认知服务语音 SDK 0.6.0：2018 年 8 月版本
 

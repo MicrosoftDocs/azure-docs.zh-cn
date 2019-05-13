@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653655"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070820"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>手动停止或启动 Azure 容器实例中的容器
 
@@ -24,7 +24,7 @@ ms.locfileid: "60653655"
 
 *当容器组进入停止状态时，它会终止并回收组中的所有容器。它不会保留容器状态。*
 
-已停止的容器组中的容器会被回收，尽管[资源](container-instances-container-groups.md#resource-allocation)保留供你使用已分配状态。 因此，就会持续计费已停止的容器组。
+当容器会被回收，[资源](container-instances-container-groups.md#resource-allocation)已解除分配和计费的容器组将停止。
 
 停止操作不起如果容器组已终止 （处于 Succeeded 或 Failed 状态）。 例如，包含已成功运行的一次性运行容器任务的容器组终止处于成功状态。 尝试停止组中的状态不会更改状态。 
 

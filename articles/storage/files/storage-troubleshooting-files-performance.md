@@ -2,22 +2,22 @@
 title: Azure 文件性能故障排除指南
 description: 已知 Azure 高级文件共享 （预览版） 和关联的解决方法的性能问题。
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577910"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190054"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>排查 Azure 文件性能问题
 
-本文列出了与 Microsoft Azure 高级文件共享 （预览版） 相关的一些常见问题。 它提供了可能的原因和解决方法时可能遇到这些问题。
+本文列出了与高级版 Azure 文件共享 （预览版） 相关的一些常见问题。 它提供了可能的原因和解决方法时可能遇到这些问题。
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>高延迟、 低吞吐量，以及常规的性能问题
 
@@ -80,7 +80,7 @@ ms.locfileid: "64577910"
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>客户端无法实现由网络提供支持的最大吞吐量
 
-一个可能原因是缺少 fo SMB 多通道的支持。 目前，高级文件仅支持单通道，因此只有一个连接到服务器的客户端 VM。 此单个连接限定于一个核心上的客户端 VM，以便从 VM 可实现的最大吞吐量受单核。
+一个可能原因是缺少 fo SMB 多通道的支持。 目前，Azure 文件共享只支持单个通道，因此只有一个连接到服务器的客户端 VM。 此单个连接限定于一个核心上的客户端 VM，以便从 VM 可实现的最大吞吐量受单核。
 
 ### <a name="workaround"></a>解决方法
 
@@ -137,7 +137,7 @@ CentOS/RHEL 上不支持 IO 深度大于 1。
 
 ### <a name="cause"></a>原因
 
-如果 DirectoryOpen/DirectoryClose 调用数是顶级 API 调用，并且不希望客户端对此进行的许多调用，它可能会在 Azue 客户端虚拟机上安装防病毒软件出现问题。
+如果 DirectoryOpen/DirectoryClose 调用数是顶级 API 调用，并且不希望客户端对此进行的许多调用，它可能会在 Azure 的客户端 VM 上安装防病毒软件出现问题。
 
 ### <a name="workaround"></a>解决方法
 

@@ -2,18 +2,19 @@
 title: Azure 存储代码示例 | Microsoft 文档
 description: 查看、下载和运行 Azure 存储的示例代码和应用程序 使用 .NET、Java、Node.js 和 C++ 存储客户端库发现 Blob、队列、表和文件的入门示例。
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
 ms.topic: article
 ms.date: 06/03/2017
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 411b43ec631c77246da1ee55f2532486f8b55ffc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3bf695527db19513125d9190796c9b5df312aaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730100"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153487"
 ---
 # <a name="azure-storage-samples"></a>Azure 存储示例
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477958"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510943"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -158,7 +158,7 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure 存储数据移动 API 和库参考
 * [存储导入/导出服务 REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [适用于 .NET 的存储数据移动客户端库](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [适用于 .NET 的存储数据移动客户端库](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>工具和实用程序
 * [适用于存储的 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage)

@@ -1,7 +1,7 @@
 ---
 title: 为 Azure Blob 存储内容编制索引，以便进行全文搜索 - Azure 搜索
 description: 了解如何使用 Azure 搜索为 Azure Blob 存储编制索引，以及从文档中提取文本。
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871329"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024870"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜索为 Azure Blob 存储中的文档编制索引
 本文说明如何使用 Azure 搜索服务为存储在 Azure Blob 存储中的文档（例如 PDF、Microsoft Office 文档和其他多种常用格式的文档）编制索引。 首先，本文说明了设置和配置 Blob 索引器的基础知识。 其次，本文更加深入地探讨了你可能会遇到的行为和场景。
@@ -50,7 +50,7 @@ Blob 索引器可从以下文档格式提取文本：
 
 创建数据源：
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -82,7 +82,7 @@ Blob 索引器可从以下文档格式提取文本：
 
 下面介绍了如何使用可搜索 `content` 字段创建索引，以存储从 Blob 中提取的文本：   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -101,7 +101,7 @@ Blob 索引器可从以下文档格式提取文本：
 
 创建索引和数据源后，就可以准备创建索引器了：
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -121,7 +121,7 @@ Blob 索引器可从以下文档格式提取文本：
 根据具体的[索引器配置](#PartsOfBlobToIndex)，Blob 索引器可以仅为存储元数据编制索引（如果只关注元数据，而无需为 Blob 的内容编制索引，则此功能非常有用）、为存储元数据和内容元数据编制索引，或者同时为元数据和文本内容编制索引。 默认情况下，索引器提取元数据和内容。
 
 > [!NOTE]
-> 默认情况下，包含结构化内容（例如 JSON 或 CSV）的 lob 以单一文本区块的形式编制索引。 如果想要以结构化方法为 JSON 和 CSV Blob 编制索引，请参阅[为 JSON Blob 编制索引](search-howto-index-json-blobs.md)和[为 CSV Blob 编制索引](search-howto-index-csv-blobs.md)预览版功能。
+> 默认情况下，包含结构化内容（例如 JSON 或 CSV）的 lob 以单一文本区块的形式编制索引。 如果你想要 JSON 和 CSV blob 编制索引的结构化方式，请参阅[JSON blob 编制索引](search-howto-index-json-blobs.md)并[CSV blob 编制索引](search-howto-index-csv-blobs.md)有关详细信息。
 >
 > 复合或嵌入式文档（例如 ZIP 存档，或者嵌入了带附件 Outlook 电子邮件的 Word 文档）也以单一文档的形式编制索引。
 
@@ -172,7 +172,7 @@ Blob 索引器可从以下文档格式提取文本：
 
 要将所有元素合并在一起，可按如下所示添加字段映射，并为现有索引器的键启用 base-64 编码：
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -198,7 +198,7 @@ Blob 索引器可从以下文档格式提取文本：
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>只为具有特定文件扩展名的 Blob 编制索引
 使用 `indexedFileNameExtensions` 索引器配置参数可以做到只为具有指定扩展名的 Blob 编制索引。 值是包含文件扩展名（包括前置句点）逗号分隔列表的字符串。 例如，如果只要为 .PDF 和 .DOCX Blob 编制索引，请执行以下操作：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -210,7 +210,7 @@ Blob 索引器可从以下文档格式提取文本：
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>排除具有特定文件扩展名的 Blob
 使用 `excludedFileNameExtensions` 配置参数可在编制索引时排除具有特定文件扩展名的 Blob。 值是包含文件扩展名（包括前置句点）逗号分隔列表的字符串。 例如，若要为所有 Blob 编制索引，但要排除具有 .PNG 和 .JPEG 扩展名的 Blob，请执行以下操作：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -232,7 +232,7 @@ Blob 索引器可从以下文档格式提取文本：
 
 例如，如果只要为存储元数据编制索引，请使用：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -255,7 +255,7 @@ Blob 索引器可从以下文档格式提取文本：
 
 默认情况下，Blob 索引器一旦遇到包含不受支持内容类型（例如图像）的 Blob 时，就会立即停止。 当然，可以使用 `excludedFileNameExtensions` 参数跳过某些内容类型。 但是，可能需要在未事先了解所有可能的内容类型的情况下，为 Blob 编制索引。 要在遇到了不受支持的内容类型时继续编制索引，可将 `failOnUnsupportedContentType` 配置参数设置为 `false`：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -293,7 +293,7 @@ Azure 搜索会限制编入索引的 blob 的大小。 这些限制记录在 [Az
 
 例如，如果某个 Blob 具有值为 `true` 的元数据属性 `IsDeleted`，以下策略会将该 Blob 视为已删除：
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -340,7 +340,7 @@ Blob 编制索引可能是一个耗时的过程。 如果有几百万个 Blob �
 
 如果所有 blob 都包含采用同一编码的纯文本，则可以通过使用**文本分析模式**显著提高索引编制性能。 若要使用文本分析模式，请将 `parsingMode` 配置属性设置为 `text`：
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

@@ -13,12 +13,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd57eadc2c42c17343eee6d813072866e8ea09e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1e40a1fd72adf353d5c4d856544482cb7bd68f43
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196206"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413990"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况？
 
@@ -34,7 +34,7 @@ ms.locfileid: "56196206"
 
 影响项目文件 *.NET 引用和 `packages.config`（NuGet 引用）。
 
-| Type | 引用 |
+| Type | 参考 |
 | --- | --- |
 | .NET; NuGet | Microsoft.IdentityModel.Protocol.Extensions |
 | .NET; NuGet | Microsoft.Owin |
@@ -49,7 +49,7 @@ ms.locfileid: "56196206"
 
 选择了“读取目录数据”选项时的其他引用：
 
-| Type | 引用 |
+| Type | 参考 |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer（仅限 Visual Studio 2015） |
@@ -63,7 +63,7 @@ ms.locfileid: "56196206"
 
 删除了以下引用（仅限 ASP.NET 4 项目，如 Visual Studio 2015 中所示）：
 
-| Type | 引用 |
+| Type | 参考 |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
@@ -145,7 +145,7 @@ ms.locfileid: "56196206"
 
 ### <a name="file-backup-visual-studio-2015"></a>文件备份 (Visual Studio 2015)
 
-添加连接服务时，Visual Studio 2015 备份已更改并已删除文件。 所有受影响的文件均保存在文件夹 `Backup/AzureAD` 中。 Visual Studio 2017 不会创建备份。
+添加连接服务时，Visual Studio 2015 备份已更改并已删除文件。 所有受影响的文件均保存在文件夹 `Backup/AzureAD` 中。 Visual Studio 2017 和更高版本不会创建备份。
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

@@ -4,14 +4,14 @@ description: 了解 Azure Cosmos DB 中索引的工作原理。
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051848"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068659"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB-概述中编制索引
 
@@ -66,19 +66,41 @@ Azure Cosmos DB 目前支持两种类型的索引：
 
 **范围**用于索引种类：
 
-- 等式查询： `SELECT * FROM container c WHERE c.property = 'value'`
-- 范围查询： `SELECT * FROM container c WHERE c.property > 'value'` (适用于`>`， `<`， `>=`， `<=`， `!=`)
-- `ORDER BY` 查询： `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` 查询： `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- 等式查询： 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- 范围查询： 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (适用于`>`， `<`， `>=`， `<=`， `!=`)
+
+- `ORDER BY` 查询：
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` 查询： 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 标量值 （字符串或数字），可以使用范围索引。
 
 **空间**用于索引种类：
 
-- 地理空间距离查询： `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- 在查询中的地理空间信息： `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- 地理空间距离查询： 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- 在查询中的地理空间信息： 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 空间索引可应用于的格式正确[GeoJSON](geospatial.md)对象。 目前支持点、 Linestring 和多边形。
+
+**复合**用于索引种类：
+
+- `ORDER BY` 对多个属性的查询： 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>使用索引进行查询
 
@@ -89,7 +111,7 @@ Azure Cosmos DB 目前支持两种类型的索引：
 ![匹配一个树内的特定路径](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> `ORDER BY`子句*始终*需要范围索引，并且如果它所引用的路径没有任何一个将失败。
+> `ORDER BY`依据单一属性进行排序的子句*始终*需要范围索引，并且如果它所引用的路径没有任何一个将失败。 同样，多`ORDER BY`查询*始终*需要组合索引。
 
 ## <a name="next-steps"></a>后续步骤
 

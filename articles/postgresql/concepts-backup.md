@@ -1,19 +1,19 @@
 ---
-title: 在 Azure Database for PostgreSQL 中进行备份和还原
-description: 了解如何自动备份和还原 Azure Database for PostgreSQL 服务器。
+title: 在备份和还原 Azure Database for PostgreSQL-单个服务器
+description: 了解如何自动备份和还原 Azure Database for PostgreSQL 服务器的单个服务器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456251"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068860"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>在 Azure Database for PostgreSQL 中进行备份和还原
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>在备份和还原 Azure Database for PostgreSQL-单个服务器
 
 Azure Database for PostgreSQL 可自动创建服务器备份并将其存储在用户配置的本地冗余或异地冗余存储中。 备份可以用来将服务器还原到某个时间点。 备份和还原是任何业务连续性策略的基本组成部分，因为它们可以保护数据免遭意外损坏或删除。
 

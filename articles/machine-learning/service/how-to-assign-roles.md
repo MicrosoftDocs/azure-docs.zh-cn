@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 2/20/2019
+ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cc86c40f56cee28ff6a6912acd67961285bffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820052"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025315"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理对 Azure 机器学习工作区的访问
 
@@ -67,7 +67,7 @@ az ml workspace share -n my_workspace -g my_resource_group --role Contributor --
 
 若要创建自定义角色，请先构造指定的权限和角色作用域的角色定义 JSON 文件。 下面的示例定义名为"数据科学家"作用域特定的工作区级别的自定义角色：
 
-`data_scientist_role.json` :
+`data_scientist_role.json`：
 ```json
 {
     "Name": "Data Scientist",

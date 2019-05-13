@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191499"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory SaaS 应用程序的自动化用户预配和取消预配
 
@@ -274,6 +274,10 @@ Azure AD 功能预先集成了对许多常用 SaaS 应用和人力资源系统�
 这是“应用程序基于组的分配”的限制，该限制还会影响单一登录，请参阅[使用组管理对 SaaS 应用程序的访问](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )进行了解。
 
 解决此问题，您应明确指定 (或其他[作用域中](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) 包含需要预配的用户的组。
+
+### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>Azure AD 之间设置和使用加密的通道的目标应用程序？
+
+可以。 我们使用的服务器目标的 HTTPS SSL 加密。 
 
 ## <a name="related-articles"></a>相关文章
 

@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 5940195207f85d8011f61336c0318e456c2a8a4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300545"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947376"
 ---
 ## <a name="configure-your-aspnet-web-app-with-the-applications-registration-information"></a>使用应用程序的注册信息配置 ASP.NET Web 应用
 

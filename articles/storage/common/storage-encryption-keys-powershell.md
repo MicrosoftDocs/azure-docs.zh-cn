@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 01d5226a2d6f4c4e2e376803a3f0a25d2d5b0fd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61593557"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233677"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>配置为从 PowerShell 的 Azure 存储加密的客户托管密钥
 
@@ -74,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 默认情况下，Azure 存储加密使用 Microsoft 托管密钥。 在此步骤中，配置 Azure 存储帐户，以使用客户托管密钥，并指定要将存储帐户相关联的键。
 
-调用[集 AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount)更新存储帐户的加密设置。 请记住将括号中的占位符值替换为你自己的值，然后使用在前面的示例中定义的变量。
+调用[集 AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount)更新存储帐户的加密设置。 请记住将括号中的占位符值替换为你自己的值，然后使用在前面的示例中定义的变量。
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -87,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>更新密钥的版本
 
-创建密钥的新版本时，你将需要更新存储帐户以使用新版本。 首先，调用[Get AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey)以获取最新版本的密钥。 然后调用[集 AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount)更新存储帐户的加密设置，以使用新版本的密钥，如在上一部分中所示。
+创建密钥的新版本时，你将需要更新存储帐户以使用新版本。 首先，调用[Get AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey)以获取最新版本的密钥。 然后调用[集 AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount)更新存储帐户的加密设置，以使用新版本的密钥，如在上一部分中所示。
 
 ## <a name="next-steps"></a>后续步骤
 

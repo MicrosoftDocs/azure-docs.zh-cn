@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703568"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233600"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 安全中心支持的平台和功能
 
@@ -80,7 +80,7 @@ ms.locfileid: "60703568"
 |安全配置|✔|✔|✔|✔|
 |终结点保护|✔|✔|X|X|
 |JIT VM 访问|✔|X|✔|X|
-|自适应应用程序控制|✔|X|X|X|
+|自适应应用程序控制|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |磁盘加密|✔|X|✔|X|
 |第三方部署|✔|X|✔|X|
@@ -96,15 +96,15 @@ ms.locfileid: "60703568"
  - 是否可以使用 Azure 安全中心安装每个解决方案。
  - 安全中心可以发现哪些保护解决方案。 如果发现其中一个终结点保护解决方案，安全中心将建议不要安装。
 
-| 终结点保护| 平台 | 安全中心安装 | 安全中心发现 |
+| Endpoint Protection| 平台 | 安全中心安装 | 安全中心发现 |
 |------|------|-----|-----|
-| Windows Defender (Microsoft Antimalware)| Windows Server 2016| 否，内置到 OS| 是 |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2、2012、2008 R2（请参阅以下备注） | 通过扩展 | 是 |
-| Trend Micro – 所有版本 | Windows Server 系列  | 否 | 是 |
-| Symantec v12.1.1100+| Windows Server 系列  | 否 | 是 |
-| McAfee v10+ | Windows Server 系列  | 否 | 是 |
-| Kaspersky| Windows Server 系列  | 否 | 否  |
-| Sophos| Windows Server 系列  | 否 | 否  |
+| Windows Defender (Microsoft Antimalware)| Windows Server 2016| 否，内置到 OS| “是” |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2、2012、2008 R2（请参阅以下备注） | 通过扩展 | “是” |
+| Trend Micro – 所有版本 | Windows Server 系列  | “否” | “是” |
+| Symantec v12.1.1100+| Windows Server 系列  | “否” | “是” |
+| McAfee v10+ | Windows Server 系列  | “否” | “是” |
+| Kaspersky| Windows Server 系列  | “否” | “否”  |
+| Sophos| Windows Server 系列  | “否” | “否”  |
 
 > [!NOTE]
 > - 在 Windows Server 2008 R2 虚拟机上检测 System Center Endpoint Protection (SCEP) 需要在 PowerShell 3.0（或更高版本）之后安装 SCEP。

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/08/2018
 ms.author: mjbrown
-ms.openlocfilehash: d3ab0f78cc59c94a95aac6c067ad185476502f6c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d271c66ecf1716e4ca264aadb9685b9c03608ddc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998618"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506717"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中注册和使用存储过程、触发器与用户定义的函数
 
@@ -189,7 +189,7 @@ Trigger trigger = new Trigger
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Pre
 };
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
@@ -204,7 +204,7 @@ dynamic newItem = new
     isComplete = false
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
@@ -308,7 +308,7 @@ string triggerId = "trgPostUpdateMetadata";
 Trigger trigger = new Trigger
 {
     Id = triggerId,
-    Body = File.ReadAllText($@"..\js\{triggerId}.js");,
+    Body = File.ReadAllText($@"..\js\{triggerId}.js"),
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Post
 };
@@ -430,7 +430,7 @@ var udfTax = new UserDefinedFunction
     Body = File.ReadAllText($@"..\js\{udfId}.js"),
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```

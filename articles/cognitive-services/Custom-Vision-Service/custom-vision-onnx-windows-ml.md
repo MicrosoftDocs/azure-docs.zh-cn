@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351858"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725783"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>教程：结合使用自定义视觉服务 ONNX 模型和 Windows ML（预览版）
 
@@ -85,4 +85,4 @@ ms.locfileid: "58351858"
 * [在 Swift iOS 应用中使用导出的 CoreML 模型](https://go.microsoft.com/fwlink/?linkid=857726)
 * [在带 Xamarin 的 iOS 应用程序中使用导出的 CoreML 模型](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-有关结合使用 ONNX 模型和 Windows ML 的详细信息，请参阅[使用 Windows ML 将模型集成到应用](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model)文档。
+有关结合使用 ONNX 模型和 Windows ML 的详细信息，请参阅[使用 Windows ML 将模型集成到应用](/windows/ai/windows-ml/integrate-model)文档。

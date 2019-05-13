@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292981"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406494"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 应用程序代理连接器
 
@@ -29,7 +29,7 @@ ms.locfileid: "60292981"
 
 ## <a name="requirements-and-deployment"></a>要求和部署
 
-若要成功部署应用程序代理，至少需要一个连接器，但我们建议部署两个或更多个连接器来提高弹性。 在 Windows Server 2012 R2 或 2016 计算机上安装连接器。 连接器需要能够与应用程序代理服务以及发布的本地应用程序通信。 
+若要成功部署应用程序代理，至少需要一个连接器，但我们建议部署两个或更多个连接器来提高弹性。 运行 Windows Server 2012 R2 的计算机上安装连接器或更高版本。 连接器需要能够与应用程序代理服务以及发布的本地应用程序通信。 
 
 ### <a name="windows-server"></a>Windows Server
 你需要具有运行 Windows Server 2012 R2 或更高版本的服务器，可以在该服务器上安装应用程序代理连接器。 该服务器需要连接到 Azure 中的应用程序代理服务和你要发布的本地应用程序。
@@ -85,11 +85,11 @@ Azure AD 为部署的所有连接器提供自动更新。 只要应用程序代�
 
 有关连接器组的详细信息，请参阅[使用连接器组在单独的网络和位置上发布应用程序](application-proxy-connector-groups.md)。
 
-## <a name="capacity-planning"></a>容量规划 
+## <a name="capacity-planning"></a>容量计划 
 
 请务必确保已在连接器之间规划足够的容量以处理预期的流量。 通常，用户越多，需要的计算机容量越大。 下表概述了不同计算机可以处理的数据量。 请注意，它们全都基于预期的每秒事务数 (TPS) 而非按用户计算的，因为使用模式会变化，无法用来预测负载。 还会根据响应大小和后端应用程序响应时间，会有一些差异 - 较大的响应大小和较慢的响应时间将产生较低的最大 TPS。 我们建议使用其他计算机，以便计算机上的分布式负载大约为 50%。 额外的容量将确保高可用性和复原能力。
 
-|核心数|RAM|预期的延迟 (MS)-P99|最大 TPS|
+|内核|RAM|预期的延迟 (MS)-P99|最大 TPS|
 | ----- | ----- | ----- | ----- |
 |2|8|325|586|
 |4|16|320|1150|
@@ -103,7 +103,7 @@ Azure AD 为部署的所有连接器提供自动更新。 只要应用程序代�
 
 ## <a name="security-and-networking"></a>安全和网络
 
-可将连接器安装在网络中允许连接器向应用程序代理服务发送请求的任意位置。 重要的是，运行连接器的计算机还有权访问应用。 可将连接器安装在企业网络内部，或云中运行的虚拟机上。 连接器可在外围安全区域 (DMZ) 中运行，但不一定要这样做，因为所有流量都是出站的，网络始终是安全的。
+可将连接器安装在网络中允许连接器向应用程序代理服务发送请求的任意位置。 重要的是，运行连接器的计算机还有权访问应用。 可将连接器安装在企业网络内部，或云中运行的虚拟机上。 连接器可在外围网络，也称为外围安全区域 (DMZ) 中运行，但没有必要，网络始终是安全，因为所有流量出站。
 
 连接器只会发送出站请求。 出站流量将依次发送到应用程序代理服务和发布的应用程序。 无需打开入站端口，因为一旦建立会话，流量就会双向流动。 也无需通过防火墙配置入站访问。 
 

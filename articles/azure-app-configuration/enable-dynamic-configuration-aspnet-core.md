@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf872766a18c5691f6c094d71a0c29f6bcf736da
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579030"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408830"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>教程：在 ASP.NET Core 应用中使用动态配置
 
-ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据。 它可以动态处理更改，而不会导致应用程序重启。 ASP.NET Core 支持将配置设置绑定到强类型 .NET 类。 它通过使用各种 `IOptions<T>` 模式将其注入到代码中。 其中一种模式（特别是 `IOptionsSnapshot<T>`）会在基础数据发生更改时自动重载应用程序的配置。 
+ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据。 它可以动态处理更改，而不会导致应用程序重启。 ASP.NET Core 支持将配置设置绑定到强类型 .NET 类。 它通过使用各种 `IOptions<T>` 模式将其注入到代码中。 其中一种模式（特别是 `IOptionsSnapshot<T>`）会在基础数据发生更改时自动重载应用程序的配置。
 
 可将 `IOptionsSnapshot<T>` 注入应用程序的控制器，以访问 Azure 应用配置中存储的最新配置。 还可以设置应用程序配置 ASP.NET Core 客户端库，以持续监视和检索应用程序配置存储区中的任何更改。 定义用于轮询的周期性间隔。
 
 本教程演示如何在代码中实现动态配置更新。 它建立在快速入门中介绍的 Web 应用之上。 在继续操作之前，请先完成[使用应用程序配置创建 ASP.NET Core 应用](./quickstart-aspnet-core-app.md)。
 
-你可使用任意代码编辑器来执行该快速入门中的步骤。 [Visual Studio Code](https://code.visualstudio.com/) 是 Windows、macOS 和 Linux 平台上提供的一个卓越选项。
+你可以使用任何代码编辑器执行本教程中的步骤。 [Visual Studio Code](https://code.visualstudio.com/) 是 Windows、macOS 和 Linux 平台上提供的一个卓越选项。
 
 本教程介绍如何执行下列操作：
 
@@ -39,13 +39,13 @@ ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据�
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本快速入门，请安装 [.NET Core SDK](https://dotnet.microsoft.com/download)。
+若要完成本教程，请安装 [.NET Core SDK](https://dotnet.microsoft.com/download)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>从应用配置重载数据
 
-1. 打开 Program.cs，并通过添加 `config.AddAzureAppConfiguration()` 方法更新 `CreateWebHostBuilder` 方法。
+1. 打开 *Program.cs*，并更新 `CreateWebHostBuilder` 方法：向其中添加 `config.AddAzureAppConfiguration()` 方法。
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -79,7 +79,7 @@ ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据�
     }
     ```
 
-3. 打开 Startup.cs 并更新 `ConfigureServices` 方法，将配置数据绑定到 `Settings` 类。
+3. 打开 *Startup.cs*，并更新 `ConfigureServices` 方法来将配置数据绑定到 `Settings` 类。
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,13 @@ ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据�
 
 ## <a name="use-the-latest-configuration-data"></a>使用最新的配置数据
 
-1. 在 Controllers 目录中打开 HomeController.cs 文件。 更新 `HomeController` 类，通过依赖项注入接收 `Settings` 并利用其值。
+1. 打开 Controllers 目录中的 *HomeController.cs*，并添加对 `Microsoft.Extensions.Options` 包的引用。
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. 更新 `HomeController` 类，通过依赖项注入接收 `Settings` 并利用其值。
 
     ```csharp
     public class HomeController : Controller
@@ -121,7 +127,7 @@ ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据�
     }
     ```
 
-2. 在“视图”>“主页”目录中打开 Index.cshtml，并将其内容替换为以下脚本：
+3. 在“视图”>“主页”目录中打开 *Index.cshtml*，并将其内容替换为以下脚本：
 
     ```html
     <!DOCTYPE html>
@@ -160,11 +166,11 @@ ASP.NET Core 有可插拔的配置系统，可以从各种源读取配置数据�
 
 4. 登录到 [Azure 门户](https://aka.ms/azconfig/portal)。 选择“所有资源”，然后选择在快速入门中创建的应用程序配置存储区实例。
 
-5. 选择“键/值资源管理器”并更新以下密钥值：
+5. 选择“配置资源管理器”并更新以下键的值：
 
-    | 密钥 | 值 |
+    | 键 | 值 |
     |---|---|
-    | TestAppSettings:BackgroundColor | blue |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Azure 应用配置中的数据 - 现可实时更新！ |
 

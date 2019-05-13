@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791209"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472162"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保护已故障转移到主要区域的 Azure VM
 
@@ -68,7 +68,7 @@ ms.locfileid: "60791209"
 1. 关闭正在运行的目标端 VM。
 2. 如果 VM 使用的是托管磁盘，则会使用“-ASRReplica”后缀创建原始磁盘的副本。 原始磁盘将被删除。 将使用“-ASRReplica”副本进行复制。
 3. 如果 VM 使用的是非托管磁盘，则会分离目标 VM 的数据磁盘并将其用于复制。 将会创建 OS 磁盘的一个副本并将其附加到 VM 上。 将分离原始 OS 磁盘并将其用于复制。
-4. 仅同步源磁盘与目标磁盘之间的更改。 将通过比较两个磁盘来计算差异，然后传输这些差异。 这将需要几个小时才能完成。
+4. 仅同步源磁盘与目标磁盘之间的更改。 将通过比较两个磁盘来计算差异，然后传输这些差异。 若要查找下面的估计的时间检查。
 5. 在同步完成后，根据复制策略开始执行增量复制，并创建恢复点。
 
 触发重新保护作业时，如果目标 VM 和磁盘不存在，则会发生以下情况：
@@ -76,6 +76,21 @@ ms.locfileid: "60791209"
 2. 如果 VM 使用的是非托管磁盘，则会在目标存储帐户中创建副本磁盘。
 3. 将全部磁盘从故障转移的区域复制到新的目标区域。
 4. 在同步完成后，根据复制策略开始执行增量复制，并创建恢复点。
+
+#### <a name="estimated-time--to-do-the-reprotection"></a>若要执行重新保护操作的估计的时间 
+
+在大多数情况下，Azure Site Recovery 不会将完整的数据复制到源区域。 以下是确定将复制数据量的条件：
+
+1.  如果源 VM 数据是已删除、 损坏或无法访问，因为某种原因等资源组更改/删除，然后在重新保护完成 IR 期间会因为没有要使用的源区域上没有可用数据。
+2.  将源 VM 是否可访问仅差异备份是计算通过比较两个磁盘，然后将其传输。 检查下表以获取估计的时间 
+
+|* * 示例情况 * * | * * 重新保护所花费的时间 * * |
+|--- | --- |
+|源区域具有 1 个虚拟机使用 1 TB 的标准磁盘<br/>-使用仅 127 GB 的数据和磁盘的其余部分为空<br/>的是 60 MiB/秒吞吐量的标准端口磁盘类型<br/>的故障转移后不更改任何数据| 45 分钟 – 1.5 小时的近似时间<br/> -在重新保护期间 Site Recovery 将填充整个这需要 127 GB 的数据的校验和 / 45 MBs ~ 45 分钟<br/>-某些系统开销时间是所必需的 Site Recovery，以执行自动为 20-30 分钟的小数位数<br/>-产生流出费用 |
+|源区域具有 1 个虚拟机使用 1 TB 的标准磁盘<br/>-使用仅 127 GB 的数据和磁盘的其余部分为空<br/>的是 60 MiB/秒吞吐量的标准端口磁盘类型<br/>的故障转移后 45 GB 数据更改| 大概时间 1 小时-2 小时<br/>-在重新保护期间 Site Recovery 将填充整个这需要 127 GB 的数据的校验和 / 45 MBs ~ 45 分钟<br/>-传输时间，以应用更改为 45 GB 的 45 GB / 45 MBps ~ 17 分钟<br/>-仅为 45 GB 数据的校验和不是出口费用|
+ 
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

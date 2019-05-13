@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331872"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506853"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨云数据库的分布式事务
 
@@ -99,7 +99,7 @@ SQL DB 的弹性数据库事务还支持协调分布式事务，这需要使用�
 
 ## <a name="net-installation-for-azure-cloud-services"></a>适用于 Azure 云服务的 .NET 安装
 
-Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较可见于 [Azure 应用服务、云服务和虚拟机比较](../app-service/overview-compare.md)。 如果产品的来宾 OS 版本低于弹性事务所需的 .NET 4.6.1，需要将来宾 OS 升级到 4.6.1。 
+Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较可见于 [Azure 应用服务、云服务和虚拟机比较](/azure/architecture/guide/technology-choices/compute-decision-tree)。 如果产品的来宾 OS 版本低于弹性事务所需的 .NET 4.6.1，需要将来宾 OS 升级到 4.6.1。 
 
 对于 Azure 应用服务，当前不支持升级到来宾 OS。 对于 Azure 虚拟机，只需要登录到 VM 并运行最新的 .NET framework 安装程序即可。 对于 Azure 云服务，需要将更高版本的 .NET 安装包括到部署的启动任务中。 [在云服务角色上安装 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中说明了概念和步骤。  
 
@@ -135,8 +135,8 @@ Azure SQL 数据库中支持跨不同 SQL 数据库服务器的弹性数据库�
 使用以下 PowerShell cmdlet 来管理弹性数据库事务的跨服务器通信关系：
 
 * **New-AzSqlServerCommunicationLink**：使用此 cmdlet 在 Azure SQL 数据库中的两个 SQL 数据库服务器之间创建新的通信关系。 这种通信关系是对称的，这意味着这两台服务器可以使用另一台服务器启动事务。
-* **Get-AzSqlServerCommunicationLink**：使用此 cmdlet 来检索现有通信关系及其属性。
-* **Remove-AzSqlServerCommunicationLink**：使用此 cmdlet 来删除现有通信关系。 
+* **Get-AzSqlServerCommunicationLink**:使用此 cmdlet 来检索现有通信关系及其属性。
+* **Remove-AzSqlServerCommunicationLink**:使用此 cmdlet 来删除现有通信关系。 
 
 ## <a name="monitoring-transaction-status"></a>监视事务状态
 

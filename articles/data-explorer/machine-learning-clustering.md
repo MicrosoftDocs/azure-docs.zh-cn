@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925130"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233489"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>机器学习在 Azure 数据资源管理器的功能
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>使用`autocluster()`的单个记录集聚类分析
+### <a name="use-autocluster-for-single-record-set-clustering"></a>用于设置群集的单个记录 autocluster()
 
 即使有不超过 1000 个例外情况，它仍然难以发现的常见段，是因为每个列中有多个值。 可以使用[ `autocluster()` ](/azure/kusto/query/autoclusterplugin)插件以立即提取常见段的小列表并找到令人感兴趣群集的峰值两分钟内，如下面的查询中所示：
 
@@ -111,7 +111,7 @@ demo_clustering1
 | 段 ID | Count | 百分比 | 区域 | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
-| 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
+| 第 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
 | 2 | 82 | 8.43621399176955 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |
 | 3 | 68 | 6.99588477366255 | scus | su3 | 90d3d2fc7ecc430c9621ece335651a01 |  |
 | 4 | 55 | 5.65843621399177 | weu | su4 | be1d6d7ac9574cbc9a22cb8ee20f16fc |  |
@@ -120,7 +120,7 @@ demo_clustering1
 
 Autocluster 使用专有算法来挖掘多个维度和提取感兴趣的段。 "有趣"意味着每个段的记录集和功能集的重要方面。 段也已分离，这意味着每个与其他大不相同。 一个或多个这些段可能相关的 RCA 进程。 为了尽量减少段检查和评估，autocluster 提取小部分列表。
 
-### <a name="use-basket-for-single-record-set-clustering"></a>使用`basket()`的单个记录集聚类分析
+### <a name="use-basket-for-single-record-set-clustering"></a>用于设置群集的单个记录 basket()
 
 此外可以使用[ `basket()` ](/azure/kusto/query/basketplugin)插件，如下面的查询中所示：
 
@@ -135,7 +135,7 @@ demo_clustering1
 | 段 ID | Count | 百分比 | 区域 | ScaleUnit | DeploymentId | 跟踪点 | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
-| 第 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |
+| 1 | 642 | 66.0493827160494 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |
 | 2 | 324 | 33.3333333333333 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | 0 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 3 | 315 | 32.4074074074074 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 | 16108 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 4 | 328 | 33.7448559670782 |  |  |  | 0 |  |
@@ -174,7 +174,7 @@ demo_clustering1
 | 段 ID | 计数 A | 计数 B | 百分比 A | 百分比 B | PercentDiffAB | 区域 | ScaleUnit | DeploymentId | 跟踪点 |
 |-----------|--------|--------|----------|----------|---------------|--------|-----------|----------------------------------|------------|
 | 0 | 639 | 21 | 65.74 | 1.7 | 64.04 | eau | su7 | b5d1d4df547d4a04ac15885617edba57 |  |
-| 第 | 167 | 544 | 17.18 | 44.16 | 26.97 | scus |  |  |  |
+| 1 | 167 | 544 | 17.18 | 44.16 | 26.97 | scus |  |  |  |
 | 2 | 92 | 356 | 9.47 | 28.9 | 19.43 |  |  |  | 10007007 |
 | 3 | 90 | 336 | 9.26 | 27.27 | 18.01 |  |  |  | 10007006 |
 | 4 | 82 | 318 | 8.44 | 25.81 | 17.38 | ncus | su1 | e24ef436e02b4823ac5d5b1465a9401e |  |

@@ -1,25 +1,28 @@
 ---
 title: 静态数据的 azure 存储加密 |Microsoft Docs
-description: Azure 存储会自动对其进行加密来保护数据之前将其保存到云。 Azure 存储中的所有数据中的 blob、 磁盘、 文件、 队列或表，进行加密和解密以透明方式使用 256 位 AES 加密，并为符合 FIPS 140-2。
+description: Azure 存储会自动对其进行加密来保护数据之前将其保存到云。 Azure 存储中的所有数据进行加密和解密以透明方式使用 256 位 AES 加密，并为符合 FIPS 140-2。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730816"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153091"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>静态数据的 azure 存储加密
 
 Azure 存储自动加密数据时将其保存到云。 加密可保护你的数据，并帮助您以满足组织的安全性和符合性承诺。 在 Azure 存储中的数据进行加密，以透明方式使用 256 位解密[AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)，另一个的最强块加密法，为符合 FIPS 140-2。 Azure 存储加密是类似于在 Windows 上的 BitLocker 加密。
 
-Azure 存储加密的所有新的和现有存储帐户启用，并且不能禁用。 默认情况下保护数据，因为不需要修改代码或应用程序以充分利用 Azure 存储加密。 存储帐户而不考虑其性能层 （标准或高级） 或部署模型 （Azure 资源管理器或经典） 进行加密。 所有 Azure 存储冗余选项都支持加密，并将加密的存储帐户的所有副本。 所有 Azure 存储资源进行都加密，包括 blob、 磁盘、 文件、 队列和表。
+Azure 存储加密的所有新的和现有存储帐户启用，并且不能禁用。 默认情况下保护数据，因为不需要修改代码或应用程序以充分利用 Azure 存储加密。 
+
+存储帐户而不考虑其性能层 （标准或高级） 或部署模型 （Azure 资源管理器或经典） 进行加密。 所有 Azure 存储冗余选项都支持加密，并将加密的存储帐户的所有副本。 所有 Azure 存储资源进行都加密，包括 blob、 磁盘、 文件、 队列和表。 对象的所有元数据也会加密。
 
 加密不会影响 Azure 存储性能。 没有为 Azure 存储加密无需额外付费。
 

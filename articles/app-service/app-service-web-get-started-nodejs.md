@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855174"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408949"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 应用服务会将 process.env.PORT 注入应用程序，因此代码将使用该变量来获知要侦听的端口。 
 
-在终端窗口中，导航到示例 Node.js 项目的根目录（包含 _index.js_ 的目录）。
+在一个终端窗口中，导航到示例 Node.js 项目的**根目录**（包含 _index.js_ 的目录）。
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
 
@@ -75,7 +75,19 @@ npm start
 > [!NOTE]
 > 在 Azure 应用服务中，此应用在 IIS 中使用 [iisnode](https://github.com/Azure/iisnode) 运行。 为了让应用能够使用 iisnode 运行，根应用目录包含一个 web.config 文件。 此文件可以由 IIS 读取，与 iisnode 相关的设置记录在 [iisnode GitHub 存储库](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)中。
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>创建一个项目 zip 文件
+
+在一个终端窗口中，导航到示例 Node.js 项目的**根目录**（包含 _index.js_ 的目录）。 创建一个包含项目所有内容的 zip 文件。 以下命令使用您终端中的默认工具执行操作：
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+命令执行完后将此 ZIP 文件上传到 Azure 并将其部署到应用服务。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -153,7 +165,7 @@ Node.js 示例代码在 Azure 应用服务 Web 应用中运行。
 response.end("Hello Azure!");
 ```
 
-在本地终端窗口中，导航到应用程序的根目录，为更新的项目创建新的 ZIP 文件。
+在本地终端窗口中，导航到你的应用程序的**根目录**（包含 _index.js_ 的目录），为更新后的项目创建新的 ZIP 文件。
 
 ```azurecli-interactive
 # Bash

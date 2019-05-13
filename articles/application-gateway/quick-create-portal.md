@@ -1,19 +1,19 @@
 ---
 title: 快速入门 - 使用 Azure 应用程序网关定向 Web 流量 - Azure 门户 | Microsoft Docs
-description: 了解如何使用 Azure 门户创建 Azure 应用程序网关，用以将 Web 流量重定向到后端池中的虚拟机。
+description: 了解如何使用 Azure 门户创建 Azure 应用程序网关，以便将 Web 流量定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 5/7/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bcbbb63206a443d87afa656ace6f141c6567d17d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192666"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -65,11 +65,13 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 3. 选择“确定”，返回到“设置”页。
 
-4. 选择“前端 IP 配置”。 在“前端 IP 配置”下，验证“IP 地址类型”是否设置为“公共”。 在“公共 IP 地址”下，验证是否已选择“新建”。 <br>可以根据用例将前端 IP 配置为公共或专用。 本示例将选择公共前端 IP。 
+4. 选择“前端 IP 配置”。 在“前端 IP 配置”下，验证“IP 地址类型”是否设置为“公共”。 在“公共 IP 地址”下，验证是否已选择“新建”。 <br>可以根据用例将前端 IP 配置为公共或专用。 本示例将选择公共前端 IP。
+   > [!NOTE]
+   > 对于应用程序网关 v2 SKU，只能选择**公共**前端 IP 配置。 目前尚未为 v2 SKU 启用专用前端 IP 配置。
 
 5. 输入 *myAGPublicIPAddress* 作为公共 IP 地址名称。 
 
-6. 接受其他设置的默认值，然后选择“确定”。<br>为简单起见，我们将在本文中选择默认值，但你可以根据用例为其他设置配置自定义值 
+6. 接受其他设置的默认值，然后选择“确定”。<br>为简单起见，将在本文中选择默认值，但你可以根据用例为其他设置配置自定义值 
 
 ### <a name="summary-page"></a>“摘要”页
 
@@ -77,12 +79,14 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 ## <a name="add-backend-pool"></a>添加后端池
 
-后端池用于将请求路由到将为请求提供服务的后端服务器。 后端池可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 需要将后端目标添加到后端池。
+后端池用于将请求路由到为请求提供服务的后端服务器。 后端池可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 会将后端目标添加到后端池。
 
-本示例将使用虚拟机作为目标后端。 可以使用现有的虚拟机，或创建新的虚拟机。 本示例创建两台虚拟机，供 Azure 用作应用程序网关的后端服务器。 要执行此操作，我们将：
+本示例将使用虚拟机作为目标后端。 可以使用现有的虚拟机，或创建新的虚拟机。 将创建两个虚拟机，供 Azure 用作应用程序网关的后端服务器。
 
-1. 创建新的子网 myBackendSubnet，将在其中创建新的 VM。 
-2. 创建2 个新的 VM（myVM 和 myVM2），用作后端服务器。
+为此，将要：
+
+1. 创建新的子网 myBackendSubnet，将在其中创建新的 VM。
+2. 创建两个新的 VM（myVM 和 myVM2），用作后端服务器。
 3. 可以在虚拟机上安装 IIS，以验证是否已成功创建了应用程序网关。
 4. 将后端服务器添加到后端池。
 
@@ -108,16 +112,16 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
     - **虚拟机名称**：输入 *myVM* 作为虚拟机的名称。
     - **用户名**：输入 *azureuser* 作为管理员用户名。
     - **密码**：输入 *Azure123456!* 作为管理员密码。
-4. 接受其他默认值，然后选择“下一步:**磁盘”**。  
-5. 接受“磁盘”选项卡的默认值，然后选择“下一步:**网络”**。
-6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”**。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但需要确保已建立 IP连接。 
+4. 接受其他默认值，然后选择“下一步:**磁盘”。  
+5. 接受“磁盘”选项卡的默认值，然后选择“下一步:**网络”。
+6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但需要确保已建立 IP 连接。
 7. 在“管理”选项卡上，将“启动诊断”设置为“关闭”。 接受其他默认值，然后选择“复查 + 创建”。
 8. 在“复查 + 创建”选项卡上复查设置，更正任何验证错误，然后选择“创建”。
 9. 等待虚拟机创建完成，然后再继续操作。
 
 ### <a name="install-iis-for-testing"></a>安装 IIS 进行测试
 
-本示例在虚拟机上安装 IIS，只为验证 Azure 是否已成功创建应用程序网关。 
+本示例在虚拟机上安装 IIS，只为验证 Azure 是否已成功创建应用程序网关。
 
 1. 打开 [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)。 为此，请在 Azure 门户的顶部导航栏中选择“Cloud Shell”，然后从下拉列表中选择“PowerShell”。 
 
@@ -161,8 +165,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 1. 在“概述”页面上查找应用程序网关的公共 IP 地址![记录应用程序网关公共 IP 地址](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)或者，可以选择“所有资源”，在搜索框中输入“myAGPublicIPAddress”，然后在搜索结果中选择该地址。 Azure 会在“概览”页上显示公共 IP 地址。
 2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
-3. 检查响应。 有效响应将验证应用程序网关是否已成功创建，并且是否能够成功连接后端。![测试应用程序网关](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
-
+3. 检查响应。 有效响应验证应用程序网关是否已成功创建，以及是否能够成功连接后端。![测试应用程序网关](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

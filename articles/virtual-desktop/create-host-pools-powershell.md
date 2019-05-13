@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924957"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236661"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 创建主机池
 
@@ -100,17 +100,6 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
    - 下载[Windows 虚拟桌面代理引导加载程序](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)。
    - 右键单击下载的安装程序中，选择**属性**，选择**解除阻止**，然后选择**确定**。 这将允许您的系统信任安装程序。
    - 运行安装程序。
-4. 安装或激活的 Windows 虚拟桌面的并行堆栈。 步骤将与不同虚拟机使用根据 OS 版本。
-   - 如果虚拟机的操作系统是 Windows Server 2016:
-     - 下载[Windows 虚拟桌面的并行堆栈](https://go.microsoft.com/fwlink/?linkid=2084270)。
-     - 右键单击下载的安装程序中，选择**属性**，选择**解除阻止**，然后选择**确定**。 这将允许您的系统信任安装程序。
-     - 运行安装程序。
-   - 如果虚拟机的操作系统是 Windows 10 1809年或更高版本或 Windows Server 2019 或更高版本：
-     - 下载[脚本](https://go.microsoft.com/fwlink/?linkid=2084268)以激活通过并行堆栈。
-     - 右键单击下载的脚本中，选择**属性**，选择**解除阻止**，然后选择**确定**。 这将允许您信任该脚本的系统。
-     - 从**启动**菜单中，搜索 Windows PowerShell ISE 中，右键单击它，然后选择**以管理员身份运行**。
-     - 选择**文件**，然后**打开...**，然后找到将下载的文件中的 PowerShell 脚本并将其打开。
-     - 选择绿色播放按钮来运行脚本。
 
 >[!IMPORTANT]
 >为了帮助保护 Azure 中的 Windows 虚拟桌面环境，我们建议你不要在 VM 上打开入站端口 3389。 Windows 虚拟机不需要打开入站端口 3389，用户就可以访问主机池的 VM。 如果必须打开端口 3389 以进行故障排除，我们建议你使用[实时 VM 访问](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)。

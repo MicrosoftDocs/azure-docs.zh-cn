@@ -3,8 +3,8 @@ title: 监视网络通信 - 教程 - Azure 门户 | Microsoft Docs
 description: 了解如何使用 Azure 网络观察程序的连接监视器功能监视两个虚拟机之间的网络通信。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429241"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715815"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教程：使用 Azure 门户监视两个虚拟机之间的网络通信
 
@@ -51,7 +51,7 @@ ms.locfileid: "56429241"
 
     |设置|值|
     |---|---|
-    |Name|myVM1|
+    |名称|myVM1|
     |用户名| 输入所选用户名。|
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |订阅| 选择订阅。|
@@ -74,7 +74,7 @@ ms.locfileid: "56429241"
 |步骤|设置|值|
 |---|---|---|
 | 1 | 选择某一版本的 **Ubuntu Server** |                                                                         |
-| 3 | Name                                  | myVm2                                                                   |
+| 3 | 名称                                  | myVm2                                                                   |
 | 3 | 身份验证类型                   | 粘贴 SSH 公钥，或者在选择“密码”后输入密码。 |
 | 3 | 资源组                        | 选择“使用现有资源组”，再选择“myResourceGroup”。                 |
 | 6 | 扩展                            | **适用于 Linux 的网络代理**                                             |
@@ -93,7 +93,7 @@ ms.locfileid: "56429241"
 
     | 设置                  | 值               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(22)     |
+    | 名称                     | myVm1-myVm2(22)     |
     | 源                   |                     |
     | 虚拟机          | myVM1               |
     | 目标              |                     |
@@ -152,7 +152,7 @@ ms.locfileid: "56429241"
     | 目标端口范围 | 22             |
     | 操作                  | 拒绝           |
     | 优先度                | 100            |
-    | Name                    | DenySshInbound |
+    | 名称                    | DenySshInbound |
 
 5. 由于连接监视器按 60 秒的时间间隔进行探测，因此请等待数分钟，然后在门户左侧选择“网络观察程序”、“连接监视器”，并再次选择“myVm1-myVm2(22)”监视器。 如下图所示，现在的结果有所不同：
 

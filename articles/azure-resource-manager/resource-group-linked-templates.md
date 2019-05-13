@@ -1,6 +1,6 @@
 ---
 title: 链接 Azure 部署的模板 | Microsoft 文档
-description: 介绍如何使用 Azure 资源管理器模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
+description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 05/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: d4ecccf8787e369b9a3270eab2d01a01ce7ae0c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbbaef306b9ed2bb415b29bc6d96dcfe649338f9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363292"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205941"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -73,11 +73,12 @@ ms.locfileid: "61363292"
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2018-07-01",
+            "apiVersion": "2019-04-01",
             "name": "[variables('storageName')]",
             "location": "West US",
-            "properties": {
-              "accountType": "Standard_LRS"
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Standard_LRS"
             }
           }
         ]
@@ -150,6 +151,51 @@ ms.locfileid: "61363292"
           "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
         }
      }
+  }
+]
+```
+
+## <a name="using-copy"></a>使用副本
+
+若要使用嵌套模板创建资源的多个实例，添加 copy 元素中的级别**microsoft.resources/deployments**资源。
+
+下面的示例模板演示如何使用嵌套模板的副本。
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy":{
+      "name": "storagecopy",
+      "count": 2
+    },
+    "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "kind": "StorageV2",
+            "sku": {
+              "name": "Standard_LRS"
+            }
+            // no, copy doesn't work here
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
+      }
+    }
   }
 ]
 ```
@@ -231,7 +277,7 @@ ms.locfileid: "61363292"
 }
 ```
 
-与其他资源类型一样，可在链接的模板和其他资源间设置依赖关系。 因此，当其他资源需要链接模板的输出值时，请确保在部署这些资源之前部署链接模板。 或者，当链接模板依赖于其他资源时，请确保在部署链接模板之前部署其他资源。
+链接模板与其他资源类型相似，也可在它与其他资源之间设置依赖关系。 因此，当其他资源需要链接模板的输出值时，请确保在部署这些资源之前部署链接模板。 或者，当链接模板依赖于其他资源时，请确保在部署链接模板之前部署其他资源。
 
 以下示例演示一个部署公共 IP 地址并返回资源 ID 的模板：
 
@@ -438,7 +484,7 @@ done
 
 ## <a name="securing-an-external-template"></a>保护外部模板
 
-尽管链接模板必须可从外部使用，但它无需向公众正式发布。 可以将模板添加到只有存储帐户所有者可以访问的专用存储帐户。 然后，在部署期间创建共享访问签名 (SAS) 令牌来启用访问。 将该 SAS 令牌添加到链接模板的 URI。 即使令牌作为安全字符串传入，链接模板的 URI（包括 SAS 令牌）也将记录在部署操作中。 若要限制公开，请设置令牌的到期时间。
+尽管链接模板必须可从外部使用，但它无需向公众正式发布。 可以将模板添加到只有存储帐户所有者可以访问的专用存储帐户。 然后，在部署期间创建共享访问签名 (SAS) 令牌来启用访问。 将该 SAS 令牌添加到链接模板的 URI。 即使令牌作为安全字符串传入，链接模板的 URI（包括 SAS 令牌）也会记录在部署操作中。 若要限制公开，请设置令牌的到期时间。
 
 也可将参数文件限制为通过 SAS 令牌进行访问。
 
@@ -506,13 +552,13 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 ## <a name="example-templates"></a>示例模板
 
-以下示例演示了链接模板的常见用法。
+下面的示例展示了链接的模板的常见用途。
 
-|主模板  |链接模板 |描述  |
+|主模板  |链接的模板 |描述  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[链接模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 从链接模板返回字符串。 |
-|[使用公共 IP 地址的负载均衡器](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[链接模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |从链接模板返回公共 IP 地址，并在负载均衡器中设置该值。 |
-|[多个 IP 地址](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [链接模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |在链接模板中创建多个公共 IP 地址。  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[链接的模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 从链接的模板返回字符串。 |
+|[使用公共 IP 地址的负载均衡器](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[链接的模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |从链接的模板返回公共 IP 地址并在负载均衡器中设置该值。 |
+|[多个 IP 地址](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [链接的模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |在链接模板中创建多个公共 IP 地址。  |
 
 ## <a name="next-steps"></a>后续步骤
 

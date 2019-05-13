@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a72b2c44550c0e481f7be4e37152e3bbe3a22f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889856"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918376"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>教程：Azure Active Directory 与 Datahug 集成
 
@@ -116,7 +116,7 @@ ms.locfileid: "57889856"
     在“登录 URL”文本框中，键入 URL：`https://apps.datahug.com/`
 
     > [!NOTE]
-    > 这些不是实际值。 请使用实际标识符和回复 URL 更新这些值。 请联系 [Datahug 客户端支持团队](http://datahug.com/about/contact-us/)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
+    > 这些不是实际值。 请使用实际标识符和回复 URL 更新这些值。 请联系 [Datahug 客户端支持团队](https://datahug.com/about/contact-us/)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
 6. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分，单击“下载”以根据要求下载从给定选项提供的“联合元数据 XML”并将其保存在计算机上。
 
@@ -146,7 +146,7 @@ ms.locfileid: "57889856"
 
 ### <a name="configure-datahug-single-sign-on"></a>配置 Datahug 单一登录
 
-若要在 **Datahug** 端配置单一登录，需要将下载的“联合元数据 XML”以及从 Azure 门户复制的相应 URL 发送给 [Datahug 支持团队](http://datahug.com/about/contact-us/)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
+若要在 **Datahug** 端配置单一登录，需要将下载的“联合元数据 XML”以及从 Azure 门户复制的相应 URL 发送给 [Datahug 支持团队](https://datahug.com/about/contact-us/)。 他们会对此进行设置，使两端的 SAML SSO 连接均正确设置。
 
 ### <a name="create-an-azure-ad-test-user"></a>创建 Azure AD 测试用户 
 

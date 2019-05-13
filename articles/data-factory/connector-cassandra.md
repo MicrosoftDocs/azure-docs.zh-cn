@@ -176,8 +176,8 @@ Cassandra 链接的服务支持以下属性：
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |布尔 |
-| DECIMAL |小数 |
+| BOOLEAN |Boolean |
+| DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |
 | INET |String |
@@ -187,7 +187,7 @@ Cassandra 链接的服务支持以下属性：
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
-| VARINT |小数 |
+| VARINT |Decimal |
 
 > [!NOTE]
 > 对于集合类型（映射、集、列表等），请参阅[通过虚拟表使用 Cassandra 集合类型](#work-with-collections-using-virtual-table)部分。

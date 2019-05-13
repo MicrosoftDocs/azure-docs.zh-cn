@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270092"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>教程：Azure Active Directory 与 QuickHelp 的集成
 
@@ -150,11 +150,11 @@ ms.locfileid: "59270092"
    
     b. 要上载已下载的 Azure 元数据文件，请单击“浏览”，导航到该文件，并单击“上载元数据”。
    
-    c. 在“电子邮件”文本框中，键入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
+    c. 在“电子邮件”文本框中，键入 `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`。
    
-    d. 在“名字”文本框中，`type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
+    d. 在“名字”文本框中，`type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`。
    
-    e. 在“姓氏”文本框中，`type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
+    e. 在“姓氏”文本框中，`type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`。
    
     f. 在“操作栏”中，单击“保存”。
 

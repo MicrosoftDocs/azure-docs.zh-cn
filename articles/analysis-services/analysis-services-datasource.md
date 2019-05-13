@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327133"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506814"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -23,14 +23,14 @@ ms.locfileid: "60327133"
 
 |数据源  |内存中  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |   是      |    是      |
-|Azure SQL 数据仓库     |   是      |   是       |
-|Azure Blob 存储<sup>[1](#tab1400a)</sup>     |   是       |    否      |
-|Azure 表存储<sup>[1](#tab1400a)</sup>    |   是       |    否      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  是        |  否        |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   是       |    否      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     是     |   否       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   是       |   否       |
+|Azure SQL 数据库<sup>[2](#azsqlmanaged)</sup>     |   “是”      |    “是”      |
+|Azure SQL 数据仓库     |   “是”      |   “是”       |
+|Azure Blob 存储<sup>[1](#tab1400a)</sup>     |   “是”       |    “否”      |
+|Azure 表存储<sup>[1](#tab1400a)</sup>    |   “是”       |    “否”      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  “是”        |  “否”        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   “是”       |    “否”      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     “是”     |   “否”       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   “是”       |   “否”       |
 ||||
 
 <a name="tab1400a">1</a> - 仅限表格 1400 和更高模型。   
@@ -52,7 +52,7 @@ ms.locfileid: "60327133"
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
 | SQL Server 数据仓库 |SQL Server Native Client 11.0、用于 SQL Server 的 Microsoft OLE DB 提供程序、用于 SQL Server 的 .NET Framework 数据提供程序 | 用于 SQL Server 的 .NET Framework 数据提供程序 |
-| Oracle |用于 Oracle 的 Microsoft OLE DB 提供程序、用于 .NET 的 Oracle 数据提供程序 |用于 .Net 的 Oracle 数据提供程序 |
+| Oracle | OLE DB Provider for Oracle，适用于.NET 的 Oracle 数据提供程序 |用于 .Net 的 Oracle 数据提供程序 |
 | Teradata |用于 Teradata 的 OLE DB 提供程序、用于 .NET 的 Teradata 数据提供程序 |用于 .Net 的 Teradata 数据提供程序 |
 | | | |
 

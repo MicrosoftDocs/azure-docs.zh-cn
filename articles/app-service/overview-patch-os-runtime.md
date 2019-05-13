@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838988"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203337"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 
@@ -37,7 +37,7 @@ ms.locfileid: "60838988"
 
 Azure 管理两个级别的 OS 修补：运行应用服务资源的物理服务器和来宾虚拟机 (VM)。 这两种方案会根据每月的[周二修补](https://technet.microsoft.com/security/bulletins.aspx)计划更新。 这些更新会自动应用，保证达到 Azure 服务的高可用性 SLA。 
 
-有关如何应用更新的详细信息，请参阅[揭示应用服务 OS 背后的秘密](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/)。
+有关如何应用更新的详细信息，请参阅[揭示应用服务 OS 背后的秘密](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html)。
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Azure 如何处理重大漏洞？
 

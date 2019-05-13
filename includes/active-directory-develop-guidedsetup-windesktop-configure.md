@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5eaee4f932c4e42f6fed3d839314346b3a93f360
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4dc3d422e18d9ee41bf16ac3e6f22c3d7e466d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799522"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198842"
 ---
 ## <a name="register-your-application"></a>注册应用程序
 
@@ -43,7 +43,9 @@ ms.locfileid: "59799522"
    - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户和个人 Microsoft 帐户(例如 Skype、Xbox、Outlook.com)”。
    - 选择“注册”以创建应用程序。
 1. 在应用的页面列表中，选择“身份验证”。
-1. 在“重定向 URI”部分，找到“建议用于公共客户端(移动、桌面)的重定向 URI”部分，然后选择“urn:ietf:wg:oauth:2.0:oob”。
+   1. 在“重定向 URI”部分中的重定向 URI 列表中：
+   1. 在“类型”列中选择“公共客户端(移动和桌面)”。
+   1. 在“重定向 URI”列中输入 `urn:ietf:wg:oauth:2.0:oob`。
 1. 选择“保存”。
 1. 转到 Visual Studio，打开 *App.xaml.cs* 文件，然后将 `Enter_the_Application_Id_here` 替换为刚注册并复制的应用程序 ID。
 

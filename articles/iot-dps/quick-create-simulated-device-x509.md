@@ -10,11 +10,11 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 2a27ec63ea4ae25823c604612bd3bcf3a057da61
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500577"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "61249208"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>快速入门：使用 Azure IoT C SDK 预配 X.509 模拟设备
 
@@ -127,7 +127,7 @@ Azure IoT 设备预配服务支持两类注册：
     - **主要证书 .pem 或 .cer 文件：** 单击“选择文件”，选择前面创建的证书文件 X509testcert.pem。
     - **IoT 中心设备 ID：** 输入 test-docs-cert-device 作为设备的 ID。
 
-      [![A在门户中为 X.509 证明添加单个注册](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+      [![在门户中为 X.509 证明添加单个注册](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
       成功注册以后，X.509 设备会在“单独注册”选项卡的“注册 ID”列下显示为 **riot-device-cert**。 
 

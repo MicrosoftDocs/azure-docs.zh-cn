@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348818"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508054"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -51,6 +51,9 @@ ms.locfileid: "60348818"
 * 不能在 Small Business Server 或 2019 版以前的 Windows Server Essentials（支持 Windows Server Essentials 2019）上安装 Azure AD Connect。 该服务器必须使用 Windows Server Standard 或更高版本。
 * 由于安全方案和更严格的设置，可以使 Azure AD Connect 无法正确安装不建议在域控制器上安装 Azure AD Connect
 * 必须在 Azure AD Connect 服务器上安装完整的 GUI。 **不支持**在服务器核心上安装 GUI。
+>[!IMPORTANT]
+>不支持小型企业服务器、 server essentials 中或服务器核心上安装 Azure AD Connect。
+
 * Azure AD Connect 必须安装在 Windows Server 2008 R2 或更高版本上。 此服务器必须加入域，并且可以是域控制器或成员服务器。
 * 如果在 Windows Server 2008 R2 上安装 Azure AD Connect，请确保从 Windows 更新应用最新的修补程序。 在未修补的服务器上无法启动安装。
 * 如果打算使用 **密码同步**功能，则必须在 Windows Server 2008 R2 SP1 或更高版本上安装 Azure AD Connect 服务器。
@@ -76,8 +79,8 @@ ms.locfileid: "60348818"
 * [减少 Active Directory 攻击面](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 使用的 SQL Server
-* Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的目录对象，则需要将安装向导指向不同的 SQL Server 安装。
-* 如果使用独立的 SQL Server，则这些要求适用：
+* Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的目录对象，则需要将安装向导指向不同的 SQL Server 安装。 SQL Server 安装的类型可能会影响[性能的 Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)。
+* 如果使用不同的 SQL Server 安装，则这些要求适用：
   * Azure AD Connect 支持从 2008 R2（包含最新的 Service Pack）到 SQL Server 2019 的所有 Microsoft SQL Server 版本。 **不支持**将 Microsoft Azure SQL 数据库用作数据库。
   * 必须使用不区分大小写的 SQL 排序规则。 可通过其名称中的 \_CI_ 识别排序规则。 **不支持**使用区分大小写的排序规则，可通过其名称中的 \_CS_ 识别。
   * 每个 SQL 实例只能有一个同步引擎。 **不支持**与 FIM/MIM Sync、DirSync 或 Azure AD Sync 共享 SQL 实例。
@@ -87,7 +90,7 @@ ms.locfileid: "60348818"
 * 如果使用快速设置或者从 DirSync 升级，则必须创建本地 Active Directory 的企业管理员帐户。
 * [Active Directory 中的帐户](reference-connect-accounts-permissions.md)：如果为本地 Active Directory 使用自定义设置安装路径或企业管理员帐户。
 
-### <a name="connectivity"></a>连接
+### <a name="connectivity"></a>连接性
 * Azure AD Connect 服务器需要 Intranet 和 Internet 的 DNS 解析。 DNS 服务器必须能够将名称解析成本地 Active Directory 和 Azure AD 终结点。
 * 如果 Intranet 有防火墙，而需要开放 Azure AD Connect 服务器与域控制器之间的端口。请参阅 [Azure AD Connect 端口](reference-connect-ports.md)了解详细信息。
 * 如果代理或防火墙限制了可访问的 URL，则必须打开 [Office 365 URL 和 IP 地址范围](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中所述的 URL。

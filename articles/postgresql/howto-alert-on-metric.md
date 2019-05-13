@@ -1,19 +1,19 @@
 ---
-title: 在 Azure 门户中为 Azure Database for PostgreSQL 配置指标警报
-description: 本文介绍如何通过 Azure 门户配置和访问针对 Azure Database for PostgreSQL 的指标警报。
+title: 为 Azure Database for PostgreSQL-在 Azure 门户中的单个服务器配置指标警报
+description: 本文介绍如何配置和访问指标警报 Azure database for PostgreSQL-从 Azure 门户的单个服务器。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421935"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067296"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>使用 Azure 门户设置针对 Azure Database for PostgreSQL 指标的警报 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>使用 Azure 门户设置指标相关警报针对 Azure Database for PostgreSQL-单个服务器
 
 本文介绍如何使用 Azure 门户设置 Azure Database for PostgreSQL 警报。 可根据监视指标接收 Azure 服务的警报。
 

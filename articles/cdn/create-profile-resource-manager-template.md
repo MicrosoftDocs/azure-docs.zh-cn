@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727567"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922395"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>快速入门：使用资源管理器模板创建 Azure CDN 配置文件和终结点
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 此步骤创建一个用于部署资源的模板文件。
 
-尽管本示例演练的是“常规网站加速”方案，但也可以配置其他许多设置。 Azure 资源管理器模板参考文档中介绍了这些设置。 请参阅有关 [CDN 配置文件](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)和 [CDN 配置文件终结点](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)的参考文档。
+尽管本示例演练的是“常规网站加速”方案，但也可以配置其他许多设置。 Azure 资源管理器模板参考文档中介绍了这些设置。 请参阅有关 [CDN 配置文件](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)和 [CDN 配置文件终结点](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)的参考文档。
 
 请注意，Microsoft CDN 不支持修改内容类型列表。
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>参考
 
-* CDN 配置文件 - [Azure 资源管理器模板参考](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* CDN 终结点 - [Azure 资源管理器模板参考文档](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* CDN 配置文件 - [Azure 资源管理器模板参考](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* CDN 终结点 - [Azure 资源管理器模板参考文档](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,25 +8,116 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 186ecf055cdf7b10690fdb4cbc574778a841b85a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914928"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464808"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure 机器学习服务发行说明
 
 本文介绍 Azure 机器学习服务版本。  有关每个 SDK 的完整说明，请访问以下内容的参考文档：
-+ Azure 机器学习[适用于 Python 的主 SDK](https://aka.ms/aml-sdk)
++ 在 Azure 机器学习[**主要适用于 Python SDK**](https://aka.ms/aml-sdk)
 + Azure 机器学习[数据准备 SDK](https://aka.ms/data-prep-sdk)
+
+请参阅[已知问题列表](resource-known-issues.md)了解已知 bug 和解决方法。
+
+## <a name="2019-05-06"></a>2019-05-06
+
+### <a name="azure-portal"></a>Azure 门户
+
+在 Azure 门户中，您现在可以：
++ 创建和运行自动化的机器学习试验 
++ 创建用于试用 Jupyter 笔记本示例的笔记本 VM 或你自己。
++ 在机器学习服务工作区，其中包括自动机器学习、 直观的界面和托管 Notebook Vm 中的全新创作部分 （预览版）
+    + 自动创建使用自动机器学习模型 
+    + 使用拖放可视化界面，运行试验
+    + 创建笔记本 VM 来浏览数据、 创建模型，以及部署服务。
++ 实时图表和更新运行的报表中的指标和运行详细信息页
++ 更新后的文件查看器日志、 输出和运行详细信息页中的快照。
++ 在试验选项卡中，创建新的和改进的报表体验。 
++ 添加了的能够从 Azure 机器学习服务工作区的概述页中下载的 config.json 文件。
++ 支持从 Azure Databricks 工作区创建机器学习服务工作区 
+
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033"></a>Azure Machine Learning SDK for Python v1.0.33
++ **新功能**
+  + _Workspace.create_方法现在接受的 CPU 和 GPU 群集的默认群集配置。
+  + 如果工作区创建失败，因为已清除依赖的资源。
+  + 默认 Azure 容器注册表 SKU 切换到基本。
+  + 在需要运行或映像创建时，将延迟，创建 azure 容器注册表。
+  + 对训练运行环境的支持。
+
+### <a name="notebook-virtual-machine"></a>Notebook 虚拟机 
+
+用作安全、 面向企业的宿主环境 Notebook VM 在其中可以编程机器学习试验、 部署模型作为 web 终结点和执行所有其他操作支持的 Azure 机器学习 SDK 使用 Python 的 Jupyter 笔记本。 它提供了几个功能：
++ [快速启动 VM 的预配置笔记本](quickstart-run-cloud-notebook.md) 具有最新版本的 Azure 机器学习 SDK 和相关的程序包。
++ 通过经验证的技术，例如 HTTPS，Azure Active Directory 身份验证和授权保护的访问。
++ 笔记本和 blob 存储帐户的 Azure 机器学习工作区中的代码的可靠的云存储。 您可以安全地删除你的 notebook VM，而不会丢失所做的工作。
++ 预安装了示例笔记本进行探索和试验使用 Azure 机器学习服务功能。
++ Azure Vm、 任何 VM 类型、 任何包、 任何驱动程序的完全自定义功能。 
+
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033-released"></a>用于 Python v1.0.33 发布的 azure 机器学习 SDK。
+
++ Azure ML 硬件加速模型上[Fpga](concept-accelerate-with-fpgas.md)已正式发布。
+  + 现在可以[使用 azureml 加速模型包](how-to-deploy-fpga-web-service.md)到：
+    + 训练的受支持的深度神经网络 （ResNet 50、 ResNet 152、 DenseNet 121、 VGG-16 和 SSD VGG） 的权重
+    + 使用传输学习使用受支持的 DNN
+    + 将模型注册模型管理服务和容器化模型
+    + 将模型部署到 Azure VM 中使用 Azure Kubernetes 服务 (AKS) 群集中 FPGA
+  + 部署到的容器[Azure 数据框边缘](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)服务器设备
+  + 评分与 gRPC 终结点与此数据[示例](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
+
+### <a name="automated-machine-learning"></a>自动化机器学习
+
++ 扫描结合使用以启用动态添加 featurizers 进行性能优化的功能。 新 featurizers： 工作的证据、 目标编码、 文本目标编码、 分类距离的权重的嵌入内容
++ 智能 CV 处理训练/有效拆分内自动机器学习
++ 几个内存优化的更改和运行时性能改进
++ 模型说明中的性能改进
++ ONNX 模型转换为本地运行的
++ 添加了的 Subsampling 支持
++ 智能停止时未定义任何退出条件
++ 堆积的集合
+
++ 时间序列预测
+  + 新预测预测的函数   
+  + 现在可以使用滚动域交叉验证，时序数据
+  + 添加用于配置系列滞后的时间的新功能 
+  + 添加以支持滚动窗口聚合功能的新功能
+  + 新的假日检测和特征化器中定义国家/地区代码时尝试设置
+
++ Azure Databricks
+  + 启用时序预测和建模 explainabilty/interpretability 功能
+  + 现在，你可以取消和恢复 （继续） 自动化机器学习试验
+  + 添加了对多核处理支持
+
+### <a name="mlops"></a>MLOps
++ **本地部署和调试进行评分的容器**<br/> 现在可以部署本地机器学习模型和评分文件和依赖关系，以确保它们按预期的行为上的快速循环访问。
+
++ **Introduced InferenceConfig & Model.deploy()**<br/> 模型部署现在支持与入口脚本，RunConfig 相同指定源文件夹。  此外，模型部署已简化为单个命令。
+
++ **Git 引用跟踪**<br/> 客户一直请求推出基本 Git 集成功能的一些时间，因为它可帮助维护的端到端审核线索。 我们在 Azure 机器学习中的 Git 相关元数据 （存储库、 提交、 干净状态） 的主要实体上实施了跟踪。 将通过 SDK 和 CLI 自动收集此信息。
+
++ **模型的分析和验证服务**<br/> 客户经常抱怨的难度以正确的大小与他们推理的服务关联的计算。 与我们分析服务的模型，客户可以提供示例输入，我们将分析跨 16 不同 CPU / 内存配置以确定最佳的调整大小以进行部署。
+
++ **推理使基础映像**<br/> 另一个常见的投诉时将从试验移到推理重新共享依赖项的困难。 使用我们新的基本映像，用于共享功能，现在可以重用您试验基础映像、 依赖项和所有推理。 这应提高部署速度并减少从内部的无缝连接到外部循环。
+
++ **改进了的 Swagger 架构生成体验**<br/> 我们以前的 swagger 生成的方法是容易出错且无法自动执行。 我们有一种从通过修饰器的任何 Python 函数生成 swagger 架构的新行中方法。 我们已进行开源此代码和我们的架构生成协议不会耦合到 Azure 机器学习平台。
+
++ **Azure 机器学习 CLI 已正式推出 (GA)**<br/> 现在可以使用单个 CLI 命令部署模型。 我们有了常见的客户反馈，没有人会从 Jupyter notebook 机器学习模型部署。 [ **CLI 参考文档**](https://aka.ms/azmlcli)已更新。
 
 
 ## <a name="2019-04-22"></a>2019-04-22
 
-### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning SDK for Python v1.0.30
+用于 Python v1.0.30 发布的 azure 机器学习 SDK。
+
+[ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py)已引入同时保持相同的终结点添加已发布管道的新版本。
 
 ## <a name="2019-04-17"></a>2019-04-17
 
@@ -56,11 +147,10 @@ ms.locfileid: "64914928"
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Azure 门户
-+ **新功能**
   + 现在可以重新提交现有的远程计算群集上运行的现有脚本。 
   + 在管道选项卡上，现在可以使用新参数运行已发布的管道。 
   + 运行详细信息现在支持新的快照文件查看器。 提交特定运行时，您可以查看的目录的快照。 此外可以下载已提交启动运行 notebook。
-   + 现在可以取消父中的运行，从 Azure 门户。
+  + 现在可以取消父中的运行，从 Azure 门户。
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -68,7 +158,7 @@ ms.locfileid: "64914928"
 
 + **新功能**
   + Azure 机器学习 SDK 现在支持 Python 3.7。
-  + Azure 机器学习 DNN 房产现在提供内置的多版本支持。 例如， `TensorFlow` 估算器现在接受`framework_version`参数，并且用户可以指定"1.10"或"1.12"版本。 对于当前的 SDK 版本支持的版本的列表，请调用`get_supported_versions()`需的框架类 (例如`TensorFlow.get_supported_versions()`)。
+  + Azure 机器学习 DNN 房产现在提供内置的多版本支持。 例如， `TensorFlow` 估算器现在接受`framework_version`参数，并且用户可以指定"1.10"或"1.12"版本。 对于当前的 SDK 版本支持的版本的列表，请调用`get_supported_versions()`需的框架类 (例如， `TensorFlow.get_supported_versions()`)。
   有关最新 SDK 版本支持的版本的列表，请参阅[DNN 估算器文档](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py)。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure 机器学习数据准备 SDK v1.1.1
@@ -120,7 +210,7 @@ ms.locfileid: "64914928"
 
  + **更改**
    + Azureml tensorboard 程序包将取代 azureml contrib tensorboard。
-   + 此版本中，可以创建它时，用户帐户上托管的计算群集 (amlcompute) 设置。 这可以通过只需将这些属性传递设置配置中。 您可以找到更多详细信息中的[SDK 参考文档](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-)。
+   + 此版本中，您可以设置用户帐户 (amlcompute) 在托管的计算群集上创建它时。 这可以通过将这些属性传递中预配配置。 您可以找到更多详细信息中的[SDK 参考文档](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-)。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure 机器学习数据准备 SDK v1.0.17
 
@@ -156,7 +246,7 @@ ms.locfileid: "64914928"
 + **新功能**
   + 新的拖放功能表报表编辑器的体验。 用户可以将列从井中到表的预览将显示其中的表区域。 可以重新排列列。
   + 新的日志文件查看器
-  + 尝试运行、 计算、 模型、 图像和从活动选项卡的部署的链接
+  + 尝试运行、 计算、 模型、 图像和活动选项卡中的部署的链接
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure 机器学习数据准备 SDK v1.0.15
 
@@ -175,7 +265,7 @@ ms.locfileid: "64914928"
 ### <a name="azure-machine-learning-sdk-for-python-v1015"></a>适用于 Python 的 Azure 机器学习 SDK v1.0.15
 
 + **新功能**
-  + Azure 机器学习管道增加了 AzureBatchStep（[笔记本](https://aka.ms/pl-azbatch)）、HyperDriveStep（[笔记本](https://aka.ms/pl-hyperdrive)）和基于时间的计划功能（[笔记本](https://aka.ms/pl-schedule)）。
+  + Azure 机器学习管道添加 AzureBatchStep ([notebook](https://aka.ms/pl-azbatch))，HyperDriveStep (notebook) 和基于时间的计划功能 ([notebook](https://aka.ms/pl-schedule))。
   +  DataTranferStep 已更新，可以与 Azure SQL Server 和 Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)) 配合使用。
 
 + **更改**
@@ -188,7 +278,7 @@ ms.locfileid: "64914928"
   + 数据准备现在支持使用数据存储从 Azure SQL 数据库读取数据。
  
 + **更改**
-  + 显著改进了对大型数据的某些操作的内存性能。
+  + 改进了对大型数据的特定操作的内存性能。
   + `read_pandas_dataframe()` 现在要求指定 `temp_folder`。
   + `ColumnProfile` 的 `name` 属性已弃用 - 请改用 `column_name`。
 
@@ -198,7 +288,7 @@ ms.locfileid: "64914928"
 
 + **更改**： 
   + Azure 机器学习 SDK 不再将 azure-cli 包作为依赖项。 具体而言，azure-cli-core 和 azure-cli-profile 已从 azureml-core 中删除。 以下是对用户有所影响的更改：
-    + 如果在执行“az login”，然后使用 azureml-sdk，则 SDK 会再次执行浏览器或设备代码登录。 它不会使用“az login”所创建的任何凭据状态。
+    + 如果您是执行"az login"，然后使用 azureml sdk，SDK 将在一次执行浏览器或设备代码日志。 它不会使用“az login”所创建的任何凭据状态。
     + 对于 Azure CLI 身份验证（如使用“az login”），请使用 azureml.core.authentication.AzureCliAuthentication 类。 对于 Azure CLI 身份验证，请在安装了 azureml-sdk 的 Python 环境中执行 pip install azure-cli。
     + 如果在使用服务主体执行“az login”以实现自动化，则建议使用 azureml.core.authentication.ServicePrincipalAuthentication 类，因为 azureml-sdk 不会使用 azure CLI 所创建的凭据状态。 
 
@@ -207,7 +297,7 @@ ms.locfileid: "64914928"
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure 机器学习数据准备 SDK v1.0.8
 
 + **Bug 修复**
-  + 显著改进了获取数据配置文件的性能。
+  + 改进了获取数据配置文件的性能。
   + 修复了与错误报告相关的次要 bug。
   
 ### <a name="azure-portal-new-features"></a>Azure 门户：新功能

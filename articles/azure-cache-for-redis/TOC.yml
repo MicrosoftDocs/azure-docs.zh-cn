@@ -5,6 +5,7 @@
     - name: 关于用于 Redis 的 Azure 缓存
       href: cache-overview.md
 - name: 快速入门
+  expanded: true
   items:
     - name: 创建 ASP.NET 应用
       href: cache-web-app-howto.md

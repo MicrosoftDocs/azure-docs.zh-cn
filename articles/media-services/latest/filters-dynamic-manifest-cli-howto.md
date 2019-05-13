@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e1c031643fc3ce75d99ad619ce46b38c9cba82c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732427"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472693"
 ---
 # <a name="creating-filters-with-cli"></a>使用 CLI 创建筛选器 
 
@@ -38,7 +38,8 @@ ms.locfileid: "60732427"
 
 以下示例定义添加到最终清单的曲目择条件。 此筛选器包括属于 EC-3 的任何音频曲目和比特率在 0-1000000 范围内的任何视频曲目。
 
-REST 中定义的筛选器包括“属性”包装器 JSON 对象。  
+> [!TIP]
+> 如果你打算定义**筛选器**在 REST 中，请注意，需要包括"属性"包装器 JSON 对象。  
 
 ```json
 [
@@ -94,6 +95,33 @@ az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-
 ```
 
 此外，请参阅[筛选器的 JSON 示例](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter)。
+
+
+## <a name="associate-filters-with-streaming-locator"></a>将筛选器与流式处理定位符相关联
+
+可以指定将适用于你的流式处理定位符的资产或帐户筛选器的列表。 [动态打包程序 （流式处理终结点）](dynamic-packaging-overview.md)适用此列表以及这些客户端在 URL 中指定的筛选器。 此组合生成[动态清单](filters-dynamic-manifest-overview.md)，后者基于在 URL 中的筛选器 + 流式处理定位符指定的筛选器。 我们建议你使用此功能，如果想要应用筛选器，但不是希望公开在 URL 中的筛选器名称。
+
+以下代码演示如何创建流式处理定位符，并指定`filters`。 这是一个可选属性，使用资产筛选器名称和/或帐户筛选器名称以空格分隔列表。
+
+```azurecli
+az ams streaming-locator create -a amsAccount -g resourceGroup -n streamingLocatorName \
+                                --asset-name assetName \                               
+                                --streaming-policy-name policyName \
+                                --filters filterName1 filterName2
+                                
+```
+
+## <a name="stream-using-filters"></a>Stream 使用筛选器
+
+定义筛选器后，客户端可以在流式 URL 中使用它们。 筛选器可以应用于自适应比特率流式处理协议：Apple HTTP Live Streaming (HLS)、MPEG-DASH 和平滑流式处理。
+
+下表显示了一些包含筛选器的 URL 示例：
+
+|Protocol|示例|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|平滑流式处理|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-step"></a>后续步骤
 

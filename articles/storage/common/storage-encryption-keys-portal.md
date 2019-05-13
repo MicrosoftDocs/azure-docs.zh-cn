@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 47dd38d9b5fd99431c8661c4891c4ebcdf5341d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61593662"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154152"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>配置为从 Azure 门户的 Azure 存储加密的客户托管密钥
 

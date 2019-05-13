@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497382"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141156"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用本地数据网关连接到本地数据源
 本地数据网关提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了在同一区域中使用多个 Azure Analysis Services 服务器，最新版本的网关也适用于 Azure 逻辑应用、Power BI、Power Apps 和 Microsoft Flow。 可以将同一订阅和同一区域中的多个服务与单个网关进行关联。 
@@ -176,30 +176,9 @@ ms.locfileid: "60497382"
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>事件日志
 
 可在“应用程序和服务日志”下找到数据管理网关和 PowerBIGateway 日志。
-
-
-## <a name="telemetry"></a>遥测
-遥测可用于监视和排错。 默认情况下
-
-**启用遥测**
-
-1.  查看计算机上的本地数据网关客户端目录。 通常为 %systemdrive%\Program Files\On-premises data gateway。 或者，可打开“服务”控制台并查看可执行文件的“路径”：“本地数据网关服务”的属性。
-2.  在客户端目录的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件中， 将 SendTelemetry 设置更改为 true。
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  保存更改，然后重启 Windows 服务：本地数据网关服务。
-
-
-
 
 ## <a name="next-steps"></a>后续步骤
 * [安装并配置本地数据网关](analysis-services-gateway-install.md)。   

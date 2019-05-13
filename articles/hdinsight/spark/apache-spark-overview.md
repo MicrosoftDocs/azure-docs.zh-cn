@@ -1,7 +1,6 @@
 ---
 title: Apache Spark 是什么 - Azure HDInsight
 description: 本文介绍了 HDInsight 中的 Spark，以及可以在 HDInsight 中使用 Spark 群集的不同方案。
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 01/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 264faaf0168d1604668e3358b1d99bc169d7e2f0
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ab349018705f173f1b138b854e0773ef3f996f1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985166"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725853"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Spark 是什么
 

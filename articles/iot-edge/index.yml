@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 了解如何安装和配置 IoT Edge，如何部署模块，以及如何在边缘上利用流分析和自定义视觉等 Azure 服务。
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: 设置开发计算机，了解适用于 <a href="/azure/iot-edge/tutorial-develop-for-linux">Linux 设备</a>或 <a href="/azure/iot-edge/tutorial-develop-for-windows">Windows 设备</a>的 IoT Edge 模块。
+          - html: '使用 <a href="/azure/iot-edge/tutorial-c-module">C</a>、<a href="/azure/iot-edge/tutorial-csharp-module">C#</a>、<a href="/azure/iot-edge/tutorial-python-module">Python</a>、<a href="/azure/iot-edge/tutorial-node-module">Node.js</a> 或 <a href="/azure/iot-edge/tutorial-java-module">Java</a> 开发适用于 Linux 设备的自定义代码模块。'
+          - html: '使用 <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> 或 <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a> 为 Windows 设备开发自定义代码模块。'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">使用 Azure Functions 筛选消息</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">将 Azure 流分析作为模块来查找平均值</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">将 Azure 机器学习作为模块来缩放数据</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">将自定义视觉服务作为模块对图像进行分类</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">使用 C# 模块来筛选数据</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">使用 Python 模块来筛选数据</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">使用 Node.js 模块来筛选数据</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">使用 Java 模块筛选数据</a>
-          - html: <a href="/azure/iot-edge/tutorial-c-module">使用 C 模块筛选数据</a>
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">使用 SQL Server 在边缘存储数据</a>

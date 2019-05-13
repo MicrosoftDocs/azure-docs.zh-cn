@@ -1,22 +1,21 @@
 ---
-title: 如何通过 Node.js 使用队列存储 | Microsoft Docs
+title: 如何通过 Node.js-Azure 存储使用队列存储
 description: 了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 相关示例是使用 Node.js 编写的。
 services: storage
-author: WenJason
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 12/08/2016
-ms.date: 12/10/2018
-ms.author: v-jay
-ms.component: queues
-ms.openlocfilehash: 31f0be804085643d048a35dd61da9156f291f7da
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 12/08/2016
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.subservice: queues
+ms.openlocfilehash: 01afe1ab7b9028f3f77d52f7d6f8ced27f6a79c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109587"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142713"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何通过 Node.js 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -336,14 +335,14 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
 
-[Azure Portal]: https://portal.azure.cn
+[Azure Portal]: https://portal.azure.com
 
 [在 Azure 应用服务中创建 Node.js Web 应用](../../app-service/app-service-web-get-started-nodejs.md)
 
 [生成 Node.js 应用程序并将其部署到 Azure 云服务](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
 
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

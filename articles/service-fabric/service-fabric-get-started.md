@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/02/2019
+ms.date: 04/30/2019
 ms.author: aljo
-ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 463b05f57ce0c85ebf1732791cb024335103b780
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946520"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153616"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -69,8 +69,8 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Microsoft Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK 和工具 3.3.654
-* Service Fabric 运行时 6.4.654
+* Service Fabric SDK 和工具 3.3.658
+* Service Fabric 运行时 6.4.658
 * 适用于 Visual Studio 2015 的 Service Fabric 工具 2.4.11116.1
 * Visual Studio 2017 15.9 包括适用于 Visual Studio 的 Service Fabric 工具 2.4.11024.1 
 

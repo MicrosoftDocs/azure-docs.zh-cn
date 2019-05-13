@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718256"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411564"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>在 Azure 中部署 OpenShift 容器平台
 
@@ -66,7 +66,7 @@ ms.locfileid: "64718256"
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -283,11 +283,11 @@ ms.locfileid: "64718256"
 | `enableAzure` | 启用 Azure 云提供程序 | true <br> false | true |
 | `aadClientId` | 也称为应用程序 ID 为服务主体的 azure Active Directory 客户端 ID |  |  |
 | `domainName` | 若要使用 （如果适用） 的自定义域名的名称。 设置为"none"如果不是部署的完全专用群集 |  | 无 |
-| `masterClusterDnsType` | OpenShift web 控制台的域类型。 default 将基础结构使用的主 DNS 标签的公共 IP。 自定义允许你定义你自己的名称 | default <br> 自定义 | default |
+| `masterClusterDnsType` | OpenShift web 控制台的域类型。 default 将基础结构使用的主 DNS 标签的公共 IP。 自定义允许你定义你自己的名称 | 默认 <br> 自定义 | 默认 |
 | `masterClusterDns` | 要用于访问 OpenShift web 控制台中，如果选择了自定义的自定义 DNS 名称 `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | 如果设置为 nipio`routingSubDomain`将使用 nip.io。  如果你有自己想要使用的路由的域，请使用自定义 | nipio <br> 自定义 | nipio |
 | `routingSubDomain` | 你想要用于路由如果选择了自定义作为通配符 DNS 名称 `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | 选择是否要使用现有的虚拟网络或创建新的虚拟网络 | 现有 <br> 新的 | 新的 |
+| `virtualNetworkNewOrExisting` | 选择是否要使用现有的虚拟网络或创建新的虚拟网络 | 现有 <br> 新资源 | 新资源 |
 | `virtualNetworkResourceGroupName` | 如果为 new 选择新的虚拟网络的资源组的名称 `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | 如果为 new 选择创建新虚拟网络的名称 `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | 新的虚拟网络的地址前缀 |  | 10.0.0.0/14 |
@@ -301,9 +301,9 @@ ms.locfileid: "64718256"
 | `existingInfraSubnetReference` | 完整的现有子网对引用的基础结构节点。 不需要创建新的 vNet / 子网 |  |  |
 | `existingCnsSubnetReference` | 对现有子网的 CN 节点的完整引用。 不需要创建新的 vNet / 子网 |  |  |
 | `existingNodeSubnetReference` | 对计算节点的现有子网的完整引用。 不需要创建新的 vNet / 子网 |  |  |
-| `masterClusterType` | 指定是否在群集使用专用或公用的主节点。 如果选择专用，则不会向公共 IP 通过 Internet 公开的主节点。 相反，它将使用中指定的专用 IP `masterPrivateClusterIp` | 公共 <br> 专用 | 公共 |
+| `masterClusterType` | 指定是否在群集使用专用或公用的主节点。 如果选择专用，则不会向公共 IP 通过 Internet 公开的主节点。 相反，它将使用中指定的专用 IP `masterPrivateClusterIp` | 公共 <br> 私有 | 公共 |
 | `masterPrivateClusterIp` | 如果选择了专用的主节点，然后将专用 IP 地址必须指定用于通过主节点的内部负载均衡器。 此静态 IP 必须在主机子网和尚不存在正在使用的 CIDR 块。 如果选择了公共的主节点，不会使用此值，但是仍必须指定 |  | 10.1.0.200 |
-| `routerClusterType` | 指定是否在群集使用专用或公共基础结构节点。 如果选择专用，则基础结构节点不会暴露在 Internet 通过公共 IP。 相反，它将使用中指定的专用 IP `routerPrivateClusterIp` | 公共 <br> 专用 | 公共 |
+| `routerClusterType` | 指定是否在群集使用专用或公共基础结构节点。 如果选择专用，则基础结构节点不会暴露在 Internet 通过公共 IP。 相反，它将使用中指定的专用 IP `routerPrivateClusterIp` | 公共 <br> 私有 | 公共 |
 | `routerPrivateClusterIp` | 如果是私有的基础结构选择节点，则必须为指定的专用 IP 地址通过使用内部负载均衡器基础结构节点。 此静态 IP 必须在主机子网和尚不存在正在使用的 CIDR 块。 如果公钥基础结构选择节点，不会使用此值，但是仍必须指定 |  | 10.2.0.200 |
 | `routingCertType` | 自定义证书用于路由域或默认自签名的证书-按照中的说明进行操作**自定义证书**部分 | selfsigned <br> 自定义 | selfsigned |
 | `masterCertType` | 自定义证书用于主机的域或默认自签名的证书-按照中的说明进行操作**自定义证书**部分 | selfsigned <br> 自定义 | selfsigned |

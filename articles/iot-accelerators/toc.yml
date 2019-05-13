@@ -61,7 +61,7 @@
             - name: Raspberry Pi 上的 Node.js
               href: iot-accelerators-connecting-pi-node.md
             - name: MXChip IoT DevKit
-              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md
         - name: 模拟设备
           items:
             - name: 创建模拟设备
@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: 探索遥测
           items:
-            - name: 使用 PowerBI 对遥测数据进行可视化
+            - name: 使用 Power BI 可视化遥测数据
               href: iot-accelerators-integrate-data-powerbi.md
             - name: 将 Azure 时序见解与远程监视集成
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: 什么是工业 IoT
           href: overview-iot-industrial.md
-        - name: OPC 孪生
-          items:
-            - name: 什么是 OPC 孪生
-              href: overview-opc-twin.md
-            - name: OPC 孪生体系结构
-              href: overview-opc-twin-architecture.md
-        - name: OPC 保管库
-          items:
-            - name: 什么是 OPC 保管库
-              href: overview-opc-vault.md
-        - name: 互连工厂
-          items:
-            - name: 互联工厂概述
-              href: iot-accelerators-connected-factory-features.md
-            - name: 互联工厂体系结构
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: 什么是 OPC 孪生
+          href: overview-opc-twin.md
+        - name: 什么是 OPC 保管库
+          href: overview-opc-vault.md
+        - name: 什么是互联工厂
+          href: iot-accelerators-connected-factory-features.md
     - name: 快速入门
       items:
         - name: 尝试连接工厂解决方案
           href: quickstart-connected-factory-deploy.md
+    - name: 概念
+      items:
+        - name: OPC 孪生体系结构
+          href: overview-opc-twin-architecture.md
+        - name: 互联工厂体系结构
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: 操作指南
       items:
         - name: 互连工厂

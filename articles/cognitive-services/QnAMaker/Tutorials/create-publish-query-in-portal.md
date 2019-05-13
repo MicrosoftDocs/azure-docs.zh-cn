@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266925"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149935"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>教程：通过 QnA Maker 门户创建知识库
 
@@ -68,7 +68,7 @@ ms.locfileid: "59266925"
     |--|--|--|
     |代码|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |该 URL 中常见问题解答内容的格式为一个问题接一个答案。 QnA Maker 可以通过解释此格式来提取问题和相关联的答案。|
     |文件 |不在本教程中使用|此项上传用于问题和答案的文件。 |
-    |聊天个性化内容|好友|此项为常见问题和解答提供友好且随和的个性化内容。 可以稍后编辑这些问题和解答。 |
+    |聊天个性化内容|友好|此项为常见问题和解答提供友好且随和的个性化内容。 可以稍后编辑这些问题和解答。 |
 
     ![KB 创建过程的步骤 4](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ ms.locfileid: "59266925"
 
 1. 从表的底部选择最后一页的问题和解答。 此页面显示来自聊天个性化内容的问题和解答。 
 
-1. 在问题和解答列表上方的工具栏中，选择“元数据”图标。 此时会显示每个问题和解答的元数据标记。 聊天问题已设置“编辑: 聊天”元数据。 此元数据会与所选答案一起返回到客户端应用程序。 客户端应用程序（例如聊天机器人）可以使用此筛选过的元数据来确定其他处理或与用户之间的交互。
+1. 在问题和解答列表上方的工具栏中，选择“查看选项”图标，然后选择“显示元数据”。 此时会显示每个问题和解答的元数据标记。 聊天问题已设置“编辑: 聊天”元数据。 此元数据会与所选答案一起返回到客户端应用程序。 客户端应用程序（例如聊天机器人）可以使用此筛选过的元数据来确定其他处理或与用户之间的交互。
 
-    ![查看元数据标记](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![查看元数据标记](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. 在顶部菜单栏中选择“保存并训练”。
 

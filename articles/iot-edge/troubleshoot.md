@@ -4,27 +4,53 @@ description: 使用本文了解 Azure IoT Edge 的标准诊断技能，例如检
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142867"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常见问题和解决方法
 
-如果在你的环境中运行 Azure IoT Edge 时遇到问题，请使用本文作为指南来进行疑难解答并解决问题。 
+如果在你的环境中运行 Azure IoT Edge 时遇到问题，请使用本文作为指南来进行疑难解答并解决问题。
 
-## <a name="standard-diagnostic-steps"></a>标准诊断步骤 
+## <a name="run-the-iotedge-check-command"></a>运行 iotedge 检查命令
 
-遇到问题时，请通过查看容器日志和传递到设备以及来自设备的消息来详细了解 IoT Edge 设备的状态。 可以使用本部分中的命令和工具来收集信息。 
+IoT Edge 进行故障排除时的第一步应该是使用`check`命令，后者将执行一系列配置和连接测试有关的常见问题。 `check`命令将出现在[释放 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7)及更高版本。
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>检查 IoT Edge 安全管理器的状态及其日志：
+你可以运行`check`命令，如下所示，或包括`--help`标志可查看选项的完整列表：
+
+* 在 Linux 上：
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* 在 Windows 上：
+
+  ```powershell
+  iotedge check
+  ```
+
+检查运行该工具的类型可以分类为：
+
+* 配置检查：检查可能阻止 Edge 设备连接到云，包括问题的详细信息*config.yaml*和容器引擎。
+* 连接检查：验证 IoT Edge 运行时可以访问主机设备上的端口，所有 IoT Edge 组件均可都连接到 IoT 中心。
+* 生产的准备情况检查：寻找建议的生产的最佳做法，例如设备证书颁发机构 (CA) 证书和模块的日志文件配置的状态。
+
+诊断检查的完整列表，请参阅[内置故障排除功能](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)。
+
+## <a name="standard-diagnostic-steps"></a>标准诊断步骤
+
+如果遇到问题，您可了解有关详细的 IoT Edge 设备的状态通过查看容器日志和自的消息传递到设备。 可以使用本部分中的命令和工具来收集信息。
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>检查 IoT Edge 安全管理器和其日志的状态
 
 在 Linux 上：
 - 若要查看 IoT Edge 安全管理器的状态，请执行以下命令：
@@ -72,20 +98,13 @@ ms.locfileid: "60612279"
 - 若要查看 IoT Edge 安全管理器的日志，请执行以下命令：
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>如果 IoT Edge 安全管理器未运行，请验证 yaml 配置文件
 
 > [!WARNING]
-> YAML 文件不能包含制表符作为缩进。 请改用 2 个空格。
+> YAML 文件不能包含作为缩进选项卡。 请改用 2 个空格。
 
 在 Linux 上：
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: f8894132dae179be2d5d9d9b6887851be78d7746
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7bbbe9629404733a76064d270480a0e162e2612b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548124"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919897"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>为 Azure 应用服务配置 Linux Python 应用
 
@@ -182,8 +182,6 @@ if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto
 - [访问日志流](#access-diagnostic-logs)。
 
 ## <a name="next-steps"></a>后续步骤
-
-Linux 上的应用服务中内置的 Python 映像目前处于预览状态，你可以自定义用于启动应用的命令。 还可以改用自定义容器创建生产 Python 应用。
 
 > [!div class="nextstepaction"]
 > [教程：使用 PostgreSQL 的 Python 应用](tutorial-python-postgresql-app.md)

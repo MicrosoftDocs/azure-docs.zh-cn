@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926586"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412762"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>从一个区域的 Azure Vm 复制到另一个支持矩阵
 
@@ -47,10 +47,10 @@ ms.locfileid: "64926586"
 **地理群集** | **Azure 区域**
 -- | --
 美洲 | 加拿大东部、加拿大中部、美国中南部、美国中西部、美国东部、美国东部 2、美国西部、美国西部 2、美国中部、美国中北部
-欧洲 | 英国西部、英国南部、北欧、西欧、法国中部、法国南部
+欧洲 | 英国西部、 英国南部、 北欧、 西欧、 法国中部、 法国南部、 南非西部、 南非北部
 亚洲 | 印度南部、印度中部、东南亚、东亚、日本东部、日本西部、韩国中部、韩国南部
 澳大利亚   | 澳大利亚东部、澳大利亚东南部、澳大利亚中部、澳大利亚中部 2
-Azure Government     | US Gov 弗吉尼亚州、US Gov 爱荷华州、US Gov 亚利桑那州、US Gov 德克萨斯州、US DOD 东部、US DOD 中部
+Azure 政府    | US Gov 弗吉尼亚州、US Gov 爱荷华州、US Gov 亚利桑那州、US Gov 德克萨斯州、US DOD 东部、US DOD 中部
 德国 | 德国中部、德国东北部
 中国 | 中国东部、中国北部、中国北部 2、中国东部 2
 
@@ -156,6 +156,7 @@ Azure 库映像 - 由第三方发布 | 支持 | 如果 VM 在受支持的操作�
 自定义映像 - 由第三方发布 | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
 使用 Site Recovery 迁移的 VM | 支持 | 如果使用 Site Recovery 将 VMware VM 或物理计算机迁移到 Azure，则需要卸载计算机上运行的旧版移动服务，并在重启计算机后将该计算机复制到另一个 Azure 区域。
 RBAC 策略 | 不支持 | 基于角色的访问控制 (RBAC) 策略在 Vm 上的不会复制到目标区域中的 VM 故障转移。
+扩展 | 不支持 | 扩展不复制到目标区域中的 VM 故障转移。 它需要故障转移后手动安装。
 
 ## <a name="replicated-machines---disk-actions"></a>复制的计算机 - 磁盘操作
 
@@ -201,7 +202,7 @@ RA-GRS | 支持 |
 ZRS | 不支持 |
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
 虚拟网络的 Azure 存储防火墙  | 支持 | 如果将虚拟网络访问限制到存储帐户，请启用[允许受信任的 Microsoft 服务](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
-常规用途 V2 存储帐户（冷热存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本显著增加
+常规用途 V2 存储帐户（冷热存储层） | “否” | 与常规用途 V1 存储帐户相比，事务成本显著增加
 
 >[!IMPORTANT]
 > 若要避免性能问题，请确保遵循的 VM 磁盘的可伸缩性和性能目标[Linux](../virtual-machines/linux/disk-scalability-targets.md)或[Windows](../virtual-machines/windows/disk-scalability-targets.md) Vm。 如果使用默认设置，Site Recovery 会创建所需的磁盘和存储帐户，基于源配置。 如果自定义和选择自己的设置，请遵循源 Vm 的磁盘可伸缩性和性能目标。
@@ -230,7 +231,7 @@ ZRS | 不支持 |
 NIC | 特定 Azure VM 大小支持的最大数量 | 在故障转移期间创建 VM 时会创建 NIC。<br/><br/> 故障转移 VM 上的 NIC 数目取决于启用复制时源 VM 上的 NIC 数目。 如果在启用复制后添加或删除 NIC，不会影响故障转移后复制的 VM 上的 NIC 数目。 此外请注意，故障转移后的 Nic 顺序并不保证是原始顺序相同。
 内部负载均衡器 | 支持 | 在恢复计划中使用 Azure 自动化脚本关联预配置的负载均衡器。
 内部负载均衡器 | 支持 | 在恢复计划中使用 Azure 自动化脚本关联预配置的负载均衡器。
-公共 IP 地址 | 支持 | 将现有的公共 IP 地址与 NIC 关联。 或者，在恢复计划中使用 Azure 自动化脚本创建公共 IP 地址并将其与 NIC 关联。
+公用 IP 地址 | 支持 | 将现有的公共 IP 地址与 NIC 关联。 或者，在恢复计划中使用 Azure 自动化脚本创建公共 IP 地址并将其与 NIC 关联。
 NIC 上的 NSG | 支持 | 在恢复计划中使用 Azure 自动化脚本将 NSG 与 NIC 关联。
 子网上的 NSG | 支持 | 在恢复计划中使用 Azure 自动化脚本将 NSG 与子网关联。
 保留（静态）IP 地址 | 支持 | 如果源 VM 上的 NIC 具有静态 IP 地址，并且目标子网具有相同的可用 IP 地址，则会将它分配给故障转移 VM。<br/><br/> 如果目标子网没有相同的可用 IP 地址，则为 VM 保留子网中的某个可用 IP 地址。<br/><br/> 此外可以在“复制的项” > “设置” > “计算和网络” > “网络接口”中指定固定的 IP 地址和子网。
@@ -244,7 +245,7 @@ Azure DNS | 支持 |
 VPN 站点到站点连接到本地<br/><br/>（带或不带 ExpressRoute）| 支持 | 请确保 Site Recovery 流量不路由到本地的这种方式配置 Udr 和 Nsg。 [了解详细信息](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET 到 VNET 连接 | 支持 | [了解详细信息](site-recovery-azure-to-azure-networking-guidance.md)  
 虚拟网络服务终结点 | 支持 | 若要限制对存储帐户的虚拟网络访问，请确保允许受信任的 Microsoft 服务访问存储帐户。
-加速网络 | 支持 | 必须在源 VM 上启用加速网络。 [了解详细信息](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+更快的网络连接 | 支持 | 必须在源 VM 上启用加速网络。 [了解详细信息](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 
 

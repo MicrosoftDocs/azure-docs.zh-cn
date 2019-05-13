@@ -2,18 +2,17 @@
 title: 开发人员最佳做法 - 保护 Azure Kubernetes 服务 (AKS) 中的 Pod
 description: 了解开发人员保护 Azure Kubernetes 服务 (AKS) 中的 Pod 的最佳做法
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466849"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073974"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>保护 Azure Kubernetes 服务 (AKS) 中的 Pod 的最佳做法
 
@@ -32,7 +31,9 @@ ms.locfileid: "60466849"
 
 **最佳做法指南** - 要作为其他用户或组运行，并限制对基础节点进程和服务的访问权限，请定义 Pod 安全性上下文设置。 请分配所需的最少权限。
 
-为使应用程序正常运行，Pod 应作为已定义的用户或组运行，而不是根用户或组。 通过 Pod 或容器的 `securityContext`，可定义 runAsUser 或 fsGroup 等设置，以承担相应权限。 仅分配所需的用户或组权限，不要使用安全性上下文来承担其他权限。 作为非根用户运行时，容器无法绑定到 1024 下的特权端口。 此时可使用 Kubernetes 服务掩盖应用程序正在特定端口上运行这一事实。
+为使应用程序正常运行，Pod 应作为已定义的用户或组运行，而不是根用户或组。 通过 Pod 或容器的 `securityContext`，可定义 runAsUser 或 fsGroup 等设置，以承担相应权限。 仅分配所需的用户或组权限，不要使用安全性上下文来承担其他权限。 *RunAsUser*，权限提升和其他 Linux 功能设置仅适用于 Linux 节点和 pod。
+
+作为非根用户运行时，容器无法绑定到 1024 下的特权端口。 此时可使用 Kubernetes 服务掩盖应用程序正在特定端口上运行这一事实。
 
 Pod 安全性上下文还可定义用于访问进程和服务的其他功能或权限。 可设置以下常见安全性上下文定义：
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ spec:
 
 ## <a name="limit-credential-exposure"></a>避免凭据暴露
 
-**最佳操作指南** - 不要在应用程序代码中定义凭据。 使用 Azure 资源的托管标识，让 Pod 请求访问其他资源。 还应使用数字保管库（如 Azure Key Vault）来存储和检索数字密钥和凭据。
+**最佳操作指南** - 不要在应用程序代码中定义凭据。 使用 Azure 资源的托管标识，让 Pod 请求访问其他资源。 还应使用数字保管库（如 Azure Key Vault）来存储和检索数字密钥和凭据。 Pod 托管标识打算用于 Linux pod 和仅容器映像。
 
 要避免凭据在应用程序代码中暴露，请勿使用固定或共享凭据。 不应直接在代码中包含凭证或密钥。 如果凭据暴露，则需更新并重新部署应用程序。 更好的做法是，为 Pod 提供自己的标识，让它自行进行身份验证，或自动从数字保管库中检索凭据。
 
@@ -97,6 +98,8 @@ Azure 资源的托管标识允许 Pod 针对支持的 Azure 服务（如存储�
 ![使用 Pod 托管标识从 Key Vault 检索凭据的简化工作流](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 使用 Key Vault，可存储并定期轮换凭据、存储帐户密钥或证书等机密。 可使用 FlexVolume 将 Azure Key Vault 与 AKS 群集集成。 FlexVolume 驱动程序允许 AKS 群集以本机方式检索 Key Vault 中的凭据，并仅将其安全地提供给发出请求的 Pod。 与群集操作员一起将 Key Vault FlexVol 驱动程序部署到 AKS 节点上。 可使用 Pod 托管标识来请求访问 Key Vault，并通过 FlexVolume 驱动程序检索所需凭据。
+
+FlexVol 的 azure 密钥保管库用于应用程序和 Linux pod 和节点上运行的服务。
 
 ## <a name="next-steps"></a>后续步骤
 

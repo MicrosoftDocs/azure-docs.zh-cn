@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703289"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228000"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>启用 Azure Active Directory B2C 中的年龄限制
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703289"
 
 通过 Azure Active Directory (Azure AD) B2C 中的年龄限制，可识别想要使用你的应用程序的未成年人。 可选择阻止未成年人登录应用程序。 用户还可返回应用程序并确定其年龄组和父母同意状态。 Azure AD B2C 可以阻止未获父母同意的未成年人使用应用程序。 也可以将 Azure AD B2C 设置为允许应用程序决定如何对待未成年人。
 
-在[用户流](active-directory-b2c-reference-policies.md)中启用年龄限制后，系统会询问用户的出生日期极其所居住的国家/地区。 如果用户登录之前未输入信息，则他们需要在下次登录时输入该信息。 每次用户登录时都会应用这些规则。
+启用年龄限制中后你[用户流](active-directory-b2c-reference-policies.md)，会要求用户出生时并哪一个国家/地区他们居住在。 如果用户登录之前未输入信息，则他们需要在下次登录时输入该信息。 每次用户登录时都会应用这些规则。
 
 Azure AD B2C 使用用户输入的信息来确定他们是否是未成年人。 然后，在其帐户中更新“ageGroup”字段。 值可为 `null`、`Undefined`、`Minor`、`Adult` 和 `NotAdult`。  然后，将 ageGroup 和 consentProvidedForMinor 字段用于计算 legalAgeGroupClassification 的值。
 
 年龄限制涉及两个年龄值：不再视其为未成年人的年龄，以及未成年人必须征得父母同意的年龄。 下表列出的年龄规则用于定义未成年人和须征得父母同意的未成年人。
 
 | 国家/地区 | 国家/地区名称 | 须征得同意的未成年人年龄 | 未成年人年龄 |
-| ------- | ------------ | ----------------- | --------- |
+| -------------- | ------------------- | ----------------- | --------- |
 | 默认 | 无 | 无 | 18 |
 | AE | 阿拉伯联合酋长国 | 无 | 21 |
 | AT | 奥地利 | 14 | 18 |

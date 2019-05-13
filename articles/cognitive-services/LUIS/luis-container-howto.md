@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598746"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073007"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安装并运行 LUIS docker 容器
  
@@ -337,19 +337,28 @@ curl -X GET \
 
 有关这些选项的详细信息，请参阅[配置容器](luis-container-configuration.md)。
 
-## <a name="unsupported-dependencies"></a>不受支持的依赖项
+## <a name="supported-dependencies-for-latest-container"></a>支持的依赖项`latest`容器
+
+最新的容器，在 2019年发布 / / 生成，将支持：
+
+* 必应拼写检查： 对具有查询预测终结点的请求`&spellCheck=true&bing-spell-check-subscription-key={bingKey}`的查询字符串参数。 使用[必应拼写检查 v7 教程](luis-tutorial-bing-spellcheck.md)若要了解详细信息。 如果使用此功能，则容器将发送到必应拼写检查 V7 资源将语音样本。
+* [新预生成的域](luis-reference-prebuilt-domains.md)： 这些面向企业的域包括实体、 示例语音样本和模式。 扩展供自己使用这些域。 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>不受支持的依赖关系`latest`容器
+
+如果 LUIS 应用具有不受支持的依赖项，将看不到[导出的容器](#export-packaged-app-from-luis)之前删除不受支持的功能。 当您尝试导出的容器时，LUIS 门户报告不支持需要删除的功能。
 
 如果 LUIS 应用程序不包括以下任何依赖项，则可以使用该应用程序：
 
 不受支持的应用配置|详细信息|
 |--|--|
-|不受支持的容器区域性| 德语 (de-DE)<br>荷兰语 (nl-NL)<br>日语 (ja-JP)<br>|
-|不受支持的域|预生成域，包括预生成域意向和实体|
+|不受支持的容器区域性| 荷兰语 (nl-NL)<br>日语 (ja-JP)<br>仅支持德语[1.0.1 标记器或更高版本](luis-language-support.md#custom-tokenizer-versions)。|
 |所有区域性不支持的实体|所有区域性的 [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) 预生成实体|
 |英语 (EN-US) 区域性不支持的实体|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 预生成实体|
 |语音启动|容器中不支持外部依赖项。|
 |情绪分析|容器中不支持外部依赖项。|
-|必应拼写检查|容器中不支持外部依赖项。|
 
 ## <a name="summary"></a>摘要
 

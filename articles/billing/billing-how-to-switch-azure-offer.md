@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918508"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570977"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>将 Azure 即用即付订阅更改为其他套餐
 
@@ -86,7 +86,7 @@ Azure 套餐是用户拥有的 Azure 订阅*类型*。 例如，[即用即付](h
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>为什么会出现“你所在的国家或地区目前没有可用的产品/服务”？
 
 * 你可能没有进行任何产品/服务切换的资格。 请查看[可切换的可用产品/服务列表](#whats-supported)，确保已通过 Visual Studio 或 Bizspark 激活了正确的权益。
-* 某些产品在部分国家/地区可能不适用。
+* 某些产品/服务可能不可用在所有国家/地区。
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>切换 Azure 产品/服务会对我的服务和帐单进行哪些操作？
 

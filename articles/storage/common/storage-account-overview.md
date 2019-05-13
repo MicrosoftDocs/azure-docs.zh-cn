@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483634"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236755"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 
-Azure 存储帐户包含所有 Azure 存储数据对象：Blob、文件、队列、表和磁盘。 Azure 存储帐户中的数据持久保存、高度可用、安全、可大规模缩放，并且可以在任意位置通过 HTTP 或 HTTPS 来访问。
+Azure 存储帐户包含所有 Azure 存储数据对象：Blob、文件、队列、表和磁盘。 存储帐户为你的 Azure 存储数据位于可从任意位置在世界通过 HTTP 或 HTTPS 提供唯一的命名空间。 Azure 存储帐户中的数据是持久和高度可用、 安全且高度可缩放。
 
 若要了解如何创建 Azure 存储帐户，请参阅[创建存储帐户](storage-quickstart-create-account.md)。
 

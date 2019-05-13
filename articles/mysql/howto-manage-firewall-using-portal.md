@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "61458794"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL 防火墙规则
@@ -18,7 +18,7 @@ ms.locfileid: "61458794"
 
 此外可以使用虚拟网络 (VNet) 规则来保护对你的服务器访问。 详细了解如何[创建和管理虚拟网络服务终结点和规则使用 Azure 门户](howto-manage-vnet-using-portal.md)。
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级防火墙规则
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
 
 1. 在 MySQL 服务器页上的“设置”标题下，单击“连接安全性”，以打开 Azure Database for MySQL 的“连接安全性”页。
 
@@ -51,10 +51,10 @@ ms.locfileid: "61458794"
 
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 门户管理现有的服务器级别防火墙规则
 重复这些步骤来管理防火墙规则。
-* 若要添加当前计算机，请单击“+ 添加我的 IP”。 单击“保存”以保存更改。
-* 若要添加其他 IP 地址，请键入“规则名称”、“起始 IP”和“结束 IP”。 单击“保存”以保存更改。
-* 若要修改现有规则，单击规则中的任意字段并修改。 单击“保存”以保存更改。
-* 若要删除现有规则，请单击省略号 […]，然后单击“删除”。 单击“保存”以保存更改。
+* 若要添加当前计算机，请单击“+ 添加我的 IP”。 单击“保存”  以保存更改。
+* 若要添加其他 IP 地址，请键入“规则名称”、“起始 IP”和“结束 IP”。 单击“保存”  以保存更改。
+* 若要修改现有规则，单击规则中的任意字段并修改。 单击“保存”  以保存更改。
+* 若要删除现有规则，请单击省略号 […]，然后单击“删除”。 单击“保存”  以保存更改。
 
 
 ## <a name="next-steps"></a>后续步骤

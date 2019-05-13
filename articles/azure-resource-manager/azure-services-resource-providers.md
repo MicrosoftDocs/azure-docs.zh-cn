@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 057e8d78b531abc4ee6d1b16c25a1a6f3b382977
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64537469"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235576"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 服务的资源提供程序
 
@@ -115,7 +115,7 @@ ms.locfileid: "64537469"
 | Microsoft.Migrate | [Azure 迁移](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure 空间的定位点](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp 文件](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [虚拟网络](../virtual-network/index.yml)<br />[负载均衡器](../load-balancer/index.yml)<br />[应用程序网关](/application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN 网关](../vpn-gateway/index.yml)<br />[流量管理器](../traffic-manager/index.yml)<br />[网络观察程序](../network-watcher/index.yml)<br />[Azure 防火墙](../firewall/index.yml)<br />[Azure 的第一道防线服务](../frontdoor/index.yml) |
+| Microsoft.Network | [虚拟网络](../virtual-network/index.yml)<br />[负载均衡器](../load-balancer/index.yml)<br />[应用程序网关](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN 网关](../vpn-gateway/index.yml)<br />[流量管理器](../traffic-manager/index.yml)<br />[网络观察程序](../network-watcher/index.yml)<br />[Azure 防火墙](../firewall/index.yml)<br />[Azure 的第一道防线服务](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [通知中心](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure 迁移](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure 监视器](../azure-monitor/index.yml) |

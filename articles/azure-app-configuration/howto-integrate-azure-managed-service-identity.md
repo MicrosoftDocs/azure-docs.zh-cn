@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998985"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408877"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>教程：与 Azure 托管身份集成
+# <a name="integrate-with-azure-managed-identities"></a>与 Azure 托管身份集成
 
 Azure Active Directory [托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)可帮助简化云应用程序的机密管理。 使用托管标识，你可以设置代码以使用为其运行的 Azure 计算服务创建的服务主体。 使用托管标识而不是存储在 Azure Key Vault 中的单独凭据或本地连接字符串。 
 

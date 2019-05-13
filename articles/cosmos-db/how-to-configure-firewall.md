@@ -1,17 +1,17 @@
 ---
 title: 为 Azure Cosmos DB 帐户配置 IP 防火墙
 description: 了解如何配置 IP 访问控制策略，以对 Azure Cosmos DB 数据库帐户提供防火墙支持。
-author: kanshiG
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: govindk
-ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.topic: sample
+ms.date: 05/06/2019
+ms.author: mjbrown
+ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61060769"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068720"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
 
@@ -32,7 +32,7 @@ ms.locfileid: "61060769"
 > [!NOTE]
 > 为 Azure Cosmos DB 帐户启用 IP 访问控制策略后，将拒绝从 IP 地址范围允许列表外部的计算机向 Azure Cosmos DB 帐户发出的所有请求。 此外，还会阻止通过门户浏览 Azure Cosmos DB 资源，以确保访问控制的完整性。
 
-### <a name="allow-requests-from-the-azure-portal"></a>允许来自 Azure 门户的请求 
+### <a name="allow-requests-from-the-azure-portal"></a>允许来自 Azure 门户的请求
 
 以编程的方式启用 IP 访问控制策略时，需将 Azure 门户的 IP 地址添加到 ipRangeFilter 属性以维持访问。 门户 IP 地址是：
 
@@ -80,7 +80,7 @@ ms.locfileid: "61060769"
 
 ### <a name="requests-from-virtual-machines"></a>来自虚拟机的请求
 
-还可以使用[虚拟机](https://azure.microsoft.com/services/virtual-machines/)或[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)通过 Azure Cosmos DB 托管中间层服务。 若要将 Cosmos DB 帐户配置为允许从虚拟机访问，必须通过[配置 IP 访问控制策略](#configure-ip-policy)，将虚拟机和/或虚拟机规模集的公共 IP 地址配置为 Azure Cosmos DB 帐户允许的 IP 地址之一。 
+还可以使用[虚拟机](https://azure.microsoft.com/services/virtual-machines/)或[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)通过 Azure Cosmos DB 托管中间层服务。 要配置 Cosmos DB 帐户使其允许从虚拟机访问，必须将虚拟机和/或虚拟机规模集的公共 IP 地址配置为你的 Azure Cosmos DB 帐户允许的一个 IP 地址，方法是[配置 IP 访问控制策略](#configure-ip-policy)。 
 
 如以下屏幕截图所示，可以在 Azure 门户中检索虚拟机的 IP 地址：
 
@@ -138,6 +138,37 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
+## <a id="configure-ip-firewall-ps"></a>使用 PowerShell 配置 IP 访问控制策略
+
+以下脚本演示如何使用 IP 访问控制创建 Azure Cosmos DB 帐户：
+
+```azurepowershell-interactive
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "myaccountname"
+
+$locations = @(
+    @{ "locationName"="West US"; "failoverPriority"=0 },
+    @{ "locationName"="East US"; "failoverPriority"=1 }
+)
+
+# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
+$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
+
+$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
+
+$CosmosDBProperties = @{
+    "databaseAccountOfferType"="Standard";
+    "locations"=$locations;
+    "consistencyPolicy"=$consistencyPolicy;
+    "ipRangeFilter"=$ipRangeFilter
+}
+
+Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $accountName -PropertyObject $CosmosDBProperties
+```
+
 ## <a id="troubleshoot-ip-firewall"></a>排查 IP 访问控制策略的问题
 
 可使用以下选项排查 IP 访问控制策略的问题： 
@@ -161,5 +192,4 @@ az cosmosdb update \
 
 * [适用于 Azure Cosmos DB 帐户的虚拟网络和子网访问控制](vnet-service-endpoint.md)
 * [为 Azure Cosmos DB 帐户配置基于虚拟网络和子网的访问](how-to-configure-vnet-service-endpoint.md)
-
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: aa6b4ef76b039e9e24b4a72cfb6e76dcfae8378d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691251"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142521"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>教程：使用 AES-128 动态加密和密钥传递服务
 
@@ -159,7 +159,7 @@ ms.locfileid: "64691251"
 az group delete --name amsResourceGroup
 ```
 
-## <a name="provide-feedback"></a>提供反馈
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 

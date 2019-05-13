@@ -2,18 +2,18 @@
 title: 快速入门：使用 Azure PowerShell 管理 Azure 文件共享
 description: 通过本快速入门了解如何使用 Azure PowerShell 管理 Azure 文件共享。
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f353c9952d9ccec0f279d6bd98bf5db215758559
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 439a1c60942b1540328bf9972d74d7dd4d573a65
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524538"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700652"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和管理 Azure 文件共享 
 本指南介绍通过 PowerShell 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准 SMB 协议，可以跨多个计算机、应用程序和实例进行文件共享。 

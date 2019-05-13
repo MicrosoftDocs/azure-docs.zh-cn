@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886023"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464364"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 应用程序中创建遥测规则并设置通知
 
@@ -31,19 +31,19 @@ ms.locfileid: "60886023"
 
 1. 如果尚未创建任何规则，则会看到以下屏幕：
 
-    ![尚无规则](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
+    ![尚无规则](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
 1. 上**规则**选项卡上，选择 **+ 新规则**若要查看可以创建的规则的类型。
 
 1. 选择**遥测**创建规则以监视设备遥测数据。
 
-    ![规则类型](media/howto-create-telemetry-rules/Rule_Types.png)
+    ![规则类型](media/howto-create-telemetry-rules/rule_types1.png)
 
 1. 输入一个有助于在此设备模板中识别该规则的名称。
 
 1. 若要对针对此模板创建的所有设备立即启用规则，请切换到“为此模板的所有设备启用规则”。
 
-   ![规则详细信息](media/howto-create-telemetry-rules/Rule_Detail.png)
+   ![规则详细信息](media/howto-create-telemetry-rules/rule_detail1.png)
 
     此规则自动应用到该设备模板下的所有设备。
 
@@ -59,7 +59,7 @@ ms.locfileid: "60886023"
    - 聚合是可选的。 如无聚合，此规则将对每个满足此条件的遥测数据点触发。 例如，如果几乎可以立即将规则配置为触发器，当温度高于 80 则触发规则时设备将报告温度 > 80。
    - 如果选择了 Average、Min、Max、Count 等聚合函数，则用户必须提供需要评估的条件的“聚合时间窗口”。 例如，如果将时段设置为“5 分钟”，并且规则查找超过 80 的平均温度，则当平均温度至少有 5 分钟超过 80 时，该规则将会触发。 规则评估频率与“聚合时间段”相同，也就是说，此示例中规则每隔 5 分钟评估一次。
 
-     ![条件](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![条件](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >可在“条件”下面添加多个遥测度量。 如果指定多个条件，必须满足所有条件才能触发该规则。 每个条件通过“AND”子句隐式联接。 使用聚合时，必须聚合每个度量。
@@ -70,14 +70,14 @@ ms.locfileid: "60886023"
 
 1. 选择“操作”旁边的“+”。 在此处可以看到可用操作的列表。  
 
-    ![添加操作](media/howto-create-telemetry-rules/Add_Action.png)
+    ![添加操作](media/howto-create-telemetry-rules/add_action1.png)
 
 1. 选择“电子邮件”操作，在“收件人”字段中输入有效的电子邮件地址，并提供一个说明，用于在触发规则时显示在电子邮件的正文中。
 
     > [!NOTE]
     > 电子邮件只发送给那些已添加到应用程序中并已至少登录一次的用户。 详细了解 Azure IoT Central 中的[用户管理](howto-administer.md)。
 
-   ![配置操作](media/howto-create-telemetry-rules/Configure_Action.png)
+   ![配置操作](media/howto-create-telemetry-rules/configure_action1.png)
 
 1. 若要保存规则，请选择“保存”。 此规则在数分钟内即可生效，然后开始监视发送到应用程序的遥测数据。 满足规则中指定的条件时，规则会触发配置的电子邮件操作。
 

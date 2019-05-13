@@ -4,14 +4,14 @@ description: 了解如何配置和更改的默认索引策略的自动索引并�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872672"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068602"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 
@@ -72,6 +72,36 @@ Azure Cosmos DB 支持两种索引模式：
 - 有关路径替换为包含的常规字符： 字母数字字符和 _ （下划线），无需转义围绕双引号括起来 （例如，"/ 路径 /？"） 的路径字符串。 对于与其他特殊字符的路径，您需要进行转义围绕双引号括起来的路径字符串 (例如，"/\"路径 abc\"/？")。 如果希望在你的路径中特殊字符，可转义每个路径的安全性。 功能上，如果转义 Vs 不仅仅具有特殊字符的每个路径，它不起作用。
 
 请参阅[本节](how-to-manage-indexing-policy.md#indexing-policy-examples)为索引策略示例。
+
+## <a name="composite-indexes"></a>组合索引
+
+查询`ORDER BY`两个或多个属性都需要一个组合索引。 目前，复合索引仅供多`ORDER BY`查询。 默认情况下，因此，应该定义没有复合索引[添加复合索引](how-to-manage-indexing-policy.md#composite-indexing-policy-examples)根据需要。
+
+在定义了组合索引，需要指定：
+
+- 两个或多个属性路径。 序列中的属性路径被定义相关问题。
+- 顺序 （升序或降序）。
+
+使用复合索引时使用的以下注意事项：
+
+- 如果复合索引路径不匹配的 ORDER BY 子句中的属性序列，通过然后组合索引不能支持的查询
+
+- 组合索引路径 （升序或降序） 的顺序也应匹配 ORDER BY 子句中的顺序。
+
+- 组合索引还支持在所有路径上的 ORDER BY 子句具有相反的顺序。
+
+请考虑下面的示例，其中属性定义组合索引 a、 b 和 c:
+
+| **组合索引**     | **示例`ORDER BY`查询**      | **支持索引吗？** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+应自定义索引策略，以便可以提供所有必要`ORDER BY`查询。
 
 ## <a name="modifying-the-indexing-policy"></a>修改索引策略
 

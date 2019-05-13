@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Monitor 的工作簿的报表的 Azure Active Directory |Microsoft Docs
-description: 了解如何使用 Azure Monitor 工作簿获取 Azure Active Directory 报告
+description: 了解如何使用 Azure Monitor 工作簿获取 Azure Active Directory 报告。
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,62 +14,61 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c9b3d0ef110fea0629af345a71d0d7b7cce7313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287137"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406595"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何：使用 Azure Monitor 工作簿获取 Azure Active Directory 报告
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>如何使用 Azure Monitor 的工作簿的报表的 Azure Active Directory
 
 想：
 
-- 了解影响您[条件性访问策略](../conditional-access/overview.md)上用户的登录体验？
+- 了解的影响你[条件性访问策略](../conditional-access/overview.md)上用户的登录体验？
 
-- 对登录失败以更好地了解组织登录运行状况并快速解决问题进行故障排除？
+- 对登录失败以获取更好的视图组织的登录运行状况并快速解决问题进行故障排除？
 
-- 知道谁在使用旧的身份验证登录到你的环境？ 通过[阻止旧式身份验证](../conditional-access/block-legacy-authentication.md)，可以改进你的租户的保护。
+- 知道谁在使用旧的身份验证登录到你的环境？ (通过[阻止旧式身份验证](../conditional-access/block-legacy-authentication.md)，可以改进你的租户的保护。)
 
-
-[Azure 监视器工作簿](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)将文本、 Analytics 查询、 Azure 度量值和参数组合到丰富的交互式报表。 Azure Active Directory 为你提供帮助您找到上述问题的答案进行监视的工作簿。
+为了帮助你解决这些问题，Active Directory 提供用于监视的工作簿。 [Azure 监视器工作簿](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)将文本、 分析查询、 指标和参数组合到丰富的交互式报表。 
 
 本文：
 
-- 假定你熟悉如何[使用 Azure Monitor 工作簿创建交互式报表](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)。
+- 假定您熟悉如何[使用监视器工作簿创建交互式报表](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)。
 
-- 介绍了如何使用 Azure Monitor 的工作簿有关监视回答上述问题。
+- 介绍如何使用监视工作簿来了解条件性访问策略，来解决登录失败，并识别旧身份验证的影响。
  
 
 
 ## <a name="prerequisites"></a>必备组件
 
-若要使用此功能，需满足以下条件：
+若要使用监视器工作簿，需要：
 
-- Azure Active Directory 租户，与高级 (P1/P2) 许可证。 了解如何[获得高级许可证](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)。
+- 高级 （P1 或 P2） 许可证与一个 Active Directory 租户。 了解如何[获得高级许可证](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium)。
 
 - 一个[Log Analytics 工作区](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)。
 
-## <a name="access-workbooks"></a>访问工作簿 
+## <a name="workbook-access"></a>工作簿的访问 
 
 若要访问工作簿：
 
-1. 登录到您[Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.com)。
 
-2. 在左侧导航栏中，单击“Azure Active Directory”。
+2. 在左侧的导航窗格中，选择**Azure Active Directory**。
 
-3. 在中**监视**部分中，单击**Insights**。 
+3. 在中**监视**部分中，选择**Insights**。 
 
-    ![洞察力](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![选择 Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. 单击报表或模板，或单击**打开**工具栏中。 
+4. 选择报表或模板，或在工具栏上选择**打开**。 
 
-    ![库](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![选择打开](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## <a name="sign-in-analysis"></a>在登录分析
 
-若要访问登录 analysis 工作簿，请单击**登录名**中**用法**部分。 
+若要访问登录 analysis 工作簿中，在**使用情况**部分中，选择**登录名**。 
 
 此工作簿显示了以下登录趋势：
 
@@ -81,32 +80,32 @@ ms.locfileid: "60287137"
 
 - 失败
 
-您可以筛选按每个趋势：
+可以按以下类别来筛选每个趋势：
 
 - 时间范围
 
-- 应用
+- 应用程序
 
 - 用户
 
-![库](./media/howto-use-azure-monitor-workbooks/43.png)
+![在登录分析](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-每个趋势，通过获取细分：
+每个趋势，按以下类别获取细分：
 
 - Location
 
-    ![库](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![按位置的登录名](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - 设备
 
-    ![库](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![通过设备的登录名](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
 ## <a name="sign-ins-using-legacy-authentication"></a>使用传统的身份验证登录名 
 
 
-访问登录名使用[旧式身份验证](../conditional-access/block-legacy-authentication.md)工作簿中，单击**登录名使用传统的身份验证**中**使用情况**部分。 
+若要访问工作簿中的使用的登录名[旧式身份验证](../conditional-access/block-legacy-authentication.md)，在**使用情况**部分中，选择**登录名使用传统的身份验证**。 
 
 此工作簿显示了以下登录趋势：
 
@@ -115,41 +114,39 @@ ms.locfileid: "60287137"
 - Success
 
 
-您可以筛选按每个趋势：
+可以按以下类别来筛选每个趋势：
 
 - 时间范围
 
-- 应用
+- 应用程序
 
 - 用户
 
-- 协议 
+- 协议
 
-![库](./media/howto-use-azure-monitor-workbooks/47.png)
+![通过传统的身份验证的登录名](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
 对于每个趋势，您获取按应用程序和协议细分。
 
-![库](./media/howto-use-azure-monitor-workbooks/48.png)
+![按应用程序和协议 legacy 身份验证登录名](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
 ## <a name="sign-ins-by-conditional-access"></a>通过条件性访问的登录名 
 
 
-若要访问的登录名[条件性访问策略](../conditional-access/overview.md)工作簿中，单击**条件访问的登录名**中**条件性访问**部分。 
+若要访问工作簿中的登录名由[条件性访问策略](../conditional-access/overview.md)，在**条件性访问**部分中，选择**通过条件性访问的登录名**。 
 
-此工作簿显示了已禁用的登录名的趋势。
-
-您可以筛选按每个趋势：
+此工作簿显示了已禁用的登录名的趋势。可以按以下类别来筛选每个趋势：
 
 - 时间范围
 
-- 应用
+- 应用程序
 
 - 用户
 
-![库](./media/howto-use-azure-monitor-workbooks/49.png)
+![登录名使用条件性访问](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
 为已禁用的登录名，可获取细分的条件访问状态。
@@ -165,7 +162,7 @@ ms.locfileid: "60287137"
 
 ## <a name="sign-ins-by-grant-controls"></a>通过登录授权控件
 
-若要访问的登录名[授权控件](../conditional-access/controls.md)工作簿中，单击**登录名授予控制通过**中**条件性访问**部分。 
+若要访问工作簿中的登录名由[授权控件](../conditional-access/controls.md)，在**条件性访问**部分中，选择**登录名授予控制通过**。 
 
 此工作簿显示下列已禁用登录趋势：
 
@@ -178,34 +175,34 @@ ms.locfileid: "60287137"
 - 其他
 
 
-您可以筛选按每个趋势：
+可以按以下类别来筛选每个趋势：
 
 - 时间范围
 
-- 应用
+- 应用程序
 
 - 用户
 
-![库](./media/howto-use-azure-monitor-workbooks/50.png)
+![通过登录授权控件](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
 对于每个趋势，您获取按应用程序和协议细分。
 
-![库](./media/howto-use-azure-monitor-workbooks/51.png)
+![最新的登录名的细目](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## <a name="sign-ins-failure-analysis"></a>登录失败分析
 
-使用**登录名失败分析**工作簿以进行故障排除的错误：
+使用**登录名失败分析**工作簿以解决以下错误：
 
 - 登录
 - 条件访问策略
-- 旧式身份验证。 
+- 旧身份验证 
 
 
-若要访问条件性访问的数据登录名，请单击**登录名使用旧版身份验证**中**疑难解答**部分。 
+若要访问的条件性访问的数据，登录名，在**进行故障排除**部分中，选择**登录名使用旧版身份验证**。 
 
 此工作簿显示了以下登录趋势：
 
@@ -218,26 +215,26 @@ ms.locfileid: "60287137"
 - 失败
 
 
-您可以筛选按每个趋势：
+可以按以下类别来筛选每个趋势：
 
 - 时间范围
 
-- 应用
+- 应用程序
 
 - 用户
 
-![库](./media/howto-use-azure-monitor-workbooks/52.png)
+![故障排除的登录名](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-若要对登录名进行故障排除，请获取细分：
+为了帮助您解决登录，Azure Monitor 提供细分按以下类别：
 
 - 最常见的错误
 
-    ![库](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![最常见的错误的摘要](./media/howto-use-azure-monitor-workbooks/53.png)
 
 - 等待用户操作的登录名
 
-    ![库](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![登录名等待用户操作的摘要](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -246,4 +243,4 @@ ms.locfileid: "60287137"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Azure Monitor 工作簿创建交互式报表](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[使用监视器工作簿创建交互式报表](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)。

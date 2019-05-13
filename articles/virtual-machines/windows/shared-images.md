@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2018
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6ea98792e6a1b7fef32e3be1ddfbb29743f50c6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250764"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235885"
 ---
-# <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>预览版：使用 Azure PowerShell 创建共享映像库 
+# <a name="create-a-shared-image-gallery-with-azure-powershell"></a>使用 Azure PowerShell 创建共享映像库 
 
 [共享映像库](shared-image-galleries.md)大大简化了整个组织中的自定义映像共享。 自定义映像类似于市场映像，不同的是自定义映像的创建者是自己。 自定义映像可用于启动部署任务，例如预加载应用程序、应用程序配置和其他 OS 配置。 
 
@@ -44,9 +44,11 @@ ms.locfileid: "60250764"
 
 ## <a name="before-you-begin"></a>开始之前
 
-完成本文中的示例，必须具有现有托管映像。 可以按照[教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像](tutorial-custom-images.md)来创建映像（如有需要）。 通过本文进行操作时，请根据需要替换资源组和 VM 名称。
+完成本文中的示例，必须具有现有托管映像。 可以按照[教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像](tutorial-custom-images.md)来创建映像（如有需要）。 如果托管的映像中包含的数据磁盘，数据磁盘大小不能超过 1 TB。
 
-[!INCLUDE [virtual-machines-common-shared-images-ps](../../../includes/virtual-machines-common-shared-images-powershell.md)]
+通过本文进行操作时，请根据需要替换资源组和 VM 名称。
+
+[!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
 ## <a name="create-vms-from-an-image"></a>根据映像创建 VM
 
@@ -69,15 +71,10 @@ New-AzVm `
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-## <a name="clean-up-resources"></a>清理资源
-
-不再需要时，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet 删除资源组、VM 和所有相关资源：
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>后续步骤
+[Azure 映像生成器 （预览版）](image-builder-overview.md)可帮助自动执行映像版本创建，您甚至可以用它来更新并[从现有的映像版本创建新映像版本](image-builder-gallery-update-image-version.md)。 
 
 此外可以使用模板创建共享映像库资源。 提供多个 Azure 快速入门模板： 
 

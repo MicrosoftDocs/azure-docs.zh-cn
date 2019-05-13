@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 05/07/2019
 ms.author: genli
-ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107978"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416036"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 地址 168.63.129.16 是什么？
 
@@ -28,14 +28,17 @@ IP 地址 168.63.129.16 是虚拟公共 IP 地址，用于简化 Azure 平台资
 
 - 使 VM 代理能够与 Azure 平台通信，以表明它处于“就绪”状态。
 - 启用与 DNS 虚拟服务器的通信，以便为没有自定义 DNS 服务器的资源（如 VM）提供筛选的名称解析。 此筛选确保客户只能解析其自己资源的主机名。
-- 从负载均衡器启用运行状况探测，以确定负载均衡集中 VM 的运行状况状态。
+- 使[从 Azure 负载均衡器运行状况探测](../load-balancer/load-balancer-custom-probe-overview.md)来确定 Vm 的运行状况状态。
+- 使 VM 能够从 Azure 中的 DHCP 服务获取动态 IP 地址。
 - 为 PaaS 角色启用来宾代理检测信号消息。
 
 ## <a name="scope-of-ip-address-1686312916"></a>IP 地址 168.63.129.16 的作用域
 
-虚拟公共 IP 地址 168.63.129.16 用于所有区域和所有国家云。 此特殊公共 IP 地址将不会更改。 默认网络安全组规则允许此 IP 地址。 建议在所有本地防火墙策略中允许此 IP 地址。 此特殊 IP 地址和资源之间的通信是安全的，因为只有内部 Azure 平台才能从此 IP 地址获得消息。 如果阻止此地址，可能会在各种场景中出现意外行为。
+公共 IP 地址 168.63.129.16 用于所有区域和国家/地区的所有云。 此特殊的公共 IP 地址由 Microsoft 拥有，并且将不会更改。 默认网络安全组规则允许此 IP 地址。 建议在所有本地防火墙策略中允许此 IP 地址。 此特殊 IP 地址和资源之间的通信是安全的，因为只有内部 Azure 平台才能从此 IP 地址获得消息。 如果阻止此地址，可能会在各种场景中出现意外行为。
 
-此外，可以要求流量从虚拟公共 IP 地址 168.63.129.16 流向为[负载均衡器运行状况探测](../load-balancer/load-balancer-custom-probe-overview.md)配置的终结点。 在非虚拟网络场景中，运行状况探测源自某个专用 IP。 
+[Azure 负载均衡器运行状况探测](../load-balancer/load-balancer-custom-probe-overview.md)源自此 IP 地址。 如果阻止此 IP 地址，则将探测会失败。
+
+在非虚拟网络方案中，运行状况探测源自某个专用 IP 和未使用 168.63.129.16。
 
 ## <a name="next-steps"></a>后续步骤
 

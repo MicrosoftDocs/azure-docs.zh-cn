@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922926"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507199"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -66,7 +66,7 @@ FunctionsProject
 
  Azure Functions 由触发器（例如 HTTP 请求、计时器或数据更新）进行调用。 函数需要处理该触发器和任何其他输入以生成一个或多个输出。
 
-使用 [ com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 包中附带的 Java 注释将输入和输出绑定到方法。 有关详细信息，请参阅 [Java 参考文档](/java/api/com.microsoft.azure.functions.annotation)。
+使用 [ com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 包中附带的 Java 注释将输入和输出绑定到方法。 有关详细信息，请参阅[Java 参考文档](/java/api/com.microsoft.azure.functions.annotation)。
 
 > [!IMPORTANT] 
 > 必须在 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) 中配置 Azure 存储帐户，才能本地运行 Azure 存储 Blob、队列或表触发器。
@@ -112,6 +112,37 @@ public class Function {
 从 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下载和使用[适用于 Azure 的 Azul Zulu Enterprise](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK，以进行本地 Java 函数应用开发。 将函数应用部署到云时，Azure Functions 使用 Azul Java 8 JDK 运行时。
 
 对于 JDK 和函数应用的问题，[Azure 支持](https://azure.microsoft.com/support/)可通过[限定的支持计划](https://azure.microsoft.com/support/plans/)获得。
+
+## <a name="customize-jvm"></a>自定义 JVM
+
+Functions 可自定义 Java 虚拟机 (JVM) 用于执行 Java 函数。 [以下 JVM 选项](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7)默认情况下使用：
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+您可以提供其他参数中的应用设置命名`JAVA_OPTS`。 可以将应用设置添加到函数应用部署到 Azure 中通过以下方法之一：
+
+### <a name="azure-portal"></a>Azure 门户
+
+在中[Azure 门户](https://portal.azure.com)，使用[应用程序设置选项卡](functions-how-to-use-azure-function-app-settings.md#settings)若要添加`JAVA_OPTS`设置。
+
+### <a name="azure-cli"></a>Azure CLI
+
+[Az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings)命令可以用于设置`JAVA_OPTS`，如下面的示例：
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+此示例将启用无外设模式。 替换`<APP_NAME>`function app 的名称和`<RESOURCE_GROUP> `与资源组。
+
+> [!WARNING]  
+> 在运行时[消耗计划](functions-scale.md#consumption-plan)，则必须添加`WEBSITE_USE_PLACEHOLDER`设置的值为`0`。  
+此设置也会增加 Java 函数的冷启动时间。
 
 ## <a name="third-party-libraries"></a>第三方库 
 
@@ -189,7 +220,7 @@ public class Function {
 - 以 `String` 的形式为参数 `inputReq` 传递 HTTP 请求有效负载
 - 从 Azure 表存储中检索一个项，并将其作为 `TestInputData` 传递给参数 `inputData`。
 
-若要接收一批输入，可以绑定到 `String[]`、`POJO[]`、`List<String>` 或 `List<POJO>`。
+若要接收一批的输入，可以将绑定到`String[]`， `POJO[]`， `List<String>`，或`List<POJO>`。
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ public class Function {
     }
 ```
 
-针对 HttpRequest 调用上述函数，并将多个值写入 Azure 队列
+此函数在 HttpRequest 上进行调用，并将多个值写入到 Azure 队列。
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 和 HttpResponseMessage
 
@@ -363,7 +394,7 @@ az webapp log tail --name webappname --resource-group myResourceGroup
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-运行此命令之前，必须已在 Azure 门户或 Azure CLI 中启用了文件系统日志记录。
+你必须启用了 Azure 门户或 Azure CLI 中运行此命令之前记录的文件系统。
 
 ## <a name="environment-variables"></a>环境变量
 

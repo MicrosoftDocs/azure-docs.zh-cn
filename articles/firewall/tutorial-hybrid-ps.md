@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051693"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144920"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教程：使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
 
@@ -61,9 +61,9 @@ ms.locfileid: "59051693"
 请参阅本教程的[创建路由](#create-the-routes)部分了解如何创建这些路由。
 
 >[!NOTE]
->Azure 防火墙必须具有直接的 Internet 连接。 默认情况下，AzureFirewallSubnet 只允许使用其 NextHopType 值设置为 Internet 的 UDR 0.0.0.0/0。
+>Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubnet 知道通过 BGP 的本地网络的默认路由，则必须将其替代为 0.0.0.0/0 UDR，将 NextHopType 值设置为 Internet 以保持 Internet 直接连接。 默认情况下，Azure 防火墙不支持强制的安全加密链路连接到本地网络。
 >
->如果已通过 ExpressRoute 或应用程序网关启用到本地的强制隧道，可能需要显式配置 UDR 0.0.0.0/0，并将 NextHopType 值设置为 Internet，然后将其与 AzureFirewallSubnet 关联。 如果组织需要 Azure 防火墙流量的强制隧道，请联系支持人员，以便我们将你的订阅列入允许列表，并确保保留所需的防火墙 Internet 连接。
+>但是，如果你的配置要求强制的安全加密链路连接到本地网络，Microsoft 将基于具体的情况提供支持。 请联系支持人员，以便我们可以查看你的情况。 如果接受，我们会将你的订阅添加到白名单，确保保持所需的防火墙 Internet 连接。
 
 >[!NOTE]
 >即使 UDR 指向作为默认网关的 Azure 防火墙，也会直接路由直接对等互连 VNet 之间的流量。 若要在此方案中将子网到子网流量发送到防火墙，UDR 必须在这两个子网上显式地包含目标子网网络前缀。
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-请求一个要分配到为虚拟网络创建的 VPN 网关的公共 IP 地址。 请注意，*AllocationMethod* 为 **Dynamic**（动态）。 无法指定要使用的 IP 地址。 该 IP 地址会动态分配到 VPN 网关。 
+请求一个要分配到为虚拟网络创建的 VPN 网关的公共 IP 地址。 请注意，*AllocationMethod* 为 **Dynamic**（动态）。 无法指定要使用的 IP 地址。 该 IP 地址会动态分配到 VPN 网关。
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-请求一个要分配到为虚拟网络创建的网关的公共 IP 地址。 请注意，*AllocationMethod* 为 **Dynamic**（动态）。 无法指定要使用的 IP 地址。 它动态分配到网关。 
+请求一个要分配到为虚拟网络创建的网关的公共 IP 地址。 请注意，*AllocationMethod* 为 **Dynamic**（动态）。 无法指定要使用的 IP 地址。 它动态分配到网关。
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `

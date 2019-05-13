@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928327"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441350"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Azure 数据资源管理器适用于 Apache Spark （预览版） 的连接器
 
@@ -200,7 +200,7 @@ Azure 数据资源管理器 Spark 连接器，可通过使用 Azure Active Direc
     display(df)
     ```
 
-1. 在读取大量数据时，必须提供临时 blob 存储。 提供存储容器 SAS 密钥，或存储帐户名称、 帐户密钥和容器名称。 
+1. 在读取大量数据时，必须提供临时 blob 存储。 提供存储容器 SAS 密钥，或存储帐户名称、 帐户密钥和容器名称。 此步骤只是所需的 Spark 连接器的当前预览版本。
 
     ```scala
     // Use either container/account-key/account name, or container SaS

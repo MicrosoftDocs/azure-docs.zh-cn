@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2793f64528baa2b9a84c671fc73bbe399e2387ea
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885027"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411618"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心将通知推送到 iOS 应用
 
@@ -40,7 +40,7 @@ ms.locfileid: "57885027"
 > * 发送测试推送通知
 > * 验证应用可以接收通知
 
-可以 [在 GitHub 上](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)找到本教程的已完成代码。 
+可以 [在 GitHub 上](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)找到本教程的已完成代码。 
 
 ## <a name="prerequisites"></a>先决条件
 

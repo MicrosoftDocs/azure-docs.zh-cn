@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925774"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142986"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>使用 Azure NetApp 文件的 SAP 应用程序的 SUSE Linux Enterprise Server 上的 Azure Vm 上的 SAP NetWeaver 的高可用性
 
@@ -99,6 +99,10 @@ ms.locfileid: "64925774"
 
 SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 数据库使用虚拟主机名和虚拟 IP 地址。 在 Azure 上，[负载均衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)需使用虚拟 IP 地址。 以下列表显示 (A)SCS 和 ERS 负载均衡器的配置。
 
+> [!IMPORTANT]
+> 多 SID 群集的 SAP ASCS/ERS 为 SUSE Linux Azure Vm 中的来宾操作系统原样**不支持**。 多 SID 群集描述多个具有一个 Pacemaker 群集中不同的 Sid 的 SAP ASCS/ERS 实例的安装
+
+
 ### <a name="ascs"></a>(A)SCS
 
 * 前端配置
@@ -125,6 +129,7 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP HANA 数据�
 * 探测端口
   * 端口 621&lt;nr&gt;
 * 负载均衡规则
+  * 32&lt;nr&gt; TCP
   * 33&lt;nr&gt; TCP
   * 5&lt;nr&gt;13 TCP
   * 5&lt;nr&gt;14 TCP
@@ -626,7 +631,7 @@ Azure NetApp 文件功能为多个 Azure 区域的公共预览版。 在部署�
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   如果您是从较旧版本进行升级并切换到排队服务器 2，请参阅 sap 说明[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
+   如果您是从较旧版本进行升级并切换到排队服务器 2，请参阅 SAP 注释[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
 
    请确保群集状态正常，并且所有资源都已启动。 资源在哪个节点上运行并不重要。
 

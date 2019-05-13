@@ -7,18 +7,17 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855684"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203356"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教程：使用 Azure Databricks 提取、转换和加载数据
 
-本教程使用 Azure Databricks 执行 ETL（提取、转换和加载数据）操作。 将数据从 Azure Data Lake Storage Gen2 提取到 Azure Databricks 中，在 Azure Databricks 中对数据运行转换操作，然后将转换的数据加载到 Azure SQL 数据仓库中。
+本教程使用 Azure Databricks 执行 ETL（提取、转换和加载数据）操作。 将数据从 Azure Data Lake Storage Gen2 提取到 Azure Databricks 中，在 Azure Databricks 中对数据运行转换操作，并将转换的数据加载到 Azure SQL 数据仓库中。
 
 本教程中的步骤使用 Azure Databricks 的 SQL 数据仓库连接器将数据传输到 Azure Databricks。 而此连接器又使用 Azure Blob 存储来临时存储在 Azure Databricks 群集和 Azure SQL 数据仓库之间传输的数据。
 
@@ -48,13 +47,13 @@ ms.locfileid: "57855684"
 
 在开始本教程之前，完成以下任务：
 
-* 以服务器管理员身份创建 Azure SQL 数据仓库、创建服务器级防火墙规则并连接到服务器。请参阅[快速入门：创建 Azure SQL 数据仓库](../sql-data-warehouse/create-data-warehouse-portal.md)。
+* 以服务器管理员身份创建 Azure SQL 数据仓库、创建服务器级防火墙规则并连接到服务器。请参阅[快速入门：在 Azure 门户中创建和查询 Azure SQL 数据仓库](../sql-data-warehouse/create-data-warehouse-portal.md)。
 
 * 为 Azure SQL 数据仓库创建数据库主密钥。 请参阅[创建数据库主密钥](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)。
 
-* 创建 Azure Blob 存储帐户并在其中创建容器。 另外，请检索用于访问该存储帐户的访问密钥。 请参阅[快速入门：创建 Azure Blob 存储帐户](../storage/blobs/storage-quickstart-blobs-portal.md)中的说明。
+* 创建 Azure Blob 存储帐户并在其中创建容器。 另外，请检索用于访问该存储帐户的访问密钥。 请参阅[快速入门：使用 Azure 门户上传、下载和列出 Blob](../storage/blobs/storage-quickstart-blobs-portal.md)。
 
-* 创建 Azure Data Lake Storage Gen2 存储帐户。 请参阅[创建 Azure Data Lake Storage Gen2 帐户](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
+* 创建 Azure Data Lake Storage Gen2 存储帐户。 请参阅[快速入门：创建 Azure Data Lake Storage Gen2 存储帐户](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
 
 *  创建服务主体。 请参阅[如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
@@ -355,6 +354,11 @@ ms.locfileid: "57855684"
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > 此示例使用 `forward_spark_azure_storage_credentials` 标志，该标志导致 SQL 数据仓库使用访问密钥访问 blob 存储中的数据。 这是唯一支持的身份验证方法。
+   >
+   > 如果将 Azure Blob 存储限制为选择虚拟网络，则 SQL 数据仓库需要[托管服务标识，而不是访问密钥](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)。 这将导致错误“此请求无权执行此操作”。
 
 6. 连接到 SQL 数据库，验证是否看到名为 **SampleTable** 的数据库。
 

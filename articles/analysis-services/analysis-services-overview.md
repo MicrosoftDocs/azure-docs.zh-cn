@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893123"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416014"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -200,7 +200,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 使用免费的[适用于 Visual Studio 的 SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) 开发和部署模型。 SSDT 包括适用于快速入门的 Analysis Services 项目模板。 SSDT 现在包括适用于表格 1400 模型的新式“获取数据”数据源查询和混合功能。 如果你熟悉 Power BI Desktop 和 Excel 2016 中的“获取数据”功能，则已知道创建高度自定义的数据源查询很容易。 
 
-如果使用 Visual Studio 2017，则会以免费可安装 VSIX 包的形式提供 Microsoft Analysis Services Projects。 [从市场下载](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)。
+如果使用的是 Visual Studio 2017 或更高版本，则会以免费可安装 VSIX 包的形式提供 Microsoft Analysis Services Projects。 [从市场下载](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)。
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

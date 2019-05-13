@@ -75,6 +75,7 @@ sections:
           - html: '（预览版）新的 Transact-SQL 语言功能，例如 <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT 聚合</a>和<a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">从 Azure Blob 存储进行批量导入</a>。'
           - html: '（预览版）新的 SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">生成</a>和重新生成 CLUSTERED COLUMNSTORE 索引操作。'
           - html: '（预览版）新 <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL 数据库机器学习服务（使用 R）</a>'
+          - html: '（预览版）新<a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">无服务器计算层</a>提供自动缩放计算和每秒使用的计算费用。'
   - title: 五分钟快速入门
     items:
       - type: paragraph

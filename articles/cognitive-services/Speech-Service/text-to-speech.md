@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460263"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020383"
 ---
 # <a name="what-is-text-to-speech"></a>文本到语音转换是什么？
 
@@ -32,7 +32,9 @@ Azure 语音服务从文本到语音转换为一个服务，使你的应用程�
 
 神经语音使用深层神经网络来克服中匹配模式的压力和声调和到计算机使用的语音合成语音的单位中口述语言的传统文本到语音转换系统的限制。 标准文本到语音转换将分解为单独的语言分析和由独立的模型管理的声学预测步骤诗体论。 这可以导致 muffled、 buzzy 语音合成。 我们神经功能执行诗体论预测和语音合成，这会导致更流畅和自然发音的语音。
 
-可以使用神经语音使与聊天机器人和虚拟助手的交流更加自然和专注、可将数字文本（如电子书）转换为有声读物以及可增强车载导航系统。 使用类似于人类的自然诗体论和明确的单词，神经语音显著减少侦听疲劳与 AI 系统进行交互时。 有关神经语音的详细信息，请参阅[支持的语言](language-support.md#text-to-speech)。
+可以使用神经语音使与聊天机器人和虚拟助手的交流更加自然和专注、可将数字文本（如电子书）转换为有声读物以及可增强车载导航系统。 使用类似于人类的自然诗体论和明确的单词，神经语音显著减少侦听疲劳与 AI 系统进行交互时。 
+
+神经语音支持不同的样式，如非特定和令人高兴。 例如，Jessa (EN-US) 语音可以说出 cheerfully，热、 高兴会话进行了优化。 可以调整语音输出，如音，间距，并使用[语音合成标记语言](speech-synthesis-markup.md)。 有关可用的声音的完整列表，请参阅[支持的语言](language-support.md#text-to-speech)。
 
 若要了解有关神经语音的优势的详细信息，请参阅[Microsoft 的新神经文本到语音转换服务可帮助与人一样说出计算机](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/)。
 

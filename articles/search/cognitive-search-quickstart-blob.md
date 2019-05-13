@@ -1,22 +1,22 @@
 ---
-title: 快速入门：在 Azure 门户中生成基于 AI 的索引 - Azure 搜索
+title: 快速入门：在 Azure 门户中生成 AI 扩充的索引 - Azure 搜索
 description: 使用 Azure 门户和示例数据，在 Azure 搜索索引门户中添加数据提取、自然语言和图像处理技能。
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265009"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022097"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>快速入门：使用认知技能和示例数据创建 AI 索引管道
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>快速入门：在 Azure 搜索中使用认知技能创建 AI 索引管道
 
 Azure 搜索与[认知服务](https://azure.microsoft.com/services/cognitive-services/)相集成，可将内容提取、自然语言处理 (NLP) 和图像处理技能添加到 Azure 搜索索引管道，使不可搜索或非结构化的内容具有更高的可搜索性。 
 
@@ -30,12 +30,12 @@ Azure 搜索与[认知服务](https://azure.microsoft.com/services/cognitive-ser
 > * 运行向导（实体技能将检测人员、地点和组织）
 > * 使用[**搜索浏览器**](search-explorer.md)查询扩充的数据
 
-本快速入门在免费服务中运行，但免费事务数目限制为每日 20 个文档。 若要在同一天多次运行本快速入门，请使用可以运行更多次的较小文件集。
+本快速入门在免费服务中运行，但免费事务数目限制为每日 20 个文档。 若要每天多次运行本快速入门，请使用较小文件集，这样就能运行更多次了。
 
 > [!NOTE]
-> 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要附加可计费的认知服务资源。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
+> 通过增大处理频率、添加更多文档或添加更多 AI 算法来扩大范围时，需要[附加可计费的认知服务资源](cognitive-search-attach-cognitive-services.md)。 调用认知服务中的 API，以及在 Azure 搜索中的文档破解阶段提取图像时，会产生费用。 提取文档中的文本不会产生费用。
 >
-> 内置技能的执行将按现有[认知服务即用即付价格](https://azure.microsoft.com/pricing/details/cognitive-services/)计费。 图像提取费用将按预览版定价计费，详见 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)。 了解[详细信息](cognitive-search-attach-cognitive-services.md)。
+> 内置技能执行按现有[认知服务即用即付价格](https://azure.microsoft.com/pricing/details/cognitive-services/)计费。 图像提取定价如 [Azure 搜索定价页](https://go.microsoft.com/fwlink/?linkid=2042400)所述。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 

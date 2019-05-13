@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761151"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506941"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -164,7 +164,7 @@ Node.js 应用在 **server.js** 文件中定义，该文件位于 Web 角色（�
 
 <!-- URL List -->
 
-[Azure 网站、云服务和虚拟机的比较]: ../app-service/overview-compare.md
+[Azure 网站、云服务和虚拟机的比较]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [使用轻型 Web 应用]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [用于 .NET 2.7 的 Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=48178

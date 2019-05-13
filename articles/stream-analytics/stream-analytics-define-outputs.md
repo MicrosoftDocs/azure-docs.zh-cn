@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926061"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205534"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文介绍可用于 Azure Stream Analytics 作业输出的类型。 输出可帮助存储和保存流分析作业的结果。 通过使用输出数据，您可以执行更多业务分析和数据仓库的数据。
@@ -53,7 +53,7 @@ ms.locfileid: "64926061"
 | 日期格式 | 可选。 如果在前缀路径中使用日期令牌，可以选择组织文件所采用的日期格式。 示例：YYYY/MM/DD |
 |时间格式 | 可选。 如果在前缀路径中使用时间令牌，可以指定组织文件所采用的时间格式。 目前唯一支持的值是 HH。 |
 | 事件序列化格式 | 输出数据的序列化格式。 支持 JSON、CSV 和 Avro。|
-| 编码 | 如果您使用 CSV 或 JSON 格式，则必须指定一种编码。 目前只支持 UTF-8 这种编码格式。|
+| 编码 | 如果您使用 CSV 或 JSON 格式，则必须指定一种编码。 目前，UTF-8 是仅受支持的编码格式。|
 | 分隔符 | 仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。|
 | 格式 | 仅适用于 JSON 序列化。 **分隔行**指定输出的格式由一个新行分隔各个 JSON 对象。 **数组**指定输出的格式为 JSON 对象的数组。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般情况下，最好使用分隔行 JSON，因为它不需要任何特殊处理，同时仍被写入输出文件。|
 
@@ -108,7 +108,7 @@ Azure Blob 存储提供了用于在云中存储大量非结构化数据的经济
 | 日期格式 | 可选。 如果在前缀路径中使用日期令牌，可以选择组织文件所采用的日期格式。 示例：YYYY/MM/DD |
 | 时间格式 | 可选。 如果在前缀路径中使用时间令牌，可以指定组织文件所采用的时间格式。 目前唯一支持的值是 HH。 |
 | 事件序列化格式 | 输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
-| 编码    | 如果您使用 CSV 或 JSON 格式，则必须指定一种编码。 目前只支持 UTF-8 这种编码格式。 |
+| 编码    | 如果您使用 CSV 或 JSON 格式，则必须指定一种编码。 目前，UTF-8 是仅受支持的编码格式。 |
 | 分隔符   | 仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
 | 格式      | 仅适用于 JSON 序列化。 **分隔行**指定输出的格式由一个新行分隔各个 JSON 对象。 **数组**指定输出的格式为 JSON 对象的数组。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般情况下，最好使用分隔行 JSON，因为它不需要任何特殊处理，同时仍被写入输出文件。 |
 
@@ -138,7 +138,7 @@ Azure Blob 存储提供了用于在云中存储大量非结构化数据的经济
 | 分区键列 | 可选。 包含事件中心输出的分区键的列。 |
 | 事件序列化格式 | 输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
 | 编码 | 对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
-| 分隔符 | 仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
+| 分隔符 | 仅适用于 CSV 序列化。 流分析支持一些常用分隔符，以便采用 CSV 格式序列化数据。 支持的值为逗号、分号、空格、制表符和竖线。 |
 | 格式 | 仅适用于 JSON 序列化。 **分隔行**指定输出的格式由一个新行分隔各个 JSON 对象。 **数组**指定输出的格式为 JSON 对象的数组。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般情况下，最好使用分隔行 JSON，因为它不需要任何特殊处理，同时仍被写入输出文件。 |
 | 属性列 | 可选。 需要附加为传出消息而不是有效负载的用户属性的逗号分隔的列。 有关此功能的详细信息位于部分[输出的自定义元数据属性](#custom-metadata-properties-for-output)。 |
 
@@ -189,7 +189,7 @@ Power BI 使用的先入先出 (FIFO) 保留策略。 数据将收集在表中�
 bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
-float | Double
+浮点数 | Double
 记录数组 | 字符串类型，常量值"IRecord"或"IArray"
 
 ### <a name="update-the-schema"></a>更新架构
@@ -216,7 +216,7 @@ datetime | String | String |  datetime | String
   ![续订 Power BI 授权以获得输出](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
 
 ## <a name="table-storage"></a>表存储
-[Azure 表存储](../storage/common/storage-introduction.md)提供了具有高可用性且可大规模缩放的存储，因此应用程序可以自动缩放以满足用户需求。 表存储是 Microsoft 的 NoSQL 键/属性存储，这可用于结构化数据的约束较少的架构。 Azure 表存储可用于持久地存储数据，方便进行高效的检索。
+[Azure 表存储](../storage/common/storage-introduction.md) 提供了具有高可用性且可大规模缩放的存储，因此应用程序可以自动缩放以满足用户需求。 表存储是 Microsoft 的 NoSQL 键/属性存储，这可用于结构化数据的约束较少的架构。 Azure 表存储可用于持久地存储数据，方便进行高效的检索。
 
 下表列出了属性名称和用于创建表输出及其说明。
 
@@ -228,7 +228,7 @@ datetime | String | String |  datetime | String
 | 表名称 |表的名称。 如果不存在，则会创建表。 |
 | 分区键 |包含分区键的输出列的名称。 分区键是构成实体主键的第一个部分的表中分区的唯一标识符。 它是可以为最多为 1 KB 大小的字符串值。 |
 | 行键 |包含行键的输出列的名称。 行键是实体在分区中的唯一标识符。 行键构成了实体主键的第二部分。 行键是可以为最多为 1 KB 大小的字符串值。 |
-| 批大小 |批处理操作的记录数。 默认值 (100) 对大部分作业来说都已足够。 请参阅[表批处理操作规范](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)有关修改此设置的详细信息。 |
+| 批大小 |批处理操作的记录数。 默认值 (100) 对大部分作业来说都已足够。 请参阅[表批处理操作规范](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation)有关修改此设置的详细信息。 |
 
 ## <a name="service-bus-queues"></a>服务总线队列
 [服务总线队列](https://msdn.microsoft.com/library/azure/hh367516.aspx)提供先进先出消息传递到一个或多个竞争使用者。 通常情况下，接收和处理添加到队列的临时顺序接收方的消息。 每个消息接收并处理由一个消息使用者。
@@ -244,7 +244,7 @@ datetime | String | String |  datetime | String
 | 队列策略密钥 |用于对服务总线命名空间的访问权限进行身份验证的共享访问密钥。 |
 | 事件序列化格式 |输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
 | 编码 |对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
-| 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
+| 分隔符 |仅适用于 CSV 序列化。 流分析支持一些常用分隔符，以便采用 CSV 格式序列化数据。 支持的值为逗号、分号、空格、制表符和竖线。 |
 | 格式 |仅适用于 JSON 类型。 **分隔行**指定输出的格式由一个新行分隔各个 JSON 对象。 **数组**指定输出的格式为 JSON 对象的数组。 |
 | 属性列 | 可选。 需要附加为传出消息而不是有效负载的用户属性的逗号分隔的列。 有关此功能的详细信息位于部分[输出的自定义元数据属性](#custom-metadata-properties-for-output)。 |
 
@@ -259,12 +259,12 @@ datetime | String | String |  datetime | String
 | --- | --- |
 | 输出别名 |在查询中用于将查询输出定向到此服务总线主题的友好名称。 |
 | 服务总线命名空间 |一组消息传递实体的容器。 创建新的事件中心后，还创建了 Service Bus 命名空间。 |
-| 主题名称 |主题是消息传送实体，类似于事件中心和队列。 它们旨在从设备和服务收集事件流。 创建主题时，它还具有提供特定的名称。 发送到主题的消息不可用，除非创建了订阅，因此请确保没有主题下的一个或多个订阅。 |
+| 主题名称 |主题是消息传递实体，类似于事件中心和队列。 它们旨在从设备和服务收集事件流。 创建主题时，它还具有提供特定的名称。 发送到主题的消息不可用，除非创建了订阅，因此请确保没有主题下的一个或多个订阅。 |
 | 主题策略名称 |时创建的主题，还可以在主题上创建共享的访问策略**配置**选项卡。每个共享访问策略具有名称、所设权限以及访问密钥。 |
 | 主题策略密钥 |用于对服务总线命名空间的访问权限进行身份验证的共享访问密钥。 |
 | 事件序列化格式 |输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
-| 编码 |如果您使用 CSV 或 JSON 格式，则必须指定一种编码。 目前只支持 UTF-8 这种编码格式。 |
-| 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
+| 编码 |如果您使用 CSV 或 JSON 格式，则必须指定一种编码。 目前，UTF-8 是仅受支持的编码格式。 |
+| 分隔符 |仅适用于 CSV 序列化。 流分析支持一些常用分隔符，以便采用 CSV 格式序列化数据。 支持的值为逗号、分号、空格、制表符和竖线。 |
 | 属性列 | 可选。 需要附加为传出消息而不是有效负载的用户属性的逗号分隔的列。 有关此功能的详细信息位于部分[输出的自定义元数据属性](#custom-metadata-properties-for-output)。 |
 
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
@@ -301,11 +301,11 @@ Azure 流分析通过 HTTP 触发器调用 Azure Functions。 Azure Functions �
 
 | 属性名称 | 描述 |
 | --- | --- |
-| 函数应用 |Azure Functions 应用的名称。 |
+| Function App |Azure Functions 应用的名称。 |
 | 函数 |Azure Functions 应用程序中函数的名称。 |
 | 密钥 |如果你想要使用另一个订阅中的 Azure Function，就可以做到通过提供该键来访问你的函数。 |
-| 最大批大小 |一个属性，它允许您设置到 Azure 函数发送每个输出批的最大大小。 输入单元以字节为单位。 默认情况下，此值为 262,144 字节 (256 KB)。 |
-| 最大批数  |允许您发送到 Azure Functions 的每个批次中指定的最大事件数属性。 默认值为 100。 |
+| 最大批处理大小 |一个属性，它允许您设置到 Azure 函数发送每个输出批的最大大小。 输入单元以字节为单位。 默认情况下，此值为 262,144 字节 (256 KB)。 |
+| 最大批处理计数  |允许您发送到 Azure Functions 的每个批次中指定的最大事件数属性。 默认值为 100。 |
 
 当 Azure Stream Analytics 收到 413 ("http 请求实体过大") 从一个 Azure 函数的异常，它可以减少发送到 Azure Functions 的批的大小。 在 Azure Function 代码中，使用此异常以确保 Azure 流分析不会发送过大的批。 此外，请确保该函数中使用的最大批处理计数和大小值与在 Stream Analytics 门户中输入的值一致。
 
@@ -336,16 +336,16 @@ Azure 流分析通过 HTTP 触发器调用 Azure Functions。 Azure Functions �
 
 | 输出类型 | 分区支持 | 分区键  | 输出写入器数目 |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | 是 | 使用 {date} 和 {time} 令牌在路径前缀模式。 选择日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用于时间格式。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-| Azure SQL 数据库 | 是 | 根据在查询中的 PARTITION BY 子句。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 若要了解有关实现的详细信息更好地写入吞吐量性能时将数据加载到 Azure SQL 数据库，请参阅[到 Azure SQL 数据库的 Azure Stream Analytics 输出](stream-analytics-sql-output-perf.md)。 |
-| Azure Blob 存储 | 是 | 使用 {date} 和 {time} 令牌在事件的字段中的路径模式。 选择日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用于时间格式。 可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-| Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。<br /> 当与上游 （上一个） 的查询步骤同样对齐事件中心输出的分区键时的编写器数是与事件中心输出中的分区数相同。 每个编写器使用[EventHubSender 类](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)将事件发送到特定分区。 <br /> 当事件中心输出的分区键与上游 （上一个） 的查询步骤不符时，编写器数是该前面的步骤中的分区数相同。 每个编写器使用[SendBatchAsync 类](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)中**EventHubClient**将事件发送到输出的所有分区。 |
-| Power BI | 否 | 无 | 不适用。 |
-| Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-| Azure 服务总线主题 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
-| Azure 服务总线队列 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出队列中的分区数量相同。 |
-| Azure Cosmos DB | 是 | 集合名称模式中使用 {partition} 标记。 {Partition} 值基于在查询中的 PARTITION BY 子句。 | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-| Azure Functions | 否 | 无 | 不适用。 |
+| Azure Data Lake Store | “是” | 使用 {date} 和 {time} 令牌在路径前缀模式。 选择日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用于时间格式。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure SQL 数据库 | “是” | 根据在查询中的 PARTITION BY 子句。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 若要了解有关实现的详细信息更好地写入吞吐量性能时将数据加载到 Azure SQL 数据库，请参阅[到 Azure SQL 数据库的 Azure Stream Analytics 输出](stream-analytics-sql-output-perf.md)。 |
+| Azure Blob 存储 | “是” | 使用 {date} 和 {time} 令牌在事件的字段中的路径模式。 选择日期格式，例如 YYYY/MM/DD、 DD/MM/YYYY 或 MM DD YYYY。 HH 用于时间格式。 可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure 事件中心 | “是” | “是” | 按分区对齐方式变化。<br /> 当与上游 （上一个） 的查询步骤同样对齐事件中心输出的分区键时的编写器数是与事件中心输出中的分区数相同。 每个编写器使用[EventHubSender 类](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)将事件发送到特定分区。 <br /> 当事件中心输出的分区键与上游 （上一个） 的查询步骤不符时，编写器数是该前面的步骤中的分区数相同。 每个编写器使用[SendBatchAsync 类](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)中**EventHubClient**将事件发送到输出的所有分区。 |
+| Power BI | “否” | 无 | 不适用。 |
+| Azure 表存储 | “是” | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure 服务总线主题 | “是” | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
+| Azure 服务总线队列 | “是” | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出队列中的分区数量相同。 |
+| Azure Cosmos DB | “是” | 集合名称模式中使用 {partition} 标记。 {Partition} 值基于在查询中的 PARTITION BY 子句。 | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure Functions | “否” | 无 | 不适用。 |
 
 如果输出适配器未分区，则一个输入分区中缺少数据将导致延迟最多可达延迟到达的时间量。 在这种情况下，输出合并到单个写入者，可能会在管道中造成瓶颈。 若要了解有关晚到策略的详细信息，请参阅[Azure Stream Analytics 事件顺序注意事项](stream-analytics-out-of-order-and-late-events.md)。
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870313"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142388"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Windows 虚拟桌面预览环境
 
@@ -63,5 +63,5 @@ Windows 虚拟桌面租户是用于管理 Windows 虚拟桌面环境的主要接
 
 若要了解如何连接到 Windows 虚拟桌面，请参阅以下文章之一：
 
-- [连接到 Windows 7 和 Windows 10 上的远程桌面客户端](connect-windows-7-and-10.md)
-- [连接到 Windows 虚拟桌面预览版 Web 客户端](connect-web.md)
+- [从 Windows 10 或 Windows 7 连接](connect-windows-7-and-10.md)
+- [从 web 浏览器连接](connect-web.md)

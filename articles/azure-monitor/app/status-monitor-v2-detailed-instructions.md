@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 62c7c6b2f78ea90999f72597291e8347ddc14029
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3aca64c7b0f1ad04967782cb3349da302db557a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870427"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145091"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>状态监视器 v2 的详细说明
 
@@ -229,3 +229,24 @@ Application Insights SDK 将需要将应用程序的遥测数据发送给 Micros
 Cmd: `Enable-ApplicationInsightsMonitoring`
 
 查看我们[API 参考](status-monitor-v2-api-enable-monitoring.md)有关如何使用此 cmdlet 的详细说明。 
+
+
+
+## <a name="next-steps"></a>后续步骤
+
+ 查看遥测：
+
+- [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
+- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)来诊断问题
+- [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
+- [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
+
+ 添加更多遥测：
+
+- [创建 web 测试](monitor-web-app-availability.md)以确保你的站点保持活动状态。
+- [添加 web 客户端遥测](../../azure-monitor/app/javascript.md)，查看网页代码中的异常，并将其插入跟踪调用。
+- [将 Application Insights SDK 添加到你的代码](../../azure-monitor/app/asp-net.md)，以便您可以插入跟踪和日志调用
+
+用做更多状态监视器 v2:
+
+- 使用指南，了解如何[疑难解答](status-monitor-v2-troubleshoot.md)状态监视器 v2。

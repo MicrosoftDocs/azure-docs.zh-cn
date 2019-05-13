@@ -67,7 +67,7 @@
     - name: 计费和订阅
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: 宿主比较
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: 什么是应用服务？
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: 虚拟机

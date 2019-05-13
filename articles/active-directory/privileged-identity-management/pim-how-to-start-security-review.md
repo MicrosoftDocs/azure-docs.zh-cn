@@ -1,6 +1,6 @@
 ---
-title: 在 PIM 的 Azure Active Directory 中启动 Azure AD 角色的访问评审 |Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中启动 Azure AD 角色的访问评审。
+title: 在 PIM 的 Azure Active Directory 中创建 Azure AD 角色的访问评审 |Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中创建 Azure AD 角色的访问评审。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,76 +10,65 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/21/2018
+ms.date: 04/27/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0680ddf2c9e654455933bf09699ab81e8ab65d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437934"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141837"
 ---
-# <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>在 PIM 中启动 Azure AD 角色的访问评审
-当用户有不再需要的特权访问时，角色分配将变为“过时”。 为了降低与这些过时角色分配相关联的风险，特权角色管理员或全局管理员应定期创建访问评审来让管理员审阅用户的已分配角色。 本文档介绍用于启动访问评审在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 的步骤。
+# <a name="create-an-access-review-of-azure-ad-roles-in-pim"></a>在 PIM 中创建 Azure AD 角色的访问评审
 
-## <a name="start-an-access-review"></a>开始访问审阅
-> [!NOTE]
-> 如果尚未在 Azure 门户中向仪表板添加 PIM 应用程序，请参阅 [Azure Privileged Identity Management 入门](pim-getting-started.md)中的步骤
-> 
-> 
+访问特权随着时间的推移员工更改的 Azure AD 角色。 若要减少与过时角色分配相关的风险，应定期评审访问权限。 可以使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 来创建访问评审，以便 Azure AD 角色的特权。 此外可以配置会自动执行的定期访问评审。
 
-从 PIM 应用程序主页面中，可通过三种方式开始访问审阅：
+本文介绍如何为 Azure AD 角色的特权创建一个或多个访问评审。
 
-* “访问审阅” > “添加”
-* “角色” > “审阅”按钮
-* 从角色列表中选择要审阅的特定角色，然后选择“审阅”按钮
+## <a name="prerequisites"></a>必备组件
 
-单击“审阅”按钮时，会显示“开始访问审阅边栏选项卡。 在此边栏选项卡上，将使用某个名称在限制时间内配置审阅、选择要审阅的角色，并确定谁将执行审阅。
+- [特权角色管理员](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-![开始访问审阅 - 屏幕截图](./media/pim-how-to-start-security-review/PIM_start_review.png)
+## <a name="open-access-reviews"></a>打开访问评审
 
-### <a name="configure-the-review"></a>配置审阅
-要创建访问审阅，需要为其命名并设置开始日期和结束日期。
+1. 登录到[Azure 门户](https://portal.azure.com/)与用户特权角色管理员角色的成员。
 
-![配置审阅 - 屏幕截图](./media/pim-how-to-start-security-review/PIM_review_configure.png)
+1. 打开“Azure AD Privileged Identity Management”。
 
-设置足够长的审阅时间，以便用户完成审阅。 如果要在结束日期之前完成，始终可以提前停止该审阅。
+1. 在左侧菜单中，单击**Azure AD 角色**，然后单击**访问评审**。
 
-### <a name="choose-a-role-to-review"></a>选择要审阅的角色
-每个审阅仅关注一个角色。 除非已从特定角色边栏选项卡开始访问审阅，否则此时需要选择一个角色。
+1. 管理下，单击**访问评审**。
 
-1. 导航到**审阅角色成员身份**
-   
-    ![审阅角色成员身份 - 屏幕截图](./media/pim-how-to-start-security-review/PIM_review_role.png)
-2. 从列表中选择一个角色。
+    ![Azure AD 角色的访问评审](./media/pim-how-to-start-security-review/access-reviews.png)
 
-### <a name="decide-who-will-perform-the-review"></a>确定谁将执行审阅
-有三个选项用于执行审阅。 可以将审阅分配给其他人完成、自行执行，也可以让每个用户审阅自己的访问。
 
-1. 导航到**选择审阅者**
-   
-    ![选择审阅者 - 屏幕快照](./media/pim-how-to-start-security-review/PIM_review_reviewers.png)
-2. 选择以下选项之一：
-   
-   * **选择评审者**：如果不知道谁需要访问，请使用此选项。 使用此选项，可以将审阅分配给资源所有者或组管理员完成。
-   * **我**：如果想要预览访问评审的工作原理，或者想要代表无法执行此操作的用户进行评审，此选项很有用。
-   * **成员自我评审**：使用此选项让用户评审自己的角色分配。
+[!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
 
-### <a name="start-the-review"></a>开始审阅
-最后，如果用户批准其访问，可以选择要求他们提供原因。 添加审阅的描述（如果愿意）并选择“开始”。
 
-确保让用户知道他们有一个等待中的访问审阅，并向他们显示[如何执行访问审阅](pim-how-to-perform-security-review.md)。
+## <a name="start-the-access-review"></a>启动访问评审
+
+指定访问评审的设置后，单击“启动”。 访问评审会在其状态指示符列表中显示。
+
+![访问评审列表](./media/pim-how-to-start-security-review/access-reviews-list.png)
+
+默认情况下，在评审开始后不久，Azure AD 会向评审者发送一封电子邮件。 如果选择不让 Azure AD 发送电子邮件，请务必通知评审者有一个访问评审任务等待他们完成。 说明如何显示[评审到 Azure AD 角色的访问权限](pim-how-to-perform-security-review.md)。
 
 ## <a name="manage-the-access-review"></a>管理访问审阅
-当审阅者在 Azure AD PIM 仪表板中完成其审阅时，可以在访问审阅部分中跟踪进度。 在[审阅完成](pim-how-to-complete-review.md)之前，目录中的任何访问权限都不会更改。
 
-在审阅期限结束之前，都可以提醒用户完成其审阅，或者从访问审阅部分提前结束审阅。
+你可以跟踪进度，当评审者在完成其审阅**概述**访问评审页。 没有访问权限更改之前，目录中[评审完成](pim-how-to-complete-review.md)。
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+![访问评审进度](./media/pim-how-to-start-security-review/access-review-overview.png)
+
+如果这是一次性的评审，然后访问评审期限结束后，或者管理员停止访问评审后请按照中的步骤[完成 Azure AD 角色的访问评审](pim-how-to-complete-review.md)查看并应用结果。  
+
+若要管理一系列访问评审会议中，导航到访问评审，并你将找到计划评审中即将推出的匹配项和编辑的结束日期或添加/删除审阅者相应地。
+
+基于所选内容中**完成设置后**，自动应用将审阅的结束日期或手动停止评审后执行。 此评审的状态将更改从**已完成**通过中间状态，如**应用**，最后到状态**应用**。 你应该会看到被拒绝的用户，如果有的话，在几分钟内从角色中删除。
+
 ## <a name="next-steps"></a>后续步骤
 
-- [完成访问评审在 PIM 中的 Azure AD 角色](pim-how-to-complete-review.md)
-- [在 PIM 中执行我的 Azure AD 角色的访问评审](pim-how-to-perform-security-review.md)
-- [在 PIM 中启动 Azure 资源角色的访问评审](pim-resource-roles-start-access-review.md)
+- [评审到 Azure AD 角色的访问权限](pim-how-to-perform-security-review.md)
+- [完成 Azure AD 角色的访问评审](pim-how-to-complete-review.md)
+- [创建 Azure 资源角色的访问评审](pim-resource-roles-start-access-review.md)

@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: 本快速入门介绍如何使用 Azure 门户创建虚拟网络。 虚拟网络能让 Azure 资源（例如虚拟机）彼此之间私下通信以及与 Internet 进行通信。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
-ms.author: jdial
-ms.openlocfilehash: 346299dff8354bfca56a1f348c8f66e90da89632
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.author: kumud
+ms.openlocfilehash: 995bc8e7b2eb4e9160b2b625067f20324df2cbfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020823"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717014"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
@@ -47,7 +47,7 @@ ms.locfileid: "54020823"
     | 子网 - 名称 | 输入 myVirtualSubnet。 |
     | 子网 - 地址范围 | 输入 10.1.0.0/24。 |
 
-1. 将剩余的字段保留默认设置，然后选择“创建”。
+1. 将剩余的字段保留默认设置，然后选择 **“创建”** 。
 
 ## <a name="create-virtual-machines"></a>创建虚拟机
 
@@ -79,9 +79,9 @@ ms.locfileid: "54020823"
     | **节省资金** |  |
     | 已有 Windows 许可证？ | 保留默认值“否”。 |
 
-1. 选择“下一步:磁盘”。
+1. 选择“下一步:**磁盘”**。
 
-1. 在“创建虚拟机 - 磁盘”中，保留默认设置，然后选择“下一步:网络”。
+1. 在“创建虚拟机 - 磁盘”中，保留默认设置，然后选择“下一步:网络”**。
 
 1. 在“创建虚拟机 - 基本信息”中，选择以下信息：
 
@@ -93,7 +93,7 @@ ms.locfileid: "54020823"
     | 网络安全端口 | 选择“允许所选端口”。 |
     | 选择入站端口 | 选择 HTTP 和 RDP。
 
-1. 选择“下一步:管理”。
+1. **选择“下一步:管理”**。
 
 1. 在“创建虚拟机 - 管理”中，为“诊断存储帐户”选择“新建”。
 

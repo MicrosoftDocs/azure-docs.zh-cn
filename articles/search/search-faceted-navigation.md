@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924584"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023961"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜索中实现分面导航
 分面导航是一种筛选机制，用于在搜索应用程序中提供自定向的深化导航。 术语“分面导航”可能让人觉得陌生，但我们以前也许用过它。 如以下示例所示，分面导航就是用于筛选结果的类别。
 
  ![Azure 搜索作业门户演示][1]
 
-分面导航是一个备用的搜索入口点。 它可以方便地替代手动键入复杂的搜索表达式。 分面可帮助你查找所需的内容，同时确保获取相关结果。 作为开发人员，分面允许公开用于导航搜索库的最有用的搜索条件。 在在线零售应用程序中，分面导航通常基于品牌、分类（童鞋）、尺寸、价格、受欢迎程度和评级生成。 
+分面导航是一个备用的搜索入口点。 它可以方便地替代手动键入复杂的搜索表达式。 分面可帮助你查找所需的内容，同时确保获取相关结果。 作为开发人员，分面允许公开用于导航搜索索引的最有用的搜索条件。 在在线零售应用程序中，分面导航通常基于品牌、分类（童鞋）、尺寸、价格、受欢迎程度和评级生成。 
 
 搜索技术不同，分面导航的实现也不同。 在 Azure 搜索中，分面导航在查询时生成，使用之前在架构中特性化的字段。
 

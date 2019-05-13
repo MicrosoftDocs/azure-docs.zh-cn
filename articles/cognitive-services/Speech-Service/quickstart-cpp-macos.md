@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: wolfma
-ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 86ad938cd3d248ad907b3143342b0acf9ff15631
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012346"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236842"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>快速入门：在 macOS 上使用语音 SDK 通过 C++ 识别语音
 
@@ -31,7 +31,7 @@ ms.locfileid: "59012346"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-认知服务语音 SDK 的当前版本是 `1.4.0`。
+认知服务语音 SDK 的当前版本是 `1.5.0`。
 
 适用于 macOS 的语音 SDK 可以作为压缩框架包从 https://aka.ms/csspeech/macosbinary 下载。
 
@@ -82,7 +82,7 @@ ms.locfileid: "59012346"
 * 运行以下命令以生成应用程序。
 
   ```sh
-  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
+  g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## <a name="run-the-app"></a>运行应用

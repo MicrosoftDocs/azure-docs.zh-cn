@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497020"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148847"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 AKS 群集性能 
 借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度（直接从 AKS 群集查看，或是从 Azure Monitor 查看订阅中的所有 AKS 群集）查看 Azure Kubernetes 服务 (AKS) 群集的工作负载。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例 (ACI)。
@@ -27,7 +27,19 @@ ms.locfileid: "60497020"
 
 若要了解如何启用适用于容器的 Azure Monitor，请参阅[载入适用于容器的 Azure Monitor](container-insights-onboard.md)。
 
-Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署的所有受监视 AKS 群集的运行状况。  它显示发现的不受解决方案监视的 AKS 群集。 可以即时了解群集运行状况，并且可以从这里向下钻取到节点和控制器性能页，或者进行导航来查看群集的性能图表。  对于发现的标识为“不受监视”的 AKS 群集，可以随时为该群集启用监视功能。  
+> [!IMPORTANT]
+> 容器支持的 azure 监视器来监视运行 Windows Server 2019 的 AKS 群集当前处于公共预览状态。
+> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Microsoft Azure 预览版补充使用条款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+
+Azure Monitor 提供了一个多群集视图，显示所有受监视 AKS 群集中运行 Linux 和 Windows Server 2019 部署你的订阅中跨资源组的运行状况状态。  它显示发现的不受解决方案监视的 AKS 群集。 可以即时了解群集运行状况，并且可以从这里向下钻取到节点和控制器性能页，或者进行导航来查看群集的性能图表。  对于发现的标识为“不受监视”的 AKS 群集，可以随时为该群集启用监视功能。  
+
+使用 Azure Monitor for 相比 Linux 群集的容器监视 Windows Server 群集的主要差异如下所示：
+
+- 内存 RSS 跃点数不能用于 Windows 节点和容器 
+- 磁盘存储容量信息不是可用于 Windows 节点
+- 除了 Windows 容器日志提供了实时日志支持。
+- 仅监视环境的 pod，不 Docker 环境。
+- 预览版本中，支持最多为 30 的 Windows Server 容器。 此限制不适用于 Linux 容器。  
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 登录到 [Azure 门户](https://portal.azure.com)。 
@@ -35,7 +47,7 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 ## <a name="multi-cluster-view-from-azure-monitor"></a>从 Azure Monitor 获得的多群集视图 
 若要查看已部署的所有 AKS 群集的运行状况，请在 Azure 门户的左窗格中选择“监视”。  在“见解”部分，选择“容器”。  
 
-![Azure Monitor 多群集仪表板示例](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure Monitor 多群集仪表板示例](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 在“受监视的群集”选项卡上，可以了解以下情况：
 
@@ -101,10 +113,10 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 
 可以使用向左键/向右键循环浏览图表上的每个数据点，使用向上键/向下键循环显示百分位线。
 
-用于容器的 azure Monitor 还支持 Azure Monitor[指标资源管理器](../platform/metrics-getting-started.md)，可以创建您自己绘图图表，关联和调查趋势，并位置固定到仪表板。 从指标资源管理器，您还可以使用已设置为用作的基础可视化你的度量值的条件[基于指标的警报规则](../platform/alerts-metric.md)。  
+用于容器的 azure Monitor 还支持 Azure Monitor[指标资源管理器](../platform/metrics-getting-started.md)，可以创建您自己绘图图表，关联和调查趋势，并位置固定到仪表板。 在指标资源管理器中，还可以使用所设置的条件将指标可视化为[基于指标的警报规则](../platform/alerts-metric.md)的基础。  
 
-## <a name="view-container-metrics-in-metrics-explorer"></a>查看容器指标在指标资源管理器
-在指标资源管理器，可以查看聚合的节点和 pod 利用率指标通过 Azure Monitor 的容器。 下表总结了用于帮助你了解如何使用指标的图表来可视化容器指标的详细信息。
+## <a name="view-container-metrics-in-metrics-explorer"></a>在指标资源管理器中查看容器指标
+在指标资源管理器中，可以通过适用于容器的 Azure Monitor 查看聚合的节点和 Pod 利用率指标。 下表汇总了详细信息，这些信息有助于你了解如何使用指标图表来可视化容器指标。
 
 |命名空间 | 指标 |
 |----------|--------|
@@ -119,20 +131,20 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 | insights.container/pods | |
 | | PodCount |
 
-您可以将应用[拆分](../platform/metrics-charts.md#apply-splitting-to-a-chart)的度量值以查看通过维度和可视化不同部分与其他进行比较。 对于节点，您可以将图表分段通过*主机*维度，并从 pod 可将其划分按以下维度：
+可以应用指标[拆分](../platform/metrics-charts.md#apply-splitting-to-a-chart)，以便按维度来查看它，并以可视化方式表现其片段相互之间的不同之处。 对于节点，可以按“主机”维度将图表分段，并可在 Pod 中按以下维度将其分段：
 
 * 控制器
 * Kubernetes 命名空间
 * 节点
 * 阶段
 
-## <a name="analyze-nodes-controllers-and-container-health"></a>分析节点、 控制器和容器运行状况
+## <a name="analyze-nodes-controllers-and-container-health"></a>分析节点、控制器和容器运行状况
 
-切换到“节点”、“控制器”和“容器”选项卡时，页面右侧会自动显示“属性”窗格。  它显示的属性的项选择，包括定义来组织 Kubernetes 对象的标签。 单击窗格中的 >> 链接以查看\隐藏窗格。  
+切换到“节点”、“控制器”和“容器”选项卡时，页面右侧会自动显示“属性”窗格。 它显示所选项的属性，包括定义用于组织 Kubernetes 对象的标签。 选择在 Linux 节点后，它还演示了部分下**本地磁盘容量**可用磁盘空间和用于向节点显示每个磁盘的百分比。 单击窗格中的 >> 链接以查看\隐藏窗格。 
 
 ![示例 Kubernetes 透视属性窗格](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-在层次结构中展开对象时，属性窗格将根据所选对象进行更新。 在窗格中，还可通过单击窗格顶部的“查看 Kubernetes 事件日志”链接，查看具有预定义日志搜索的 Kubernetes 事件。 有关查看 Kubernetes 日志数据的详细信息，请参阅[搜索日志以分析数据](container-insights-log-search.md)。 在“容器”视图中检查容器时，可以实时查看容器日志。 有关此功能以及授予和控制访问权限所需的配置的详细信息，请参阅[如何使用适用于容器的 Azure Monitor 实时查看日志](container-insights-live-logs.md)。 
+在层次结构中展开对象时，属性窗格将根据所选对象进行更新。 在窗格中，还可通过单击窗格顶部的“查看 Kubernetes 事件日志”链接，查看具有预定义日志搜索的 Kubernetes 事件。 有关查看 Kubernetes 日志数据的详细信息，请参阅[搜索日志以分析数据](container-insights-log-search.md)。 时您正在查看群集资源，可以查看容器日志和实时事件。 有关此功能，来授予和控制访问所需的配置详细信息，请参阅[如何查看容器中的与 Azure Monitor 日志实时](container-insights-live-logs.md)。 
 
 使用 **+ 添加筛选器**从页面顶部的选项以筛选的视图的结果**服务**，**节点**， **Namespace**，或**节点池**并选择筛选器作用域后, 您从选择中显示的值之一**选择值**字段。  筛选器在配置后会在用户查看任何视角的 AKS 群集时进行全局应用。  公式只支持等号。  可以在第一个筛选器的基础上添加更多的筛选器，进一步缩小结果范围。  例如，如果指定了一个按“节点”筛选的筛选器，则第二个筛选器只能选择“服务”或“命名空间”。  
 
@@ -143,6 +155,10 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 切换到“节点”选项卡，行层次结构遵循以群集节点开头的 Kubernetes 对象模型。 展开节点即可查看在节点上运行的一个或多个 Pod。 如果将多个容器分组到 Pod 中，它们将在层次结构中的最后一行显示。 还可查看有多少非 Pod 相关工作负荷在主机上运行（如果主机有处理器或内存使用压力）。
 
 ![性能视图中的示例 Kubernetes 节点层次结构](./media/container-insights-analyze/containers-nodes-view.png)
+
+后面的所有基于 Linux 的节点列表中显示了运行 Windows Server 2019 操作系统的 Windows Server 容器。 当您展开 Windows Server 节点时，可以查看一个或多个 pod 和在节点上运行的容器。 选中一个节点后，属性窗格将显示版本信息，因为 Windows Server 节点不具有安装了代理，不包括的代理信息。  
+
+![示例使用列出的 Windows Server 节点的节点层次结构](./media/container-insights-analyze/nodes-view-windows.png) 
 
 运行 Linux 操作系统的 Azure 容器实例虚拟节点显示在列表中最后一个 AKS 群集节点之后。  展开 ACI 虚拟节点时，可以查看在节点上运行的一个或多个 ACI Pod 和容器。  不会为节点（只为 Pod）收集和报告指标。
 
@@ -161,7 +177,7 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 
 当鼠标悬停在“趋势”列下的条形图上方时，每一条都显示 15 分钟示例期间内的 CPU 或内存使用情况（具体取决于所选指标）。 通过键盘选择趋势图后，可以使用 Alt + PageUp 或 Alt + PageDown 键单独循环浏览每一条，并获得与鼠标悬停操作相同的详细信息。
 
-![栏示例悬停在图表的趋势](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![“趋势”条形图悬停示例](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 在下一个示例中，请注意列表中的第一项 - 节点 aks-nodepool1-，其“容器”的值为 9，表示部署的容器汇总总数。
 

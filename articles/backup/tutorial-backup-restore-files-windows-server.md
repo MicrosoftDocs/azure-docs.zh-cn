@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 2/14/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b01811d9c933802263e975b23b5d40cd77303766
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60722853"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>将文件从 Azure 恢复到 Windows Server
 

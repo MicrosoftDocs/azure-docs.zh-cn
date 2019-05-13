@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 04/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c7031e54c354392379fee83dbf2a777ba726c5e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34f02b1d72f08ef5da6b8a5740243b6e557bfb4a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777329"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138130"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 
@@ -31,16 +31,18 @@ ms.locfileid: "60777329"
 * 手动安装。 可以使用安装向导通过命令行在计算机上手动运行安装程序，也可以使用现有软件分发工具进行部署。
 * Azure 自动化 Desired State Configuration (DSC)。 配合使用 Azure 自动化中的 DSC 以及已部署在环境中的 Windows 计算机的脚本。  
 * PowerShell 脚本。
-* 适用于在 Azure Stack 中运行 Windows 本地环境的虚拟机的资源管理器模板。  
+* 适用于在 Azure Stack 中运行 Windows 本地环境的虚拟机的资源管理器模板。 
 
 >[!NOTE]
 >Azure 安全中心 (ASC) 取决于 Microsoft Monitoring Agent （也称为 Log Analytics Windows 代理） 和将安装并将其配置为作为其部署的一部分的 Log Analytics 工作区报告。 ASC 包括启用了你的订阅中的所有 Vm 上的 Log Analytics Windows 代理的自动安装，并将其配置为向特定的工作区报告的自动预配选项。 有关此选项的详细信息，请参阅[启用 Log Analytics 代理的自动预配](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-microsoft-monitoring-agent-)。
 >
 
+如果需要配置代理向多个工作区报告，这不能在执行初始设置，如中所述仅之后通过更新从控制面板或 PowerShell 设置[添加或删除工作区](agent-manage.md#adding-or-removing-a-workspace).  
+
 若要了解支持的配置，请查看[支持的 Windows 操作系统](log-analytics-agent.md#supported-windows-operating-systems)和[网络防火墙配置](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>获取工作区 ID 和密钥
-在安装适用于 Windows 的 Log Analytics 代理前，需要先获得 Log Analytics 工作区的工作区 ID 和秘钥。  在每种安装方法来正确配备代理，并确保它可以与 Azure Monitor 中 Azure 商业版和美国政府版云成功通信的安装过程中，此信息是必需的。  
+在安装适用于 Windows 的 Log Analytics 代理前，需要先获得 Log Analytics 工作区的工作区 ID 和秘钥。  在每种安装方法来正确配备代理，并确保它可以与 Azure Monitor 中 Azure 商业版和美国政府版云成功通信的安装过程中，此信息是必需的。 
 
 1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“Log Analytics”。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”。
 2. 在 Log Analytics 工作区列表中，选择要将代理配置为向其报告的工作区。

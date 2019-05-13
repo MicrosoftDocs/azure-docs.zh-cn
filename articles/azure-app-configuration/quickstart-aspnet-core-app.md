@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995925"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408681"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入门：使用 Azure 应用配置创建 ASP.NET Core 应用
 
@@ -28,6 +28,8 @@ Azure 应用配置是 Azure 中的托管配置服务。 借助它，无需代码
 ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，生成基于键值的单个配置对象。 这些数据源称为配置提供程序。 由于应用程序配置的 .NET Core 客户端作为此类提供程序实现，因此服务就像是另一个数据源。
 
 你可使用任意代码编辑器来执行该快速入门中的步骤。 [Visual Studio Code](https://code.visualstudio.com/) 是 Windows、macOS 和 Linux 平台上提供的一个卓越选项。
+
+![本地启动应用快速入门](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -39,7 +41,7 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. 选择“键/值资源管理器” > “+创建”来添加以下键值对：
+6. 选择“配置资源管理器” > “+创建”来添加以下键值对：
 
     | 密钥 | 值 |
     |---|---|
@@ -64,7 +66,7 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
 
 向项目添加[机密管理器工具](https://docs.microsoft.com/aspnet/core/security/app-secrets)。 机密管理器工具存储敏感数据，以便用于项目树之外的开发工作。 此方法有助于防止意外共享源代码中的应用密码。
 
-- 打开 .csproj 文件。 如下所示，添加 `UserSecretsId` 元素，将其值替换为你自己的值（通常为 GUID）。 保存文件。
+- 打开 *.csproj* 文件。 如下所示，添加 `UserSecretsId` 元素，将其值替换为你自己的值（通常为 GUID）。 保存文件。
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -86,7 +88,7 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
 
 1. 通过运行以下命令，添加对 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 包的引用：
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. 运行以下命令，还原项目包：
 
@@ -100,11 +102,11 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    机密管理器仅用于本地测试 web 应用程序。 应用部署（例如部署到 [Azure 应用服务](https://azure.microsoft.com/services/app-service/web)）后，你将使用应用程序设置（例如应用服务中的连接字符串）。 使用此设置，而不使用机密管理器存储连接字符串。
+    机密管理器仅用于本地测试 web 应用程序。 例如，将应用部署到 [Azure 应用服务](https://azure.microsoft.com/services/app-service/web)后，可以使用应用服务中的“连接字符串”设置，而无需使用机密管理器来存储连接字符串。
 
     此机密使用配置 API 进行访问。 在所有支持的平台上，冒号 (:) 可以在配置 API 的配置名称中使用。 请参阅[按环境进行的配置](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。
 
-4. 打开 *Program.cs*，并添加对应用程序配置 .NET Core 配置提供程序的引用。
+4. 打开 *Program.cs*，并添加对 .NET Core 应用程序配置提供程序的引用。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -118,15 +120,12 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. 在“视图”>“主页”目录中打开 Index.cshtml，并将其内容替换以下代码：
+6. 在“视图”>“主页”目录中打开 *Index.cshtml*，并将其内容替换以下代码：
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -152,7 +151,7 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
     </html>
     ```
 
-7. 在“视图”>“共享”目录中打开 _Layout.cshtml，并将其内容替换以下代码：
+7. 在“视图”>“共享”目录中打开 *_Layout.cshtml*，并将其内容替换以下代码：
 
     ```html
     <!DOCTYPE html>
@@ -190,8 +189,6 @@ ASP.NET Core 使用由应用程序指定的一个或多个数据源的设置，�
         dotnet run
 
 3. 启动浏览器窗口并转到 `http://localhost:5000`，即本地托管的 Web 应用的默认 URL。
-
-    ![本地启动应用快速入门](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

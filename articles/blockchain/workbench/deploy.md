@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 5f488811e57ee20cb25db56b2d9e04202b17ffb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fffc54428b152a060594a5c107d3ac08457aaaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154679"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -27,16 +27,16 @@ Azure Blockchain Workbench 是使用 Azure 市场中的解决方案模板部署�
 
 使用 Blockchain Workbench，可部署区块链账本以及最常用于构建基于区块链的应用程序的一组相关 Azure 服务。 部署 Blockchain Workbench 会导致在 Azure 订阅的资源组内预配以下 Azure 服务。
 
-* 1 个事件网格主题
-* 1 个服务总线命名空间
-* 1 个 Application Insights
-* 1 个 SQL 数据库（标准 S0）
-* 2 个应用程序服务（标准）
-* 2 个 Azure Key Vault
-* 2 个 Azure 存储帐户（标准 LRS）
-* 2 个虚拟机规模集（用于验证程序和工作节点）
-* 2 个虚拟网络（每个虚拟网络包括负载均衡器、网络安全组和公共 IP 地址）
-* 可选：Azure Monitor
+* 应用服务计划 （标准）
+* Application Insights
+* 事件网格
+* Azure 密钥保管库
+* 服务总线
+* SQL 数据库 (标准 S0) + SQL 逻辑服务器
+* Azure 存储帐户 (标准 LRS)
+* 虚拟机规模集容量为 1
+* 虚拟网络资源组 （具有负载均衡器、 网络安全组，公共 IP 地址，虚拟网络）
+* 可选：Azure 区块链服务 （Basic B0 默认值）
 
 以下是在 **myblockchain** 资源组中创建的示例部署。
 
@@ -44,17 +44,12 @@ Azure Blockchain Workbench 是使用 Azure 市场中的解决方案模板部署�
 
 Blockchain Workbench 的成本是基础 Azure 服务成本的总和。 Azure 服务的定价信息可以使用[定价计算器](https://azure.microsoft.com/pricing/calculator/)进行计算。
 
-> [!IMPORTANT]
-> 如果使用具有较低服务限制的订阅（如 Azure 免费层订阅），则部署可能会由于 VM 内核配额不足而失败。 在部署之前，使用[虚拟机 vCPU 配额](../../virtual-machines/windows/quotas.md)一文中的指导检查配额。 默认 VM 选择需要 6 个 VM 内核。 更改为较小的 VM（如标准 DS1 v2）会将内核数减少到 4。
-
 ## <a name="prerequisites"></a>必备组件
 
 Azure Blockchain Workbench 需要 Azure AD 配置和应用程序注册。 可以选择在部署之前[手动配置](#azure-ad-configuration) Azure AD，或者在部署后运行一个脚本。 若要重新部署 Blockchain Workbench，请参阅 [Azure AD 配置](#azure-ad-configuration)以验证 Azure AD 配置。
 
 > [!IMPORTANT]
 > Workbench 不必部署在你用来注册 Azure AD 应用程序的同一租户中。 Workbench 必须部署在你有足够的权限来部署资源的租户中。 有关 Azure AD 租户的详细信息，请参阅[如何获取 Active Directory 租户](../../active-directory/develop/quickstart-create-new-tenant.md)和[将应用程序与 Azure Active Directory 集成](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
-
-
 
 ## <a name="deploy-blockchain-workbench"></a>部署 Blockchain Workbench
 
@@ -82,7 +77,7 @@ Azure Blockchain Workbench 需要 Azure AD 配置和应用程序注册。 可以
     | 身份验证类型 | 选择是要使用密码还是密钥连接到 VM。 |
     | 密码 | 使用密码连接到 VM。 |
     | SSH | 使用单行格式（以 **ssh-rsa** 开头）的 RSA 公钥，或使用多行 PEM 格式。 可以在 Linux 和 OS X 上使用 `ssh-keygen` 生成 SSH 密钥，或在 Windows 上使用 PuTTYGen 生成这些密钥。 有关 SSH 密钥的详细信息，请参阅[如何在 Azure 上的 Windows 中使用 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。 |
-    | 数据库密码/确认数据库密码 | 指定密码，用于访问在部署过程中创建的数据库。 |
+    | 数据库和区块链密码 | 指定密码，用于访问在部署过程中创建的数据库。 密码必须满足三个以下四个要求： 长度必须介于 12 和 72 个字符、 1 个小写字符、 1 个大写字符、 1 个数字和 1 个特殊字符不数字 sign(#)、 percent(%)、 逗号 （，）、 star(*)，反引号(\`)，双击 quote(")、 单引号、 dash(-) 和 semicolumn(;) |
     | 部署区域 | 指定部署 Blockchain Workbench 资源的位置。 为了尽可能提高可用性，此位置应与“位置”设置相符。 |
     | 订阅 | 指定要用于部署的 Azure 订阅。 |
     | 资源组 | 选择“新建”创建新资源组，并指定唯一的资源组名称。 |
@@ -94,15 +89,15 @@ Azure Blockchain Workbench 需要 Azure AD 配置和应用程序注册。 可以
 
     对于**新建**：
 
-    “新建”选项在单个成员的订阅中创建一组 Ethereum 权威证明 (PoA) 节点。 
+    *创建新的*选项部署与默认基本 sku Azure 区块链服务仲裁分类帐。
 
     ![新区块链网络的高级设置](media/deploy/advanced-blockchain-settings-new.png)
 
     | 设置 | 描述  |
     |---------|--------------|
-    | 监视 | 选择是否要允许 Azure Monitor 监视区块链网络 |
+    | Azure 区块链服务定价层 | 选择**基本**或**标准**用于 Blockchain Workbench 的 Azure 区块链服务层 |
     | Azure Active Directory 设置 | 选择“稍后添加”。</br>请注意:如果选择[预配置 Azure AD](#azure-ad-configuration) 或要重新部署，请选择“立即添加”。 |
-    | VM 选择 | 为区块链网络选择首选的 VM 大小。 如果使用具有较低服务限制的订阅（如 Azure 免费层），请选择较小的 VM（如标准 DS1 v2）。 |
+    | VM 选择 | 选择首选的存储性能和区块链网络的 VM 大小。 如果使用具有较低服务限制的订阅（如 Azure 免费层），请选择较小的 VM（如标准 DS1 v2）。 |
 
     对于**使用现有**：
 
@@ -121,7 +116,7 @@ Azure Blockchain Workbench 需要 Azure AD 配置和应用程序注册。 可以
      |---------|--------------|
      | Ethereum RPC 终结点 | 提供现有 PoA 区块链网络的 RPC 终结点。 终结点以 https:// 或 http:// 开头，以端口号结尾。 例如： `http<s>://<network-url>:<port>` |
      | Azure Active Directory 设置 | 选择“稍后添加”。</br>请注意:如果选择[预配置 Azure AD](#azure-ad-configuration) 或要重新部署，请选择“立即添加”。 |
-     | VM 选择 | 为区块链网络选择首选的 VM 大小。 |
+     | VM 选择 | 选择首选的存储性能和区块链网络的 VM 大小。 如果使用具有较低服务限制的订阅（如 Azure 免费层），请选择较小的 VM（如标准 DS1 v2）。 |
 
 9. 选择“确定”完成高级设置。
 

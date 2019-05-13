@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 61968265670c53ebc4187c983996caa8c94a4cde
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466508"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508007"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中配置 Azure CNI 网络
 
@@ -62,16 +62,25 @@ AKS 群集中每个节点的最大 Pod 数为 110。 每个节点的默认最大
 
 | 部署方法 | Kubenet 默认值 | Azure CNI 默认值 | 可在部署时配置 |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | 是（最大 110） |
-| 资源管理器模板 | 110 | 30 | 是（最大 110） |
-| 门户 | 110 | 30 | 否 |
+| Azure CLI | 110 | 30 | 是 （最多 250 个） |
+| 资源管理器模板 | 110 | 30 | 是 （最多 250 个） |
+| 门户 | 110 | 30 | “否” |
 
 ### <a name="configure-maximum---new-clusters"></a>配置最大值 - 新群集
 
-只能在群集部署时配置每个节点的最大 Pod 数。 如果使用 Azure CLI 或资源管理器模板进行部署，则可以将每个节点的最大 Pod 数设置为 110。
+只能在群集部署时配置每个节点的最大 Pod 数。 如果部署使用 Azure CLI 或使用资源管理器模板，则可以设置每个节点值的最大 pod，根据需要在以下`maxPods`指导原则：
 
-* **Azure CLI**：使用 [az aks create][az-aks-create] 命令部署群集时，指定 `--max-pods` 参数。 最大值为 110。
-* **资源管理器模板**：使用资源管理器模板部署群集时，在 [ManagedClusterAgentPoolProfile] 对象中指定 `maxPods` 属性。 最大值为 110。
+| 网络 | 最小值 | 最大值 |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+> [!NOTE]
+> AKS 服务严格强制执行上表中的最小值。
+您可以设置 maxPods 值低于最小值显示为这样做可以防止群集启动。
+
+* **Azure CLI**：使用 [az aks create][az-aks-create] 命令部署群集时，指定 `--max-pods` 参数。 最大值为 250。
+* **资源管理器模板**：使用资源管理器模板部署群集时，在 [ManagedClusterAgentPoolProfile] 对象中指定 `maxPods` 属性。 最大值为 250。
 * **Azure 门户**：使用 Azure 门户部署群集时，不能更改每个节点的最大 Pod 数。 使用 Azure 门户部署时，Azure CNI 网络群集中每个节点的 Pod 数限制为 30 个。
 
 ### <a name="configure-maximum---existing-clusters"></a>配置最大值 - 现有群集
@@ -143,7 +152,7 @@ az aks create \
 
 * *是否可以配置基于 Pod 的网络策略？*
 
-  Kubernetes 网络策略目前在 AKS 中作为预览功能提供。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
+  是的 Kubernetes 网络策略是在 AKS 中可用。 若要开始使用，请参阅[在 AKS 中使用网络策略保护 Pod 之间的流量][network-policy]。
 
 * 可部署到节点的 Pod 数上限是否可配置？
 

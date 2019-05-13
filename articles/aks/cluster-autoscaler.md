@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467115"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508143"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>预览-自动缩放以满足应用程序的需求在 Azure Kubernetes 服务 (AKS) 群集
 
 若要满足 Azure Kubernetes 服务 (AKS) 中的应用程序需求，可能需要调整运行工作负载的节点数。 群集自动缩放程序组件可以监视群集中由于资源约束而无法进行计划的 Pod。 检测到问题时，节点数会增加，以满足应用程序需求。 还会定期检查节点是否缺少正在运行的 Pod，随后根据需要减少节点数。 这种自动增加或减少 AKS 群集中的节点数的功能使你可以运行具有成本效益的高效群集。
 
-本文演示如何在 AKS 群集中启用和管理群集自动缩放程序。
+本文演示如何在 AKS 群集中启用和管理群集自动缩放程序。 群集自动缩放程序只应在单个节点池与 AKS 群集上的预览版中进行测试。
 
 > [!IMPORTANT]
 > AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
@@ -59,6 +59,12 @@ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/V
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## <a name="limitations"></a>限制
+
+创建和管理 AKS 群集中使用虚拟机规模集时，应考虑以下限制：
+
+* 不能使用 HTTP 应用程序路由外接程序。
 
 ## <a name="about-the-cluster-autoscaler"></a>关于群集自动缩放程序
 
@@ -101,7 +107,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f283ce007e96547e01a01a3753ddcb60574bfc3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696275"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412805"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>管理 Azure 实验室服务中的实验室帐户 
 Azure 实验室服务中的实验室帐户是如教室实验室的实验室托管的类型的容器。 管理员可以设置一个具有 Azure 实验室服务的实验室帐户，并为能够在帐户中创建实验室的实验室所有者提供访问权限。 本文介绍如何创建实验室帐户、查看所有实验室帐户，或者删除实验室帐户。
@@ -38,9 +38,11 @@ Azure 实验室服务中的实验室帐户是如教室实验室的实验室托�
     2. 选择要在其中创建实验室帐户的“Azure 订阅”。
     3. 在“资源组”中选择“新建”，然后输入资源组的名称。
     4. 为“位置”选择要在其中创建实验室帐户的位置/区域。 
-    5. 对于“对等虚拟网络”，请选择实验室网络的对等虚拟网络 (VNet)。 在此帐号中创建的实验室连接到所选 VNet 并在所选 VNet 中具有对资源的访问权限。 
-    7. 对于“允许实验室创建者选择实验室位置”字段，请指定是否希望实验室创建者能够选择实验室位置。 默认情况下，此选项已禁用。 此选项禁用时，实验室创建者无法为他们正在创建的实验室指定位置。 实验室在距离实验室帐户最近的地理位置进行创建。 此选项启用时，实验室创建者可以在创建实验室时选择位置。      
-    8. 选择“创建”。 
+    5. 选择一个现有**共享的映像库**或创建一个。 您可以为它要重复使用由其他人共享的映像库中保存的模板 VM。 共享的映像库的详细信息，请参阅[使用 Azure 实验室服务中共享的映像库](how-to-use-shared-image-gallery.md)。
+    6. 对于“对等虚拟网络”，请选择实验室网络的对等虚拟网络 (VNet)。 在此帐号中创建的实验室连接到所选 VNet 并在所选 VNet 中具有对资源的访问权限。 
+    7. 指定**地址范围**适用于在实验室中的 Vm。 应为无类域间路由 (CIDR) 表示法的地址范围 (示例：10.20.0.0/23). 将此地址范围中创建实验室中的虚拟机。 有关详细信息，请参阅[在实验室中为 Vm 指定的地址范围](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab)。    
+    8. 对于“允许实验室创建者选择实验室位置”字段，请指定是否希望实验室创建者能够选择实验室位置。 默认情况下，此选项已禁用。 此选项禁用时，实验室创建者无法为他们正在创建的实验室指定位置。 实验室在距离实验室帐户最近的地理位置进行创建。 此选项启用时，实验室创建者可以在创建实验室时选择位置。      
+    9. 选择“创建”。 
 
         ![创建实验室帐户窗口](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. 选择工具栏上的**钟形图标**（**通知**），确认部署已成功，然后选择“转到资源”。 
@@ -51,54 +53,6 @@ Azure 实验室服务中的实验室帐户是如教室实验室的实验室托�
 6. 会看到以下“实验室帐户”页面：
 
     ![“实验室帐户”页面](../media/tutorial-setup-lab-account/lab-account-page.png)
-
-## <a name="add-a-user-to-the-lab-creator-role"></a>将用户添加为“实验室创建者”角色
-若要在实验室帐户中设置课堂实验室，用户必须是实验室帐户中“实验室创建者”角色的成员。 用来创建实验室帐户的帐户会自动添加到此角色。 如果打算使用同一用户帐户创建课堂实验室，可以跳过此步骤。 若要使用其他用户帐户创建教室实验室，请执行以下步骤： 
-
-为教师提供为课程创建实验室的权限，并将他们添加为**实验室创建者**角色：
-
-1. 在“实验室帐户”页上，选择“访问控制(IAM)”，然后单击工具栏中的“+ 添加角色分配”。 
-
-    ![“访问控制”->“添加角色分配”按钮](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. 在“添加角色分配”页上，选择“实验室创建者”作为“角色”，选择想要添加到“实验室创建者”角色的用户，然后选择“保存”。 
-
-    ![添加实验室创建者](../media/tutorial-setup-lab-account/add-lab-creator.png)
-
-
-## <a name="specify-marketplace-images-available-to-lab-creators"></a>指定可供实验室创建者使用的市场映像
-作为实验室帐户所有者，你可以指定可供实验室创建者用来在实验室帐户中创建实验室的市场映像。 
-
-1. 在左侧的菜单上选择“市场映像”。 默认情况下，可以看到映像的完整列表（包括启用的和禁用的）。 可以通过从顶部的下拉列表中选择“仅启用的/仅禁用的”选项对列表进行筛选来仅查看启用的/禁用的映像。 
-    
-    ![“市场映像”页](../media/tutorial-setup-lab-account/marketplace-images-page.png)
-
-    列表中显示的市场映像只是满足以下条件的映像：
-        
-    - 创建单个 VM。
-    - 使用 Azure 资源管理器预配 VM
-    - 不需要购买额外的许可计划
-2. 若要**禁用**已启用的市场映像，请执行下列操作之一： 
-    1. 选择最后一列中的“...”（省略号）并选择“禁用映像”。 
-
-        ![禁用一个映像](../media/tutorial-setup-lab-account/disable-one-image.png) 
-    2. 通过选中列表中映像名称前面的复选框从列表中选择一个或多个映像，然后选择“禁用所选映像”。 
-
-        ![禁用多个映像](../media/tutorial-setup-lab-account/disable-multiple-images.png) 
-1. 类似地，若要**启用**市场映像，请执行下列操作之一： 
-    1. 选择最后一列中的“...”（省略号）并选择“启用映像”。 
-    2. 通过选中列表中映像名称前面的复选框从列表中选择一个或多个映像，然后选择“启用所选映像”。 
-
-## <a name="configure-the-lab-account"></a>配置实验室帐户
-1. 上**实验室帐户**页上，选择**实验室配置**在左侧菜单中。
-
-    ![实验室配置页](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
-1. 有关**对等虚拟网络**，选择**已启用**或**禁用**。 默认值是**禁用**。 若要启用对等虚拟网络，请执行以下步骤操作： 
-    1. 选择“启用”。
-    2. 选择**VNet**从下拉列表。 
-    3. 在工具栏上选择“保存”。 
-    
-        此帐户中创建的实验室连接到所选虚拟网络。 他们可以访问所选虚拟网络中的资源。 
-3. 有关**允许实验室创建者选择实验室位置**，选择**已启用**如果你想要能够选择的位置在实验室的实验室创建者。 如果已禁用，实验室会自动创建实验室帐户所在的同一位置中。 
 
 ## <a name="view-lab-accounts"></a>查看实验室帐户
 1. 登录到 [Azure 门户](https://portal.azure.com)。
@@ -119,8 +73,6 @@ Azure 实验室服务中的实验室帐户是如教室实验室的实验室托�
     3. 创建实验室的用户的电子邮件地址。 
     4. 允许加入实验室的最大用户数。 
     5. 实验室的状态。 
-
-
 
 ## <a name="delete-a-lab-in-the-lab-account"></a>删除实验室帐户中的实验室
 按照上一部分中的说明进行操作，以查看实验室帐户中的实验列表。
@@ -145,11 +97,5 @@ Azure 实验室服务中的实验室帐户是如教室实验室的实验室托�
     ![删除实验室帐户 - 确认](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 
-
 ## <a name="next-steps"></a>后续步骤
-请参阅以下文章：
-
-- [以实验室所有者身份创建并管理实验室](how-to-manage-classroom-labs.md)
-- [以实验室所有者身份设置并发布模板](how-to-create-manage-template.md)
-- [以实验室所有者身份配置并控制实验室的使用](how-to-configure-student-usage.md)
-- [以实验室用户身份访问教室实验室](how-to-use-classroom-lab.md)
+请参阅以下文章：[如何配置实验室帐户](how-to-configure-lab-accounts.md)。

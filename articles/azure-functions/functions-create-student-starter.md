@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57343961"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143097"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>使用面向学生的 Azure 入门版创建函数
 
@@ -56,7 +56,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
     | [资源组](../azure-resource-manager/resource-group-overview.md) |  myResourceGroup | 要在其中创建 Function App 的新资源组的名称。 |
    | **[应用服务计划/位置](./functions-scale.md)** | 新建 | 用于控制函数应用所要部署到的区域和资源密度的托管计划。 部署到同一计划的多个函数应用将共享同一个免费实例。 这是面向学生的入门版计划的限制。 [此处介绍](./functions-scale.md)了所有托管选项。|
     | **运行时堆栈** | 首选语言 | 选择支持你喜欢的函数编程语言的运行时。 对于 C# 和 F# 函数，选择 **.NET**。 |
-    |**[Application Insights](./functions-monitoring.md)**| 已启用 | Application Insights 用于存储和分析函数应用的日志。 如果选择了支持 Application Insights 的位置，则默认会启用 Application Insights。 可以通过手动选择用于部署 Application Insights 的附近区域，来为任何函数启用 Application Insights。 如果不使用 Application Insights，则只能查看实时流式传输日志。
+    |**[Application Insights](./functions-monitoring.md)**| 已启用 | Application Insights 用于存储和分析函数应用的日志。 如果选择了支持 Application Insights 的位置，则默认会启用 Application Insights。 可以通过手动选择用于部署 Application Insights 的附近区域，来为任何函数启用 Application Insights。 如果不使用 Application Insights，则只能查看实时传送视频流日志。
 
 3. 选择上述“应用服务计划/位置”以选择不同的位置
 
@@ -76,8 +76,6 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 8. 选择“转到资源”，查看新的函数应用。
 
-> [!TIP]
-> 如果在门户中找不到函数应用，请尝试[将 Function App 添加到 Azure 门户中的收藏夹](./functions-how-to-use-azure-function-app-settings.md#favorite)。
 接下来，在新的 Function App 中创建一个函数。
 
 ## <a name="create-function"></a>创建 HTTP 触发的函数

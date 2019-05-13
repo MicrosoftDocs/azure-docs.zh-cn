@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: 如何
       items:
-        - name: 管理计算
-          href: data-box-edge-manage-compute.md
         - name: '开发 C# 模块'
           href: data-box-edge-create-iot-edge-module.md
-        - name: 管理共享
-          href: data-box-edge-manage-shares.md
-        - name: 管理用户
-          href: data-box-edge-manage-users.md
-        - name: 管理带宽计划
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 管理电源、访问权限和连接
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: 通过 PowerShell 进行管理
-          href: data-box-edge-connect-powershell-interface.md
+        - name: 管理
+          items:
+            - name: Edge 计算
+              href: data-box-edge-manage-compute.md
+            - name: 共享
+              href: data-box-edge-manage-shares.md
+            - name: 用户
+              href: data-box-edge-manage-users.md
+            - name: 带宽计划
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 电源、访问权限和连接
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: 通过 PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: 故障排除
           href: data-box-edge-troubleshoot.md
         - name: 监视
           href: data-box-edge-monitor.md
+        - name: 退回设备
+          href: data-box-edge-return-device.md
     - name: 发行说明
       items:
         - name: 正式版

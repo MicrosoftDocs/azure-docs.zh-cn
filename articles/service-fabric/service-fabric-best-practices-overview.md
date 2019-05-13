@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803169"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231379"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 应用程序和群集最佳做法
 
-为了成功管理 Azure Service Fabric 应用程序和群集，强烈建议你执行一些操作来优化生产环境的可靠性；请执行本文档中定义的操作，并选择我们的 [Azure 示例 Service Fabric 群集模板](https://github.com/Azure-Samples/service-fabric-cluster-templates)之一来开始设计你的生产解决方案或修改现有模板来包括这些做法。
+若要成功管理 Azure Service Fabric 应用程序和群集，有一些我们强烈建议进行优化的生产环境; 可靠性所执行的操作请执行本文档中定义的操作，然后选择其中一个我们[Azure 示例 Service Fabric 群集模板](https://github.com/Azure-Samples/service-fabric-cluster-templates)开始设计你的生产解决方案或修改现有模板以合并这些做法。
 
 ## <a name="security"></a>安全 
 
@@ -45,6 +45,10 @@ ms.locfileid: "60803169"
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断
 
 * [群集监视和诊断最佳做法](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>应用程序设计
+
+* [应用程序设计最佳实践](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>清单
 

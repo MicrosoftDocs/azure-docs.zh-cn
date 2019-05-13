@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717260"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408778"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>针对 SAP ASCS/SCS 使用 Windows 故障转移群集和共享磁盘准备 SAP HA 的 Azure 基础结构
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717260"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -526,7 +526,7 @@ _**图 5：** Azure 内部负载均衡器的默认 ASCS/SCS 负载均衡规则_
 2. 对于属于 SAP ASCS 或 SCS 实例的所有负载均衡规则，请更改以下值：
 
    * 名称
-   * 端口
+   * Port
    * 后端端口
 
    例如，如果要将默认 ASCS 实例编号从 00 更改为 31，需要为表 1 中列出的所有端口进行更改。
@@ -739,8 +739,9 @@ Azure 负载均衡器具有内部负载均衡器，可在连接在一段固定�
 
 成功安装 Windows 故障转移群集后，需要更改某些阈值，以使故障转移检测适合 Azure 中的情况。 博客文章 [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]（调整故障转移群集网络阈值）中阐述了要更改的参数。 假设构成 ASCS/SCS 的 Windows 群集配置的两个 VM 位于同一子网中，则需要将以下参数更改为这些值：
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 这些设置已经过客户测试，可以提供合理的折衷。 它们不仅具有足够的弹性，而且在发生 SAP 软件、节点或 VM 故障时，在实际出错情况下，这些设置的故障转移速度够快。
 

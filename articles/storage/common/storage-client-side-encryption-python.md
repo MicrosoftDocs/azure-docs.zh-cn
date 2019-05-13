@@ -2,19 +2,20 @@
 title: 针对 Microsoft Azure 存储使用 Python 的客户端加密 | Microsoft Docs
 description: 适用于 Python 的 Azure 存储客户端库支持客户端加密，实现 Azure 存储应用程序的最高安全性。
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011121"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146901"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>针对 Microsoft Azure 存储使用 Python 的客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ KEK 必须实现以下方法才能成功加密数据：
   * 如果指定为获取密钥，则将调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则将引发错误。
   * 如果未指定解析程序，但指定了密钥，则在该密钥的标识符与所需密钥标识符匹配时使用该密钥。 如果标识符不匹配，则将引发错误。
 
-    azure.storage.samples <fix URL> 中的加密示例演示了针对 blob、队列和表的更详细端到端方案。
+    Azure.storage.samples 中的加密示例演示了针对 blob、 队列和表的更详细的端到端方案。
       KEK 和密钥解析程序的示例实现在示例文件中分别以 KeyWrapper 和 KeyResolver 提供。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式

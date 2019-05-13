@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: da2477b19327273fe922ac81f909233cb4ef8f06
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503107"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198840"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>设置 Web 服务器或项目
 
 > 想要改为下载此示例的项目？
-> - [下载项目文件](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)（对于本地 Web 服务器，例如 Node）
+> - [下载项目文件](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)，以使用本地 Web 服务器（如 Node）运行文件
 >
 > 或
-> - [下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+> - （可选）[下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)，以使用 IIS 服务器运行项目
 >
 > 然后跳到[配置步骤](#register-your-application)，在执行前配置代码示例。
 
@@ -63,8 +63,7 @@ ms.locfileid: "59503107"
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.js"></script>
-       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>
@@ -77,3 +76,6 @@ ms.locfileid: "59503107"
    </body>
    </html>
    ```
+
+   > [!TIP]
+   > 可以将上面脚本中的 MSAL.js 版本替换为，[MSAL.js 版本](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)下最新发布的版本。

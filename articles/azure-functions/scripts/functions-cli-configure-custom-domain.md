@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325742"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>将自定义域映射到 Function App
 
@@ -29,7 +29,7 @@ ms.locfileid: "46979043"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果选择本地安装和使用 CLI，必须使用 Azure CLI 版本 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。 
+如果选择本地安装和使用 CLI，必须使用 Azure CLI 版本 2.0 或更高版本。 要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/azure/install-azure-cli)。 
 
 
 ## <a name="sample-script"></a>示例脚本

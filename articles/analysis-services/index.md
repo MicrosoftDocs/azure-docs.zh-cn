@@ -7,13 +7,13 @@ ms.author: owend
 layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
-ms.date: 02/14/2018
-ms.openlocfilehash: ec3c45961ac92a505ee565373474ce3dc2fbabcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/09/2019
+ms.openlocfilehash: acfbc3d44e5e7604f03b3e67db5846487a726d40
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497539"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510276"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 文档
 
@@ -39,7 +39,7 @@ ms.locfileid: "60497539"
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/">
+        <a href="https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

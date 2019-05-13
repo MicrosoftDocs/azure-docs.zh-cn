@@ -2,18 +2,19 @@
 title: include 文件
 description: include 文件
 services: azure-policy
-author: DCtheGeek
+author: WenJason
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/18/2018
-ms.author: dacoulte
+origin.date: 05/17/2018
+ms.date: 07/09/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: ac351cecddc7f6df9534cb440ddd92daab27c0e7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae41ed674917c889ef4e3226a88d299bc2dde15e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865746"
 ---
 ## <a name="general"></a>常规
 

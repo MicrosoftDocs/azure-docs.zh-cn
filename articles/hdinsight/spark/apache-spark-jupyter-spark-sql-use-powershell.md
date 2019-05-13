@@ -1,20 +1,19 @@
 ---
 title: 快速入门：使用 Azure PowerShell 在 HDInsight 中创建 Spark 群集
 description: 本快速入门演示如何使用 Azure PowerShell 在 Azure HDInsight 中创建 Apache Spark 群集，以及如何运行简单的 Spark SQL 查询。
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 05/03/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: f56595abf354d1124a40729ce93f97ab2acdeeeb
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e6b4ba902e9951cd04dc282cc2a163200a38607a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142902"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 HDInsight 中创建 Apache Spark 群集
 了解如何在 Azure HDInsight 中创建 [Apache Spark](https://spark.apache.org/) 群集，以及如何对 [Apache Hive](https://hive.apache.org/) 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
@@ -24,9 +23,11 @@ ms.locfileid: "58361551"
 > [!IMPORTANT]  
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
 
-如果没有 Azure 订阅，请在开始之前[创建一个免费帐户](https://azure.microsoft.com/free/)。
+## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+* 如果还没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
+
+* 已安装 PowerShell [Az 模块](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>创建 HDInsight Spark 群集
 
@@ -47,57 +48,63 @@ ms.locfileid: "58361551"
 |群集登录凭据 | 在本快速入门中稍后使用该帐户连接到群集仪表板。|
 |SSH 用户凭据 | SSH 客户端可用于创建与 HDInsight 群集的远程命令行会话。|
 
+1. 选择以下代码块右上角的“试一试”，打开 [Azure Cloud Shell](../../cloud-shell/overview.md)，然后按照说明连接到 Azure。
 
-
-1. 单击以下代码块右上角的“试一试”，打开 [Azure Cloud Shell](../../cloud-shell/overview.md)，并按照说明连接到 Azure。
-2. 在 Cloud Shell 中复制并粘贴以下 PowerShell 脚本。 
+2. 在 Cloud Shell 中复制并粘贴以下 PowerShell 脚本。
 
     ```azurepowershell-interactive
     ### Create a Spark 2.3 cluster in Azure HDInsight
-        
+
+    # Default cluster size (# of worker nodes), version, and type
+    $clusterSizeInNodes = "1"
+    $clusterVersion = "3.6"
+    $clusterType = "Spark"
+    
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
     $location = Read-Host -Prompt "Enter the Azure region to create resources in, such as 'Central US'"
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    
     $defaultStorageAccountName = Read-Host -Prompt "Enter the default storage account name"
     
-    # Create an Azure storae account and container
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    
+    # Create an Azure storage account and container
+    # Note: Storage account kind BlobStorage can only be used as secondary storage for HDInsight clusters.
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $defaultStorageAccountName `
-        -Type Standard_LRS `
-        -Location $location
+        -Location $location `
+        -SkuName Standard_LRS `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
+
     $defaultStorageAccountKey = (Get-AzStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
                                     -Name $defaultStorageAccountName)[0].Value
+    
     $defaultStorageContext = New-AzStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
     # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
+
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
-    # SSH user is used to remotely connect to the cluster using SSH clients
-    $sshCredentials = Get-Credential -Message "Enter SSH user credentials"
     
-    # Default cluster size (# of worker nodes), version, type, and OS
-    $clusterSizeInNodes = "1"
-    $clusterVersion = "3.6"
-    $clusterType = "Spark"
-    $clusterOS = "Linux"
+    # SSH user is used to remotely connect to the cluster using SSH clients
+    $sshCredentials = Get-Credential -Message "Enter SSH user credentials" -UserName "sshuser"
     
     # Set the storage container name to the cluster name
     $defaultBlobContainerName = $clusterName
     
     # Create a blob container. This holds the default data store for the cluster.
     New-AzStorageContainer `
-        -Name $clusterName -Context $defaultStorageContext 
+        -Name $clusterName `
+        -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
     $sparkConfig.Add("spark", "2.3")
-    
+
     # Create the HDInsight cluster
     New-AzHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
@@ -105,7 +112,7 @@ ms.locfileid: "58361551"
         -Location $location `
         -ClusterSizeInNodes $clusterSizeInNodes `
         -ClusterType $clusterType `
-        -OSType $clusterOS `
+        -OSType "Linux" `
         -Version $clusterVersion `
         -ComponentVersion $sparkConfig `
         -HttpCredential $httpCredential `
@@ -114,15 +121,17 @@ ms.locfileid: "58361551"
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials 
     
-    Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    Get-AzHDInsightCluster `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $clusterName
     ```
    创建群集大约需要 20 分钟时间。 必须先创建群集，才能继续下一会话。
 
-如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
+如果在创建 HDInsight 群集时遇到问题，可能是因为没有这样做的适当权限。 有关详细信息，请参阅[访问控制要求](../hdinsight-hadoop-customize-cluster-linux.md#access-control)。
 
 ## <a name="create-a-jupyter-notebook"></a>创建 Jupyter 笔记本
 
-[Jupyter Notebook](https://jupyter.org/) 是支持各种编程语言的交互式笔记本环境。 通过此笔记本可以与数据进行交互、结合代码和 markdown 文本以及执行简单的可视化效果。 
+[Jupyter Notebook](https://jupyter.org/) 是支持各种编程语言的交互式笔记本环境。 通过此笔记本可以与数据进行交互、结合代码和 markdown 文本以及执行简单的可视化效果。
 
 1. 打开 [Azure 门户](https://portal.azure.com)。
 2. 选择“HDInsight 群集”，然后选择所创建的群集。
@@ -183,7 +192,30 @@ HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Storage 中，因�
 
 还可以选择资源组名称，打开“资源组”页，然后选择“删除资源组”。 通过删除资源组，可以删除 HDInsight Spark 群集和默认存储帐户。
 
-## <a name="next-steps"></a>后续步骤 
+### <a name="piecemeal-clean-up-with-powershell-az-module"></a>使用 PowerShell Az 模块进行段落清理
+
+```powershell
+# Removes the specified HDInsight cluster from the current subscription.
+Remove-AzHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $clusterName
+
+# Removes the specified storage container.
+Remove-AzStorageContainer `
+    -Name $clusterName `
+    -Context $defaultStorageContext
+
+# Removes a Storage account from Azure.
+Remove-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName
+
+# Removes a resource group.
+Remove-AzResourceGroup `
+    -Name $resourceGroupName
+```
+
+## <a name="next-steps"></a>后续步骤
 
 本快速入门介绍了如何创建 HDInsight Spark 群集并运行基本的 Spark SQL 查询。 转到下一教程，了解如何使用 HDInsight Spark 群集针对示例数据运行交互式查询。
 

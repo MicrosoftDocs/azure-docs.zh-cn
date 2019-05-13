@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521265"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236418"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教程：从话语中获取文本完全匹配的数据
 
@@ -108,11 +108,7 @@ ms.locfileid: "59521265"
 
 1. 在“部门”实体页上，输入 `Accounting` 作为新值。
 
-    [![输入值的屏幕截图](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Screenshot of entering value")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. 对于同义词，请从上表中添加同义词。
-
-    [![输入同义词的屏幕截图](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Screenshot of entering synonyms")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. 继续添加所有规范名称及其同义词。 
 

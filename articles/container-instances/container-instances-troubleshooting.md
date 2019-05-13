@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067317"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070851"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>排查 Azure 容器实例中的常见问题
 
-本文展示了如何排查管理容器或向 Azure 容器实例部署容器时出现的常见问题。
+本文展示了如何排查管理容器或向 Azure 容器实例部署容器时出现的常见问题。 另请参阅[方面的常见问题](container-instances-faq.md)。
 
 ## <a name="naming-conventions"></a>命名约定
 
@@ -46,11 +46,7 @@ ms.locfileid: "61067317"
 }
 ```
 
-在部署基于半年频道 (SAC) 版本的 Windows 映像时，通常会遇到此错误。 例如，Windows 版本 1709 和 1803 是 SAC 版本，在部署时会生成此错误。
-
-Azure 容器实例目前支持仅基于 **Windows Server 2016 长期服务频道 (LTSC)** 版本的 Windows 映像。 若要缓解此问题，部署 Windows 容器时，请始终部署基于 Windows Server 2016 (LTSC) 的映像。 不支持基于 Windows Server 2019 (LTSC) 的映像。
-
-有关 Windows 的 LTSC 和 SAC 版本的详细信息，请参阅 [Windows Server 半年频道概述][windows-sac-overview]。
+在部署 Windows 映像的基于半年频道发布了 1709年或 1803，这不受支持，最常遇到此错误。 在 Azure 容器实例中支持的 Windows 映像，请参阅[方面的常见问题](container-instances-faq.md#what-windows-base-os-images-are-supported)。
 
 ## <a name="unable-to-pull-image"></a>无法请求映像
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
 * [映像大小](#image-size)
 * [映像位置](#image-location)
 
-Windows 映像具有[其他注意事项](#cached-windows-images)。
+Windows 映像具有[其他注意事项](#cached-images)。
 
 ### <a name="image-size"></a>映像大小
 
@@ -176,14 +172,12 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 若要减小映像请求对容器启动时间的影响，另一种方法是在希望部署容器实例的同一区域的 [Azure 容器注册表](/azure/container-registry/)中托管容器映像。 这会缩短容器映像需要经过的网络路径，显著缩短下载时间。
 
-### <a name="cached-windows-images"></a>缓存的 Windows 映像
+### <a name="cached-images"></a>缓存的图像
 
-Azure 容器实例使用一种缓存机制来帮助加快容器启动时间的基于常见的 Windows 和 Linux 映像的映像。 有关缓存的映像和标记的详细列表，使用[列出缓存映像][ list-cached-images] API。
+Azure 容器实例使用一种缓存机制来帮助加快容器启动时间的常见构建映像[Windows 基本映像](container-instances-faq.md#what-windows-base-os-images-are-supported)，其中包括`nanoserver:1809`， `servercore:ltsc2019`，和`servercore:1809`。 常用 Linux 映像如`ubuntu:1604`和`alpine:3.6`也被缓存。 对于缓存的映像和标记的最新列表，请使用[列出缓存映像][ list-cached-images] API。
 
-若要确保最快的 Windows 容器启动时间，请使用以下**两个映像**的**三个最新**版本之一作为基础映像：
-
-* [Windows Server 核心 2016年][ docker-hub-windows-core] (仅 LTSC)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> 使用基于 Windows Server 2019 的映像在 Azure 容器实例中处于预览状态。
 
 ### <a name="windows-containers-slow-network-readiness"></a>Windows 容器慢速网络准备情况
 

@@ -3,8 +3,8 @@ title: 记录出入 VM 的网络流量 - 教程 - Azure 门户 | Microsoft Docs
 description: 了解如何使用网络观察程序的 NSG 流日志功能记录出入 VM 的网络流量。
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124070"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467432"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教程：使用 Azure 门户记录出入虚拟机的网络流量
 
@@ -45,7 +45,7 @@ ms.locfileid: "58124070"
 
     |设置|值|
     |---|---|
-    |Name|myVm|
+    |名称|myVm|
     |用户名| 输入所选用户名。|
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |订阅| 选择订阅。|
@@ -88,11 +88,14 @@ NSG 流日志记录要求使用 **Microsoft.Insights** 提供程序。 若要注
 
     | 设置        | 值                                                        |
     | ---            | ---   |
-    | Name           | 长度为 3-24 个字符，只能包含小写字母和数字，且必须在所有 Azure 存储帐户中唯一。                                                               |
+    | 名称           | 长度为 3-24 个字符，只能包含小写字母和数字，且必须在所有 Azure 存储帐户中唯一。                                                               |
     | 位置       | 选择“美国东部”                                           |
     | 资源组 | 选择“使用现有资源组”，然后选择“myResourceGroup” |
 
     创建存储帐户可能需要大约一分钟的时间。 在创建好存储帐户之前，请勿继续执行剩余的步骤。 如果使用现有的存储帐户而不是创建一个，请确保在存储帐户的“设置”下针对“防火墙和虚拟网络”选择了“所有网络”（默认设置）。
+    
+    > [!NOTE]
+    > 虽然 Azure 存储当前支持 Microsoft.Insight 和 Microsoft.Network 提供程序，但 NSG 流日志尚未完全上线。 在此功能完全上线之前，若要启用 NSG 流日志记录，还必须选择“所有网络”。 
 4. 在门户左上角选择“所有服务”。 在“筛选器”框中，键入“网络观察程序”。 搜索结果中出现“网络观察程序”后，将其选中。
 5. 在“日志”下选择“NSG 流日志”，如下图所示：
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570496"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228102"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 将远程作业提交到 HDInsight Spark 群集
 
@@ -153,13 +153,7 @@ Livy 可为群集上运行的 Spark 作业提供高可用性。 下面是几个�
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>更新到从 HDInsight 3.5 版本开始的 Livy 配置
 
-HDInsight 3.5 群集及更高版本群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasb://` 路径访问群集中的 jar 或示例数据文件。 如果要使用本地路径，则必须相应地更新 Ambari 配置。 为此，请执行以下操作：
-
-1. 转到群集的 Ambari 门户。 Ambari Web UI 在 HDInsight 群集上提供，网址为 https://**CLUSTERNAME**.azurehdidnsight.net，其中 CLUSTERNAME 是群集的名称。
-
-2. 在左侧导航中，单击“Livy”，并单击“配置”。
-
-3. 如果要允许完全访问文件系统，请在 **livy-default** 下添加属性名称 `livy.file.local-dir-whitelist`，并将其值设置为 "/"。 如果要仅允许访问特定目录，请提供该目录的路径作为值。
+HDInsight 3.5 群集及更高版本群集默认情况下禁止使用本地文件路径访问示例数据文件或 jar。 建议改用 `wasb://` 路径访问群集中的 jar 或示例数据文件。 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>在 Azure 虚拟网络中提交群集的 Livy 作业
 

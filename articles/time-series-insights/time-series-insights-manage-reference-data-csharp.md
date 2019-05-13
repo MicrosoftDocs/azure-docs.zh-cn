@@ -10,35 +10,40 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9d0743e30c4ae32c052a9f27c9fa22b1036aead
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a8bd4e02b03a20e348feb2d6c9424f5eb6cf5f9e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681734"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510055"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 管理 Azure 时序见解环境的引用数据
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用管理 Azure 时序见解环境的 GA 引用数据C#
 
 本文介绍可以进行编译以管理 Azure 时序见解环境参考数据的 C# 示例项目。
 
 ## <a name="prerequisites"></a>必备组件
+
 在编译和运行示例代码之前，请完成以下步骤：
+
 1. [创建参考数据集](time-series-insights-add-reference-data-set.md)。
 
-2. 配置应用程序的授权访问令牌。 请确保通过 Azure Active Directory API 获取令牌。 应在每个查询 API 请求的 `Authorization` 标头中传递此令牌。 
- 
+1. 配置应用程序的授权访问令牌。 请确保通过 Azure Active Directory API 获取令牌。 应在每个查询 API 请求的 `Authorization` 标头中传递此令牌。
+
    有关如何设置非交互式应用程序的信息，请参阅[身份验证和授权](time-series-insights-authentication-and-authorization.md)。
 
-3. 编辑示例代码，以替换在代码开始处的 #DUMMY# 中指定的示例常数。 
+1. 编辑示例代码，以替换在代码开始处的 #DUMMY# 中指定的示例常数。
 
-还可在 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights) 中找到本示例代码
+> [!NOTE]
+> 查看在 GA 示例代码[ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-ga-preview-sample)。
 
-## <a name="project-references"></a>项目引用
-为本示例添加 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json` NuGet 程序包。 
+## <a name="project-dependencies"></a>项目依赖项
 
-## <a name="c-sample-code"></a>C# 示例代码 
+为本示例添加 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json` NuGet 程序包。
+
+## <a name="c-sample-code"></a>C# 示例代码
+
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -134,7 +139,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
     ""deleteproperties"": [{
         ""key"": {
             ""DeviceId"": ""Fan1""
-        },
+    },
         ""properties"": [""BladeCount""]
     }]
 }";

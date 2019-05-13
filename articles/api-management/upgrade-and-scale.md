@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859524"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408863"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升级和缩放 Azure API 管理实例  
 
@@ -54,7 +54,7 @@ ms.locfileid: "60859524"
 可在任意两个层之间来回升级和降级。 请注意，升级或降级可能会删除某些功能，例如，从“高级”层降级到“标准”或“基本”层时，会删除 VNET 或多区域部署。
 
 >[!NOTE]
->升级或缩放过程可能需要 15 到 45 分钟才能完成。 完成时会收到通知。
+>升级或缩放过程可能需要 15 到 45 分钟才能完成。 在完成时获得通知。
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>使用 Azure 门户进行升级和缩放
 

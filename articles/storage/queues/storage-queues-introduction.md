@@ -1,19 +1,20 @@
 ---
-title: Azure 队列简介 | Microsoft Docs
+title: Azure 队列简介 - Azure 存储
 description: Azure 队列简介
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
-ms.topic: article
+ms.topic: overview
 ms.date: 02/06/2019
-ms.author: tamram
+ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 2ae0d3993df54e1c9e5a9bf93619e8f9faa8a917
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 544ff9d2c624ef62bf8041afd818153c1c4bfcc8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873591"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142501"
 ---
 # <a name="what-are-azure-queues"></a>什么是 Azure 队列？
 

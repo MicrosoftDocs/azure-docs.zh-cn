@@ -72,7 +72,9 @@
           href: waf-front-door-custom-rules-powershell.md
         - name: 配置自定义响应代码
           href: waf-front-door-configure-custom-response-code.md
-        - name: 配置 WAF 速率限制 - Azure PowerShell
+        - name: 配置 IP 限制
+          href: waf-front-door-configure-ip-restriction.md
+        - name: 配置速率限制 - Azure PowerShell
           href: waf-front-door-rate-limit-powershell.md
 - name: 常见问题解答
   items:

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321836"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024695"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>排查 Azure 搜索中的常见索引器问题
 
@@ -57,7 +57,7 @@ Azure 搜索对 Cosmos DB 索引存在隐式依赖。 如果在 Cosmos DB 中关
 [显式支持可记录格式的 Blob 索引器文档](search-howto-indexing-azure-blob-storage.md#supported-document-formats)。 有时候，Blob 存储容器包含不受支持的文档。 而另一些时候，可能存在有问题的文档。 可以通过[更改配置选项](search-howto-indexing-azure-blob-storage.md#dealing-with-errors)来避免停止这些文档上的索引器：
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
@@ -75,7 +75,7 @@ Blob 索引器可[查找并提取容器中 Blob 的文本](search-howto-indexing
 * Blob 索引器配置为仅索引元数据。 若要提取内容，必须将 Blob 索引器配置为[提取内容和元数据](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)：
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 

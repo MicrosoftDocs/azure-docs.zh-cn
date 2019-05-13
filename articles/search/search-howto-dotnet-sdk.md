@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286306"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025133"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>如何使用 .NET 应用程序中的 Azure 搜索
+
+> [!Important]
+> 此内容是仍在构建。 NuGet 上提供了 Azure 搜索.NET SDK 的 9.0 版。 我们正在努力更新本迁移指南说明如何升级到最新版本。 请继续关注。
+>
+
 文本介绍了如何使用 [Azure 搜索 .NET SDK](https://aka.ms/search-sdk)。 可以使用 .NET SDK，在应用程序中使用 Azure 搜索实现丰富的搜索体验。
 
 ## <a name="whats-in-the-azure-search-sdk"></a>什么是 Azure 搜索 SDK
@@ -38,7 +42,7 @@ SDK 中的其他 NuGet 程序包有：
 
 Azure 搜索 .NET SDK 的当前版本现已正式发布。 如果想要提供反馈，供我们包含到下一个版本中，请访问我们的[反馈页](https://feedback.azure.com/forums/263029-azure-search/)。
 
-.NET SDK 支持版本 `2017-11-11` 的 [Azure 搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 该版本现在包括对同义词的支持，以及对索引器的逐步改进。 不属于此版本的预览功能（如对 JSON 数组和 CSV 文件编制索引的支持）处于[预览](search-api-2016-09-01-preview.md)状态，可通过 [.NET SDK 的 4.0-preview 版](https://aka.ms/search-sdk-preview)使用。
+.NET SDK 支持版本 `2017-11-11` 的 [Azure 搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 该版本现在包括对同义词的支持，以及对索引器的逐步改进。 
 
 此 SDK 不支持[管理操作](https://docs.microsoft.com/rest/api/searchmanagement/)（如创建和缩放搜索服务以及管理 API 密钥）。 如果需要从 .NET 应用程序管理搜索资源，可以使用 [Azure 搜索 .NET 管理 SDK](https://aka.ms/search-mgmt-sdk)。
 
@@ -392,7 +396,7 @@ public partial class Hotel
 首先要注意的是 `Hotel` 的每个公共属性都对应于索引定义中的一个字段，但有一个重要差异：每个字段的名称以小写字母开头（“骆驼拼写法”），而 `Hotel` 的每个公共属性的名称以大写字母开头（“帕斯卡拼写法”）。 在执行目标架构不受应用程序开发人员控制的数据绑定的 .NET 应用程序中，这种情况很常见。 不必违反 .NET 命名准则将属性名设为 camel 大小写，而可以使用 `[SerializePropertyNamesAsCamelCase]` 属性指示 SDK 将属性名自动映射到 camel 大小写。
 
 > [!NOTE]
-> Azure 搜索 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 库将自定义模型对象序列化为 JSON 和从 JSON 反序列化。 如果需要，可以自定义此序列化。 有关详细信息，请参阅[使用 JSON.NET 的自定义序列](#JsonDotNet)。
+> Azure 搜索 .NET SDK 使用 [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) 库将自定义模型对象序列化为 JSON 和从 JSON 反序列化。 如果需要，可以自定义此序列化。 有关详细信息，请参阅[使用 JSON.NET 的自定义序列化](#JsonDotNet)。
 > 
 > 
 

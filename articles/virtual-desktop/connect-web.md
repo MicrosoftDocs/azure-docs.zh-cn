@@ -1,20 +1,20 @@
 ---
-title: 使用 Windows 虚拟桌面预览 web 客户端-Azure 连接
-description: 如何连接到 Windows 虚拟桌面预览 HTML5 web 客户端。
+title: 从 web 浏览器-Azure 连接到 Windows 虚拟桌面预览
+description: 如何从 web 浏览器连接到 Windows 虚拟桌面预览。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328861"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142451"
 ---
-# <a name="connect-with-the-web-client"></a>使用 Web 客户端进行连接
+# <a name="connect-from-a-web-browser"></a>从 web 浏览器连接
 
 Web 客户端可以从 web 浏览器，而无需耗时较长的安装过程中访问你的 Windows 虚拟桌面预览资源。
 

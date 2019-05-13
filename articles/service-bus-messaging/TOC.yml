@@ -1,254 +1,249 @@
-items:
 - name: 服务总线消息传送文档
   href: index.yml
 - name: 概述
   items:
-  - name: 什么是服务总线消息传送？
-    href: service-bus-messaging-overview.md
-  - name: 比较消息服务
-    href: ../event-grid/compare-messaging-services.md
-    maintainContext: true
+    - name: 什么是服务总线消息传送？
+      href: service-bus-messaging-overview.md
+    - name: 比较消息服务
+      href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: 快速入门
   items:
-  - name: 服务总线队列
-    items:
-    - name: 创建服务总线队列
+    - name: 服务总线队列
       items:
-      - name: Azure 门户
-        href: service-bus-quickstart-portal.md
-      - name: Azure PowerShell
-        href: service-bus-quickstart-powershell.md
-      - name: Azure CLI
-        href: service-bus-quickstart-cli.md
-    - name: 发送和接收消息
+        - name: 创建服务总线队列
+          items:
+            - name: Azure 门户
+              href: service-bus-quickstart-portal.md
+            - name: Azure PowerShell
+              href: service-bus-quickstart-powershell.md
+            - name: Azure CLI
+              href: service-bus-quickstart-cli.md
+        - name: 发送和接收消息
+          items:
+            - name: .NET
+              href: service-bus-dotnet-get-started-with-queues.md
+            - name: Java
+              href: service-bus-java-how-to-use-queues.md
+            - name: Node.js
+              href: service-bus-nodejs-how-to-use-queues.md
+            - name: PHP
+              href: service-bus-php-how-to-use-queues.md
+            - name: Python
+              href: service-bus-python-how-to-use-queues.md
+            - name: Ruby
+              href: service-bus-ruby-how-to-use-queues.md
+    - name: 服务总线主题和订阅
       items:
-      - name: .NET
-        href: service-bus-dotnet-get-started-with-queues.md
-      - name: Java
-        href: service-bus-java-how-to-use-queues.md
-      - name: Node.js
-        href: service-bus-nodejs-how-to-use-queues.md
-      - name: PHP
-        href: service-bus-php-how-to-use-queues.md
-      - name: Python
-        href: service-bus-python-how-to-use-queues.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-queues.md
-  - name: 服务总线主题和订阅
-    items:
-    - name: 创建主题和订阅
-      href: service-bus-quickstart-topics-subscriptions-portal.md
-    - name: 发布和订阅消息
-      items:
-      - name: .NET
-        href: service-bus-dotnet-how-to-use-topics-subscriptions.md
-      - name: Java
-        href: service-bus-java-how-to-use-topics-subscriptions.md
-      - name: Node.js
-        href: service-bus-nodejs-how-to-use-topics-subscriptions.md
-      - name: PHP
-        href: service-bus-php-how-to-use-topics-subscriptions.md
-      - name: Python
-        href: service-bus-python-how-to-use-topics-subscriptions.md
-      - name: Ruby
-        href: service-bus-ruby-how-to-use-topics-subscriptions.md
+        - name: 创建主题和订阅
+          href: service-bus-quickstart-topics-subscriptions-portal.md
+        - name: 发布和订阅消息
+          items:
+            - name: .NET
+              href: service-bus-dotnet-how-to-use-topics-subscriptions.md
+            - name: Java
+              href: service-bus-java-how-to-use-topics-subscriptions.md
+            - name: Node.js
+              href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+            - name: PHP
+              href: service-bus-php-how-to-use-topics-subscriptions.md
+            - name: Python
+              href: service-bus-python-how-to-use-topics-subscriptions.md
+            - name: Ruby
+              href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: 教程
   items:
-  - name: 更新清单 - PowerShell
-    href: service-bus-tutorial-topics-subscriptions-powershell.md
-  - name: 更新清单 - 门户
-    href: service-bus-tutorial-topics-subscriptions-portal.md
-  - name: 更新清单 - CLI
-    href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: 更新清单 - PowerShell
+      href: service-bus-tutorial-topics-subscriptions-powershell.md
+    - name: 更新清单 - 门户
+      href: service-bus-tutorial-topics-subscriptions-portal.md
+    - name: 更新清单 - CLI
+      href: service-bus-tutorial-topics-subscriptions-cli.md
 - name: 示例
   items:
-  - name: 服务总线示例
-    href: service-bus-samples.md
+    - name: 服务总线示例
+      href: service-bus-samples.md
 - name: 概念
   items:
-  - name: Azure 资源的托管标识
-    href: service-bus-managed-service-identity.md
-  - name: 基于角色的访问控制（预览）
-    href: service-bus-role-based-access-control.md
-  - name: 高级消息传送
-    href: service-bus-premium-messaging.md
-  - name: Azure 队列与服务总线队列的比较
-    href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-  - name: 优化性能
-    href: service-bus-performance-improvements.md
-  - name: 异地灾难恢复和异地复制
-    href: service-bus-geo-dr.md
-  - name: 异步消息传送和高可用性
-    href: service-bus-async-messaging.md
-  - name: 处理中断和灾难问题
-    href: service-bus-outages-disasters.md
+    - name: Azure 资源的托管标识
+      href: service-bus-managed-service-identity.md
+    - name: 基于角色的访问控制（预览）
+      href: service-bus-role-based-access-control.md
+    - name: 高级消息传送
+      href: service-bus-premium-messaging.md
+    - name: Azure 队列与服务总线队列的比较
+      href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+    - name: 优化性能
+      href: service-bus-performance-improvements.md
+    - name: 异地灾难恢复和异地复制
+      href: service-bus-geo-dr.md
+    - name: 异步消息传送和高可用性
+      href: service-bus-async-messaging.md
+    - name: 处理中断和灾难问题
+      href: service-bus-outages-disasters.md
+    - name: Azure 的常见安全属性
+      href: service-bus-messaging-security-attributes.md
 - name: 操作指南
   items:
-  - name: 创建命名空间
-    href: service-bus-create-namespace-portal.md
-  - name: 开发
-    items:
-    - name: 消息处理
+    - name: 创建命名空间
+      href: service-bus-create-namespace-portal.md
+    - name: 开发
       items:
-      - name: 队列、主题和订阅
-        href: service-bus-queues-topics-subscriptions.md
-      - name: 消息、有效负载和序列化
-        href: service-bus-messages-payloads.md
-      - name: 消息传输、锁定和处置
-        href: message-transfers-locks-settlement.md
-      - name: 消息序列化和时间戳
-        href: message-sequencing.md
-      - name: 消息过期时间（生存时间）
-        href: message-expiration.md
-      - name: 使用 Azure 事件网格进行消息处理
-        href: service-bus-to-event-grid-integration-concept.md
-      - name: Azure 事件网格示例
-        href: service-bus-to-event-grid-integration-example.md
-    - name: 身份验证和授权
-      href: service-bus-authentication-and-authorization.md
+        - name: 消息处理
+          items:
+            - name: 队列、主题和订阅
+              href: service-bus-queues-topics-subscriptions.md
+            - name: 消息、有效负载和序列化
+              href: service-bus-messages-payloads.md
+            - name: 消息传输、锁定和处置
+              href: message-transfers-locks-settlement.md
+            - name: 消息序列化和时间戳
+              href: message-sequencing.md
+            - name: 消息过期时间（生存时间）
+              href: message-expiration.md
+            - name: 使用 Azure 事件网格进行消息处理
+              href: service-bus-to-event-grid-integration-concept.md
+            - name: Azure 事件网格示例
+              href: service-bus-to-event-grid-integration-example.md
+        - name: 身份验证和授权
+          href: service-bus-authentication-and-authorization.md
+          items:
+            - name: 从 ACS 迁移到 SAS
+              href: service-bus-migrate-acs-sas.md
+            - name: 使用共享访问签名进行的身份验证
+              href: service-bus-sas.md
+        - name: 主题筛选器和操作
+          href: topic-filters.md
+        - name: 从标准层迁移到高级层命名空间
+          href: service-bus-migrate-standard-premium.md
+        - name: 分区的队列和主题
+          href: service-bus-partitioning.md
+        - name: 消息会话
+          href: message-sessions.md
+        - name: AMQP
+          items:
+            - name: AMQP 概述
+              href: service-bus-amqp-overview.md
+            - name: .NET
+              href: service-bus-amqp-dotnet.md
+            - name: Java 消息服务和 AMQP
+              href: service-bus-java-how-to-use-jms-api-amqp.md
+            - name: AMQP 协议指南
+              href: service-bus-amqp-protocol-guide.md
+            - name: 基于 AMQP 请求-响应的操作
+              href: service-bus-amqp-request-response.md
+            - name: AMQP 错误
+              href: service-bus-amqp-troubleshoot.md
+        - name: 高级功能
+          items:
+            - name: 使用防火墙
+              href: service-bus-ip-filtering.md
+            - name: 虚拟网络服务终结点
+              href: service-bus-service-endpoints.md
+            - name: 死信队列
+              href: service-bus-dead-letter-queues.md
+            - name: 预取消息
+              href: service-bus-prefetch.md
+            - name: 重复消息检测
+              href: duplicate-detection.md
+            - name: 消息计数器
+              href: message-counters.md
+            - name: 消息延迟
+              href: message-deferral.md
+            - name: 消息浏览
+              href: message-browsing.md
+            - name: 将实体与自动转发链接在一起
+              href: service-bus-auto-forwarding.md
+            - name: 事务处理
+              href: service-bus-transactions.md
+        - name: 端到端跟踪和诊断
+          href: service-bus-end-to-end-tracing.md
+        - name: 构建多层服务总线应用程序
+          href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+    - name: 管理
       items:
-      - name: 从 ACS 迁移到 SAS
-        href: service-bus-migrate-acs-sas.md
-      - name: 使用共享访问签名进行的身份验证
-        href: service-bus-sas.md
-    - name: 主题筛选器和操作
-      href: topic-filters.md
-    - name: 从标准层迁移到高级层命名空间
-      href: service-bus-migrate-standard-premium.md
-    - name: 分区的队列和主题
-      href: service-bus-partitioning.md
-    - name: 消息会话
-      href: message-sessions.md
-    - name: AMQP
+        - name: 使用 Azure PowerShell 预配实体
+          href: service-bus-manage-with-ps.md
+        - name: 使用 Azure 监视来监视服务总线
+          href: service-bus-metrics-azure-monitor.md
+        - name: 服务总线管理库
+          href: service-bus-management-libraries.md
+        - name: 诊断日志
+          href: service-bus-diagnostic-logs.md
+        - name: 暂停和重新激活消息传递实体
+          href: entity-suspend.md
+        - name: 使用 Azure 资源管理器模板
+          href: service-bus-resource-manager-overview.md
+          items:
+            - name: 创建命名空间
+              href: service-bus-resource-manager-namespace.md
+            - name: 创建命名空间和队列
+              href: service-bus-resource-manager-namespace-queue.md
+            - name: 创建包含主题和订阅的命名空间
+              href: service-bus-resource-manager-namespace-topic.md
+            - name: 创建命名空间和队列的授权规则
+              href: service-bus-resource-manager-namespace-auth-rule.md
+            - name: 创建包含主题、订阅和规则的命名空间
+              href: service-bus-resource-manager-namespace-topic-with-rule.md
+    - name: 故障排除
       items:
-      - name: AMQP 概述
-        href: service-bus-amqp-overview.md
-      - name: .NET
-        href: service-bus-amqp-dotnet.md
-      - name: Java 消息服务和 AMQP
-        href: service-bus-java-how-to-use-jms-api-amqp.md
-      - name: AMQP 协议指南
-        href: service-bus-amqp-protocol-guide.md
-      - name: 基于 AMQP 请求-响应的操作
-        href: service-bus-amqp-request-response.md
-      - name: AMQP 错误
-        href: service-bus-amqp-troubleshoot.md
-    - name: 高级功能
-      items:
-      - name: 使用防火墙
-        href: service-bus-ip-filtering.md
-      - name: 虚拟网络服务终结点
-        href: service-bus-service-endpoints.md
-      - name: 死信队列
-        href: service-bus-dead-letter-queues.md
-      - name: 预取消息
-        href: service-bus-prefetch.md
-      - name: 重复消息检测
-        href: duplicate-detection.md
-      - name: 消息计数器
-        href: message-counters.md
-      - name: 消息延迟
-        href: message-deferral.md
-      - name: 消息浏览
-        href: message-browsing.md
-      - name: 将实体与自动转发链接在一起
-        href: service-bus-auto-forwarding.md
-      - name: 事务处理
-        href: service-bus-transactions.md
-    - name: 端到端跟踪和诊断
-      href: service-bus-end-to-end-tracing.md
-    - name: 构建多层服务总线应用程序
-      href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-  - name: 管理
-    items:
-    - name: 使用 Azure PowerShell 预配实体
-      href: service-bus-manage-with-ps.md
-    - name: 使用 Azure 监视来监视服务总线
-      href: service-bus-metrics-azure-monitor.md
-    - name: 服务总线管理库
-      href: service-bus-management-libraries.md
-    - name: 诊断日志
-      href: service-bus-diagnostic-logs.md
-    - name: 暂停和重新激活消息传递实体
-      href: entity-suspend.md
-    - name: 使用 Azure 资源管理器模板
-      href: service-bus-resource-manager-overview.md
-      items:
-      - name: 创建命名空间
-        href: service-bus-resource-manager-namespace.md
-      - name: 创建命名空间和队列
-        href: service-bus-resource-manager-namespace-queue.md
-      - name: 创建包含主题和订阅的命名空间
-        href: service-bus-resource-manager-namespace-topic.md
-      - name: 创建命名空间和队列的授权规则
-        href: service-bus-resource-manager-namespace-auth-rule.md
-      - name: 创建包含主题、订阅和规则的命名空间
-        href: service-bus-resource-manager-namespace-topic-with-rule.md
-  - name: 故障排除
-    items:
-    - name: 例外
-      href: service-bus-messaging-exceptions.md
+        - name: 例外
+          href: service-bus-messaging-exceptions.md
 - name: 引用
   items:
-  - name: .NET
-    items:
-    - name: Microsoft.ServiceBus.Messaging (.NET Framework)
-      href: /dotnet/api/microsoft.servicebus.messaging
-    - name: Microsoft.Azure.ServiceBus (.NET Standard)
-      href: /dotnet/api/microsoft.azure.servicebus
-  - name: Java
-    href: /java/api/overview/azure/servicebus
-  - name: Python
-    href: /python/api/overview/azure/servicebus?view=azure-python
-  - name: Node.js
-    href: /javascript/api/overview/azure/service-bus
-  - name: PHP
-    href: https://github.com/Azure/azure-sdk-for-php
-  - name: Ruby
-    href: https://github.com/Azure/azure-sdk-for-ruby
-  - name: Go
-    href: https://github.com/Azure/azure-service-bus-go
-  - name: Azure PowerShell
-    href: /powershell/module/az.servicebus
-  - name: REST
-    href: /rest/api/servicebus
-  - name: 资源管理器模板
-    href: /azure/templates/microsoft.servicebus/allversions
-  - name: 配额
-    href: service-bus-quotas.md
-  - name: SQLFilter 语法
-    href: service-bus-messaging-sql-filter.md
-  - name: SQLRuleAction 语法
-    href: service-bus-messaging-sql-rule-action.md
+    - name: .NET
+      items:
+        - name: Microsoft.ServiceBus.Messaging (.NET Framework)
+          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Microsoft.Azure.ServiceBus (.NET Standard)
+          href: /dotnet/api/microsoft.azure.servicebus
+    - name: Java
+      href: /java/api/overview/azure/servicebus
+    - name: Python
+      href: /python/api/overview/azure/servicebus?view=azure-python
+    - name: Node.js
+      href: /javascript/api/overview/azure/service-bus
+    - name: PHP
+      href: 'https://github.com/Azure/azure-sdk-for-php'
+    - name: Ruby
+      href: 'https://github.com/Azure/azure-sdk-for-ruby'
+    - name: Go
+      href: 'https://github.com/Azure/azure-service-bus-go'
+    - name: Azure PowerShell
+      href: /powershell/module/az.servicebus
+    - name: REST
+      href: /rest/api/servicebus
+    - name: 资源管理器模板
+      href: /azure/templates/microsoft.servicebus/allversions
+    - name: 配额
+      href: service-bus-quotas.md
+    - name: SQLFilter 语法
+      href: service-bus-messaging-sql-filter.md
+    - name: SQLRuleAction 语法
+      href: service-bus-messaging-sql-rule-action.md
 - name: 资源
   items:
-  - name: 常见问题解答
-    href: service-bus-faq.md
-  - name: 利用 Microsoft Learn 掌握技能
-    href: /learn/browse/?products=azure-service-bus
-  - name: Azure 路线图
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
-  - name: 博客
-    href: https://blogs.msdn.microsoft.com/servicebus/
-  - name: MSDN 论坛
-    href: https://social.msdn.microsoft.com/forums/home?forum=servbus
-  - name: 定价
-    href: https://azure.microsoft.com/pricing/details/service-bus/
-  - name: 定价计算器
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Serverless360
-    href: https://www.serverless360.com/
-  - name: 服务总线资源管理器
-    href: https://github.com/paolosalvatori/ServiceBusExplorer
-  - name: 服务更新
-    href: https://azure.microsoft.com/updates/?product=service-bus
-  - name: 堆栈溢出
-    href: https://stackoverflow.com/questions/tagged/azureservicebus
-  - name: 视频
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 51bda2ae37de4cf9865549501b30518fa98c20d6
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609290"
+    - name: 常见问题解答
+      href: service-bus-faq.md
+    - name: 利用 Microsoft Learn 掌握技能
+      href: /learn/browse/?products=azure-service-bus
+    - name: Azure 路线图
+      href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
+    - name: 博客
+      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+    - name: MSDN 论坛
+      href: 'https://social.msdn.microsoft.com/forums/home?forum=servbus'
+    - name: 定价
+      href: 'https://azure.microsoft.com/pricing/details/service-bus/'
+    - name: 定价计算器
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Serverless360
+      href: 'https://www.serverless360.com/'
+    - name: 服务总线资源管理器
+      href: 'https://github.com/paolosalvatori/ServiceBusExplorer'
+    - name: 服务更新
+      href: 'https://azure.microsoft.com/updates/?product=service-bus'
+    - name: 堆栈溢出
+      href: 'https://stackoverflow.com/questions/tagged/azureservicebus'
+    - name: 视频
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-bus'

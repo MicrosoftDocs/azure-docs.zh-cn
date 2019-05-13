@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 0294c7eefb6cad17ef83c24a59c37a42e68861b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4ec13453c204885f38b10272e76245e641fbef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728551"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203598"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -318,7 +318,7 @@ public void run(
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#trigger---usage)部分中已阐述异常。 |
-|name | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
+|**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 |
 |**路径** | **BlobPath** |要监视的[容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)。  可以是某种 [Blob 名称模式](#trigger---blob-name-patterns)。 |
 |**连接** | **Connection** | 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
@@ -389,13 +389,13 @@ public void run(
 
 ## <a name="trigger---metadata"></a>触发器 - 元数据
 
-Blob 触发器提供了几个元数据属性。 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 这些值的语义与 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) 类型相同。
+Blob 触发器提供了几个元数据属性。 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 这些值的语义与 [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) 类型相同。
 
 |属性  |Type  |描述  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|触发 Blob 的路径。|
 |`Uri`|`System.Uri`|主位置的 blob 的 URI。|
-|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Blob 的系统属性。 |
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|Blob 的系统属性。 |
 |`Metadata` |`IDictionary<string,string>`|Blob 的用户定义元数据。|
 
 例如，以下 C# 脚本和 JavaScript 示例会记录触发 blob 的路径，包括容器：
@@ -426,7 +426,7 @@ Azure Functions 将 Blob 回执存储在函数应用的 Azure 存储帐户中名
 * Blob 名称
 * ETag（blob 版本标识符，例如："0x8D1DC6E70A277EF"）
 
-若要强制重新处理某个 blob，可从 azure-webjobs-hosts 容器中手动删除该 blob 的 blob 回执。 虽然重新处理可能会立即发生，但并保证在稍后的某个时刻发生的时间。
+若要强制重新处理某个 blob，可从 azure-webjobs-hosts 容器中手动删除该 blob 的 blob 回执。 虽然重新处理可能会立即发生，保证在稍后的某个时刻发生的时间。
 
 ## <a name="trigger---poison-blobs"></a>触发器 - 有害 Blob
 
@@ -733,7 +733,7 @@ public static void Run(
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `blob`。 |
 |direction | 不适用 | 必须设置为 `in`。 [用法](#input---usage)部分中已阐述异常。 |
-|name | 不适用 | 表示函数代码中的 Blob 的变量的名称。|
+|**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。|
 |**路径** |**BlobPath** | Blob 的路径。 |
 |**连接** |**Connection**| 包含要用于此绑定的[存储连接字符串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[仅限 Blob 的存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |不适用 | **Access** | 表示是要读取还是写入。 |
@@ -1067,8 +1067,8 @@ public static void Run(
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `blob`。 |
 |direction | 不适用 | 对于输出绑定，必须设置为 `out`。 [用法](#output---usage)部分中已阐述异常。 |
-|name | 不适用 | 表示函数代码中的 Blob 的变量的名称。  设置为 `$return` 可引用函数返回值。|
-|**路径** |**BlobPath** | Blob 的路径。 |
+|**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。  设置为 `$return` 可引用函数返回值。|
+|**路径** |**BlobPath** | Blob 容器的路径。 |
 |**连接** |**Connection**| 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[仅限 Blob 的存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |不适用 | **Access** | 表示是要读取还是写入。 |
 

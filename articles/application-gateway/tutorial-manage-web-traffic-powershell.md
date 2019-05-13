@@ -4,27 +4,29 @@ description: 了解如何通过 Azure PowerShell 使用虚拟机规模集创建�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 3/20/2019
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 83719ce0cddf3d77325b26fa40dd3cb2decaf921
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b1bf91a13d3327873efab475067029ee4ce47639
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294801"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145909"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>通过 Azure PowerShell 使用应用程序网关管理 Web 流量
 
 应用程序网关用于管理和保护传入你维护的服务器的 Web 流量。 可以使用 Azure PowerShell 创建使用[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)作为后端服务器的[应用程序网关](overview.md)以管理 Web 流量。 在此示例中，规模集包含两个添加到应用程序网关的默认后端池的虚拟机实例。
 
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 设置网络
 > * 创建应用程序网关
 > * 使用默认后端池创建虚拟机规模集
+
+如果需要，可以使用 [Azure CLI](tutorial-manage-web-traffic-cli.md) 完成此过程。
 
 如果没有 Azure 订阅，请在开始之前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
@@ -32,7 +34,7 @@ ms.locfileid: "58294801"
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果选择在本地安装并使用 PowerShell，则本教程需要安装 Azure PowerShell 模块 1.0.0 版或更高版本。 要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount` 来创建与 Azure 的连接。
+如果选择在本地安装和使用 PowerShell，则本文需要 Azure PowerShell 模块 1.0.0 或更高版本。 要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount` 来创建与 Azure 的连接。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -255,12 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
-
-> [!div class="checklist"]
-> * 设置网络
-> * 创建应用程序网关
-> * 使用默认后端池创建虚拟机规模集
-
-> [!div class="nextstepaction"]
-> [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-powershell.md)
+[使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-powershell.md)

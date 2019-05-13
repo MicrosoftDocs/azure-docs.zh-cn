@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728731"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198816"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -107,7 +107,7 @@ ms.locfileid: "60728731"
 
 **如果我创建一个 128 GB 的磁盘，然后将大小增加到 130 gibibyte 计算的 (GiB) 收费的下一步的磁盘大小 (256 GiB)？**
 
-是的。
+可以。
 
 是否可以创建本地冗余存储、异地冗余存储和区域冗余存储托管磁盘？
 
@@ -140,6 +140,20 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 **可否在 Azure 磁盘上使用 GPT 分区？**
 
 GPT 分区仅可在数据磁盘上使用，而不可在操作系统磁盘上使用。 操作系统磁盘必须使用 MBR 分区样式。
+
+## <a name="uploading-to-a-managed-disk"></a>上传到托管磁盘
+
+**可以将数据上载到现有托管磁盘？**
+
+否上, 传只能在创建与新的空磁盘过程**ReadyToUpload**状态。
+
+**可以将附加磁盘到 VM 时处于上载状态？**
+
+不。
+
+**能否将上传状态中的托管磁盘的快照？**
+
+不。
 
 ## <a name="standard-ssd-disks"></a>标准 SSD 盘
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347827"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139293"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步：计划程序
-本主题介绍 Azure AD Connect 同步（也称为同步引擎）中的 内置计划程序。
+本主题介绍 Azure AD Connect 同步 （同步引擎） 中的内置计划程序。
 
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。
 
@@ -92,29 +92,62 @@ d - 天，HH - 小时，mm - 分钟，ss - 秒
 ## <a name="start-the-scheduler"></a>启动计划程序
 默认情况下，计划程序每 30 分钟运行一次。 在某些情况下，可能想要在已计划的周期之间运行同步周期，或者需要运行不同的类型。
 
-**增量同步周期**  
+### <a name="delta-sync-cycle"></a>增量同步周期
 增量同步周期包括以下步骤：
 
-* 在所有连接器上增量导入
-* 在所有连接器上增量同步
-* 在所有连接器上导出
 
-有时可能有必须立即同步的紧急更改，这就是为什么需要手动运行周期的原因。 如果需要手动运行周期，则从 PowerShell 运行 `Start-ADSyncSyncCycle -PolicyType Delta`。
+- 在所有连接器上增量导入
+- 在所有连接器上增量同步
+- 在所有连接器上导出
 
-**完全同步周期**  
-如果进行了以下任一配置更改，则需要运行完全同步周期（也称为 Initial）：
+### <a name="full-sync-cycle"></a>完全同步周期
+完全同步周期包括以下步骤：
 
-* 从源目录中添加了更多要导入的对象或属性
-* 更改了同步规则
-* 更改了[筛选设置](how-to-connect-sync-configure-filtering.md)，因此应包含不同的对象数
+- 在所有连接器上完全导入
+- 在所有连接器上完全同步
+- 在所有连接器上导出
 
-如果进行了上述某项更改，则需要运行完全同步周期，以便同步引擎有机会重新合并连接器空间。 完全同步周期包括以下步骤：
+可能会有必须立即同步的紧急更改，这就是为什么需要手动运行周期的原因。 
 
-* 在所有连接器上完全导入
-* 在所有连接器上完全同步
-* 在所有连接器上导出
+如果需要手动运行同步周期，然后从 PowerShell 运行`Start-ADSyncSyncCycle -PolicyType Delta`。
 
-若要启动完全同步周期，请在 PowerShell 提示符下运行 `Start-ADSyncSyncCycle -PolicyType Initial` 。 此命令将启动一个完整同步周期。
+若要启动完全同步周期，请在 PowerShell 提示符下运行 `Start-ADSyncSyncCycle -PolicyType Initial`。   
+
+运行完全同步周期可能非常耗时，读取下一节以了解如何优化此过程。
+
+### <a name="sync-steps-required-for-different-configuration-changes"></a>所需的不同的配置更改的同步步骤
+不同的配置更改需要不同的同步步骤，以确保所做的更改正确应用到所有对象。
+
+- 添加更多对象或属性，若要从导入源目录 （通过添加/修改的同步规则）
+    - 适用于该源目录的连接器上被必需的完全导入
+- 更改了同步规则
+    - 适用于已更改的同步规则的连接器上需要完全同步
+- 更改了[筛选设置](how-to-connect-sync-configure-filtering.md)，因此应包含不同的对象数
+    - 完全导入需要连接器上为每个 AD 连接器除非你使用基于属性的筛选基于已导入同步引擎的属性
+
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>自定义同步周期运行合适的组合的增量和完整同步步骤
+若要避免运行完全同步周期可以标记特定连接器以运行使用以下 cmdlet 的完整步骤。
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullSyncRequired $true`
+
+`Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
+
+示例：如果不需要任何新属性，以将其导入有关连接器"AD 林 A"的同步规则进行更改将运行以下 cmdlet 来运行增量同步周期具体还未完全同步步骤适用于该连接器。
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
+示例：如果您对更改的同步规则的连接器"AD 林 A"，以便它们现在需要将导入一个新属性将运行以下 cmdlet 来运行增量同步周期，这也可以执行完全导入，该连接器的完全同步步骤。
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
 
 ## <a name="stop-the-scheduler"></a>停止计划程序
 如果计划程序当前正在运行同步周期，可能需要将其停止。 例如，如果启动安装向导并收到以下错误：

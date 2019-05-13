@@ -6,9 +6,6 @@
     - name: 什么是 Azure 机器学习服务？
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Workbench 发生了什么情况
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: 设置
   items:
     - name: 创建工作区
@@ -16,32 +13,68 @@
       href: setup-create-workspace.md
 - name: 快速入门
   items:
-    - name: 云笔记本试验
-      displayName: workspace
-      href: quickstart-run-cloud-notebook.md
-    - name: 本地笔记本试验
-      displayName: 'workspace, install, sdk'
-      href: quickstart-run-local-notebook.md
+    - name: Python SDK
+      items:
+        - name: 在云中运行试验
+          displayName: workspace
+          href: quickstart-run-cloud-notebook.md
+        - name: 在本地运行试验
+          displayName: 'workspace, install, sdk'
+          href: quickstart-run-local-notebook.md
+    - name: 可视界面
+      items:
+        - name: 准备和可视化数据
+          displayName: experiment drag-and-drop
+          href: ui-quickstart-run-experiment.md
 - name: 教程
   items:
-    - name: 图像分类（MNIST 数据）
+    - name: Python SDK
       items:
-        - name: 1. 训练模型
-          displayName: build modeling
-          href: tutorial-train-models-with-aml.md
-        - name: 2. 部署模型
-          href: tutorial-deploy-models-with-aml.md
-    - name: 回归（NYC Taxi 数据）
+        - name: 图像分类（MNIST 数据）
+          items:
+            - name: 1. 训练模型
+              displayName: build modeling
+              href: tutorial-train-models-with-aml.md
+            - name: 2. 部署模型
+              href: tutorial-deploy-models-with-aml.md
+        - name: 回归（NYC Taxi 数据）
+          items:
+            - name: 1. 准备建模的数据
+              displayName: data prep
+              href: tutorial-data-prep.md
+            - name: 2. 自动训练 ML 模型
+              displayName: 'automl, automated, auto ml,'
+              href: tutorial-auto-train-models.md
+    - name: 可视界面
       items:
-        - name: 1. 准备建模的数据
-          displayName: data prep
-          href: tutorial-data-prep.md
-        - name: 2. 自动训练 ML 模型
-          displayName: 'automl, automated, auto ml,'
-          href: tutorial-auto-train-models.md
+        - name: 训练回归模型
+          displayName: experiment drag-and-drop visual interface Tutorial 1
+          href: ui-tutorial-automobile-price-train-score.md
+        - name: 部署回归模型
+          displayName: experiment drag-and-drop visual interface Tutorial 2
+          href: ui-tutorial-automobile-price-deploy.md
 - name: 示例
-  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
-  href: samples-notebooks.md
+  items:
+    - name: Notebooks
+      displayName: 'example, examples, jupyter, azure notebooks, python, notebook, github'
+      href: samples-notebooks.md
+    - name: 可视界面试验
+      items:
+        - name: 预测价格
+          displayName: 'Sample 1, training, regression'
+          href: ui-sample-regression-predict-automobile-price-basic.md
+        - name: 预测价格（高级）
+          displayName: 'Sample 2, training, regression'
+          href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
+        - name: 预测信用风险
+          displayName: 'Sample 3, training, classification'
+          href: ui-sample-classification-predict-credit-risk-basic.md
+        - name: 预测信用风险（高级）
+          displayName: 'Sample 4, training, classification'
+          href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        - name: 预测变动率
+          displayName: 'Sample 5, training, CRM, classification'
+          href: ui-sample-classification-predict-churn.md
 - name: 概念
   items:
     - name: 服务的工作原理
@@ -50,14 +83,16 @@
     - name: 自动化机器学习
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md
-    - name: 模型管理
-      displayName: 'deploy, deployment'
+    - name: 模型管理 (MLOps)
+      displayName: 'deploy, deployment, mlops, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
     - name: 模型可解释性
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
     - name: 使用 FPGA 加速
       href: concept-accelerate-with-fpgas.md
+    - name: 使用 ONNX 和 ONNX 运行时进行优化
+      href: concept-onnx.md
     - name: 机器学习管道
       href: concept-ml-pipelines.md
     - name: 安全
@@ -79,30 +114,47 @@
         - name: 为工作区使用门户
           href: how-to-manage-workspace.md
         - name: 使用 Resource Manager 模板
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "设置开发环境\_"
       items:
         - name: 配置开发环境
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: 使用 Visual Studio Code 扩展
+        - name: 启用日志记录
+          displayName: 'troubleshoot, log, files, tracing'
+          href: how-to-enable-logging.md
+        - name: 使用 VS Code 扩展
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
     - name: 处理数据
-      displayName: 'data prep, ETL, ELT, data preparation'
       items:
-        - name: 浏览和准备数据
-          displayName: 'data prep, ETL, ELT, data preparation'
+        - name: 添加和注册数据集
+          displayName: 'data, dataset'
+          href: how-to-create-register-datasets.md
+        - name: 使用 azureml.dataprep 做好准备
           items:
             - name: 加载数据
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-load-data.md
             - name: 转换数据
+              displayName: 'data, etl, dataprep, data prep'
               href: how-to-transform-data.md
             - name: 写入数据
+              displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-    - name: 获取数据存储中的数据
-      displayName: blob get fileshare access storage
-      href: how-to-access-data.md
+        - name: 准备数据集（预览）
+          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: 版本和管理数据定义
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: 创建数据快照
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: 从数据存储中获取数据
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
     - name: 训练模型
       items:
         - name: 设置训练环境
@@ -130,21 +182,26 @@
         - name: 使用自动化 ML (Python)
           displayName: SDK automl
           href: how-to-configure-auto-train.md
+        - name: 使用自动化机器学习（Azure 门户）
+          href: how-to-create-portal-experiments.md
         - name: 使用远程计算目标
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: 自动训练预测模型
           displayName: time series
           href: how-to-auto-train-forecast.md
-    - name: ONNX 模型
-      href: how-to-build-deploy-onnx.md
-    - name: 部署模型
+    - name: 部署和提供模型
       items:
         - name: 在何处以及如何部署
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
+        - name: GPU
+          href: how-to-deploy-inferencing-gpus.md
         - name: FPGA
           href: how-to-deploy-fpga-web-service.md
+        - name: IoT Edge
+          href: ../../iot-edge/tutorial-deploy-machine-learning.md
+          maintainContext: true
         - name: 故障排除
           href: how-to-troubleshoot-deployment.md
     - name: 使用 Web 服务
@@ -162,31 +219,119 @@
           href: how-to-enable-data-collection.md
         - name: 使用 Application Insights 进行监视
           href: how-to-enable-app-insights.md
-    - name: 创建第一个管道
-      href: how-to-create-your-first-pipeline.md
-    - name: 启用日志记录
-      displayName: logging
-      href: how-to-enable-logging.md
+    - name: 创建可重用的工作流
+      displayName: pipelines
+      items:
+        - name: 创建机器学习管道
+          href: how-to-create-your-first-pipeline.md
+        - name: 将 ML 工作流的 CI/CD 与 Azure Pipelines 配合使用
+          displayName: 'continuous, integration, delivery'
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: 管理资源配额
       displayName: limits
       href: how-to-manage-quotas.md
-    - name: 使用机器学习 CLI
-      displayName: cli extension command line command-line az ci/cd automate automated
-      href: reference-azure-machine-learning-cli.md
     - name: 导出和删除数据
       displayName: GDPR
       href: how-to-export-delete-data.md
 - name: 引用
   items:
     - name: 机器学习 SDK
-      displayName: api core package python
+      displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: 数据准备 SDK
-      displayName: api preparation package python
-      href: 'https://aka.ms/data-prep-sdk'
     - name: 监视 SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
+    - name: 机器学习 CLI
+      displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
+      href: reference-azure-machine-learning-cli.md
+    - name: 可视界面模块
+      displayName: module reference
+      items:
+        - name: 模块参考概述
+          href: ../algorithm-module-reference/module-reference.md
+        - name: 数据格式转换
+          items:
+            - name: 转换为 CSV
+              href: ../algorithm-module-reference/convert-to-csv.md
+        - name: 数据输入和输出
+          items:
+            - name: 导入数据
+              href: ../algorithm-module-reference/import-data.md
+            - name: 导出数据
+              href: ../algorithm-module-reference/export-data.md
+            - name: 手动输入数据
+              href: ../algorithm-module-reference/enter-data-manually.md
+        - name: 数据转换
+          items:
+            - name: 在数据集中选择列
+              href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: 编辑元数据
+              href: ../algorithm-module-reference/edit-metadata.md
+            - name: 清理缺失数据
+              href: ../algorithm-module-reference/clean-missing-data.md
+            - name: 添加列
+              href: ../algorithm-module-reference/add-columns.md
+            - name: 添加行
+              href: ../algorithm-module-reference/add-rows.md
+            - name: 删除重复的行
+              href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: 拆分数据
+              href: ../algorithm-module-reference/split-data.md
+            - name: 规范化数据
+              href: ../algorithm-module-reference/normalize-data.md
+            - name: 分区和采样
+              href: ../algorithm-module-reference/partition-and-sample.md
+        - name: 机器学习
+          items:
+            - name: 评分模型
+              href: ../algorithm-module-reference/score-model.md
+            - name: 将数据分配到聚类
+              href: ../algorithm-module-reference/assign-data-to-clusters.md
+            - name: 训练模型
+              href: ../algorithm-module-reference/train-model.md
+            - name: 训练聚类模型
+              href: ../algorithm-module-reference/train-clustering-model.md
+            - name: 评估模型
+              href: ../algorithm-module-reference/evaluate-model.md
+            - name: 应用转换
+              href: ../algorithm-module-reference/apply-transformation.md
+            - name: 线性回归
+              href: ../algorithm-module-reference/linear-regression.md
+            - name: 神经网络回归
+              href: ../algorithm-module-reference/neural-network-regression.md
+            - name: 决策林回归
+              href: ../algorithm-module-reference/decision-forest-regression.md
+            - name: 提升决策树回归
+              href: ../algorithm-module-reference/boosted-decision-tree-regression.md
+            - name: 双类提升决策树
+              href: ../algorithm-module-reference/two-class-boosted-decision-tree.md
+            - name: 双类逻辑回归
+              href: ../algorithm-module-reference/two-class-logistic-regression.md
+            - name: 多类逻辑回归
+              href: ../algorithm-module-reference/multiclass-logistic-regression.md
+            - name: 多类神经网络
+              href: ../algorithm-module-reference/multiclass-neural-network.md
+            - name: 多类决策林
+              href: ../algorithm-module-reference/multiclass-decision-forest.md
+            - name: 双类平均感知器
+              href: ../algorithm-module-reference/two-class-averaged-perceptron.md
+            - name: 双类决策林
+              href: ../algorithm-module-reference/two-class-decision-forest.md
+            - name: 双类神经网络
+              href: ../algorithm-module-reference/two-class-neural-network.md
+            - name: 两类支持向量机
+              href: ../algorithm-module-reference/two-class-support-vector-machine.md
+            - name: K 平均值聚类
+              href: ../algorithm-module-reference/k-means-clustering.md
+        - name: Python 语言模块
+          items:
+            - name: 执行 Python 脚本
+              href: ../algorithm-module-reference/execute-python-script.md
+            - name: 创建 Python 模型
+              href: ../algorithm-module-reference/create-python-model.md
+        - name: 错误消息和代码
+          href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: 资源
   items:
     - name: 发行说明
@@ -208,3 +353,6 @@
     - name: 比较我们的 ML 产品
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Workbench 发生了什么情况
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

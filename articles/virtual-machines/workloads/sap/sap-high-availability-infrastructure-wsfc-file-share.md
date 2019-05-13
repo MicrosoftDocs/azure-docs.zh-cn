@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637695"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409601"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>针对 SAP ASCS/SCS 实例使用 Windows 故障转移群集和文件共享准备 SAP 高可用性的 Azure 基础结构
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637695"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -230,7 +231,7 @@ ms.locfileid: "60637695"
 
 | SAP \<SID> | SAP ASCS/SCS 实例编号 |
 | --- | --- |
-| PR1 | 00 |
+| PR1 | 0 |
 
 **表 2**:SAP ASCS/SCS 实例详细信息
 
@@ -316,7 +317,7 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 > 在横向扩展文件服务器资源管理器模板 UI 中，必须指定 VM 计数。
 >
 
-### <a name="use-managed-disks"></a>使用托管磁盘
+### <a name="use-managed-disks"></a>使用托管的磁盘
 
 [GitHub][arm-sofs-s2d-managed-disks] 上提供了用于部署使用存储空间直通和 Azure 托管磁盘的横向扩展文件服务器的 Azure 资源管理器模板。
 
@@ -341,6 +342,16 @@ _**图 1**:使用托管磁盘的横向扩展文件服务器资源管理器模板
 _**图 2**:不带托管磁盘的横向扩展文件服务器 Azure 资源管理器模板的 UI 屏幕_
 
 在“存储帐户类型”框中，选择“高级存储”。 其他所有设置与托管磁盘的设置相同。
+
+## <a name="adjust-cluster-timeout-settings"></a>调整群集超时设置
+
+已成功安装 Windows 横向扩展文件服务器群集后，调整故障转移到 Azure 中的情况的检测的超时阈值。 博客文章 [Tuning failover cluster network thresholds][tuning-failover-cluster-network-thresholds]（调整故障转移群集网络阈值）中阐述了要更改的参数。 假定您的群集的 Vm 位于同一子网，请对这些值更改以下参数：
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+这些设置已经过客户测试，可以提供合理的折衷。 它们具有足够的弹性，但它们还提供快速足够中实际出错情况或 VM 失败的故障转移。
 
 ## <a name="next-steps"></a>后续步骤
 

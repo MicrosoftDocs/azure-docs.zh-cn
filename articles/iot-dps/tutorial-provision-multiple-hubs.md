@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248158"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>跨负载均衡的 IoT 中心预配设备
 
@@ -46,11 +46,11 @@ ms.locfileid: "41917656"
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>设置设备预配服务分配策略
 
-分配策略是一项设备预配服务设置，用于确定将设备分配到 IoT 中心的方式。 支持三种分配策略： 
+分配策略是一项设备预配服务设置，用于确定将设备分配到 IoT 中心的方式。 支持三种分配策略： 
 
 1. **最低延迟**：将设备预配到具有最低延迟的 IoT 中心。
-2. **均匀加权分发**（默认）：链接的 IoT 中心等可能地获得预配到它们的设备。 此设置为默认设置。 如果只将设备预配到一个 IoT 中心，则可以保留此设置。 
-3. **通过注册列表进行静态配置**：注册列表中所需 IoT 中心的规范优先于设备预配服务级别的分配策略。
+2. **均衡加权分布**（默认）：链接的 IoT 中心等可能地获得预配到它们的设备。 此设置为默认设置。 如果只将设备预配到一个 IoT 中心，则可以保留此设置。 
+3. **通过注册列表进行静态注册**：注册列表中所需 IoT 中心的规范优先于设备预配服务级别的分配策略。
 
 请按照以下步骤设置分配策略：
 
@@ -64,7 +64,7 @@ ms.locfileid: "41917656"
 
 1. 在“所有资源”页上，单击之前创建的设备预配服务。
 2. 在“设备预配服务”页上，单击“链接 IoT 中心”。
-3. 单击 **“添加”**。
+3. 单击“添加”。
 4. 在“将链接添加到 IoT 中心”页上，使用单选按钮指定链接的 IoT 中心位于当前订阅中还是其他订阅中。 然后，从“IoT 中心”框中选择该 IoT 中心的名称。
 5. 单击“ **保存**”。
 

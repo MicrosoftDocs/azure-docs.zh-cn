@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548539"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191032"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录功能
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-在本快速入门中，你将了解如何使用 OpenID Connect 通过基于传统 Web 浏览器的应用程序，根据 ASP.NET MVC 解决方案实现 Microsoft 登录。 你将了解如何在 ASP.NET 应用程序中使用工作和学校帐户登录。
+在本快速入门中，你将了解如何使用 OpenID Connect 通过基于传统 Web 浏览器的应用程序，根据 ASP.NET 模型视图控制器 (MVC) 解决方案实现 Microsoft 登录。 你将了解如何在 ASP.NET 应用程序中使用工作和学校帐户登录。
 
 在本快速入门结束时，应用程序可接受与 Azure Active Directory (Azure AD) 集成的组织的工作和学校帐户登录。
 
@@ -38,15 +38,15 @@ ms.locfileid: "59548539"
 
 要开始，请确保满足下列先决条件：
 
-* 已安装 Visual Studio 2015 Update 3 或 Visual Studio 2017。 尚未安装？ [免费下载 Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* 已安装 Visual Studio 2015 Update 3 或 Visual Studio 2019。 尚未安装？ [免费下载 Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
-## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>方案：在 ASP.NET 应用中让用户使用工作和学校帐户登录
+## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>场景：在 ASP.NET 应用中让用户使用工作和学校帐户登录
 
 ![本指南的工作原理](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-在此方案中，浏览器访问 ASP.NET 网站，并请求用户使用“登录”按钮进行身份验证。 在此方案中，呈现网页的大部分工作在服务器端完成。
+浏览器访问 ASP.NET 网站，并请求用户使用此场景中的“登录”按钮进行身份验证。 在此方案中，呈现网页的大部分工作在服务器端完成。
 
-本快速入门演示了如何从空模板开始，使用户登录 ASP.NET Web 应用程序，包括添加登录按钮以及每个控制器和方法的步骤，并讨论这些任务背后的概念。 或者，还可以通过使用 [Visual Studio Web 模板](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)并选择“组织帐户”和云选项之一（该选项使用包含其他控制器、方法和视图的更丰富的模板），创建使 Azure AD 用户（工作和学校帐户）登录的项目。
+此快速入门演示了如何从空模板起步在 ASP.NET Web 应用程序上让用户登录。 它还包括了添加登录按钮和每个控制器与方法等步骤，并讨论了这些任务背后的概念。 还可以通过使用 [Visual Studio Web 模板](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)并选择“组织帐户”和云选项之一（该选项使用包含其他控制器、方法和视图的更丰富的模板），创建使 Azure AD 用户（工作和学校帐户）登录的项目。
 
 ## <a name="libraries"></a>库
 
@@ -158,7 +158,7 @@ ms.locfileid: "59548539"
 1. 选择“MVC {version} 控制器 - 空”。
 1. 选择 **添加** 。
 1. 将其命名为“ClaimsController”。
-1. 将控制器类的代码替换为下面的代码，这将 `[Authorize]` 属性添加到类：
+1. 将控制器类的代码替换为下面的代码 - 此示例将 `[Authorize]` 属性添加到类：
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,7 +196,7 @@ ms.locfileid: "59548539"
 4. 将项目的 SSL URL 复制到剪贴板：<br/><br/>![项目属性](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. 在 <code>web.config</code> 中，用项目的 SSL URL替换 <code>Enter_the_Redirect_URL_here</code>。
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在 Azure 门户中注册应用程序，然后将其信息添加到 web.config
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在 Azure 门户中注册你的应用程序，然后将其信息添加到 *web.config*
 
 1. 转到 [Microsoft Azure 门户 - 应用注册](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，注册应用程序。
 2. 选择“新建应用程序注册”。
@@ -205,20 +205,20 @@ ms.locfileid: "59548539"
 5. 选择“创建”以注册应用程序。 执行此操作后会返回到应用程序列表。
 6. 现在，搜索并/或选择刚刚创建的应用程序，打开其属性。
 7. 将“应用程序 ID”下的 GUID 复制到剪贴板。
-8. 返回到 Visual Studio，在 `web.config` 中，用刚刚注册的应用程序 ID 替换 `Enter_the_Application_Id_here`。
+8. 返回到 Visual Studio，在 `web.config` 中，用你注册的应用程序 ID 替换 `Enter_the_Application_Id_here`。
 
 > [!TIP]
 > 如果帐户配置为可访问多个目录，请确保为要向其注册应用程序的组织选择了正确的目录，方法是单击 Azure 门户右上角的帐户名称，然后按照指示验证所选目录：<br/>![选择正确的目录](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>步骤 10：配置登录选项
 
-可以将应用程序配置为只允许某个组织的 Azure AD 实例中的用户登录，或者接受任何组织中的用户登录。 请按照以下选项之一的说明进行操作：
+可以将应用程序配置为只允许某个组织的 Azure AD 实例中的用户登录，或者接受任何组织中的用户登录。 按照以下选项之一的说明进行操作：
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>将应用程序配置为允许任何公司或组织（多租户）的工作和学校帐户登录
 
-如果想接受任何已经与 Azure AD 集成的公司或组织的工作和学校帐户登录，请执行以下步骤。 这是 SaaS 应用程序 的常见方案：
+如果想接受任何已经与 Azure AD 集成的公司或组织的工作和学校帐户登录，请执行以下步骤。 此场景是 *SaaS 应用程序*的常见场景：
 
-1. 返回到 [Microsoft Azure 门户 - 应用注册](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，并查找刚刚注册的应用程序。
+1. 返回到 [Microsoft Azure 门户 - 应用注册](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，并查找你注册的应用程序。
 2. 在“所有设置”下，选择“属性”。
 3. 将“多租户”属性更改为“是”，然后选择“保存”。
 
@@ -278,7 +278,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 #### <a name="expected-results"></a>预期结果
 
-登录后，用户会重定向到网站主页，该网站是 Microsoft 应用程序注册门户上应用程序注册信息中指定的 HTTPS URL。 此页现在显示 Hello {用户}、注销链接，以及查看用户声明的链接（即指向之前创建的 Authorize 控制器的链接）。
+在用户登录后，用户会被重定向到网站主页，该网站是 Microsoft 应用程序注册门户上应用程序注册信息中指定的 HTTPS URL。 此页现在显示 Hello {用户}、注销链接，以及查看用户声明的链接（即指向之前创建的 Authorize 控制器的链接）。
 
 ### <a name="see-users-claims"></a>查看用户的声明
 
@@ -292,7 +292,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 |---|---|---|
 | 名称 | {用户全名} | 用户的名字和姓氏 |
 | 用户名 | <span>user@domain.com</span> | 用于标识已登录用户的用户名 |
-| 主题| {使用者} |一个唯一地标识 Web 上用户登录名的字符串 |
+| 主题| {使用者} |一个在 Web 上唯一地标识用户登录名的字符串 |
 | 租户 ID | {Guid} | 唯一表示用户的 Azure AD 组织的 guid |
 
 此外还可看到一个表格，其中包含身份验证请求中的所有用户声明。 有关 ID 令牌和说明中所有声明的列表，请参阅 [ID 令牌中的声明列表](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。

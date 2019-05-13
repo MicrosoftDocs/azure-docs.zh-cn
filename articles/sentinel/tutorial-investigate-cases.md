@@ -4,7 +4,7 @@ description: 使用本教程，了解如何调查情况下使用 Azure Sentinel�
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6b3357ec06c89645b9c41e9efdb582a18af40672
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1da180d3b30b57ca2b69985bf3d0261b8d70c39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614629"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205509"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>教程：调查情况下使用 Azure Sentinel 预览版
 

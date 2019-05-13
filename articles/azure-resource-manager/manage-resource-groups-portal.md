@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551218"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507232"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -31,7 +31,7 @@ ms.locfileid: "60551218"
 
 ## <a name="what-is-a-resource-group"></a>什么是资源组
 
-资源组是用于保存 Azure 解决方案相关资源的容器。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。 通常可将共享相同生命周期的资源添加到同一资源组，以便将其作为一个组轻松部署、更新和删除。
+资源组是保管 Azure 解决方案的相关资源的容器。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。 通常可将共享相同生命周期的资源添加到同一资源组，以便将其作为一个组轻松部署、更新和删除。
 
 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
@@ -108,64 +108,7 @@ ms.locfileid: "60551218"
 
 ## <a name="export-resource-groups-to-templates"></a>将资源组导出到模板
 
-成功设置资源组后，可能需要查看资源组的资源管理器模板。 导出模板有两个好处：
-
-- 由于模板包含整个基础结构，因此将来可以自动完成解决方案的部署。
-- 通过查看代表解决方案的 JavaScript 对象表示法 (JSON)，了解模板语法。
-
-可以通过两种方式来导出模板：
-
-- 可以导出用于部署的实际模板。 导出的模板中包括的所有参数和变量与原始模板中显示的完全一样。 在已通过门户部署资源的情况下，若需了解如何通过模板来创建这些资源，则可使用此方法。 此模板可随时使用。 
-- 可以导出已生成的表示资源组当前状态的模板。 导出的模板不以任何已用于部署的模板为依据。 它创建的模板是资源组的“快照”或“备份”。 导出的模板会有许多硬编码的值，其参数可能没有定义的那么多。 使用此选项可将资源重新部署到同一资源组。 若要将此模板用于其他资源组，可能需要对其进行大幅修改。
-
-### <a name="export-templates-from-deployment-history"></a>从部署历史记录导出模板
-
-此方法导出特定部署的模板。 如果已在门户中更改了资源，或者在多个部署中添加/删除了资源，请参阅[从资源组导出模板](#export-templates-from-resource-groups)。
-
-1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
-2. 在左窗格中选择“部署”，或者选择“部署”下的链接。  以下屏幕截图显示**有 4 项操作成功**，因为其中显示了四个具有不同部署名称的独立部署。 你可能会看到**有 1 项操作成功**。
-
-    ![Azure 资源组 - 导出模板](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. 从列表中选择一个部署。
-4. 在左窗格中选择“模板”。 Resource Manager 将检索以下六个文件：
-
-   - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-   - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-   - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-   - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-   - **.NET** - 可用于部署该模板的 .NET 类。
-   - **Ruby** - 可用于部署模板的 Ruby 类。
-
-     默认情况下，门户会显示模板。
-
-5. 选择“下载”，将模板导出到本地计算机。
-
-    ![Azure 资源组 - 导出模板](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>从资源组导出模板
-
-如果在门户中更改了资源，或者在多个部署中添加/删除了资源，则从部署历史记录中检索模板不能反映资源组的当前状态。 本部分介绍如何导出反映资源组当前状态的模板。 它用作资源组的快照，可用来重新部署到同一资源组。 若要将导出的模板用于其他解决方案，必须大幅修改它。
-
-1. 打开要导出的资源组。  参阅[打开资源组](#open-resource-groups)。
-2. 在左窗格中选择“导出模板”。 Resource Manager 将检索以下六个文件：
-
-   - **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
-   - **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-   - **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
-   - **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
-   - **.NET** - 可用于部署该模板的 .NET 类。
-   - **Ruby** - 可用于部署模板的 Ruby 类。
-
-     默认情况下，门户会显示模板。
-3. 选择“下载”，将模板导出到本地计算机。
-
-导出的某些模板需要经过一些编辑才能使用。 若要了解如何开发模板，请参阅[分步教程](/azure/azure-resource-manager/)。
-
-### <a name="export-template-before-deploying"></a>在部署之前导出模板
-
-可以使用门户定义资源。  在部署资源之前，可以查看和导出模板。 有关说明，请参阅[快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板](./resource-manager-quickstart-create-templates-use-the-portal.md)。
+有关导出模板的信息，请参阅[单个和多资源导出到模板中-门户](export-template-portal.md)。
 
 ### <a name="fix-export-issues"></a>修复导出问题
 

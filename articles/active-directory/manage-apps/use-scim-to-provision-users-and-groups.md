@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
+ms.date: 5/06/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191546"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用跨域标识管理系统 (SCIM) 将用户和组从 Azure Active Directory 自动预配到应用程序
 
@@ -31,7 +31,7 @@ SCIM 是标准化的协议和架构的目标是为驱动器中标识跨多个系
 
 Azure AD 支持的应用程序的许多[预先集成的自动用户预配](../saas-apps/tutorial-list.md)实现 SCIM，如接收用户的方法更改通知。  除此之外，客户可以连接支持的特定配置文件的应用程序[SCIM 2.0 协议规范](https://tools.ietf.org/html/rfc7644)Azure 门户中使用泛型"非库"集成选项。 
 
-本文的重点是在 Azure AD 作为非库应用其泛型 SCIM 连接器的一部分实现的 SCIM 2.0 的配置文件。 但是，成功测试的应用程序支持 SCIM 的一般的 Azure ad 连接器是将为支持用户预配 Azure AD 库中列出的应用的步骤。 Azure AD 应用程序库中列出你的应用程序的详细信息，请参阅[Microsoft 应用程序网络](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)。
+本文的重点是在 Azure AD 作为非库应用其泛型 SCIM 连接器的一部分实现的 SCIM 2.0 的配置文件。 但是，成功测试的应用程序支持 SCIM 的一般的 Azure ad 连接器是将为支持用户预配 Azure AD 库中列出的应用的步骤。 Azure AD 应用程序库中列出你的应用程序的详细信息，请参阅[如何：列出 Azure AD 应用程序库中的应用程序](../develop/howto-app-gallery-listing.md)。
  
 
 >[!IMPORTANT]
@@ -1170,7 +1170,7 @@ Azure AD 支持的应用程序的许多[预先集成的自动用户预配](../sa
   
    * ResourceIdentifier.Identifier:"54D382A4-2050-4C03-94D1-E769F1D15682"
    * ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-   * (PatchRequest as PatchRequest2).Operations.Count:1
+   * (PatchRequest as PatchRequest2).Operations.Count:第
    * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName:OperationName.Add
    * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath: "manager"
    * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count:第

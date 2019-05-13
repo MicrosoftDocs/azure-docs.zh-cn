@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458639"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925823"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>诊断 Azure 通知中心的已删除的通知
 
@@ -123,7 +123,7 @@ ms.locfileid: "61458639"
 
 #### <a name="push-notification-service-developer-portal"></a>推送通知服务开发人员门户 ####
 
-在各自的推送通知服务开发人员门户（APNs、FCM、Windows 通知服务等）中验证凭据。 有关详细信息，请参阅[教程：使用 Azure 通知中心向通用 Windows 平台应用发送通知](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)创建的解决方案。
+在各自的推送通知服务开发人员门户（APNs、FCM、Windows 通知服务等）中验证凭据。 有关详细信息，请参阅[教程：使用 Azure 通知中心向通用 Windows 平台应用发送通知](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)创建的解决方案。
 
 #### <a name="azure-portal"></a>Azure 门户 ####
 
@@ -180,7 +180,7 @@ ms.locfileid: "61458639"
 
 有关将通知中心与 Visual Studio 服务器资源管理器搭配使用的详细信息，请参阅以下文章：
 
-* [如何查看通知中心的设备注册](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [如何查看通知中心的设备注册](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [深入探讨：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]
 * [宣布推出 Visual Studio 2013 Update 3 和 Azure SDK 2.4]
 
@@ -261,7 +261,7 @@ The Token obtained from the Token Provider is wrong
 
 #### <a name="programmatic-access"></a>以编程方式访问 ####
 
-有关以编程方式访问的详细信息，请参阅[以编程方式访问](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100))。
+有关以编程方式访问的详细信息，请参阅[以编程方式访问](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100))。
 
 > [!NOTE]
 > 与遥测相关的多项功能（例如，导出和导入注册、通过 API 进行遥测访问）只能在“标准”服务层级使用。 如果您尝试使用这些功能从免费或基本服务层，将获得一条异常消息，如果使用 SDK。 如果使用直接通过 REST Api 的功能，您将收到 HTTP 403 （禁止） 错误。

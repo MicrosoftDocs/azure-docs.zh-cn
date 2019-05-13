@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118972"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467721"
 ---
 # <a name="frequently-asked-questions-faq"></a>常见问题 (FAQ)
 
@@ -233,7 +233,7 @@ Microsoft 无法连接到分配给客户的 HSM。 客户必须自行升级和�
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>问：如果需要重新启动我的 HSM？
 
- HSM 具有一个命令行重新启动选项，应注意，必须使用"硬重新启动"选项。 如果出于任何原因失败，引发与 Microsoft 支持请求，并且我们具有以物理方式重新启动设备。 
+HSM 具有一个命令行重新启动选项，但是，我们间歇性地遇到重启挂起问题，因此建议将其用于最安全的方法重新启动，引发与 Microsoft 的支持请求，以物理方式重新启动设备。 
 
 ## <a name="cryptography-and-standards"></a>加密和标准
 

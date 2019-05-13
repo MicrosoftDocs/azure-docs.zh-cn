@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818352"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024570"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>使用 Azure 机器学习服务训练 PyTorch 模型
 
@@ -102,6 +102,10 @@ import horovod
 ```Python
 run = exp.submit(pt_est)
 ```
+
+## <a name="export-to-onnx"></a>将导出到 ONNX
+
+若要获取与优化的推断[ONNX 运行时](concept-onnx.md)，可以将已训练的 PyTorch 模型转换为 ONNX 格式。 请参阅[教程](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)有关的示例。
 
 ## <a name="examples"></a>示例
 

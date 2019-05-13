@@ -3,19 +3,18 @@ title: 了解模块在设备上运行逻辑的方式 - Azure IoT Edge | Microsof
 description: Azure IoT Edge 模块是容器化的逻辑单元，可以远程部署和管理，以便可以在 IoT Edge 设备上运行业务逻辑
 author: kgremban
 manager: philmea
-ms.author: v-yiso
-origin.date: 03/21/2019
-ms.date: 04/08/2019
+ms.author: kgremban
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65cac484a9395aca47a38e2ba430b80c868267f5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445007"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152668"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模块
 
@@ -44,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>模块标识
 
 当 IoT Edge 运行时创建一个新的模块实例时，该实例与相应的模块标识相关联。 模块标识存储在 IoT 中心，用作该特定模块实例的所有本地和云通信的寻址和安全范围。
+
 与模块实例相关联的标识将取决于在其上运行实例的设备的标识，以及在解决方案中为该模块提供的名称。 例如，如果调用使用 Azure 流分析的 `insight` 模块，并将其部署到一个名为 `Hannover01` 的设备上，那么 IoT Edge 运行时将创建一个相应的称为 `/devices/Hannover01/modules/insight` 的模块标识。
 
 很显然，当需要在同一设备上多次部署一个模块映像时，可以使用不同的名称多次部署相同的映像。
@@ -69,26 +69,9 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>脱机功能
 
-Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 现在，这些功能受限。 公共预览版中提供了其他脱机功。能。 有关详细信息，请参阅[了解 IoT Edge 设备、模块和子设备的扩展脱机功能](offline-capabilities.md)。
-
-只要满足以下要求，IoT Edge 模块可以长时间内处于脱机状态： 
-
-* **消息生存期 (TTL) 未过**。 消息 TTL 的默认值是两个小时，但可以在 IoT Edge 中心设置中的存储和转发配置中将其更改为更大或更小的值。 
-* **当处于脱机状态时，模块不需要通过 IoT Edge 中心重新进行身份验证**。 模块可以仅通过与 IoT 中心之间具有活动连接的 IoT Edge 中心进行身份验证。 如果模块因任何原因而重启，则它们需要重新进行身份验证。 模块的 SAS 令牌过期后，模块仍然可以向 IoT Edge 中心发送消息。 当连接恢复时，IoT Edge 中心会向模块请求一个新令牌，并通过 IoT 中心验证该令牌。 如果成功，IoT Edge 中心会转发它存储的模块消息，即使该消息在模块的令牌过期时已发送过。 
-* **在脱机状态下发送消息的模块在连接恢复时仍然会工作**。 在重新连接到 IoT 中心时，IoT Edge 中心需要对新的模块令牌进行验证（如果以前的令牌已过期），然后才能转发模块消息。 如果模块不可用来提供新令牌，则 IoT Edge 中心无法对模块的已存储消息进行操作。 
-* IoT Edge 中心利用磁盘空间来存储消息。 默认情况下，消息存储在 IoT Edge 中心容器的文件系统中。 有一个配置选项可用来指定改为使用装载的卷来存储消息。 在任一情况下，都需要有空间可用来存储延迟传递到 IoT 中心的消息。  
-
+Azure IoT Edge 模块可以与 IoT 中心在至少一次同步后无限期地脱机操作。 IoT Edge 设备还可以扩展到其他 IoT 设备此脱机功能。 有关详细信息，请参阅[了解 IoT Edge 设备、模块和子设备的扩展脱机功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>后续步骤
  - [了解开发 IoT Edge 模块的要求和工具](module-development.md)
  - [了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)
 
-<!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
-[2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734569"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465531"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>定义帐户筛选器和资产筛选器  
 
@@ -26,7 +26,7 @@ ms.locfileid: "60734569"
 
 筛选器是服务器端的规则，可让客户执行以下操作： 
 
-- 仅播放视频的某个部分（而不是整个视频）。 例如：
+- 仅播放视频的某个部分（而不是整个视频）。 例如:
   - 缩小清单以显示实时事件的子剪辑（“子剪辑筛选”），或
   - 修剪视频开头（“修剪视频”）。
 - 只传送内容播放设备所支持的指定再现内容和/或指定的语言轨道（“再现内容筛选”）。 
@@ -40,7 +40,7 @@ ms.locfileid: "60734569"
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>对于 HLS v3，请使用： `format=m3u8-aapl-v3`。|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|平滑流|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
+|平滑流式处理|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>定义筛选器
 
@@ -90,7 +90,7 @@ ms.locfileid: "60734569"
 
 ## <a name="associate-filters-with-streaming-locator"></a>将筛选器与流式处理定位符相关联
 
-可以指定将适用于你的流式处理定位符的资产或帐户筛选器的列表。 [动态打包程序](dynamic-packaging-overview.md)适用此列表以及这些客户端在 URL 中指定的筛选器。 此组合生成[dyanamic 清单](filters-dynamic-manifest-overview.md)，后者基于在 URL 中的筛选器 + 流式处理定位符指定的筛选器。 我们建议你使用此功能，如果想要应用筛选器，但不是希望公开在 URL 中的筛选器名称。
+可以指定将适用于你的流式处理定位符的资产或帐户筛选器的列表。 [动态打包程序](dynamic-packaging-overview.md)适用此列表以及这些客户端在 URL 中指定的筛选器。 此组合生成[动态清单](filters-dynamic-manifest-overview.md)，后者基于在 URL 中的筛选器 + 流式处理定位符指定的筛选器。 我们建议你使用此功能，如果想要应用筛选器，但不是希望公开在 URL 中的筛选器名称。
 
 ## <a name="definition-example"></a>定义示例
 

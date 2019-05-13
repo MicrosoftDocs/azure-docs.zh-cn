@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773416"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233093"
 ---
 # <a name="configure-prerequisites"></a>配置先决条件
 
@@ -39,8 +39,8 @@ ms.locfileid: "60773416"
 - **磁盘类型**：使用托管磁盘。
 - **网络**：支持新的或现有网络和自定义的 CIDR 范围。
 - **CNS**：可以启用 CNS。
-- **指标**：可以启用指标。
-- **日志记录**：可以启用日志记录。
+- **指标**：可以启用 hawkular 指标。
+- **日志记录**：可以启用 EFK 日志记录。
 - **Azure 云提供商**：默认情况下启用，可禁用。
 
 在 Azure 门户的左上方，单击**创建资源**，在搜索框中输入 openshift 容器平台并按 Enter。
@@ -81,7 +81,7 @@ ms.locfileid: "60773416"
 
 | 输入的参数 | 参数说明 |
 |-----------------------|-----------------|
-| OCP 群集名称前缀 | 所有 VM 实例上创建的管理员用户 |
+| OCP 群集名称前缀 | 群集用于配置的所有节点的主机名的前缀。 介于 1 到 20 个字符之间 |
 | 主节点大小 | 接受默认 VM 大小，或单击**更改大小**选择不同的 VM 大小。  选择您的工作负载的适当 VM 大小 |
 | 基础结构的节点大小 | 接受默认 VM 大小，或单击**更改大小**选择不同的 VM 大小。  选择您的工作负载的适当 VM 大小 |
 | 应用程序节点数 | 接受默认 VM 大小，或单击**更改大小**选择不同的 VM 大小。  选择您的工作负载的适当 VM 大小 |

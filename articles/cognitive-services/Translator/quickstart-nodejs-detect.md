@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 35b6a55a3f5cad27045694231fc5ce79ed7aeadf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: afd6192969243572134b7a7bb965ad80ff9eb39e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58173934"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922200"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>快速入门：使用文本翻译 API 通过 Node.js 来检测文本语言
 
@@ -119,7 +119,7 @@ node detect.js
 
 ## <a name="sample-response"></a>示例响应
 
-请在此[语言列表](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
+请在此[语言列表](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)中查找国家/地区缩写。
 
 ```json
 [

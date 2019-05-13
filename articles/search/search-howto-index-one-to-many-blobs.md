@@ -1,7 +1,7 @@
 ---
 title: 从 Azure Blob 索引器进行全文搜索-Azure 搜索索引文档中包含多个 blob 编制索引搜索
 description: 爬网，对于使用 Azure 搜索 Blob 索引器的文本内容的 Azure blob。 每个 blob 可能包含一个或多个 Azure 搜索索引文档。
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871193"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024650"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>为 blob 生成多个搜索文档编制索引
 默认情况下，blob 索引器会将 blob 的内容视为单个搜索文档。 某些**parsingMode**值支持为单个 blob 可能导致多个搜索文档的方案。 不同类型的**parsingMode**允许超过一个搜索文档从 blob 索引器提取是：
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` 分析模式处于公共预览状态，不应在生产环境中使用。 有关详细信息，请参阅 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)。 
 
 ## <a name="one-to-many-document-key"></a>一个多文档键
 由文档键唯一标识每个文档都显示在 Azure 搜索索引。 
@@ -106,7 +103,7 @@ _Blob2.json_
 + [Azure 搜索中的索引器](search-indexer-overview.md)
 + [使用 Azure 搜索为 Azure Blob 存储编制索引](search-howto-index-json-blobs.md)
 + [使用 Azure 搜索 Blob 索引器为 CSV Blob 编制索引](search-howto-index-csv-blobs.md)
-+ [使用 Azure 搜索 blob 索引器的 JSON blob 编制索引](search-howto-index-csv-blobs.md)
++ [使用 Azure 搜索 blob 索引器的 JSON blob 编制索引](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>后续步骤
 * 若要详细了解 Azure 搜索，请参阅[搜索服务页](https://azure.microsoft.com/services/search/)。

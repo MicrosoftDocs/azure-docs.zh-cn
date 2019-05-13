@@ -2,18 +2,19 @@
 title: 教程：使用 Spark 通过 Azure Databricks 访问 Azure Data Lake Storage Gen2 数据 | Microsoft Docs
 description: 本教程介绍如何在 Azure Databricks 群集上运行 Spark 查询，以便访问 Azure Data Lake Storage Gen2 存储帐户中的数据。
 services: storage
-author: dineshmurthy
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: dineshm
-ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226753"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939181"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教程：使用 Spark 通过 Azure Databricks 访问 Data Lake Storage Gen2 数据
 

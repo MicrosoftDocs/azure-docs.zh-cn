@@ -3,7 +3,7 @@ title: 快速入门 - 使用 Azure Active Directory B2C 为桌面应用设置登
 description: 运行一个使用 Azure Active Directory B2C 提供帐户登录的示例 ASP.NET 桌面应用程序。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 161c1ec72b14f4cc1b2517a0dc6282f0548575b3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 94e7972530afee15937b13ae35239a64d9bc986e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190549"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>快速入门：使用 Azure Active Directory B2C 为桌面应用设置登录 
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C 提供云身份管理来保护应用程序
 
 ## <a name="prerequisites"></a>先决条件
 
-- 带有 ASP.NET 和 Web 开发工作负荷的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。 
+- 带有 ASP.NET 和 Web 开发工作负荷的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。 
 - Facebook、Google、Microsoft 或 Twitter 中的社交帐户。
 - 从 GitHub [下载 zip 文件](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)或克隆示例 Web 应用。
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C 提供云身份管理来保护应用程序
 
     ![示例应用程序](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    此示例支持多个注册选项，包括使用社交标识提供者，或者使用电子邮件地址来创建本地帐户。 对于本快速入门，将使用 Facebook、Google、Microsoft 或 Twitter 社交标识提供者帐户。 
+    此示例支持多个注册选项。 这些选项包括使用社交标识提供者，或者使用电子邮件地址来创建本地帐户。 对于本快速入门，将使用 Facebook、Google、Microsoft 或 Twitter 社交标识提供者帐户。 
 
 
 2. Azure AD B2C 为示例 Web 应用的虚构品牌“Wingtip Toys”提供了一个自定义登录页。 要使用社交标识提供者注册，请单击要使用的标识提供者按钮。 
@@ -88,7 +88,12 @@ Azure AD B2C 提供允许用户更新个人资料的功能。 示例 Web 应用�
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用示例桌面应用程序执行以下操作：使用自定义登录页登录、使用社交标识提供者登录、创建 Azure AD B2C 帐户，以及调用受 Azure AD B2C 保护的 Web API。 
+本快速入门使用示例桌面应用程序执行了以下操作： 
+
+* 使用自定义登录页登录
+* 使用社交标识提供者登录
+* 创建 Azure AD B2C 租户
+* 调用受 Azure AD B2C 保护的 Web API
 
 通过创建自己的 Azure AD B2C 租户来完成入门。 
 

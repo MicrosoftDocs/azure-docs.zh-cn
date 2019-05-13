@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471636"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192437"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中的动态组成员资格规则
 
@@ -40,7 +40,7 @@ ms.locfileid: "60471636"
 
 * 属性
 * 运算符
-* Value
+* 值
 
 表达式中各部分的顺序对于避免语法错误至关重要。
 
@@ -346,8 +346,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  设备属性  | 值 | 示例
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | 任意字符串值 |(device.displayName -eq "Rob Iphone”)
- deviceOSType | 任意字符串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
+ displayName | 任意字符串值 |(device.displayName -eq "Rob iPhone")
+ deviceOSType | 任意字符串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | 任意字符串值 | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 有效的设备类别名称 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 任意字符串值 | (device.deviceManufacturer -eq "Samsung")

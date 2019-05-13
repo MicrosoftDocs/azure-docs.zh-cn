@@ -36,6 +36,8 @@
       href: relay-authentication-and-authorization.md
     - name: 混合连接协议
       href: relay-hybrid-connections-protocol.md
+    - name: Azure 的常见安全属性
+      href: service-bus-relay-security-attributes.md
 - name: 如何
   items:
     - name: 规划和设计

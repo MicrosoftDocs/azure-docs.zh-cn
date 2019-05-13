@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924377"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507921"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
 
@@ -46,7 +46,7 @@ ms.locfileid: "64924377"
 
 预定事件提供以下用例中的事件：
 
-- 平台启动的维护（例如，主机 OS 更新）
+- [平台启动维护](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates)（例如，VM 重启、 实时迁移或内存保留更新的主机）
 - 降级的硬件
 - 用户启动的维护（例如，用户重启或重新部署 VM）
 - [低优先级 VM 逐出](https://azure.microsoft.com/blog/low-priority-scale-sets)中缩放设置
@@ -58,6 +58,7 @@ ms.locfileid: "64924377"
 ### <a name="scope"></a>范围
 计划的事件传送到：
 
+- 独立虚拟机。
 - 云服务中的所有 VM。
 - 可用性集中的所有 VM。
 - 规模集放置组中的所有 VM。 
@@ -78,7 +79,7 @@ ms.locfileid: "64924377"
 | - | - | - | - | 
 | 2017-11-01 | 正式版 | 全部 | <li> 添加了的对低优先级 VM 逐出 EventType 抢占<br> | 
 | 2017-08-01 | 正式版 | 全部 | <li> 已从 IaaS VM 的资源名称中删除前置下划线<br><li>针对所有请求强制执行元数据标头要求 | 
-| 2017-03-01 | 预览 | 全部 | <li>初始版本
+| 2017-03-01 | Preview | 全部 | <li>初始版本
 
 
 > [!NOTE] 
@@ -129,16 +130,16 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 |属性  |  描述 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br><br> 示例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影响。 <br><br> 值： <br><ul><li> `Freeze`：计划将虚拟机暂停几秒。 暂停 CPU，但不会对内存、打开文件或网络连接造成影响。 <li>`Reboot`：计划重启虚拟机（非永久性内存丢失）。 <li>`Redeploy`：计划将虚拟机移到另一节点（临时磁盘将丢失）。 <li>`Preempt`：正在删除低优先级虚拟机 （临时磁盘将丢失）。|
-| ResourceType | 此事件影响的资源的类型。 <br><br> 值： <ul><li>`VirtualMachine`|
+| EventType | 此事件造成的影响。 <br><br> 值: <br><ul><li> `Freeze`：虚拟机将计划暂停几秒。 CPU 和网络连接可能会挂起，但不是会对内存或打开的文件没有影响。<li>`Reboot`：计划重启虚拟机（非永久性内存丢失）。 <li>`Redeploy`：计划将虚拟机移到另一节点（临时磁盘将丢失）。 <li>`Preempt`：正在删除低优先级虚拟机 （临时磁盘将丢失）。|
+| ResourceType | 此事件影响的资源的类型。 <br><br> 值: <ul><li>`VirtualMachine`|
 | 资源| 此事件影响的资源的列表。 此列表确保包含来自最多一个[更新域](manage-availability.md)的计算机，但可能不包含 UD 中的所有计算机。 <br><br> 示例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| EventStatus | 此事件的状态。 <br><br> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 从不提供 `Completed` 或类似状态。 事件完成后不再返回事件。
+| EventStatus | 此事件的状态。 <br><br> 值: <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 从不提供 `Completed` 或类似状态。 事件完成后不再返回事件。
 | NotBefore| 一个时间，此事件可在该时间之后启动。 <br><br> 示例： <br><ul><li> 2016 年 9 月 19 日星期一 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件计划
 将根据事件类型为每个事件计划将来的最小量时间。 此时间将反映在事件的 `NotBefore` 属性中。 
 
-|EventType  | 最小值通知 |
+|事件类型  | 最小值通知 |
 | - | - |
 | 冻结| 15 分钟 |
 | 重新启动 | 15 分钟 |

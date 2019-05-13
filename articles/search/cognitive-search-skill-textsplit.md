@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c860066608f1b78d9a4c45b03fb3948b3c888e25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78ed2fab81bfb1562125135c5901a2de395c3843
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126732"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023937"
 ---
 #   <a name="text-split-cognitive-skill"></a>文本拆分认知技能
 

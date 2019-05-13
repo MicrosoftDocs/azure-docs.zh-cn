@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
-ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: dd1eaa95a23deed0bf2098995be43402c605defc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682995"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024233"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什么是 Azure 机器学习工作室？
 Microsoft Azure 机器学习工作室是一个协作型拖放式工具，可用于根据数据构建、测试和部署预测分析解决方案。 机器学习工作室将模型发布为可让自定义应用或 BI 工具（如 Excel）方便使用的 Web 服务。
@@ -29,7 +29,7 @@ Microsoft Azure 机器学习工作室是一个协作型拖放式工具，可用�
 
 
 ## <a name="the-machine-learning-studio-interactive-workspace"></a>机器学习工作室交互式工作区
-要开发预测分析模型，通常需要使用一个或多个源中的数据，通过各种数据操作和统计函数来转换及分析数据，并生成一组结果。 开发此类模型是一个迭代过程。 在修改各种函数及其参数时，结果会不断趋于一致，直到已训练的有效模型令人满意。
+若要开发预测分析模型，通常使用一个或多个源中的数据，然后通过各种数据操作和统计函数对该数据进行转换和分析，生成一组结果。 开发此类模型是一个迭代过程。 在修改各种函数及其参数时，结果会不断趋于一致，直到已训练的有效模型令人满意。
 
 **Azure 机器学习工作室** 提供交互式的可视工作区，可在其中轻松构建、测试和迭代预测分析模型。 可以将 ***数据集*** 和分析 ***模块*** 拖放到交互式画布，将它们连接在一起构成 ***试验***，然后在机器学习工作室中运行。 若要在模型设计上迭代，则需要编辑试验，可根据需要保存一个副本，并重新运行该试验。 准备就绪后，可以将 ***训练实验*** 转换为 ***预测试验***，然后将其发布为 ***Web 服务”发布***，以便其他人可以访问模型。
 
@@ -44,7 +44,7 @@ Microsoft Azure 机器学习工作室是一个协作型拖放式工具，可用�
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>机器学习工作室入门
-首次进入[机器学习工作室](https://studio.azureml.net)时，会看到“主页”。 可在此处查看文档、视频、网络研讨会，以及查找其他重要资源。
+第一次进入机器学习工作室时，](https://studio.azureml.net)会看到**主页**。 可在此处查看文档、视频、网络研讨会，以及查找其他重要资源。
 
 单击左上方的菜单 ![菜单](./media/what-is-ml-studio/menu.png) 将看到多个选项。
 ### <a name="azure-machine-learning-studio"></a>Azure 机器学习工作室
@@ -87,7 +87,7 @@ Microsoft Azure 机器学习工作室是一个协作型拖放式工具，可用�
 * **乳腺症数据** - 乳腺癌诊断数据。
 * **森林火灾数据** - 葡萄牙东北部森林火灾的规模。
 
-构建试验时，可以从画布左侧的数据集列表中选择。
+构建试验时，可以从画布左侧提供的数据集列表中进行选择。
 
 有关机器学习工作室随附的示例数据集列表，请参阅 [Use the sample data sets in Azure Machine Learning Studio](use-sample-datasets.md)（使用 Azure 机器学习工作室中的示例数据集）。
 
@@ -111,14 +111,22 @@ Microsoft Azure 机器学习工作室是一个协作型拖放式工具，可用�
 <a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>机器学习工作室与 Azure 机器学习服务有什么区别？
 
-[Azure 机器学习服务](../service/overview-what-is-azure-ml.md)提供了 SDK 和服务，以用于快速准备数据并训练和部署机器学习模型。 可通过自动缩放计算和管道，提高生产效率并降低成本。 请将这些功能与开放源代码 Python 框架（如 PyTorch、TensorFlow 和 scikit-learn）配合使用。 
+[Azure 机器学习服务](../service/overview-what-is-azure-ml.md)提供 SDK **和**可视界面（预览版），可以快速准备数据，以及对机器学习模型进行训练和部署。 此可视界面（预览版）提供与工作室类似的拖放体验。 但是，不像工作室的专用计算平台，此可视界面使用你自己的计算资源，并且已完全集成到 Azure 机器学习服务中。
 
-如果想要快速轻松地试验机器学习模型，请使用机器学习工作室，并且内置的机器学习算法足以供你的解决方案使用。
+这是一个快速比较。
 
-如果你在 Python 环境中工作并且希望更好地控制机器学习算法，或者你想使用开放源代码机器学习库，那么机器学习服务将是你的最佳选择。
+|| 机器学习工作室 | Azure 机器学习服务：<br/>可视界面|
+|---| --- | --- |
+|| 正式发布 (GA) | 预览|
+|界面的模块| 很多 | 常用模块的初始集|
+|训练计算目标| 专用计算目标，仅限 CPU 支持| 支持 Azure 机器学习计算、GPU 或 CPU。<br/>（其他在 SDK 中受支持的计算）|
+|部署计算目标| 专用 Web 服务格式，不可自定义 | 企业安全选项和 Azure Kubernetes 服务。 <br/>（SDK 中支持的[其他计算](../service/how-to-deploy-and-where.md)） |
+|自动化模型训练和超参数优化 | 否 | 在可视界面中尚不支持。 <br/> （在 SDK 和 Azure 门户中受支持。） | 
+
+通过[快速入门：在不编写代码的情况下准备数据并将其可视化](../service/ui-quickstart-run-experiment.md)尝试可视界面（预览版）
 
 > [!NOTE]
-> Azure 机器学习服务无法部署或管理在 Azure 机器学习工作室中创建的模型。
+> 在工作室中创建的模型不能通过 Azure 机器学习服务来部署或管理。 但是，在服务可视界面中创建和部署的模型可以通过 Azure 机器学习服务工作区进行管理。
 
 ## <a name="free-trial"></a>免费试用
 

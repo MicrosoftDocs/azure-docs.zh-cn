@@ -9,151 +9,123 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78db7d21774750892c831ac220244c54594b78f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817703"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442347"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>使用 Azure 机器学习服务的训练 TensorFlow 和 Keras 模型
 
-对于使用 TensorFlow 的深度神经网络 (DNN) 训练，Azure 机器学习提供了 `Estimator` 的自定义 `TensorFlow` 类。 Azure SDK [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)估计器 (不以与交织[ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator)类)，可轻松地提交 Azure 上运行的单节点和分布式 TensorFlow 培训作业计算。
+可以轻松地在 Azure 计算上运行 TensorFlow 培训作业通过使用[ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) Azure 机器学习 SDK 中的估计器类。 `TensorFlow`估算器指示 Azure 机器学习服务进行深度神经网络 (DNN) 训练 TensorFlow 启用容器上运行作业。
+
+`TensorFlow`估算器还提供了一个抽象层，对执行，这意味着可以轻松地配置不同的计算目标上的参数化的运行而无需更改训练脚本。
+
+## <a name="get-started"></a>开始使用
+
+由于`TensorFlow`估算器类是类似于基[ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py)，我们建议你第一次读取[估算器操作指南文章](how-to-train-ml-models.md)若要了解总体概念。
+
+若要开始使用 Azure 机器学习服务[完成快速入门](quickstart-run-cloud-notebook.md)。 完成后，您必须[Azure 机器学习工作区](concept-azure-machine-learning-architecture.md#workspace)及其所有我们[示例笔记本](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)其中包含用于定型 Dnn 使用 TensorFlow 和 Keras。
 
 ## <a name="single-node-training"></a>单节点训练
-使用 `TensorFlow` 估算器进行训练与使用[基础 `Estimator`](how-to-train-ml-models.md) 类似，因此，请首先阅读操作说明文章并确保你了解其中介绍的概念。
-  
-若要运行 TensorFlow 作业，请实例化 `TensorFlow` 对象。 应已创建[计算目标](how-to-set-up-training-targets.md#amlcompute)对象 `compute_target`。
+
+若要运行 TensorFlow 作业，请实例化[ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)对象，并将其作为试验提交。
+
+下面的代码实例化 TensorFlow 估算器，并将其提交试验一下。 训练脚本`train.py`将使用给定的脚本参数运行。 作业将运行于启用 GPU[计算目标](how-to-set-up-training-targets.md)，和 scikit-了解将作为的依赖项安装`train.py`。
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# training script parameters passed as command-line arguments
 script_params = {
     '--batch-size': 50,
     '--learning-rate': 0.01,
 }
 
+# TensorFlow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
-                    entry_script='train.py',
-                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
+                    entry_script='train.py', # relative path to your TensorFlow job
+                    conda_packages=['scikit-learn'],
                     use_gpu=True)
-```
 
-此处，我们为 TensorFlow 构造函数指定以下参数：
-
-参数 | 描述
---|--
-`source_directory` | 包含训练作业所需的所有代码的本地目录。 此文件夹已从本地计算机复制到远程计算
-`script_params` | 指定训练脚本的命令行参数的字典`entry_script`，格式为 < 命令行参数，值 > 对。  若要指定在 verbose 标志`script_params`，使用`<command-line argument, "">`。
-`compute_target` | 运行训练脚本的远程计算目标，在本例中为 Azure 机器学习计算 ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 群集
-`entry_script` | 要在远程计算上运行的训练脚本的文件路径（相对于 `source_directory`）。 此文件以及所依赖的任何其他文件应位于此文件夹中
-`conda_packages` | 要通过训练脚本所需的 conda 安装的 Python 包列表。 在这种情况下，训练脚本使用 `sklearn` 来加载数据，因此请指定要安装的包。  构造函数具有名为 `pip_packages` 的另一个参数，可以将其用于任何所需的 pip 包
-`use_gpu` | 将此标志设置为 `True` 以利用 GPU 进行训练。 默认为 `False`。
-
-由于你使用的是 TensorFlow 估算器，因此，用于训练的容器将默认包含 TensorFlow 包，以及在 CPU 和 GPU 上进行训练所需的相关依赖项。
-
-然后，提交 TensorFlow 作业：
-```Python
+# submit the TensorFlow job
 run = exp.submit(tf_est)
 ```
 
-## <a name="keras-support"></a>Keras 支持
-[Keras](https://keras.io/)是一个受欢迎的高级别 DNN Python API，支持 TensorFlow、 CNTK 或作为后端 Theano。 如果 TensorFlow 用作后端，可轻松用于 TensFlow 估算器 Keras 模型定型。 下面是通过添加到其中的 Keras TensorFlow 估算器示例：
-
-```Python
-from azureml.train.dnn import TensorFlow
-
-keras_est = TensorFlow(source_directory='./my-keras-proj',
-                       script_params=script_params,
-                       compute_target=compute_target,
-                       entry_script='keras_train.py',
-                       pip_packages=['keras'], # just add keras through pip
-                       use_gpu=True)
-```
-上述 TensorFlow 估算器构造函数指示 Azure 机器学习服务通过对执行环境的 pip 安装 Keras。 和您`keras_train.py`然后导入 Keras API Keras 模型进行定型。 有关完整示例，探索[此 Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)。
-
 ## <a name="distributed-training"></a>分布式训练
-此外，使用 TensorFlow 估算器，你还能够在 Azure VM 的 CPU 和 GPU 群集中大规模地训练模型。 你可以通过一些 API 调用轻松运行分布式 TensorFlow 训练，而 Azure 机器学习将在后台管理执行这些工作负载所需的所有基础结构和业务流程。
 
-Azure 机器学习支持 TensorFlow 中的两种分布式训练方法：
-* 使用 [Horovod](https://github.com/uber/horovod) 框架进行基于 MPI 的分布式训练
-* 通过参数服务器方法进行的本机[分布式 TensorFlow](https://www.tensorflow.org/deploy/distributed)
+[ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)估算器还在 CPU 和 GPU 群集之间支持分布式的培训。 你可以轻松运行分布式的 TensorFlow 作业和 Azure 机器学习服务将管理的基础结构和为你的业务流程。
+
+Azure 机器学习服务支持 TensorFlow 的分布式定型的两个方法：
+
+* [基于 MPI](https://www.open-mpi.org/)分布式定型使用[Horovod](https://github.com/uber/horovod) framework
+* 本机[分布式 TensorFlow](https://www.tensorflow.org/deploy/distributed)使用参数服务器方法
 
 ### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) 是 Uber 开发的用于分布式训练的开放源代码 ring-allreduce 框架。
 
-若要使用 Horovod 框架运行分布式 TensorFlow，请按如下方式创建 TensorFlow 对象：
+[Horovod](https://github.com/uber/horovod)是开放源代码框架，用于分布式的培训开发 Uber 的。 它提供了分布式 GPU TensorFlow 作业的简便途径。
+
+下面的示例运行两个辅助角色分布在两个节点中使用 Horovod 分布式的培训作业。
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# Tensorflow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params={},
                     compute_target=compute_target,
-                    entry_script='train.py',
+                    entry_script='train.py', # relative path to your TensorFlow job
                     node_count=2,
                     process_count_per_node=1,
-                    distributed_backend='mpi',
+                    distributed_backend='mpi', # specifies Horovod backend
                     use_gpu=True)
+
+# submit the TensorFlow job
+run = exp.submit(tf_est)
 ```
 
-上述代码显示了 TensorFlow 构造函数的以下新参数：
-
-参数 | 描述 | 默认
---|--|--
-`node_count` | 要用于训练作业的节点数。 | `1`
-`process_count_per_node` | 要在每个节点上运行的进程（或“工作线程”）数。|`1`
-`distributed_backend` | 用于启动由估算器通过 MPI 提供的分布式训练的后端。 如果你想要执行并行或分布式定型 (例如， `node_count`> 1 或`process_count_per_node`> 1 或两个) 使用 MPI （和 Horovod），设置`distributed_backend='mpi'`。 Azure 机器学习使用的 MPI 实现是 [Open MPI](https://www.open-mpi.org/)。 | `None`
-
-上述示例将使用两个工作线程（每个节点一个工作线程）来运行分布式训练。
-
-Horovod 和及其依赖项将安装，以便它导入训练脚本`train.py`，如下所示：
+因此它导入训练脚本，将为您，安装 Horovod 和其依赖项。
 
 ```Python
 import tensorflow as tf
 import horovod
 ```
 
-最后，提交 TensorFlow 作业：
-```Python
-run = exp.submit(tf_est)
-```
+### <a name="parameter-server"></a>服务器参数
 
-### <a name="parameter-server"></a>参数服务器
 此外，你还可以运行[本机分布式 TensorFlow](https://www.tensorflow.org/deploy/distributed)，它使用参数服务器模型。 在此方法中，你将在一组参数服务器和工作线程中进行训练。 工作线程在训练期间计算梯度，而参数服务器聚合梯度。
 
-构造 TensorFlow 对象：
+下面的示例运行四个辅助角色分布在两个节点中使用参数服务器方法分布式的培训作业。
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# Tensorflow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params={},
                     compute_target=compute_target,
-                    entry_script='train.py',
+                    entry_script='train.py', # relative path to your TensorFlow job
                     node_count=2,
                     worker_count=2,
                     parameter_server_count=1,
-                    distributed_backend='ps',
+                    distributed_backend='ps', # specifies parameter server backend
                     use_gpu=True)
+
+# submit the TensorFlow job
+run = exp.submit(tf_est)
 ```
 
-请注意，上述代码中 TensorFlow 构造函数的以下参数：
-
-参数 | 描述 | 默认
---|--|--
-`worker_count` | 工作线程数。 | `1`
-`parameter_server_count` | 参数服务器数。 | `1`
-`distributed_backend` | 用于分布式训练的后端。 要通过参数服务器进行分布式训练，请设置 `distributed_backend='ps'` | `None`
-
 #### <a name="note-on-tfconfig"></a>请注意 `TF_CONFIG`
-另外，还需要 [`tf.train.ClusterSpec`](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec) 的群集网络地址和端口，因此，Azure 机器学习会为你设置 `TF_CONFIG` 环境变量。
+
+您还需要的网络地址和端口的群集[ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec)，因此，Azure 机器学习设置`TF_CONFIG`为你的环境变量。
 
 `TF_CONFIG` 环境变量是一个 JSON 字符串。 下面是介绍参数服务器变量的示例：
+
 ```
 TF_CONFIG='{
     "cluster": {
@@ -165,9 +137,9 @@ TF_CONFIG='{
 }'
 ```
 
-如果使用 TensorFlow 的高级别[ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API，TensorFlow 将分析这`TF_CONFIG`变量和生成群集为您的规范。 
+TensorFlow 的高级别[ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API，TensorFlow 将分析这`TF_CONFIG`变量和生成群集为您的规范。
 
-如果改为使用 TensorFlow 的低级核心 API 进行训练，则需要分析 `TF_CONFIG` 变量并在训练代码中自行生成 `tf.train.ClusterSpec`。 在[此示例](https://aka.ms/aml-notebook-tf-ps)中，你将在训练脚本中执行此操作，如下所示：
+对于 TensorFlow 的较低级别 core Api 进行培训，分析`TF_CONFIG`变量和生成`tf.train.ClusterSpec`培训代码中。 在[此示例](https://aka.ms/aml-notebook-tf-ps)中，你将在训练脚本中执行此操作，如下所示：
 
 ```Python
 import os, json
@@ -181,18 +153,33 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-编写完训练脚本并创建 TensorFlow 对象后，你可以提交训练工作：
+## <a name="keras-support"></a>Keras 支持
+
+[Keras](https://keras.io/)是受欢迎的、 高级 DNN Python API，支持 TensorFlow、 CNTK、 和作为后端 Theano。 如果将 TensorFlow 用作后端，添加 Keras 非常简单，包括`pip_package`构造函数参数。
+
+下面的示例实例化[ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)估算器并将其提交试验一下。 将估计器运行 Keras 训练脚本`keras_train.py`。 作业将运行于启用 gpu[计算目标](how-to-set-up-training-targets.md)通过 Keras 作为依赖项通过 pip 安装。
+
 ```Python
-run = exp.submit(tf_est)
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py', # relative path to your TensorFlow job
+                       pip_packages=['keras'], # add keras through pip
+                       use_gpu=True)
 ```
+
+## <a name="export-to-onnx"></a>将导出到 ONNX
+
+若要获取与优化的推断[ONNX 运行时](concept-onnx.md)，可以将已训练的 TensorFlow 模型转换为 ONNX 格式。 请参阅[示例](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py)。
 
 ## <a name="examples"></a>示例
 
-探索各种[笔记本在 Github 上的分布式深度学习](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+可以使用不同的框架上的单节点以及分布式 TensorFlow 执行找到的工作代码示例[我们的 GitHub 页面](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)。
 
 ## <a name="next-steps"></a>后续步骤
+
 * [在训练期间跟踪运行指标](how-to-track-experiments.md)
 * [优化超参数](how-to-tune-hyperparameters.md)
 * [部署定型的模型](how-to-deploy-and-where.md)

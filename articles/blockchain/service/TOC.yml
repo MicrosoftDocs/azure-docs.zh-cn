@@ -1,0 +1,69 @@
+- name: Azure 区块链服务（预览版）
+  href: index.yml
+- name: 概述
+  items:
+    - name: 关于 Azure 区块链服务
+      href: overview.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 创建成员 - 门户
+      href: create-member.md
+    - name: 创建成员 - CLI
+      href: create-member-cli.md
+    - name: 连接到事务节点
+      items:
+        - name: 使用 MetaMask
+          href: connect-metamask.md
+        - name: 使用 Geth
+          href: connect-geth.md
+        - name: 使用 Truffle
+          href: connect-truffle.md
+- name: 教程
+  items:
+    - name: 发送事务
+      href: send-transaction.md
+- name: 概念
+  items:
+    - name: 联盟
+      href: consortium.md
+    - name: 数据访问和安全性
+      href: data-security.md
+    - name: 开发
+      href: develop.md
+    - name: 限制
+      href: limits.md
+    - name: 修补、更新和版本控制
+      href: ledger-versions.md
+- name: 操作指南
+  items:
+    - name: 配置 Azure AD 访问
+      href: configure-aad.md
+    - name: 配置事务节点
+      href: configure-transaction-nodes.md
+    - name: 使用 Azure CLI 进行管理
+      href: manage-cli.md
+    - name: 使用 PowerShell 管理联盟
+      href: manage-consortium-powershell.md
+- name: 资源
+  items:
+    - name: 区块链 REST API
+      href: 'https://docs.microsoft.com/rest/api/blockchain/'
+    - name: 博客
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Azure 区块链服务 Visual Studio Code 扩展
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
+    - name: 代码示例
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: 社区
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: 论坛
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain'
+    - name: 产品反馈
+      href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
+    - name: 定价
+      href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
+    - name: 上市区域
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
+    - name: 堆栈溢出
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

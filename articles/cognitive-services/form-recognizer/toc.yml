@@ -1,0 +1,43 @@
+- name: 表单识别器文档
+  href: index.yml
+- name: 概述
+  items:
+    - name: 什么是表单识别器？
+      href: overview.md
+- name: 快速入门
+  expaned: true
+  items:
+    - name: 训练模型并提取数据
+      items:
+        - name: 使用 REST API
+          items:
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
+- name: 操作指南
+  items:
+    - name: 使用容器
+      items:
+        - name: 安装并运行容器
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: form-recognizer-container-howto.md
+        - name: 配置容器
+          href: form-recognizer-container-configuration.md
+          displayName: 'docker, container, run, billing, apikey, logging'
+- name: 引用
+  items:
+    - name: 表单识别器 API
+      href: 'https://aka.ms/form-recognizer/api'
+- name: 资源
+  items:
+    - name: 定价和限制
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
+    - name: UserVoice
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
+    - name: 堆栈溢出
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
+    - name: Azure 路线图
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: 区域可用性
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'

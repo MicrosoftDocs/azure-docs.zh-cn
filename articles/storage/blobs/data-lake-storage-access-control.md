@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939552"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233997"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -37,7 +37,7 @@ RBAC 使用角色分配来有效地将应用的权限集*安全主体*。 一个
 当安全主体授予通过 RBAC 数据权限[内置角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)，或通过自定义角色，这些权限都应首先评估在授权请求时。 如果请求的操作获得授权时的安全主体的 RBAC 分配授权是立即解决的和无需额外执行 ACL 检查。 或者，如果安全主体不具有 RBAC 分配，或请求的操作与分配的权限不匹配，然后 ACL 执行检查以确定是否授权的安全主体执行请求的操作。
 
 > [!NOTE]
-> 如果已经分配了安全主体[存储 Blob 数据]()所有者的内置角色分配，则安全主体被视为*超级用户*并授予对所有转变完全访问权限操作，包括设置目录和文件，它们不是所有者的目录或文件，以及 Acl 的所有者。 超级用户访问是唯一获准的更改资源所有者的方式。
+> 如果安全主体已分配存储 Blob 数据所有者内置角色分配，则安全主体将被视为*超级用户*并授予对所有的转变操作，包括设置完全访问权限目录和文件，它们不是所有者的目录或文件，以及 Acl 所有者。 超级用户访问是唯一获准的更改资源所有者的方式。
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>共享密钥和共享访问签名 (SAS) 身份验证
 

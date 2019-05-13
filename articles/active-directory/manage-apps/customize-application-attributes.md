@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712865"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191508"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>为 Azure Active Directory 中的 SaaS 应用程序自定义用户预配属性映射
 Microsoft Azure AD 用户预配到第三方 SaaS 应用，例如 Salesforce、 G Suite 和其他人提供支持。 如果启用了第三方 SaaS 应用程序的用户预配，Azure 门户将控制通过属性映射其属性值。
@@ -149,6 +149,8 @@ Microsoft Azure AD 用户预配到第三方 SaaS 应用，例如 Salesforce、 G
 * 更新属性映射会影响同步周期的性能。 对属性映射配置进行更新需要重新评估所有托管对象。 
 
 * 推荐的最佳做法是连续更改的数量保持在最少属性的映射。
+
+* 添加照片属性预配到应用程序目前不支持作为不能指定要同步的照片的格式。 可以在请求功能[用户之声](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>后续步骤

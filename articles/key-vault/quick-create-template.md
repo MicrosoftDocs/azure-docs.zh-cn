@@ -6,18 +6,16 @@ author: mumian
 manager: dougeby
 tags: azure-resource-manager
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
 ms.author: jgao
-ms.openlocfilehash: 4b774e5b0a5c64a9af9a5a54ba264c6226558a24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880011"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716002"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>快速入门：使用资源管理器模板设置机密以及从 Azure Key Vault 检索机密
 

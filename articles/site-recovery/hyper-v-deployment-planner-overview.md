@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: aecbe666814a9ae80611de7798b4ab21fe15e219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946486"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149112"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>关于用于将 Hyper-V 灾难恢复到 Azure 的 Azure Site Recovery 部署规划器
 
@@ -120,6 +120,9 @@ VM 的推荐配置：8 个 vCPU、16 GB RAM、300 GB HDD。
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>更新至最新版本的部署规划器
+
+最新的更新汇总了部署规划器[版本历史记录](site-recovery-deployment-planner-history.md)。
+
 如果部署规划器为旧版，请执行以下操作之一：
  * 如果最新版不包含分析修补程序且分析已在当前版本的 Planner 上进行，请继续该分析。
  * 如果最新版本不包含分析修补程序，则建议停止在当前版本上进行分析，使用新版本重新开始分析。

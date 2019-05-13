@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: d9d57df3ec8e859a1f3257cb54e423d0006286b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/08/2019
+ms.openlocfilehash: 12a0ebeebbc3bdc205816c5534f59b1385cecb12
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880179"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413755"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>教程：使用 DMS 将 SQL Server 联机迁移到 Azure SQL 数据库托管实例
 
@@ -44,17 +44,17 @@ ms.locfileid: "58880179"
 
 要完成本教程，需要：
 
-- 使用 Azure 资源管理器部署模型创建 Azure 数据库迁移服务的 Azure 虚拟网络 (VNET)，它将使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 为本地源服务器提供站点到站点连接。 [了解使用 Azure 数据库迁移服务迁移 Azure SQL 数据库托管实例的网络拓扑](https://aka.ms/dmsnetworkformi)。
+- 使用 Azure 资源管理器部署模型创建 Azure 数据库迁移服务的 Azure 虚拟网络 (VNet)，它将使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 为本地源服务器提供站点到站点连接。 [了解使用 Azure 数据库迁移服务迁移 Azure SQL 数据库托管实例的网络拓扑](https://aka.ms/dmsnetworkformi)。 有关创建 VNet 的详细信息，请参阅[虚拟网络文档](https://docs.microsoft.com/azure/virtual-network/)，尤其是提供了分步详细信息的快速入门文章。
 
     > [!NOTE]
-    > 在 VNET 设置期间，如果将 ExpressRoute 与 Microsoft 的网络对等互连一起使用，请将以下服务[终结点](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)添加到将在其中预配服务的子网：
+    > 在 VNet 设置期间，如果将 ExpressRoute 与 Microsoft 的网络对等互连一起使用，请将以下服务[终结点](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)添加到将在其中预配服务的子网：
     > - 目标数据库终结点（例如，SQL 终结点、Cosmos DB 终结点等）
     > - 存储终结点
     > - 服务总线终结点
     >
     > Azure 数据库迁移服务缺少 Internet 连接，因此必须提供此配置。
 
-- 请确保 VNET 网络安全组规则未阻止到 Azure 数据库迁移服务以下入站通信端口：443、53、9354、445、12000。 有关 Azure VNET NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
+- 请确保 VNet 网络安全组规则未阻止到 Azure 数据库迁移服务以下入站通信端口：443、53、9354、445、12000。 有关 Azure VNet NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)一文。
 - 配置[针对源数据库引擎访问的 Windows 防火墙](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 - 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 SQL Server（默认情况下为 TCP 端口 1433）。
 - 如果使用动态端口运行多个命名 SQL Server 实例，则可能需要启用 SQL Browser 服务并允许通过防火墙访问 UDP 端口 1434，以便 Azure 数据库迁移服务可连接到源服务器上的命名实例。
@@ -71,7 +71,8 @@ ms.locfileid: "58880179"
 
 1. 登录到 Azure 门户，选择“所有服务”，然后选择“订阅”。
 
-    ![显示门户订阅](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
+    ![显示门户订阅](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
+
 2. 选择要在其中创建 Azure 数据库迁移服务实例的订阅，再选择“资源提供程序”。
 
     ![显示资源提供程序](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
@@ -94,18 +95,18 @@ ms.locfileid: "58880179"
 
 4. 选择要在其中创建 DMS 实例的位置。
 
-5. 选择现有的虚拟网络 (VNET) 或创建一个。
+5. 选择一个现有 VNet，或者创建一个。
 
-    VNET 为 Azure 数据库迁移服务提供源 SQL Server 和目标 Azure SQL 数据库托管实例的访问权限。
+    VNet 为 Azure 数据库迁移服务提供源 SQL Server 和目标 Azure SQL 数据库托管实例的访问权限。
 
-    有关如何在 Azure 门户中创建 VNET 的详细信息，请参阅[使用 Azure 门户创建虚拟网络](https://aka.ms/DMSVnet)一文。
+    有关如何在 Azure 门户中创建 VNet 的详细信息，请参阅[使用 Azure 门户创建虚拟网络](https://aka.ms/DMSVnet)一文。
 
     有关更多详细信息，请参阅[使用 Azure 数据库迁移服务迁移 Azure SQL 数据库托管实例的网络拓扑](https://aka.ms/dmsnetworkformi)一文。
 
 6. 从“高级”定价层选择 SKU。
 
     > [!NOTE]
-    > 仅当使用“高级”层时，才支持联机迁移。 
+    > 仅当使用“高级”层时，才支持联机迁移。
 
     有关成本和定价层的详细信息，请参阅[价格页](https://aka.ms/dms-pricing)。
 

@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203644"
 ---
 # <a name="os-patching-for-hdinsight"></a>针对 HDInsight 的 OS 修补 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722300"
 需不定期重启 HDInsight 群集中的虚拟机，以便安装重要的安全修补程序。 
 
 使用本文中描述的脚本操作，可以按如下所示修改 OS 修补计划：
-1. 启用或禁用自动重启
-2. 设置重启频率（重启之间的天数）
-3. 设置在星期几进行重启
+1. 安装完整的 OS 更新或安装安全更新程序
+2. 重新启动 VM
 
 > [!NOTE]  
-> 此脚本操作仅适用于 2016 年 8 月 1 日后创建的基于 Linux 的 HDInsight 群集。 仅在重启 VM 后，修补程序才生效。 
+> 此脚本操作仅适用于 2016 年 8 月 1 日后创建的基于 Linux 的 HDInsight 群集。 仅在重启 VM 后，修补程序才生效。 此脚本不会自动应用更新的所有将来的更新周期。 运行每个时间的新更新需要安装更新并重启 VM 才能应用该脚本。
 
 ## <a name="how-to-use-the-script"></a>如何使用脚本 
 
 使用此脚本需要以下信息：
-1. 脚本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh。HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。
+1. 脚本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh。HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。
   
-2. 应用该脚本的群集节点类型：头节点、辅助节点、zookeeper。 此脚本必须应用于群集中的所有节点类型。 如果不将其应用于某个节点类型，则该节点类型的虚拟机将继续使用以前的修补计划。
+2. 应用该脚本的群集节点类型：头节点、辅助节点、zookeeper。 此脚本必须应用于群集中的所有节点类型。 如果它不应用于一个节点类型，则将不会更新该节点类型的虚拟机。
 
 
-3.  参数：此脚本接受三个数字参数：
+3.  参数：此脚本接受一个数字参数：
 
     | 参数 | 定义 |
     | --- | --- |
-    | 启用/禁用自动重启 |0 或 1。 值为 0 表示禁用自动重启，而值为 1 则表示启用自动重启。 |
-    | 频率 |7 到 90（含）。 在为需要重启才能生效的修补程序重启虚拟机之前等待的天数。 |
-    | 星期几 |1 到 7（含）。 值为 1 表示在星期一进行重启，值为 7 表示在星期日进行重启。例如，使用参数 1 60 2，则其结果为虚拟机每隔 60 天（最多）在星期二自动重启。 |
-    | 持久性 |将脚本操作应用于现有群集时，可将该脚本标记为持久化。 通过缩放操作将新的辅助节点添加到群集时，应用持久化脚本。 |
+    | 安装完整的 OS 更新/安装仅安全更新 |0 或 1。 值为 0 1 表示安装完整的 OS 更新时才安装安全更新。 如果没有提供任何参数，默认值为 0。 |
 
 > [!NOTE]  
 > 将其应用于现有群集时，必须将此脚本标记为持久化。 否则，通过缩放操作创建的任何新节点都将使用默认修补计划。  如果在群集创建过程中应用该脚本，则其会自动持久化。

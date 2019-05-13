@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364064"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464307"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 应用程序中管理设备
 
@@ -66,7 +66,7 @@ ms.locfileid: "60364064"
 
 1. 选择“导入”。
 
-    ![导入操作](./media/howto-manage-devices/BulkImport1.png)
+    ![导入操作](./media/howto-manage-devices/bulkimport1a.png)
 
 1. 选择包含要导入的设备 ID 列表的 CSV 文件。
 
@@ -74,7 +74,7 @@ ms.locfileid: "60364064"
 
 1. 导入完成后，设备网格上会显示成功消息。
 
-    ![导入成功](./media/howto-manage-devices/BulkImport3.png)
+    ![导入成功](./media/howto-manage-devices/bulkimport3a.png)
 
 如果设备导入操作失败，将在设备网格上看到错误消息。 系统会生成一个捕获所有错误的可下载的日志文件。
 
@@ -86,13 +86,13 @@ ms.locfileid: "60364064"
 
 1. 在左面板中，选择“未关联的设备”：
 
-    ![未关联的设备](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![未关联的设备](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. 选择想要与模板关联的设备：
 
 1. 选择**相关联**:
 
-    ![关联设备](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![关联设备](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. 从可用模板列表中选择该模板，然后选择**相关联**。
 
@@ -113,7 +113,7 @@ ms.locfileid: "60364064"
 
 1. 选择你想要导出，然后选择的设备**导出**操作。
 
-    ![导出](./media/howto-manage-devices/Export1.png)
+    ![导出](./media/howto-manage-devices/export1a.png)
 
 1. 导出过程开始。 可以在网格顶部跟踪状态。
 
@@ -121,7 +121,7 @@ ms.locfileid: "60364064"
 
 1. 选择**条成功消息**若要将文件下载到磁盘上的本地文件夹。
 
-    ![导出成功](./media/howto-manage-devices/Export2.png)
+    ![导出成功](./media/howto-manage-devices/export2a.png)
 
 1. 导出的 CSV 文件包含以下列：设备 ID、设备名称、设备密钥和 X509 证书指纹：
 

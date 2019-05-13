@@ -1,64 +1,85 @@
-items:
 - name: Azure 应用配置预览版文档
   href: index.yml
 - name: 概述
   items:
-  - name: 关于 Azure 应用配置
-    href: overview.md
+    - name: 关于 Azure 应用配置
+      href: overview.md
+    - name: 常见问题解答
+      href: faq.md
 - name: 快速入门
-  items:
-  - name: 创建 ASP.NET Core 应用
-    href: quickstart-aspnet-core-app.md
-  - name: 创建 .NET Core 应用
-    href: quickstart-dotnet-core-app.md
-  - name: 创建 .NET Framework 应用
-    href: quickstart-dotnet-app.md
-  - name: 创建 Azure 函数
-    href: quickstart-azure-function-csharp.md
-  - name: 创建 Java Spring 应用
-    href: quickstart-java-spring-app.md
   expanded: true
+  items:
+    - name: 配置
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET framework
+          href: quickstart-dotnet-app.md
+        - name: .NET Core 中的 Azure 函数
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: 特色管理
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
 - name: 教程
   items:
-  - name: 使用 ASP.NET Core 启用动态配置
-    href: enable-dynamic-configuration-aspnet-core.md
-  - name: 与 CI/CD 管道集成
-    href: integrate-ci-cd-pipeline.md
+    - name: 使用 ASP.NET Core 启用动态配置
+      href: enable-dynamic-configuration-aspnet-core.md
+    - name: 在 .NET Core 应用中使用功能标志
+      href: use-feature-flags-dotnet-core.md
+    - name: 管理功能标志
+      href: manage-feature-flags.md
+    - name: 与 CI/CD 管道集成
+      href: integrate-ci-cd-pipeline.md
 - name: 示例
   items:
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: 概念
   items:
-  - name: 键值存储
-    href: concept-key-value.md
-  - name: 时间点快照
-    href: concept-point-time-snapshot.md
+    - name: 键值存储
+      href: concept-key-value.md
+    - name: 时间点快照
+      href: concept-point-time-snapshot.md
+    - name: 特色管理
+      href: concept-feature-management.md
 - name: 操作指南
   items:
-  - name: 与 Azure 托管服务标识集成
-    href: howto-integrate-azure-managed-service-identity.md
-  - name: 导入或导出配置数据
-    href: howto-import-export-data.md
+    - name: 与 Azure 托管服务标识集成
+      href: howto-integrate-azure-managed-service-identity.md
+    - name: 导入或导出配置数据
+      href: howto-import-export-data.md
+    - name: 最佳做法
+      href: howto-best-practices.md
 - name: 引用
   items:
-  - name: .NET Core 配置提供程序
-    href: https://go.microsoft.com/fwlink/?linkid=2074664
-  - name: .NET Framework 配置生成器
-    href: https://go.microsoft.com/fwlink/?linkid=2074663
-  - name: Java Spring 配置提供程序
-    href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
-  - name: .NET Azure SDK
-    href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
-  - name: REST
-    href: https://go.microsoft.com/fwlink/?linkid=2078296
+    - name: 配置
+      items:
+        - name: .NET Core 配置提供程序
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: .NET Framework 配置生成器
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Java Spring 配置提供程序
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: .NET Azure SDK
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: 特色管理
+      items:
+        - name: .NET Core 库
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: ASP.NET Core 库
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: .NET Core 筛选器库
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: 资源
   items:
-  - name: 提供产品反馈
-    href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 74de90cd0e8274f7192b177c41aba165eabbed40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699604"
+    - name: 入门视频
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: 提供产品反馈
+      href: 'https://github.com/Azure/AppConfiguration/issues'

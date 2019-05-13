@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145956"
 ---
 # <a name="azure-firewall-faq"></a>Azure 防火墙常见问题解答
 
@@ -123,11 +123,9 @@ Set-AzFirewall -AzureFirewall $azfw
 
 默认情况下，不支持强制隧道，但可以从支持的帮助下启用它。
 
-Azure 防火墙必须具有直接 Internet 连接。 默认情况下，AzureFirewallSubnet 0.0.0.0/0 路由的 NextHopType 值设置为**Internet**。
+Azure 防火墙必须具有直接 Internet 连接。 如果你 AzureFirewallSubnet 了解到通过 BGP 将本地网络的默认路由，则必须使用 0.0.0.0/0 UDR 用于覆盖这**NextHopType**值设置为**Internet**维护直接Internet 连接。 默认情况下，Azure 防火墙不支持强制隧道连接到本地网络。
 
-如果启用强制隧道连接到本地通过 ExpressRoute 或 VPN 网关，可能需要显式配置为 Internet 设置的 NextHopType 值 0.0.0.0/0 用户定义的路由 (UDR) 并将其与你 AzureFirewallSubnet 关联。 此设置将替代的潜在默认网关返回到你的本地网络的 BGP 播发。
-
-如果你的组织要求 Azure 防火墙，以将你的本地网络上返回到默认网关通信的强制隧道，请联系支持。 我们可以维护你的订阅以确保所需的 Internet 连接防火墙的白名单。
+但是，如果你的配置要求强制隧道连接到本地网络，Microsoft 将支持其上具体情况。 联系支持人员，以便我们可以查看您的案例。 如果接受，我们将你的订阅的白名单，并确保维持所需的防火墙的 Internet 连接。
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火墙资源组限制？
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528044"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025082"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 教程：使用 Azure 搜索索引器搜索 Azure SQL 数据库
 
@@ -267,7 +267,7 @@ public string HotelName { get; set; }
 
 ## <a name="next-steps"></a>后续步骤
 
-可以将支持 AI 的算法附加到索引器管道中。 下一步，继续学习下面的教程。
+可以将 AI 扩充算法附加到索引器管道中。 下一步，继续学习下面的教程。
 
 > [!div class="nextstepaction"]
 > [为 Azure Blob 存储中的文档编制索引](search-howto-indexing-azure-blob-storage.md)

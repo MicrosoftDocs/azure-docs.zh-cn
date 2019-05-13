@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842473"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918940"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>通过 Azure 计费和成本管理来防止意外费用
 
@@ -72,7 +72,7 @@ ms.locfileid: "57842473"
 2. 将“组”设置为“服务”，并将“按服务筛选”设置为“Azure/VM”。 
 3. 在报表的右上角，选择“操作”，然后选择“计划报表”。
 4. 若要按计划的时间间隔向自己发送有关报表的电子邮件，请在“保存或计划此报表”对话框中选择“计划”选项卡。 请务必选择“通过电子邮件发送”。 你使用的任何标记、分组和筛选均包含在通过电子邮件发送的报表中。 
-5. 选择“阈值”选项卡，然后选择“实际成本与阈值”**。**。 
+5. 选择“阈值”选项卡，然后选择“实际成本与阈值”。 
    1. 在“红色警报”阈值框中，输入 10000。 
    2. 在“黄色警报”阈值框中，输入 9000。 
    3. 在“连续警报数”框中，输入要接收的连续警报的数目。 当你收到的警报总数达到指定数目时，就不会再发送任何其他警报。 
@@ -203,7 +203,7 @@ SLA 阈值因服务而异。 例如，SQL Web 层提供 99.9%的 SLA、 虚拟�
 
 对于某些服务，没有要应用的 SLA 的先决条件。 例如，虚拟机必须具有同一可用性集中部署两个或多个实例。
 
-有关详细信息，请参阅[服务级别协议](https://azure.microsoft.com/en-us/support/legal/sla/)文档并[的 Azure 服务的 SLA 摘要](https://azure.microsoft.com/en-us/support/legal/sla/summary/)文档。
+有关详细信息，请参阅[服务级别协议](https://azure.microsoft.com/support/legal/sla/)文档并[的 Azure 服务的 SLA 摘要](https://azure.microsoft.com/support/legal/sla/summary/)文档。
 
 ## <a name="need-help-contact-us"></a>需要帮助？ 请联系我们。
 

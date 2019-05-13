@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17bc1d2b7a08314f19f1bf8f87d0c774afc37500
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725652"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508182"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -107,6 +107,19 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS 是否提供服务级别协议？
 
 在服务级别协议 (SLA) 中，如果未满足已发布的服务级别，提供商同意向客户偿还服务费用。 由于 AKS 本身是免费的，没有费用需要偿还，因此也就没有正式的 SLA。 不过，AKS 会设法将 Kubernetes API 服务器的可用性维持在不小于 99.5% 的水平上。
+
+## <a name="why-can-i-not-set-maxpods-below-30"></a>为什么我不能设置`maxPods`下面 30？
+
+AKS 是否支持设置`maxPods`在通过 Azure CLI 和 Azure 资源管理器模板创建群集时的值。 但是，没有*最小值*（验证在创建时） 对于 Kubenet 和 Azure CNI，如下所示：
+
+| 网络 | 最小值 | 最大值 |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+由于 AKS 是一种托管的服务，我们提供加载项和 pod 我们作为部署和管理群集的一部分。 在过去，用户可以定义`maxPods`小于为托管的 pod 运行所需的值的值 (示例：30)，AKS 现在计算通过 pod 的最小数目: ((maxPods 或 (maxPods * vm_count)) > 托管外接程序 pod 最小值。
+
+用户可能不会替代所需的最低`maxPods`验证。
 
 <!-- LINKS - internal -->
 

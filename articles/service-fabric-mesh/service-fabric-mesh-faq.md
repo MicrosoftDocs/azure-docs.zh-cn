@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728574"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143279"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>有关 Service Fabric 网格的常见问题
 
@@ -28,7 +28,7 @@ Azure Service Fabric 网格是一个完全托管的服务，由此开发者可�
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>参与预览版的成本是多少？
 
-当前，将应用程序或容器部署到网格预览版不收取任何费用。 不过，我们建议您删除的资源将部署并不会使其保持运行，除非你积极地测试它们。
+目前可免费用于将应用程序或容器部署到网格预览。 请继续观看 5 月中的更新要启用计费。 不过，我们建议您删除的资源将部署并不会使其保持运行，除非你积极地测试它们。
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>内核和 RAM 的数量是否有配额限制？
 
@@ -88,10 +88,15 @@ Azure Service Fabric 网格是一个完全托管的服务，由此开发者可�
 以下容器 OS 映像可以用来部署服务：
 
 - Windows - windowsservercore 和 nanoserver
-    - Windows Server 版本 1709
-    - Windows Server 版本 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - 无已知限制
+
+> [!NOTE]
+> Visual Studio 工具网格尚不支持部署到 Windows Server 2019 和 1809年容器。
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>可以部署哪些类型的应用程序？ 
 
@@ -138,6 +143,10 @@ Azure 网格目前不支持跨应用程序进行 DNS 解析。
 不能将多个应用程序部署到一个单节点群集。 缓解措施：
 - 将多个应用部署到一个本地群集时，请使用一个五节点群集。
 - 删除当前未测试的应用。
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>VS 工具的支持有限的 Windows 容器
+
+Visual Studio 工具仅支持与 Windows Server 1709 和 1803年的基础 OS 版本现在部署 Windows 容器。 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>功能差距和其他已知问题
 

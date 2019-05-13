@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782984"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405664"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>用于 Azure 资源管理器模板的逻辑函数
 
@@ -29,7 +29,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>and
+## <a name="and"></a>与
 
 `and(arg1, arg2, ...)`
 
@@ -39,9 +39,9 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 | 参数 | 需要 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |boolean |第一个值，需检查其是否为 true。 |
-| arg2 |是 |boolean |第二个值，需检查其是否为 true。 |
-| 其他参数 |否 |boolean |用于检查是否为 true 的其他参数。 |
+| arg1 |“是” |boolean |第一个值，需检查其是否为 true。 |
+| arg2 |“是” |boolean |第二个值，需检查其是否为 true。 |
+| 其他参数 |“否” |boolean |用于检查是否为 true 的其他参数。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -91,7 +91,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 | 参数 | 需要 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |字符串或整数 |要转换为布尔值的值。 |
+| arg1 |“是” |字符串或整数 |要转换为布尔值的值。 |
 
 ### <a name="return-value"></a>返回值
 转换后的值的布尔值。
@@ -145,9 +145,9 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 | 参数 | 需要 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| 条件 |是 |boolean |要检查它是否为 true 或 false 的值。 |
-| trueValue |是 | 字符串、int、对象或数组 |条件为 true 时返回的值。 |
-| falseValue |是 | 字符串、int、对象或数组 |条件为 false 时返回的值。 |
+| condition |“是” |boolean |要检查它是否为 true 或 false 的值。 |
+| trueValue |“是” | 字符串、int、对象或数组 |条件为 true 时返回的值。 |
+| falseValue |“是” | 字符串、int、对象或数组 |条件为 false 时返回的值。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -196,7 +196,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -250,7 +250,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 | 参数 | 需要 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |boolean |要转换的值。 |
+| arg1 |“是” |boolean |要转换的值。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -322,9 +322,9 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 | 参数 | 需要 | Type | 描述 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |boolean |第一个值，需检查其是否为 true。 |
-| arg2 |是 |boolean |第二个值，需检查其是否为 true。 |
-| 其他参数 |否 |boolean |用于检查是否为 true 的其他参数。 |
+| arg1 |“是” |boolean |第一个值，需检查其是否为 true。 |
+| arg2 |“是” |boolean |第二个值，需检查其是否为 true。 |
+| 其他参数 |“否” |boolean |用于检查是否为 true 的其他参数。 |
 
 ### <a name="return-value"></a>返回值
 

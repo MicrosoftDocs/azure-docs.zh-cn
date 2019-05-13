@@ -5,15 +5,16 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/18/2018
-ms.author: dacoulte
+origin.date: 05/17/2018
+ms.date: 11/12/2018
+ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 7ae2b6af18b9b5a4ac0dd8bd486de7d61c4fd4fe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a8f37e5c33455b2ee2335981930e3aab53e2a594
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865760"
 ---
 ### <a name="naming"></a>命名
 

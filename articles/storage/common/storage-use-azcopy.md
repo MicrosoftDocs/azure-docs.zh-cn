@@ -2,18 +2,19 @@
 title: 使用 AzCopy on Windows 将数据复制或移动到 Azure 存储 | Microsoft Docs
 description: 使用 AzCopy on Windows 实用程序将数据移动或复制到 blob、表和文件内容或从 blob、表和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ead5729496253b553ea453a9d6ce33b6b673e027
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572931"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149043"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 AzCopy on Windows 传输数据
 

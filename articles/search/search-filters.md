@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289580"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024850"
 ---
 # <a name="filters-in-azure-search"></a>Azure 搜索中的筛选器 
 
@@ -73,10 +73,10 @@ ms.locfileid: "61289580"
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="text-filter-fundamentals"></a>文本筛选器基础知识
 
-文本筛选器对字符串字段（要基于搜索集中的值，从这些字段中提取某些任意文档集合）有效。
+文本筛选器是有效的字符串字段，你想要提取某些任意文档中搜索索引的值为基础的集合。
 
 使用由字符串组成的文本筛选器时，不会执行词法分析或分词，因此，比较操作仅用于精确匹配。 例如，假设字段 *f* 包含“sunny day”，则 `$filter=f eq 'Sunny'` 与条件不匹配，但 `$filter=f eq 'Sunny day'` 匹配。 
 

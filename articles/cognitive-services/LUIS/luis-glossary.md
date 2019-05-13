@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193622"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523497"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>对包含常见词汇和概念的术语表进行语言理解
 语言理解 (LUIS) 术语表解释使用 LUIS API 服务时可能遇到的术语。
@@ -26,7 +26,7 @@ ms.locfileid: "60193622"
 
 ## <a name="authoring"></a>创作
 
-创作是使用 [LUIS](luis-reference-regions.md) 网站或[创作 API](https://aka.ms/luis-authoring-api) 创建、管理和部署 [LUIS 应用](#luis-app)的能力。
+创作是使用 [LUIS](luis-reference-regions.md) 网站或[创作 API](https://go.microsoft.com/fwlink/?linkid=2092087) 创建、管理和部署 [LUIS 应用](#luis-app)的能力。
 
 ## <a name="authoring-key"></a>创作密钥
 
@@ -74,7 +74,7 @@ ms.locfileid: "60193622"
 
 ## <a name="endpoint"></a>终结点
 
-[LUIS 终结点](https://aka.ms/luis-endpoint-apis) URL 是在创作并发布 [LUIS 应用](#luis-app)后提交 LUIS 查询的地方。 终结点 URL 包含所发布的应用的区域和应用 ID。 可以在应用的 **[密钥和终结点](luis-how-to-azure-subscription.md)** 页上找到终结点，也可以从[获取应用信息](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 获取终结点 URL。
+[LUIS 终结点](https://go.microsoft.com/fwlink/?linkid=2092356) URL 是在创作并发布 [LUIS 应用](#luis-app)后提交 LUIS 查询的地方。 终结点 URL 包含所发布的应用的区域和应用 ID。 可以在应用的 **[密钥和终结点](luis-how-to-azure-subscription.md)** 页上找到终结点，也可以从[获取应用信息](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API 获取终结点 URL。
 
 以下是一个终结点示例：
 
@@ -82,11 +82,11 @@ ms.locfileid: "60193622"
 
 |QueryString 参数|description|
 |--|--|
-|region| [发布的区域](luis-reference-regions.md#publishing-regions) |
+|区域| [发布的区域](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 应用 ID |
 |subscriptionID | 在 Azure 门户中创建的 LUIS 终结点（订阅）密钥 |
 |q | 话语 |
-|timezoneOffset| 分钟数|
+|timezoneOffset| 分钟|
 
 ## <a name="entity"></a>实体
 

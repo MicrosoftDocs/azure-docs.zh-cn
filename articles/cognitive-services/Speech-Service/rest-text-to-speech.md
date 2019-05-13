@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480485"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237095"
 ---
 # <a name="text-to-speech-rest-api"></a>文本转语音 REST API
 
@@ -44,31 +44,31 @@ ms.locfileid: "60480485"
 
 | 区域 | 终结点 |
 |--------|----------|
-| 澳大利亚东部 | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 巴西南部 | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 加拿大中部 | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国中部 | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 东亚 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国东部 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国东部 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 法国中部 | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 印度中部 | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 日本东部 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 韩国中部 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国中北部 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 北欧 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国中南部 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 东南亚 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 英国南部 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 西欧 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国西部 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 美国西部 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 澳大利亚东部 | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 巴西南部 | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 加拿大中部 | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国中部 | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 东亚 | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国东部 | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国东部 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 法国中部 | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 印度中部 | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 日本东部 | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 韩国中部 | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国中北部 | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 北欧 | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国中南部 | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 东南亚 | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 英国南部 | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 西欧 | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国西部 | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| 美国西部 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
-### <a name="request-headers"></a>请求标头
+### <a name="request-headers"></a>请求头
 
 此表列出了必需和可选标头的文本到语音转换请求。
 
-| 标头 | 描述 | 必需/可选 |
+| 页眉 | 描述 | 必需/可选 |
 |--------|-------------|---------------------|
 | `Authorization` | 前面带有单词 `Bearer` 的授权令牌。 有关详细信息，请参阅[身份验证](#authentication)。 | 需要 |
 
@@ -138,10 +138,10 @@ Authorization: Bearer [Base64 access_token]
 
 | HTTP 状态代码 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 200 | OK | 请求已成功。 |
+| 200 |  确定 | 请求已成功。 |
 | 400 | 错误的请求 | 必需参数缺失、为空或为 null。 或者，传递给必需参数或可选参数的值无效。 常见问题是标头太长。 |
-| 401 | 未授权 | 请求未经授权。 确保订阅密钥或令牌有效并在正确的区域中。 |
-| 429 | 请求过多 | 已经超过了订阅允许的配额或请求速率。 |
+| 401 | 未经授权 | 请求未经授权。 确保订阅密钥或令牌有效并在正确的区域中。 |
+| 429 | 请求太多 | 已经超过了订阅允许的配额或请求速率。 |
 | 502 | 错误的网关 | 网络或服务器端问题。 也可能表示标头无效。 |
 
 
@@ -155,11 +155,11 @@ Authorization: Bearer [Base64 access_token]
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>请求标头
+### <a name="request-headers"></a>请求头
 
 此表列出了必需和可选标头的文本到语音转换请求。
 
-| 标头 | 描述 | 必需/可选 |
+| 页眉 | 描述 | 必需/可选 |
 |--------|-------------|---------------------|
 | `Authorization` | 前面带有单词 `Bearer` 的授权令牌。 有关详细信息，请参阅[身份验证](#authentication)。 | 需要 |
 | `Content-Type` | 指定所提供的文本的内容类型。 接受的值：`application/ssml+xml`。 | 需要 |
@@ -204,7 +204,7 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
@@ -221,11 +221,11 @@ Authorization: Bearer [Base64 access_token]
 
 | HTTP 状态代码 | 描述 | 可能的原因 |
 |------------------|-------------|-----------------|
-| 200 | OK | 请求成功；响应正文是一个音频文件。 |
+| 200 |  确定 | 请求成功；响应正文是一个音频文件。 |
 | 400 | 错误的请求 | 必需参数缺失、为空或为 null。 或者，传递给必需参数或可选参数的值无效。 常见问题是标头太长。 |
-| 401 | 未授权 | 请求未经授权。 确保订阅密钥或令牌有效并在正确的区域中。 |
+| 401 | 未经授权 | 请求未经授权。 确保订阅密钥或令牌有效并在正确的区域中。 |
 | 413 | 请求实体太大 | SSML 输入超过了 1024 个字符。 |
-| 429 | 请求过多 | 已经超过了订阅允许的配额或请求速率。 |
+| 429 | 请求太多 | 已经超过了订阅允许的配额或请求速率。 |
 | 502 | 错误的网关 | 网络或服务器端问题。 也可能表示标头无效。 |
 
 如果 HTTP 状态为 `200 OK`，则响应正文包含采用所请求格式的音频文件。 可以一边传输一边播放此文件，或者将其保存到缓冲区或文件中。

@@ -1,5 +1,5 @@
 ---
-title: 排查 HDInsight 群集速度慢或故障问题 - Azure HDInsight
+title: 对 HDInsight 群集-Azure HDInsight 上的速度慢或故障作业进行故障排除
 description: 诊断和排查 HDInsight 群集速度慢或故障问题。
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708914"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203627"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或故障问题
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>在 HDInsight 群集速度慢或故障作业进行故障排除
 
-如果 HDInsight 群集运行速度缓慢或者发生故障并返回错误代码，你可以使用多个故障排除选项。 如果作业的运行时间超过预期或者响应时间比平时要慢，原因可能是群集的上游组件（例如运行群集的服务）发生故障。 但是，这些速度变慢问题的最常见原因是缩放不足。 在创建新的 HDInsight 群集时，选择适当[虚拟机大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
+如果应用程序处理运行缓慢或失败，错误代码的 HDInsight 群集上的数据，则必须多个故障排除选项。 如果作业的运行时间超过预期或者响应时间比平时要慢，原因可能是群集的上游组件（例如运行群集的服务）发生故障。 但是，这些速度变慢问题的最常见原因是缩放不足。 在创建新的 HDInsight 群集时，选择适当[虚拟机大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
 若要诊断群集变慢或故障的原因，请收集有关环境的各个方面的信息，例如，关联的 Azure 服务、群集配置和作业执行信息。 一种有效的诊断方法是尝试在另一个群集上再现错误状态。
 

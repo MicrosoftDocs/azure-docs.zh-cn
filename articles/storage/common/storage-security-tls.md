@@ -2,18 +2,19 @@
 title: 为 Azure 存储客户端启用安全 TLS | Microsoft Docs
 description: 了解如何在 Azure 存储的客户端中启用 TLS 1.2。
 services: storage
-author: fhryo-msft
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 06/25/2018
-ms.author: fryu
+ms.author: tamram
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4af86b570dfb24f990f1d8b4ff501d1a222bd21d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 218708ffc9a680150d7b6bf559a00ca87054bbe8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494283"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152970"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>为 Azure 存储客户端启用安全 TLS
 

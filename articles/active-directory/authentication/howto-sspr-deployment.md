@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357983"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190377"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助密码重置功能
 
@@ -32,6 +32,10 @@ ms.locfileid: "60357983"
    * 你是否向他们提供了用于注册和重置的 URL？
       * 注册： https://aka.ms/ssprsetup
       * 重置： https://aka.ms/sspr
+
+   > [!WARNING]
+   > 不支持使用复选框的"用户必须更改密码在下次登录时"等 Active Directory 用户和计算机或 Active Directory 管理中心内的本地 Active Directory 管理工具中。 更改密码时在本地不会检查此选项。 
+
 1. 培训用户。
    * 本文档的以下部分将介绍示例通信、密码门户、如何强制注册和填充身份验证数据。
    * Azure Active Directory 产品组创建了[分步部署计划](https://aka.ms/SSPRDeploymentPlan)，组织可以将该计划与在此站点上找到的文档一起使用，针对自助服务密码重置部署生成业务案例和计划。

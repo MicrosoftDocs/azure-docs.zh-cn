@@ -1,7 +1,6 @@
 ---
 title: Apache Kafka on HDInsight 简介 - Azure
 description: 了解 Apache Kafka on HDInsight：了解它的涵义和用途以及在何处可找到示例和入门信息。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 50a67ca5c7d1fa3165889b1e59565d1a1030690d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889182"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712140"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>什么是 Apache Kafka on HDInsight？
 

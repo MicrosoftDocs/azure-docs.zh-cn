@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Red Hat OpenShift 服务
+metadata:
+  document_id: null
+  title: Azure Red Hat OpenShift 服务文档 - 教程和 API 参考 | Microsoft Docs
+  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  services: container-service
+  author: tylermsft
+  manager: jeconnoc
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05-06-2019
+  ms.author: twhitney
+abstract:
+  description: Azure Red Hat OpenShift 在 Azure 上提供受 Red Hat 和 Microsoft 支持的单租户高可用性 Kubernetes 群集。
+sections:
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 了解如何创建和管理 Azure Red Hat OpenShift 群集。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/openshift/tutorial-create-cluster">创建 Azure Red Hat OpenShift 群集</a>
+          - html: <a href="/azure/openshift/tutorial-scale-cluster">缩放 Azure Red Hat OpenShift 群集</a>
+          - html: <a href="/azure/openshift/tutorial-delete-cluster">删除 Azure Red Hat OpenShift 群集</a>
+  - title: 引用
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令行
+            html: <p><a href="/cli/azure/openshift">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/openshift">REST API</a></p>
+          - title: Red Hat 文档
+            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Red Hat OpenShift 文档</a></p>'

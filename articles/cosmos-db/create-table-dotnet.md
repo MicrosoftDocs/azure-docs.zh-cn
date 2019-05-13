@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: sngun
 ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60890683"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 生成表 API 应用 
 

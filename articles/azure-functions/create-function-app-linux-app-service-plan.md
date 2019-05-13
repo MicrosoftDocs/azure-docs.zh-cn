@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153810"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>在 Azure 应用服务计划中创建 Linux 上的函数应用
 
@@ -62,9 +62,6 @@ ms.locfileid: "57339802"
     ![定义新的函数应用设置](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. 选择“转到资源”，查看新的函数应用。
-
-> [!TIP]
-> 如果在门户中找不到函数应用，请尝试[将 Function App 添加到 Azure 门户中的收藏夹](functions-how-to-use-azure-function-app-settings.md#favorite)。
 
 接下来，在新的 Function App 中创建一个函数。 即使函数应用可用，它也可能需要花费几分钟时间才能完全初始化。
 

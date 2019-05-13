@@ -2,18 +2,19 @@
 title: 快速入门：使用 .NET 在 Azure 存储中创建队列
 description: 本快速入门介绍如何使用 .NET 的 Azure 存储客户端库创建队列并在其中添加消息。 接下来，介绍如何在队列中读取和处理消息。
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009302"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232600"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入门：使用 .NET 在 Azure 存储中创建队列
 
@@ -144,7 +145,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>尝试分析连接字符串
 
-该示例首先检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 对象。 该示例使用 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 方法检查连接字符串是否有效。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
+该示例首先检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 对象。 该示例使用 [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法检查连接字符串是否有效。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

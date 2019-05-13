@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702640"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147611"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>将事件中心事件源添加到时序见解环境
 
@@ -27,9 +27,9 @@ ms.locfileid: "64702640"
 
 ## <a name="prerequisites"></a>必备组件
 
-- 创建时序见解环境。 有关详细信息，请参阅[创建 Azure 时序见解环境](./time-series-insights-update-create-environment.md)。
-- 创建事件中心。 有关事件中心的详细信息，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。
-- 事件中心必须有发送进来的活动消息事件。 有关详细信息，请参阅[使用 .NET Framework 将事件发送到 Azure 事件中心](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。
+- 创建时序见解环境中所述[创建 Azure 时序见解环境](./time-series-insights-update-create-environment.md)。
+- 创建事件中心。 请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。
+- 事件中心必须有发送进来的活动消息事件。 了解如何[使用.NET Framework 将事件发送到 Azure 事件中心](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md)。
 - 在事件中心创建专用使用者组，以供时序见解环境使用。 每个时序见解事件源都必须具有自己的专用使用者组，该组不与其他使用者共享。 如果多个读取器使用同一使用者组中的事件，则所有读取器都可能出现故障。 有一项限制，即每个事件中心只能有 20 个使用者组。 有关详细信息，请参阅[事件中心编程指南](../event-hubs/event-hubs-programming-guide.md)。
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>将使用者组添加到事件中心
@@ -42,7 +42,7 @@ ms.locfileid: "64702640"
 
 1. 在“实体”下选择“使用者组”，然后选择“使用者组”。
 
-   ![事件中心 - 添加使用者组](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![事件中心-添加使用者组](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. 在“使用者组”页上，输入一个新的唯一值作为**名称**。  创建新的事件源时，请在时序见解环境中使用此相同名称。
 
@@ -56,7 +56,7 @@ ms.locfileid: "64702640"
 
 1. 在“环境拓扑”下，依次选择“事件源”、“添加”。
 
-   ![在“事件源”下选择“添加”按钮](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![在事件源下选择添加按钮](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. 输入一个值作为特定于时序见解环境的“事件源名称”，如 **event-stream**。
 
@@ -66,11 +66,11 @@ ms.locfileid: "64702640"
    - 如果在其中一个订阅中有现有的事件中心，请选择“从可用订阅使用事件中心”。 此选项是最简单的方法。
    - 如果事件中心在订阅外部，或者你希望选择高级选项，请选择“手动提供事件中心设置”。
 
-   ![在“新建事件源”窗格中输入头三个参数的值](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![在新事件源窗格中，输入前三个参数值](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. 下表介绍的属性是“通过可用订阅使用事件中心”选项所需的：
 
-   ![订阅和事件中心详细信息](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![订阅和事件中心详细信息](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | 属性 | 描述 |
    | --- | --- |
@@ -101,7 +101,7 @@ ms.locfileid: "64702640"
 
 1. 选择“创建”。
 
-   ![选择“创建”](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![选择创建](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    创建事件源以后，时序见解就会自动将数据流式传输到环境中。
 

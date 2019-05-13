@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: v-wimarc
-ms.openlocfilehash: e0ddd2b473d0816a4bd8cfb72493c6c1620771ad
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: afc5553a48f12f8e03c5d616b7719b3a4d484186
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23635183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60653648"
 ---
 # <a name="trust-cloud-principle"></a>信任云原则
 世纪互联运营的 Microsoft Azure（Azure 中国世纪互联）遵守国际和行业特定的合规标准 ISO/IEC 20000 与 ISO/IEC 27001，此外，还遵守中华人民共和国公安部管理的信息系统安全等级保护标准：GB 18030 信息技术 — 中文编码字符集和受信任的云服务 (TCS) 认证。 

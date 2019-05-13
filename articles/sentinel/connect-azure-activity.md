@@ -4,7 +4,7 @@ description: 了解如何将 Azure 活动数据连接到 Azure Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 67e4bb2d0f308a3f20f0a29ec8b1f2a0d46fc082
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125181"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204363"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>将数据从 Azure 活动日志连接
 
@@ -41,7 +41,7 @@ ms.locfileid: "62125181"
 
 2. 在 Azure 活动日志窗格中，选择你想要流式传输到 Azure Sentinel 的订阅。 
 
-3. 单击“连接”。
+3. 单击“连接” 。
 
 4. 若要使用 Log Analytics 中的 Azure 活动警报相关的架构，搜索**AzureActivity**。
 

@@ -8,89 +8,104 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358216"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510620"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入门：通过基于云的 Notebook 服务器开始使用 Azure 机器学习
 
-本文介绍如何使用 Azure Notebooks 来运行在 Azure 机器学习服务[工作区](concept-azure-machine-learning-architecture.md)中记录的代码。 工作区是基础的云端块，用于通过机器学习进行机器学习模型的试验、训练和部署。 
+创建基于云的笔记本服务器，然后使用它。  在本快速入门中，我们运行 Python 代码，在 [Azure 机器学习服务工作区](concept-azure-machine-learning-architecture.md)中记录值。 该工作区是基础的云端块，用于通过机器学习进行机器学习模型的试验、训练和部署。 
 
-本快速入门使用云资源，不需安装。 若要改用自己的环境，请参阅[快速入门：通过自己的 Notebook 服务器开始使用 Azure 机器学习](quickstart-run-local-notebook.md)。  
- 
+本快速入门介绍如何在 Azure 机器学习工作区中创建云资源，该工作区已配置了运行 Azure 机器学习所需的 Python 环境。 若要改用自己的环境，请参阅[快速入门：通过自己的 Notebook 服务器开始使用 Azure 机器学习](quickstart-run-local-notebook.md)。  
+
 在本快速入门中，你将执行以下操作：
 
-* 使用 Python 在 Jupyter 笔记本中连接到工作区。 该笔记本包含用于估计 PI 的代码，并在每次迭代时记录错误。 
-* 在工作区中查看所记录的错误值。
+* 在工作区中创建新的基于云的笔记本服务器。
+* 启动 Jupyter Web 界面。
+* 打开一个笔记本，其中包含的代码可以在每次迭代时消除 pi 和日志错误。
+* 运行笔记本。
+* 在工作区中查看所记录的错误值。 该示例介绍如何通过工作区跟踪脚本中生成的信息。
 
 如果没有 Azure 订阅，请在开始之前创建一个免费帐户。 立即试用 [Azure 机器学习服务免费版或付费版](https://aka.ms/AMLFree)。
 
-## <a name="prerequisite"></a>先决条件
+## <a name="create-a-workspace"></a>创建工作区
 
-1. [创建 Azure 机器学习工作区](setup-create-workspace.md#portal)（如果没有）。
+如果你有一个 Azure 机器学习服务工作区，请跳至[下一部分](#create-a-cloud-based-notebook-server)。 否则，请立即创建一个。
 
-1. 在 [Azure 门户](https://portal.azure.com/)中打开你的工作区。  了解如何[查找工作区](how-to-manage-workspace.md#view)。
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="use-your-workspace"></a>使用工作区
+## <a name="create-a-cloud-based-notebook-server"></a>创建基于云的笔记本服务器
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+ 在工作区中创建云资源，以便开始使用 Jupyter 笔记本。 此服务提供一个基于云的平台，该平台已预先配置了运行 Azure 机器学习服务所需的一切。
 
+1. 在 [Azure 门户](https://portal.azure.com/)中打开你的工作区。  如果不确定如何在门户中查找工作区，请参阅如何[查找工作区](how-to-manage-workspace.md#view)。
 
+1. 在 Azure 门户的工作区页上，选择左侧的“笔记本 VM”。
 
-了解如何通过工作区来管理机器学习脚本。 在本部分中执行以下步骤：
+1. 选择“+新建”，创建一个笔记本 VM。
 
-* 在 Azure Notebooks 中打开笔记本。
-* 运行会创建一些记录值的代码。
-* 在工作区中查看所记录的值。
+     ![选择“新建 VM”](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-该示例介绍如何通过工作区跟踪脚本中生成的信息。 
+1. 为 VM 提供一个名称。 然后选择“创建”。
 
-### <a name="open-a-notebook"></a>打开笔记本 
+    > [!NOTE]
+    > 笔记本 VM 名称必须为 2 到 16 个字符。 有效字符为字母、数字和 - 字符。  名称还必须在 Azure 订阅中独一无二。
 
-[Azure Notebooks](https://notebooks.azure.com) 为 Jupyter 笔记本提供了一个免费的云平台，它预配置有运行机器学习所需的一切内容。 可以从你的工作区启动此平台，开始使用 Azure 机器学习服务工作区。
+    ![创建新 VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. 在工作区“概览”页上，选择“Azure Notebooks 入门”，在 Azure Notebooks 中尝试第一个试验。  Azure Notebooks 是一项单独的服务，可以用来在云中免费运行 Jupyter 笔记本。  当你使用服务的此链接时，系统会将有关如何连接到工作区的信息添加到你在 Azure Notebooks 中创建的库。
+1. 等待约 4-5 分钟，直至状态更改为“正在运行”。
 
-   ![浏览工作区](./media/quickstart-run-cloud-notebook/explore-aml.png)
+## <a name="launch-jupyter-web-interface"></a>启动 Jupyter Web 界面
 
-1. 登录 Azure Notebooks。  确保使用登录 Azure 门户的帐户进行登录。 组织可能需要[管理员许可](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)才能让你登录。
+在 VM 运行以后，使用“笔记本 VM”部分启动 Jupyter Web 界面。
 
-1. 登录后，会打开一个新的选项卡并显示 `Clone Library` 提示。 克隆此库时，会将一组笔记本和其他文件加载到 Azure Notebooks 帐户中。  可以通过这些文件了解 Azure 机器学习的功能。
+1. 在 VM 的“URI”列中选择“Jupyter”。  
 
-1. 取消选中“公共”，这样就不会与他人共享工作区信息。
+    ![启动 Jupyter 笔记本服务器](./media/quickstart-run-cloud-notebook/start-server.png)
 
-1. 选择“克隆”。
+    此链接启动笔记本服务器并在新的浏览器标签页中打开 Jupyter 笔记本网页。此链接将仅适用于创建 VM 的人。
 
-   ![克隆库](./media/quickstart-run-cloud-notebook/clone.png)
+1. 在 Jupyter 笔记本网页上，顶部文件夹名称为用户名。  选择该文件夹。
 
-1. 如果看到项目状态为“已停止”，请单击“在免费计算机上运行”，以便使用免费的笔记本服务器。
+1. samples 文件夹名称包含版本号，例如 **samples-1.0.33.1**。  选择 samples 文件夹。
 
-    ![在免费计算上运行项目](./media/quickstart-run-cloud-notebook/run-project.png)
+1. 选择**快速入门**笔记本。
 
-### <a name="run-the-notebook"></a>运行笔记本
+## <a name="run-the-notebook"></a>运行笔记本
 
-在此项目的文件列表中，可以看到一个 `config.json` 文件。 此配置文件包含在 Azure 门户中创建的工作区的相关信息。  代码可以使用此文件连接到工作区并向其添加信息。
+运行一个笔记本，估算 pi 并将错误记录到工作区。
 
 1. 选择 **01.run-experiment.ipynb** 以打开笔记本。
 
-1. 状态区域会告知你等待，直至内核启动。  内核就绪以后，此消息会消失。
+1. 单击第一个代码单元，然后选择“运行”。
 
-    ![等待内核启动](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
+    > [!NOTE]
+    > 代码单元之前有括号。 如果括号是空的 (__[  ]__)，则表明代码尚未运行。 运行代码时，会看到一个星号 (__[*]__)。 代码完成后，会显示一个数字 **[1]**。  该数字表明单元的运行顺序。
+    >
+    > 使用 **Shift-Enter** 作为运行某个单元的快捷方式。
 
-1. 内核启动以后，请使用 **Shift+Enter** 一次运行一个单元。 也可选择“单元” > “全部运行”，运行整个笔记本。 如果在单元旁边看到星号 __*__，则表明单元仍在运行。 该单元的代码完成后，会显示一个数字。 
+    ![运行第一个代码单元](media/quickstart-run-cloud-notebook/cell1.png)
 
-1. 按照笔记本中的说明，对 Azure 订阅进行身份验证。
+1. 运行第二个代码单元。 如果看到身份验证说明，请复制代码，然后单击登录链接。 登录后，浏览器会记住该设置。  
 
-运行完 Notebook 中的所有单元以后，即可在工作区中查看记录的值。
+    ![身份验证](media/quickstart-run-cloud-notebook/authenticate.png)
+
+1. 完成后，会显示单元编号 __[2]__。  如果已登录过，则会看到一条表明身份验证成功的状态消息。   如果未登录过，则不会看到此单元的任何输出，只会看到编号，表明该单元已成功运行。
+
+    ![成功消息](media/quickstart-run-cloud-notebook/success.png)
+
+1. 运行余下的代码单元。  当每个单元完成运行时，会看到其单元编号显示。 只有最后一个单元显示任意其他输出。  
+
+    在最大的代码单元中，会看到 `run.log` 在多个位置使用。 每个 `run.log` 都会将其值添加到工作区。
 
 ## <a name="view-logged-values"></a>查看所记录的值
 
-1. `run` 单元的输出包含一个可以返回到 Azure 门户的链接，用于在工作区中查看试验结果。 
+1. `run` 单元的输出包含一个可以返回到 Azure 门户的链接，用于在工作区中查看试验结果。
 
     ![查看试验](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -102,7 +117,23 @@ ms.locfileid: "59358216"
 
 由于估算 pi 的代码使用随机值，因此绘图会显示不同的值。  
 
-## <a name="clean-up-resources"></a>清理资源 
+## <a name="clean-up-resources"></a>清理资源
+
+### <a name="stop-the-notebook-vm"></a>停止笔记本 VM
+
+在不使用笔记本 VM 时，请将其停止，以便降低成本。  
+
+1. 在工作区中，选择“笔记本 VM”。
+
+   ![停止 VM 服务器](./media/quickstart-run-cloud-notebook/stop-server.png)
+
+1. 从列表中选择 VM。
+
+1. 选择“停止”。
+
+1. 准备再次使用服务器时，请选择“启动”。
+
+### <a name="delete-everything"></a>删除所有内容
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
@@ -110,7 +141,15 @@ ms.locfileid: "59358216"
 
 ## <a name="next-steps"></a>后续步骤
 
-你已创建了进行试验和部署模型所需的资源。 另外，已在 Notebook 中运行一些代码。 已在云工作区中浏览了该代码的运行历史记录。
+在本快速入门中，我们完成了以下任务：
+
+* 创建笔记本 VM。
+* 启动 Jupyter Web 界面。
+* 打开一个笔记本，其中包含的代码可以在每次迭代时消除 pi 和日志错误。
+* 运行笔记本。
+* 在工作区中查看所记录的错误值。  该示例介绍如何通过工作区跟踪脚本中生成的信息。 
+
+在 Jupyter Notebook 网页上浏览 samples 文件夹中的其他笔记本，详细了解 Azure 机器学习服务。
 
 若要深入体验工作流，请按照机器学习教程来训练和部署模型：  
 

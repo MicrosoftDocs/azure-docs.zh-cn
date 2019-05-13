@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4f32e14e8c1035055bd8a37bb453764984fbe4d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863757"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149137"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>教程：使用 .NET 通过媒体服务 v3 进行实时流式传输
 
@@ -182,6 +182,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > 让实时事件保持运行会产生费用。 请注意，如果项目/节目崩溃或因某种原因而关闭，可能会导致实时事件保持运行状态，从而产生费用。
+
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、提供反馈、获取更新
+
+查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 
 ## <a name="next-steps"></a>后续步骤
 

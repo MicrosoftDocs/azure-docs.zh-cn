@@ -45,6 +45,8 @@
       href: container-instances-region-availability.md
     - name: 与协调器的关系
       href: container-instances-orchestrator-relationship.md
+    - name: 安全注意事项
+      href: container-instances-image-security.md
 - name: 操作指南
   items:
     - name: 部署
@@ -69,6 +71,8 @@
           href: container-instances-managed-identity.md
         - name: 使用 GPU 资源（预览版）
           href: container-instances-gpu.md
+        - name: 启用 SSL 终结点
+          href: container-instances-container-group-ssl.md
     - name: 装载数据卷
       items:
         - name: Azure 文件共享

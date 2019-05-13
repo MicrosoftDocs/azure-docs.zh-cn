@@ -3,17 +3,17 @@ title: Azure Maps 中支持的地图样式 | Microsoft Docs
 description: Azure Maps 支持的地图样式
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767143"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230828"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps 支持的地图样式
 Azure Maps 支持几种不同的内置地图样式，如下所述。
@@ -56,6 +56,17 @@ Azure Maps 支持几种不同的内置地图样式，如下所述。
 **适用 API：**
 * JS 地图控件 
 * Android 地图控件
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**灰度 light**是轻量版本的道路地图样式。
+
+![灰度光](./media/supported-map-styles/grayscale_light.png)
+
+**适用 API：**
+* JS 地图控件
+* Android 地图控件
+
 
 ## <a name="night"></a>夜间
 夜间是包含彩色道路和符号的道路地图样式的深色版本。

@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/02/2019
-ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61321167"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467454"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>在 Visual Studio 中使用 Azure 逻辑应用和 Azure Functions 生成第一个无服务器应用
 
@@ -25,33 +25,34 @@ ms.locfileid: "61321167"
 
 若要在 Visual Studio 中生成无服务器应用，需要准备好以下各项：
 
-* Azure 订阅。 如果没有 Azure 订阅，请<a href="https://azure.microsoft.com/free/" target="_blank">注册一个免费 Azure 帐户</a>。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个免费 Azure 帐户](https://azure.microsoft.com/free/)。
 
 * 下载并安装以下工具（如果没有）：
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019、2017 或 2015 - Community Edition 或更高版本</a>。 
+  * [Visual Studio 2019、2017 或 2015 - Community Edition 或更高版本](https://aka.ms/download-visual-studio)。 
   本快速入门使用免费的 Visual Studio Community 2017。
 
     > [!IMPORTANT]
     > 安装 Visual Studio 2019 或 2017 时，请务必选择“Azure 开发”工作负荷。
     > 对于 Visual Studio 2019，Cloud Explorer 可在 Azure 门户中打开逻辑应用设计器，但目前无法打开嵌入式逻辑应用设计器。
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">用于 .NET 的 Microsoft Azure SDK（2.9.1 或更高版本）</a>。 详细了解<a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">用于 .NET 的 Azure SDK</a>。
+  * [用于 .NET 的 Microsoft Azure SDK（2.9.1 或更高版本）](https://azure.microsoft.com/downloads/)。 
+  详细了解[用于 .NET 的 Azure SDK](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet)。
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * 适用于 Visual Studio 所需版本的 Azure 逻辑应用工具：
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    可以直接从 Visual Studio Marketplace 下载并安装 Azure 逻辑应用工具，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何从 Visual Studio 内部安装此扩展</a>。 
+    可以直接从 Visual Studio Marketplace 下载并安装 Azure 逻辑应用工具，或了解[如何从 Visual Studio 内部安装此扩展](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions)。 
     完成安装后，请务必重启 Visual Studio。
 
-  * 用于在本地调试 Functions 的 <a href="https://www.npmjs.com/package/azure-functions-core-tools" target="_blank">Azure Functions Core Tools</a>
+  * 用于在本地调试 Functions 的 [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
 
 * 使用嵌入式逻辑应用设计器时访问 Web
 

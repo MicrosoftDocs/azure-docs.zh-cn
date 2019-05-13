@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149642"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147292"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>使用 Azure AD 凭据来访问 blob 或队列数据运行 Azure CLI 或 PowerShell 命令
 

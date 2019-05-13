@@ -1,10 +1,10 @@
 ---
-title: 将应用程序配置为公开 Web API（预览版）| Azure
+title: 配置应用程序来公开 Web API - Microsoft 标识平台
 description: 了解如何将应用程序配置为公开新的权限/范围和角色，使该应用程序可供客户端应用程序使用。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1148fb221e82963ea39ece3e18598e38d633238d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080839"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413958"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>快速入门：将应用程序配置为公开 Web API（预览版）
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>快速入门：配置应用程序来公开 Web API
 
 可以开发一个 Web API，并通过公开[权限/范围](developer-glossary.md#scopes)和[角色](developer-glossary.md#roles)，使其可供客户端应用程序使用。 可以像提供其他 Microsoft Web API（包括图形 API 和 Office 365 API）一样提供正确配置的 Web API。
 
@@ -37,7 +37,6 @@ ms.locfileid: "58080839"
 * 了解支持的[权限和许可](v2-permissions-and-consent.md)，这是在生成其他用户或应用程序需要使用的应用程序时必须理解的。
 * 拥有一个其中已注册了应用程序的租户。
   * 如果尚未注册应用，请[了解如何将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)。
-* 加入预览版体验，了解如何在 Azure 门户中进行应用注册。 本快速入门中的步骤对应于新的 UI，只有在你选择加入预览版体验的情况下才适用。
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>登录到 Azure 门户，并选择应用
 
@@ -45,7 +44,7 @@ ms.locfileid: "58080839"
 
 1. 使用工作或学校帐户或个人 Microsoft 帐户登录到 [Azure 门户](https://portal.azure.com)。
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中选择“Azure Active Directory”服务，然后选择“应用注册(预览版)”。
+1. 在左侧导航窗格中，选择“Azure Active Directory”服务，然后选择“应用注册”。
 1. 找到并选择要配置的应用程序。 选择应用以后，会看到应用程序的“概览”页或主注册页。
 1. 选择要使用哪个方法、UI 或应用程序清单来公开新的范围：
     * [通过 UI 公开新的范围](#expose-a-new-scope-through-the-ui)

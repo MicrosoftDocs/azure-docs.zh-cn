@@ -1,19 +1,18 @@
 ---
 title: 使用企业安全性套餐在 HDInsight 中配置 Apache Kafka 策略 - Azure
 description: 了解如何使用企业安全性套餐为 Azure HDInsight 中的 Kafka 配置 Apache Ranger 策略。
-services: hdinsight
 ms.service: hdinsight
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.openlocfilehash: 381958b462b668447a6548029a1be616df7a3a4b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 6434f7cae3c3fa402efad00b2f6bfb0bc405f9e3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750216"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730250"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教程：使用企业安全性套餐（预览版）在 HDInsight 中配置 Apache Kafka 策略
 

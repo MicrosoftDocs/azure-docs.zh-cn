@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/07/2019
+ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692148"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511001"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
 交互式查询（也称为 Apache Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Apache Hive 查询速度和交互性。
@@ -34,10 +34,6 @@ ms.locfileid: "64692148"
 * 使用 Microsoft Power BI
 
     请参阅[在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Apache Hive 数据](./apache-hadoop-connect-hive-power-bi-directquery.md)以及[在 Azure HDInsight 中使用 Power BI 直观显示大数据](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
- 
-* 使用 Apache Zeppelin
-
-    请参阅[使用 Apache Zeppelin 才能在 Azure HDInsight 运行 Apache Hive 查询](../hdinsight-connect-hive-zeppelin.md)。
 
 * 使用 Visual Studio
 
@@ -45,7 +41,7 @@ ms.locfileid: "64692148"
 
 * 使用 Visual Studio Code
 
-    请参阅[将 Visual Studio Code 用于 Apache Hive、LLAP 或 pySpark](../hdinsight-for-vscode.md)。
+    请参阅[使用 Visual Studio Code 用于 Apache Hive、 LLAP 或 pySpark](../hdinsight-for-vscode.md)。
 * 使用 Apache Ambari Hive 视图运行 Apache Hive。
   
     请参阅[将 Apache Hive 视图与 Azure HDInsight 中的 Apache Hadoop 配合使用](../hadoop/apache-hadoop-use-hive-ambari-view.md)。
@@ -61,7 +57,7 @@ ms.locfileid: "64692148"
 
 若要查找 Java Database Connectivity (JDBC) 连接字符串：
 
-1. 使用以下 URL 登录到 Apache Ambari： https://\<cluster name\>.AzureHDInsight.net。
+1. 使用以下 URL 登录到 Apache Ambari: `https://<cluster name>.AzureHDInsight.net`。
 2. 在左侧菜单中，选择“Hive”。
 3. 若要复制 URL，请选择剪贴板图标：
    

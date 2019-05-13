@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 9ddf0d2d4c9c6d25f6a04df2db8a4ee93f177467
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea8758934f5209228e9c6697b5f0497e68baf62e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149618"
 ---
 # <a name="troubleshoot-shared-image-galleries"></a>排查共享映像库的问题
 

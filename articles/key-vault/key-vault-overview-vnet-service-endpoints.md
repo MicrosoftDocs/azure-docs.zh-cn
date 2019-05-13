@@ -1,5 +1,4 @@
 ---
-ms.assetid: ''
 title: Azure 密钥保管库的虚拟网络服务终结点 - Azure 密钥保管库 | Microsoft Docs
 description: Key Vault 的虚拟网络服务终结点概述
 services: key-vault
@@ -8,14 +7,13 @@ ms.author: ambapat
 manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d003e851dcfa77b18a67450946a71e4a13ce495c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201255"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700975"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault 的虚拟网络服务终结点
 

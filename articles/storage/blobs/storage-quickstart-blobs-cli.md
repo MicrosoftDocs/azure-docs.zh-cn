@@ -2,18 +2,19 @@
 title: Azure 快速入门 - 使用 Azure CLI 在对象存储中创建 blob | Microsoft Docs
 description: 本快速入门将在对象 (Blob) 存储中使用 Azure CLI。 然后，使用该 CLI 将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: roygara
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: rogarana
-ms.openlocfilehash: 11bd639d86c6ad9a9f373ac26dc271817bc46b08
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: tamram
+ms.reviewer: seguler
+ms.openlocfilehash: 0b74876d153a775993678ad50ed311c524480f76
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773080"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149597"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>快速入门：使用 Azure CLI 上传、下载和列出 Blob
 

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545223"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035454"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教程：通过自动化机器学习来构建回归模型
 
@@ -54,16 +54,16 @@ ms.locfileid: "59545223"
 
 从以下任一部分获取所有这些必备组件。
 
-* 使用 [Azure Notebooks](#azure)
+* 使用[工作区中的云笔记本服务器](#azure) 
 * 使用[自己的 Notebook 服务器](#server)
 
-### <a name="azure"></a>使用 Azure Notebooks：云中免费的 Jupyter Notebook
+### <a name="azure"></a>使用工作区中的云笔记本服务器
 
-Azure Notebooks 的入门很容易！ 已在 [Azure Notebooks](https://notebooks.azure.com/) 上安装和配置[用于 Python 的 Azure 机器学习 SDK](https://aka.ms/aml-sdk)。 安装和未来的更新通过 Azure 服务自动管理。
-
-完成以下步骤后，运行**入门**项目中的 **tutorials/regression-part2-automated-ml.ipynb** Notebook。
+可以从你自己的基于云的笔记本服务器着手，这很容易。 当你创建此云资源时，[用于 Python 的 Azure 机器学习 SDK](https://aka.ms/aml-sdk) 就已为你安装和配置了。
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* 在启动笔记本网页后，请运行 **tutorials/regression-part2-automated-ml.ipynb** Notebook。
 
 ### <a name="server"></a>使用自己的 Jupyter Notebook 服务器
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>配置工作区
 
-从现有工作区创建工作区对象。 [工作区](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)是可接受 Azure 订阅和资源信息的类。 它还可创建云资源来监视和跟踪模型运行。
+从现有工作区创建工作区对象。 [工作区](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)是可接受 Azure 订阅和资源信息的类。 它还可创建云资源来监视和跟踪模型运行。
 
 `Workspace.from_config()` 读取文件 config.json 并将详细信息加载到一个名为 `ws` 的对象。  在本教程中，`ws` 在代码的其余部分使用。
 

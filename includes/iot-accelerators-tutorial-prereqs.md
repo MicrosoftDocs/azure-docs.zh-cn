@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6597099c2f433aefaddcf0372ee4c85d548a4233
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 99f8edd816688324058d80d92a5f97f6fa8b8263
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61444527"
 ---
 ## <a name="prerequisites"></a>先决条件
 

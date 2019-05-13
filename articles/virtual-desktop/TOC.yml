@@ -8,19 +8,19 @@
   items:
     - name: 1. 在 Windows 虚拟桌面中创建租户
       href: tenant-setup-azure-active-directory.md
-    - name: 2. 通过 Azure 市场创建主机池
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. 管理应用组
-      href: manage-app-groups.md
-    - name: 4. 使用 PowerShell 创建服务主体和角色分配
+    - name: 2. 使用 PowerShell 创建服务主体和角色分配
       href: create-service-principal-role-powershell.md
+    - name: 3. 通过 Azure 市场创建主机池
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. 管理应用组
+      href: manage-app-groups.md
 - name: 操作说明
   items:
     - name: 连接到 Windows 虚拟桌面资源
       items:
-        - name: 使用 Windows 7 和 Windows 10 进行连接
+        - name: 从 Windows 10 或 Windows 7 进行连接
           href: connect-windows-7-and-10.md
-        - name: 使用 Web 客户端进行连接
+        - name: 从 Web 浏览器进行连接
           href: connect-web.md
     - name: 使用 Azure 资源管理器模板创建主机池
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: 准备和自定义主 VHD 映像
       href: set-up-customize-master-image.md
+    - name: 为 Windows 虚拟桌面配置 GPU
+      href: configure-vm-gpu.md
     - name: 自动缩放会话主机
       href: set-up-scaling-script.md
 - name: 概念
@@ -44,6 +46,18 @@
       href: delegated-access-virtual-desktop.md
     - name: 主机池负载均衡方法
       href: host-pool-load-balancing.md
+- name: 故障排除
+  items:
+    - name: 故障排除概述、反馈和支持
+      href: troubleshoot-set-up-overview.md
+    - name: 创建租户和主机池
+      href: troubleshoot-set-up-issues.md
+    - name: 会话主机虚拟机配置
+      href: troubleshoot-vm-configuration.md
+    - name: 远程桌面客户端连接
+      href: troubleshoot-client-connection.md
+    - name: Windows 虚拟桌面 PowerShell
+      href: troubleshoot-powershell.md
 - name: 引用
   items:
     - name: PowerShell

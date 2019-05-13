@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995653"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138194"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 
@@ -63,6 +63,7 @@ Azure 活动日志是一种方便用户深入了解 Azure 中发生的订阅级�
 * 在 Power BI 使用数据进行分析[ **Power BI 内容包**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)。
 * [将活动日志保存到**存储帐户**进行存档或手动检查](../../azure-monitor/platform/archive-activity-log.md)。 可以使用“日志配置文件”指定保留时间（天）。
 * 通过 PowerShell Cmdlet、CLI 或 REST API 查询活动日志。
+* 视图[更改历史记录](#view-change-history)对于某些事件
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 门户中查询活动日志
 
@@ -98,7 +99,7 @@ Azure 活动日志是一种方便用户深入了解 Azure 中发生的订阅级�
 * 应发送哪些事件类别（写入、删除、操作）。 *日志配置文件中“类别”的含义与活动日志事件中不同。在日志配置文件中，“类别”表示操作类型（写入、删除、操作）。在活动日志事件中，“类别”属性表示事件的来源或类型（例如，管理、服务运行状况、警报，等等）。*
 * 应该导出哪些区域（位置）。 确保包含“全局”，因为活动日志中的事件多为全局事件。
 * 活动日志应当在存储帐户中保留多长时间。
-    - 保留期为 0 天表示永久保留日志。 否则，值可以是任意数量的 1 至 365 天之间。
+    - 保留期为 0 天表示永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 365 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择了“事件中心”或“Log Analytics”选项），则保留策略无效。
     - 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。
 
@@ -183,6 +184,20 @@ az monitor log-profiles create --name <profile name> \
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>查看更改历史记录
+
+当查看活动日志，它可以帮助以了解期间所发生的更改事件时间。 您可以查看此信息与更改历史记录。
+
+导航到使用在门户的左侧菜单的活动日志。 选择你想要查看深入到活动日志中的事件。 选择**更改历史记录 （预览版）** 选项卡以查看任何与事件关联的更改。
+
+![更改事件的历史记录列表](./media/activity-logs-overview/change-history-event.png)
+
+如果有与事件相关联的任何更改，将看到可以选择的更改的列表。 此操作将打开**更改历史记录 （预览版）** 页。 此页上，请参阅对资源更改。 您可以看到从下面的示例，我们就能够不仅可看到 VM 大小，但什么以前的 VM 大小更改之前，它已更改为已更改。
+
+![显示差异的更改历史记录页](./media/activity-logs-overview/change-history-event-details.png)
+
+若要了解有关更改历史记录的详细信息，请参阅[获取资源更改](../../governance/resource-graph/how-to/get-resource-changes.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

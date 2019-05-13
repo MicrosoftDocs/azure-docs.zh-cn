@@ -2,18 +2,19 @@
 title: 在 Azure 中监视云存储应用程序并排查其问题 | Microsoft Docs
 description: 利用诊断工具、指标和警报来排查云应用程序问题和监视云应用程序。
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259983"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148239"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>监视云存储应用程序并排查其问题
 

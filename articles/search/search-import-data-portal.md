@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871077"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024778"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Azure 搜索的导入数据向导
 
@@ -27,7 +27,7 @@ Azure 门户在“Azure 搜索”仪表板上提供了“导入数据”向导�
 
 向导无法连接到预定义索引或运行现有索引器，但在向导中，你可以配置新索引或索引器以支持所需的结构和行为。
 
-不熟悉 Azure 搜索？ 逐步执行[快速入门：使用门户工具进行导入、编制索引和查询](search-get-started-portal.md)，以使用导入数据和内置 realestate 示例数据集体验导入和编制索引功能。
+不熟悉 Azure 搜索？ 逐步执行[快速入门：导入、 索引和查询使用门户工具](search-get-started-portal.md)若要导入和索引使用测试驱动型**导入数据**和内置的房地产示例数据集。
 
 ## <a name="start-importing-data"></a>开始导入数据
 
@@ -77,14 +77,14 @@ Azure 门户在“Azure 搜索”仪表板上提供了“导入数据”向导�
 * [Azure Blob 存储](search-howto-indexing-azure-blob-storage.md)
 * [Azure 表存储](search-howto-indexing-azure-tables.md)（不支持[认知搜索](cognitive-search-concept-intro.md)管道）
 
-平展数据集是必需的输入。 只能从单个表、数据库视图或等效的数据结构导入。 
+您可以仅导入从单个表、 数据库视图或等效的数据结构，但结构可以包括分层或嵌套子结构。 有关详细信息，请参阅[如何建模复杂类型](search-howto-complex-data-types.md)。
 
 运行该向导之前，应创建此数据结构，它必须包含的内容。 不会运行**导入数据**空的数据源向导。
 
 |  选项 | 描述 |
 | ---------- | ----------- |
 | **现有数据源** |如果已在搜索服务中定义索引器，则可以为另一个导入选择现有数据源定义。 在 Azure 搜索中，索引器仅使用数据源对象。 可以以编程方式或通过“导入数据”向导创建数据源对象。|
-| **示例**| Azure 搜索承载免费的公共 Azure SQL 数据库，可用于了解 Azure 搜索中的导入和查询请求。 请参阅[快速入门：使用门户工具进行导入、编制索引和查询](search-get-started-portal.md)用于演练。 |
+| **示例**| Azure 搜索托管可用于了解有关 Azure 搜索中的导入和查询请求的免费全球 Azure SQL 数据库。 请参阅[快速入门：使用门户工具进行导入、编制索引和查询](search-get-started-portal.md)用于演练。 |
 | **Azure SQL 数据库** |可以在此页上或通过 ADO.NET 连接字符串，指定服务名称、具有读取权限的数据库用户的凭据和数据库名称。 选择要查看或自定义属性的连接字符串选项。 <br/><br/>必须在此页上指定提供行集的表或视图。 连接成功后会显示此选项，并提供下拉列表以便可以进行选择。 |
 | **Azure VM 上的 SQL Server** |指定完全限定的服务名、用户 ID 和密码以及数据库作为连接字符串。 若要使用此数据源，以前必须已在加密连接的本地存储中安装了证书。 如需说明，请参阅[与 Azure 搜索的 SQL VM 连接](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)。 <br/><br/>必须在此页上指定提供行集的表或视图。 连接成功后会显示此选项，并提供下拉列表以便可以进行选择。 |
 | **Cosmos DB** |要求包括帐户、数据库和集合。 集合中的所有文档都将包含在索引中。 可以定义查询以平展或筛选行集，或将查询留空。 在此向导不需要查询。|

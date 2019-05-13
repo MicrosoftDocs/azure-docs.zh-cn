@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: e10cd3f60c3b12c6d5115ff34f4cbde2ef19d9fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c05b7e9b1c6d1b9214da168f7abfcbb322f8f6d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505377"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192518"
 ---
 # <a name="security-agent-reference-architecture"></a>安全代理参考体系结构
 

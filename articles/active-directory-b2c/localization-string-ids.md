@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cbc96f7f7c5f8020472708caaead3faff7a26673
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c6cabcc89e66e9fbf153f2931bfe8b9b70c5f426
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405651"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682702"
 ---
 # <a name="localization-string-ids"></a>本地化字符串 ID
 

@@ -1,25 +1,19 @@
 ---
-title: Web Analytics | Microsoft Docs
+title: Web Analytics
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: pabutler
+ms.openlocfilehash: 4b75b2cbd629204e7edbf1196eec9b03cb7a6736
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097468"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943159"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============

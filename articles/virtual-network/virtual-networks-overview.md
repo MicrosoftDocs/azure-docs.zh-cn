@@ -3,7 +3,8 @@ title: Azure 虚拟网络 | Microsoft Docs
 description: 了解 Azure 虚拟网络概念和功能。
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
@@ -12,13 +13,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
-ms.author: jdial
-ms.openlocfilehash: 9fb6aa0c2bf585862f61d7c78bd09b340ff8a3ce
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.author: kumud
+ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015893"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707020"
 ---
 # <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 

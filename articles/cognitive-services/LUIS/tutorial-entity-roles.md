@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528751"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149250"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教程：从陈述中提取上下文相关的数据
 
 在本教程中，基于上下文查找相关的数据片段。 例如，从一个城市转移到另一个城市的原位置和目的地。 可能同时需要这两个数据片段，并且它们彼此相关。  
 
-本教程以前是使用分层实体编写的。 使用实体角色就不需要提供分层实体类型。 角色可与任何预生成的或自定义的实体类型配合使用，并可在示例言语和模式中使用。 
+角色可与任何预生成的或自定义的实体类型配合使用，并可在示例言语和模式中使用。 
 
 **本教程介绍如何执行下列操作：**
 
@@ -93,12 +93,8 @@ ms.locfileid: "59528751"
     ![将角色添加到预生成实体](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. 在左侧导航栏中选择“意向”，然后选择“MoveEmployeeToCity”意向。 请注意，城市名称标有预生成实体 **geogrpahyV2**。
 1. 在列表的第一个言语中，选择来源位置。 此时会显示一个下拉菜单。 在列表中选择“geographyV2”，然后在弹出的菜单中选择“来源”。
-
-    [![将城市标记为来源位置的屏幕截图](media/tutorial-entity-roles/tag-origin-city-with-role.png "将城市标记为来源位置的屏幕截图")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. 使用上一步骤中所述的方法来标记所有言语中位置的所有角色。 
 
-    [![在陈述中标记的位置实体的屏幕截图](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Screenshot of Locations entity labeled in utterances")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>将话语示例添加到 None 意向 
 
@@ -117,7 +113,7 @@ ms.locfileid: "59528751"
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. 将光标定位到地址栏中 URL 的末尾，并输入 `Please move Carl Chamerlin from Tampa to Portland`。 最后一个查询字符串参数为 `q`，表示陈述**查询**。 此话语不同于标记的任何话语，因此，它非常适合用于测试，测试结果应返回包含所提取的分层实体的 `MoveEmployee` 意向。
+1. 将光标定位到地址栏中 URL 的末尾，并输入 `Please move Carl Chamerlin from Tampa to Portland`。 最后一个查询字符串参数为 `q`，表示陈述**查询**。 此话语不同于标记的任何话语，因此，它非常适用于测试，测试结果应返回提取了实体的 `MoveEmployee` 意向。
 
     ```json
     {

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530326"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230074"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>PowerShell Azure Functions 在本地进行调试
 
@@ -97,7 +97,7 @@ if($name) {
 
 若要调试您在 Visual Studio Code 的 PowerShell 函数，必须针对 Visual Studio Code 具有下列扩展名：
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 在安装后的 PowerShell 和 Azure Functions 扩展，加载现有的函数应用项目。 此外可以[创建函数项目](functions-create-first-function-vs-code.md)。
@@ -189,7 +189,7 @@ pwsh            88785 None
 接下来，运行以下代码片段：
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

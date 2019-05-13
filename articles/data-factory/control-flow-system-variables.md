@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872542"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235646"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure 数据工厂支持的系统变量
 本文介绍了 Azure 数据工厂支持的系统变量。 定义数据工厂实体时，可以在表达式中使用这些变量。
@@ -45,6 +45,7 @@ ms.locfileid: "64872542"
 
 ## <a name="tumbling-window-trigger-scope"></a>翻转窗口触发器范围
 如果触发器的类型为以下值，则可以在触发器 JSON 中的任何位置引用这些系统变量：“TumblingWindowTrigger”。
+（注意：默认情况下，采用 ISO 8601 格式是时间戳）
 
 | 变量名 | 描述 |
 | --- | --- |

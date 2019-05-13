@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/15/2019
 ms.author: juliako
-ms.openlocfilehash: f4ce64599aad2b2eebbef6ca8d81acfca2a7a702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62d26ce5a2e1a98b6ed024fb98c9c887fb985ebf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733873"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150981"
 ---
 # <a name="create-an-azure-media-services-account"></a>创建 Azure 媒体服务帐户
 
@@ -46,7 +46,8 @@ az account set --subscription mySubscriptionId
  
 ## <a name="next-steps"></a>后续步骤
 
-[流式传输文件](stream-files-dotnet-quickstart.md)
+* [访问 v3 Api](access-api-cli-how-to.md)
+* [流式传输文件](stream-files-dotnet-quickstart.md)
 
 ## <a name="see-also"></a>另请参阅
 

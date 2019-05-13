@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 4a4f8478eef96ebe10d729e0ff380faf6f4b6779
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937371"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472463"
 ---
 # <a name="transforms-and-jobs"></a>转换和作业
 
@@ -53,19 +53,21 @@ ms.locfileid: "64937371"
 
 ## <a name="transforms"></a>转换
 
+**转换**可用来配置对视频进行编码或分析的常见任务。 每个**转换**描述了用于处理视频或音频文件的脚本或任务工作流。 单个转换可以应用多个规则。 例如，转换可以指定以给定的比特率将每个视频编码成 MP4 文件，并从该视频的第一帧生成缩略图。 针对要包含在转换中的每个规则，请添加一个 TransformOutput 条目。 使用预设来告诉转换应如何处理输入的媒体文件。
+
+在媒体服务 v3 预设是 API 本身中的强类型化的实体。 可以找到这些对象中的"架构"定义[开放 API 规范 （或 Swagger）](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)。 你还可以查看预设的定义 (如**StandardEncoderPreset**) 中[REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)， [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) （或其他媒体服务 v3 SDK 参考文档）。
+
+可以创建使用 REST，CLI，转换，也可以使用任何已发布的 Sdk。 媒体服务 v3 API 由 Azure 资源管理器驱动，因此，也可以使用资源管理器模板在媒体服务帐户中创建和部署转换。 可以使用基于角色的访问控制来锁定对转换的访问。
+
+如果需要更新您[转换](https://docs.microsoft.com/rest/api/media/transforms)，使用**更新**操作。 它适用于对描述或基础 TransformOutputs 的优先级进行更改。 建议在所有正在进行的作业都完成后执行这类更新。 如果你想要重写该方案，需要创建新的转换。
+
+### <a name="transform-object-diagram"></a>转换对象关系图
+
 下图显示**转换**对象和其引用包括派生关系的对象。 灰色箭头构成显示作业引用和绿色箭头显示类派生的关系类型。<br/>单击图像可查看其完整大小。  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
-**转换**可用来配置对视频进行编码或分析的常见任务。 每个**转换**描述了用于处理视频或音频文件的脚本或任务工作流。 单个转换可以应用多个规则。 例如，转换可以指定以给定的比特率将每个视频编码成 MP4 文件，并从该视频的第一帧生成缩略图。 针对要包含在转换中的每个规则，请添加一个 TransformOutput 条目。 可以使用媒体服务 v3 API 或者使用任何已发布的 SDK 在媒体服务帐户中创建转换。 媒体服务 v3 API 由 Azure 资源管理器驱动，因此，也可以使用资源管理器模板在媒体服务帐户中创建和部署转换。 可以使用基于角色的访问控制来锁定对转换的访问。
-
-对[转换](https://docs.microsoft.com/rest/api/media/transforms)实体进行的更新操作旨在对基础 TransformOutputs 的说明或优先级进行更改。 建议在所有正在进行的作业都完成后执行这类更新。 如果旨在重写脚本，则需要创建新的转换。
-
-## <a name="jobs"></a>作业
-
-下图显示**作业**对象和其引用包括派生关系的对象。<br/>单击图像可查看其完整大小。  
-
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
+## <a name="jobs"></a>作业(Job)
 
 **作业**是针对 Azure 媒体服务的实际请求，目的是将**转换**应用到给定的输入视频或音频内容。 创建转换后，可以使用媒体服务 API 或任何已发布的 SDK 来提交作业。 **作业**指定输入视频位置和输出位置等信息。 可以使用以下各项指定输入视频的位置：HTTPS URL、SAS URL 或[资产](https://docs.microsoft.com/rest/api/media/assets)。  
 
@@ -77,13 +79,19 @@ ms.locfileid: "64937371"
 
 对[作业](https://docs.microsoft.com/rest/api/media/jobs)实体进行的更新操作可以用于在作业提交之后修改说明或优先级。 仅当作业仍处于排队状态时，对优先级属性所做的更改才有效。 如果作业已开始处理或已完成，则更改优先级不起作用。
 
+### <a name="job-object-diagram"></a>作业对象关系图
+
+下图显示**作业**对象和其引用包括派生关系的对象。<br/>单击图像可查看其完整大小。  
+
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
+
 ## <a name="configure-media-reserved-units"></a>配置媒体保留单位
 
 对于由媒体服务 v3 或视频索引器触发的音频分析和视频分析作业，强烈建议为你的帐户预配 10 个 S3 媒体保留单位 (MRU)。 如果需要超过 10 S3 MRU 的数量，请使用 [Azure 门户](https://portal.azure.com/)打开一个支持票证。
 
 有关详细信息，请参阅[使用 CLI 调整媒体处理的规模](media-reserved-units-cli-how-to.md)。
 
-## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、 提供反馈，获取更新
+## <a name="ask-questions-give-feedback-get-updates"></a>提出问题、提供反馈、获取更新
 
 查看 [Azure 媒体服务社区](media-services-community.md)文章，了解可以提出问题、提供反馈和获取有关媒体服务的更新的不同方法。
 
@@ -94,5 +102,8 @@ ms.locfileid: "64937371"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [教程：使用 .NET 上传、编码和流式传输视频](stream-files-tutorial-with-api.md)
-- [教程：通过 .NET 使用媒体服务 v3 来分析视频](analyze-videos-tutorial-with-api.md)
+- 开始开发之前，请查看[使用媒体服务 v3 Api 进行开发](media-services-apis-overview.md)（包括访问 Api，命名约定，等等信息。）
+- 请查看以下教程：
+
+    - [教程：使用 .NET 上传、编码和流式传输视频](stream-files-tutorial-with-api.md)
+    - [教程：通过 .NET 使用媒体服务 v3 来分析视频](analyze-videos-tutorial-with-api.md)

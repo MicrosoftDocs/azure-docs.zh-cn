@@ -22,12 +22,18 @@
       href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: 以联机方式将 MySQL 迁移到 Azure DB for MySQL
       href: tutorial-mysql-azure-mysql-online.md
+    - name: 以联机方式将 RDS MySQL 迁移到 Azure DB for MySQL
+      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
     - name: 以联机方式将 PostgreSQL 迁移到 Azure DB for PostgreSQL
       href: tutorial-postgresql-azure-postgresql-online.md
+    - name: 以联机方式将 RDS PostgreSQL 迁移到 Azure DB for PostgreSQL
+      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: 以脱机方式将 MongoDB 迁移到 Azure Cosmos DB Mongo API
       href: tutorial-mongodb-cosmos-db.md
     - name: 以联机方式将 MongoDB 迁移到 Azure Cosmos DB Mongo API
       href: tutorial-mongodb-cosmos-db-online.md
+    - name: 将 Oracle 联机迁移到 Azure Database for PostgreSQL
+      href: tutorial-oracle-azure-postgresql-online.md
 - name: 操作指南
   items:
     - name: 使用 PowerShell 将 SQL Server 迁移到 Azure SQL DB
@@ -48,6 +54,8 @@
       href: resource-network-topologies.md
     - name: 已知问题
       items:
+        - name: 排查常见问题和错误
+          href: known-issues-troubleshooting-dms.md
         - name: 已知问题 - 联机迁移到 Azure SQL DB
           href: known-issues-azure-sql-online.md
         - name: 已知问题 - 联机迁移到 Azure DB for MySQL

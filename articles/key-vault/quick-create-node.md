@@ -2,21 +2,19 @@
 title: 快速入门 - 使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 | Microsoft Docs
 description: 在本快速入门中，你将使用 Node Web 应用在 Azure Key Vault 中设置和检索机密
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
-ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522298"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236637"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入门：使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 
 

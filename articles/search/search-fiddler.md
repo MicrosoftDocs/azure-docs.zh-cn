@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269106"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024811"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入门：使用 Postman 探索 Azure 搜索 REST API
 > [!div class="op_single_selector"]
@@ -63,9 +63,9 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 使用任一工具都需要选择一个命令（GET、POST、PUT 等）并提供 URL 终结点；对于某些任务，需要在请求正文中提供 JSON。 完整的 URL 如下所示：
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
 
-请注意 HTTPS 前缀、服务的名称、对象（在本例中为索引集合）的名称和 [api-version](search-api-versions.md)。 api-version 是必需的小写字符串，对于当前版本，其指定为“?api-version=2017-11-11”。 API 版本定期更新。 将 api-version 包括在每个请求中即可完全控制要使用的版本。  
+请注意 HTTPS 前缀、服务的名称、对象（在本例中为索引集合）的名称和 [api-version](search-api-versions.md)。 api-version 是必需的小写字符串；对于当前版本，它指定为 `?api-version=2019-05-06`。 API 版本定期更新。 将 api-version 包括在每个请求中即可完全控制要使用的版本。  
 
 请求标头组合包括两个元素：内容类型，以及用于在 Azure 搜索中进行身份验证的 api-key：
 
@@ -85,7 +85,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 为此，请在 Postman 中：
 
 1. 将谓词更改为“PUT”
-2. 复制此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. 复制此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
 3. 在请求正文中提供索引定义（如下所示）
 4. 单击“发送”
 
@@ -129,7 +129,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 为此，请在 Postman 中：
 
 1. 将谓词更改为“POST”
-2. 复制此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. 复制此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
 3. 在请求正文中提供 JSON 文档（如下所示）
 4. 单击“发送”
 
@@ -219,7 +219,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 为此，请在 Postman 中：
 
 + 将谓词更改为“GET”
-+ 复制此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ 复制此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
 + 单击“发送”
 
 此查询针对“motel”一词进行搜索，在搜索结果中返回文档的计数。 在单击“发送”后，请求和响应应类似于以下针对 Postman 的屏幕截图。 状态代码应为 200。
@@ -228,7 +228,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 
 ## <a name="get-index-properties"></a>获取索引属性
-还可以查询系统信息，获取文档计数和存储使用量：`https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+还可以查询系统信息，获取文档计数和存储使用量：`https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 在 Postman 中，请求应如下所示，响应包括文档计数和所用空间（以字节为单位）。
 
@@ -247,7 +247,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 构建如以下屏幕截图所示的请求。 选择“GET”作为谓词。 Fiddler 添加 `User-Agent=Fiddler`。 可以在其下的新行中粘贴这两个额外的请求标头。 使用服务的管理员访问密钥，包括适用于服务的 content-type 和 api-key。
 
-对于目标，请复制以下 URL 的修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+对于目标，请复制以下 URL 的修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Fiddler 请求标头][1]
 
@@ -256,7 +256,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 ### <a name="1---create-an-index"></a>1 - 创建索引
 
-将谓词更改为“PUT”。 复制此 URL 的修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`。 将上面提供的索引定义复制到请求正文。 页面应类似于以下屏幕截图。 单击右上角的“执行”发送已完成的请求。
+将谓词更改为“PUT”。 复制此 URL 的修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`。 将上面提供的索引定义复制到请求正文。 页面应类似于以下屏幕截图。 单击右上角的“执行”发送已完成的请求。
 
 ![Fiddler 请求正文][7]
 
@@ -272,11 +272,11 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 替换空格之前 (lastRenovationDate desc)：
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06
 
 将空格替换为 + 之后 (lastRenovationDate+desc)：
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2019-05-06
 
 ### <a name="tips-for-viewing-index-statistic-in-fiddler"></a>在 Fiddler 中查看索引统计信息的提示
 

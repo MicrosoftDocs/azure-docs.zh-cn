@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203664"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -252,7 +252,7 @@ module.exports = async function (context, message) {
 |---------|---------|----------------------|
 |类型 | 不适用| 必须设置为 `queueTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction| 不适用 | 只能在 *function.json* 文件中设置。 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
-|name | 不适用 |函数代码中包含队列项有效负载的变量的名称。  |
+|**name** | 不适用 |函数代码中包含队列项有效负载的变量的名称。  |
 |**queueName** | **QueueName**| 要轮询的队列的名称。 |
 |**连接** | **Connection** |包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。|
 
@@ -273,7 +273,7 @@ module.exports = async function (context, message) {
 
 ## <a name="trigger---message-metadata"></a>触发器 - 消息元数据
 
-[队列触发器提供了数个元数据属性。](./functions-bindings-expressions-patterns.md#trigger-metadata) 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) 类的属性。
+[队列触发器提供了数个元数据属性。](./functions-bindings-expressions-patterns.md#trigger-metadata) 这些属性可在其他绑定中用作绑定表达式的一部分，或者用作代码中的参数。 以下是 [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 类的属性。
 
 |属性|Type|描述|
 |--------|----|-----------|
@@ -506,7 +506,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 |---------|---------|----------------------|
 |类型 | 不适用 | 必须设置为 `queue`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `out`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
-|name | 不适用 | 表示函数代码中的队列的变量的名称。 设置为 `$return` 可引用函数返回值。|
+|**name** | 不适用 | 表示函数代码中的队列的变量的名称。 设置为 `$return` 可引用函数返回值。|
 |**queueName** |**QueueName** | 队列的名称。 |
 |**连接** | **Connection** |包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。|
 
@@ -526,7 +526,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 在 C# 和 C# 脚本中，可使用以下类型之一编写多条队列消息： 
 
 * `ICollector<T>` 或 `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 在 JavaScript 函数中，可以使用 `context.bindings.<name>` 访问输出队列消息。 可对队列项有效负载使用字符串或 JSON 可序列化对象。
 
@@ -586,4 +586,4 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

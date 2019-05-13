@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485493"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190443"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>将大型机存储移动到 Azure
 
@@ -113,10 +113,10 @@ Blob 存储在 Azure 上提供最大存储量。 除存储大小，Azure 还提�
 ### <a name="ibm-resources"></a>IBM 资源
 
 - [并行 Sysplex 上 IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS 和耦合设施：基础知识以外](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS 和耦合设施：基础知识以外](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Creating required users for a Db2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)（创建所需用户以安装 Db2 pureScale 功能）
 - [Db2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)（Db2icrt - 创建实例命令）
-- [Db2 pureScale Clustered 数据库解决方案](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale Clustered 数据库解决方案](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government 

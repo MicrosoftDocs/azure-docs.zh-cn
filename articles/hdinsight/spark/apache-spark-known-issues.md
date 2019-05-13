@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
 ms.openlocfilehash: 51a0ee6f2d928d79e60ca9976d7651c70867a41f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097228"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717604"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
@@ -67,7 +67,7 @@ HDInsight Spark 群集不支持 Spark-Phoenix 连接器。
 
 **缓解：**
 
-必须改用 Spark-HBase 连接器。 相关说明请参阅[如何使用 Spark-HBase 连接器](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
+必须改用 Spark-HBase 连接器。 相关说明请参阅[如何使用 Spark-HBase 连接器](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter 笔记本的相关问题
 下面是与 Jupyter 笔记本相关的一些已知问题。

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 8f5a7d3f6300be100feffd23b98bd7dcd8f48148
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869573"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150877"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure 数据工厂中的复制活动
 
@@ -176,12 +176,14 @@ ms.locfileid: "64869573"
 | dataRead | 从源中读取的数据大小 | Int64 值（**字节**） |
 | DataWritten | 写入接收器的数据大小 | Int64 值（**字节**） |
 | filesRead | 从文件存储复制数据时要复制的文件数。 | Int64 值（未指定单位） |
-| fileScanned | 正在扫描的源文件存储中的文件数量。 | Int64 值（未指定单位） |
 | filesWritten | 将数据复制到文件存储时要复制的文件数。 | Int64 值（未指定单位） |
-| rowsCopied | 正在复制（不适用于二进制复制）的行数。 | Int64 值（未指定单位） |
+| rowsRead | 正在从 （不适用于二进制副本） 的源中读取的行数。 | Int64 值（未指定单位） |
+| rowsCopied | 正在复制到接收器 （不适用于二进制副本） 的行数。 | Int64 值（未指定单位） |
 | rowsSkipped | 跳过的不兼容行数。 可以通过将“enableSkipIncompatibleRow”设置为 true 来启用该功能。 | Int64 值（未指定单位） |
-| throughput | 数据传输比率 | 浮点数 (**KB/s**) |
-| copyDuration | 复制持续时间 | Int32 值（秒） |
+| throughput | 上传输数据的比率。 | 浮点数 (**KB/s**) |
+| copyDuration | 复制持续时间。 | Int32 值（秒） |
+| sourcePeakConnections | 峰值在复制期间建立到源数据存储的并发连接数。 | Int32 值 |
+| sinkPeakConnections| 峰值到接收器数据存储在复制期间建立的并发连接数。| Int32 值 |
 | sqlDwPolyBase | 如果将数据复制到 SQL 数据仓库时使用了 PolyBase。 | Boolean |
 | redshiftUnload | 如果从 Redshift 复制数据时使用了 UNLOAD。 | Boolean |
 | hdfsDistcp | 如果从 HDFS 复制数据时使用了 DistCp。 | Boolean |

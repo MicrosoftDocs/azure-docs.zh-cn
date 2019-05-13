@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0afa1937b5122d7cdf890176b616c433a63b25a2
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283948"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192223"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>教程：Azure Active Directory 与 Mitel Connect 的集成
 
@@ -104,12 +104,18 @@ ms.locfileid: "59283948"
 
     ![Mitel Connect 域和 URL 单一登录信息](common/sp-identifier.png)
 
-    a. 在“登录 URL”文本框中，使用以下模式键入 URL：`https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
+    a. 在“登录 URL”文本框中，键入 URL：
+
+    | |
+    |--|
+    | `https://portal.shoretelsky.com`|
+    | `https://teamwork.shoretel.com`|
+    | |
 
     b. 在“标识符(实体 ID)”文本框中，使用以下模式键入 URL：`https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 
     > [!NOTE]
-    > 这些不是实际值。 使用实际登录 URL 和标识符更新这些值。 请联系 [Mitel Connect 客户端支持团队](https://www.mitel.com/support/mitel-technical-support)获取这些值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
+    > 标识符非实际值。 请使用实际标识符更新此值。 请联系 [Mitel Connect 客户端支持团队](https://www.mitel.com/support/mitel-technical-support)获取此值。 还可以参考 Azure 门户中的“基本 SAML 配置”部分中显示的模式。
 
 5. 在“使用 SAML 设置单一登录”页的“SAML 签名证书”部分，单击“下载”以根据要求下载从给定选项提供的“联合元数据 XML”并将其保存在计算机上。
 
@@ -147,7 +153,7 @@ ms.locfileid: "59283948"
 
     a.在“解决方案资源管理器”中，右键单击项目文件夹下的“引用”文件夹，并单击“添加引用”。 在“名称”字段中，输入 BrittaSimon。
   
-    b. 在“用户名”字段中键入 brittasimon@yourcompanydomain.extension。 例如： BrittaSimon@contoso.com
+    b. 在“用户名”字段中键入 brittasimon@yourcompanydomain.extension。 例如，BrittaSimon@contoso.com。
 
     c. 选中“显示密码”复选框，然后记下“密码”框中显示的值。
 
@@ -183,7 +189,7 @@ ms.locfileid: "59283948"
 
 在本部分，我们将在 Mitel Connect 中创建名为 Britta Simon 的用户。 在  [Mitel Connect 支持团队](https://www.mitel.com/support/mitel-technical-support)的配合下，将用户添加到 Mitel Connect 平台。 使用单一登录前，必须先创建并激活用户。
 
-### <a name="test-single-sign-on"></a>测试单一登录 
+### <a name="test-single-sign-on"></a>测试单一登录
 
 在本部分中，使用访问面板测试 Azure AD 单一登录配置。
 
@@ -196,4 +202,3 @@ ms.locfileid: "59283948"
 - [Azure Active Directory 的应用程序访问与单一登录是什么？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什么是 Azure Active Directory 中的条件访问？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

@@ -2,18 +2,18 @@
 title: 使用 Azure PowerShell 管理 Azure 独立云中的存储 | Microsoft Docs
 description: 使用 Azure PowerShell 管理中国云、政府云和德国云中的存储
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/24/2017
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6a3fe8c7235a0cf475f188a3379e372cd777ce8c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 69707eec0ea1f2260ee50a48ce1dcb82dc9ddd8f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477635"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145869"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
@@ -59,7 +59,7 @@ Get-AzLocation | select Location, DisplayName
 
 下表显示了针对德国云返回的位置。
 
-|位置 | DisplayName |
+|Location | DisplayName |
 |----|----|
 | germanycentral | 德国中部|
 | germanynortheast | 德国东北部 | 
@@ -81,7 +81,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 此命令返回以下结果。
 
-| Name| core.usgovcloudapi.net|
+| 名称| core.usgovcloudapi.net|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -98,7 +98,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 |属性名称|值|
 |----|----|
-| Name | AzureGermanCloud |
+| 名称 | AzureGermanCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | http://management.core.cloudapi.de/ |
 | GalleryURL | https://gallery.cloudapi.de/ |

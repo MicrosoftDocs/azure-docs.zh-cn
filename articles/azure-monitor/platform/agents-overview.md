@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775874"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922830"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 监视代理概述 
 Microsoft Azure 提供多种方式用于从 Azure、数据中心或其他云提供商托管的，运行 Microsoft Windows 和 Linux 的虚拟机收集各种数据。 可用于监视 VM 的三种代理包括：
@@ -66,7 +66,7 @@ Microsoft Azure 提供多种方式用于从 Azure、数据中心或其他云提�
 
 * 对操作系统更新进行 [Azure 自动化更新管理](../../automation/automation-update-management.md)。
 * 使用 [Azure 自动化 Desired State Configuration](../../automation/automation-dsc-overview.md) 来保持一致的配置状态。
-* 使用 [Azure 自动化更改跟踪和库存](../../automation/automation-change-tracking.md)来跟踪配置更改。
+* 使用 [Azure 自动化更改跟踪和库存](../../automation/change-tracking.md)来跟踪配置更改。
 * Azure 服务（例如 [Application Insights](https://docs.microsoft.com/azure/application-insights/) 和 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/)）原生就会将其数据直接存储在 Log Analytics 中。  
 
 ## <a name="dependency-agent"></a>依赖关系代理

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196074"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148733"
 ---
 # <a name="create-entities-without-utterances"></a>创建不包含话语的实体
 
@@ -66,29 +66,6 @@ ms.locfileid: "60196074"
 
     此正则表达式匹配的原义字符`hrf-`，然后使用 6 位数来表示窗体号人力资源窗体。
 
-## <a name="add-hierarchical-entities"></a>添加分层实体
-
-分层实体是根据上下文学习的一类概念相关实体。 在以下示例中，该实体包含出发地和目的地。 
-
-在表述 `Move John Smith from Seattle to Cairo` 中，Seattle 是出发地，Cairo 是目的地。 每个位置因上下文而异，是从表述中的单词顺序和单词选择学习到的。
-
-若要添加分层实体，请完成以下步骤： 
-
-1. 在应用中，从左侧导航栏选择“实体”，然后选择“创建新实体”。
-
-1. 在弹出对话框中，在“实体名称”框中键入 `Location`，然后从“实体类型”列表选择“分层”。
-
-    ![添加分层的实体](./media/add-entities/hier-location-entity-creation.png)
-
-1. 选择“添加子级”，然后在“子级 #1”框中输入 `Origin`。 
-
-1. 选择“添加子级”，然后在“子级 #2”框中输入 `Destination`。 选择“完成”。
-
-    >[!CAUTION]
-    >子实体名称在单个应用的所有实体中必须唯一。 两个不同的分层实体不得包含同一名称的子实体。 
-
-    创建此实体后，转到包含该实体的示例话语所在的所有意向。 选择示例话语中的文本，并将文本标记为实体。 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>添加复合实体分组到父-子关系
@@ -137,9 +114,7 @@ ms.locfileid: "60196074"
 
 角色是基于上下文在命名子类型。 它现已推出包括预先生成和机器学习实体的所有实体。 
 
-使用出发地和目的地城市的分层实体的相同示例，区别在于角色是命名的出发地，而不是分层子级。 
-
-角色的语法为 **{Entityname:Rolename}**，即，实体名称后接冒号再后接角色名称。 例如，`Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`。
+为角色的语法是**`{Entityname:Rolename}`** 其中实体名称后跟一个冒号，则角色名称。 例如，`Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`。
 
 1. 在“生成”部分的左侧面板中选择“实体”。
 

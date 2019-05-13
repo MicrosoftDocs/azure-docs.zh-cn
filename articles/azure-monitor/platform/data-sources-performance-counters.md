@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76f4061af816c59e644db99913193ed6fcf24d18
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205754"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor 中的 Windows 和 Linux 性能数据源
 Windows 和 Linux 中的性能计数器提供对硬件组件、操作系统和应用程序性能的见解。  除聚合性能数据以用于长期分析和报告外，Azure Monitor 还可以定期收集性能计数器以进行近实时 (NRT) 分析。
@@ -96,10 +96,10 @@ Windows 和 Linux 中的性能计数器提供对硬件组件、操作系统和�
 | 逻辑磁盘 | 可用空间百分比 |
 | 逻辑磁盘 | 已用 Inode 百分比 |
 | 逻辑磁盘 | 已用空间百分比 |
-| 逻辑磁盘 | 磁盘读取字节数/秒 |
+| 逻辑磁盘 | 磁盘读取的字节数/秒 |
 | 逻辑磁盘 | 磁盘读取数/秒 |
 | 逻辑磁盘 | 磁盘传输数/秒 |
-| 逻辑磁盘 | 磁盘写入字节数/秒 |
+| 逻辑磁盘 | 磁盘写入的字节数/秒 |
 | 逻辑磁盘 | 磁盘写入数/秒 |
 | 逻辑磁盘 | 可用 MB 数 |
 | 逻辑磁盘 | 逻辑磁盘字节数/秒 |
@@ -122,9 +122,9 @@ Windows 和 Linux 中的性能计数器提供对硬件组件、操作系统和�
 | 网络 | Rx 错误数总计 |
 | 网络 | Tx 错误数总计 |
 | 网络 | 冲突数总计 |
-| 物理磁盘 | 平均磁盘秒数/读取 |
-| 物理磁盘 | 平均磁盘秒数/传输 |
-| 物理磁盘 | 平均磁盘秒数/写入 |
+| 物理磁盘 | 平均值磁盘秒数/读取 |
+| 物理磁盘 | 平均值磁盘秒数/传输 |
+| 物理磁盘 | 平均值磁盘秒数/写入 |
 | 物理磁盘 | 物理磁盘字节数/秒 |
 | 进程 | 特权时间百分比 |
 | 进程 | 用户时间百分比 |
@@ -211,10 +211,10 @@ Azure Monitor 以指定的采样间隔在已安装相应计数器的所有代理
 | 性能 |所有性能数据 |
 | Perf &#124; where Computer == "MyComputer" |特定计算机中的所有性能数据 |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |特定计数器的所有性能数据 |
-| Perf &#124; where ObjectName == "Processor" and CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AVGCPU = avg(Average) by Computer |所有计算机的平均 CPU 使用率 |
-| Perf &#124; where CounterName == "% Processor Time" &#124; summarize AggregatedValue = max(Max) by Computer |所有计算机的最大 CPU 使用率 |
-| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(Average) by InstanceName |指定计算机的所有实例上的当前磁盘队列平均长度 |
-| Perf &#124; where CounterName == "DiskTransfers/sec" &#124; summarize AggregatedValue = percentile(Average, 95) by Computer |每秒所有计算机上磁盘传输的第 95 百分位数 |
+| 性能&#124;其中 ObjectName = ="Processor"and CounterName = ="%Processor Time"和 InstanceName = ="_Total"&#124;汇总 AVGCPU = avg （countervalue） 的计算机 |所有计算机的平均 CPU 使用率 |
+| 性能&#124;其中 CounterName = ="%Processor Time"&#124;汇总 AggregatedValue = max(CounterValue) 计算机 |所有计算机的最大 CPU 使用率 |
+| Perf &#124; where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and Computer == "MyComputerName" &#124; summarize AggregatedValue = avg(CounterValue) by InstanceName |指定计算机的所有实例上的当前磁盘队列平均长度 |
+| Perf &#124; where CounterName == "Disk Transfers/sec" &#124; summarize AggregatedValue = percentile(CounterValue, 95) by Computer |每秒所有计算机上磁盘传输的第 95 百分位数 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |每小时所有计算机 CPU 使用率的平均值 |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 每小时特定计算机的每个 % 百分比计数器的第 70 百分位数 |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |每小时特定计算机的 CPU 使用率的平均值、最小值、最大值和第 75 百分位数 |

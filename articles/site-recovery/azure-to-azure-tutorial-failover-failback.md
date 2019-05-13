@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797561"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153786"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>在区域之间故障转移和重新保护 Azure VM
 
-[Azure Site Recovery](site-recovery-overview.md) 服务可管理和协调本地计算机和 Azure 虚拟机 (VM) 的复制、故障转移和故障回复，进而有利于灾难恢复策略。
-
-本教程介绍如何将 Azure VM 故障转移到 Azure 次要区域。 故障转移后，对 VM 重新进行保护。 本教程介绍如何执行下列操作：
+本教程介绍如何使用 [Azure Site Recovery](site-recovery-overview.md) 服务将 Azure 虚拟机 (VM) 故障转移到次要 Azure 区域。 故障转移后，对 VM 重新进行保护。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 故障转移 Azure VM
@@ -29,8 +27,10 @@ ms.locfileid: "59797561"
 > [!NOTE]
 > 本教程包含的最简单路径带有默认设置和最小自定义项。 如需更复杂的方案，请参阅 Azure VM 的“操作指南”下的文章。
 
+
 ## <a name="prerequisites"></a>先决条件
 
+- 开始之前，请查看有关故障转移的[常见问题解答](site-recovery-faq.md#failover)。
 - 确保已完成[灾难恢复演练](azure-to-azure-tutorial-dr-drill.md)，检查所有内容是否都按预期工作。
 - 在运行测试故障转移之前，验证 VM 属性。 该 VM 必须符合 [Azure 要求](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)。
 
@@ -54,6 +54,11 @@ ms.locfileid: "59797561"
 
 6. 如果故障转移后的虚拟机符合要求，可以**提交**故障转移。
    提交会删除该服务提供的所有恢复点。 现在无法无法更改恢复点。
+
+> [!NOTE]
+> 当你将启用 VM 复制后添加磁盘的 VM 进行故障转移时，复制点会显示可用于恢复的磁盘。 例如，如果 VM 有一个磁盘，你添加了一个新的磁盘，则在添加磁盘之前创建的复制点会显示复制点包含“1 个磁盘（共 2 个）”。
+
+![使用添加的磁盘进行故障转移](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>重新保护辅助 VM
 

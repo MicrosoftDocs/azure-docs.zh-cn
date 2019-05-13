@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 05/01/2019
 ms.author: sngun
-ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0da5f503c13ce03854964c0d18edd0031e25bb62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60932912"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235600"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>适用于 Azure Cosmos DB 和 Async Java 的性能提示
 
@@ -162,7 +162,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```

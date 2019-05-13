@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291273"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441424"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>向 Azure Active Directory 中的应用程序分配用户和组
 本文介绍如何将用户或组分配到 Azure Active Directory (Azure AD) 中的应用程序。 首先必须将用户分配给应用程序，然后管理员才能授予这些用户访问权限以执行以下操作：
@@ -31,6 +31,8 @@ ms.locfileid: "60291273"
 -   查看显示在其[应用程序访问面板](https://myapps.microsoft.com/)的应用程序或移动应用程序。
 
 -   查看显示在其 [Office 365 应用程序启动器](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)中的应用程序。
+
+基于组的分配的可用性取决于您的许可协议。 适用于安全组仅支持基于组的分配，目前不支持嵌套的组成员身份。
 
 ## <a name="prerequisites"></a>必备组件
 在将用户和组分配到应用程序之前，必须要求用户分配。 若要要求用户分配，请执行以下操作：

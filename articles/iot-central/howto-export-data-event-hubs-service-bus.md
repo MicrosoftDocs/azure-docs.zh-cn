@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730232"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463988"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>导出 Azure IoT Central 中的数据
 
@@ -36,7 +36,7 @@ ms.locfileid: "64730232"
 ## <a name="create-event-hubs-namespace"></a>创建事件中心命名空间
 
 1. [在 Azure 门户中创建新的事件中心命名空间](https://ms.portal.azure.com/#create/Microsoft.EventHub)。 可以在 [Azure 事件中心文档](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)中进行详细的了解。
-2. 选择订阅。 
+2. 请选择订阅。 
 
     > [!Note] 
     > 可以将数据导出到其他订阅，此类订阅**不同于**那些适用于即用即付 IoT Central 应用程序的订阅。 在此示例中，将使用连接字符串进行连接。
@@ -45,7 +45,7 @@ ms.locfileid: "64730232"
 ## <a name="create-service-bus-namespace"></a>创建服务总线命名空间
 
 1. [在 Azure 门户中创建新的服务总线命名空间](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)。 可以在 [Azure 服务总线文档](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)中进行详细的了解。
-2. 选择订阅。 
+2. 请选择订阅。 
 
     > [!Note] 
     > 可以将数据导出到其他订阅，此类订阅**不同于**那些适用于即用即付 IoT Central 应用程序的订阅。 在此示例中，将使用连接字符串进行连接。
@@ -64,14 +64,14 @@ ms.locfileid: "64730232"
     > [!Note]
     > 如果在左侧菜单中看不到“连续数据导出”，则说明你在应用中不是管理员。 请与管理员联系以设置数据导出。
 
-    ![创建新的 cde 事件中心](media/howto-export-data/export_menu.PNG)
+    ![创建新的 cde 事件中心](media/howto-export-data/export_menu1.png)
 
 3. 选择 **+ 新建**在右上角的按钮。 选择其中一个**Azure 事件中心**或**Azure 服务总线**为导出的目标。 
 
     > [!NOTE] 
     > 每个应用的最大导出数目是 5。 
 
-    ![创建新的连续数据导出](media/howto-export-data/export_new.PNG)
+    ![创建新的连续数据导出](media/howto-export-data/export_new1.png)
 
 4. 在下拉列表框中，选择你**事件中心命名空间/服务总线命名空间**。 也可选取列表中的最后一个选项，即“输入连接字符串”。 
 
@@ -81,7 +81,7 @@ ms.locfileid: "64730232"
     > [!NOTE] 
     > 若要通过 7 天试用期的应用来配置连续事件导出，则唯一的方式是使用连接字符串。 这是因为 7 天试用期的应用没有关联的 Azure 订阅。
 
-    ![创建新的 cde 事件中心](media/howto-export-data/export_create.PNG)
+    ![创建新的 cde 事件中心](media/howto-export-data/export_create1.png)
 
 5. （可选）如果选中了“输入连接字符串”，则会出现一个用于粘贴连接字符串的新框。 若要获取连接字符串，请执行以下操作：
     - 事件中心或服务总线，请转到 Azure 门户中的命名空间。
@@ -95,7 +95,7 @@ ms.locfileid: "64730232"
 
 6. 若要启用连续数据导出，请确保将“数据导出”设置为“打开”。 选择“保存”。
 
-  ![配置连续数据导出](media/howto-export-data/export_list.PNG)
+    ![配置连续数据导出](media/howto-export-data/export_list1.png)
 
 7. 几分钟后，数据便会出现在所选目标中。
 

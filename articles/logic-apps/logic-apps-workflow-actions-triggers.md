@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691929"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136602"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>为 Azure 逻辑应用工作流定义语言中的触发器和操作类型的引用
 
@@ -804,6 +804,8 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
   * 用于响应请求的 [Response](#response-action)
 
+  * [**执行的 JavaScript 代码**](#run-javascript-code)运行 JavaScript 代码片段
+
   * 用于调用 Azure Functions 的 [Function](#function-action)
 
   * 数据操作操作，例如 [Join](#join-action)、[Compose](#compose-action)、[Table](#table-action)、[Select](#select-action) 以及其他从各种输入创建或转换数据的操作
@@ -821,6 +823,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | 操作类型 | 描述 | 
 |-------------|-------------| 
 | [Compose](#compose-action) | 从输入创建单个输出，可具有多种类型。 | 
+| [**执行的 JavaScript 代码**](#run-javascript-code) | 运行符合特定条件的 JavaScript 代码片段。 有关代码要求和的详细信息，请参阅[添加和运行的代码段的内联代码](../logic-apps/logic-apps-add-run-inline-code.md)。 |
 | [Function](#function-action) | 调用 Azure Function。 | 
 | [**HTTP**](#http-action) | 调用 HTTP 终结点。 | 
 | [Join](#join-action) | 基于数组中的所有项创建一个字符串，并使用指定的分隔符字符分隔这些项。 | 
@@ -1047,6 +1050,81 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 以下为此操作创建的输出：
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>执行的 JavaScript 代码操作
+
+此操作运行的 JavaScript 代码片段，通过将结果返回`Result`更高版本的操作可以引用的令牌。
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*必需*
+
+| 值 | Type | 描述 |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | 多种多样 | 你想要运行的 JavaScript 代码。 有关代码要求和的详细信息，请参阅[添加和运行的代码段的内联代码](../logic-apps/logic-apps-add-run-inline-code.md)。 <p>在中`code`属性，您的代码段可以使用只读的`workflowContext`对象作为输入。 此对象具有子属性，允许代码访问到结果中的触发器和工作流中的上一操作。 有关详细信息`workflowContext`对象，请参阅[引用在代码中的触发器和操作结果](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)。 |
+||||
+
+*在某些情况下所需*
+
+`explicitDependencies`属性指定你想要显式包括触发器、 上一操作，或者二者均为你的代码片段的依赖项中的结果。 有关添加这些依赖关系的详细信息，请参阅[内联代码的参数添加](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters)。 
+
+有关`includeTrigger`特性，可以指定`true`或`false`值。
+
+| 值 | Type | 描述 |
+|-------|------|-------------|
+| <*previous-actions*> | 字符串数组 | 使用指定的操作名称数组。 使用工作流定义中出现操作名称在其中使用下划线 (_)，而不是空格的操作名称 ("")。 |
+||||
+
+*示例 1*
+
+此操作将运行代码，以便获取在逻辑应用的名称作为结果返回的文本"Hello world 从 < 逻辑应用名称 >"。 在此示例中，该代码引用工作流的名称通过访问`workflowContext.workflow.name`通过只读属性`workflowContext`对象。 有关使用详细信息`workflowContext`对象，请参阅[引用在代码中的触发器和操作结果](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext)。
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*示例 2*
+
+此操作中的 Office 365 Outlook 帐户到达新的电子邮件时触发的逻辑应用运行代码。 逻辑应用还使用将内容转发从批准的请求以及接收电子邮件发送审批电子邮件操作。 
+
+代码的触发器中提取电子邮件地址`Body`属性，并返回与这些电子邮件地址`SelectedOption`属性值从审批操作。 操作显式包括发送审批电子邮件操作中的依赖项作为`explicitDependencies`  >  `actions`属性。
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2652,7 +2730,7 @@ HTTP 终结点支持不同类型的身份验证。 可为以下 HTTP 触发器�
 
 对于 [Azure AD OAuth 身份验证](../active-directory/develop/authentication-scenarios.md)，触发器或操作定义可以包括 `authentication` JSON 对象，它具有下表指定的属性。 要在运行时访问参数值，可以使用[工作流定义语言](https://aka.ms/logicappsdocs)提供的 `@parameters('parameterName')` 表达式。
 
-| 属性 | 需要 | 值 | 描述 |
+| 属性 | 需要 | Value | 描述 |
 |----------|----------|-------|-------------|
 | type | 是 | `ActiveDirectoryOAuth` | 要使用的身份验证类型，即“ActiveDirectoryOAuth”（代表 Azure AD OAuth） |
 | **authority** | 否 | <*URL-for-authority-token-issuer*> | 提供身份验证令牌的颁发机构的 URL |

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502399"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234042"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>重新训练并部署经典工作室 Web 服务
 
@@ -25,7 +25,7 @@ ms.locfileid: "60502399"
 
 本文假设你已经进行了重新训练试验和预测性试验。 这些步骤在[重新训练和部署机器学习模型](/azure/machine-learning/studio/retrain-machine-learning-model)中进行了解释。 但是，你不会将机器学习模型部署为新的 Web 服务，而是将预测试验部署为经典 Web 服务。
      
-## <a name="add-a-new-endpoint"></a>添加新的终结点
+## <a name="add-a-new-endpoint"></a>添加新终结点
 
 已部署的预测 Web 服务包含与原始训练和评分实验训练模型保持同步的默认评分终结点。 若要使用新的训练模型更新 Web 服务，必须创建新的评分终结点。
 

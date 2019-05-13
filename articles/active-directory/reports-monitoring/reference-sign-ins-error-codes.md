@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/18/2018
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437124"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463497"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登录活动报告错误代码 
 
@@ -177,6 +177,8 @@ ms.locfileid: "60437124"
 |90051| 无效的委派令牌。 指定无效的国家/地区云 ID ({cloudId})。|
 |90072| 该帐户需要先作为外部用户添加到租户中。 注销并使用其他 Azure AD 帐户重新登录。|
 |90094| 该授权需要管理员权限。 让租户管理员同意此应用程序。|
+|500021|通过公司代理限制租户。 拒绝的资源访问权限。|
+|500121| 身份验证期间强身份验证请求失败。|
 |500133| 断言不在其有效时间范围内。 确保访问令牌在用于用户断言或请求新令牌之前没有过期。|
 |530021|应用程序不符合批准条件访问应用程序要求。|
 

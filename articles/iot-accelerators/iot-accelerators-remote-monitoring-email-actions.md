@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445587"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466939"
 ---
 # <a name="add-an-email-action"></a>添加电子邮件操作
 
@@ -102,11 +102,11 @@ ms.locfileid: "61445587"
 
 1. 单击“office365-connector”：
 
-    ![API 连接](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![API 连接](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. 单击横幅，开始授权过程：
 
-    ![授权](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![授权](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. 单击“授权”。 系统会提示你进行登录。 用于登录的帐户应是该应用程序用于发送电子邮件通知的电子邮件地址：
 
@@ -116,7 +116,7 @@ ms.locfileid: "61445587"
 
 1. 要更改发送通知的电子邮件地址，请单击“编辑 API 连接”。
 
-    ![更改电子邮件](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![更改电子邮件](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>所有者角色 Outlook 设置
 
@@ -142,7 +142,7 @@ ms.locfileid: "61445587"
 
 现成的远程监视解决方案加速器为电子邮件操作提供了基本的 HTML 模板。 电子邮件模板使用电子邮件操作设置中的值。 下面是电子邮件示例：
 
-![电子邮件示例](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![电子邮件示例](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 以下步骤介绍如何编辑 HTML 电子邮件模板。 例如，可以包含更多信息或添加自定义图像：
 

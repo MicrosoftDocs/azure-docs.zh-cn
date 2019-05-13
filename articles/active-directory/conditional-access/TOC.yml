@@ -40,10 +40,10 @@
       href: best-practices.md
     - name: 阻止传统身份验证
       href: block-legacy-authentication.md
-    - name: 控制对 Exchange Online 和 SharePoint Online 的访问
-      href: conditional-access-for-exo-and-spo.md
     - name: 迁移经典策略
       href: policy-migration.md
+    - name: 登录频率和浏览器持久性控制
+      href: howto-conditional-access-session-lifetime.md
     - name: 需要已批准的客户端应用
       href: app-based-conditional-access.md
     - name: 需要应用保护策略

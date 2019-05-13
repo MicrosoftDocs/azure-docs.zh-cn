@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713891"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205607"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>使用 Azure 地图搜索服务的最佳做法
 
-Azure Maps[搜索服务](https://docs.microsoft.com/rest/api/maps/search)包含使用各种功能，例如中的 Api 的搜索兴趣点 (POI) 数据以某一位置的地址搜索。 在本文中，我们将分享调用通过 Azure Maps 搜索服务的数据的最佳做法。 将了解如何执行以下操作：
+Azure Maps[搜索服务](https://docs.microsoft.com/rest/api/maps/search)包含使用各种功能，例如中的 Api 的搜索兴趣点 (POI) 数据以某一位置的地址搜索。 在本文中，我们将分享调用通过 Azure Maps 搜索服务的数据的最佳做法。 可以了解如何执行以下操作：
 
 * 生成查询，以返回相关的匹配项
 * 限制搜索结果

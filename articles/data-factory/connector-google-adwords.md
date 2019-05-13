@@ -51,7 +51,7 @@ Google AdWords 链接服务支持以下属性：
 | refreshToken | 从 Google 获得的刷新令牌，用于授权访问 AdWords 以进行用户身份验证。 可选择将此字段标记为 SecureString，将其安全地存储在 ADF 中，或在 Azure Key Vault 中存储密码，并允许 ADF 复制活动在执行数据复制时从此处拉取（请参阅[在 Key Vault 中存储凭据](store-credentials-in-key-vault.md)了解详细信息）。 | 否 |
 | clientId | Google 应用程序的客户端 ID，用户获取刷新令牌。 可选择将此字段标记为 SecureString，将其安全地存储在 ADF 中，或在 Azure Key Vault 中存储密码，并允许 ADF 复制活动在执行数据复制时从此处拉取（请参阅[在 Key Vault 中存储凭据](store-credentials-in-key-vault.md)了解详细信息）。 | 否 |
 | clientSecret | Google 应用程序的客户端机密，用户获取刷新令牌。 可选择将此字段标记为 SecureString，将其安全地存储在 ADF 中，或在 Azure Key Vault 中存储密码，并允许 ADF 复制活动在执行数据复制时从此处拉取（请参阅[在 Key Vault 中存储凭据](store-credentials-in-key-vault.md)了解详细信息）。 | 否 |
-| 电子邮件 | 用于 ServiceAuthentication 的服务帐户电子邮件 ID，只能在自托管 IR 上使用。  | 否 |
+| email | 用于 ServiceAuthentication 的服务帐户电子邮件 ID，只能在自托管 IR 上使用。  | 否 |
 | keyFilePath | .p12 密钥文件的完整路径，该文件用于对服务帐户电子邮件地址进行身份验证，只能在自托管 IR 上使用。  | 否 |
 | trustedCertPath | 包含受信任 CA 证书（通过 SSL 进行连接时用于验证服务器）的 .pem 文件的完整路径。 只有在自托管 IR 上使用 SSL 时才能设置此属性。 默认值是随 IR 一起安装的 cacerts.pem 文件。  | 否 |
 | useSystemTrustStore | 指定是使用系统信任存储中的 CA 证书还是使用指定 PEM 文件中的 CA 证书。 默认值为 false。  | 否 |
