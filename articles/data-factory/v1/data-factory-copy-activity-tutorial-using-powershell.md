@@ -282,7 +282,7 @@ Azure 存储链接服务指定一个连接字符串，数据工厂服务在运�
     | linkedServiceName | 表示前面创建的 **AzureStorageLinkedService**。 |
     | folderPath | 指定 Blob **容器**以及包含输入 Blob 的**文件夹**。 在本教程中，adftutorial 是 Blob 容器，文件夹是根文件夹。 | 
     | fileName | 此属性是可选的。 如果省略此属性，将选取 folderPath 中的所有文件。 在本教程中，为 fileName 指定了 **emp.txt**，因此仅选取该文件进行处理。 |
-    | 格式 -> 类型 |输入文件为文本格式，因此我们使用 **TextFormat**。 |
+    | format -> type |输入文件为文本格式，因此我们使用 **TextFormat**。 |
     | columnDelimiter | 输入文件中的列以**逗号字符 (`,`)** 分隔。 |
     | frequency/interval | frequency 设置为 **Hour**，interval 设置为 **1**，表示**每小时**获取一次输入切片。 换言之，数据工厂服务每小时在指定的 Blob 容器 (**adftutorial**) 的根文件夹中查找输入数据。 它会查找管道开始和结束时间范围内的数据，而不是范围外的数据。  |
     | external | 如果数据不是由该管道生成的，此属性设置为 **true**。 本教程中的输入数据位于 emp.txt 文件中，此文件不是由该管道生成的，因此将此属性设置为 true。 |
