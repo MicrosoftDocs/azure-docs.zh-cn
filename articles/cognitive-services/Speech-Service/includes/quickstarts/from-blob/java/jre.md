@@ -38,7 +38,8 @@ ms.locfileid: "73506057"
 ## <a name="add-a-reference-to-gson"></a>添加对 Gson 的引用
 本快速入门中将使用外部 JSON 序列化程序/反序列化程序。 对于 Java，我们选择了 [Gson](https://github.com/google/gson)。
 
-打开 pom.xml 并添加以下引用：[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+打开 pom.xml 并添加以下引用：
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>从一些样本代码入手
 
@@ -57,10 +58,12 @@ ms.locfileid: "73506057"
 
 ## <a name="create-and-configure-an-http-client"></a>创建和配置 Http 客户端
 首先，我们需要具有正确的基本 URL 和身份验证集的 Http 客户端。
-将代码插入 `Main`[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
+将代码插入 `Main`
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
 ## <a name="generate-a-transcription-request"></a>生成听录请求
-接下来，我们将生成听录请求。 将此代码添加到 `Main`[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
+接下来，我们将生成听录请求。 将此代码添加到 `Main`
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>发送请求并查看其状态
 现在我们将请求发布到语音服务并检查初始响应代码。 此响应代码将仅指示服务是否已收到请求。 该服务将在响应标头中返回一个 URL，这是它将存储听录状态的位置。
@@ -81,7 +84,8 @@ ms.locfileid: "73506057"
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=6-160-190)]
 
 ## <a name="check-your-code"></a>查看代码
-此时，代码应如下所示：（我们已向此版本中添加了一些注释）[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java]
+此时，代码应如下所示：（我们已向此版本中添加了一些注释）
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java]
 
 ## <a name="build-and-run-your-app"></a>生成并运行应用
 
