@@ -67,10 +67,12 @@ ms.locfileid: "73505889"
 
 ## <a name="create-and-configure-an-http-client"></a>创建和配置 Http 客户端
 首先，我们需要具有正确的基本 URL 和身份验证集的 Http 客户端。
-将代码插入 `TranscribeAsync`[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
+将代码插入 `TranscribeAsync`
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
 
 ## <a name="generate-a-transcription-request"></a>生成听录请求
-接下来，我们将生成听录请求。 将此代码添加到 `TranscribeAsync`[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
+接下来，我们将生成听录请求。 将此代码添加到 `TranscribeAsync`
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
 
 ## <a name="send-the-request-and-check-its-status"></a>发送请求并查看其状态
 现在我们将请求发布到语音服务并检查初始响应代码。 此响应代码将仅指示服务是否已收到请求。 该服务将在响应标头中返回一个 URL，这是它将存储听录状态的位置。
@@ -92,7 +94,8 @@ ms.locfileid: "73505889"
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=107-120)]
 
 ## <a name="check-your-code"></a>查看代码
-此时，代码应如下所示：（我们已向此版本添加了一些注释）[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
+此时，代码应如下所示：（我们已向此版本添加了一些注释）
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
 
 ## <a name="build-and-run-your-app"></a>生成并运行应用
 
