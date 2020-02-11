@@ -30,6 +30,7 @@ ms.locfileid: "75479756"
 若要移动使用 Azure 备份配置的虚拟机，请使用以下解决方法：
 
 * 找到虚拟机的位置。
+* 解除分配虚拟机。
 * 找到含有以下命名模式的资源组：`AzureBackupRG_<location of your VM>_1` 例如，AzureBackupRG_westus2_1
 * 如果在 Azure 门户中，则查看“显示隐藏的类型”
 * 如果在 PowerShell 中，则使用 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
