@@ -54,7 +54,7 @@ ms.locfileid: "76170464"
 - 区域：中国东部2（上海）
 - SR in SpeechSDK： *config。FromHost （"wss：//chinaeast2.stt.speech.azure.cn"，"\<你的键\>"）;*
 - SpeechSDK 中的 TTS： *config。FromHost （"https[]()：//chinaeast2.tts.speech.azure.cn"，"\<-key\>"）;*
-- 身份验证令牌：[]()https：//chinaeast2.api.cognitive.microsoft.cn/sts/v1.0/issueToken
+- 身份验证令牌：[]()https：//chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
 - Azure 门户： https://portal.azure.cn
 - 自定义语音门户： https://chinaeast2.cris.azure.cn/Home/CustomSpeech
 - 可用的 Sku： S0
