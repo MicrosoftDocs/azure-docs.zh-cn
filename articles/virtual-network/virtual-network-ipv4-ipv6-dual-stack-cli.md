@@ -133,7 +133,7 @@ az network lb address-pool create \
 ```
 
 ### <a name="create-a-health-probe"></a>创建运行状况探测器
-使用 [az network lb probe create](https://docs.microsoft.com/zh-cn/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测，以监视虚拟机的运行状况。 
+使用 [az network lb probe create](https://docs.microsoft.com/cli/azure-/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测，以监视虚拟机的运行状况。 
 
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
@@ -176,7 +176,7 @@ az network lb rule create \
 ### <a name="create-an-availability-set"></a>创建可用性集
 若要提高应用的可用性，请将 VM 放到可用性集中。
 
-使用 [az vm availability-set create](https://docs.microsoft.com/zh-cn/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 以下示例创建名为 *dsAVset* 的可用性集：
+使用 [az vm availability-set create](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 以下示例创建名为 *dsAVset* 的可用性集：
 
 ```azurecli
 az vm availability-set create \
