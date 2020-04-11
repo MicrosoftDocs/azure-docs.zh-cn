@@ -133,7 +133,7 @@ az network lb address-pool create \
 ```
 
 ### <a name="create-a-health-probe"></a>创建运行状况探测器
-创建使用 az[网络 lb 探测器创建的](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)运行状况探测，以监视虚拟机的运行状况。 
+使用 [az network lb probe create](https://docs.microsoft.com/zh-cn/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create) 创建运行状况探测，以监视虚拟机的运行状况。 
 
 ```azurecli
 az network lb probe create -g DsResourceGroup01  --lb-name dsLB -n dsProbe --protocol tcp --port 3389
@@ -176,7 +176,7 @@ az network lb rule create \
 ### <a name="create-an-availability-set"></a>创建可用性集
 若要提高应用的可用性，请将 VM 放到可用性集中。
 
-使用[az vm 可用性集创建](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest)可用性集。 以下示例创建名为 *dsAVset* 的可用性集：
+使用 [az vm availability-set create](https://docs.microsoft.com/zh-cn/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 以下示例创建名为 *dsAVset* 的可用性集：
 
 ```azurecli
 az vm availability-set create \
@@ -193,7 +193,7 @@ az vm availability-set create \
 
 #### <a name="create-a-network-security-group"></a>创建网络安全组
 
-创建具有[az 网络 nsg 创建的](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)网络安全组
+使用 [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组
 
 
 ```azurecli
@@ -259,7 +259,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-创建具有 az[网络 vnet 创建的](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)虚拟网络。 以下示例创建名为 *dsVNET* 的虚拟网络，其中包含子网 *dsSubNET_v4* 和 *dsSubNET_v6*：
+使用 [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为 *dsVNET* 的虚拟网络，其中包含子网 *dsSubNET_v4* 和 *dsSubNET_v6*：
 
 ```azurecli
 # Create the virtual network
