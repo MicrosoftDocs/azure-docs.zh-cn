@@ -101,7 +101,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 | 格式 | 16 kHz 采样率 | 24 kHz 采样率 |
 |--------|--------------------|--------------------|
-| wav | riff-16khz-16 位 | riff-24khz-16 位 |
+| wav | riff-16khz-16bit | riff-24khz-16bit |
 | mp3 | 16khz-128kbitrate-mp3 | 24khz-160kbitrate-mp3 |
 
 ## <a name="see-also"></a>请参阅
