@@ -62,12 +62,12 @@ ms.locfileid: "81401062"
 支持灵活的音频输出格式。 可以通过设置 "concatenateResult" 参数，按段落生成音频输出或将音频连接到一个输出。 长音频 API 支持以下音频输出格式：
 
 > [!NOTE]
-> 默认音频格式为 riff-16khz-16 位。
+> 默认音频格式为 riff-16khz-16bit。
 
-* riff-8khz-16 位
-* riff-16khz-16 位
-* riff-24khz-16 位
-* riff-48khz-16 位
+* riff-8khz-16bit
+* riff-16khz-16bit
+* riff-24khz-16bit
+* riff-48khz-16bit
 * 16khz-32kbitrate-mp3
 * 16khz-64kbitrate-mp3
 * 16khz-128kbitrate-mp3
