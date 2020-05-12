@@ -28,7 +28,7 @@ ms.locfileid: "82561975"
 
 本快速入门需要：
 
-* Python 2.7. x 或1.x。
+* Python 2.7.x 或 3.x。
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)、 [Visual Studio Code](https://code.visualstudio.com/download)或你喜欢的文本编辑器。
 * 一个 Azure 订阅和一个语音服务订阅密钥。 [创建一个 Azure 帐户](../../get-started.md#new-resource)，并[创建一个语音资源](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource)以获取密钥。 创建语音资源时，请确保将定价层设置为**S0**，并将位置设置为[受支持的区域](../../regions.md#standard-and-neural-voices)。
 
@@ -109,7 +109,7 @@ Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xx
 准备好输入文本文件后，将以下用于语音合成的代码添加`voice_synthesis_client.py`到：
 
 > [!NOTE]
-> "concatenateResult" 是一个可选参数。 如果未设置此参数，则将按段落生成音频输出。 还可以通过设置参数将音频连接到1个输出。 默认情况下，音频输出设置为 riff-16khz-16 位。 有关支持的音频输出的详细信息，请参阅[音频输出格式](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats)。
+> "concatenateResult" 是一个可选参数。 如果未设置此参数，则将按段落生成音频输出。 还可以通过设置参数将音频连接到1个输出。 默认情况下，音频输出设置为 `riff-16khz-16bit`。 有关支持的音频输出的详细信息，请参阅[音频输出格式](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats)。
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
