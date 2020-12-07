@@ -171,7 +171,7 @@ AKS 要求在群集上运行系统 pod 以提供关键服务，例如 DNS 解析
 1. Select `Kubernetes Pod Security Standards Baseline Profile for Linux-based workloads` from the `Kubernetes` category
 -->
 1. 单击 [此链接可访问 Azure 门户](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) 以查看 pod 安全基线计划
-1. 将 **作用域** 设置为订阅级别，或仅设置为启用了 Azure 策略外接程序的包含 AKS 群集的资源组
+1. 将 **作用域** 设置为订阅级别，或仅设置为启用了 Azure 策略外接程序的包含 AKS 服务资源的资源组（不是Azure托管的“MC_<yourResourceGroup>_<region>”资源组）
 1. 选择 " **参数** " 页面并将 **效果** 从更新 `audit` 为 " `deny` 阻止新的部署违反基线计划"
 1. 添加其他命名空间，以便在创建、更新和审核期间从评估中排除[某些命名空间。](#namespace-exclusion) 
  ![更新效果](media/use-pod-security-on-azure-policy/update-effect.png)
