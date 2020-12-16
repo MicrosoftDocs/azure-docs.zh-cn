@@ -157,7 +157,7 @@ Azure 认知服务提供了分层的安全模型。 借助此模型，可保护�
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>允许从虚拟网络进行访问
 
