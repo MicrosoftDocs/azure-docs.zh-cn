@@ -47,7 +47,6 @@ Microsoft Online 业务服务（例如 Microsoft 365 或 Microsoft Azure）要�
 >[!Note]
 >有关这些许可证的定价选项，请参阅 [Azure Active Directory 定价](https://azure.microsoft.com/pricing/details/active-directory/)。
 >
->中国地区目前不支持 Azure Active Directory Premium P1 和 Premium P2。 有关 Azure AD 定价的详细信息，请访问 [Azure Active Directory 论坛](https://azure.microsoft.com/support/community/?product=active-directory)。
 
 - **Azure Active Directory Free。** 跨 Azure、Microsoft 365 和许多常用 SaaS 应用程序提供用户和组管理、本地目录同步、基本报告、云用户的自助密码更改以及单一登录。
 
